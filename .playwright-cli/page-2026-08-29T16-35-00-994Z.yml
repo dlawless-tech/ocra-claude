@@ -1,0 +1,199 @@
+- generic [ref=f56e1]:
+  - iframe [ref=f56e2]:
+    
+  - region
+  - generic [ref=f56e4]:
+    - navigation [ref=f56e5]:
+      - button "Skip to main content" [ref=f56e7] [cursor=pointer]
+      - button "Keyboard shortcuts" [ref=f56e11] [cursor=pointer]
+      - button "Accessibility feedback" [ref=f56e15] [cursor=pointer]
+    - banner [ref=f56e19]:
+      - generic [ref=f56e20]:
+        - link "Drive" [ref=f56e24] [cursor=pointer]:
+          - /url: https://drive.google.com/?tab=oo&authuser=0
+        - generic [ref=f56e27]:
+          - search [ref=f56e29]:
+            - table [ref=f56e31]:
+              - rowgroup [ref=f56e32]:
+                - row [ref=f56e33]:
+                  - cell [ref=f56e34]:
+                    - textbox "Search in Drive" [ref=f56e35]
+            - button "Advanced search" [ref=f56e36] [cursor=pointer]
+            - button "Search Google Drive" [ref=f56e39] [cursor=pointer]
+          - generic [ref=f56e43]:
+            - button "Support" [ref=f56e46] [cursor=pointer]
+            - button "Settings" [ref=f56e51] [cursor=pointer]
+            - generic [ref=f56e58]:
+              - generic:
+                - button "Ask Gemini" [ref=f56e65] [cursor=pointer]
+                - tooltip [ref=f56e68]: Ask Gemini
+        - generic [ref=f56e70]:
+          - button "Google apps" [ref=f56e74] [cursor=pointer]
+          - 'button "Google Account: Dan Lawless (lawless3265@gmail.com)" [ref=f56e80] [cursor=pointer]'
+    - button "New" [ref=f56e85] [cursor=pointer]
+    - navigation [ref=f56e96]:
+      - heading "Folders and views" [level=2] [ref=f56e97]
+      - tree "Folders and views" [ref=f56e98]:
+        - treeitem [selected] [ref=f56e99]:
+          - link "Home" [ref=f56e100] [cursor=pointer]:
+            - group "Home" [ref=f56e103]
+          - group
+        - treeitem [ref=f56e119]:
+          - link "Projects" [ref=f56e120] [cursor=pointer]:
+            - group "Projects" [ref=f56e123]
+          - group
+        - treeitem [ref=f56e133]:
+          - link [ref=f56e134] [cursor=pointer]:
+            - group "My Drive" [ref=f56e140]
+        - treeitem [ref=f56e152]:
+          - link [ref=f56e153] [cursor=pointer]:
+            - group "Computers" [ref=f56e159]
+        - treeitem [ref=f56e173]:
+          - link "Shared with me" [ref=f56e174] [cursor=pointer]:
+            - group "Shared with me" [ref=f56e177]:
+              - generic "Items shared with me" [ref=f56e193]: Shared with me
+          - group
+        - treeitem [ref=f56e194]:
+          - link "Recent" [ref=f56e195] [cursor=pointer]:
+            - group "Recent" [ref=f56e198]:
+              - generic "Recent items" [ref=f56e214]: Recent
+          - group
+        - treeitem [ref=f56e215]:
+          - link "Starred" [ref=f56e216] [cursor=pointer]:
+            - group "Starred" [ref=f56e219]:
+              - generic "Starred items" [ref=f56e230]: Starred
+          - group
+        - treeitem [ref=f56e231]:
+          - link "Spam" [ref=f56e232] [cursor=pointer]:
+            - group "Spam" [ref=f56e235]
+          - group
+        - treeitem [ref=f56e250]:
+          - link "Trash" [ref=f56e251] [cursor=pointer]:
+            - group "Trash" [ref=f56e254]:
+              - generic "Trashed items" [ref=f56e269]: Trash
+          - group
+        - treeitem [ref=f56e270]:
+          - link "Storage" [ref=f56e271] [cursor=pointer]:
+            - group "Storage" [ref=f56e274]:
+              - generic "Storage" [ref=f56e285]: Storage (90% full)
+          - group
+      - generic [ref=f56e290]:
+        - 'generic "Storage Summary: 13.52 GB of 15 GB used" [ref=f56e294] [cursor=pointer]': 13.52 GB of 15 GB used
+        - generic [ref=f56e298] [cursor=pointer]:
+          - text: Get more storage
+          - link "Get more storage" [ref=f56e299]:
+            - /url: https://drive.google.com/settings/storage?authuser=0&i=u&utm_source=drive&utm_medium=web&utm_campaign=g1_widget_ninety&utm_term=2022Q1DRIVEAOOS#upgrade
+    - generic [ref=f56e302]:
+      - toolbar [ref=f56e314]
+      - main [active] [ref=f56e316]:
+        - generic [ref=f56e321]:
+          - generic [ref=f56e322]:
+            - heading "Welcome to Drive" [level=1] [ref=f56e323]
+            - generic [ref=f56e327]:
+              - button "View details" [ref=f56e328] [cursor=pointer]
+              - tooltip [ref=f56e336]: View details
+          - region [ref=f56e338]:
+            - generic [ref=f56e339]:
+              - region "Suggested files section" [ref=f56e340]:
+                - generic [ref=f56e342]:
+                  - button "Suggested files" [ref=f56e344] [cursor=pointer]
+                  - radiogroup "List or Grid layout ()" [ref=f56e352]:
+                    - generic [ref=f56e353]:
+                      - radio "List layout ()" [checked] [ref=f56e354] [cursor=pointer]
+                      - radio "Grid layout ()" [ref=f56e364] [cursor=pointer]
+                - grid "Item List" [ref=f56e375]:
+                  - rowgroup [ref=f56e376]: Name
+                  - rowgroup [ref=f56e377]:
+                    - row [ref=f56e378]:
+                      - gridcell [ref=f56e379]:
+                        - generic "Broncos Schedule 2026 Google Sheets Starred" [ref=f56e390]:
+                          - strong [ref=f56e393]: Broncos Schedule 2026
+                          - img "Starred" [ref=f56e395]
+                      - gridcell [ref=f56e399]:
+                        - generic [ref=f56e403]:
+                          - button "More actions" [ref=f56e404] [cursor=pointer]
+                          - tooltip [ref=f56e410]: More actions
+                    - row [ref=f56e411]:
+                      - gridcell [ref=f56e412]:
+                        - generic "Dan-Tricia-Balance Google Sheets Shared" [ref=f56e423]:
+                          - strong [ref=f56e426]: Dan-Tricia-Balance
+                          - img "Shared" [ref=f56e428]
+                      - gridcell [ref=f56e433]:
+                        - generic [ref=f56e437]:
+                          - button "More actions" [ref=f56e438] [cursor=pointer]
+                          - tooltip [ref=f56e444]: More actions
+                    - row [ref=f56e445]:
+                      - gridcell [ref=f56e446]:
+                        - generic "IMG_0043.JPG Image" [ref=f56e457]:
+                          - strong [ref=f56e460]: IMG_0043.JPG
+                      - gridcell [ref=f56e461]:
+                        - generic [ref=f56e465]:
+                          - button "More actions" [ref=f56e466] [cursor=pointer]
+                          - tooltip [ref=f56e472]: More actions
+                    - row [ref=f56e473]:
+                      - gridcell [ref=f56e474]:
+                        - generic "LoanInfo Google Sheets" [ref=f56e485]:
+                          - strong [ref=f56e488]: LoanInfo
+                      - gridcell [ref=f56e489]:
+                        - generic [ref=f56e493]:
+                          - button "More actions" [ref=f56e494] [cursor=pointer]
+                          - tooltip [ref=f56e500]: More actions
+                    - row [ref=f56e501]:
+                      - gridcell [ref=f56e502]:
+                        - generic "Cancun flights Google Sheets" [ref=f56e513]:
+                          - strong [ref=f56e516]: Cancun flights
+                      - gridcell [ref=f56e517]:
+                        - generic [ref=f56e521]:
+                          - button "More actions" [ref=f56e522] [cursor=pointer]
+                          - tooltip [ref=f56e528]: More actions
+                    - row [ref=f56e529]:
+                      - gridcell [ref=f56e530]:
+                        - generic "Gracy Mountain Trip Google My Maps Shared" [ref=f56e541]:
+                          - strong [ref=f56e544]: Gracy Mountain Trip
+                          - img "Shared" [ref=f56e546]
+                      - gridcell [ref=f56e551]:
+                        - generic [ref=f56e555]:
+                          - button "More actions" [ref=f56e556] [cursor=pointer]
+                          - tooltip [ref=f56e562]: More actions
+                    - row [ref=f56e563]:
+                      - gridcell [ref=f56e564]:
+                        - generic "Dads 60th Birthday.mov Video Shared" [ref=f56e575]:
+                          - strong [ref=f56e578]: Dads 60th Birthday.mov
+                          - img "Shared" [ref=f56e580]
+                      - gridcell [ref=f56e585]:
+                        - generic [ref=f56e589]:
+                          - button "More actions" [ref=f56e590] [cursor=pointer]
+                          - tooltip [ref=f56e596]: More actions
+                    - row [ref=f56e597]:
+                      - gridcell [ref=f56e598]:
+                        - generic "Discussion Guide - 5GTUC - 3.pdf PDF Shared" [ref=f56e609]:
+                          - strong [ref=f56e612]: Discussion Guide - 5GTUC - 3.pdf
+                          - img "Shared" [ref=f56e614]
+                      - gridcell [ref=f56e619]:
+                        - generic [ref=f56e623]:
+                          - button "More actions" [ref=f56e624] [cursor=pointer]
+                          - tooltip [ref=f56e630]: More actions
+                    - row [ref=f56e631]:
+                      - gridcell [ref=f56e632]:
+                        - generic "2026-27 LHS Community Welcome Back Letter.pdf PDF Shared" [ref=f56e643]:
+                          - strong [ref=f56e646]: 2026-27 LHS Community Welcome Back Letter.pdf
+                          - img "Shared" [ref=f56e648]
+                      - gridcell [ref=f56e653]:
+                        - generic [ref=f56e657]:
+                          - button "More actions" [ref=f56e658] [cursor=pointer]
+                          - tooltip [ref=f56e664]: More actions
+                    - row [ref=f56e665]:
+                      - gridcell [ref=f56e666]:
+                        - generic "Discussion Guide - 5GTUC - 2.pdf PDF Shared" [ref=f56e677]:
+                          - strong [ref=f56e680]: Discussion Guide - 5GTUC - 2.pdf
+                          - img "Shared" [ref=f56e682]
+                      - gridcell [ref=f56e687]:
+                        - generic [ref=f56e691]:
+                          - button "More actions" [ref=f56e692] [cursor=pointer]
+                          - tooltip [ref=f56e698]: More actions
+                - button "View more Suggested files" [ref=f56e701] [cursor=pointer]:
+                  - generic [ref=f56e703]: View more
+              - progressbar [ref=f56e706]
+      - generic:
+        - navigation
+  - region

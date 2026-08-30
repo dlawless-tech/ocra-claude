@@ -1,0 +1,105 @@
+[    2008ms] [INFO] [alloy] setDebug command resolved. Result: {} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2008ms] [INFO] [alloy] configure command resolved. Result: {} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2022ms] [LOG] 🚀 [Core] Rules using the direct call event type with identifier "virtual_pv" have been triggered with additional detail: {pageDetail: 2026:team:DEN, pageName: nfl.com:schedules:league schedule:2026:team:DEN, siteName: nfl.com, siteSection: schedules, siteSubsection: league schedule} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2022ms] [LOG] 🚀 Condition "Query String Parameter" for rule "Webview Virtual Page View Direct Call Rule - CORE RULE" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2022ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - NFL Plus - Horizon/Floodlight/Socials - Learn More Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2022ms] [ERROR] 🚀 Failed to execute data element module core/src/lib/dataElements/customCode.js for data element identityProvider (Local Storage). Cannot read properties of null (reading 'rawData')
+TypeError: Cannot read properties of null (reading 'rawData')
+    at Object.source (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:2:9278)
+    at e.exports (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:14:21102)
+    at https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:13021
+    at https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:14011
+    at c (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15739)
+    at r (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15838)
+    at s (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:16133)
+    at o (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15995)
+    at s (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:16193)
+    at o (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15995) @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2023ms] [ERROR] 🚀 Failed to execute data element module core/src/lib/dataElements/customCode.js for data element identityProvider (Local Storage). Cannot read properties of null (reading 'rawData')
+TypeError: Cannot read properties of null (reading 'rawData')
+    at Object.source (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:2:9278)
+    at e.exports (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:14:21102)
+    at https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:13021
+    at https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:14011
+    at c (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15739)
+    at r (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15838)
+    at s (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:16133)
+    at o (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15995)
+    at s (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:16193)
+    at o (https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:17:15995) @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2023ms] [LOG] 🚀 [Adobe Experience Platform Web SDK] The identifier at Email_LC_SHA256[0] was removed from the identity map because its ID is not a populated string. Its ID value is:  @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2023ms] [LOG] 🚀 [Adobe Experience Platform Web SDK] The Email_LC_SHA256 namespace was removed from the identity map because it contains no identifiers. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2024ms] [INFO] [alloy] Executing sendEvent command. Options: {xdm: Object, data: Object, type: web.webpagedetails.pageViews, renderDecisions: true, edgeConfigOverrides: undefined} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2026ms] [LOG] 🚀 Rule "Virtual Page View Direct Call Rule - CORE RULE" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2026ms] [LOG] 🚀 Rule "3P - Redfast - Global Tag" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2027ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔌 plugins]:  Initializing plugin Cookie Combining Utility @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2028ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔌 plugins]:  Initializing plugin Percent Page Viewed @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2028ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔌 plugins]:  Initializing plugin Content Depth @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2028ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔌 plugins]:  Initializing plugin Fields to Strings @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2028ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔌 plugins]:  Initializing plugin Fields to Floats @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2031ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  Final Content:  {xdm: Object, data: Object} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2032ms] [INFO] [alloy] [Identity] Delaying request while waiting for legacy opt-in to let Visitor retrieve ECID from server. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2032ms] [INFO] [alloy] [Identity] Received legacy opt-in approval to let Visitor retrieve ECID from server. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2032ms] [INFO] [alloy] [Identity] Delaying request while using Visitor to retrieve ECID from server. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2032ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - Partnerize - Global Tag" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2032ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - Horizon/Ads/PJ/Genius/TTD - Global Tag" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2032ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - NFL Plus - Horizon/Floodlight/Socials - Product Select Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2034ms] [INFO] [alloy] Executing getIdentity command. Options: {} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2035ms] [INFO] [alloy] [Identity] Delaying request while retrieving ECID from server. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2035ms] [LOG] 🚀 Rule "Global ECID (Rule) Element Set - CORE RULE" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2035ms] [LOG] 🚀 Condition "Query String Parameter" for rule "Webview Article View Event - CORE RULE" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2035ms] [LOG] 🚀 Condition "Value Comparison" for rule "Article View Event - CORE RULE" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2035ms] [LOG] 🚀 Condition "Path Without Query String" for rule "Page View Event - CORE RULE" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2035ms] [LOG] 🚀 Condition "Query String Parameter" for rule "Webview Page View Event - CORE RULE" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2035ms] [LOG] 🚀 Condition "Query String Parameter" for rule "Webview Page View Event - NFL+ Section - TEMPORARY" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2088ms] [WARNING] [GPT] Slot.setTargeting is deprecated, use Slot.setConfig({targeting: ...}) instead.
+https://goo.gle/gpt-message#171 @ https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202608250101/pubads_impl.js:18
+[    2089ms] [WARNING] [GPT] PubAdsService.setTargeting is deprecated, use googletag.setConfig({targeting: ...}) instead.
+https://goo.gle/gpt-message#170 @ https://securepubads.g.doubleclick.net/pagead/managed/js/gpt/m202608250101/pubads_impl.js:18
+[    2180ms] [INFO] 🚀 [Experience Cloud ID Service] Obtained Marketing Cloud Visitor Id: 21733248010585857630056981594870632867 @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2180ms] [INFO] [alloy] [Identity] Resuming previously delayed request that was waiting for ECID from Visitor. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2182ms] [INFO] [alloy] Request 3f3a40f4-b47e-463a-90a8-73ebb7a4e920: Sending request. {events: Array(1), query: Object, xdm: Object, meta: Object} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2360ms] [LOG] mount @ https://rf.nfl.com/assets/redfast.js:135
+[    2379ms] [INFO] [alloy] [Identity] Received legacy opt-in approval to let Visitor retrieve ECID from server. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2379ms] [LOG] Check OneTrust Permissions @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:15
+[    2379ms] [LOG] 🚀 [Core] Rules using the direct call event type with identifier "thirdParty" have been triggered. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2379ms] [LOG] 🚀 Rule "3P - Comscore - Global Tag" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2380ms] [LOG] 🚀 Rule "3P - LogRocket - PROD Global Tag (EXCLUDE VIDEO) " fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2380ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - Canada/Reddit/Meta - NFL ID Sign In Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2380ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - Canada/Reddit/Meta - NFL ID Favorite Team Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2380ms] [LOG] 🚀 Rule "3P - Partnerize - Global Tag" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Rule "3P - Horizon/Ads/PJ/Genius/TTD - Global Tag" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Value Comparison" for rule "3P - Canada/Floodlight - NFL ID Sign Up Page " was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - NFL Plus - Horizon/Floodlight/Socials - Product Select Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Rokt - PV Event" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Rule "3P - Redfast - Global Tag" fired. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Meta - London ROI Page (PV)" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Meta - Germany ROI Page (PV)" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Meta - Spain ROI Page (PV)" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Meta/DC - Tickets Network Page" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2381ms] [LOG] 🚀 Condition "Path Without Query String" for rule "3P - Meta - Mexico ROI Page (PV)" was not met. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:16
+[    2453ms] [INFO] [alloy] Request 3f3a40f4-b47e-463a-90a8-73ebb7a4e920: Received response with status code 200 and response body: {requestId: 3f3a40f4-b47e-463a-90a8-73ebb7a4e920-da538c007bb142c4, handle: Array(6)} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2454ms] [INFO] [alloy] Setting cookie {name: kndctr_F75C3025512D2C1D0A490D44_AdobeOrg_identity, value: CiYyMTczMzI0ODAxMDU4NTg1NzYzMDA1Njk4MTU5NDg3MDYzMjg2N1IQCNOYrvKENBgBKgNPUjIwA_AB05iu8oQ0, domain: nfl.com, expires: Tue Sep 28 2027 10:12:47 GMT-0600 (Mountain Daylight Time), sameSite: none} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2454ms] [INFO] [alloy] Setting cookie {name: kndctr_F75C3025512D2C1D0A490D44_AdobeOrg_cluster, value: or2, domain: nfl.com, expires: Sat Aug 29 2026 10:42:47 GMT-0600 (Mountain Daylight Time), sameSite: none} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2454ms] [INFO] [alloy] [Personalization] No offers were returned. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2455ms] [INFO] [alloy] [Identity] Resuming previously delayed request. @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2455ms] [INFO] [alloy] Request 31568270-c985-4ee2-8f05-0893f1bb4244: Sending request. {query: Object, meta: Object} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2455ms] [INFO] [alloy] sendEvent command resolved. Result: {destinations: Array(0), propositions: Array(0), decisions: Array(0)} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2509ms] [INFO] [alloy] Request 31568270-c985-4ee2-8f05-0893f1bb4244: Received response with status code 200 and response body: {requestId: 31568270-c985-4ee2-8f05-0893f1bb4244-9f6c556179fd4322, handle: Array(2)} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    2509ms] [INFO] [alloy] getIdentity command resolved. Result: {identity: Object, edge: Object} @ https://assets.adobedtm.com/a5ea4e8f4344/1648c62d3986/launch-53368d199d70.min.js:8
+[    3255ms] [TIMEEND] a: 0.004150390625 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[    3799ms] [LOG] RF duplicate node detected, skipping @ https://logr-cdn.nfl.com/LogRocket.min.js:1
+[    3911ms] [LOG] 🚀 [Custom Script] 📬 onBeforeEventSend:  [🔊 listeners]:  initial scroll depth recorded @ https://logr-cdn.nfl.com/LogRocket.min.js:1
+[    3933ms] [LOG] 🚀 Rule "1T - OneTrust Privacy (Web SDK Consent Change) - Global Rule" fired. @ https://logr-cdn.nfl.com/LogRocket.min.js:1
+[   33289ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   33480ms] [TIMEEND] a: 0.001953125 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[   63494ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   63755ms] [LOG] Hello wonderful human. This banner has been loaded politely. @ https://s0.2mdn.net/sadbundle/16799276968009065822/FY27FallNFLDigitalDisplay_728x90_081026-100426_DELIVERY.html?ev=01_262:29
+[   63916ms] [TIMEEND] a: 0.001953125 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[   94288ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[   94730ms] [TIMEEND] a: 0.0029296875 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[  125037ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  125457ms] [TIMEEND] a: 0.001953125 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[  155812ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0
+[  156258ms] [TIMEEND] a: 0.0029296875 ms @ https://static.adsafeprotected.com/sca.17.6.4.js:31
+[  186414ms] [ERROR] Attestation check for Shared Storage on https://www.googleadservices.com failed. @ https://www.googleadservices.com/pagead/managed/js/activeview/current/reach_worklet.html:0

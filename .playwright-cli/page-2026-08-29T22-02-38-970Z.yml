@@ -1,0 +1,247 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Theme Builder
+    - button [ref=e8] [cursor=pointer]:
+      - generic [ref=e9]: 
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Ribbon" [level=4] [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]: BG
+          - generic [ref=e15]: Font
+          - generic [ref=e16]: Hover BG
+          - generic [ref=e17]: Hover Font
+        - generic "Menu" [ref=e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=e22]':
+            - generic [ref=e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e28]':
+            - generic [ref=e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+            - generic [ref=e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+            - generic [ref=e44] [cursor=pointer]
+        - generic "SubMenu" [ref=e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=e49]':
+            - generic [ref=e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e55]':
+            - generic [ref=e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+            - generic [ref=e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+            - generic [ref=e71] [cursor=pointer]
+      - generic [ref=e72]:
+        - heading "Ribbon Logo" [level=4] [ref=e73]
+        - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - heading "Left Panel" [level=4] [ref=e80]
+        - generic [ref=e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=e84]':
+            - generic [ref=e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e90]':
+            - generic [ref=e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+            - generic [ref=e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+            - generic [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - heading "Components" [level=4] [ref=e108]
+        - generic "Normal" [ref=e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+            - generic [ref=e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=e119]':
+            - generic [ref=e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+            - generic [ref=e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+            - generic [ref=e135] [cursor=pointer]
+        - generic "Selected" [ref=e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+            - generic [ref=e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=e146]':
+            - generic [ref=e150] [cursor=pointer]
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e155]:
+          - combobox "Select Theme" [ref=e156]: Default R365 Theme
+          - button "select" [ref=e158] [cursor=pointer]
+        - generic [ref=e159]:
+          - button "Set As Default" [ref=e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=e161]
+          - button "Delete" [disabled] [ref=e162]
+      - generic [ref=e163]:
+        - textbox "Add New Theme" [ref=e165]
+        - button "New" [ref=e167] [cursor=pointer]
+  - generic [ref=e189]:
+    - generic [ref=e190]:
+      - navigation [ref=e194]:
+        - generic [ref=e195]:
+          - generic: Journal Entry - UberEats
+          - generic [ref=e197]:
+            - list [ref=e198]:
+              - listitem [ref=e199]:
+                - button "Save" [ref=e200] [cursor=pointer]
+              - listitem [ref=e280]:
+                - button "Approve" [ref=e281] [cursor=pointer]
+              - listitem [ref=e202]:
+                - button "Action" [ref=e203] [cursor=pointer]
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - button [ref=e207] [cursor=pointer]:
+                  - generic [ref=e208]: 
+              - listitem [ref=e210]:
+                - link [ref=e211] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e212]: 
+      - generic [ref=e285]:
+        - generic [ref=e286]: Unapproved
+        - text: 
+    - generic [ref=e214]:
+      - group [ref=e215]:
+        - generic [ref=e218]:
+          - generic [ref=e220]:
+            - generic [ref=e221]:
+              - generic [ref=e222]:
+                - generic [ref=e223]: Date *
+                - generic [ref=e226]:
+                  - combobox "Date *" [ref=e227]: 8/15/2026
+                  - button "select" [ref=e228] [cursor=pointer]
+              - generic [ref=e230]:
+                - generic [ref=e231]: Number *
+                - textbox "Number *" [ref=e233]: UberEats
+              - generic [ref=e289]:
+                - generic [ref=e290]: Type *
+                - listbox [ref=e292] [cursor=pointer]:
+                  - generic [ref=e293]:
+                    - generic [ref=e294]: Standard
+                    - generic [ref=e295]: select
+            - generic [ref=e234]:
+              - generic [ref=e235]:
+                - generic [ref=e236]:
+                  - link "Location" [ref=e237] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/8f55b444-968c-46b5-9e73-119793350017"
+                  - text: "*"
+                - generic [ref=e298]:
+                  - combobox "Select Location" [ref=e299]: 224 - West Covina
+                  - button "select" [ref=e301] [cursor=pointer]
+              - generic [ref=e240]:
+                - generic [ref=e241]: Comment
+                - textbox "Comment" [ref=e243]
+            - alert [ref=e476]: Overassigned Amount = -169.71
+          - generic [ref=e249]:
+            - generic [ref=e251]:
+              - button "+ Size" [ref=e252] [cursor=pointer]
+              - button "- Size" [ref=e253] [cursor=pointer]
+            - tablist [ref=e303]:
+              - list [ref=e304]:
+                - tab "Details" [selected] [ref=e305]
+                - tab "Distribution" [ref=e308]
+              - tabpanel [ref=e311]:
+                - generic [ref=e312]:
+                  - generic [ref=e313]:
+                    - generic:
+                      - generic:
+                        - generic [ref=e317]:
+                          - combobox "Select Account" [ref=e318]
+                          - button "select" [ref=e320] [cursor=pointer]
+                        - textbox [ref=e322]: "0"
+                        - textbox [ref=e324]: "0"
+                        - textbox [ref=e326]
+                        - generic [ref=e329]:
+                          - button "224 - West Covina" [ref=e332] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=e334]:
+                          - button "Add" [ref=e335] [cursor=pointer]
+                          - button "Clear" [ref=e336] [cursor=pointer]
+                  - grid [ref=e339]:
+                    - rowgroup [ref=e348]:
+                      - row [ref=e349]:
+                        - columnheader [ref=e350]:
+                          - link [ref=e351] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e352]:
+                          - link "Account" [ref=e353] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e355]:
+                          - link "Debit" [ref=e356] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e357]:
+                          - link "Credit" [ref=e358] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e359]:
+                          - link "Comment" [ref=e360] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e361]:
+                          - link "Location" [ref=e362] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e363]
+                  - grid [active] [ref=e365]:
+                    - rowgroup [ref=e374]:
+                      - row [ref=e467]:
+                        - gridcell [ref=e376]
+                        - gridcell "1112 - A/R Uber Postmates" [ref=e377]
+                        - gridcell "0.00" [ref=e378]
+                        - gridcell "211.65" [ref=e468]
+                        - gridcell "a/r ubereats - payout" [ref=e382]
+                        - gridcell "224 - West Covina" [ref=e383]
+                        - gridcell "" [ref=e384]
+                      - row [ref=e478]:
+                        - gridcell [ref=e387]
+                        - gridcell "5514 - Online Ordering Expense" [ref=e388]
+                        - gridcell "41.94" [ref=e479]
+                        - gridcell "0.00" [ref=e391]
+                        - gridcell "marketing" [ref=e393]
+                        - gridcell "224 - West Covina" [ref=e394]
+                        - gridcell "" [ref=e395]
+                      - row [selected] [ref=e483]:
+                        - gridcell [ref=e398] [cursor=pointer]
+                        - gridcell "5514 - Online Ordering Expense" [ref=e399] [cursor=pointer]
+                        - gridcell [ref=e484] [cursor=pointer]:
+                          - textbox [ref=e485]: "0"
+                        - gridcell "0.00" [ref=e402] [cursor=pointer]
+                        - gridcell "uber fees" [ref=e404] [cursor=pointer]
+                        - gridcell "224 - West Covina" [ref=e405] [cursor=pointer]
+                        - gridcell "" [ref=e406] [cursor=pointer]
+                      - row [ref=e408]:
+                        - gridcell [ref=e409]
+                        - gridcell "7130 - Bad Debt Expense" [ref=e410]
+                        - gridcell "0.00" [ref=e411]
+                        - gridcell "0.00" [ref=e413]
+                        - gridcell "net chargeback amount" [ref=e415]
+                        - gridcell "224 - West Covina" [ref=e416]
+                        - gridcell "" [ref=e417]
+                      - row [ref=e419]:
+                        - gridcell [ref=e420]
+                        - gridcell "5514 - Online Ordering Expense" [ref=e421]
+                        - gridcell "0.00" [ref=e422]
+                        - gridcell "0.00" [ref=e424]
+                        - gridcell "difference" [ref=e426]
+                        - gridcell "224 - West Covina" [ref=e427]
+                        - gridcell "" [ref=e428]
+                  - table [ref=e432]:
+                    - rowgroup [ref=e441]:
+                      - row [ref=e486]:
+                        - cell [ref=e443]
+                        - cell [ref=e444]
+                        - cell "41.94" [ref=e487]
+                        - cell "211.65" [ref=e475]
+                        - cell [ref=e449]
+                        - cell [ref=e450]
+                        - cell [ref=e451]
+                  - generic [ref=e452]:
+                    - link "Go to the first page" [ref=e453]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=e455]:
+                      - /url: "#"
+                    - list [ref=e457]:
+                      - listitem [ref=e458]:
+                        - generic [ref=e459] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=e460]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=e462]:
+                      - /url: "#"
+                    - generic [ref=e464]: 1 - 5 of 5 items
+              - text:    
+          - generic [ref=e276]:
+            - button "Upload File" [ref=e277] [cursor=pointer]
+            - button "Attach from Documents" [ref=e278] [cursor=pointer]
+      - group
