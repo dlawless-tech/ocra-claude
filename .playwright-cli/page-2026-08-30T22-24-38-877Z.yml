@@ -1,0 +1,596 @@
+- generic:
+  - generic:
+    - banner [ref=f49e1]:
+      - generic [ref=f49e3]:
+        - button [ref=f49e4] [cursor=pointer]
+        - button [ref=f49e7] [cursor=pointer]
+        - button [ref=f49e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f49e23]:
+      - heading "All Transactions" [level=5] [ref=f49e26]
+      - iframe [active] [ref=f49e30]:
+        - generic [ref=f50e2]:
+          - generic [ref=f50e4]:
+            - generic [ref=f50e5]: Theme Builder
+            - button [ref=f50e8] [cursor=pointer]:
+              - generic [ref=f50e9]: 
+            - generic [ref=f50e10]:
+              - generic [ref=f50e11]:
+                - heading "Ribbon" [level=4] [ref=f50e12]
+                - generic [ref=f50e13]:
+                  - generic [ref=f50e14]: BG
+                  - generic [ref=f50e15]: Font
+                  - generic [ref=f50e16]: Hover BG
+                  - generic [ref=f50e17]: Hover Font
+                - generic "Menu" [ref=f50e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f50e22]':
+                    - generic [ref=f50e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f50e28]':
+                    - generic [ref=f50e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f50e34]':
+                    - generic [ref=f50e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f50e40]':
+                    - generic [ref=f50e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f50e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f50e49]':
+                    - generic [ref=f50e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f50e55]':
+                    - generic [ref=f50e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f50e61]':
+                    - generic [ref=f50e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f50e67]':
+                    - generic [ref=f50e71] [cursor=pointer]
+              - generic [ref=f50e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f50e73]
+                - button "Upload Ribbon Logo" [ref=f50e78] [cursor=pointer]
+              - generic [ref=f50e79]:
+                - heading "Left Panel" [level=4] [ref=f50e80]
+                - generic [ref=f50e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f50e84]':
+                    - generic [ref=f50e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f50e90]':
+                    - generic [ref=f50e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f50e96]':
+                    - generic [ref=f50e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f50e102]':
+                    - generic [ref=f50e106] [cursor=pointer]
+              - generic [ref=f50e107]:
+                - heading "Components" [level=4] [ref=f50e108]
+                - generic "Normal" [ref=f50e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f50e113]':
+                    - generic [ref=f50e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f50e119]':
+                    - generic [ref=f50e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f50e125]':
+                    - generic [ref=f50e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f50e131]':
+                    - generic [ref=f50e135] [cursor=pointer]
+                - generic "Selected" [ref=f50e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f50e140]':
+                    - generic [ref=f50e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f50e146]':
+                    - generic [ref=f50e150] [cursor=pointer]
+            - generic [ref=f50e151]:
+              - generic [ref=f50e152]:
+                - generic [ref=f50e155]:
+                  - combobox "Select Theme" [ref=f50e156]: Default R365 Theme
+                  - button "select" [ref=f50e158] [cursor=pointer]
+                - generic [ref=f50e159]:
+                  - button "Set As Default" [ref=f50e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f50e161]
+                  - button "Delete" [disabled] [ref=f50e162]
+              - generic [ref=f50e163]:
+                - textbox "Add New Theme" [ref=f50e165]
+                - button "New" [ref=f50e167] [cursor=pointer]
+          - iframe [active] [ref=f50e175]:
+            - generic [ref=f51e3]:
+              - generic [ref=f51e5]:
+                - listbox [ref=f51e6] [cursor=pointer]:
+                  - generic [ref=f51e7]:
+                    - generic [ref=f51e8]: Tricia's View
+                    - generic [ref=f51e9]: select
+                - listbox [ref=f51e11] [cursor=pointer]:
+                  - generic [ref=f51e12]:
+                    - generic [ref=f51e13]: Show/Hide Columns
+                    - generic [ref=f51e14]: select
+                - button "Save View" [ref=f51e16] [cursor=pointer]
+                - button "Clear Filter" [ref=f51e17] [cursor=pointer]
+                - button "Clear Sort" [ref=f51e18] [cursor=pointer]
+                - button "Set Default" [ref=f51e19] [cursor=pointer]
+                - menubar [ref=f51e20]:
+                  - menuitem "Edit Selected" [ref=f51e21]
+                - generic [ref=f51e24]:
+                  - button [ref=f51e25] [cursor=pointer]
+                  - button [ref=f51e26] [cursor=pointer]
+              - grid [ref=f51e29]:
+                - rowgroup [ref=f51e52]:
+                  - row [ref=f51e53]:
+                    - columnheader [ref=f51e54]:
+                      - checkbox [ref=f51e55]
+                    - columnheader [ref=f51e56]:
+                      - link [ref=f51e57] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approval Status" [ref=f51e59] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e61]:
+                      - link [ref=f51e62] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Location" [ref=f51e64] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e65]:
+                      - link [ref=f51e66] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Transaction Type" [ref=f51e68] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e69]:
+                      - link [ref=f51e70] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Number" [ref=f51e72] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e73]:
+                      - link [ref=f51e74] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Date" [ref=f51e76] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e78]:
+                      - link [ref=f51e79] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Company" [ref=f51e81] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e82]:
+                      - link [ref=f51e83] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount" [ref=f51e85] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e86]:
+                      - link [ref=f51e87] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount Remaining" [ref=f51e89] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e90]:
+                      - link [ref=f51e91] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Comment" [ref=f51e93] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e95]:
+                      - link [ref=f51e96] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Checking Account" [ref=f51e98] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e99]:
+                      - link [ref=f51e100] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved By" [ref=f51e102] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e103]:
+                      - link [ref=f51e104] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved On" [ref=f51e106] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e107]:
+                      - link [ref=f51e108] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created By" [ref=f51e110] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e111]:
+                      - link [ref=f51e112] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created On" [ref=f51e114] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e115]:
+                      - link [ref=f51e116] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified By" [ref=f51e118] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e119]:
+                      - link [ref=f51e120] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified On" [ref=f51e122] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e123]:
+                      - link [ref=f51e124] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Spread Type" [ref=f51e126] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e127]:
+                      - link [ref=f51e128] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Attachment" [ref=f51e130] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e131]:
+                      - link [ref=f51e132] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Start Date" [ref=f51e134] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f51e135]:
+                      - link [ref=f51e136] [cursor=pointer]:
+                        - /url: "#"
+                      - link "End Date" [ref=f51e138] [cursor=pointer]:
+                        - /url: "#"
+                  - row [ref=f51e7664]:
+                    - columnheader [ref=f51e140]
+                    - columnheader [ref=f51e7665]:
+                      - generic [ref=f51e143]:
+                        - textbox [ref=f51e145]: Unapproved
+                        - listbox [ref=f51e146] [cursor=pointer]:
+                          - generic [ref=f51e147]:
+                            - generic [ref=f51e148]: Contains
+                            - generic [ref=f51e149]: select
+                        - button [ref=f51e7666] [cursor=pointer]
+                    - columnheader [ref=f51e151]:
+                      - generic [ref=f51e153]:
+                        - textbox [ref=f51e155]
+                        - listbox [ref=f51e156] [cursor=pointer]:
+                          - generic [ref=f51e157]:
+                            - generic [ref=f51e158]: Contains
+                            - generic [ref=f51e159]: select
+                    - columnheader [ref=f51e161]:
+                      - generic [ref=f51e163]:
+                        - textbox [ref=f51e165]
+                        - listbox [ref=f51e166] [cursor=pointer]:
+                          - generic [ref=f51e167]:
+                            - generic [ref=f51e168]: Contains
+                            - generic [ref=f51e169]: select
+                    - columnheader [ref=f51e7668]:
+                      - generic [ref=f51e173]:
+                        - textbox [active] [ref=f51e175]: UberEats
+                        - listbox [ref=f51e176] [cursor=pointer]:
+                          - generic [ref=f51e177]:
+                            - generic [ref=f51e178]: Contains
+                            - generic [ref=f51e179]: select
+                        - button [ref=f51e7669] [cursor=pointer]
+                    - columnheader [ref=f51e181]:
+                      - generic [ref=f51e183]:
+                        - generic [ref=f51e185]:
+                          - combobox [ref=f51e186]
+                          - button "select" [ref=f51e187]
+                        - listbox [ref=f51e189] [cursor=pointer]:
+                          - generic [ref=f51e190]:
+                            - generic [ref=f51e191]: Is equal to
+                            - generic [ref=f51e192]: select
+                    - columnheader [ref=f51e194]:
+                      - generic [ref=f51e196]:
+                        - textbox [ref=f51e198]
+                        - listbox [ref=f51e199] [cursor=pointer]:
+                          - generic [ref=f51e200]:
+                            - generic [ref=f51e201]: Contains
+                            - generic [ref=f51e202]: select
+                    - columnheader "Increase value Decrease value" [ref=f51e204]:
+                      - generic [ref=f51e206]:
+                        - generic [ref=f51e208]:
+                          - textbox [ref=f51e209]
+                          - generic [ref=f51e210]:
+                            - generic "Increase value" [ref=f51e212]
+                            - generic "Decrease value" [ref=f51e214]
+                        - listbox [ref=f51e215] [cursor=pointer]:
+                          - generic [ref=f51e216]:
+                            - generic [ref=f51e217]: Is equal to
+                            - generic [ref=f51e218]: select
+                    - columnheader "Increase value Decrease value" [ref=f51e220]:
+                      - generic [ref=f51e222]:
+                        - generic [ref=f51e224]:
+                          - textbox [ref=f51e225]
+                          - generic [ref=f51e226]:
+                            - generic "Increase value" [ref=f51e228]
+                            - generic "Decrease value" [ref=f51e230]
+                        - listbox [ref=f51e231] [cursor=pointer]:
+                          - generic [ref=f51e232]:
+                            - generic [ref=f51e233]: Is equal to
+                            - generic [ref=f51e234]: select
+                    - columnheader [ref=f51e236]:
+                      - generic [ref=f51e238]:
+                        - textbox [ref=f51e240]
+                        - listbox [ref=f51e241] [cursor=pointer]:
+                          - generic [ref=f51e242]:
+                            - generic [ref=f51e243]: Contains
+                            - generic [ref=f51e244]: select
+                    - columnheader [ref=f51e246]:
+                      - generic [ref=f51e248]:
+                        - textbox [ref=f51e250]
+                        - listbox [ref=f51e251] [cursor=pointer]:
+                          - generic [ref=f51e252]:
+                            - generic [ref=f51e253]: Contains
+                            - generic [ref=f51e254]: select
+                    - columnheader [ref=f51e256]:
+                      - generic [ref=f51e258]:
+                        - textbox [ref=f51e260]
+                        - listbox [ref=f51e261] [cursor=pointer]:
+                          - generic [ref=f51e262]:
+                            - generic [ref=f51e263]: Contains
+                            - generic [ref=f51e264]: select
+                    - columnheader [ref=f51e266]:
+                      - generic [ref=f51e268]:
+                        - generic [ref=f51e270]:
+                          - combobox [ref=f51e271]
+                          - button "select" [ref=f51e272]
+                        - listbox [ref=f51e274] [cursor=pointer]:
+                          - generic [ref=f51e275]:
+                            - generic [ref=f51e276]: Is equal to
+                            - generic [ref=f51e277]: select
+                    - columnheader [ref=f51e279]:
+                      - generic [ref=f51e281]:
+                        - textbox [ref=f51e283]
+                        - listbox [ref=f51e284] [cursor=pointer]:
+                          - generic [ref=f51e285]:
+                            - generic [ref=f51e286]: Contains
+                            - generic [ref=f51e287]: select
+                    - columnheader [ref=f51e289]:
+                      - generic [ref=f51e291]:
+                        - generic [ref=f51e293]:
+                          - combobox [ref=f51e294]
+                          - button "select" [ref=f51e295]
+                        - listbox [ref=f51e297] [cursor=pointer]:
+                          - generic [ref=f51e298]:
+                            - generic [ref=f51e299]: Is equal to
+                            - generic [ref=f51e300]: select
+                    - columnheader [ref=f51e302]:
+                      - generic [ref=f51e304]:
+                        - textbox [ref=f51e306]
+                        - listbox [ref=f51e307] [cursor=pointer]:
+                          - generic [ref=f51e308]:
+                            - generic [ref=f51e309]: Contains
+                            - generic [ref=f51e310]: select
+                    - columnheader [ref=f51e312]:
+                      - generic [ref=f51e314]:
+                        - generic [ref=f51e316]:
+                          - combobox [ref=f51e317]
+                          - button "select" [ref=f51e318]
+                        - listbox [ref=f51e320] [cursor=pointer]:
+                          - generic [ref=f51e321]:
+                            - generic [ref=f51e322]: Is equal to
+                            - generic [ref=f51e323]: select
+                    - columnheader [ref=f51e325]:
+                      - generic [ref=f51e327]:
+                        - textbox [ref=f51e329]
+                        - listbox [ref=f51e330] [cursor=pointer]:
+                          - generic [ref=f51e331]:
+                            - generic [ref=f51e332]: Contains
+                            - generic [ref=f51e333]: select
+                    - columnheader [ref=f51e335]:
+                      - generic [ref=f51e337]:
+                        - textbox [ref=f51e339]
+                        - listbox [ref=f51e340] [cursor=pointer]:
+                          - generic [ref=f51e341]:
+                            - generic [ref=f51e342]: Is equal to
+                            - generic [ref=f51e343]: select
+                    - columnheader [ref=f51e345]:
+                      - generic [ref=f51e347]:
+                        - generic [ref=f51e349]:
+                          - combobox [ref=f51e350]
+                          - button "select" [ref=f51e351]
+                        - listbox [ref=f51e353] [cursor=pointer]:
+                          - generic [ref=f51e354]:
+                            - generic [ref=f51e355]: Is equal to
+                            - generic [ref=f51e356]: select
+                    - columnheader [ref=f51e358]:
+                      - generic [ref=f51e360]:
+                        - generic [ref=f51e362]:
+                          - combobox [ref=f51e363]
+                          - button "select" [ref=f51e364]
+                        - listbox [ref=f51e366] [cursor=pointer]:
+                          - generic [ref=f51e367]:
+                            - generic [ref=f51e368]: Is equal to
+                            - generic [ref=f51e369]: select
+                    - columnheader:
+                      - generic [ref=f51e372]:
+                        - generic [ref=f51e373]:
+                          - textbox
+                        - listbox [ref=f51e374] [cursor=pointer]:
+                          - generic [ref=f51e375]:
+                            - generic [ref=f51e376]: Contains
+                            - generic [ref=f51e377]: select
+              - grid [ref=f51e381]:
+                - rowgroup [ref=f51e404]:
+                  - row [ref=f51e7671]:
+                    - gridcell [ref=f51e7672]:
+                      - checkbox [ref=f51e7674]
+                    - gridcell "Unapproved" [ref=f51e7675]
+                    - gridcell "Las Vegas" [ref=f51e7676]
+                    - gridcell "Journal Entry" [ref=f51e7677]
+                    - gridcell "UberEats" [ref=f51e7678]
+                    - gridcell "8/22/2026" [ref=f51e7679]
+                    - gridcell [ref=f51e7681]
+                    - gridcell "$0.00" [ref=f51e7682]
+                    - gridcell "$0.00" [ref=f51e7684]
+                    - gridcell [ref=f51e7686]
+                    - gridcell [ref=f51e7687]
+                    - gridcell [ref=f51e7688]
+                    - gridcell [ref=f51e7689]
+                    - gridcell "Tricia Laroche" [ref=f51e7690]
+                    - gridcell "8/22/2026 1:43:11 AM" [ref=f51e7691]
+                    - gridcell "Tricia Laroche" [ref=f51e7693]
+                    - gridcell "8/29/2026 11:42:14 AM" [ref=f51e7694]
+                    - gridcell "None" [ref=f51e7696]
+                    - gridcell [ref=f51e7697]
+                    - gridcell [ref=f51e7698]
+                    - gridcell [ref=f51e7699]
+                  - row [ref=f51e7700]:
+                    - gridcell [ref=f51e7701]:
+                      - checkbox [ref=f51e7703]
+                    - gridcell "Unapproved" [ref=f51e7704]
+                    - gridcell "South Torrance" [ref=f51e7705]
+                    - gridcell "Journal Entry" [ref=f51e7706]
+                    - gridcell "UberEats" [ref=f51e7707]
+                    - gridcell "8/22/2026" [ref=f51e7708]
+                    - gridcell [ref=f51e7710]
+                    - gridcell "$0.00" [ref=f51e7711]
+                    - gridcell "$0.00" [ref=f51e7713]
+                    - gridcell [ref=f51e7715]
+                    - gridcell [ref=f51e7716]
+                    - gridcell [ref=f51e7717]
+                    - gridcell [ref=f51e7718]
+                    - gridcell "Tricia Laroche" [ref=f51e7719]
+                    - gridcell "8/22/2026 1:43:09 AM" [ref=f51e7720]
+                    - gridcell "Tricia Laroche" [ref=f51e7722]
+                    - gridcell "8/29/2026 11:42:14 AM" [ref=f51e7723]
+                    - gridcell "None" [ref=f51e7725]
+                    - gridcell [ref=f51e7726]
+                    - gridcell [ref=f51e7727]
+                    - gridcell [ref=f51e7728]
+                  - row [ref=f51e7729]:
+                    - gridcell [ref=f51e7730]:
+                      - checkbox [ref=f51e7732]
+                    - gridcell "Unapproved" [ref=f51e7733]
+                    - gridcell "Pico Rivera" [ref=f51e7734]
+                    - gridcell "Journal Entry" [ref=f51e7735]
+                    - gridcell "UberEats" [ref=f51e7736]
+                    - gridcell "8/22/2026" [ref=f51e7737]
+                    - gridcell [ref=f51e7739]
+                    - gridcell "$0.00" [ref=f51e7740]
+                    - gridcell "$0.00" [ref=f51e7742]
+                    - gridcell [ref=f51e7744]
+                    - gridcell [ref=f51e7745]
+                    - gridcell [ref=f51e7746]
+                    - gridcell [ref=f51e7747]
+                    - gridcell "Tricia Laroche" [ref=f51e7748]
+                    - gridcell "8/22/2026 1:43:11 AM" [ref=f51e7749]
+                    - gridcell "Tricia Laroche" [ref=f51e7751]
+                    - gridcell "8/29/2026 11:42:14 AM" [ref=f51e7752]
+                    - gridcell "None" [ref=f51e7754]
+                    - gridcell [ref=f51e7755]
+                    - gridcell [ref=f51e7756]
+                    - gridcell [ref=f51e7757]
+                  - row [ref=f51e7758]:
+                    - gridcell [ref=f51e7759]:
+                      - checkbox [ref=f51e7761]
+                    - gridcell "Unapproved" [ref=f51e7762]
+                    - gridcell "North Torrance" [ref=f51e7763]
+                    - gridcell "Journal Entry" [ref=f51e7764]
+                    - gridcell "UberEats" [ref=f51e7765]
+                    - gridcell "8/22/2026" [ref=f51e7766]
+                    - gridcell [ref=f51e7768]
+                    - gridcell "$0.00" [ref=f51e7769]
+                    - gridcell "$0.00" [ref=f51e7771]
+                    - gridcell [ref=f51e7773]
+                    - gridcell [ref=f51e7774]
+                    - gridcell [ref=f51e7775]
+                    - gridcell [ref=f51e7776]
+                    - gridcell "Tricia Laroche" [ref=f51e7777]
+                    - gridcell "8/22/2026 1:43:11 AM" [ref=f51e7778]
+                    - gridcell "Tricia Laroche" [ref=f51e7780]
+                    - gridcell "8/29/2026 11:42:31 AM" [ref=f51e7781]
+                    - gridcell "None" [ref=f51e7783]
+                    - gridcell [ref=f51e7784]
+                    - gridcell [ref=f51e7785]
+                    - gridcell [ref=f51e7786]
+                  - row [ref=f51e7787]:
+                    - gridcell [ref=f51e7788]:
+                      - checkbox [ref=f51e7790]
+                    - gridcell "Unapproved" [ref=f51e7791]
+                    - gridcell "Rialto" [ref=f51e7792]
+                    - gridcell "Journal Entry" [ref=f51e7793]
+                    - gridcell "UberEats" [ref=f51e7794]
+                    - gridcell "8/22/2026" [ref=f51e7795]
+                    - gridcell [ref=f51e7797]
+                    - gridcell "$0.00" [ref=f51e7798]
+                    - gridcell "$0.00" [ref=f51e7800]
+                    - gridcell [ref=f51e7802]
+                    - gridcell [ref=f51e7803]
+                    - gridcell [ref=f51e7804]
+                    - gridcell [ref=f51e7805]
+                    - gridcell "Tricia Laroche" [ref=f51e7806]
+                    - gridcell "8/22/2026 1:43:12 AM" [ref=f51e7807]
+                    - gridcell "Tricia Laroche" [ref=f51e7809]
+                    - gridcell "8/29/2026 11:42:31 AM" [ref=f51e7810]
+                    - gridcell "None" [ref=f51e7812]
+                    - gridcell [ref=f51e7813]
+                    - gridcell [ref=f51e7814]
+                    - gridcell [ref=f51e7815]
+                  - row [ref=f51e7816]:
+                    - gridcell [ref=f51e7817]:
+                      - checkbox [ref=f51e7819]
+                    - gridcell "Unapproved" [ref=f51e7820]
+                    - gridcell "Inglewood" [ref=f51e7821]
+                    - gridcell "Journal Entry" [ref=f51e7822]
+                    - gridcell "UberEats" [ref=f51e7823]
+                    - gridcell "8/22/2026" [ref=f51e7824]
+                    - gridcell [ref=f51e7826]
+                    - gridcell "$0.00" [ref=f51e7827]
+                    - gridcell "$0.00" [ref=f51e7829]
+                    - gridcell [ref=f51e7831]
+                    - gridcell [ref=f51e7832]
+                    - gridcell [ref=f51e7833]
+                    - gridcell [ref=f51e7834]
+                    - gridcell "Tricia Laroche" [ref=f51e7835]
+                    - gridcell "8/22/2026 1:43:12 AM" [ref=f51e7836]
+                    - gridcell "Tricia Laroche" [ref=f51e7838]
+                    - gridcell "8/29/2026 11:42:31 AM" [ref=f51e7839]
+                    - gridcell "None" [ref=f51e7841]
+                    - gridcell [ref=f51e7842]
+                    - gridcell [ref=f51e7843]
+                    - gridcell [ref=f51e7844]
+                  - row [ref=f51e7845]:
+                    - gridcell [ref=f51e7846]:
+                      - checkbox [ref=f51e7848]
+                    - gridcell "Unapproved" [ref=f51e7849]
+                    - gridcell "Van Nuys" [ref=f51e7850]
+                    - gridcell "Journal Entry" [ref=f51e7851]
+                    - gridcell "UberEats" [ref=f51e7852]
+                    - gridcell "8/22/2026" [ref=f51e7853]
+                    - gridcell [ref=f51e7855]
+                    - gridcell "$0.00" [ref=f51e7856]
+                    - gridcell "$0.00" [ref=f51e7858]
+                    - gridcell [ref=f51e7860]
+                    - gridcell [ref=f51e7861]
+                    - gridcell [ref=f51e7862]
+                    - gridcell [ref=f51e7863]
+                    - gridcell "Tricia Laroche" [ref=f51e7864]
+                    - gridcell "8/22/2026 1:43:11 AM" [ref=f51e7865]
+                    - gridcell "Tricia Laroche" [ref=f51e7867]
+                    - gridcell "8/29/2026 11:42:14 AM" [ref=f51e7868]
+                    - gridcell "None" [ref=f51e7870]
+                    - gridcell [ref=f51e7871]
+                    - gridcell [ref=f51e7872]
+                    - gridcell [ref=f51e7873]
+                  - row [ref=f51e7874]:
+                    - gridcell [ref=f51e7875]:
+                      - checkbox [ref=f51e7877]
+                    - gridcell "Unapproved" [ref=f51e7878]
+                    - gridcell "Slauson" [ref=f51e7879]
+                    - gridcell "Journal Entry" [ref=f51e7880]
+                    - gridcell "UberEats" [ref=f51e7881]
+                    - gridcell "8/22/2026" [ref=f51e7882]
+                    - gridcell [ref=f51e7884]
+                    - gridcell "$0.00" [ref=f51e7885]
+                    - gridcell "$0.00" [ref=f51e7887]
+                    - gridcell "Huntington Park" [ref=f51e7889]
+                    - gridcell [ref=f51e7890]
+                    - gridcell [ref=f51e7891]
+                    - gridcell [ref=f51e7892]
+                    - gridcell "Tricia Laroche" [ref=f51e7893]
+                    - gridcell "8/22/2026 1:43:10 AM" [ref=f51e7894]
+                    - gridcell "Tricia Laroche" [ref=f51e7896]
+                    - gridcell "8/30/2026 12:17:10 PM" [ref=f51e7897]
+                    - gridcell "None" [ref=f51e7899]
+                    - gridcell [ref=f51e7900]
+                    - gridcell [ref=f51e7901]
+                    - gridcell [ref=f51e7902]
+                  - row [ref=f51e7903]:
+                    - gridcell [ref=f51e7904]:
+                      - checkbox [ref=f51e7906]
+                    - gridcell "Unapproved" [ref=f51e7907]
+                    - gridcell "Ontario" [ref=f51e7908]
+                    - gridcell "Journal Entry" [ref=f51e7909]
+                    - gridcell "UberEats" [ref=f51e7910]
+                    - gridcell "8/22/2026" [ref=f51e7911]
+                    - gridcell [ref=f51e7913]
+                    - gridcell "$0.00" [ref=f51e7914]
+                    - gridcell "$0.00" [ref=f51e7916]
+                    - gridcell "Ontario Mills" [ref=f51e7918]
+                    - gridcell [ref=f51e7919]
+                    - gridcell [ref=f51e7920]
+                    - gridcell [ref=f51e7921]
+                    - gridcell "Tricia Laroche" [ref=f51e7922]
+                    - gridcell "8/22/2026 1:43:09 AM" [ref=f51e7923]
+                    - gridcell "Tricia Laroche" [ref=f51e7925]
+                    - gridcell "8/29/2026 11:45:02 AM" [ref=f51e7926]
+                    - gridcell "None" [ref=f51e7928]
+                    - gridcell [ref=f51e7929]
+                    - gridcell [ref=f51e7930]
+                    - gridcell [ref=f51e7931]
+              - generic [ref=f51e7658]:
+                - generic [ref=f51e7659]: 1 - 9 of 9 items
+                - generic [ref=f51e7933]: 0 Items Selected
+  - iframe

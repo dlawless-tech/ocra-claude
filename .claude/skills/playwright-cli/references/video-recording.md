@@ -128,9 +128,14 @@ Embrace creativity, overlays are powerful.
 | `disposable.dispose()` | Remove a sticky overlay added without duration |
 | `page.screencast.hideOverlays()` / `page.screencast.showOverlays()` | Temporarily hide/show all overlays |
 
-## Video vs trace
+## Tracing vs Video
 
-Video is for demos and proof of work; a trace is for debugging. See the comparison in [tracing.md](tracing.md).
+| Feature | Video | Tracing |
+|---------|-------|---------|
+| Output | WebM file | Trace file (viewable in Trace Viewer) |
+| Shows | Visual recording | DOM snapshots, network, console, actions |
+| Use case | Demos, documentation | Debugging, analysis |
+| Size | Larger | Smaller |
 
 ## Limitations
 

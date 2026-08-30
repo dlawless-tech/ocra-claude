@@ -1,0 +1,45 @@
+- generic:
+  - banner [ref=f7e1]:
+    - generic [ref=f7e3]:
+      - button [ref=f7e4] [cursor=pointer]
+      - button [ref=f7e7] [cursor=pointer]
+      - button [ref=f7e10] [cursor=pointer]
+  - generic [ref=f7e17]:
+    - paragraph [ref=f7e19]: Your Apps
+    - list [ref=f7e20]:
+      - button [ref=f7e132] [cursor=pointer]:
+        - generic [ref=f7e133]: Dashboards
+      - button [ref=f7e134] [cursor=pointer]:
+        - generic [ref=f7e135]: Reports
+      - button [ref=f7e136] [cursor=pointer]:
+        - generic [ref=f7e137]: Accounting
+      - button [ref=f7e138] [cursor=pointer]:
+        - generic [ref=f7e139]: Inventory
+      - button [ref=f7e140] [cursor=pointer]:
+        - generic [ref=f7e141]: Sales & forecasting
+      - button [ref=f7e142] [cursor=pointer]:
+        - generic [ref=f7e143]: Workforce
+      - button [ref=f7e144] [cursor=pointer]:
+        - generic [ref=f7e145]: Manager log
+      - button [ref=f7e146] [cursor=pointer]:
+        - generic [ref=f7e147]: More
+    - list [ref=f7e97]:
+      - button [ref=f7e148] [cursor=pointer]:
+        - generic [ref=f7e149]: Admin
+      - button [ref=f7e150] [cursor=pointer]:
+        - generic [ref=f7e151]: Help
+      - button [ref=f7e152] [cursor=pointer]:
+        - generic [ref=f7e153]: Account
+      - button [ref=f7e154] [cursor=pointer]:
+        - generic [ref=f7e155]: Marketplace
+  - generic [active] [ref=f7e157]:
+    - generic [ref=f7e158]:
+      - button [ref=f7e159] [cursor=pointer]
+      - paragraph [ref=f7e162]: Reports
+    - list [ref=f7e163]:
+      - link "My reports" [ref=f7e164] [cursor=pointer]:
+        - /url: /react/reports-management/legacy/MyReports
+      - link "P&L comparison" [ref=f7e167] [cursor=pointer]:
+        - /url: /react/reports-management/legacy/ProfitAndLossComparison
+      - link "Report subscriptions" [ref=f7e170] [cursor=pointer]:
+        - /url: /react/reports-management/report-subscriptions
