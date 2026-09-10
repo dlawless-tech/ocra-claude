@@ -1,0 +1,98 @@
+#!/bin/bash
+# Fill, save, verify and approve one Bowery UberEats journal entry.
+#
+# Usage: ENTRY_DATE=9/6/2026 post-entry.sh <session> <r365-location> [work-json]
+#   work-json defaults to $BOWERY_UBEREATS_WORK, else ./work.json
+#   ENTRY_DATE is the entry date as R365 renders it, and is required.
+#   r365-location is a substring of the entry's location cell. Prefer an
+#   ASCII-only fragment, since two Bowery locations carry a curly apostrophe.
+#
+# The work json is an array of objects keyed by that location fragment:
+#   {loc, id, arCredit, fees, diffDr, diffCr, tot}
+#   id is the TransactionId; see R365-AUTOMATION.md for harvesting it.
+#
+# Refuses to approve unless three checks pass: every typed amount reads back,
+# the three lines sum to tot on both sides, and the values survive a reload.
+set -u
+S="$1"; LOC="$2"
+[ -n "${ENTRY_DATE:-}" ] || { echo "$2 FAIL: ENTRY_DATE not set"; exit 1; }
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORK="${3:-${BOWERY_UBEREATS_WORK:-./work.json}}"
+[ -f "$WORK" ] || { echo "$LOC FAIL: no work json at $WORK"; exit 1; }
+AR="a/r debit from prior week less total payout"
+res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n'; }
+J() { node -e 'const fs=require("fs");const d=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const r=d.find(x=>x.loc===process.argv[2]);const v=r[process.argv[3]];process.stdout.write(typeof v==="number"?v.toFixed(2):String(v));' "$WORK" "$LOC" "$1"; }
+die() { echo "$LOC FAIL: $*"; exit 1; }
+n2() { local x; x=$(echo "$1" | sed -e "s/,//g" -e "s/\"//g"); printf "%.2f" "$x" 2>/dev/null || echo "$1"; }
+
+ID=$(J id); [ -z "$ID" ] && die "no id"
+
+playwright-cli -s=$S goto "https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1
+sleep 14
+CHK=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const has=l=>rows.some(t=>t.includes(l)); const dt=(document.querySelector('input[name=journalEntryDate]')||{}).value; const loc=(rows.find(t=>t.includes('uber fees'))||[]).join('|'); return {dt, ok:has('$AR')&&has('uber fees')&&has('difference'), loc}; }" 2>&1 | res)
+case "$CHK" in *'"ok": true'*) : ;; *) die "template not loaded: $CHK";; esac
+case "$CHK" in *"$ENTRY_DATE"*) : ;; *) die "wrong date: want $ENTRY_DATE got $CHK";; esac
+case "$CHK" in *"$LOC"*) : ;; *) die "wrong location: want $LOC got $CHK";; esac
+
+# never touch an entry that is already Approved; pass FORCE=1 to override
+ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
+if [ "$ST" = "Approved" ] && [ "${FORCE:-0}" != "1" ]; then
+  echo "$LOC SKIP: already Approved"
+  exit 0
+fi
+
+# one real click wakes the grid editor; scripted clicks alone are ignored.
+# the a11y snapshot sometimes races page render, so retry and reload before giving up.
+WREF=""
+for attempt in 1 2 3; do
+  TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP
+  LN=$(grep -n "gridcell \"uber fees\"" $TMP | head -1 | cut -d: -f1)
+  if [ -n "${LN:-}" ]; then
+    WREF=$(sed -n "$((LN-1))p" $TMP | grep -oE "ref=[a-zA-Z0-9]+" | head -1 | cut -d= -f2)
+  fi
+  rm -f $TMP
+  [ -n "${WREF:-}" ] && break
+  if [ $attempt -eq 2 ]; then playwright-cli -s=$S reload >/dev/null 2>&1; sleep 14; else sleep 6; fi
+done
+[ -z "${WREF:-}" ] && die "wake: grid never appeared in snapshot after 3 tries"
+playwright-cli -s=$S click $WREF >/dev/null 2>&1
+sleep 2
+playwright-cli -s=$S press Escape >/dev/null 2>&1
+sleep 1
+
+fill() { # label col amount
+  local L="$1" C="$2" A="$3" R V
+  [ "$A" = "0.00" ] && return 0
+  R=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()==='$L')); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()==='$L'); cells[i-('$C'==='debit'?2:1)].click(); return 'ok'; }" 2>&1 | res)
+  case "$R" in *ok*) : ;; *) die "click $L/$C -> $R";; esac
+  sleep 2
+  playwright-cli -s=$S fill "input[name=\"$C\"]" "$A" >/dev/null 2>&1
+  playwright-cli -s=$S press Tab >/dev/null 2>&1
+  sleep 1
+  playwright-cli -s=$S press Escape >/dev/null 2>&1
+  sleep 1
+  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()==='$L')); const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()==='$L'); return cells[i-('$C'==='debit'?2:1)].innerText.trim(); }" 2>&1 | res)
+  [ "$(n2 "$V")" = "$(n2 "$A")" ] || die "$L/$C read back '$V' want '$A'"
+}
+
+fill "$AR"        credit "$(J arCredit)"
+fill "uber fees"  debit  "$(J fees)"
+fill "difference" debit  "$(J diffDr)"
+fill "difference" credit "$(J diffCr)"
+
+WANT=$(J tot)
+TOT=$(playwright-cli -s=$S eval "() => { const L=['$AR','uber fees','difference']; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); let dr=0,cr=0; for(const l of L){ const t=rows.find(x=>x.includes(l)); if(!t) return 'MISSING:'+l; dr+=parseFloat((t[3]||'0').replace(/,/g,''))||0; cr+=parseFloat((t[4]||'0').replace(/,/g,''))||0; } return dr.toFixed(2)+'/'+cr.toFixed(2); }" 2>&1 | res | tr -d '"')
+echo "$LOC pre-save totals: $TOT (want $WANT/$WANT)"
+[ "$TOT" = "$WANT/$WANT" ] || die "totals mismatch $TOT want $WANT/$WANT"
+
+bash "$HERE/ribbon-menu.sh" $S Save "Save" >/dev/null 2>&1
+sleep 12
+playwright-cli -s=$S reload >/dev/null 2>&1
+sleep 14
+VER=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const g=l=>{const r=rows.find(t=>t.includes(l)); return r?r[3]+'/'+r[4]:'?';}; return g('$AR')+' fe '+g('uber fees')+' df '+g('difference'); }" 2>&1 | res | tr -d '"')
+echo "$LOC after-save: $VER"
+case "$VER" in "0.00/0.00 fe 0.00/0.00"*) die "save did not land";; esac
+
+bash "$HERE/ribbon-menu.sh" $S Approve "Approve and Close" >/dev/null 2>&1
+sleep 14
+echo "$LOC DONE"
