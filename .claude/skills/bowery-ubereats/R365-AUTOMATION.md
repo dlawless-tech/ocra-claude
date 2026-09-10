@@ -58,6 +58,16 @@ cells[i-('$C'==='debit'?2:1)].click()    # correct
 
 Capture and check the result of every `eval` that performs an action. This one bug silently emptied 21 journal entries in a single run.
 
+A value carrying an apostrophe closes the JS literal early, and a Bowery location or comment can carry one. Build the literal in `node` and emit `\x27` and `\x22` for the quotes, so it survives bash, the CLI argument, and JS:
+
+```bash
+jsq() { node -e 'const B=String.fromCharCode(92),Q=String.fromCharCode(39),D=String.fromCharCode(34);process.stdout.write(Q+JSON.stringify(process.argv[1]).slice(1,-1).split(B+D).join(B+"x22").split(Q).join(B+"x27")+Q)' "$1"; }
+L=$(jsq "$COMMENT")                       # 'Vic\x27s fees'
+playwright-cli -s=$S eval "() => cells.findIndex(c => c.innerText.trim() === $L)"
+```
+
+Keep that helper free of backslashes. Windows argv rules rewrite backslashes on the way into `node -e`, so a `"\\x27"` in the source silently arrives as `"\x27"` and the escaping turns into a no-op.
+
 ## Compare amounts numerically
 
 R365 normalizes a field to two decimals on blur, so a read-back of `4.00` fails a string comparison against `4`, and `468.10` fails against `468.1`. Normalize both sides before comparing.
@@ -132,6 +142,8 @@ Reports open at `/react/reports-management/legacy/MyReports`, reached by clickin
 
 Everything on that page lives one iframe down, so CSS selectors passed to `playwright-cli` never find it and every lookup has to walk the frame tree.
 
+The report cards take about thirty seconds to appear, and while they load `contentDocument` walking reports only the Theme Builder frame. The accessibility snapshot sees the cards first, so use it to find the card's **Customize** button. A card holds its heading and its own Customize, and the Customize that reads first in the snapshot belongs to the card above it.
+
 The dialog's parameter widgets refuse keyboard and refuse `fill`. A real click focuses the account input, and keystrokes still land nowhere; `fill` runs, and Angular's next digest restores the old text. Only the date textboxes accept `fill`, and only against a ref from a fresh snapshot.
 
 Drive the rest through Angular instead. An **md-autocomplete** parameter carries an `r365options` controller on the isolate scope's parent, whose `querySearch` returns the real items:
@@ -144,7 +156,7 @@ const it = (await o.querySearch('104-04'))[0];
 ac_scope.$parent.$apply(() => { o.selectedItem = it; o.searchText = it.display; o.selectedItemChange(it); });
 ```
 
-A **button group** parameter (Subtotal By, Show Unapproved, Parent) renders through `ng-transclude`, so its buttons carry no `innerText` for a text lookup and the active one is marked by the `activeR365` class. Find the group by its label span, then call the handler on the button's own scope:
+A **button group** parameter (Subtotal By, Show Unapproved, Parent) renders through `ng-transclude`, so its buttons carry no `innerText` for a text lookup and the active one is marked by the `activeR365` class. The label span's nearest `section` is the group; `closest('li')` returns nothing. Find the group by its label span, then call the handler on the button's own scope:
 
 ```js
 const sec = Array.from(d.querySelectorAll('span')).find(x => x.textContent.trim() === 'Subtotal By').closest('section');
@@ -152,6 +164,8 @@ const b   = Array.from(sec.querySelectorAll('button'))[1];   // None | Location 
 const sc  = w.angular.element(b).scope();
 sc.$apply(() => sc.buttonSelected(sc.valuePair, sc.param, {stopPropagation(){}, preventDefault(){}}));
 ```
+
+Confirm a button group from the buttons, never from the parameter's hidden input. That input still reads `None` after Subtotal By has moved to Location. The button's own scope carries `valuePair.wanted`, and the active button carries the `activeR365` class; both report the truth.
 
 The dialog's own **Run** button is the one whose `ng-click` is `runReport($event)`, inside `md-dialog` and labelled `exportMenu`. The cards behind the dialog carry their own Run buttons bound to `runReportClicked`, and clicking one of those runs the wrong report with default parameters.
 
