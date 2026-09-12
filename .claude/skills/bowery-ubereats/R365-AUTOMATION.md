@@ -114,9 +114,17 @@ That URL is what makes parallel workers practical, and it skips the whole filter
 
 ## Filtering the grid
 
-Setting a filter input's value from `eval` does not trigger Kendo's filter. Set the value, then send a real Enter through `playwright-cli press` against that input's snapshot ref.
+Filter the data source directly. `dataSource.filter` triggers Kendo's own read, so the grid reloads server side and `view()` comes back holding only the matching rows. This skips the input, the header mapping and the keystroke entirely:
 
-Filter inputs follow header order, and the column set varies between loads, so map them by reading the header row rather than assuming an index. An `Email` column appears in some loads and shifts everything after it.
+```js
+g.dataSource.filter({field:'Number', operator:'contains', value:'Door'});
+await new Promise(r=>setTimeout(r,6000));   // the read is async; view() is stale until it lands
+return g.dataSource.view().map(x => ({loc:x.Location, id:x.TransactionId, status:x.ApprovalStatus}));
+```
+
+The default page holds 250 rows, so an unfiltered `view()` silently omits anything past the first page. Filter before reading rather than scanning what happens to be loaded.
+
+Driving the filter input instead is the fallback. Setting its value from `eval` does not trigger Kendo's filter: set the value, then send a real Enter through `playwright-cli press` against that input's snapshot ref. Filter inputs follow header order, and the column set varies between loads, so map them by reading the header row rather than assuming an index. An `Email` column appears in some loads and shifts everything after it.
 
 To open an entry from the grid without an id, the Number cell holds `<font onclick="fireNumber(this)">`, so a plain click only selects the cell:
 
