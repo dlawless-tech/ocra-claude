@@ -1,0 +1,54 @@
+- generic [active]:
+  - generic:
+    - banner [ref=f44e1]:
+      - generic [ref=f44e3]:
+        - button [ref=f44e4] [cursor=pointer]
+        - button [ref=f44e7] [cursor=pointer]
+        - button [ref=f44e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f44e17]:
+      - heading "All Transactions" [level=5] [ref=f44e20]
+      - generic [ref=f44e22]:
+        - iframe [ref=f44e24]:
+          - generic [ref=f45e1]:
+            - generic:
+              - generic [ref=f45e3]:
+                - generic [ref=f45e4]: Theme Builder
+                - button [ref=f45e7] [cursor=pointer]:
+                  - generic [ref=f45e8]: 
+                - generic [ref=f45e9]:
+                  - generic [ref=f45e10]:
+                    - heading "Ribbon" [level=4] [ref=f45e11]
+                    - generic [ref=f45e12]:
+                      - generic [ref=f45e13]: BG
+                      - generic [ref=f45e14]: Font
+                      - generic [ref=f45e15]: Hover BG
+                      - generic [ref=f45e16]: Hover Font
+                    - generic "Menu" [ref=f45e17]
+                    - generic "SubMenu" [ref=f45e24]
+                  - generic [ref=f45e31]:
+                    - heading "Ribbon Logo" [level=4] [ref=f45e32]
+                    - button "Upload Ribbon Logo" [ref=f45e37] [cursor=pointer]
+                  - heading "Left Panel" [level=4] [ref=f45e39]
+                  - generic [ref=f45e46]:
+                    - heading "Components" [level=4] [ref=f45e47]
+                    - generic "Normal" [ref=f45e48]
+                    - generic "Selected" [ref=f45e55]
+                - generic [ref=f45e60]:
+                  - generic [ref=f45e61]:
+                    - generic [ref=f45e64]:
+                      - combobox "Select Theme" [ref=f45e65]
+                      - button "select" [ref=f45e67] [cursor=pointer]
+                    - generic [ref=f45e68]:
+                      - button "Set As Default" [ref=f45e69] [cursor=pointer]
+                      - button "Save" [disabled] [ref=f45e70]
+                      - button "Delete" [disabled] [ref=f45e71]
+                  - generic [ref=f45e72]:
+                    - textbox "Add New Theme" [ref=f45e74]
+                    - button "New" [ref=f45e76] [cursor=pointer]
+              - generic [ref=f45e78]:
+                - generic:
+                  - heading [level=3]
+        - progressbar [ref=f44e26]

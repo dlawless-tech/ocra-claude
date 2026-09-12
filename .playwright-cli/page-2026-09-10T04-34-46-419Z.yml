@@ -1,0 +1,115 @@
+- generic [ref=f27e6]:
+  - generic [ref=f27e7]:
+    - link [ref=f27e8] [cursor=pointer]:
+      - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+    - generic [ref=f27e19]:
+      - button "Help" [ref=f27e21] [cursor=pointer]
+      - button "Notifications" [ref=f27e26] [cursor=pointer]
+      - button [ref=f27e33] [cursor=pointer]
+  - generic [ref=f27e36]:
+    - generic [ref=f27e39]:
+      - button "Business All stores" [ref=f27e41] [cursor=pointer]:
+        - generic:
+          - paragraph: Business
+          - heading "All stores" [level=6]
+      - link "Home" [ref=f27e46] [cursor=pointer]:
+        - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f27e52]:
+        - generic [ref=f27e53]: Stores
+        - generic:
+          - generic:
+            - generic:
+              - link "All stores" [ref=f27e64] [cursor=pointer]:
+                - /url: /manager/stores
+              - link "Store groups" [ref=f27e68] [cursor=pointer]:
+                - /url: /manager/groups
+              - link "Devices" [ref=f27e72] [cursor=pointer]:
+                - /url: /manager/devices
+      - link "Orders" [ref=f27e76] [cursor=pointer]:
+        - /url: /manager/orders?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f27e84]: Performance
+      - generic:
+        - generic:
+          - generic:
+            - link "Sales" [ref=f27e97] [cursor=pointer]:
+              - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics/sales-v2
+            - link "Operations" [ref=f27e101] [cursor=pointer]:
+              - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics/operations
+            - link "Top Eats" [ref=f27e105] [cursor=pointer]:
+              - /url: /manager/top-eats?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Market benchmarking" [ref=f27e109] [cursor=pointer]:
+              - /url: /manager/competitive-insights
+      - generic [ref=f27e112]: Customers
+      - generic:
+        - generic:
+          - generic:
+            - link "Customer insights" [ref=f27e124] [cursor=pointer]:
+              - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics
+            - link "Reviews" [ref=f27e128] [cursor=pointer]:
+              - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/feedback
+      - link "Rewards center" [ref=f27e132] [cursor=pointer]:
+        - /url: /manager/rewards-center?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Reports" [ref=f27e139] [cursor=pointer]:
+        - /url: /manager/reports?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Ads" [ref=f27e146] [cursor=pointer]:
+        - /url: /manager/marketing/create/ads?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11&ref=ADS_NAV
+      - link "Offers" [ref=f27e155] [cursor=pointer]:
+        - /url: /manager/offers?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Marketing" [ref=f27e162] [cursor=pointer]:
+        - /url: /manager/marketing/redirect?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Menu" [ref=f27e169] [cursor=pointer]:
+        - /url: /menumaker/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Menu pricing" [ref=f27e176] [cursor=pointer]:
+        - /url: /manager/menu-markup?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f27e182]: Payments
+      - generic [ref=f27e194]:
+        - link "Payouts" [ref=f27e197] [cursor=pointer]:
+          - /url: /manager/payments?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Payouts by order" [ref=f27e201] [cursor=pointer]:
+          - /url: /manager/payments/payouts-by-order?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Banking" [ref=f27e205] [cursor=pointer]:
+          - /url: /manager/payments/settings?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - link "Users" [ref=f27e209] [cursor=pointer]:
+        - /url: /manager/users?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f27e216]: Settings
+      - generic:
+        - generic:
+          - generic:
+            - link "General" [ref=f27e229] [cursor=pointer]:
+              - /url: /manager/settings/general?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Holiday Hours" [ref=f27e233] [cursor=pointer]:
+              - /url: /manager/holiday-hours?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Preparation Times" [ref=f27e237] [cursor=pointer]:
+              - /url: /manager/prep-times?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Documents" [ref=f27e241] [cursor=pointer]:
+              - /url: /manager/documents?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Tax/Invoice" [ref=f27e245] [cursor=pointer]:
+              - /url: /manager/tax-information?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+            - link "Appointments" [ref=f27e249] [cursor=pointer]:
+              - /url: /manager/settings/appointments
+      - generic [ref=f27e252]: Channels
+      - link "Uber Direct" [ref=f27e268] [cursor=pointer]:
+        - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+    - generic [ref=f27e278]:
+      - complementary [ref=f27e279]:
+        - generic [ref=f27e280]:
+          - generic [ref=f27e281]: Grow your business with up to $1,900 in pre-approved capital
+          - generic [ref=f27e282]:
+            - button "close" [ref=f27e283] [cursor=pointer]
+            - text: Increase your cash flow with Uber's new Merchant Capital program, provided by Pipe. Check your pre-approved offer and terms today!
+        - button "See financing offer" [ref=f27e287] [cursor=pointer]
+      - heading "Payouts" [level=1] [ref=f27e292]
+      - generic [ref=f27e293]:
+        - tablist [ref=f27e295]:
+          - tab "Overview" [selected] [ref=f27e296] [cursor=pointer]
+          - tab "Statements" [ref=f27e297] [cursor=pointer]
+        - tabpanel "Overview" [ref=f27e300]
+      - generic [ref=f27e301]:
+        - generic [ref=f27e302]:
+          - button "Rosie’s Taqueria" [ref=f27e304] [cursor=pointer]
+          - button [ref=f27e308]:
+            - textbox "Select a date range." [ref=f27e312]:
+              - /placeholder: YYYY/MM/DD – YYYY/MM/DD
+              - text: 09/07/2026 – 09/09/2026
+            - paragraph: Selected date range is from 09/07/2026 to 09/09/2026.
+        - button "Download" [ref=f27e317] [cursor=pointer]

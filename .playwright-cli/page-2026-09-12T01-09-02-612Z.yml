@@ -1,0 +1,1377 @@
+- generic:
+  - generic:
+    - banner [ref=f31e1]:
+      - generic [ref=f31e3]:
+        - button [ref=f31e4] [cursor=pointer]
+        - button [ref=f31e7] [cursor=pointer]
+        - button [ref=f31e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f31e17]:
+      - heading "All Transactions" [level=5] [ref=f31e20]
+      - iframe [active] [ref=f31e24]:
+        - generic [ref=f32e2]:
+          - generic [ref=f32e4]:
+            - generic [ref=f32e5]: Theme Builder
+            - button [ref=f32e8] [cursor=pointer]:
+              - generic [ref=f32e9]: 
+            - generic [ref=f32e10]:
+              - generic [ref=f32e11]:
+                - heading "Ribbon" [level=4] [ref=f32e12]
+                - generic [ref=f32e13]:
+                  - generic [ref=f32e14]: BG
+                  - generic [ref=f32e15]: Font
+                  - generic [ref=f32e16]: Hover BG
+                  - generic [ref=f32e17]: Hover Font
+                - generic "Menu" [ref=f32e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f32e22]':
+                    - generic [ref=f32e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f32e28]':
+                    - generic [ref=f32e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f32e34]':
+                    - generic [ref=f32e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f32e40]':
+                    - generic [ref=f32e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f32e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f32e49]':
+                    - generic [ref=f32e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f32e55]':
+                    - generic [ref=f32e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f32e61]':
+                    - generic [ref=f32e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f32e67]':
+                    - generic [ref=f32e71] [cursor=pointer]
+              - generic [ref=f32e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f32e73]
+                - button "Upload Ribbon Logo" [ref=f32e78] [cursor=pointer]
+              - generic [ref=f32e79]:
+                - heading "Left Panel" [level=4] [ref=f32e80]
+                - generic [ref=f32e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f32e84]':
+                    - generic [ref=f32e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f32e90]':
+                    - generic [ref=f32e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f32e96]':
+                    - generic [ref=f32e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f32e102]':
+                    - generic [ref=f32e106] [cursor=pointer]
+              - generic [ref=f32e107]:
+                - heading "Components" [level=4] [ref=f32e108]
+                - generic "Normal" [ref=f32e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f32e113]':
+                    - generic [ref=f32e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f32e119]':
+                    - generic [ref=f32e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f32e125]':
+                    - generic [ref=f32e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f32e131]':
+                    - generic [ref=f32e135] [cursor=pointer]
+                - generic "Selected" [ref=f32e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f32e140]':
+                    - generic [ref=f32e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f32e146]':
+                    - generic [ref=f32e150] [cursor=pointer]
+            - generic [ref=f32e151]:
+              - generic [ref=f32e152]:
+                - generic [ref=f32e155]:
+                  - combobox "Select Theme" [ref=f32e156]: Default R365 Theme
+                  - button "select" [ref=f32e158] [cursor=pointer]
+                - generic [ref=f32e159]:
+                  - button "Set As Default" [ref=f32e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f32e161]
+                  - button "Delete" [disabled] [ref=f32e162]
+              - generic [ref=f32e163]:
+                - textbox "Add New Theme" [ref=f32e165]
+                - button "New" [ref=f32e167] [cursor=pointer]
+          - iframe [active] [ref=f32e175]:
+            - generic [ref=f34e3]:
+              - generic [ref=f34e48]:
+                - listbox [ref=f34e49] [cursor=pointer]:
+                  - generic [ref=f34e50]:
+                    - generic [ref=f34e51]: Tricia's View
+                    - generic [ref=f34e52]: select
+                - listbox [ref=f34e54] [cursor=pointer]:
+                  - generic [ref=f34e55]:
+                    - generic [ref=f34e56]: Show/Hide Columns
+                    - generic [ref=f34e57]: select
+                - button "Save View" [ref=f34e59] [cursor=pointer]
+                - button "Clear Filter" [ref=f34e60] [cursor=pointer]
+                - button "Clear Sort" [ref=f34e61] [cursor=pointer]
+                - button "Set Default" [ref=f34e62] [cursor=pointer]
+                - menubar [ref=f34e63]:
+                  - menuitem "Edit Selected" [ref=f34e64]
+                - generic [ref=f34e67]:
+                  - button [ref=f34e68] [cursor=pointer]
+                  - button [ref=f34e69] [cursor=pointer]
+              - grid [ref=f34e72]:
+                - rowgroup [ref=f34e95]:
+                  - row [ref=f34e96]:
+                    - columnheader [ref=f34e97]:
+                      - checkbox [ref=f34e98]
+                    - columnheader [ref=f34e99]:
+                      - link [ref=f34e100] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approval Status" [ref=f34e102] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e104]:
+                      - link [ref=f34e105] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Location" [ref=f34e107] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e108]:
+                      - link [ref=f34e109] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Transaction Type" [ref=f34e111] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e112]:
+                      - link [ref=f34e113] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Number" [ref=f34e115] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e116]:
+                      - link [ref=f34e117] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Date" [ref=f34e119] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e121]:
+                      - link [ref=f34e122] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Company" [ref=f34e124] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e125]:
+                      - link [ref=f34e126] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount" [ref=f34e128] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e129]:
+                      - link [ref=f34e130] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount Remaining" [ref=f34e132] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e133]:
+                      - link [ref=f34e134] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Comment" [ref=f34e136] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e138]:
+                      - link [ref=f34e139] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Checking Account" [ref=f34e141] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e142]:
+                      - link [ref=f34e143] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved By" [ref=f34e145] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e146]:
+                      - link [ref=f34e147] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved On" [ref=f34e149] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e150]:
+                      - link [ref=f34e151] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created By" [ref=f34e153] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e154]:
+                      - link [ref=f34e155] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created On" [ref=f34e157] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e158]:
+                      - link [ref=f34e159] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified By" [ref=f34e161] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e162]:
+                      - link [ref=f34e163] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified On" [ref=f34e165] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e166]:
+                      - link [ref=f34e167] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Spread Type" [ref=f34e169] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e170]:
+                      - link [ref=f34e171] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Attachment" [ref=f34e173] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e174]:
+                      - link [ref=f34e175] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Start Date" [ref=f34e177] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f34e178]:
+                      - link [ref=f34e179] [cursor=pointer]:
+                        - /url: "#"
+                      - link "End Date" [ref=f34e181] [cursor=pointer]:
+                        - /url: "#"
+                  - row [ref=f34e1729]:
+                    - columnheader [ref=f34e183]
+                    - columnheader [ref=f34e184]:
+                      - generic [ref=f34e186]:
+                        - textbox [ref=f34e188]
+                        - listbox [ref=f34e189] [cursor=pointer]:
+                          - generic [ref=f34e190]:
+                            - generic [ref=f34e191]: Contains
+                            - generic [ref=f34e192]: select
+                    - columnheader [ref=f34e194]:
+                      - generic [ref=f34e196]:
+                        - textbox [ref=f34e198]
+                        - listbox [ref=f34e199] [cursor=pointer]:
+                          - generic [ref=f34e200]:
+                            - generic [ref=f34e201]: Contains
+                            - generic [ref=f34e202]: select
+                    - columnheader [ref=f34e204]:
+                      - generic [ref=f34e206]:
+                        - textbox [ref=f34e208]
+                        - listbox [ref=f34e209] [cursor=pointer]:
+                          - generic [ref=f34e210]:
+                            - generic [ref=f34e211]: Contains
+                            - generic [ref=f34e212]: select
+                    - columnheader [ref=f34e1730]:
+                      - generic [ref=f34e216]:
+                        - textbox [active] [ref=f34e218]: Accrued Gas
+                        - listbox [ref=f34e219] [cursor=pointer]:
+                          - generic [ref=f34e220]:
+                            - generic [ref=f34e221]: Contains
+                            - generic [ref=f34e222]: select
+                        - button [ref=f34e224] [cursor=pointer]
+                    - columnheader [ref=f34e226]:
+                      - generic [ref=f34e228]:
+                        - generic [ref=f34e230]:
+                          - combobox [ref=f34e231]
+                          - button "select" [ref=f34e232]
+                        - listbox [ref=f34e234] [cursor=pointer]:
+                          - generic [ref=f34e235]:
+                            - generic [ref=f34e236]: Is equal to
+                            - generic [ref=f34e237]: select
+                    - columnheader [ref=f34e239]:
+                      - generic [ref=f34e241]:
+                        - textbox [ref=f34e243]
+                        - listbox [ref=f34e244] [cursor=pointer]:
+                          - generic [ref=f34e245]:
+                            - generic [ref=f34e246]: Contains
+                            - generic [ref=f34e247]: select
+                    - columnheader "Increase value Decrease value" [ref=f34e249]:
+                      - generic [ref=f34e251]:
+                        - generic [ref=f34e253]:
+                          - textbox [ref=f34e254]
+                          - generic [ref=f34e255]:
+                            - generic "Increase value" [ref=f34e257]
+                            - generic "Decrease value" [ref=f34e259]
+                        - listbox [ref=f34e260] [cursor=pointer]:
+                          - generic [ref=f34e261]:
+                            - generic [ref=f34e262]: Is equal to
+                            - generic [ref=f34e263]: select
+                    - columnheader "Increase value Decrease value" [ref=f34e265]:
+                      - generic [ref=f34e267]:
+                        - generic [ref=f34e269]:
+                          - textbox [ref=f34e270]
+                          - generic [ref=f34e271]:
+                            - generic "Increase value" [ref=f34e273]
+                            - generic "Decrease value" [ref=f34e275]
+                        - listbox [ref=f34e276] [cursor=pointer]:
+                          - generic [ref=f34e277]:
+                            - generic [ref=f34e278]: Is equal to
+                            - generic [ref=f34e279]: select
+                    - columnheader [ref=f34e281]:
+                      - generic [ref=f34e283]:
+                        - textbox [ref=f34e285]
+                        - listbox [ref=f34e286] [cursor=pointer]:
+                          - generic [ref=f34e287]:
+                            - generic [ref=f34e288]: Contains
+                            - generic [ref=f34e289]: select
+                    - columnheader [ref=f34e291]:
+                      - generic [ref=f34e293]:
+                        - textbox [ref=f34e295]
+                        - listbox [ref=f34e296] [cursor=pointer]:
+                          - generic [ref=f34e297]:
+                            - generic [ref=f34e298]: Contains
+                            - generic [ref=f34e299]: select
+                    - columnheader [ref=f34e301]:
+                      - generic [ref=f34e303]:
+                        - textbox [ref=f34e305]
+                        - listbox [ref=f34e306] [cursor=pointer]:
+                          - generic [ref=f34e307]:
+                            - generic [ref=f34e308]: Contains
+                            - generic [ref=f34e309]: select
+                    - columnheader [ref=f34e311]:
+                      - generic [ref=f34e313]:
+                        - generic [ref=f34e315]:
+                          - combobox [ref=f34e316]
+                          - button "select" [ref=f34e317]
+                        - listbox [ref=f34e319] [cursor=pointer]:
+                          - generic [ref=f34e320]:
+                            - generic [ref=f34e321]: Is equal to
+                            - generic [ref=f34e322]: select
+                    - columnheader [ref=f34e324]:
+                      - generic [ref=f34e326]:
+                        - textbox [ref=f34e328]
+                        - listbox [ref=f34e329] [cursor=pointer]:
+                          - generic [ref=f34e330]:
+                            - generic [ref=f34e331]: Contains
+                            - generic [ref=f34e332]: select
+                    - columnheader [ref=f34e334]:
+                      - generic [ref=f34e336]:
+                        - generic [ref=f34e338]:
+                          - combobox [ref=f34e339]
+                          - button "select" [ref=f34e340]
+                        - listbox [ref=f34e342] [cursor=pointer]:
+                          - generic [ref=f34e343]:
+                            - generic [ref=f34e344]: Is equal to
+                            - generic [ref=f34e345]: select
+                    - columnheader [ref=f34e347]:
+                      - generic [ref=f34e349]:
+                        - textbox [ref=f34e351]
+                        - listbox [ref=f34e352] [cursor=pointer]:
+                          - generic [ref=f34e353]:
+                            - generic [ref=f34e354]: Contains
+                            - generic [ref=f34e355]: select
+                    - columnheader [ref=f34e357]:
+                      - generic [ref=f34e359]:
+                        - generic [ref=f34e361]:
+                          - combobox [ref=f34e362]
+                          - button "select" [ref=f34e363]
+                        - listbox [ref=f34e365] [cursor=pointer]:
+                          - generic [ref=f34e366]:
+                            - generic [ref=f34e367]: Is equal to
+                            - generic [ref=f34e368]: select
+                    - columnheader [ref=f34e370]:
+                      - generic [ref=f34e372]:
+                        - textbox [ref=f34e374]
+                        - listbox [ref=f34e375] [cursor=pointer]:
+                          - generic [ref=f34e376]:
+                            - generic [ref=f34e377]: Contains
+                            - generic [ref=f34e378]: select
+                    - columnheader [ref=f34e380]:
+                      - generic [ref=f34e382]:
+                        - textbox [ref=f34e384]
+                        - listbox [ref=f34e385] [cursor=pointer]:
+                          - generic [ref=f34e386]:
+                            - generic [ref=f34e387]: Is equal to
+                            - generic [ref=f34e388]: select
+                    - columnheader [ref=f34e390]:
+                      - generic [ref=f34e392]:
+                        - generic [ref=f34e394]:
+                          - combobox [ref=f34e395]
+                          - button "select" [ref=f34e396]
+                        - listbox [ref=f34e398] [cursor=pointer]:
+                          - generic [ref=f34e399]:
+                            - generic [ref=f34e400]: Is equal to
+                            - generic [ref=f34e401]: select
+                    - columnheader [ref=f34e403]:
+                      - generic [ref=f34e405]:
+                        - generic [ref=f34e407]:
+                          - combobox [ref=f34e408]
+                          - button "select" [ref=f34e409]
+                        - listbox [ref=f34e411] [cursor=pointer]:
+                          - generic [ref=f34e412]:
+                            - generic [ref=f34e413]: Is equal to
+                            - generic [ref=f34e414]: select
+                    - columnheader:
+                      - generic [ref=f34e417]:
+                        - generic [ref=f34e418]:
+                          - textbox
+                        - listbox [ref=f34e419] [cursor=pointer]:
+                          - generic [ref=f34e420]:
+                            - generic [ref=f34e421]: Contains
+                            - generic [ref=f34e422]: select
+              - grid [ref=f34e426]:
+                - rowgroup [ref=f34e449]:
+                  - row [ref=f34e450]:
+                    - gridcell [ref=f34e451]:
+                      - checkbox [ref=f34e453]
+                    - gridcell "Unapproved" [ref=f34e454]
+                    - gridcell "La Cienega" [ref=f34e455]
+                    - gridcell "Journal Entry" [ref=f34e456]
+                    - gridcell "Accrued Electricity" [ref=f34e457]
+                    - gridcell "9/12/2026" [ref=f34e458]
+                    - gridcell [ref=f34e460]
+                    - gridcell "$3,975.00" [ref=f34e461]
+                    - gridcell "$0.00" [ref=f34e463]
+                    - gridcell [ref=f34e465]
+                    - gridcell [ref=f34e466]
+                    - gridcell [ref=f34e467]
+                    - gridcell [ref=f34e468]
+                    - gridcell "Tricia Laroche" [ref=f34e469]
+                    - gridcell "9/11/2026 5:29:40 PM" [ref=f34e470]
+                    - gridcell "Tricia Laroche" [ref=f34e472]
+                    - gridcell "9/11/2026 5:30:51 PM" [ref=f34e473]
+                    - gridcell "None" [ref=f34e475]
+                    - gridcell [ref=f34e476]
+                    - gridcell [ref=f34e477]
+                    - gridcell [ref=f34e478]
+                  - row [ref=f34e479]:
+                    - gridcell [ref=f34e480]:
+                      - checkbox [ref=f34e482]
+                    - gridcell "Unapproved" [ref=f34e483]
+                    - gridcell "Van Nuys" [ref=f34e484]
+                    - gridcell "Journal Entry" [ref=f34e485]
+                    - gridcell "Accrued Electricity" [ref=f34e486]
+                    - gridcell "9/12/2026" [ref=f34e487]
+                    - gridcell [ref=f34e489]
+                    - gridcell "$3,389.00" [ref=f34e490]
+                    - gridcell "$0.00" [ref=f34e492]
+                    - gridcell [ref=f34e494]
+                    - gridcell [ref=f34e495]
+                    - gridcell [ref=f34e496]
+                    - gridcell [ref=f34e497]
+                    - gridcell "Tricia Laroche" [ref=f34e498]
+                    - gridcell "9/11/2026 5:19:09 PM" [ref=f34e499]
+                    - gridcell "Tricia Laroche" [ref=f34e501]
+                    - gridcell "9/11/2026 5:21:20 PM" [ref=f34e502]
+                    - gridcell "None" [ref=f34e504]
+                    - gridcell [ref=f34e505]
+                    - gridcell [ref=f34e506]
+                    - gridcell [ref=f34e507]
+                  - row [ref=f34e508]:
+                    - gridcell [ref=f34e509]:
+                      - checkbox [ref=f34e511]
+                    - gridcell "Unapproved" [ref=f34e512]
+                    - gridcell "Downey" [ref=f34e513]
+                    - gridcell "Journal Entry" [ref=f34e514]
+                    - gridcell "Accrued Electricity" [ref=f34e515]
+                    - gridcell "9/12/2026" [ref=f34e516]
+                    - gridcell [ref=f34e518]
+                    - gridcell "$2,325.00" [ref=f34e519]
+                    - gridcell "$0.00" [ref=f34e521]
+                    - gridcell [ref=f34e523]
+                    - gridcell [ref=f34e524]
+                    - gridcell [ref=f34e525]
+                    - gridcell [ref=f34e526]
+                    - gridcell "Tricia Laroche" [ref=f34e527]
+                    - gridcell "9/11/2026 5:25:32 PM" [ref=f34e528]
+                    - gridcell "Tricia Laroche" [ref=f34e530]
+                    - gridcell "9/11/2026 5:26:34 PM" [ref=f34e531]
+                    - gridcell "None" [ref=f34e533]
+                    - gridcell [ref=f34e534]
+                    - gridcell [ref=f34e535]
+                    - gridcell [ref=f34e536]
+                  - row [ref=f34e537]:
+                    - gridcell [ref=f34e538]:
+                      - checkbox [ref=f34e540]
+                    - gridcell "Unapproved" [ref=f34e541]
+                    - gridcell "West Covina" [ref=f34e542]
+                    - gridcell "Journal Entry" [ref=f34e543]
+                    - gridcell "Accrued Electricity" [ref=f34e544]
+                    - gridcell "9/12/2026" [ref=f34e545]
+                    - gridcell [ref=f34e547]
+                    - gridcell "$2,915.00" [ref=f34e548]
+                    - gridcell "$0.00" [ref=f34e550]
+                    - gridcell [ref=f34e552]
+                    - gridcell [ref=f34e553]
+                    - gridcell [ref=f34e554]
+                    - gridcell [ref=f34e555]
+                    - gridcell "Tricia Laroche" [ref=f34e556]
+                    - gridcell "9/11/2026 5:13:39 PM" [ref=f34e557]
+                    - gridcell "Tricia Laroche" [ref=f34e559]
+                    - gridcell "9/11/2026 5:14:35 PM" [ref=f34e560]
+                    - gridcell "None" [ref=f34e562]
+                    - gridcell [ref=f34e563]
+                    - gridcell [ref=f34e564]
+                    - gridcell [ref=f34e565]
+                  - row [ref=f34e566]:
+                    - gridcell [ref=f34e567]:
+                      - checkbox [ref=f34e569]
+                    - gridcell "Unapproved" [ref=f34e570]
+                    - gridcell "Santa Ana" [ref=f34e571]
+                    - gridcell "Journal Entry" [ref=f34e572]
+                    - gridcell "Accrued Electricity" [ref=f34e573]
+                    - gridcell "9/12/2026" [ref=f34e574]
+                    - gridcell [ref=f34e576]
+                    - gridcell "$2,577.00" [ref=f34e577]
+                    - gridcell "$0.00" [ref=f34e579]
+                    - gridcell [ref=f34e581]
+                    - gridcell [ref=f34e582]
+                    - gridcell [ref=f34e583]
+                    - gridcell [ref=f34e584]
+                    - gridcell "Tricia Laroche" [ref=f34e585]
+                    - gridcell "9/11/2026 5:23:22 PM" [ref=f34e586]
+                    - gridcell "Tricia Laroche" [ref=f34e588]
+                    - gridcell "9/11/2026 5:24:22 PM" [ref=f34e589]
+                    - gridcell "None" [ref=f34e591]
+                    - gridcell [ref=f34e592]
+                    - gridcell [ref=f34e593]
+                    - gridcell [ref=f34e594]
+                  - row [ref=f34e595]:
+                    - gridcell [ref=f34e596]:
+                      - checkbox [ref=f34e598]
+                    - gridcell "Unapproved" [ref=f34e599]
+                    - gridcell "Claremont" [ref=f34e600]
+                    - gridcell "Journal Entry" [ref=f34e601]
+                    - gridcell "Accrued Electricity" [ref=f34e602]
+                    - gridcell "9/12/2026" [ref=f34e603]
+                    - gridcell [ref=f34e605]
+                    - gridcell "$3,813.00" [ref=f34e606]
+                    - gridcell "$0.00" [ref=f34e608]
+                    - gridcell [ref=f34e610]
+                    - gridcell [ref=f34e611]
+                    - gridcell [ref=f34e612]
+                    - gridcell [ref=f34e613]
+                    - gridcell "Tricia Laroche" [ref=f34e614]
+                    - gridcell "9/11/2026 5:15:29 PM" [ref=f34e615]
+                    - gridcell "Tricia Laroche" [ref=f34e617]
+                    - gridcell "9/11/2026 5:16:24 PM" [ref=f34e618]
+                    - gridcell "None" [ref=f34e620]
+                    - gridcell [ref=f34e621]
+                    - gridcell [ref=f34e622]
+                    - gridcell [ref=f34e623]
+                  - row [ref=f34e624]:
+                    - gridcell [ref=f34e625]:
+                      - checkbox [ref=f34e627]
+                    - gridcell "Unapproved" [ref=f34e628]
+                    - gridcell "Whittier" [ref=f34e629]
+                    - gridcell "Journal Entry" [ref=f34e630]
+                    - gridcell "Accrued Electricity" [ref=f34e631]
+                    - gridcell "9/12/2026" [ref=f34e632]
+                    - gridcell [ref=f34e634]
+                    - gridcell "$3,538.00" [ref=f34e635]
+                    - gridcell "$0.00" [ref=f34e637]
+                    - gridcell [ref=f34e639]
+                    - gridcell [ref=f34e640]
+                    - gridcell [ref=f34e641]
+                    - gridcell [ref=f34e642]
+                    - gridcell "Tricia Laroche" [ref=f34e643]
+                    - gridcell "9/11/2026 5:09:39 PM" [ref=f34e644]
+                    - gridcell "Tricia Laroche" [ref=f34e646]
+                    - gridcell "9/11/2026 5:10:36 PM" [ref=f34e647]
+                    - gridcell "None" [ref=f34e649]
+                    - gridcell [ref=f34e650]
+                    - gridcell [ref=f34e651]
+                    - gridcell [ref=f34e652]
+                  - row [ref=f34e653]:
+                    - gridcell [ref=f34e654]:
+                      - checkbox [ref=f34e656]
+                    - gridcell "Unapproved" [ref=f34e657]
+                    - gridcell "Huntington Beach" [ref=f34e658]
+                    - gridcell "Journal Entry" [ref=f34e659]
+                    - gridcell "Accrued Electricity" [ref=f34e660]
+                    - gridcell "9/12/2026" [ref=f34e661]
+                    - gridcell [ref=f34e663]
+                    - gridcell "$3,185.00" [ref=f34e664]
+                    - gridcell "$0.00" [ref=f34e666]
+                    - gridcell [ref=f34e668]
+                    - gridcell [ref=f34e669]
+                    - gridcell [ref=f34e670]
+                    - gridcell [ref=f34e671]
+                    - gridcell "Tricia Laroche" [ref=f34e672]
+                    - gridcell "9/11/2026 5:05:59 PM" [ref=f34e673]
+                    - gridcell "Tricia Laroche" [ref=f34e675]
+                    - gridcell "9/11/2026 5:06:55 PM" [ref=f34e676]
+                    - gridcell "None" [ref=f34e678]
+                    - gridcell [ref=f34e679]
+                    - gridcell [ref=f34e680]
+                    - gridcell [ref=f34e681]
+                  - row [ref=f34e682]:
+                    - gridcell [ref=f34e683]:
+                      - checkbox [ref=f34e685]
+                    - gridcell "Unapproved" [ref=f34e686]
+                    - gridcell "Pico Rivera" [ref=f34e687]
+                    - gridcell "Journal Entry" [ref=f34e688]
+                    - gridcell "Accrued Electricity" [ref=f34e689]
+                    - gridcell "9/12/2026" [ref=f34e690]
+                    - gridcell [ref=f34e692]
+                    - gridcell "$4,544.00" [ref=f34e693]
+                    - gridcell "$0.00" [ref=f34e695]
+                    - gridcell [ref=f34e697]
+                    - gridcell [ref=f34e698]
+                    - gridcell [ref=f34e699]
+                    - gridcell [ref=f34e700]
+                    - gridcell "Tricia Laroche" [ref=f34e701]
+                    - gridcell "9/11/2026 5:31:49 PM" [ref=f34e702]
+                    - gridcell "Tricia Laroche" [ref=f34e704]
+                    - gridcell "9/11/2026 5:32:53 PM" [ref=f34e705]
+                    - gridcell "None" [ref=f34e707]
+                    - gridcell [ref=f34e708]
+                    - gridcell [ref=f34e709]
+                    - gridcell [ref=f34e710]
+                  - row [ref=f34e711]:
+                    - gridcell [ref=f34e712]:
+                      - checkbox [ref=f34e714]
+                    - gridcell "Unapproved" [ref=f34e715]
+                    - gridcell "Orange" [ref=f34e716]
+                    - gridcell "Journal Entry" [ref=f34e717]
+                    - gridcell "Accrued Electricity" [ref=f34e718]
+                    - gridcell "9/12/2026" [ref=f34e719]
+                    - gridcell [ref=f34e721]
+                    - gridcell "$2,412.00" [ref=f34e722]
+                    - gridcell "$0.00" [ref=f34e724]
+                    - gridcell [ref=f34e726]
+                    - gridcell [ref=f34e727]
+                    - gridcell [ref=f34e728]
+                    - gridcell [ref=f34e729]
+                    - gridcell "Tricia Laroche" [ref=f34e730]
+                    - gridcell "9/11/2026 5:04:08 PM" [ref=f34e731]
+                    - gridcell "Tricia Laroche" [ref=f34e733]
+                    - gridcell "9/11/2026 5:05:04 PM" [ref=f34e734]
+                    - gridcell "None" [ref=f34e736]
+                    - gridcell [ref=f34e737]
+                    - gridcell [ref=f34e738]
+                    - gridcell [ref=f34e739]
+                  - row [ref=f34e740]:
+                    - gridcell [ref=f34e741]:
+                      - checkbox [ref=f34e743]
+                    - gridcell "Unapproved" [ref=f34e744]
+                    - gridcell "South Torrance" [ref=f34e745]
+                    - gridcell "Journal Entry" [ref=f34e746]
+                    - gridcell "Accrued Electricity" [ref=f34e747]
+                    - gridcell "9/12/2026" [ref=f34e748]
+                    - gridcell [ref=f34e750]
+                    - gridcell "$3,130.00" [ref=f34e751]
+                    - gridcell "$0.00" [ref=f34e753]
+                    - gridcell [ref=f34e755]
+                    - gridcell [ref=f34e756]
+                    - gridcell [ref=f34e757]
+                    - gridcell [ref=f34e758]
+                    - gridcell "Tricia Laroche" [ref=f34e759]
+                    - gridcell "9/11/2026 5:11:31 PM" [ref=f34e760]
+                    - gridcell "Tricia Laroche" [ref=f34e762]
+                    - gridcell "9/11/2026 5:12:26 PM" [ref=f34e763]
+                    - gridcell "None" [ref=f34e765]
+                    - gridcell [ref=f34e766]
+                    - gridcell [ref=f34e767]
+                    - gridcell [ref=f34e768]
+                  - row [ref=f34e769]:
+                    - gridcell [ref=f34e770]:
+                      - checkbox [ref=f34e772]
+                    - gridcell "Unapproved" [ref=f34e773]
+                    - gridcell "Costa Mesa" [ref=f34e774]
+                    - gridcell "Journal Entry" [ref=f34e775]
+                    - gridcell "Accrued Electricity" [ref=f34e776]
+                    - gridcell "9/12/2026" [ref=f34e777]
+                    - gridcell [ref=f34e779]
+                    - gridcell "$2,665.00" [ref=f34e780]
+                    - gridcell "$0.00" [ref=f34e782]
+                    - gridcell [ref=f34e784]
+                    - gridcell [ref=f34e785]
+                    - gridcell [ref=f34e786]
+                    - gridcell [ref=f34e787]
+                    - gridcell "Tricia Laroche" [ref=f34e788]
+                    - gridcell "9/11/2026 5:07:49 PM" [ref=f34e789]
+                    - gridcell "Tricia Laroche" [ref=f34e791]
+                    - gridcell "9/11/2026 5:08:45 PM" [ref=f34e792]
+                    - gridcell "None" [ref=f34e794]
+                    - gridcell [ref=f34e795]
+                    - gridcell [ref=f34e796]
+                    - gridcell [ref=f34e797]
+                  - row [ref=f34e798]:
+                    - gridcell [ref=f34e799]:
+                      - checkbox [ref=f34e801]
+                    - gridcell "Unapproved" [ref=f34e802]
+                    - gridcell "Anaheim" [ref=f34e803]
+                    - gridcell "Journal Entry" [ref=f34e804]
+                    - gridcell "Accrued Electricity" [ref=f34e805]
+                    - gridcell "9/12/2026" [ref=f34e806]
+                    - gridcell [ref=f34e808]
+                    - gridcell "$2,132.00" [ref=f34e809]
+                    - gridcell "$0.00" [ref=f34e811]
+                    - gridcell [ref=f34e813]
+                    - gridcell [ref=f34e814]
+                    - gridcell [ref=f34e815]
+                    - gridcell [ref=f34e816]
+                    - gridcell "Tricia Laroche" [ref=f34e817]
+                    - gridcell "9/11/2026 5:02:17 PM" [ref=f34e818]
+                    - gridcell "Tricia Laroche" [ref=f34e820]
+                    - gridcell "9/11/2026 5:03:13 PM" [ref=f34e821]
+                    - gridcell "None" [ref=f34e823]
+                    - gridcell [ref=f34e824]
+                    - gridcell [ref=f34e825]
+                    - gridcell [ref=f34e826]
+                  - row [ref=f34e827]:
+                    - gridcell [ref=f34e828]:
+                      - checkbox [ref=f34e830]
+                    - gridcell "Unapproved" [ref=f34e831]
+                    - gridcell "Lakewood" [ref=f34e832]
+                    - gridcell "Journal Entry" [ref=f34e833]
+                    - gridcell "Accrued Electricity" [ref=f34e834]
+                    - gridcell "9/12/2026" [ref=f34e835]
+                    - gridcell [ref=f34e837]
+                    - gridcell "$3,203.00" [ref=f34e838]
+                    - gridcell "$0.00" [ref=f34e840]
+                    - gridcell [ref=f34e842]
+                    - gridcell [ref=f34e843]
+                    - gridcell [ref=f34e844]
+                    - gridcell [ref=f34e845]
+                    - gridcell "Tricia Laroche" [ref=f34e846]
+                    - gridcell "9/11/2026 4:59:59 PM" [ref=f34e847]
+                    - gridcell "Tricia Laroche" [ref=f34e849]
+                    - gridcell "9/11/2026 5:00:54 PM" [ref=f34e850]
+                    - gridcell "None" [ref=f34e852]
+                    - gridcell [ref=f34e853]
+                    - gridcell [ref=f34e854]
+                    - gridcell [ref=f34e855]
+                  - row [ref=f34e856]:
+                    - gridcell [ref=f34e857]:
+                      - checkbox [ref=f34e859]
+                    - gridcell "Unapproved" [ref=f34e860]
+                    - gridcell "North Torrance" [ref=f34e861]
+                    - gridcell "Journal Entry" [ref=f34e862]
+                    - gridcell "Accrued Electricity" [ref=f34e863]
+                    - gridcell "9/12/2026" [ref=f34e864]
+                    - gridcell [ref=f34e866]
+                    - gridcell "$2,534.00" [ref=f34e867]
+                    - gridcell "$0.00" [ref=f34e869]
+                    - gridcell [ref=f34e871]
+                    - gridcell [ref=f34e872]
+                    - gridcell [ref=f34e873]
+                    - gridcell [ref=f34e874]
+                    - gridcell "Tricia Laroche" [ref=f34e875]
+                    - gridcell "9/11/2026 4:54:59 PM" [ref=f34e876]
+                    - gridcell "Tricia Laroche" [ref=f34e878]
+                    - gridcell "9/11/2026 4:57:31 PM" [ref=f34e879]
+                    - gridcell "None" [ref=f34e881]
+                    - gridcell [ref=f34e882]
+                    - gridcell [ref=f34e883]
+                    - gridcell [ref=f34e884]
+                  - row [ref=f34e885]:
+                    - gridcell [ref=f34e886]:
+                      - checkbox [ref=f34e888]
+                    - gridcell "Unapproved" [ref=f34e889]
+                    - gridcell "Riverside" [ref=f34e890]
+                    - gridcell "Journal Entry" [ref=f34e891]
+                    - gridcell "Accrued Electricity" [ref=f34e892]
+                    - gridcell "9/12/2026" [ref=f34e893]
+                    - gridcell [ref=f34e895]
+                    - gridcell "$3,208.00" [ref=f34e896]
+                    - gridcell "$0.00" [ref=f34e898]
+                    - gridcell [ref=f34e900]
+                    - gridcell [ref=f34e901]
+                    - gridcell [ref=f34e902]
+                    - gridcell [ref=f34e903]
+                    - gridcell "Tricia Laroche" [ref=f34e904]
+                    - gridcell "9/11/2026 5:27:37 PM" [ref=f34e905]
+                    - gridcell "Tricia Laroche" [ref=f34e907]
+                    - gridcell "9/11/2026 5:28:36 PM" [ref=f34e908]
+                    - gridcell "None" [ref=f34e910]
+                    - gridcell [ref=f34e911]
+                    - gridcell [ref=f34e912]
+                    - gridcell [ref=f34e913]
+                  - row [ref=f34e914]:
+                    - gridcell [ref=f34e915]:
+                      - checkbox [ref=f34e917]
+                    - gridcell "Approved" [ref=f34e918]
+                    - gridcell "Slauson" [ref=f34e919]
+                    - gridcell "Journal Entry" [ref=f34e920]
+                    - gridcell "Accrued Electricity" [ref=f34e921]
+                    - gridcell "9/12/2026" [ref=f34e922]
+                    - gridcell [ref=f34e924]
+                    - gridcell "$2,845.00" [ref=f34e925]
+                    - gridcell "$0.00" [ref=f34e927]
+                    - gridcell [ref=f34e929]
+                    - gridcell [ref=f34e930]
+                    - gridcell "Tricia Laroche" [ref=f34e931]
+                    - gridcell "9/11/2026 4:37:12 PM" [ref=f34e932]
+                    - gridcell "Tricia Laroche" [ref=f34e934]
+                    - gridcell "9/11/2026 4:36:41 PM" [ref=f34e935]
+                    - gridcell "Tricia Laroche" [ref=f34e937]
+                    - gridcell "9/11/2026 4:37:12 PM" [ref=f34e938]
+                    - gridcell "None" [ref=f34e940]
+                    - gridcell [ref=f34e941]
+                    - gridcell [ref=f34e942]
+                    - gridcell [ref=f34e943]
+                  - row [ref=f34e944]:
+                    - gridcell [ref=f34e945]:
+                      - checkbox [ref=f34e947]
+                    - gridcell "Approved" [ref=f34e948]
+                    - gridcell "Las Vegas" [ref=f34e949]
+                    - gridcell "Journal Entry" [ref=f34e950]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e951]
+                    - gridcell "9/5/2026" [ref=f34e952]
+                    - gridcell [ref=f34e954]
+                    - gridcell "$6,386.52" [ref=f34e955]
+                    - gridcell "$0.00" [ref=f34e957]
+                    - gridcell "8/18-9/5" [ref=f34e959]
+                    - gridcell [ref=f34e960]
+                    - gridcell "Tricia Laroche" [ref=f34e961]
+                    - gridcell "9/11/2026 5:32:24 PM" [ref=f34e962]
+                    - gridcell "Tricia Laroche" [ref=f34e964]
+                    - gridcell "9/11/2026 5:08:12 PM" [ref=f34e965]
+                    - gridcell "Tricia Laroche" [ref=f34e967]
+                    - gridcell "9/11/2026 5:32:24 PM" [ref=f34e968]
+                    - gridcell "None" [ref=f34e970]
+                    - gridcell [ref=f34e971]
+                    - gridcell [ref=f34e972]
+                    - gridcell [ref=f34e973]
+                  - row [ref=f34e974]:
+                    - gridcell [ref=f34e975]:
+                      - checkbox [ref=f34e977]
+                    - gridcell "Approved" [ref=f34e978]
+                    - gridcell "Norms Support Center" [ref=f34e979]
+                    - gridcell "Journal Entry" [ref=f34e980]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e981]
+                    - gridcell "9/5/2026" [ref=f34e982]
+                    - gridcell [ref=f34e984]
+                    - gridcell "$4,868.23" [ref=f34e985]
+                    - gridcell "$0.00" [ref=f34e987]
+                    - gridcell "8/18-9/5" [ref=f34e989]
+                    - gridcell [ref=f34e990]
+                    - gridcell "Tricia Laroche" [ref=f34e991]
+                    - gridcell "9/11/2026 5:33:31 PM" [ref=f34e992]
+                    - gridcell "Tricia Laroche" [ref=f34e994]
+                    - gridcell "9/11/2026 5:10:31 PM" [ref=f34e995]
+                    - gridcell "Tricia Laroche" [ref=f34e997]
+                    - gridcell "9/11/2026 5:33:31 PM" [ref=f34e998]
+                    - gridcell "None" [ref=f34e1000]
+                    - gridcell [ref=f34e1001]
+                    - gridcell [ref=f34e1002]
+                    - gridcell [ref=f34e1003]
+                  - row [ref=f34e1004]:
+                    - gridcell [ref=f34e1005]:
+                      - checkbox [ref=f34e1007]
+                    - gridcell "Approved" [ref=f34e1008]
+                    - gridcell "Ontario" [ref=f34e1009]
+                    - gridcell "Journal Entry" [ref=f34e1010]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1011]
+                    - gridcell "9/5/2026" [ref=f34e1012]
+                    - gridcell [ref=f34e1014]
+                    - gridcell "$4,230.76" [ref=f34e1015]
+                    - gridcell "$0.00" [ref=f34e1017]
+                    - gridcell "8/18-9/5" [ref=f34e1019]
+                    - gridcell [ref=f34e1020]
+                    - gridcell "Tricia Laroche" [ref=f34e1021]
+                    - gridcell "9/11/2026 5:31:22 PM" [ref=f34e1022]
+                    - gridcell "Tricia Laroche" [ref=f34e1024]
+                    - gridcell "9/11/2026 5:05:53 PM" [ref=f34e1025]
+                    - gridcell "Tricia Laroche" [ref=f34e1027]
+                    - gridcell "9/11/2026 5:31:22 PM" [ref=f34e1028]
+                    - gridcell "None" [ref=f34e1030]
+                    - gridcell [ref=f34e1031]
+                    - gridcell [ref=f34e1032]
+                    - gridcell [ref=f34e1033]
+                  - row [ref=f34e1034]:
+                    - gridcell [ref=f34e1035]:
+                      - checkbox [ref=f34e1037]
+                    - gridcell "Approved" [ref=f34e1038]
+                    - gridcell "Hollywood" [ref=f34e1039]
+                    - gridcell "Journal Entry" [ref=f34e1040]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1041]
+                    - gridcell "9/5/2026" [ref=f34e1042]
+                    - gridcell [ref=f34e1044]
+                    - gridcell "$2,224.56" [ref=f34e1045]
+                    - gridcell "$0.00" [ref=f34e1047]
+                    - gridcell "8/18-9/5" [ref=f34e1049]
+                    - gridcell [ref=f34e1050]
+                    - gridcell "Tricia Laroche" [ref=f34e1051]
+                    - gridcell "9/11/2026 5:30:14 PM" [ref=f34e1052]
+                    - gridcell "Tricia Laroche" [ref=f34e1054]
+                    - gridcell "9/11/2026 5:03:34 PM" [ref=f34e1055]
+                    - gridcell "Tricia Laroche" [ref=f34e1057]
+                    - gridcell "9/11/2026 5:30:14 PM" [ref=f34e1058]
+                    - gridcell "None" [ref=f34e1060]
+                    - gridcell [ref=f34e1061]
+                    - gridcell [ref=f34e1062]
+                    - gridcell [ref=f34e1063]
+                  - row [ref=f34e1064]:
+                    - gridcell [ref=f34e1065]:
+                      - checkbox [ref=f34e1067]
+                    - gridcell "Approved" [ref=f34e1068]
+                    - gridcell "Pico Rivera" [ref=f34e1069]
+                    - gridcell "Journal Entry" [ref=f34e1070]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1071]
+                    - gridcell "9/5/2026" [ref=f34e1072]
+                    - gridcell [ref=f34e1074]
+                    - gridcell "$34,404.33" [ref=f34e1075]
+                    - gridcell "$0.00" [ref=f34e1077]
+                    - gridcell "8/18-9/5" [ref=f34e1079]
+                    - gridcell [ref=f34e1080]
+                    - gridcell "Tricia Laroche" [ref=f34e1081]
+                    - gridcell "9/11/2026 5:24:50 PM" [ref=f34e1082]
+                    - gridcell "Tricia Laroche" [ref=f34e1084]
+                    - gridcell "9/11/2026 4:44:22 PM" [ref=f34e1085]
+                    - gridcell "Tricia Laroche" [ref=f34e1087]
+                    - gridcell "9/11/2026 5:24:50 PM" [ref=f34e1088]
+                    - gridcell "None" [ref=f34e1090]
+                    - gridcell [ref=f34e1091]
+                    - gridcell [ref=f34e1092]
+                    - gridcell [ref=f34e1093]
+                  - row [ref=f34e1094]:
+                    - gridcell [ref=f34e1095]:
+                      - checkbox [ref=f34e1097]
+                    - gridcell "Approved" [ref=f34e1098]
+                    - gridcell "Riverside" [ref=f34e1099]
+                    - gridcell "Journal Entry" [ref=f34e1100]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1101]
+                    - gridcell "9/5/2026" [ref=f34e1102]
+                    - gridcell [ref=f34e1104]
+                    - gridcell "$8,708.35" [ref=f34e1105]
+                    - gridcell "$0.00" [ref=f34e1107]
+                    - gridcell "8/18-9/5" [ref=f34e1109]
+                    - gridcell [ref=f34e1110]
+                    - gridcell "Tricia Laroche" [ref=f34e1111]
+                    - gridcell "9/11/2026 5:22:44 PM" [ref=f34e1112]
+                    - gridcell "Tricia Laroche" [ref=f34e1114]
+                    - gridcell "9/11/2026 4:39:47 PM" [ref=f34e1115]
+                    - gridcell "Tricia Laroche" [ref=f34e1117]
+                    - gridcell "9/11/2026 5:22:44 PM" [ref=f34e1118]
+                    - gridcell "None" [ref=f34e1120]
+                    - gridcell [ref=f34e1121]
+                    - gridcell [ref=f34e1122]
+                    - gridcell [ref=f34e1123]
+                  - row [ref=f34e1124]:
+                    - gridcell [ref=f34e1125]:
+                      - checkbox [ref=f34e1127]
+                    - gridcell "Approved" [ref=f34e1128]
+                    - gridcell "Inglewood" [ref=f34e1129]
+                    - gridcell "Journal Entry" [ref=f34e1130]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1131]
+                    - gridcell "9/5/2026" [ref=f34e1132]
+                    - gridcell [ref=f34e1134]
+                    - gridcell "$9,059.90" [ref=f34e1135]
+                    - gridcell "$0.00" [ref=f34e1137]
+                    - gridcell "8/18-9/5" [ref=f34e1139]
+                    - gridcell [ref=f34e1140]
+                    - gridcell "Tricia Laroche" [ref=f34e1141]
+                    - gridcell "9/11/2026 5:28:11 PM" [ref=f34e1142]
+                    - gridcell "Tricia Laroche" [ref=f34e1144]
+                    - gridcell "9/11/2026 4:58:52 PM" [ref=f34e1145]
+                    - gridcell "Tricia Laroche" [ref=f34e1147]
+                    - gridcell "9/11/2026 5:28:11 PM" [ref=f34e1148]
+                    - gridcell "None" [ref=f34e1150]
+                    - gridcell [ref=f34e1151]
+                    - gridcell [ref=f34e1152]
+                    - gridcell [ref=f34e1153]
+                  - row [ref=f34e1154]:
+                    - gridcell [ref=f34e1155]:
+                      - checkbox [ref=f34e1157]
+                    - gridcell "Approved" [ref=f34e1158]
+                    - gridcell "Carson" [ref=f34e1159]
+                    - gridcell "Journal Entry" [ref=f34e1160]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1161]
+                    - gridcell "9/5/2026" [ref=f34e1162]
+                    - gridcell [ref=f34e1164]
+                    - gridcell "$2,716.19" [ref=f34e1165]
+                    - gridcell "$0.00" [ref=f34e1167]
+                    - gridcell "8/18-9/5" [ref=f34e1169]
+                    - gridcell [ref=f34e1170]
+                    - gridcell "Tricia Laroche" [ref=f34e1171]
+                    - gridcell "9/11/2026 5:27:12 PM" [ref=f34e1172]
+                    - gridcell "Tricia Laroche" [ref=f34e1174]
+                    - gridcell "9/11/2026 4:56:35 PM" [ref=f34e1175]
+                    - gridcell "Tricia Laroche" [ref=f34e1177]
+                    - gridcell "9/11/2026 5:27:12 PM" [ref=f34e1178]
+                    - gridcell "None" [ref=f34e1180]
+                    - gridcell [ref=f34e1181]
+                    - gridcell [ref=f34e1182]
+                    - gridcell [ref=f34e1183]
+                  - row [ref=f34e1184]:
+                    - gridcell [ref=f34e1185]:
+                      - checkbox [ref=f34e1187]
+                    - gridcell "Approved" [ref=f34e1188]
+                    - gridcell "El Monte" [ref=f34e1189]
+                    - gridcell "Journal Entry" [ref=f34e1190]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1191]
+                    - gridcell "9/5/2026" [ref=f34e1192]
+                    - gridcell [ref=f34e1194]
+                    - gridcell "$12,989.48" [ref=f34e1195]
+                    - gridcell "$0.00" [ref=f34e1197]
+                    - gridcell "8/18-9/5" [ref=f34e1199]
+                    - gridcell [ref=f34e1200]
+                    - gridcell "Tricia Laroche" [ref=f34e1201]
+                    - gridcell "9/11/2026 5:25:56 PM" [ref=f34e1202]
+                    - gridcell "Tricia Laroche" [ref=f34e1204]
+                    - gridcell "9/11/2026 4:54:19 PM" [ref=f34e1205]
+                    - gridcell "Tricia Laroche" [ref=f34e1207]
+                    - gridcell "9/11/2026 5:25:56 PM" [ref=f34e1208]
+                    - gridcell "None" [ref=f34e1210]
+                    - gridcell [ref=f34e1211]
+                    - gridcell [ref=f34e1212]
+                    - gridcell [ref=f34e1213]
+                  - row [ref=f34e1214]:
+                    - gridcell [ref=f34e1215]:
+                      - checkbox [ref=f34e1217]
+                    - gridcell "Approved" [ref=f34e1218]
+                    - gridcell "Santa Ana" [ref=f34e1219]
+                    - gridcell "Journal Entry" [ref=f34e1220]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1221]
+                    - gridcell "9/5/2026" [ref=f34e1222]
+                    - gridcell [ref=f34e1224]
+                    - gridcell "$11,411.56" [ref=f34e1225]
+                    - gridcell "$0.00" [ref=f34e1227]
+                    - gridcell "8/18-9/5" [ref=f34e1229]
+                    - gridcell [ref=f34e1230]
+                    - gridcell "Tricia Laroche" [ref=f34e1231]
+                    - gridcell "9/11/2026 5:20:40 PM" [ref=f34e1232]
+                    - gridcell "Tricia Laroche" [ref=f34e1234]
+                    - gridcell "9/11/2026 4:35:12 PM" [ref=f34e1235]
+                    - gridcell "Tricia Laroche" [ref=f34e1237]
+                    - gridcell "9/11/2026 5:20:40 PM" [ref=f34e1238]
+                    - gridcell "None" [ref=f34e1240]
+                    - gridcell [ref=f34e1241]
+                    - gridcell [ref=f34e1242]
+                    - gridcell [ref=f34e1243]
+                  - row [ref=f34e1244]:
+                    - gridcell [ref=f34e1245]:
+                      - checkbox [ref=f34e1247]
+                    - gridcell "Approved" [ref=f34e1248]
+                    - gridcell "La Cienega" [ref=f34e1249]
+                    - gridcell "Journal Entry" [ref=f34e1250]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1251]
+                    - gridcell "9/5/2026" [ref=f34e1252]
+                    - gridcell [ref=f34e1254]
+                    - gridcell "$1,135.79" [ref=f34e1255]
+                    - gridcell "$0.00" [ref=f34e1257]
+                    - gridcell "8/18-9/5" [ref=f34e1259]
+                    - gridcell [ref=f34e1260]
+                    - gridcell "Tricia Laroche" [ref=f34e1261]
+                    - gridcell "9/11/2026 5:23:47 PM" [ref=f34e1262]
+                    - gridcell "Tricia Laroche" [ref=f34e1264]
+                    - gridcell "9/11/2026 4:42:04 PM" [ref=f34e1265]
+                    - gridcell "Tricia Laroche" [ref=f34e1267]
+                    - gridcell "9/11/2026 5:23:47 PM" [ref=f34e1268]
+                    - gridcell "None" [ref=f34e1270]
+                    - gridcell [ref=f34e1271]
+                    - gridcell [ref=f34e1272]
+                    - gridcell [ref=f34e1273]
+                  - row [ref=f34e1274]:
+                    - gridcell [ref=f34e1275]:
+                      - checkbox [ref=f34e1277]
+                    - gridcell "Approved" [ref=f34e1278]
+                    - gridcell "Downey" [ref=f34e1279]
+                    - gridcell "Journal Entry" [ref=f34e1280]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1281]
+                    - gridcell "9/5/2026" [ref=f34e1282]
+                    - gridcell [ref=f34e1284]
+                    - gridcell "$996.51" [ref=f34e1285]
+                    - gridcell "$0.00" [ref=f34e1287]
+                    - gridcell "8/18-9/5" [ref=f34e1289]
+                    - gridcell [ref=f34e1290]
+                    - gridcell "Tricia Laroche" [ref=f34e1291]
+                    - gridcell "9/11/2026 5:21:43 PM" [ref=f34e1292]
+                    - gridcell "Tricia Laroche" [ref=f34e1294]
+                    - gridcell "9/11/2026 4:37:29 PM" [ref=f34e1295]
+                    - gridcell "Tricia Laroche" [ref=f34e1297]
+                    - gridcell "9/11/2026 5:21:43 PM" [ref=f34e1298]
+                    - gridcell "None" [ref=f34e1300]
+                    - gridcell [ref=f34e1301]
+                    - gridcell [ref=f34e1302]
+                    - gridcell [ref=f34e1303]
+                  - row [ref=f34e1304]:
+                    - gridcell [ref=f34e1305]:
+                      - checkbox [ref=f34e1307]
+                    - gridcell "Approved" [ref=f34e1308]
+                    - gridcell "Van Nuys" [ref=f34e1309]
+                    - gridcell "Journal Entry" [ref=f34e1310]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1311]
+                    - gridcell "9/5/2026" [ref=f34e1312]
+                    - gridcell [ref=f34e1314]
+                    - gridcell "$4,357.69" [ref=f34e1315]
+                    - gridcell "$0.00" [ref=f34e1317]
+                    - gridcell "8/18-9/5" [ref=f34e1319]
+                    - gridcell [ref=f34e1320]
+                    - gridcell "Tricia Laroche" [ref=f34e1321]
+                    - gridcell "9/11/2026 5:19:39 PM" [ref=f34e1322]
+                    - gridcell "Tricia Laroche" [ref=f34e1324]
+                    - gridcell "9/11/2026 4:32:55 PM" [ref=f34e1325]
+                    - gridcell "Tricia Laroche" [ref=f34e1327]
+                    - gridcell "9/11/2026 5:19:39 PM" [ref=f34e1328]
+                    - gridcell "None" [ref=f34e1330]
+                    - gridcell [ref=f34e1331]
+                    - gridcell [ref=f34e1332]
+                    - gridcell [ref=f34e1333]
+                  - row [ref=f34e1334]:
+                    - gridcell [ref=f34e1335]:
+                      - checkbox [ref=f34e1337]
+                    - gridcell "Approved" [ref=f34e1338]
+                    - gridcell "Claremont" [ref=f34e1339]
+                    - gridcell "Journal Entry" [ref=f34e1340]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1341]
+                    - gridcell "9/5/2026" [ref=f34e1342]
+                    - gridcell [ref=f34e1344]
+                    - gridcell "$2,178.82" [ref=f34e1345]
+                    - gridcell "$0.00" [ref=f34e1347]
+                    - gridcell "8/18-9/5" [ref=f34e1349]
+                    - gridcell [ref=f34e1350]
+                    - gridcell "Tricia Laroche" [ref=f34e1351]
+                    - gridcell "9/11/2026 5:18:32 PM" [ref=f34e1352]
+                    - gridcell "Tricia Laroche" [ref=f34e1354]
+                    - gridcell "9/11/2026 4:30:38 PM" [ref=f34e1355]
+                    - gridcell "Tricia Laroche" [ref=f34e1357]
+                    - gridcell "9/11/2026 5:18:32 PM" [ref=f34e1358]
+                    - gridcell "None" [ref=f34e1360]
+                    - gridcell [ref=f34e1361]
+                    - gridcell [ref=f34e1362]
+                    - gridcell [ref=f34e1363]
+                  - row [ref=f34e1364]:
+                    - gridcell [ref=f34e1365]:
+                      - checkbox [ref=f34e1367]
+                    - gridcell "Approved" [ref=f34e1368]
+                    - gridcell "West Covina" [ref=f34e1369]
+                    - gridcell "Journal Entry" [ref=f34e1370]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1371]
+                    - gridcell "9/5/2026" [ref=f34e1372]
+                    - gridcell [ref=f34e1374]
+                    - gridcell "$2,082.18" [ref=f34e1375]
+                    - gridcell "$0.00" [ref=f34e1377]
+                    - gridcell "8/18-9/5" [ref=f34e1379]
+                    - gridcell [ref=f34e1380]
+                    - gridcell "Tricia Laroche" [ref=f34e1381]
+                    - gridcell "9/11/2026 5:17:28 PM" [ref=f34e1382]
+                    - gridcell "Tricia Laroche" [ref=f34e1384]
+                    - gridcell "9/11/2026 4:28:20 PM" [ref=f34e1385]
+                    - gridcell "Tricia Laroche" [ref=f34e1387]
+                    - gridcell "9/11/2026 5:17:28 PM" [ref=f34e1388]
+                    - gridcell "None" [ref=f34e1390]
+                    - gridcell [ref=f34e1391]
+                    - gridcell [ref=f34e1392]
+                    - gridcell [ref=f34e1393]
+                  - row [ref=f34e1394]:
+                    - gridcell [ref=f34e1395]:
+                      - checkbox [ref=f34e1397]
+                    - gridcell "Approved" [ref=f34e1398]
+                    - gridcell "Whittier" [ref=f34e1399]
+                    - gridcell "Journal Entry" [ref=f34e1400]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1401]
+                    - gridcell "9/5/2026" [ref=f34e1402]
+                    - gridcell [ref=f34e1404]
+                    - gridcell "$3,537.86" [ref=f34e1405]
+                    - gridcell "$0.00" [ref=f34e1407]
+                    - gridcell "8/18-9/5" [ref=f34e1409]
+                    - gridcell [ref=f34e1410]
+                    - gridcell "Tricia Laroche" [ref=f34e1411]
+                    - gridcell "9/11/2026 5:15:22 PM" [ref=f34e1412]
+                    - gridcell "Tricia Laroche" [ref=f34e1414]
+                    - gridcell "9/11/2026 4:23:45 PM" [ref=f34e1415]
+                    - gridcell "Tricia Laroche" [ref=f34e1417]
+                    - gridcell "9/11/2026 5:15:22 PM" [ref=f34e1418]
+                    - gridcell "None" [ref=f34e1420]
+                    - gridcell [ref=f34e1421]
+                    - gridcell [ref=f34e1422]
+                    - gridcell [ref=f34e1423]
+                  - row [ref=f34e1424]:
+                    - gridcell [ref=f34e1425]:
+                      - checkbox [ref=f34e1427]
+                    - gridcell "Approved" [ref=f34e1428]
+                    - gridcell "Costa Mesa" [ref=f34e1429]
+                    - gridcell "Journal Entry" [ref=f34e1430]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1431]
+                    - gridcell "9/5/2026" [ref=f34e1432]
+                    - gridcell [ref=f34e1434]
+                    - gridcell "$4,948.94" [ref=f34e1435]
+                    - gridcell "$0.00" [ref=f34e1437]
+                    - gridcell "8/18-9/5" [ref=f34e1439]
+                    - gridcell [ref=f34e1440]
+                    - gridcell "Tricia Laroche" [ref=f34e1441]
+                    - gridcell "9/11/2026 4:20:46 PM" [ref=f34e1442]
+                    - gridcell "Tricia Laroche" [ref=f34e1444]
+                    - gridcell "9/11/2026 4:11:44 PM" [ref=f34e1445]
+                    - gridcell "Tricia Laroche" [ref=f34e1447]
+                    - gridcell "9/11/2026 4:20:46 PM" [ref=f34e1448]
+                    - gridcell "None" [ref=f34e1450]
+                    - gridcell [ref=f34e1451]
+                    - gridcell [ref=f34e1452]
+                    - gridcell [ref=f34e1453]
+                  - row [ref=f34e1454]:
+                    - gridcell [ref=f34e1455]:
+                      - checkbox [ref=f34e1457]
+                    - gridcell "Approved" [ref=f34e1458]
+                    - gridcell "Orange" [ref=f34e1459]
+                    - gridcell "Journal Entry" [ref=f34e1460]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1461]
+                    - gridcell "9/5/2026" [ref=f34e1462]
+                    - gridcell [ref=f34e1464]
+                    - gridcell "$10,683.28" [ref=f34e1465]
+                    - gridcell "$0.00" [ref=f34e1467]
+                    - gridcell "8/18-9/5" [ref=f34e1469]
+                    - gridcell [ref=f34e1470]
+                    - gridcell "Tricia Laroche" [ref=f34e1471]
+                    - gridcell "9/11/2026 4:18:58 PM" [ref=f34e1472]
+                    - gridcell "Tricia Laroche" [ref=f34e1474]
+                    - gridcell "9/11/2026 4:07:09 PM" [ref=f34e1475]
+                    - gridcell "Tricia Laroche" [ref=f34e1477]
+                    - gridcell "9/11/2026 4:18:58 PM" [ref=f34e1478]
+                    - gridcell "None" [ref=f34e1480]
+                    - gridcell [ref=f34e1481]
+                    - gridcell [ref=f34e1482]
+                    - gridcell [ref=f34e1483]
+                  - row [ref=f34e1484]:
+                    - gridcell [ref=f34e1485]:
+                      - checkbox [ref=f34e1487]
+                    - gridcell "Approved" [ref=f34e1488]
+                    - gridcell "Anaheim" [ref=f34e1489]
+                    - gridcell "Journal Entry" [ref=f34e1490]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1491]
+                    - gridcell "9/5/2026" [ref=f34e1492]
+                    - gridcell [ref=f34e1494]
+                    - gridcell "$14,011.59" [ref=f34e1495]
+                    - gridcell "$0.00" [ref=f34e1497]
+                    - gridcell "8/18-9/5" [ref=f34e1499]
+                    - gridcell [ref=f34e1500]
+                    - gridcell "Tricia Laroche" [ref=f34e1501]
+                    - gridcell "9/11/2026 4:18:03 PM" [ref=f34e1502]
+                    - gridcell "Tricia Laroche" [ref=f34e1504]
+                    - gridcell "9/11/2026 4:04:50 PM" [ref=f34e1505]
+                    - gridcell "Tricia Laroche" [ref=f34e1507]
+                    - gridcell "9/11/2026 4:18:03 PM" [ref=f34e1508]
+                    - gridcell "None" [ref=f34e1510]
+                    - gridcell [ref=f34e1511]
+                    - gridcell [ref=f34e1512]
+                    - gridcell [ref=f34e1513]
+                  - row [ref=f34e1514]:
+                    - gridcell [ref=f34e1515]:
+                      - checkbox [ref=f34e1517]
+                    - gridcell "Approved" [ref=f34e1518]
+                    - gridcell "South Torrance" [ref=f34e1519]
+                    - gridcell "Journal Entry" [ref=f34e1520]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1521]
+                    - gridcell "9/5/2026" [ref=f34e1522]
+                    - gridcell [ref=f34e1524]
+                    - gridcell "$9,390.54" [ref=f34e1525]
+                    - gridcell "$0.00" [ref=f34e1527]
+                    - gridcell "8/18-9/5" [ref=f34e1529]
+                    - gridcell [ref=f34e1530]
+                    - gridcell "Tricia Laroche" [ref=f34e1531]
+                    - gridcell "9/11/2026 5:16:24 PM" [ref=f34e1532]
+                    - gridcell "Tricia Laroche" [ref=f34e1534]
+                    - gridcell "9/11/2026 4:26:04 PM" [ref=f34e1535]
+                    - gridcell "Tricia Laroche" [ref=f34e1537]
+                    - gridcell "9/11/2026 5:16:24 PM" [ref=f34e1538]
+                    - gridcell "None" [ref=f34e1540]
+                    - gridcell [ref=f34e1541]
+                    - gridcell [ref=f34e1542]
+                    - gridcell [ref=f34e1543]
+                  - row [ref=f34e1544]:
+                    - gridcell [ref=f34e1545]:
+                      - checkbox [ref=f34e1547]
+                    - gridcell "Approved" [ref=f34e1548]
+                    - gridcell "Huntington Beach" [ref=f34e1549]
+                    - gridcell "Journal Entry" [ref=f34e1550]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1551]
+                    - gridcell "9/5/2026" [ref=f34e1552]
+                    - gridcell [ref=f34e1554]
+                    - gridcell "$2,275.21" [ref=f34e1555]
+                    - gridcell "$0.00" [ref=f34e1557]
+                    - gridcell "8/18-9/5" [ref=f34e1559]
+                    - gridcell [ref=f34e1560]
+                    - gridcell "Tricia Laroche" [ref=f34e1561]
+                    - gridcell "9/11/2026 4:19:52 PM" [ref=f34e1562]
+                    - gridcell "Tricia Laroche" [ref=f34e1564]
+                    - gridcell "9/11/2026 4:09:26 PM" [ref=f34e1565]
+                    - gridcell "Tricia Laroche" [ref=f34e1567]
+                    - gridcell "9/11/2026 4:19:52 PM" [ref=f34e1568]
+                    - gridcell "None" [ref=f34e1570]
+                    - gridcell [ref=f34e1571]
+                    - gridcell [ref=f34e1572]
+                    - gridcell [ref=f34e1573]
+                  - row [ref=f34e1574]:
+                    - gridcell [ref=f34e1575]:
+                      - checkbox [ref=f34e1577]
+                    - gridcell "Approved" [ref=f34e1578]
+                    - gridcell "Lakewood" [ref=f34e1579]
+                    - gridcell "Journal Entry" [ref=f34e1580]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1581]
+                    - gridcell "9/5/2026" [ref=f34e1582]
+                    - gridcell [ref=f34e1584]
+                    - gridcell "$11,897.67" [ref=f34e1585]
+                    - gridcell "$0.00" [ref=f34e1587]
+                    - gridcell "8/18-9/5" [ref=f34e1589]
+                    - gridcell [ref=f34e1590]
+                    - gridcell "Tricia Laroche" [ref=f34e1591]
+                    - gridcell "9/11/2026 4:17:09 PM" [ref=f34e1592]
+                    - gridcell "Tricia Laroche" [ref=f34e1594]
+                    - gridcell "9/11/2026 4:02:19 PM" [ref=f34e1595]
+                    - gridcell "Tricia Laroche" [ref=f34e1597]
+                    - gridcell "9/11/2026 4:17:09 PM" [ref=f34e1598]
+                    - gridcell "None" [ref=f34e1600]
+                    - gridcell [ref=f34e1601]
+                    - gridcell [ref=f34e1602]
+                    - gridcell [ref=f34e1603]
+                  - row [ref=f34e1604]:
+                    - gridcell [ref=f34e1605]:
+                      - checkbox [ref=f34e1607]
+                    - gridcell "Approved" [ref=f34e1608]
+                    - gridcell "Slauson" [ref=f34e1609]
+                    - gridcell "Journal Entry" [ref=f34e1610]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1611]
+                    - gridcell "9/5/2026" [ref=f34e1612]
+                    - gridcell [ref=f34e1614]
+                    - gridcell "$7,722.14" [ref=f34e1615]
+                    - gridcell "$0.00" [ref=f34e1617]
+                    - gridcell "8/18-9/5" [ref=f34e1619]
+                    - gridcell [ref=f34e1620]
+                    - gridcell "Tricia Laroche" [ref=f34e1621]
+                    - gridcell "9/11/2026 3:48:24 PM" [ref=f34e1622]
+                    - gridcell "Tricia Laroche" [ref=f34e1624]
+                    - gridcell "9/11/2026 3:35:45 PM" [ref=f34e1625]
+                    - gridcell "Tricia Laroche" [ref=f34e1627]
+                    - gridcell "9/11/2026 3:48:24 PM" [ref=f34e1628]
+                    - gridcell "None" [ref=f34e1630]
+                    - gridcell [ref=f34e1631]
+                    - gridcell [ref=f34e1632]
+                    - gridcell [ref=f34e1633]
+                  - row [ref=f34e1634]:
+                    - gridcell [ref=f34e1635]:
+                      - checkbox [ref=f34e1637]
+                    - gridcell "Approved" [ref=f34e1638]
+                    - gridcell "North Torrance" [ref=f34e1639]
+                    - gridcell "Journal Entry" [ref=f34e1640]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1641]
+                    - gridcell "9/5/2026" [ref=f34e1642]
+                    - gridcell [ref=f34e1644]
+                    - gridcell "$4,344.02" [ref=f34e1645]
+                    - gridcell "$0.00" [ref=f34e1647]
+                    - gridcell "8/18-9/5" [ref=f34e1649]
+                    - gridcell [ref=f34e1650]
+                    - gridcell "Tricia Laroche" [ref=f34e1651]
+                    - gridcell "9/11/2026 4:16:04 PM" [ref=f34e1652]
+                    - gridcell "Tricia Laroche" [ref=f34e1654]
+                    - gridcell "9/11/2026 3:52:45 PM" [ref=f34e1655]
+                    - gridcell "Tricia Laroche" [ref=f34e1657]
+                    - gridcell "9/11/2026 4:16:04 PM" [ref=f34e1658]
+                    - gridcell "None" [ref=f34e1660]
+                    - gridcell [ref=f34e1661]
+                    - gridcell [ref=f34e1662]
+                    - gridcell [ref=f34e1663]
+                  - row [ref=f34e1664]:
+                    - gridcell [ref=f34e1665]:
+                      - checkbox [ref=f34e1667]
+                    - gridcell "Approved" [ref=f34e1668]
+                    - gridcell "Rialto" [ref=f34e1669]
+                    - gridcell "Journal Entry" [ref=f34e1670]
+                    - gridcell "P9'26 Accrued Electricity" [ref=f34e1671]
+                    - gridcell "9/5/2026" [ref=f34e1672]
+                    - gridcell [ref=f34e1674]
+                    - gridcell "$9,490.59" [ref=f34e1675]
+                    - gridcell "$0.00" [ref=f34e1677]
+                    - gridcell "8/18-9/5" [ref=f34e1679]
+                    - gridcell [ref=f34e1680]
+                    - gridcell "Tricia Laroche" [ref=f34e1681]
+                    - gridcell "9/11/2026 5:29:12 PM" [ref=f34e1682]
+                    - gridcell "Tricia Laroche" [ref=f34e1684]
+                    - gridcell "9/11/2026 5:01:15 PM" [ref=f34e1685]
+                    - gridcell "Tricia Laroche" [ref=f34e1687]
+                    - gridcell "9/11/2026 5:29:12 PM" [ref=f34e1688]
+                    - gridcell "None" [ref=f34e1690]
+                    - gridcell [ref=f34e1691]
+                    - gridcell [ref=f34e1692]
+                    - gridcell [ref=f34e1693]
+                  - row [ref=f34e1694]:
+                    - gridcell [ref=f34e1695]:
+                      - checkbox [ref=f34e1697]
+                    - gridcell "Approved" [ref=f34e1698]
+                    - gridcell "Norms Support Center" [ref=f34e1699]
+                    - gridcell "Journal Entry" [ref=f34e1700]
+                    - gridcell "P7'26 Accrued Electricity" [ref=f34e1701]
+                    - gridcell "7/11/2026" [ref=f34e1702]
+                    - gridcell [ref=f34e1704]
+                    - gridcell "$18,782.42" [ref=f34e1705]
+                    - gridcell "$0.00" [ref=f34e1707]
+                    - gridcell [ref=f34e1709]
+                    - gridcell [ref=f34e1710]
+                    - gridcell "Tricia Laroche" [ref=f34e1711]
+                    - gridcell "7/30/2026 5:07:30 PM" [ref=f34e1712]
+                    - gridcell "Tricia Laroche" [ref=f34e1714]
+                    - gridcell "7/30/2026 5:05:47 PM" [ref=f34e1715]
+                    - gridcell "Tricia Laroche" [ref=f34e1717]
+                    - gridcell "7/30/2026 5:07:30 PM" [ref=f34e1718]
+                    - gridcell "None" [ref=f34e1720]
+                    - gridcell "Yes" [ref=f34e1721]
+                    - gridcell [ref=f34e1722]
+                    - gridcell [ref=f34e1723]
+              - generic [ref=f34e1726]:
+                - generic [ref=f34e1727]: 1 - 43 of 43 items
+                - generic [ref=f34e1728]: 0 Items Selected
+  - iframe

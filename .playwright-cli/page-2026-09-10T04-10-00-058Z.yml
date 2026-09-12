@@ -1,0 +1,28 @@
+- generic [ref=e3]:
+  - img "Uber Eats logo" [ref=e63]
+  - main [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - heading "Welcome back, Mark." [level=1] [ref=e70]
+        - paragraph [ref=e71]:
+          - generic [ref=e72]:
+            - text: "Enter the 4-digit code sent to you at:"
+            - generic [ref=e73]: mark+42@ocra-us.com
+        - generic [ref=e76]:
+          - generic [ref=e77]:
+            - generic [ref=e78]:
+              - textbox "Enter an OTP Code 1 of 4" [active] [ref=e81]:
+                - /placeholder: ""
+              - textbox "Enter an OTP Code 2 of 4" [ref=e84]:
+                - /placeholder: ""
+              - textbox "Enter an OTP Code 3 of 4" [ref=e87]:
+                - /placeholder: ""
+              - textbox "Enter an OTP Code 4 of 4" [ref=e90]:
+                - /placeholder: ""
+            - paragraph
+          - paragraph [ref=e91]: "Tip: Make sure to check your inbox and spam folders"
+        - button "Resend" [ref=e95] [cursor=pointer]
+      - generic [ref=e99]:
+        - button "Back" [ref=e100] [cursor=pointer]:
+          - img "Back" [ref=e103]
+        - button "Next" [disabled] [ref=e105]

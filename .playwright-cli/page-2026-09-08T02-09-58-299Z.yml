@@ -1,0 +1,111 @@
+- generic [ref=f204e6]:
+  - generic [ref=f204e7]:
+    - link [ref=f204e8] [cursor=pointer]:
+      - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a
+    - generic [ref=f204e19]:
+      - button "Help" [ref=f204e21] [cursor=pointer]
+      - button "Notifications" [ref=f204e26] [cursor=pointer]
+      - button [ref=f204e33] [cursor=pointer]
+  - generic [ref=f204e36]:
+    - generic [ref=f204e39]:
+      - button "Business All stores" [ref=f204e41] [cursor=pointer]:
+        - generic:
+          - paragraph: Business
+          - heading "All stores" [level=6]
+      - link "Home" [ref=f204e46] [cursor=pointer]:
+        - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a
+      - generic [ref=f204e52]:
+        - generic [ref=f204e53]: Stores
+        - generic:
+          - generic:
+            - generic:
+              - link "All stores" [ref=f204e64] [cursor=pointer]:
+                - /url: /manager/stores
+              - link "Store groups" [ref=f204e68] [cursor=pointer]:
+                - /url: /manager/groups
+              - link "Webshop" [ref=f204e72] [cursor=pointer]:
+                - /url: /manager/webshop?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+              - link "Devices" [ref=f204e76] [cursor=pointer]:
+                - /url: /manager/devices
+      - link "Orders" [ref=f204e80] [cursor=pointer]:
+        - /url: /manager/orders?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - generic [ref=f204e88]: Performance
+      - generic:
+        - generic:
+          - generic:
+            - link "Sales" [ref=f204e101] [cursor=pointer]:
+              - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a/analytics/sales-v2
+            - link "Operations" [ref=f204e105] [cursor=pointer]:
+              - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a/analytics/operations
+            - link "Top Eats" [ref=f204e109] [cursor=pointer]:
+              - /url: /manager/top-eats?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Market benchmarking" [ref=f204e113] [cursor=pointer]:
+              - /url: /manager/competitive-insights
+      - generic [ref=f204e116]: Customers
+      - generic:
+        - generic:
+          - generic:
+            - link "Customer insights" [ref=f204e128] [cursor=pointer]:
+              - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a/analytics
+            - link "Reviews" [ref=f204e132] [cursor=pointer]:
+              - /url: /manager/home/7420592c-4b07-58ac-ab16-78bb5271f05a/feedback
+      - link "Rewards center" [ref=f204e136] [cursor=pointer]:
+        - /url: /manager/rewards-center?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Reports" [ref=f204e143] [cursor=pointer]:
+        - /url: /manager/reports?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Offers" [ref=f204e150] [cursor=pointer]:
+        - /url: /manager/offers?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Marketing" [ref=f204e157] [cursor=pointer]:
+        - /url: /manager/marketing/redirect?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Menu" [ref=f204e164] [cursor=pointer]:
+        - /url: /menumaker/7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Menu pricing" [ref=f204e171] [cursor=pointer]:
+        - /url: /manager/menu-markup?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - generic [ref=f204e177]: Payments
+      - generic [ref=f204e189]:
+        - link "Payouts" [ref=f204e192] [cursor=pointer]:
+          - /url: /manager/payments?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+        - link "Payouts by order" [ref=f204e196] [cursor=pointer]:
+          - /url: /manager/payments/payouts-by-order?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+        - link "Banking" [ref=f204e200] [cursor=pointer]:
+          - /url: /manager/payments/settings?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - link "Users" [ref=f204e204] [cursor=pointer]:
+        - /url: /manager/users?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+      - generic [ref=f204e211]: Settings
+      - generic:
+        - generic:
+          - generic:
+            - link "General" [ref=f204e224] [cursor=pointer]:
+              - /url: /manager/settings/general?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Holiday Hours" [ref=f204e228] [cursor=pointer]:
+              - /url: /manager/holiday-hours?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Preparation Times" [ref=f204e232] [cursor=pointer]:
+              - /url: /manager/prep-times?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Documents" [ref=f204e236] [cursor=pointer]:
+              - /url: /manager/documents?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Tax/Invoice" [ref=f204e240] [cursor=pointer]:
+              - /url: /manager/tax-information?restaurantUUID=7420592c-4b07-58ac-ab16-78bb5271f05a
+            - link "Appointments" [ref=f204e244] [cursor=pointer]:
+              - /url: /manager/settings/appointments
+      - generic [ref=f204e247]: Channels
+      - link "Uber Direct" [ref=f204e263] [cursor=pointer]:
+        - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=7420592c-4b07-58ac-ab16-78bb5271f05a
+    - generic [ref=f204e273]:
+      - complementary [ref=f204e274]:
+        - generic [ref=f204e275]:
+          - generic [ref=f204e276]: Grow your business with up to $3,800 in pre-approved capital
+          - generic [ref=f204e277]:
+            - button "close" [ref=f204e278] [cursor=pointer]
+            - text: Increase your cash flow with Uber's new Merchant Capital program, provided by Pipe. Check your pre-approved offer and terms today!
+        - button "See financing offer" [ref=f204e282] [cursor=pointer]
+      - heading "Payouts" [level=1] [ref=f204e287]
+      - generic [ref=f204e288]:
+        - tablist [ref=f204e290]:
+          - tab "Overview" [selected] [ref=f204e291] [cursor=pointer]
+          - tab "Statements" [ref=f204e292] [cursor=pointer]
+        - tabpanel "Overview" [ref=f204e295]
+      - generic [ref=f204e296]:
+        - generic [ref=f204e297]:
+          - button "Norms (Las Vegas)" [ref=f204e299] [cursor=pointer]
+          - generic "spinner" [ref=f204e304]
+        - button "Download" [ref=f204e306] [cursor=pointer]

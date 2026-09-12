@@ -1,0 +1,221 @@
+- generic [ref=f40e2]:
+  - generic [ref=f40e4]:
+    - generic [ref=f40e5]: Theme Builder
+    - button [ref=f40e8] [cursor=pointer]:
+      - generic [ref=f40e9]: 
+    - generic [ref=f40e10]:
+      - generic [ref=f40e11]:
+        - heading "Ribbon" [level=4] [ref=f40e12]
+        - generic [ref=f40e13]:
+          - generic [ref=f40e14]: BG
+          - generic [ref=f40e15]: Font
+          - generic [ref=f40e16]: Hover BG
+          - generic [ref=f40e17]: Hover Font
+        - generic "Menu" [ref=f40e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f40e22]':
+            - generic [ref=f40e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f40e28]':
+            - generic [ref=f40e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f40e34]':
+            - generic [ref=f40e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f40e40]':
+            - generic [ref=f40e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f40e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f40e49]':
+            - generic [ref=f40e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f40e55]':
+            - generic [ref=f40e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f40e61]':
+            - generic [ref=f40e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f40e67]':
+            - generic [ref=f40e71] [cursor=pointer]
+      - generic [ref=f40e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f40e73]
+        - button "Upload Ribbon Logo" [ref=f40e78] [cursor=pointer]
+      - generic [ref=f40e79]:
+        - heading "Left Panel" [level=4] [ref=f40e80]
+        - generic [ref=f40e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f40e84]':
+            - generic [ref=f40e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f40e90]':
+            - generic [ref=f40e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f40e96]':
+            - generic [ref=f40e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f40e102]':
+            - generic [ref=f40e106] [cursor=pointer]
+      - generic [ref=f40e107]:
+        - heading "Components" [level=4] [ref=f40e108]
+        - generic "Normal" [ref=f40e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f40e113]':
+            - generic [ref=f40e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f40e119]':
+            - generic [ref=f40e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f40e125]':
+            - generic [ref=f40e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f40e131]':
+            - generic [ref=f40e135] [cursor=pointer]
+        - generic "Selected" [ref=f40e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f40e140]':
+            - generic [ref=f40e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f40e146]':
+            - generic [ref=f40e150] [cursor=pointer]
+    - generic [ref=f40e151]:
+      - generic [ref=f40e152]:
+        - generic [ref=f40e155]:
+          - combobox "Select Theme" [ref=f40e156]: Default R365 Theme
+          - button "select" [ref=f40e158] [cursor=pointer]
+        - generic [ref=f40e159]:
+          - button "Set As Default" [ref=f40e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f40e161]
+          - button "Delete" [disabled] [ref=f40e162]
+      - generic [ref=f40e163]:
+        - textbox "Add New Theme" [ref=f40e165]
+        - button "New" [ref=f40e167] [cursor=pointer]
+  - generic [ref=f40e188]:
+    - generic [ref=f40e189]:
+      - navigation [ref=f40e193]:
+        - generic [ref=f40e194]:
+          - generic: Journal Entry - P9'26 Telephone Accrual
+          - generic [ref=f40e196]:
+            - list [ref=f40e197]:
+              - listitem [ref=f40e198]:
+                - button "Save" [ref=f40e199] [cursor=pointer]
+              - listitem [ref=f40e225]:
+                - button "Approve" [ref=f40e226] [cursor=pointer]
+              - listitem [ref=f40e201]:
+                - button "Action" [ref=f40e202] [cursor=pointer]
+            - list [ref=f40e228]:
+              - listitem [ref=f40e229]:
+                - button [ref=f40e230] [cursor=pointer]:
+                  - generic [ref=f40e231]: 
+              - listitem [ref=f40e233]:
+                - link [ref=f40e234] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f40e235]: 
+      - generic [ref=f40e238]:
+        - generic [ref=f40e239]: Unapproved
+        - text: 
+    - generic [ref=f40e205]:
+      - group [ref=f40e241]:
+        - generic [ref=f40e209]:
+          - generic [ref=f40e243]:
+            - generic [ref=f40e244]:
+              - generic [ref=f40e245]:
+                - generic [ref=f40e246]: Date *
+                - generic [ref=f40e249]:
+                  - combobox "Date *" [active] [ref=f40e250]: 9/5/2026
+                  - button "select" [ref=f40e251] [cursor=pointer]
+              - generic [ref=f40e253]:
+                - generic [ref=f40e254]: Number *
+                - textbox "Number *" [ref=f40e256]: P9'26 Telephone Accrual
+              - generic [ref=f40e258]:
+                - generic [ref=f40e259]: Type *
+                - listbox [ref=f40e261] [cursor=pointer]:
+                  - generic [ref=f40e262]:
+                    - generic [ref=f40e263]: Standard
+                    - generic [ref=f40e264]: select
+            - generic [ref=f40e266]:
+              - generic [ref=f40e267]:
+                - generic [ref=f40e268]:
+                  - link "Location" [ref=f40e269] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/e755458d-3948-412d-9ce5-bb79569c04c7"
+                  - text: "*"
+                - generic [ref=f40e272]:
+                  - combobox "Select Location" [ref=f40e273]: 225 - Claremont
+                  - button "select" [ref=f40e275] [cursor=pointer]
+              - generic [ref=f40e276]:
+                - generic [ref=f40e277]: Comment
+                - textbox "Comment" [ref=f40e279]
+          - generic [ref=f40e212]:
+            - generic [ref=f40e214]:
+              - button "+ Size" [ref=f40e215] [cursor=pointer]
+              - button "- Size" [ref=f40e216] [cursor=pointer]
+            - tablist [ref=f40e284]:
+              - list [ref=f40e285]:
+                - tab "Details" [selected] [ref=f40e286]
+                - tab "Distribution" [ref=f40e289]
+              - tabpanel [ref=f40e292]:
+                - generic [ref=f40e293]:
+                  - generic [ref=f40e294]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f40e298]:
+                          - combobox "Select Account" [ref=f40e299]
+                          - button "select" [ref=f40e301] [cursor=pointer]
+                        - textbox [ref=f40e303]: "0"
+                        - textbox [ref=f40e305]: "0"
+                        - textbox [ref=f40e307]
+                        - generic [ref=f40e310]:
+                          - button "225 - Claremont" [ref=f40e313] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f40e315]:
+                          - button "Add" [ref=f40e316] [cursor=pointer]
+                          - button "Clear" [ref=f40e317] [cursor=pointer]
+                  - grid [ref=f40e320]:
+                    - rowgroup [ref=f40e329]:
+                      - row [ref=f40e330]:
+                        - columnheader [ref=f40e331]:
+                          - link [ref=f40e332] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e333]:
+                          - link "Account" [ref=f40e334] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e336]:
+                          - link "Debit" [ref=f40e337] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e338]:
+                          - link "Credit" [ref=f40e339] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e340]:
+                          - link "Comment" [ref=f40e341] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e342]:
+                          - link "Location" [ref=f40e343] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f40e344]
+                  - grid [ref=f40e346]:
+                    - rowgroup [ref=f40e355]:
+                      - row [ref=f40e356]:
+                        - gridcell [ref=f40e357]
+                        - gridcell "5620 - Utilities Telephone" [ref=f40e358]
+                        - gridcell "806.82" [ref=f40e359]
+                        - gridcell "0.00" [ref=f40e361]
+                        - gridcell [ref=f40e363]
+                        - gridcell "225 - Claremont" [ref=f40e364]
+                        - gridcell "" [ref=f40e365]
+                      - row [ref=f40e367]:
+                        - gridcell [ref=f40e368]
+                        - gridcell "2283 - Accrued Telephone" [ref=f40e369]
+                        - gridcell "0.00" [ref=f40e370]
+                        - gridcell "806.82" [ref=f40e372]
+                        - gridcell [ref=f40e374]
+                        - gridcell "225 - Claremont" [ref=f40e375]
+                        - gridcell "" [ref=f40e376]
+                  - table [ref=f40e380]:
+                    - rowgroup [ref=f40e389]:
+                      - row [ref=f40e390]:
+                        - cell [ref=f40e391]
+                        - cell [ref=f40e392]
+                        - cell "806.82" [ref=f40e393]
+                        - cell "806.82" [ref=f40e395]
+                        - cell [ref=f40e397]
+                        - cell [ref=f40e398]
+                        - cell [ref=f40e399]
+                  - generic [ref=f40e400]:
+                    - link "Go to the first page" [ref=f40e401]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f40e403]:
+                      - /url: "#"
+                    - list [ref=f40e405]:
+                      - listitem [ref=f40e406]:
+                        - generic [ref=f40e407] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f40e408]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f40e410]:
+                      - /url: "#"
+                    - generic [ref=f40e412]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=f40e221]:
+            - button "Upload File" [ref=f40e222] [cursor=pointer]
+            - button "Attach from Documents" [ref=f40e223] [cursor=pointer]
+      - group

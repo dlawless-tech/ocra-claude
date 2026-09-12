@@ -1,0 +1,480 @@
+[    2427ms] [LOG] run preloadActions in route wrapper @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[    2443ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://norms.restaurant365.com/NetCore/Permissions/User/undefined:0
+[    2452ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://norms.restaurant365.com/NetCore/User/NavigationPrivileges/v2:0
+[    2454ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://norms.restaurant365.com/NetCore/features/RetrieveAllFeatures:0
+[    2457ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://norms.restaurant365.com/ServiceStack/SessionData/Session:0
+[    2458ms] [LOG] AxiosError: Request failed with status code 401
+    at Pb2 (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:541:1097)
+    at XMLHttpRequest.L (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:541:5986)
+    at xb.request (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:543:2122) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[    2467ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/accounting:0
+[    2468ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    2470ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://norms.restaurant365.com/NetCore/SystemPreferences/RetrieveAllClientSetting:0
+[    2478ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/accounting:0
+[    2479ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    2480ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[    2480ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/accounting:0
+[    2480ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    2481ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[    2485ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/accounting:0
+[    2485ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    2488ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/accounting:0
+[    2488ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3105ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/logout:257
+[    3105ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3198ms] [LOG] %cR365 App Version: %c"..0-4413d9c4" color: black color: red @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[    3227ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/logout:0
+[    3227ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3231ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[    3490ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3490ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3495ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3495ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3552ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3552ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3553ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(13), measurements: Array(1)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[    3566ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3566ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3567ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(3)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[    3736ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3737ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3794ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/user/login:0
+[    3795ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    3795ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(4)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[    4004ms] [WARNING] An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing. @ https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEVgpKr1zklhXJ1cszb3Nxj2LnCehghMQY0HxPY34FIc%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639248308803486125.NmZlNjQ5NDAtOTBmYi00NmFmLWFkMDctMmY5YjA0MjdlYjlhZDMwMThkZWUtMjU1Yi00OGQzLTgyNGMtMjNjN2M5OTcwNGQ0%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5EfaFoBRiTHZmx8X9e3QUiyuwSmkeGHzLwoz2w0JlJZuYm0xTvnWmUxTb3jDn6uKXtos9cw2B76TOMencrnkNkuCoojFP-AIXIJuGCXlU3u5M_gijGCzrZ9wcgrsW9Qukm0f8R-PPbwjasjzvBhFBg4aDNANdl7Jf1e1C0ak2Ce_hWIbZzDK9FcJPPf9kc9cOpQ1xcAAYJWSN8XUNLhlA93F3BO3paEiUVGwBd_xzkiMFnl9tWG9pJQJnGLYK3YSTzQdStRJ_2q0dr0wdYrZwbeMcXoc5D26Ttx2q0koyU8m2SjlsHTzno1klF9GjXHdUWAswtCA2-M7twVEaES5fEI-8cWIE81g4tzS3bRKLdZ5ZNmJwib3VfgVbe1DPe8-_Tstpm9HSzvpH3UtQL7UQ42N2jRoFpPQyKljAsrbeQr5NAcpjjddnlkpSqSxrQvLdbWR8QD_LrzGItfzUk2JTfDdBahE3DH8_xHQ4HbDLEbnC4jT_kzsS3wqEWMw2cBeQ9XZSDey8lFIY1-YBWK4ans7tWvRnUVRPnwmEjUgn2uG811zmWNXcrRVaBqkXQDpz62OYqSww-QoTTjw-yCDr9ViQ4UqOYcNb-v72e1knHyKKX8c74WLL0VHdyxz92Cgx0%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0:0
+[    4419ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ https://identity.restaurant365.com/favicon.png:0
+[    4626ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://identity.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEVgpKr1zklhXJ1cszb3Nxj2LnCehghMQY0HxPY34FIc%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639248308803486125.NmZlNjQ5NDAtOTBmYi00NmFmLWFkMDctMmY5YjA0MjdlYjlhZDMwMThkZWUtMjU1Yi00OGQzLTgyNGMtMjNjN2M5OTcwNGQ0%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5EfaFoBRiTHZmx8X9e3QUiyuwSmkeGHzLwoz2w0JlJZuYm0xTvnWmUxTb3jDn6uKXtos9cw2B76TOMencrnkNkuCoojFP-AIXIJuGCXlU3u5M_gijGCzrZ9wcgrsW9Qukm0f8R-PPbwjasjzvBhFBg4aDNANdl7Jf1e1C0ak2Ce_hWIbZzDK9FcJPPf9kc9cOpQ1xcAAYJWSN8XUNLhlA93F3BO3paEiUVGwBd_xzkiMFnl9tWG9pJQJnGLYK3YSTzQdStRJ_2q0dr0wdYrZwbeMcXoc5D26Ttx2q0koyU8m2SjlsHTzno1klF9GjXHdUWAswtCA2-M7twVEaES5fEI-8cWIE81g4tzS3bRKLdZ5ZNmJwib3VfgVbe1DPe8-_Tstpm9HSzvpH3UtQL7UQ42N2jRoFpPQyKljAsrbeQr5NAcpjjddnlkpSqSxrQvLdbWR8QD_LrzGItfzUk2JTfDdBahE3DH8_xHQ4HbDLEbnC4jT_kzsS3wqEWMw2cBeQ9XZSDey8lFIY1-YBWK4ans7tWvRnUVRPnwmEjUgn2uG811zmWNXcrRVaBqkXQDpz62OYqSww-QoTTjw-yCDr9ViQ4UqOYcNb-v72e1knHyKKX8c74WLL0VHdyxz92Cgx0%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0:0
+[    4627ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    4685ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://identity.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEVgpKr1zklhXJ1cszb3Nxj2LnCehghMQY0HxPY34FIc%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639248308803486125.NmZlNjQ5NDAtOTBmYi00NmFmLWFkMDctMmY5YjA0MjdlYjlhZDMwMThkZWUtMjU1Yi00OGQzLTgyNGMtMjNjN2M5OTcwNGQ0%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5EfaFoBRiTHZmx8X9e3QUiyuwSmkeGHzLwoz2w0JlJZuYm0xTvnWmUxTb3jDn6uKXtos9cw2B76TOMencrnkNkuCoojFP-AIXIJuGCXlU3u5M_gijGCzrZ9wcgrsW9Qukm0f8R-PPbwjasjzvBhFBg4aDNANdl7Jf1e1C0ak2Ce_hWIbZzDK9FcJPPf9kc9cOpQ1xcAAYJWSN8XUNLhlA93F3BO3paEiUVGwBd_xzkiMFnl9tWG9pJQJnGLYK3YSTzQdStRJ_2q0dr0wdYrZwbeMcXoc5D26Ttx2q0koyU8m2SjlsHTzno1klF9GjXHdUWAswtCA2-M7twVEaES5fEI-8cWIE81g4tzS3bRKLdZ5ZNmJwib3VfgVbe1DPe8-_Tstpm9HSzvpH3UtQL7UQ42N2jRoFpPQyKljAsrbeQr5NAcpjjddnlkpSqSxrQvLdbWR8QD_LrzGItfzUk2JTfDdBahE3DH8_xHQ4HbDLEbnC4jT_kzsS3wqEWMw2cBeQ9XZSDey8lFIY1-YBWK4ans7tWvRnUVRPnwmEjUgn2uG811zmWNXcrRVaBqkXQDpz62OYqSww-QoTTjw-yCDr9ViQ4UqOYcNb-v72e1knHyKKX8c74WLL0VHdyxz92Cgx0%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0:0
+[    4685ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[    4686ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(12), measurements: Array(2)} TypeError: Failed to fetch
+    at jn.<anonymous> (https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:1:90515)
+    at Generator.throw (<anonymous>)
+    at a (https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:1:73488) @ https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:0
+[   18110ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://identity.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEVgpKr1zklhXJ1cszb3Nxj2LnCehghMQY0HxPY34FIc%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639248308803486125.NmZlNjQ5NDAtOTBmYi00NmFmLWFkMDctMmY5YjA0MjdlYjlhZDMwMThkZWUtMjU1Yi00OGQzLTgyNGMtMjNjN2M5OTcwNGQ0%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5EfaFoBRiTHZmx8X9e3QUiyuwSmkeGHzLwoz2w0JlJZuYm0xTvnWmUxTb3jDn6uKXtos9cw2B76TOMencrnkNkuCoojFP-AIXIJuGCXlU3u5M_gijGCzrZ9wcgrsW9Qukm0f8R-PPbwjasjzvBhFBg4aDNANdl7Jf1e1C0ak2Ce_hWIbZzDK9FcJPPf9kc9cOpQ1xcAAYJWSN8XUNLhlA93F3BO3paEiUVGwBd_xzkiMFnl9tWG9pJQJnGLYK3YSTzQdStRJ_2q0dr0wdYrZwbeMcXoc5D26Ttx2q0koyU8m2SjlsHTzno1klF9GjXHdUWAswtCA2-M7twVEaES5fEI-8cWIE81g4tzS3bRKLdZ5ZNmJwib3VfgVbe1DPe8-_Tstpm9HSzvpH3UtQL7UQ42N2jRoFpPQyKljAsrbeQr5NAcpjjddnlkpSqSxrQvLdbWR8QD_LrzGItfzUk2JTfDdBahE3DH8_xHQ4HbDLEbnC4jT_kzsS3wqEWMw2cBeQ9XZSDey8lFIY1-YBWK4ans7tWvRnUVRPnwmEjUgn2uG811zmWNXcrRVaBqkXQDpz62OYqSww-QoTTjw-yCDr9ViQ4UqOYcNb-v72e1knHyKKX8c74WLL0VHdyxz92Cgx0%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0:0
+[   18110ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   18167ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://identity.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEVgpKr1zklhXJ1cszb3Nxj2LnCehghMQY0HxPY34FIc%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639248308803486125.NmZlNjQ5NDAtOTBmYi00NmFmLWFkMDctMmY5YjA0MjdlYjlhZDMwMThkZWUtMjU1Yi00OGQzLTgyNGMtMjNjN2M5OTcwNGQ0%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5EfaFoBRiTHZmx8X9e3QUiyuwSmkeGHzLwoz2w0JlJZuYm0xTvnWmUxTb3jDn6uKXtos9cw2B76TOMencrnkNkuCoojFP-AIXIJuGCXlU3u5M_gijGCzrZ9wcgrsW9Qukm0f8R-PPbwjasjzvBhFBg4aDNANdl7Jf1e1C0ak2Ce_hWIbZzDK9FcJPPf9kc9cOpQ1xcAAYJWSN8XUNLhlA93F3BO3paEiUVGwBd_xzkiMFnl9tWG9pJQJnGLYK3YSTzQdStRJ_2q0dr0wdYrZwbeMcXoc5D26Ttx2q0koyU8m2SjlsHTzno1klF9GjXHdUWAswtCA2-M7twVEaES5fEI-8cWIE81g4tzS3bRKLdZ5ZNmJwib3VfgVbe1DPe8-_Tstpm9HSzvpH3UtQL7UQ42N2jRoFpPQyKljAsrbeQr5NAcpjjddnlkpSqSxrQvLdbWR8QD_LrzGItfzUk2JTfDdBahE3DH8_xHQ4HbDLEbnC4jT_kzsS3wqEWMw2cBeQ9XZSDey8lFIY1-YBWK4ans7tWvRnUVRPnwmEjUgn2uG811zmWNXcrRVaBqkXQDpz62OYqSww-QoTTjw-yCDr9ViQ4UqOYcNb-v72e1knHyKKX8c74WLL0VHdyxz92Cgx0%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0:0
+[   18167ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   18167ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1), measurements: Array(1)} TypeError: Failed to fetch
+    at jn.<anonymous> (https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:1:90515)
+    at Generator.throw (<anonymous>)
+    at a (https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:1:73488) @ https://unpkg.com/@grafana/faro-web-sdk@2.8.2/dist/bundle/faro-web-sdk.iife.js:0
+[   18761ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   18761ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   18819ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   18820ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   18820ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[   19145ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   19146ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   19148ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   19148ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   19208ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   19208ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   19209ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(2)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[   19215ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   19215ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   19216ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(14), measurements: Array(1)} TypeError: Failed to fetch
+    at https://norms.restaurant365.com/dest/analytics.min.js?4413d9c4:1:42373
+    at En.<anonymous> (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:90627)
+    at Generator.throw (<anonymous>)
+    at a (https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:1:73566) @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[   19252ms] [LOG] %cR365 App Version: %c"..0-4413d9c4" color: black color: red @ https://norms.restaurant365.com/dest/faro.min.js?4413d9c4:0
+[   19257ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/#/default?auth_type=oidc&oidc_completed=true:0
+[   19258ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   20148ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   20148ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   20153ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   20153ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   20215ms] [LOG] run preloadActions in route wrapper @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   20621ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   20621ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   20622ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   20622ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   20623ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   20623ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   20645ms] [LOG] resolved sagas @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   21806ms] [TIMEEND] route change to /home: 1591.10986328125 ms @ https://cdn.restaurant365.io/react/387f36dd/static/js/route.CRI-sDT2.js:0
+[   21845ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   21845ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   21952ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home:0
+[   21952ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   21953ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, measurements: Array(1)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22015ms] [LOG] run preloadActions in route wrapper @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   22021ms] [LOG] resolved sagas @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   22046ms] [TIMEEND] route change to /home: 30.61376953125 ms @ https://cdn.restaurant365.io/react/387f36dd/static/js/route.CRI-sDT2.js:0
+[   22660ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22660ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22670ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22670ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22670ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22681ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22681ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22682ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22792ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22792ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22793ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22800ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22800ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22801ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22802ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22802ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22803ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(49), measurements: Array(1)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22804ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22804ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22824ms] [LOG] run preloadActions in route wrapper @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   22875ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22875ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   22876ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(29)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   22923ms] [WARNING] Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'. @ :0
+[   22951ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   22951ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23019ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   23019ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23020ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(7)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   23247ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   23247ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23309ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   23309ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23310ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, traces: Object, events: Array(24)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   23461ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   23461ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23527ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   23527ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   23528ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(5)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   23680ms] [LOG] resolved sagas @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:28
+[   23952ms] [TIMEEND] route change to /home: 1128.240966796875 ms @ https://cdn.restaurant365.io/react/387f36dd/static/js/route.CRI-sDT2.js:0
+[   24349ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24349ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24648ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24648ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24739ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24740ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24740ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(2)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   24747ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24748ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24753ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24754ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24754ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, traces: Object, events: Array(49)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   24757ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24757ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24758ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   24758ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   24759ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   24760ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   25013ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25013ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25013ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(13)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   25014ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25014ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25015ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(50)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   25015ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25016ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25016ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(19)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:872)
+    at Generator.next (<anonymous>)
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34716
+    at new Promise (<anonymous>)
+    at Pk (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34513)
+    at aU2.fetchWithKeepaliveRetry (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:785)
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:36790)
+    at Generator.next (<anonymous>) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   25088ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25089ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25149ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25150ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25150ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(1)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   25218ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25218ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25277ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   25278ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   25279ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, events: Array(7)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4
+[   26207ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   26207ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   26265ms] [ERROR] Access to fetch at 'https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955' from origin 'https://norms.restaurant365.com' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource. @ https://norms.restaurant365.com/react/home?dashboard=operationsHome:0
+[   26265ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://faro-collector-prod-us-east-3.grafana.net/collect/099de374cc3d38e182c0f8f9daa71955:0
+[   26265ms] [ERROR] Faro
+ @grafana/faro-web-sdk:transport-fetch
+ Failed sending payload to the receiver
+ {meta: Object, traces: Object, events: Array(13)} TypeError: Failed to fetch
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:32:58158
+    at https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:42:50965
+    at aU2.<anonymous> (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:31:1114)
+    at Generator.throw (<anonymous>)
+    at C (https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:30:34620) @ https://cdn.restaurant365.io/react/387f36dd/static/js/index.B34VyJRB.js:4

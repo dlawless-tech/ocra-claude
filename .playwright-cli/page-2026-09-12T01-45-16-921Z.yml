@@ -1,0 +1,228 @@
+- generic [ref=f28e2]:
+  - generic [ref=f28e4]:
+    - generic [ref=f28e5]: Theme Builder
+    - button [ref=f28e8] [cursor=pointer]:
+      - generic [ref=f28e9]: 
+    - generic [ref=f28e10]:
+      - generic [ref=f28e11]:
+        - heading "Ribbon" [level=4] [ref=f28e12]
+        - generic [ref=f28e13]:
+          - generic [ref=f28e14]: BG
+          - generic [ref=f28e15]: Font
+          - generic [ref=f28e16]: Hover BG
+          - generic [ref=f28e17]: Hover Font
+        - generic "Menu" [ref=f28e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f28e22]':
+            - generic [ref=f28e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f28e28]':
+            - generic [ref=f28e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f28e34]':
+            - generic [ref=f28e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f28e40]':
+            - generic [ref=f28e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f28e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f28e49]':
+            - generic [ref=f28e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f28e55]':
+            - generic [ref=f28e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f28e61]':
+            - generic [ref=f28e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f28e67]':
+            - generic [ref=f28e71] [cursor=pointer]
+      - generic [ref=f28e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f28e73]
+        - button "Upload Ribbon Logo" [ref=f28e78] [cursor=pointer]
+      - generic [ref=f28e79]:
+        - heading "Left Panel" [level=4] [ref=f28e80]
+        - generic [ref=f28e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f28e84]':
+            - generic [ref=f28e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f28e90]':
+            - generic [ref=f28e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f28e96]':
+            - generic [ref=f28e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f28e102]':
+            - generic [ref=f28e106] [cursor=pointer]
+      - generic [ref=f28e107]:
+        - heading "Components" [level=4] [ref=f28e108]
+        - generic "Normal" [ref=f28e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f28e113]':
+            - generic [ref=f28e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f28e119]':
+            - generic [ref=f28e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f28e125]':
+            - generic [ref=f28e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f28e131]':
+            - generic [ref=f28e135] [cursor=pointer]
+        - generic "Selected" [ref=f28e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f28e140]':
+            - generic [ref=f28e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f28e146]':
+            - generic [ref=f28e150] [cursor=pointer]
+    - generic [ref=f28e151]:
+      - generic [ref=f28e152]:
+        - generic [ref=f28e155]:
+          - combobox "Select Theme" [ref=f28e156]: Default R365 Theme
+          - button "select" [ref=f28e158] [cursor=pointer]
+        - generic [ref=f28e159]:
+          - button "Set As Default" [ref=f28e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f28e161]
+          - button "Delete" [disabled] [ref=f28e162]
+      - generic [ref=f28e163]:
+        - textbox "Add New Theme" [ref=f28e165]
+        - button "New" [ref=f28e167] [cursor=pointer]
+  - generic [ref=f28e171]:
+    - generic [ref=f28e172]:
+      - navigation [ref=f28e176]:
+        - generic [ref=f28e177]:
+          - generic: Journal Entry - P9'26 Accrued Gas
+          - generic [ref=f28e179]:
+            - list [ref=f28e180]:
+              - listitem [ref=f28e181]:
+                - button "Save" [ref=f28e182] [cursor=pointer]
+              - listitem [ref=f28e184]:
+                - button "Approve" [ref=f28e185] [cursor=pointer]
+                - menu [ref=f28e187]:
+                  - button [ref=f28e188] [cursor=pointer]:
+                    - button "Approve" [ref=f28e189]
+                  - button [ref=f28e190] [cursor=pointer]:
+                    - button "Approve and New" [ref=f28e191]
+                  - button [ref=f28e192] [cursor=pointer]:
+                    - button "Approve and Close" [ref=f28e193]
+              - listitem [ref=f28e194]:
+                - button "Action" [ref=f28e195] [cursor=pointer]
+            - list [ref=f28e197]:
+              - listitem [ref=f28e198]:
+                - button [ref=f28e199] [cursor=pointer]:
+                  - generic [ref=f28e200]: 
+              - listitem [ref=f28e202]:
+                - link [ref=f28e203] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f28e204]: 
+      - generic [ref=f28e207]:
+        - generic [ref=f28e208]: Unapproved
+        - text: 
+    - generic [ref=f28e211]:
+      - group [ref=f28e212]:
+        - generic [ref=f28e215]:
+          - generic [ref=f28e217]:
+            - generic [ref=f28e218]:
+              - generic [ref=f28e219]:
+                - generic [ref=f28e220]: Date *
+                - generic [ref=f28e223]:
+                  - combobox "Date *" [active] [ref=f28e224]: 9/5/2026
+                  - button "select" [ref=f28e225] [cursor=pointer]
+              - generic [ref=f28e227]:
+                - generic [ref=f28e228]: Number *
+                - textbox "Number *" [ref=f28e230]: P9'26 Accrued Gas
+              - generic [ref=f28e232]:
+                - generic [ref=f28e233]: Type *
+                - listbox [ref=f28e235] [cursor=pointer]:
+                  - generic [ref=f28e236]:
+                    - generic [ref=f28e237]: Standard
+                    - generic [ref=f28e238]: select
+            - generic [ref=f28e240]:
+              - generic [ref=f28e241]:
+                - generic [ref=f28e242]:
+                  - link "Location" [ref=f28e243] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/3c591a6c-3174-4e51-ac3f-d6bd9180373c"
+                  - text: "*"
+                - generic [ref=f28e246]:
+                  - combobox "Select Location" [ref=f28e247]: 220 - Costa Mesa
+                  - button "select" [ref=f28e249] [cursor=pointer]
+              - generic [ref=f28e250]:
+                - generic [ref=f28e251]: Comment
+                - textbox "Comment" [ref=f28e253]: 8/18-9/5
+          - generic [ref=f28e259]:
+            - generic [ref=f28e261]:
+              - button "+ Size" [ref=f28e262] [cursor=pointer]
+              - button "- Size" [ref=f28e263] [cursor=pointer]
+            - tablist [ref=f28e265]:
+              - list [ref=f28e266]:
+                - tab "Details" [selected] [ref=f28e267]
+                - tab "Distribution" [ref=f28e270]
+              - tabpanel [ref=f28e273]:
+                - generic [ref=f28e274]:
+                  - generic [ref=f28e275]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f28e279]:
+                          - combobox "Select Account" [ref=f28e280]
+                          - button "select" [ref=f28e282] [cursor=pointer]
+                        - textbox [ref=f28e284]: "0"
+                        - textbox [ref=f28e286]: "0"
+                        - textbox [ref=f28e288]
+                        - generic [ref=f28e291]:
+                          - button "220 - Costa Mesa" [ref=f28e294] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f28e296]:
+                          - button "Add" [ref=f28e297] [cursor=pointer]
+                          - button "Clear" [ref=f28e298] [cursor=pointer]
+                  - grid [ref=f28e301]:
+                    - rowgroup [ref=f28e310]:
+                      - row [ref=f28e311]:
+                        - columnheader [ref=f28e312]:
+                          - link [ref=f28e313] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e314]:
+                          - link "Account" [ref=f28e315] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e317]:
+                          - link "Debit" [ref=f28e318] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e319]:
+                          - link "Credit" [ref=f28e320] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e321]:
+                          - link "Comment" [ref=f28e322] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e323]:
+                          - link "Location" [ref=f28e324] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f28e325]
+                  - grid [ref=f28e327]:
+                    - rowgroup [ref=f28e336]:
+                      - row [ref=f28e337]:
+                        - gridcell [ref=f28e338]
+                        - gridcell "5610 - Utilities Gas" [ref=f28e339]
+                        - gridcell "1,011.88" [ref=f28e340]
+                        - gridcell "0.00" [ref=f28e342]
+                        - gridcell [ref=f28e344]
+                        - gridcell "220 - Costa Mesa" [ref=f28e345]
+                        - gridcell "" [ref=f28e346]
+                      - row [ref=f28e348]:
+                        - gridcell [ref=f28e349]
+                        - gridcell "2282 - Accrued Gas" [ref=f28e350]
+                        - gridcell "0.00" [ref=f28e351]
+                        - gridcell "1,011.88" [ref=f28e353]
+                        - gridcell [ref=f28e355]
+                        - gridcell "220 - Costa Mesa" [ref=f28e356]
+                        - gridcell "" [ref=f28e357]
+                  - table [ref=f28e361]:
+                    - rowgroup [ref=f28e370]:
+                      - row [ref=f28e371]:
+                        - cell [ref=f28e372]
+                        - cell [ref=f28e373]
+                        - cell "1,011.88" [ref=f28e374]
+                        - cell "1,011.88" [ref=f28e376]
+                        - cell [ref=f28e378]
+                        - cell [ref=f28e379]
+                        - cell [ref=f28e380]
+                  - generic [ref=f28e381]:
+                    - link "Go to the first page" [ref=f28e382]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f28e384]:
+                      - /url: "#"
+                    - list [ref=f28e386]:
+                      - listitem [ref=f28e387]:
+                        - generic [ref=f28e388] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f28e389]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f28e391]:
+                      - /url: "#"
+                    - generic [ref=f28e393]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=f28e398]:
+            - button "Upload File" [ref=f28e399] [cursor=pointer]
+            - button "Attach from Documents" [ref=f28e400] [cursor=pointer]
+      - group

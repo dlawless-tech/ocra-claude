@@ -1,0 +1,101 @@
+- generic [ref=f27e2]:
+  - generic [ref=f27e4]:
+    - generic [ref=f27e5]: Theme Builder
+    - button [ref=f27e8] [cursor=pointer]:
+      - generic [ref=f27e9]: 
+    - generic [ref=f27e10]:
+      - generic [ref=f27e11]:
+        - heading "Ribbon" [level=4] [ref=f27e12]
+        - generic [ref=f27e13]:
+          - generic [ref=f27e14]: BG
+          - generic [ref=f27e15]: Font
+          - generic [ref=f27e16]: Hover BG
+          - generic [ref=f27e17]: Hover Font
+        - generic "Menu" [ref=f27e87]:
+          - 'textbox "Current selected color is #ffffff" [ref=f27e91]':
+            - generic [ref=f27e95] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f27e97]':
+            - generic [ref=f27e101] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f27e103]':
+            - generic [ref=f27e107] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f27e109]':
+            - generic [ref=f27e113] [cursor=pointer]
+        - generic "SubMenu" [ref=f27e114]:
+          - 'textbox "Current selected color is #ffffff" [ref=f27e118]':
+            - generic [ref=f27e122] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f27e124]':
+            - generic [ref=f27e128] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f27e130]':
+            - generic [ref=f27e134] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f27e136]':
+            - generic [ref=f27e140] [cursor=pointer]
+      - generic [ref=f27e18]:
+        - heading "Ribbon Logo" [level=4] [ref=f27e19]
+        - button "Upload Ribbon Logo" [ref=f27e145] [cursor=pointer]
+      - generic [ref=f27e20]:
+        - heading "Left Panel" [level=4] [ref=f27e21]
+        - generic [ref=f27e146]:
+          - 'textbox "Current selected color is #ffffff" [ref=f27e149]':
+            - generic [ref=f27e153] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f27e155]':
+            - generic [ref=f27e159] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f27e161]':
+            - generic [ref=f27e165] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f27e167]':
+            - generic [ref=f27e171] [cursor=pointer]
+      - generic [ref=f27e22]:
+        - heading "Components" [level=4] [ref=f27e23]
+        - generic "Normal" [ref=f27e172]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f27e176]':
+            - generic [ref=f27e180] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f27e182]':
+            - generic [ref=f27e186] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f27e188]':
+            - generic [ref=f27e192] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f27e194]':
+            - generic [ref=f27e198] [cursor=pointer]
+        - generic "Selected" [ref=f27e199]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f27e203]':
+            - generic [ref=f27e207] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f27e209]':
+            - generic [ref=f27e213] [cursor=pointer]
+    - generic [ref=f27e24]:
+      - generic [ref=f27e25]:
+        - generic [ref=f27e215]:
+          - combobox "Select Theme" [ref=f27e216]: Default R365 Theme
+          - button "select" [ref=f27e218] [cursor=pointer]
+        - generic [ref=f27e27]:
+          - button "Set As Default" [ref=f27e28] [cursor=pointer]
+          - button "Save" [disabled] [ref=f27e29]
+          - button "Delete" [disabled] [ref=f27e30]
+      - generic [ref=f27e31]:
+        - textbox "Add New Theme" [ref=f27e33]
+        - button "New" [ref=f27e35] [cursor=pointer]
+  - heading "Loading..." [level=3] [ref=f27e53]
+  - generic [ref=f27e446]:
+    - generic [ref=f27e447]:
+      - navigation [ref=f27e451]:
+        - generic [ref=f27e452]:
+          - generic: Journal Entry
+          - generic [ref=f27e454]:
+            - list [ref=f27e455]:
+              - listitem [ref=f27e456]:
+                - button "Save" [ref=f27e457] [cursor=pointer]
+              - listitem [ref=f27e459]:
+                - button "Action" [ref=f27e460] [cursor=pointer]
+            - list [ref=f27e462]:
+              - listitem [ref=f27e463]:
+                - button [ref=f27e464] [cursor=pointer]:
+                  - generic [ref=f27e465]: 
+              - listitem [ref=f27e467]:
+                - link [ref=f27e468] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f27e469]: 
+      - generic: 
+    - generic [ref=f27e475]:
+      - generic [ref=f27e480]:
+        - button "+ Size" [ref=f27e481] [cursor=pointer]
+        - button "- Size" [ref=f27e482] [cursor=pointer]
+      - generic [ref=f27e489]:
+        - button "Upload File" [ref=f27e490] [cursor=pointer]
+        - button "Attach from Documents" [ref=f27e491] [cursor=pointer]

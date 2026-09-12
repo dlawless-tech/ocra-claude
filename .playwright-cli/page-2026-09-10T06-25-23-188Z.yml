@@ -1,0 +1,220 @@
+- generic [ref=e6]:
+  - generic [ref=e49]:
+    - heading "View status" [level=4] [ref=e88] [cursor=pointer]
+    - button "Toggle Menu" [pressed] [ref=e53] [cursor=pointer]:
+      - img "X icon" [ref=e337]
+    - img "Grubhub logo" [ref=e58] [cursor=pointer]
+  - generic [ref=e7]:
+    - generic [ref=e8]:
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - heading "Dashboard" [level=1] [ref=e63]
+          - generic [ref=e68] [cursor=pointer]:
+            - combobox "restaurant-location-selector" [ref=e69]: NORMS Restaurant - 1325 W Renaissance Pkwy
+            - img "Caret down icon" [ref=e72]
+        - generic [ref=e75]:
+          - generic [ref=e91]:
+            - generic [ref=e92]:
+              - heading "NORMS Restaurant - 1325 W Renaissance Pkwy" [level=2] [ref=e94]
+              - generic [ref=e96]: 1325 W Renaissance Pkwy
+            - heading "Open" [level=6] [ref=e101]
+          - generic [ref=e102]:
+            - generic [ref=e103]:
+              - heading "Insights at a glance" [level=1] [ref=e104]
+              - generic [ref=e105]: Track your performance and find new ways to grow your business
+            - generic [ref=e106]:
+              - generic [ref=e110] [cursor=pointer]:
+                - generic [ref=e111]:
+                  - heading "Sales" [level=4] [ref=e112]
+                  - img "Arrow right icon" [ref=e113]
+                - text: View total sales, average order value, and order frequency
+              - generic [ref=e118] [cursor=pointer]:
+                - generic [ref=e119]:
+                  - heading "Customers" [level=4] [ref=e120]
+                  - img "Arrow right icon" [ref=e121]
+                - text: Understand your audience, from your newest to your most loyal
+              - generic [ref=e126] [cursor=pointer]:
+                - generic [ref=e127]:
+                  - heading "Operations" [level=4] [ref=e128]
+                  - img "Arrow right icon" [ref=e129]
+                - text: Manage your prep times and reduce avoidable cancellations
+          - generic [ref=e131]:
+            - heading "Ways to increase sales on Grubhub" [level=1] [ref=e132]
+            - generic [ref=e134]:
+              - generic [ref=e137]:
+                - heading "Get seen by more customers" [level=3] [ref=e139]
+                - text: Utilize proven marketing strategies to stand out in search results and boost revenue
+              - generic [ref=e140]:
+                - generic [ref=e143]:
+                  - generic [ref=e144]:
+                    - heading "Boost your search ranking" [level=4] [ref=e145]
+                    - generic [ref=e146]: This feature is not available on your current plan. To unlock ads, contact your account advisor.
+                  - button [disabled] [ref=e148]:
+                    - generic [ref=e150]:
+                      - text: Set up ad
+                      - img "Arrow right icon" [ref=e151]
+                - generic [ref=e155]:
+                  - generic [ref=e156]:
+                    - heading "Drive sales with promotions" [level=4] [ref=e157]
+                    - generic [ref=e158]: Want to run promotions? To upgrade your plan and access these tools, contact your account advisor.
+                  - button [disabled] [ref=e160]:
+                    - generic [ref=e162]:
+                      - text: Set up promotion
+                      - img "Arrow right icon" [ref=e163]
+                - generic [ref=e167]:
+                  - generic [ref=e168]:
+                    - heading "Maximize your reach" [level=4] [ref=e169]
+                    - generic [ref=e170]: Start running promotions to unlock your budget and reach more customers
+                  - button [disabled] [ref=e172]:
+                    - generic [ref=e174]:
+                      - text: Edit budget
+                      - img "Arrow right icon" [ref=e175]
+          - generic [ref=e178]:
+            - generic [ref=e179]:
+              - heading "Track your customer feedback" [level=3] [ref=e180]
+              - generic [ref=e181]: Monitor ratings and reviews to identify trends and improve your customer experience
+            - generic [ref=e183]:
+              - generic [ref=e185]:
+                - 'img "Overall rating: 4.46 out of 5 stars" [ref=e186]'
+                - heading "4.46" [level=1] [ref=e200]
+              - generic [ref=e202]:
+                - generic [ref=e203]: Order was accurate
+                - heading "87%" [level=1] [ref=e207]
+              - generic [ref=e209]:
+                - generic [ref=e210]: Food was good
+                - heading "80%" [level=1] [ref=e214]
+              - generic [ref=e216]:
+                - generic [ref=e217]: Delivery was on time
+                - heading "96%" [level=1] [ref=e221]
+          - generic [ref=e222]:
+            - generic [ref=e225]:
+              - generic [ref=e226]:
+                - heading "Increase your views" [level=3] [ref=e227]
+                - generic [ref=e228]: Standing out in search results is key to getting people to view your menu
+              - generic [ref=e229]: Search results with appetizing photos of food catch potential customers’ attention
+            - generic [ref=e235]:
+              - generic [ref=e236]:
+                - heading "Optimize your menu" [level=3] [ref=e237]
+                - generic [ref=e238]: Get customers to place an order with a detailed menu
+              - generic [ref=e239]: Photos and descriptions give customers the info they need to order with confidence
+          - generic [ref=e245]:
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - generic [ref=e249]:
+                  - heading "Top menu items" [level=3] [ref=e250]
+                  - text: Track your top-selling items and how they contribute to your total sales
+                - generic [ref=e252]:
+                  - generic [ref=e253]: Date range
+                  - generic [ref=e256] [cursor=pointer]:
+                    - combobox "Date range" [ref=e257]: Last 90 days
+                    - img "Caret down icon" [ref=e260]
+              - tablist [ref=e263]:
+                - tab [ref=e264] [cursor=pointer]:
+                  - heading "Most ordered" [level=5] [ref=e265]
+                - tab [selected] [ref=e266] [cursor=pointer]:
+                  - heading "Highest revenue" [level=5] [ref=e267]
+            - generic [ref=e268]:
+              - generic [ref=e269]:
+                - generic [ref=e270]:
+                  - generic [ref=e271]: Menu item
+                  - generic [ref=e272]: Sales (% of sales)
+                - generic [ref=e273]:
+                  - generic [ref=e274]:
+                    - generic [ref=e275]: "1"
+                    - generic [ref=e276] [cursor=pointer]: COUNTRY FRIED BREAKFAST & EGGS
+                  - generic [ref=e277]: $171.96 (6.9%)
+                - generic [ref=e278]:
+                  - generic [ref=e279]:
+                    - generic [ref=e280]: "2"
+                    - generic [ref=e281] [cursor=pointer]: BIGGER BETTER BREAKFAST BURRITO
+                  - generic [ref=e282]: $148.49 (5.9%)
+                - generic [ref=e283]:
+                  - generic [ref=e284]:
+                    - generic [ref=e285]: "3"
+                    - generic [ref=e286] [cursor=pointer]: Breakfast Burrito Family Meal
+                  - generic [ref=e287]: $130.17 (5.2%)
+                - generic [ref=e288]:
+                  - generic [ref=e289]:
+                    - generic [ref=e290]: "4"
+                    - generic [ref=e291] [cursor=pointer]: MEDITERRANEAN OMELETTE
+                  - generic [ref=e292]: $91.07 (3.6%)
+                - generic [ref=e293]:
+                  - generic [ref=e294]:
+                    - generic [ref=e295]: "5"
+                    - generic [ref=e296] [cursor=pointer]: GARLIC MUSHROOM CHICKEN ALFREDO
+                  - generic [ref=e297]: $91.06 (3.6%)
+              - button "Show more menu items" [ref=e300] [cursor=pointer]
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - heading "Avoid order cancelations" [level=3] [ref=e307]
+              - generic [ref=e308]: "To avoid canceling orders, ask yourself the following questions:"
+            - generic [ref=e309]:
+              - generic [ref=e310]:
+                - img "Are your hours correct?" [ref=e312]
+                - generic [ref=e313]:
+                  - link [ref=e315] [cursor=pointer]:
+                    - /url: /hours/3333907
+                    - heading "Are your hours correct?" [level=4] [ref=e316]
+                  - generic [ref=e317]: Make sure your hours on Grubhub match your actual business hours
+              - generic [ref=e319]:
+                - img "Are delivery boundaries accurate?" [ref=e321]
+                - generic [ref=e322]:
+                  - link [ref=e324] [cursor=pointer]:
+                    - /url: /delivery-boundary/3333907
+                    - heading "Are delivery boundaries accurate?" [level=4] [ref=e325]
+                  - generic [ref=e326]: Take a look at your delivery boundaries on Grubhub
+              - generic [ref=e328]:
+                - img "Out of an item?" [ref=e330]
+                - generic [ref=e331]:
+                  - link [ref=e333] [cursor=pointer]:
+                    - /url: /menu-entry/3333907
+                    - heading "Out of an item?" [level=4] [ref=e334]
+                  - generic [ref=e335]: Change, black out, or add new items on your Grubhub menu
+      - contentinfo [ref=e79]:
+        - img "Grubhub for Restaurants" [ref=e80]
+        - paragraph [ref=e81]: © 2026 Grubhub Holdings Inc. All rights reserved.
+        - navigation [ref=e82]:
+          - link "Terms of use" [ref=e83] [cursor=pointer]:
+            - /url: "#"
+          - text: Privacy policy
+    - generic [ref=e345]:
+      - heading "View status" [level=6] [ref=e352] [cursor=pointer]
+      - generic [ref=e354]: Orders
+      - generic [ref=e359]: Dashboard
+      - generic [ref=e367] [cursor=pointer]:
+        - generic [ref=e368]: Reports
+        - img "Caret down icon" [ref=e371]
+      - generic [ref=e376] [cursor=pointer]:
+        - generic [ref=e377]: Insights
+        - img "Caret down icon" [ref=e380]
+      - generic [ref=e382]: Menu
+      - generic [ref=e387]:
+        - generic [ref=e390] [cursor=pointer]:
+          - generic [ref=e391]: Financials
+          - img "Caret up icon" [ref=e462]
+        - generic [ref=e464]: Statements
+        - generic [ref=e470]: Transactions
+        - generic [ref=e476]: Deposit history
+        - generic [ref=e482]: Current balance
+        - generic [ref=e488]: Reports
+      - generic [ref=e399] [cursor=pointer]:
+        - generic [ref=e400]: Ratings and reviews
+        - img "Caret down icon" [ref=e403]
+      - generic [ref=e405]: Promotions
+      - generic [ref=e413] [cursor=pointer]:
+        - generic [ref=e414]: Marketing
+        - img "Caret down icon" [ref=e417]
+      - generic [ref=e419]: Services
+      - generic [ref=e424]: Direct
+      - generic [ref=e432] [cursor=pointer]:
+        - generic [ref=e433]: Settings
+        - img "Caret down icon" [ref=e436]
+      - generic [ref=e439]: Help
+      - generic [ref=e445]:
+        - generic [ref=e448] [cursor=pointer]:
+          - generic [ref=e449]:
+            - img "Account icon" [ref=e452]
+            - generic [ref=e454]: Mark Rubinstein
+            - img "Pencil icon" [ref=e457]
+          - generic [ref=e459]: mark+41@ocra-us.com
+        - button "Sign out" [ref=e460] [cursor=pointer]

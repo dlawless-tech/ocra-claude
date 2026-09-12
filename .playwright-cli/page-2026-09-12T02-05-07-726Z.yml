@@ -1,0 +1,208 @@
+- generic [ref=f7e2]:
+  - generic [ref=f7e4]:
+    - generic [ref=f7e5]: Theme Builder
+    - button [ref=f7e8] [cursor=pointer]:
+      - generic [ref=f7e9]: 
+    - generic [ref=f7e10]:
+      - generic [ref=f7e11]:
+        - heading "Ribbon" [level=4] [ref=f7e12]
+        - generic [ref=f7e13]:
+          - generic [ref=f7e14]: BG
+          - generic [ref=f7e15]: Font
+          - generic [ref=f7e16]: Hover BG
+          - generic [ref=f7e17]: Hover Font
+        - generic "Menu" [ref=f7e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e22]':
+            - generic [ref=f7e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e28]':
+            - generic [ref=f7e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e34]':
+            - generic [ref=f7e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e40]':
+            - generic [ref=f7e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f7e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e49]':
+            - generic [ref=f7e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e55]':
+            - generic [ref=f7e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e61]':
+            - generic [ref=f7e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e67]':
+            - generic [ref=f7e71] [cursor=pointer]
+      - generic [ref=f7e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f7e73]
+        - button "Upload Ribbon Logo" [ref=f7e78] [cursor=pointer]
+      - generic [ref=f7e79]:
+        - heading "Left Panel" [level=4] [ref=f7e80]
+        - generic [ref=f7e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e84]':
+            - generic [ref=f7e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e90]':
+            - generic [ref=f7e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e96]':
+            - generic [ref=f7e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e102]':
+            - generic [ref=f7e106] [cursor=pointer]
+      - generic [ref=f7e107]:
+        - heading "Components" [level=4] [ref=f7e108]
+        - generic "Normal" [ref=f7e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f7e113]':
+            - generic [ref=f7e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f7e119]':
+            - generic [ref=f7e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e125]':
+            - generic [ref=f7e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e131]':
+            - generic [ref=f7e135] [cursor=pointer]
+        - generic "Selected" [ref=f7e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f7e140]':
+            - generic [ref=f7e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f7e146]':
+            - generic [ref=f7e150] [cursor=pointer]
+    - generic [ref=f7e151]:
+      - generic [ref=f7e152]:
+        - generic [ref=f7e155]:
+          - combobox "Select Theme" [ref=f7e156]: Default R365 Theme
+          - button "select" [ref=f7e158] [cursor=pointer]
+        - generic [ref=f7e159]:
+          - button "Set As Default" [ref=f7e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f7e161]
+          - button "Delete" [disabled] [ref=f7e162]
+      - generic [ref=f7e163]:
+        - textbox "Add New Theme" [ref=f7e165]
+        - button "New" [ref=f7e167] [cursor=pointer]
+  - generic [ref=f7e1257]:
+    - generic [ref=f7e1258]:
+      - navigation [ref=f7e1262]:
+        - generic [ref=f7e1263]:
+          - generic: Journal Entry - Accrued Electricity
+          - generic [ref=f7e1265]:
+            - list [ref=f7e1266]:
+              - listitem [ref=f7e1267]:
+                - button "Save" [ref=f7e1268] [cursor=pointer]
+              - listitem [ref=f7e1303]:
+                - button "Unapprove" [ref=f7e1304] [cursor=pointer]
+              - listitem [ref=f7e1270]:
+                - button "Action" [ref=f7e1271] [cursor=pointer]
+            - list [ref=f7e1273]:
+              - listitem [ref=f7e1274]:
+                - button [ref=f7e1275] [cursor=pointer]:
+                  - generic [ref=f7e1276]: 
+              - listitem [ref=f7e1278]:
+                - link [ref=f7e1279] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f7e1280]: 
+      - generic [ref=f7e1308]:
+        - generic [ref=f7e1309]: Approved
+        - text: 
+    - generic [ref=f7e1282]:
+      - group [ref=f7e1311]:
+        - generic [ref=f7e1286]:
+          - generic [ref=f7e1313]:
+            - generic [ref=f7e1314]:
+              - generic [ref=f7e1315]:
+                - generic [ref=f7e1316]: Date *
+                - generic [ref=f7e1319]:
+                  - combobox "Date *": 9/12/2026
+                  - button "select" [ref=f7e1320] [cursor=pointer]
+              - generic [ref=f7e1322]:
+                - generic [ref=f7e1323]: Number *
+                - generic [ref=f7e1324]:
+                  - textbox "Number *": Accrued Electricity
+              - generic [ref=f7e1326]:
+                - generic [ref=f7e1327]: Type *
+                - listbox [ref=f7e1329] [cursor=pointer]:
+                  - generic [ref=f7e1330]:
+                    - generic [ref=f7e1331]: Standard
+                    - generic [ref=f7e1332]: select
+            - generic [ref=f7e1334]:
+              - generic [ref=f7e1335]:
+                - generic [ref=f7e1336]:
+                  - link "Location" [ref=f7e1337] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/b39c50e8-df51-4bce-8405-9b38b57e85e5"
+                  - text: "*"
+                - generic [ref=f7e1340]:
+                  - combobox "Select Location": 243 - Santa Ana
+                  - button "select" [ref=f7e1342] [cursor=pointer]
+              - generic [ref=f7e1343]:
+                - generic [ref=f7e1344]: Comment
+                - textbox "Comment" [ref=f7e1346]
+          - generic [ref=f7e1289]:
+            - generic [ref=f7e1291]:
+              - button "Edit" [ref=f7e1351] [cursor=pointer]
+              - button "+ Size" [ref=f7e1292] [cursor=pointer]
+              - button "- Size" [ref=f7e1293] [cursor=pointer]
+            - tablist [ref=f7e1353]:
+              - list [ref=f7e1354]:
+                - tab "Details" [selected] [ref=f7e1355]
+                - tab "Distribution" [ref=f7e1358]
+              - tabpanel [ref=f7e1361]:
+                - generic [ref=f7e1362]:
+                  - grid [ref=f7e1366]:
+                    - rowgroup [ref=f7e1375]:
+                      - row [ref=f7e1376]:
+                        - columnheader [ref=f7e1377]:
+                          - link [ref=f7e1378] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1379]:
+                          - link "Account" [ref=f7e1380] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1382]:
+                          - link "Debit" [ref=f7e1383] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1384]:
+                          - link "Credit" [ref=f7e1385] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1386]:
+                          - link "Comment" [ref=f7e1387] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1388]:
+                          - link "Location" [ref=f7e1389] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f7e1390]
+                  - grid [ref=f7e1392]:
+                    - rowgroup [ref=f7e1401]:
+                      - row [ref=f7e1402]:
+                        - gridcell [ref=f7e1403]
+                        - gridcell "5630 - Utilities Electric" [ref=f7e1404]
+                        - gridcell "2,577.00" [ref=f7e1405]
+                        - gridcell "0.00" [ref=f7e1407]
+                        - gridcell [ref=f7e1409]
+                        - gridcell "243 - Santa Ana" [ref=f7e1410]
+                        - gridcell "" [ref=f7e1411]
+                      - row [ref=f7e1413]:
+                        - gridcell [ref=f7e1414]
+                        - gridcell "2281 - Accrued Electricity" [ref=f7e1415]
+                        - gridcell "0.00" [ref=f7e1416]
+                        - gridcell "2,577.00" [ref=f7e1418]
+                        - gridcell [ref=f7e1420]
+                        - gridcell "243 - Santa Ana" [ref=f7e1421]
+                        - gridcell "" [ref=f7e1422]
+                  - table [ref=f7e1426]:
+                    - rowgroup [ref=f7e1435]:
+                      - row [ref=f7e1436]:
+                        - cell [ref=f7e1437]
+                        - cell [ref=f7e1438]
+                        - cell "2,577.00" [ref=f7e1439]
+                        - cell "2,577.00" [ref=f7e1441]
+                        - cell [ref=f7e1443]
+                        - cell [ref=f7e1444]
+                        - cell [ref=f7e1445]
+                  - generic [ref=f7e1446]:
+                    - link "Go to the first page" [ref=f7e1447]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f7e1449]:
+                      - /url: "#"
+                    - list [ref=f7e1451]:
+                      - listitem [ref=f7e1452]:
+                        - generic [ref=f7e1453] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f7e1454]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f7e1456]:
+                      - /url: "#"
+                    - generic [ref=f7e1458]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=f7e1300]:
+            - button "Upload File" [ref=f7e1301] [cursor=pointer]
+            - button "Attach from Documents" [ref=f7e1302] [cursor=pointer]
+      - group

@@ -1,0 +1,108 @@
+- generic [ref=f57e6]:
+  - generic [ref=f57e7]:
+    - link [ref=f57e8] [cursor=pointer]:
+      - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+    - generic [ref=f57e19]:
+      - button "Help" [ref=f57e21] [cursor=pointer]
+      - button "Notifications" [ref=f57e26] [cursor=pointer]
+      - button "MR" [ref=f57e33] [cursor=pointer]
+  - generic [ref=f57e36]:
+    - generic [ref=f57e39]:
+      - button "Business All stores" [ref=f57e41] [cursor=pointer]:
+        - generic:
+          - paragraph: Business
+          - heading "All stores" [level=6]
+      - link "Home" [ref=f57e46] [cursor=pointer]:
+        - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f57e52]:
+        - generic [ref=f57e53]: Stores
+        - generic:
+          - generic:
+            - generic:
+              - link "All stores" [ref=f57e64] [cursor=pointer]:
+                - /url: /manager/stores
+              - link "Store groups" [ref=f57e68] [cursor=pointer]:
+                - /url: /manager/groups
+              - link "Webshop" [ref=f57e72] [cursor=pointer]:
+                - /url: /manager/webshop?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+              - link "Devices" [ref=f57e76] [cursor=pointer]:
+                - /url: /manager/devices
+      - link "Orders" [ref=f57e80] [cursor=pointer]:
+        - /url: /manager/orders?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f57e88]: Performance
+      - generic:
+        - generic:
+          - generic:
+            - link "Sales" [ref=f57e101] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics/sales-v2
+            - link "Operations" [ref=f57e105] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics/operations
+            - link "Top Eats" [ref=f57e109] [cursor=pointer]:
+              - /url: /manager/top-eats?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Market benchmarking" [ref=f57e113] [cursor=pointer]:
+              - /url: /manager/competitive-insights
+      - generic [ref=f57e116]: Customers
+      - generic:
+        - generic:
+          - generic:
+            - link "Customer insights" [ref=f57e128] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics
+            - link "Reviews" [ref=f57e132] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/feedback
+      - link "Rewards center" [ref=f57e136] [cursor=pointer]:
+        - /url: /manager/rewards-center?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Reports" [ref=f57e143] [cursor=pointer]:
+        - /url: /manager/reports?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Offers" [ref=f57e150] [cursor=pointer]:
+        - /url: /manager/offers?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Marketing" [ref=f57e157] [cursor=pointer]:
+        - /url: /manager/marketing/redirect?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Menu" [ref=f57e164] [cursor=pointer]:
+        - /url: /menumaker/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Menu pricing" [ref=f57e171] [cursor=pointer]:
+        - /url: /manager/menu-markup?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f57e177]: Payments
+      - generic [ref=f57e189]:
+        - link "Payouts" [ref=f57e192] [cursor=pointer]:
+          - /url: /manager/payments?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+        - link "Payouts by order" [ref=f57e196] [cursor=pointer]:
+          - /url: /manager/payments/payouts-by-order?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+        - link "Banking" [ref=f57e200] [cursor=pointer]:
+          - /url: /manager/payments/settings?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Users" [ref=f57e204] [cursor=pointer]:
+        - /url: /manager/users?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f57e211]: Settings
+      - generic:
+        - generic:
+          - generic:
+            - link "General" [ref=f57e224] [cursor=pointer]:
+              - /url: /manager/settings/general?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Holiday Hours" [ref=f57e228] [cursor=pointer]:
+              - /url: /manager/holiday-hours?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Preparation Times" [ref=f57e232] [cursor=pointer]:
+              - /url: /manager/prep-times?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Documents" [ref=f57e236] [cursor=pointer]:
+              - /url: /manager/documents?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Tax/Invoice" [ref=f57e240] [cursor=pointer]:
+              - /url: /manager/tax-information?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Appointments" [ref=f57e244] [cursor=pointer]:
+              - /url: /manager/settings/appointments
+      - generic [ref=f57e247]: Channels
+      - link "Uber Direct" [ref=f57e263] [cursor=pointer]:
+        - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+    - generic [ref=f57e273]:
+      - heading "Payouts" [level=1] [ref=f57e278]
+      - generic [ref=f57e279]:
+        - tablist [ref=f57e281]:
+          - tab "Overview" [selected] [ref=f57e282] [cursor=pointer]
+          - tab "Statements" [ref=f57e283] [cursor=pointer]
+        - tabpanel "Overview" [ref=f57e286]
+      - generic [ref=f57e287]:
+        - generic [ref=f57e288]:
+          - button "NORMS - Downey" [ref=f57e290] [cursor=pointer]
+          - button [ref=f57e294]:
+            - textbox "Select a date range." [ref=f57e298]:
+              - /placeholder: YYYY/MM/DD – YYYY/MM/DD
+              - text: 09/07/2026 – 09/07/2026
+            - paragraph: Selected date range is from 09/07/2026 to 09/07/2026.
+        - button "Download" [ref=f57e303] [cursor=pointer]

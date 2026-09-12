@@ -1,0 +1,151 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Theme Builder
+    - button [ref=e8] [cursor=pointer]:
+      - generic [ref=e9]: 
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Ribbon" [level=4] [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]: BG
+          - generic [ref=e15]: Font
+          - generic [ref=e16]: Hover BG
+          - generic [ref=e17]: Hover Font
+        - generic "Menu" [ref=e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=e22]':
+            - generic [ref=e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e28]':
+            - generic [ref=e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+            - generic [ref=e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+            - generic [ref=e44] [cursor=pointer]
+        - generic "SubMenu" [ref=e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=e49]':
+            - generic [ref=e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e55]':
+            - generic [ref=e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+            - generic [ref=e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+            - generic [ref=e71] [cursor=pointer]
+      - generic [ref=e72]:
+        - heading "Ribbon Logo" [level=4] [ref=e73]
+        - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - heading "Left Panel" [level=4] [ref=e80]
+        - generic [ref=e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=e84]':
+            - generic [ref=e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e90]':
+            - generic [ref=e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+            - generic [ref=e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+            - generic [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - heading "Components" [level=4] [ref=e108]
+        - generic "Normal" [ref=e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+            - generic [ref=e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=e119]':
+            - generic [ref=e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+            - generic [ref=e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+            - generic [ref=e135] [cursor=pointer]
+        - generic "Selected" [ref=e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+            - generic [ref=e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=e146]':
+            - generic [ref=e150] [cursor=pointer]
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e155]:
+          - combobox "Select Theme" [ref=e156]: Default R365 Theme
+          - button "select" [ref=e158] [cursor=pointer]
+        - generic [ref=e159]:
+          - button "Set As Default" [ref=e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=e161]
+          - button "Delete" [disabled] [ref=e162]
+      - generic [ref=e163]:
+        - textbox "Add New Theme" [ref=e165]
+        - button "New" [ref=e167] [cursor=pointer]
+  - heading "Loading..." [level=3] [ref=e185]
+  - generic [ref=e189]:
+    - generic [ref=e190]:
+      - navigation [ref=e194]:
+        - generic [ref=e195]:
+          - generic: Journal Entry - CC Fee Accrual
+          - generic [ref=e197]:
+            - list [ref=e198]:
+              - listitem [ref=e199]:
+                - button "Save" [ref=e200] [cursor=pointer]
+              - listitem [ref=e202]:
+                - button "Action" [ref=e203] [cursor=pointer]
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - button [ref=e207] [cursor=pointer]:
+                  - generic [ref=e208]: 
+              - listitem [ref=e210]:
+                - button [ref=e211] [cursor=pointer]: Tricia Laroche
+              - listitem [ref=e213]:
+                - link [ref=e214] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e215]: 
+      - generic:
+        - generic:
+          - generic:
+            - text: 
+            - generic [ref=e216]:
+              - generic [ref=e217]: Template
+              - generic [ref=e218]:
+                - generic [ref=e219]: Name
+                - textbox [ref=e222]: "Template: 244 - Downey:CC Fees Accrual"
+              - generic [ref=e223]: Select Auto-Recurrence Period
+              - generic [ref=e227]:
+                - generic:
+                  - generic [ref=e228]: Days In Advance
+                  - textbox [ref=e231]: "0"
+    - generic [ref=e233]:
+      - group [ref=e234]:
+        - generic [ref=e237]:
+          - generic [ref=e239]:
+            - generic [ref=e240]:
+              - generic [ref=e241]:
+                - generic [ref=e242]: Date *
+                - generic [ref=e245]:
+                  - combobox "Date *" [ref=e246]: 9/12/2026
+                  - button "select" [ref=e247] [cursor=pointer]
+              - generic [ref=e249]:
+                - generic [ref=e250]: Number *
+                - textbox "Number *" [ref=e252]: CC Fee Accrual
+            - generic [ref=e253]:
+              - generic [ref=e254]:
+                - generic [ref=e255]:
+                  - link "Location" [ref=e256] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/c128c598-d7a3-49b3-91ce-8aba11ea244f"
+                  - text: "*"
+                - textbox "Location *" [ref=e258]: c128c598-d7a3-49b3-91ce-8aba11ea244f
+              - generic [ref=e259]:
+                - generic [ref=e260]: Comment
+                - textbox "Comment" [ref=e262]: 1.75% of sales weekly
+          - generic [ref=e268]:
+            - generic [ref=e270]:
+              - button "+ Size" [ref=e271] [cursor=pointer]
+              - button "- Size" [ref=e272] [cursor=pointer]
+            - generic [ref=e273]:
+              - list [ref=e274]:
+                - listitem [ref=e275]: Details
+                - listitem [ref=e276]: Distribution
+                - listitem [ref=e277]: Transactions
+              - generic [ref=e283]:
+                - generic [ref=e284]: Status
+                - generic [ref=e286]:
+                  - list
+          - generic [ref=e299]:
+            - button "Upload File" [ref=e300] [cursor=pointer]
+            - button "Attach from Documents" [ref=e301] [cursor=pointer]
+            - generic [ref=e302]: Loading…
+      - separator [ref=e303]
+      - group

@@ -1,0 +1,212 @@
+- generic [active] [ref=f7e1]:
+  - button "× Template was created and added to the Memorized Template list." [ref=f7e624] [cursor=pointer]:
+    - button "×" [ref=f7e625]
+    - generic [ref=f7e626]: Template was created and added to the Memorized Template list.
+  - generic [ref=f7e2]:
+    - generic [ref=f7e4]:
+      - generic [ref=f7e5]: Theme Builder
+      - button [ref=f7e8] [cursor=pointer]:
+        - generic [ref=f7e9]: 
+      - generic [ref=f7e10]:
+        - generic [ref=f7e11]:
+          - heading "Ribbon" [level=4] [ref=f7e12]
+          - generic [ref=f7e13]:
+            - generic [ref=f7e14]: BG
+            - generic [ref=f7e15]: Font
+            - generic [ref=f7e16]: Hover BG
+            - generic [ref=f7e17]: Hover Font
+          - generic "Menu" [ref=f7e18]:
+            - 'textbox "Current selected color is #ffffff" [ref=f7e22]':
+              - generic [ref=f7e26] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f7e28]':
+              - generic [ref=f7e32] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f7e34]':
+              - generic [ref=f7e38] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f7e40]':
+              - generic [ref=f7e44] [cursor=pointer]
+          - generic "SubMenu" [ref=f7e45]:
+            - 'textbox "Current selected color is #ffffff" [ref=f7e49]':
+              - generic [ref=f7e53] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f7e55]':
+              - generic [ref=f7e59] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f7e61]':
+              - generic [ref=f7e65] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f7e67]':
+              - generic [ref=f7e71] [cursor=pointer]
+        - generic [ref=f7e72]:
+          - heading "Ribbon Logo" [level=4] [ref=f7e73]
+          - button "Upload Ribbon Logo" [ref=f7e78] [cursor=pointer]
+        - generic [ref=f7e79]:
+          - heading "Left Panel" [level=4] [ref=f7e80]
+          - generic [ref=f7e81]:
+            - 'textbox "Current selected color is #ffffff" [ref=f7e84]':
+              - generic [ref=f7e88] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f7e90]':
+              - generic [ref=f7e94] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f7e96]':
+              - generic [ref=f7e100] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f7e102]':
+              - generic [ref=f7e106] [cursor=pointer]
+        - generic [ref=f7e107]:
+          - heading "Components" [level=4] [ref=f7e108]
+          - generic "Normal" [ref=f7e109]:
+            - 'textbox "Current selected color is #c3c3c3" [ref=f7e113]':
+              - generic [ref=f7e117] [cursor=pointer]
+            - 'textbox "Current selected color is #777777" [ref=f7e119]':
+              - generic [ref=f7e123] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f7e125]':
+              - generic [ref=f7e129] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f7e131]':
+              - generic [ref=f7e135] [cursor=pointer]
+          - generic "Selected" [ref=f7e136]:
+            - 'textbox "Current selected color is #5ea3cb" [ref=f7e140]':
+              - generic [ref=f7e144] [cursor=pointer]
+            - 'textbox "Current selected color is #ffffff" [ref=f7e146]':
+              - generic [ref=f7e150] [cursor=pointer]
+      - generic [ref=f7e151]:
+        - generic [ref=f7e152]:
+          - generic [ref=f7e155]:
+            - combobox "Select Theme" [ref=f7e156]: Default R365 Theme
+            - button "select" [ref=f7e158] [cursor=pointer]
+          - generic [ref=f7e159]:
+            - button "Set As Default" [ref=f7e160] [cursor=pointer]
+            - button "Save" [disabled] [ref=f7e161]
+            - button "Delete" [disabled] [ref=f7e162]
+        - generic [ref=f7e163]:
+          - textbox "Add New Theme" [ref=f7e165]
+          - button "New" [ref=f7e167] [cursor=pointer]
+    - generic [ref=f7e421]:
+      - generic [ref=f7e422]:
+        - navigation [ref=f7e426]:
+          - generic [ref=f7e427]:
+            - generic: Journal Entry - Accrued Telephone
+            - generic [ref=f7e429]:
+              - list [ref=f7e430]:
+                - listitem [ref=f7e431]:
+                  - button "Save" [ref=f7e432] [cursor=pointer]
+                - listitem [ref=f7e467]:
+                  - button "Unapprove" [ref=f7e468] [cursor=pointer]
+                - listitem [ref=f7e434]:
+                  - button "Action" [ref=f7e435] [cursor=pointer]
+              - list [ref=f7e437]:
+                - listitem [ref=f7e438]:
+                  - button [ref=f7e439] [cursor=pointer]:
+                    - generic [ref=f7e440]: 
+                - listitem [ref=f7e442]:
+                  - link [ref=f7e443] [cursor=pointer]:
+                    - /url: ""
+                    - generic [ref=f7e444]: 
+        - generic [ref=f7e472]:
+          - generic [ref=f7e473]: Approved
+          - text: 
+      - generic [ref=f7e446]:
+        - group [ref=f7e475]:
+          - generic [ref=f7e450]:
+            - generic [ref=f7e477]:
+              - generic [ref=f7e478]:
+                - generic [ref=f7e479]:
+                  - generic [ref=f7e480]: Date *
+                  - generic [ref=f7e483]:
+                    - combobox "Date *": 9/12/2026
+                    - button "select" [ref=f7e484] [cursor=pointer]
+                - generic [ref=f7e486]:
+                  - generic [ref=f7e487]: Number *
+                  - generic [ref=f7e488]:
+                    - textbox "Number *": Accrued Telephone
+                - generic [ref=f7e490]:
+                  - generic [ref=f7e491]: Type *
+                  - listbox [ref=f7e493] [cursor=pointer]:
+                    - generic [ref=f7e494]:
+                      - generic [ref=f7e495]: Standard
+                      - generic [ref=f7e496]: select
+              - generic [ref=f7e498]:
+                - generic [ref=f7e499]:
+                  - generic [ref=f7e500]:
+                    - link "Location" [ref=f7e501] [cursor=pointer]:
+                      - /url: "#/form/LocationForm/72d6c464-4b5a-4b06-a723-72b6c0a26046"
+                    - text: "*"
+                  - generic [ref=f7e504]:
+                    - combobox "Select Location": 269 - Hollywood
+                    - button "select" [ref=f7e506] [cursor=pointer]
+                - generic [ref=f7e507]:
+                  - generic [ref=f7e508]: Comment
+                  - textbox "Comment" [ref=f7e510]
+            - generic [ref=f7e453]:
+              - generic [ref=f7e455]:
+                - button "Edit" [ref=f7e515] [cursor=pointer]
+                - button "+ Size" [ref=f7e456] [cursor=pointer]
+                - button "- Size" [ref=f7e457] [cursor=pointer]
+              - tablist [ref=f7e517]:
+                - list [ref=f7e518]:
+                  - tab "Details" [selected] [ref=f7e519]
+                  - tab "Distribution" [ref=f7e522]
+                - tabpanel [ref=f7e525]:
+                  - generic [ref=f7e526]:
+                    - grid [ref=f7e530]:
+                      - rowgroup [ref=f7e539]:
+                        - row [ref=f7e540]:
+                          - columnheader [ref=f7e541]:
+                            - link [ref=f7e542] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e543]:
+                            - link "Account" [ref=f7e544] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e546]:
+                            - link "Debit" [ref=f7e547] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e548]:
+                            - link "Credit" [ref=f7e549] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e550]:
+                            - link "Comment" [ref=f7e551] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e552]:
+                            - link "Location" [ref=f7e553] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f7e554]
+                    - grid [ref=f7e556]:
+                      - rowgroup [ref=f7e565]:
+                        - row [ref=f7e566]:
+                          - gridcell [ref=f7e567]
+                          - gridcell "5620 - Utilities Telephone" [ref=f7e568]
+                          - gridcell "124.00" [ref=f7e569]
+                          - gridcell "0.00" [ref=f7e571]
+                          - gridcell [ref=f7e573]
+                          - gridcell "269 - Hollywood" [ref=f7e574]
+                          - gridcell "" [ref=f7e575]
+                        - row [ref=f7e577]:
+                          - gridcell [ref=f7e578]
+                          - gridcell "2283 - Accrued Telephone" [ref=f7e579]
+                          - gridcell "0.00" [ref=f7e580]
+                          - gridcell "124.00" [ref=f7e582]
+                          - gridcell [ref=f7e584]
+                          - gridcell "269 - Hollywood" [ref=f7e585]
+                          - gridcell "" [ref=f7e586]
+                    - table [ref=f7e590]:
+                      - rowgroup [ref=f7e599]:
+                        - row [ref=f7e600]:
+                          - cell [ref=f7e601]
+                          - cell [ref=f7e602]
+                          - cell "124.00" [ref=f7e603]
+                          - cell "124.00" [ref=f7e605]
+                          - cell [ref=f7e607]
+                          - cell [ref=f7e608]
+                          - cell [ref=f7e609]
+                    - generic [ref=f7e610]:
+                      - link "Go to the first page" [ref=f7e611]:
+                        - /url: "#"
+                      - link "Go to the previous page" [ref=f7e613]:
+                        - /url: "#"
+                      - list [ref=f7e615]:
+                        - listitem [ref=f7e616]:
+                          - generic [ref=f7e617] [cursor=pointer]: "1"
+                      - link "Go to the next page" [ref=f7e618]:
+                        - /url: "#"
+                      - link "Go to the last page" [ref=f7e620]:
+                        - /url: "#"
+                      - generic [ref=f7e622]: 1 - 2 of 2 items
+                - text:    
+            - generic [ref=f7e464]:
+              - button "Upload File" [ref=f7e465] [cursor=pointer]
+              - button "Attach from Documents" [ref=f7e466] [cursor=pointer]
+        - group

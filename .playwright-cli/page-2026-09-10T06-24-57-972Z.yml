@@ -1,0 +1,20 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e4]:
+    - heading "Log in to Norms" [level=3] [ref=f2e5]
+    - generic [ref=f2e7]:
+      - textbox "Enter username" [ref=f2e9]: H
+      - generic [ref=f2e10]:
+        - generic [ref=f2e11]:
+          - textbox "Enter password" [ref=f2e12]: H
+          - generic [ref=f2e13] [cursor=pointer]
+        - generic [ref=f2e16]:
+          - generic [ref=f2e17]:
+            - checkbox "Remember me ✓" [ref=f2e18]
+            - generic [ref=f2e19] [cursor=pointer]: Remember me ✓
+          - link "Forgot password?" [ref=f2e21] [cursor=pointer]:
+            - /url: /Account/ForgotPassword?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fnorms.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DGaWfl3dKot5HJ27fPHtseH7AR67nVC1LbA-6kSUZYF4%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639246182957847451.NmY4NTM4ZTItMzk2Ni00Zjg0LWFiOTMtYjE5ODlkZmU3OGVmMzYyY2E4NGEtMDU4OC00NDMyLWIwODMtNWEyMjYzYTg2OWJl%26acr_values%3Dtenant%253Anorms%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5G8VNyxrhlgIZo1GTIgBLUtoejh-9fRjqHT3-ifvj1jPrYtI_9sWgVMCZYABumZAQcBNhMxWEqtd0hb_l0hisykhfxENM7VSM0ikUYf9s41oAVJQePxrsv98s4Py2sbe3C-0_w74YAWc8s7J7mlM7Z8N1D0KXQLWOL2M3lm-Kw_t8jiPoRASv7TVI6qc0M7dLiByV2rvXyyuDITlBcd13XOl7VahQGhH8JqW2GJYNUMSzoqjF63Dz_8AeYiI7_ItGixCWJxnfxoDTAq4JAR1b8-XhoNSjrCv90uvIpvzlA2DvuIkaufssEgpCRLMiL5hVBP9LpS3uu6f-uzWeT4-ft2mDCzZ-fqYP-LEwkfq4rq5BiuI6-fa0Ata428UJuaBB9cMHc_iH1lWmcIZkyvCC3jurgxfBO2OOor53ry94wtONX93PQJd8L_2Wz_T5e_ozgmEwYEQ4q72Kk7Fp57apauWQ_Aa0kIt3nX2PliMvTNapNM71rG5KbWfiUSzsphWRLZdaYK3Ogl_XE4jP39QtBojga2o_rGQ8ptSYWqkfZCGgYDab6Vlv3oYPA38Upl2g0wFdftpXD-2PfUrb6Yfz2fs6c0O2armALGqgtROw2veLe9q-TANAn81Du9G39GvTc%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0
+        - button "Log in" [ref=f2e22] [cursor=pointer]
+  - paragraph [ref=f2e24]:
+    - text: By clicking Log In, you have read andagree to our
+    - link "Terms & Conditions." [ref=f2e25] [cursor=pointer]:
+      - /url: https://www.restaurant365.com/legal

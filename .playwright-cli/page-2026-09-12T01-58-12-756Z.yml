@@ -1,0 +1,228 @@
+- generic [ref=f38e2]:
+  - generic [ref=f38e4]:
+    - generic [ref=f38e5]: Theme Builder
+    - button [ref=f38e8] [cursor=pointer]:
+      - generic [ref=f38e9]: 
+    - generic [ref=f38e10]:
+      - generic [ref=f38e11]:
+        - heading "Ribbon" [level=4] [ref=f38e12]
+        - generic [ref=f38e13]:
+          - generic [ref=f38e14]: BG
+          - generic [ref=f38e15]: Font
+          - generic [ref=f38e16]: Hover BG
+          - generic [ref=f38e17]: Hover Font
+        - generic "Menu" [ref=f38e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f38e22]':
+            - generic [ref=f38e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f38e28]':
+            - generic [ref=f38e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f38e34]':
+            - generic [ref=f38e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f38e40]':
+            - generic [ref=f38e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f38e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f38e49]':
+            - generic [ref=f38e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f38e55]':
+            - generic [ref=f38e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f38e61]':
+            - generic [ref=f38e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f38e67]':
+            - generic [ref=f38e71] [cursor=pointer]
+      - generic [ref=f38e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f38e73]
+        - button "Upload Ribbon Logo" [ref=f38e78] [cursor=pointer]
+      - generic [ref=f38e79]:
+        - heading "Left Panel" [level=4] [ref=f38e80]
+        - generic [ref=f38e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f38e84]':
+            - generic [ref=f38e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f38e90]':
+            - generic [ref=f38e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f38e96]':
+            - generic [ref=f38e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f38e102]':
+            - generic [ref=f38e106] [cursor=pointer]
+      - generic [ref=f38e107]:
+        - heading "Components" [level=4] [ref=f38e108]
+        - generic "Normal" [ref=f38e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f38e113]':
+            - generic [ref=f38e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f38e119]':
+            - generic [ref=f38e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f38e125]':
+            - generic [ref=f38e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f38e131]':
+            - generic [ref=f38e135] [cursor=pointer]
+        - generic "Selected" [ref=f38e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f38e140]':
+            - generic [ref=f38e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f38e146]':
+            - generic [ref=f38e150] [cursor=pointer]
+    - generic [ref=f38e151]:
+      - generic [ref=f38e152]:
+        - generic [ref=f38e155]:
+          - combobox "Select Theme" [ref=f38e156]: Default R365 Theme
+          - button "select" [ref=f38e158] [cursor=pointer]
+        - generic [ref=f38e159]:
+          - button "Set As Default" [ref=f38e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f38e161]
+          - button "Delete" [disabled] [ref=f38e162]
+      - generic [ref=f38e163]:
+        - textbox "Add New Theme" [ref=f38e165]
+        - button "New" [ref=f38e167] [cursor=pointer]
+  - generic [ref=f38e171]:
+    - generic [ref=f38e172]:
+      - navigation [ref=f38e176]:
+        - generic [ref=f38e177]:
+          - generic: Journal Entry - P9'26 Accrued Gas
+          - generic [ref=f38e179]:
+            - list [ref=f38e180]:
+              - listitem [ref=f38e181]:
+                - button "Save" [ref=f38e182] [cursor=pointer]
+              - listitem [ref=f38e184]:
+                - button "Approve" [ref=f38e185] [cursor=pointer]
+                - menu [ref=f38e187]:
+                  - button [ref=f38e188] [cursor=pointer]:
+                    - button "Approve" [ref=f38e189]
+                  - button [ref=f38e190] [cursor=pointer]:
+                    - button "Approve and New" [ref=f38e191]
+                  - button [ref=f38e192] [cursor=pointer]:
+                    - button "Approve and Close" [ref=f38e193]
+              - listitem [ref=f38e194]:
+                - button "Action" [ref=f38e195] [cursor=pointer]
+            - list [ref=f38e197]:
+              - listitem [ref=f38e198]:
+                - button [ref=f38e199] [cursor=pointer]:
+                  - generic [ref=f38e200]: 
+              - listitem [ref=f38e202]:
+                - link [ref=f38e203] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f38e204]: 
+      - generic [ref=f38e207]:
+        - generic [ref=f38e208]: Unapproved
+        - text: 
+    - generic [ref=f38e211]:
+      - group [ref=f38e212]:
+        - generic [ref=f38e215]:
+          - generic [ref=f38e217]:
+            - generic [ref=f38e218]:
+              - generic [ref=f38e219]:
+                - generic [ref=f38e220]: Date *
+                - generic [ref=f38e223]:
+                  - combobox "Date *" [active] [ref=f38e224]: 9/5/2026
+                  - button "select" [ref=f38e225] [cursor=pointer]
+              - generic [ref=f38e227]:
+                - generic [ref=f38e228]: Number *
+                - textbox "Number *" [ref=f38e230]: P9'26 Accrued Gas
+              - generic [ref=f38e232]:
+                - generic [ref=f38e233]: Type *
+                - listbox [ref=f38e235] [cursor=pointer]:
+                  - generic [ref=f38e236]:
+                    - generic [ref=f38e237]: Standard
+                    - generic [ref=f38e238]: select
+            - generic [ref=f38e240]:
+              - generic [ref=f38e241]:
+                - generic [ref=f38e242]:
+                  - link "Location" [ref=f38e243] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/93f40990-6686-42a8-a145-4c46fcc8cc57"
+                  - text: "*"
+                - generic [ref=f38e246]:
+                  - combobox "Select Location" [ref=f38e247]: 270 - Ontario
+                  - button "select" [ref=f38e249] [cursor=pointer]
+              - generic [ref=f38e250]:
+                - generic [ref=f38e251]: Comment
+                - textbox "Comment" [ref=f38e253]: 8/18-9/5
+          - generic [ref=f38e259]:
+            - generic [ref=f38e261]:
+              - button "+ Size" [ref=f38e262] [cursor=pointer]
+              - button "- Size" [ref=f38e263] [cursor=pointer]
+            - tablist [ref=f38e265]:
+              - list [ref=f38e266]:
+                - tab "Details" [selected] [ref=f38e267]
+                - tab "Distribution" [ref=f38e270]
+              - tabpanel [ref=f38e273]:
+                - generic [ref=f38e274]:
+                  - generic [ref=f38e275]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f38e279]:
+                          - combobox "Select Account" [ref=f38e280]
+                          - button "select" [ref=f38e282] [cursor=pointer]
+                        - textbox [ref=f38e284]: "0"
+                        - textbox [ref=f38e286]: "0"
+                        - textbox [ref=f38e288]
+                        - generic [ref=f38e291]:
+                          - button "270 - Ontario" [ref=f38e294] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f38e296]:
+                          - button "Add" [ref=f38e297] [cursor=pointer]
+                          - button "Clear" [ref=f38e298] [cursor=pointer]
+                  - grid [ref=f38e301]:
+                    - rowgroup [ref=f38e310]:
+                      - row [ref=f38e311]:
+                        - columnheader [ref=f38e312]:
+                          - link [ref=f38e313] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e314]:
+                          - link "Account" [ref=f38e315] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e317]:
+                          - link "Debit" [ref=f38e318] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e319]:
+                          - link "Credit" [ref=f38e320] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e321]:
+                          - link "Comment" [ref=f38e322] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e323]:
+                          - link "Location" [ref=f38e324] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f38e325]
+                  - grid [ref=f38e327]:
+                    - rowgroup [ref=f38e336]:
+                      - row [ref=f38e337]:
+                        - gridcell [ref=f38e338]
+                        - gridcell "5610 - Utilities Gas" [ref=f38e339]
+                        - gridcell "1,275.17" [ref=f38e340]
+                        - gridcell "0.00" [ref=f38e342]
+                        - gridcell [ref=f38e344]
+                        - gridcell "270 - Ontario" [ref=f38e345]
+                        - gridcell "" [ref=f38e346]
+                      - row [ref=f38e348]:
+                        - gridcell [ref=f38e349]
+                        - gridcell "2282 - Accrued Gas" [ref=f38e350]
+                        - gridcell "0.00" [ref=f38e351]
+                        - gridcell "1,275.17" [ref=f38e353]
+                        - gridcell [ref=f38e355]
+                        - gridcell "270 - Ontario" [ref=f38e356]
+                        - gridcell "" [ref=f38e357]
+                  - table [ref=f38e361]:
+                    - rowgroup [ref=f38e370]:
+                      - row [ref=f38e371]:
+                        - cell [ref=f38e372]
+                        - cell [ref=f38e373]
+                        - cell "1,275.17" [ref=f38e374]
+                        - cell "1,275.17" [ref=f38e376]
+                        - cell [ref=f38e378]
+                        - cell [ref=f38e379]
+                        - cell [ref=f38e380]
+                  - generic [ref=f38e381]:
+                    - link "Go to the first page" [ref=f38e382]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f38e384]:
+                      - /url: "#"
+                    - list [ref=f38e386]:
+                      - listitem [ref=f38e387]:
+                        - generic [ref=f38e388] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f38e389]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f38e391]:
+                      - /url: "#"
+                    - generic [ref=f38e393]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=f38e398]:
+            - button "Upload File" [ref=f38e399] [cursor=pointer]
+            - button "Attach from Documents" [ref=f38e400] [cursor=pointer]
+      - group

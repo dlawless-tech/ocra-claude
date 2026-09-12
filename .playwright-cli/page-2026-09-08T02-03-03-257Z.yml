@@ -1,0 +1,107 @@
+- generic [ref=f102e6]:
+  - generic [ref=f102e7]:
+    - link [ref=f102e8] [cursor=pointer]:
+      - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+    - generic [ref=f102e19]:
+      - button "Help" [ref=f102e21] [cursor=pointer]
+      - button "Notifications" [ref=f102e26] [cursor=pointer]
+      - button [ref=f102e33] [cursor=pointer]
+  - generic [ref=f102e36]:
+    - generic [ref=f102e39]:
+      - button "Business All stores" [ref=f102e41] [cursor=pointer]:
+        - generic:
+          - paragraph: Business
+          - heading "All stores" [level=6]
+      - link "Home" [ref=f102e46] [cursor=pointer]:
+        - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f102e52]:
+        - generic [ref=f102e53]: Stores
+        - generic:
+          - generic:
+            - generic:
+              - link "All stores" [ref=f102e64] [cursor=pointer]:
+                - /url: /manager/stores
+              - link "Store groups" [ref=f102e68] [cursor=pointer]:
+                - /url: /manager/groups
+              - link "Webshop" [ref=f102e72] [cursor=pointer]:
+                - /url: /manager/webshop?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+              - link "Devices" [ref=f102e76] [cursor=pointer]:
+                - /url: /manager/devices
+      - link "Orders" [ref=f102e80] [cursor=pointer]:
+        - /url: /manager/orders?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f102e88]: Performance
+      - generic:
+        - generic:
+          - generic:
+            - link "Sales" [ref=f102e101] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics/sales-v2
+            - link "Operations" [ref=f102e105] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics/operations
+            - link "Top Eats" [ref=f102e109] [cursor=pointer]:
+              - /url: /manager/top-eats?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Market benchmarking" [ref=f102e113] [cursor=pointer]:
+              - /url: /manager/competitive-insights
+      - generic [ref=f102e116]: Customers
+      - generic:
+        - generic:
+          - generic:
+            - link "Customer insights" [ref=f102e128] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/analytics
+            - link "Reviews" [ref=f102e132] [cursor=pointer]:
+              - /url: /manager/home/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9/feedback
+      - link "Rewards center" [ref=f102e136] [cursor=pointer]:
+        - /url: /manager/rewards-center?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Reports" [ref=f102e143] [cursor=pointer]:
+        - /url: /manager/reports?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Offers" [ref=f102e150] [cursor=pointer]:
+        - /url: /manager/offers?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Marketing" [ref=f102e157] [cursor=pointer]:
+        - /url: /manager/marketing/redirect?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Menu" [ref=f102e164] [cursor=pointer]:
+        - /url: /menumaker/9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f102e170]: Payments
+      - generic [ref=f102e182]:
+        - link "Payouts" [ref=f102e185] [cursor=pointer]:
+          - /url: /manager/payments?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+        - link "Payouts by order" [ref=f102e189] [cursor=pointer]:
+          - /url: /manager/payments/payouts-by-order?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+        - link "Banking" [ref=f102e193] [cursor=pointer]:
+          - /url: /manager/payments/settings?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - link "Users" [ref=f102e197] [cursor=pointer]:
+        - /url: /manager/users?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+      - generic [ref=f102e204]: Settings
+      - generic:
+        - generic:
+          - generic:
+            - link "General" [ref=f102e217] [cursor=pointer]:
+              - /url: /manager/settings/general?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Holiday Hours" [ref=f102e221] [cursor=pointer]:
+              - /url: /manager/holiday-hours?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Preparation Times" [ref=f102e225] [cursor=pointer]:
+              - /url: /manager/prep-times?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Documents" [ref=f102e229] [cursor=pointer]:
+              - /url: /manager/documents?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Tax/Invoice" [ref=f102e233] [cursor=pointer]:
+              - /url: /manager/tax-information?restaurantUUID=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+            - link "Appointments" [ref=f102e237] [cursor=pointer]:
+              - /url: /manager/settings/appointments
+      - generic [ref=f102e240]: Channels
+      - link "Uber Direct" [ref=f102e256] [cursor=pointer]:
+        - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=9f2a671e-bbb0-42dc-9b91-4eeb7ec9fce9
+    - generic [ref=f102e266]:
+      - heading "Payouts" [level=1] [ref=f102e271]
+      - generic [ref=f102e272]:
+        - tablist [ref=f102e274]:
+          - tab "Overview" [selected] [ref=f102e275] [cursor=pointer]
+          - tab "Statements" [ref=f102e276] [cursor=pointer]
+        - tabpanel "Overview" [ref=f102e279]
+      - generic [ref=f102e280]:
+        - generic [ref=f102e281]:
+          - button "NORMS - Downey" [ref=f102e283] [cursor=pointer]
+          - button [ref=f102e287]:
+            - textbox "Select a date range." [ref=f102e291]:
+              - /placeholder: YYYY/MM/DD – YYYY/MM/DD
+              - text: 09/07/2026 – 09/07/2026
+            - paragraph: Selected date range is from 09/07/2026 to 09/07/2026.
+        - button "Download" [ref=f102e296] [cursor=pointer]
+      - generic "spinner" [ref=f102e303]

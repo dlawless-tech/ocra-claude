@@ -1,0 +1,63 @@
+- generic [ref=e6]:
+  - generic [ref=e49]:
+    - heading "View status" [level=4] [ref=e88] [cursor=pointer]
+    - button "Toggle Menu" [ref=e53] [cursor=pointer]:
+      - img "Menu icon" [ref=e494]
+    - img "Grubhub logo" [ref=e58] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e496]:
+      - heading "Deposits" [level=1] [ref=e499]
+      - generic [ref=e503]:
+        - generic [active] [ref=e507]:
+          - generic [ref=e508] [cursor=pointer]:
+            - combobox "multi-location-selector" [expanded] [ref=e509]: Select a location
+            - img "Caret down icon" [ref=e512]
+          - generic [ref=e537]:
+            - listbox [ref=e538]:
+              - generic [ref=e539]:
+                - generic [ref=e544]:
+                  - img "Magnifying glass icon" [ref=e546]
+                  - searchbox "Search" [ref=e549]
+                - option "Select all" [ref=e551] [cursor=pointer]
+                - generic [ref=e556]:
+                  - option "NORMS Restaurant - 1325 W Renaissance Pkwy" [ref=e557] [cursor=pointer]
+                  - option "NORMS Restaurant - 16573 Ventura Blvd, Encino" [ref=e562] [cursor=pointer]
+                  - option "NORMS Restaurant - 72" [ref=e567] [cursor=pointer]
+                  - option "NORMS Restaurant - Beach Blvd" [ref=e572] [cursor=pointer]
+                  - option "NORMS Restaurant - E 17th St" [ref=e577] [cursor=pointer]
+                  - option "NORMS Restaurant - E Katella Ave" [ref=e582] [cursor=pointer]
+                  - option "NORMS Restaurant - E Slauson Ave" [ref=e587] [cursor=pointer]
+                  - option "NORMS Restaurant - Firestone Blvd" [ref=e592] [cursor=pointer]
+                  - option "NORMS Restaurant - Harbor Blvd" [ref=e597] [cursor=pointer]
+                  - option "NORMS Restaurant - Hawthorne Blvd" [ref=e602] [cursor=pointer]
+                  - option "NORMS Restaurant - Lakewood Blvd" [ref=e607] [cursor=pointer]
+                  - option "NORMS Restaurant - N Azusa Ave" [ref=e612] [cursor=pointer]
+                  - option "NORMS Restaurant - N Euclid St" [ref=e617] [cursor=pointer]
+                  - option "NORMS Restaurant - N La Cienega Blvd" [ref=e622] [cursor=pointer]
+                  - option "NORMS Restaurant - Pacific Coast Hwy" [ref=e627] [cursor=pointer]
+                  - option "NORMS Restaurant - Rosemead Blvd" [ref=e632] [cursor=pointer]
+                  - option "NORMS Restaurant - S Avalon Blvd" [ref=e637] [cursor=pointer]
+                  - option "NORMS Restaurant - S Indian Hill Blvd" [ref=e642] [cursor=pointer]
+                  - option "NORMS Restaurant - Sherman Way" [ref=e647] [cursor=pointer]
+                  - option "NORMS Restaurant - Tyler St" [ref=e652] [cursor=pointer]
+                  - option "NORMS Restaurant - Valley Blvd" [ref=e657] [cursor=pointer]
+                  - option "NORMS Restaurant - W Imperial Hwy" [ref=e662] [cursor=pointer]
+                  - option "NORMS Restaurant - Whittier Blvd" [ref=e667] [cursor=pointer]
+                  - option "Norms Restaurant (Hollywood) - 5453 Hollywood Boulevard" [ref=e672] [cursor=pointer]
+                  - option "Norms Restaurant - East Mills Circle" [ref=e677] [cursor=pointer]
+            - button "Apply" [ref=e683] [cursor=pointer]
+        - generic [ref=e520]:
+          - textbox "Select a range of dates" [ref=e522]: 09/04/2026 - 09/10/2026
+          - img "Calendar icon" [ref=e527] [cursor=pointer]
+      - generic [ref=e530]:
+        - heading "Recent Deposits(9/4/26 - 9/10/26)" [level=2] [ref=e532]:
+          - text: Recent Deposits
+          - generic [ref=e533]: (9/4/26 - 9/10/26)
+        - generic [ref=e534]: There are no deposits to show.
+    - contentinfo [ref=e79]:
+      - img "Grubhub for Restaurants" [ref=e80]
+      - paragraph [ref=e81]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=e82]:
+        - link "Terms of use" [ref=e83] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy

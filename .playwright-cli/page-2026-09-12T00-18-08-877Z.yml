@@ -1,0 +1,101 @@
+- generic [ref=f15e2]:
+  - generic [ref=f15e4]:
+    - generic [ref=f15e5]: Theme Builder
+    - button [ref=f15e8] [cursor=pointer]:
+      - generic [ref=f15e9]: 
+    - generic [ref=f15e10]:
+      - generic [ref=f15e11]:
+        - heading "Ribbon" [level=4] [ref=f15e12]
+        - generic [ref=f15e13]:
+          - generic [ref=f15e14]: BG
+          - generic [ref=f15e15]: Font
+          - generic [ref=f15e16]: Hover BG
+          - generic [ref=f15e17]: Hover Font
+        - generic "Menu" [ref=f15e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e22]':
+            - generic [ref=f15e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e28]':
+            - generic [ref=f15e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e34]':
+            - generic [ref=f15e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e40]':
+            - generic [ref=f15e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f15e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e49]':
+            - generic [ref=f15e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e55]':
+            - generic [ref=f15e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e61]':
+            - generic [ref=f15e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e67]':
+            - generic [ref=f15e71] [cursor=pointer]
+      - generic [ref=f15e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f15e73]
+        - button "Upload Ribbon Logo" [ref=f15e78] [cursor=pointer]
+      - generic [ref=f15e79]:
+        - heading "Left Panel" [level=4] [ref=f15e80]
+        - generic [ref=f15e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e84]':
+            - generic [ref=f15e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e90]':
+            - generic [ref=f15e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e96]':
+            - generic [ref=f15e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e102]':
+            - generic [ref=f15e106] [cursor=pointer]
+      - generic [ref=f15e107]:
+        - heading "Components" [level=4] [ref=f15e108]
+        - generic "Normal" [ref=f15e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f15e113]':
+            - generic [ref=f15e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f15e119]':
+            - generic [ref=f15e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e125]':
+            - generic [ref=f15e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e131]':
+            - generic [ref=f15e135] [cursor=pointer]
+        - generic "Selected" [ref=f15e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f15e140]':
+            - generic [ref=f15e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f15e146]':
+            - generic [ref=f15e150] [cursor=pointer]
+    - generic [ref=f15e151]:
+      - generic [ref=f15e152]:
+        - generic [ref=f15e155]:
+          - combobox "Select Theme" [ref=f15e156]: Default R365 Theme
+          - button "select" [ref=f15e158] [cursor=pointer]
+        - generic [ref=f15e159]:
+          - button "Set As Default" [ref=f15e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f15e161]
+          - button "Delete" [disabled] [ref=f15e162]
+      - generic [ref=f15e163]:
+        - textbox "Add New Theme" [ref=f15e165]
+        - button "New" [ref=f15e167] [cursor=pointer]
+  - heading "Loading..." [level=3] [ref=f15e184]
+  - generic [ref=f15e229]:
+    - generic [ref=f15e230]:
+      - navigation [ref=f15e234]:
+        - generic [ref=f15e235]:
+          - generic: Journal Entry
+          - generic [ref=f15e237]:
+            - list [ref=f15e238]:
+              - listitem [ref=f15e239]:
+                - button "Save" [ref=f15e240] [cursor=pointer]
+              - listitem [ref=f15e242]:
+                - button "Action" [ref=f15e243] [cursor=pointer]
+            - list [ref=f15e245]:
+              - listitem [ref=f15e246]:
+                - button [ref=f15e247] [cursor=pointer]:
+                  - generic [ref=f15e248]: 
+              - listitem [ref=f15e250]:
+                - link [ref=f15e251] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f15e252]: 
+      - generic: 
+    - generic [ref=f15e258]:
+      - generic [ref=f15e263]:
+        - button "+ Size" [ref=f15e264] [cursor=pointer]
+        - button "- Size" [ref=f15e265] [cursor=pointer]
+      - generic [ref=f15e272]:
+        - button "Upload File" [ref=f15e273] [cursor=pointer]
+        - button "Attach from Documents" [ref=f15e274] [cursor=pointer]

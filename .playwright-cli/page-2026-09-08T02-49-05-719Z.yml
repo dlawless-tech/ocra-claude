@@ -1,0 +1,391 @@
+- generic:
+  - generic:
+    - banner [ref=f28e1]:
+      - generic [ref=f28e3]:
+        - button [ref=f28e4] [cursor=pointer]
+        - button [ref=f28e7] [cursor=pointer]
+        - button [ref=f28e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f28e23]:
+      - heading "All Transactions" [level=5] [ref=f28e26]
+      - iframe [active] [ref=f28e30]:
+        - generic [ref=f29e2]:
+          - generic [ref=f29e4]:
+            - generic [ref=f29e5]: Theme Builder
+            - button [ref=f29e8] [cursor=pointer]:
+              - generic [ref=f29e9]: 
+            - generic [ref=f29e10]:
+              - generic [ref=f29e11]:
+                - heading "Ribbon" [level=4] [ref=f29e12]
+                - generic [ref=f29e13]:
+                  - generic [ref=f29e14]: BG
+                  - generic [ref=f29e15]: Font
+                  - generic [ref=f29e16]: Hover BG
+                  - generic [ref=f29e17]: Hover Font
+                - generic "Menu" [ref=f29e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f29e22]':
+                    - generic [ref=f29e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f29e28]':
+                    - generic [ref=f29e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f29e34]':
+                    - generic [ref=f29e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f29e40]':
+                    - generic [ref=f29e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f29e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f29e49]':
+                    - generic [ref=f29e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f29e55]':
+                    - generic [ref=f29e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f29e61]':
+                    - generic [ref=f29e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f29e67]':
+                    - generic [ref=f29e71] [cursor=pointer]
+              - generic [ref=f29e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f29e73]
+                - button "Upload Ribbon Logo" [ref=f29e78] [cursor=pointer]
+              - generic [ref=f29e79]:
+                - heading "Left Panel" [level=4] [ref=f29e80]
+                - generic [ref=f29e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f29e84]':
+                    - generic [ref=f29e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f29e90]':
+                    - generic [ref=f29e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f29e96]':
+                    - generic [ref=f29e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f29e102]':
+                    - generic [ref=f29e106] [cursor=pointer]
+              - generic [ref=f29e107]:
+                - heading "Components" [level=4] [ref=f29e108]
+                - generic "Normal" [ref=f29e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f29e113]':
+                    - generic [ref=f29e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f29e119]':
+                    - generic [ref=f29e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f29e125]':
+                    - generic [ref=f29e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f29e131]':
+                    - generic [ref=f29e135] [cursor=pointer]
+                - generic "Selected" [ref=f29e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f29e140]':
+                    - generic [ref=f29e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f29e146]':
+                    - generic [ref=f29e150] [cursor=pointer]
+            - generic [ref=f29e151]:
+              - generic [ref=f29e152]:
+                - generic [ref=f29e155]:
+                  - combobox "Select Theme" [ref=f29e156]: Default R365 Theme
+                  - button "select" [ref=f29e158] [cursor=pointer]
+                - generic [ref=f29e159]:
+                  - button "Set As Default" [ref=f29e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f29e161]
+                  - button "Delete" [disabled] [ref=f29e162]
+              - generic [ref=f29e163]:
+                - textbox "Add New Theme" [ref=f29e165]
+                - button "New" [ref=f29e167] [cursor=pointer]
+          - iframe [active] [ref=f29e175]:
+            - generic [ref=f30e3]:
+              - generic [ref=f30e5]:
+                - listbox [ref=f30e6] [cursor=pointer]:
+                  - generic [ref=f30e7]:
+                    - generic [ref=f30e8]: Tricia's View
+                    - generic [ref=f30e9]: select
+                - listbox [ref=f30e11] [cursor=pointer]:
+                  - generic [ref=f30e12]:
+                    - generic [ref=f30e13]: Show/Hide Columns
+                    - generic [ref=f30e14]: select
+                - button "Save View" [ref=f30e16] [cursor=pointer]
+                - button "Clear Filter" [ref=f30e17] [cursor=pointer]
+                - button "Clear Sort" [ref=f30e18] [cursor=pointer]
+                - button "Set Default" [ref=f30e19] [cursor=pointer]
+                - menubar [ref=f30e20]:
+                  - menuitem "Edit Selected" [ref=f30e21]
+                - generic [ref=f30e24]:
+                  - button [ref=f30e25] [cursor=pointer]
+                  - button [ref=f30e26] [cursor=pointer]
+              - grid [ref=f30e29]:
+                - rowgroup [ref=f30e52]:
+                  - row [ref=f30e53]:
+                    - columnheader [ref=f30e54]:
+                      - checkbox [ref=f30e55]
+                    - columnheader [ref=f30e56]:
+                      - link [ref=f30e57] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approval Status" [ref=f30e59] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e61]:
+                      - link [ref=f30e62] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Location" [ref=f30e64] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e65]:
+                      - link [ref=f30e66] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Transaction Type" [ref=f30e68] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e69]:
+                      - link [ref=f30e70] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Number" [ref=f30e72] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e73]:
+                      - link [ref=f30e74] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Date" [ref=f30e76] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e78]:
+                      - link [ref=f30e79] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Company" [ref=f30e81] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e82]:
+                      - link [ref=f30e83] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount" [ref=f30e85] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e86]:
+                      - link [ref=f30e87] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Amount Remaining" [ref=f30e89] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e90]:
+                      - link [ref=f30e91] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Comment" [ref=f30e93] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e95]:
+                      - link [ref=f30e96] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Checking Account" [ref=f30e98] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e99]:
+                      - link [ref=f30e100] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved By" [ref=f30e102] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e103]:
+                      - link [ref=f30e104] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved On" [ref=f30e106] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e107]:
+                      - link [ref=f30e108] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created By" [ref=f30e110] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e111]:
+                      - link [ref=f30e112] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created On" [ref=f30e114] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e115]:
+                      - link [ref=f30e116] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified By" [ref=f30e118] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e119]:
+                      - link [ref=f30e120] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified On" [ref=f30e122] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e123]:
+                      - link [ref=f30e124] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Spread Type" [ref=f30e126] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e127]:
+                      - link [ref=f30e128] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Attachment" [ref=f30e130] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e131]:
+                      - link [ref=f30e132] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Start Date" [ref=f30e134] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f30e135]:
+                      - link [ref=f30e136] [cursor=pointer]:
+                        - /url: "#"
+                      - link "End Date" [ref=f30e138] [cursor=pointer]:
+                        - /url: "#"
+                  - row [ref=f30e7683]:
+                    - columnheader [ref=f30e140]
+                    - columnheader [ref=f30e141]:
+                      - generic [ref=f30e143]:
+                        - textbox [ref=f30e145]
+                        - listbox [ref=f30e146] [cursor=pointer]:
+                          - generic [ref=f30e147]:
+                            - generic [ref=f30e148]: Contains
+                            - generic [ref=f30e149]: select
+                    - columnheader [ref=f30e7666]:
+                      - generic [ref=f30e153]:
+                        - textbox [active] [ref=f30e155]: Anaheim
+                        - listbox [ref=f30e156] [cursor=pointer]:
+                          - generic [ref=f30e157]:
+                            - generic [ref=f30e158]: Contains
+                            - generic [ref=f30e159]: select
+                        - button [ref=f30e7676] [cursor=pointer]
+                    - columnheader [ref=f30e7684]:
+                      - generic [ref=f30e163]:
+                        - textbox [ref=f30e165]
+                        - listbox [ref=f30e166] [cursor=pointer]:
+                          - generic [ref=f30e167]:
+                            - generic [ref=f30e168]: Contains
+                            - generic [ref=f30e169]: select
+                        - button [ref=f30e7668] [cursor=pointer]
+                    - columnheader [ref=f30e171]:
+                      - generic [ref=f30e173]:
+                        - textbox [ref=f30e175]
+                        - listbox [ref=f30e176] [cursor=pointer]:
+                          - generic [ref=f30e177]:
+                            - generic [ref=f30e178]: Contains
+                            - generic [ref=f30e179]: select
+                    - columnheader [ref=f30e181]:
+                      - generic [ref=f30e183]:
+                        - generic [ref=f30e185]:
+                          - combobox [ref=f30e186]
+                          - button "select" [ref=f30e187]
+                        - listbox [ref=f30e189] [cursor=pointer]:
+                          - generic [ref=f30e190]:
+                            - generic [ref=f30e191]: Is equal to
+                            - generic [ref=f30e192]: select
+                    - columnheader [ref=f30e7685]:
+                      - generic [ref=f30e196]:
+                        - textbox [ref=f30e198]
+                        - listbox [ref=f30e199] [cursor=pointer]:
+                          - generic [ref=f30e200]:
+                            - generic [ref=f30e201]: Contains
+                            - generic [ref=f30e202]: select
+                        - button [ref=f30e7679] [cursor=pointer]
+                    - columnheader "Increase value Decrease value" [ref=f30e204]:
+                      - generic [ref=f30e206]:
+                        - generic [ref=f30e208]:
+                          - textbox [ref=f30e209]
+                          - generic [ref=f30e210]:
+                            - generic "Increase value" [ref=f30e212]
+                            - generic "Decrease value" [ref=f30e214]
+                        - listbox [ref=f30e215] [cursor=pointer]:
+                          - generic [ref=f30e216]:
+                            - generic [ref=f30e217]: Is equal to
+                            - generic [ref=f30e218]: select
+                    - columnheader "Increase value Decrease value" [ref=f30e220]:
+                      - generic [ref=f30e222]:
+                        - generic [ref=f30e224]:
+                          - textbox [ref=f30e225]
+                          - generic [ref=f30e226]:
+                            - generic "Increase value" [ref=f30e228]
+                            - generic "Decrease value" [ref=f30e230]
+                        - listbox [ref=f30e231] [cursor=pointer]:
+                          - generic [ref=f30e232]:
+                            - generic [ref=f30e233]: Is equal to
+                            - generic [ref=f30e234]: select
+                    - columnheader [ref=f30e236]:
+                      - generic [ref=f30e238]:
+                        - textbox [ref=f30e240]
+                        - listbox [ref=f30e241] [cursor=pointer]:
+                          - generic [ref=f30e242]:
+                            - generic [ref=f30e243]: Contains
+                            - generic [ref=f30e244]: select
+                    - columnheader [ref=f30e246]:
+                      - generic [ref=f30e248]:
+                        - textbox [ref=f30e250]
+                        - listbox [ref=f30e251] [cursor=pointer]:
+                          - generic [ref=f30e252]:
+                            - generic [ref=f30e253]: Contains
+                            - generic [ref=f30e254]: select
+                    - columnheader [ref=f30e256]:
+                      - generic [ref=f30e258]:
+                        - textbox [ref=f30e260]
+                        - listbox [ref=f30e261] [cursor=pointer]:
+                          - generic [ref=f30e262]:
+                            - generic [ref=f30e263]: Contains
+                            - generic [ref=f30e264]: select
+                    - columnheader [ref=f30e266]:
+                      - generic [ref=f30e268]:
+                        - generic [ref=f30e270]:
+                          - combobox [ref=f30e271]
+                          - button "select" [ref=f30e272]
+                        - listbox [ref=f30e274] [cursor=pointer]:
+                          - generic [ref=f30e275]:
+                            - generic [ref=f30e276]: Is equal to
+                            - generic [ref=f30e277]: select
+                    - columnheader [ref=f30e279]:
+                      - generic [ref=f30e281]:
+                        - textbox [ref=f30e283]
+                        - listbox [ref=f30e284] [cursor=pointer]:
+                          - generic [ref=f30e285]:
+                            - generic [ref=f30e286]: Contains
+                            - generic [ref=f30e287]: select
+                    - columnheader [ref=f30e289]:
+                      - generic [ref=f30e291]:
+                        - generic [ref=f30e293]:
+                          - combobox [ref=f30e294]
+                          - button "select" [ref=f30e295]
+                        - listbox [ref=f30e297] [cursor=pointer]:
+                          - generic [ref=f30e298]:
+                            - generic [ref=f30e299]: Is equal to
+                            - generic [ref=f30e300]: select
+                    - columnheader [ref=f30e302]:
+                      - generic [ref=f30e304]:
+                        - textbox [ref=f30e306]
+                        - listbox [ref=f30e307] [cursor=pointer]:
+                          - generic [ref=f30e308]:
+                            - generic [ref=f30e309]: Contains
+                            - generic [ref=f30e310]: select
+                    - columnheader [ref=f30e312]:
+                      - generic [ref=f30e314]:
+                        - generic [ref=f30e316]:
+                          - combobox [ref=f30e317]
+                          - button "select" [ref=f30e318]
+                        - listbox [ref=f30e320] [cursor=pointer]:
+                          - generic [ref=f30e321]:
+                            - generic [ref=f30e322]: Is equal to
+                            - generic [ref=f30e323]: select
+                    - columnheader [ref=f30e325]:
+                      - generic [ref=f30e327]:
+                        - textbox [ref=f30e329]
+                        - listbox [ref=f30e330] [cursor=pointer]:
+                          - generic [ref=f30e331]:
+                            - generic [ref=f30e332]: Contains
+                            - generic [ref=f30e333]: select
+                    - columnheader [ref=f30e335]:
+                      - generic [ref=f30e337]:
+                        - textbox [ref=f30e339]
+                        - listbox [ref=f30e340] [cursor=pointer]:
+                          - generic [ref=f30e341]:
+                            - generic [ref=f30e342]: Is equal to
+                            - generic [ref=f30e343]: select
+                    - columnheader [ref=f30e345]:
+                      - generic [ref=f30e347]:
+                        - generic [ref=f30e349]:
+                          - combobox [ref=f30e350]
+                          - button "select" [ref=f30e351]
+                        - listbox [ref=f30e353] [cursor=pointer]:
+                          - generic [ref=f30e354]:
+                            - generic [ref=f30e355]: Is equal to
+                            - generic [ref=f30e356]: select
+                    - columnheader [ref=f30e358]:
+                      - generic [ref=f30e360]:
+                        - generic [ref=f30e362]:
+                          - combobox [ref=f30e363]
+                          - button "select" [ref=f30e364]
+                        - listbox [ref=f30e366] [cursor=pointer]:
+                          - generic [ref=f30e367]:
+                            - generic [ref=f30e368]: Is equal to
+                            - generic [ref=f30e369]: select
+                    - columnheader:
+                      - generic [ref=f30e372]:
+                        - generic [ref=f30e373]:
+                          - textbox
+                        - listbox [ref=f30e374] [cursor=pointer]:
+                          - generic [ref=f30e375]:
+                            - generic [ref=f30e376]: Contains
+                            - generic [ref=f30e377]: select
+              - generic [ref=f30e380]:
+                - grid:
+                  - rowgroup
+              - generic [ref=f30e7659]:
+                - generic [ref=f30e7660]: No items to display
+                - generic [ref=f30e7682]: 0 Items Selected
+  - iframe

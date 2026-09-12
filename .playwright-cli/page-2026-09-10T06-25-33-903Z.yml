@@ -1,0 +1,28 @@
+- generic [ref=e6]:
+  - generic [ref=e49]:
+    - heading "View status" [level=4] [ref=e88] [cursor=pointer]
+    - button "Toggle Menu" [ref=e53] [cursor=pointer]:
+      - img "Menu icon" [ref=e494]
+    - img "Grubhub logo" [ref=e58] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e496]:
+      - heading "Deposits" [level=1] [ref=e499]
+      - generic [ref=e503]:
+        - generic [ref=e508] [cursor=pointer]:
+          - combobox "multi-location-selector" [ref=e509]: Select a location
+          - img "Caret down icon" [ref=e512]
+        - generic [ref=e520]:
+          - textbox "Select a range of dates" [ref=e522]: 09/04/2026 - 09/10/2026
+          - img "Calendar icon" [ref=e527] [cursor=pointer]
+      - generic [ref=e530]:
+        - heading "Recent Deposits(9/4/26 - 9/10/26)" [level=2] [ref=e532]:
+          - text: Recent Deposits
+          - generic [ref=e533]: (9/4/26 - 9/10/26)
+        - generic [ref=e534]: There are no deposits to show.
+    - contentinfo [ref=e79]:
+      - img "Grubhub for Restaurants" [ref=e80]
+      - paragraph [ref=e81]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=e82]:
+        - link "Terms of use" [ref=e83] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy

@@ -1,0 +1,246 @@
+- generic [ref=f29e2]:
+  - generic [ref=f29e4]:
+    - generic [ref=f29e5]: Theme Builder
+    - button [ref=f29e8] [cursor=pointer]:
+      - generic [ref=f29e9]: 
+    - generic [ref=f29e10]:
+      - generic [ref=f29e11]:
+        - heading "Ribbon" [level=4] [ref=f29e12]
+        - generic [ref=f29e13]:
+          - generic [ref=f29e14]: BG
+          - generic [ref=f29e15]: Font
+          - generic [ref=f29e16]: Hover BG
+          - generic [ref=f29e17]: Hover Font
+        - generic "Menu" [ref=f29e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f29e22]':
+            - generic [ref=f29e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f29e28]':
+            - generic [ref=f29e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f29e34]':
+            - generic [ref=f29e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f29e40]':
+            - generic [ref=f29e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f29e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f29e49]':
+            - generic [ref=f29e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f29e55]':
+            - generic [ref=f29e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f29e61]':
+            - generic [ref=f29e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f29e67]':
+            - generic [ref=f29e71] [cursor=pointer]
+      - generic [ref=f29e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f29e73]
+        - button "Upload Ribbon Logo" [ref=f29e78] [cursor=pointer]
+      - generic [ref=f29e79]:
+        - heading "Left Panel" [level=4] [ref=f29e80]
+        - generic [ref=f29e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f29e84]':
+            - generic [ref=f29e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f29e90]':
+            - generic [ref=f29e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f29e96]':
+            - generic [ref=f29e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f29e102]':
+            - generic [ref=f29e106] [cursor=pointer]
+      - generic [ref=f29e107]:
+        - heading "Components" [level=4] [ref=f29e108]
+        - generic "Normal" [ref=f29e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f29e113]':
+            - generic [ref=f29e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f29e119]':
+            - generic [ref=f29e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f29e125]':
+            - generic [ref=f29e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f29e131]':
+            - generic [ref=f29e135] [cursor=pointer]
+        - generic "Selected" [ref=f29e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f29e140]':
+            - generic [ref=f29e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f29e146]':
+            - generic [ref=f29e150] [cursor=pointer]
+    - generic [ref=f29e151]:
+      - generic [ref=f29e152]:
+        - generic [ref=f29e155]:
+          - combobox "Select Theme" [ref=f29e156]: Default R365 Theme
+          - button "select" [ref=f29e158] [cursor=pointer]
+        - generic [ref=f29e159]:
+          - button "Set As Default" [ref=f29e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f29e161]
+          - button "Delete" [disabled] [ref=f29e162]
+      - generic [ref=f29e163]:
+        - textbox "Add New Theme" [ref=f29e165]
+        - button "New" [ref=f29e167] [cursor=pointer]
+  - generic [ref=f29e189]:
+    - generic [ref=f29e190]:
+      - navigation [ref=f29e194]:
+        - generic [ref=f29e195]:
+          - generic: Journal Entry - GrubHub
+          - generic [ref=f29e197]:
+            - list [ref=f29e198]:
+              - listitem [ref=f29e199]:
+                - button "Save" [ref=f29e200] [cursor=pointer]
+              - listitem [ref=f29e229]:
+                - button "Approve" [ref=f29e230] [cursor=pointer]
+              - listitem [ref=f29e202]:
+                - button "Action" [ref=f29e203] [cursor=pointer]
+            - list [ref=f29e232]:
+              - listitem [ref=f29e233]:
+                - button [ref=f29e234] [cursor=pointer]:
+                  - generic [ref=f29e235]: 
+              - listitem [ref=f29e237]:
+                - link [ref=f29e238] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f29e239]: 
+      - generic [ref=f29e242]:
+        - generic [ref=f29e243]: Unapproved
+        - text: 
+    - generic [ref=f29e206]:
+      - group [ref=f29e245]:
+        - generic [ref=f29e210]:
+          - generic [ref=f29e247]:
+            - generic [ref=f29e248]:
+              - generic [ref=f29e249]:
+                - generic [ref=f29e250]: Date *
+                - generic [ref=f29e253]:
+                  - combobox "Date *" [ref=f29e254]: 9/5/2026
+                  - button "select" [ref=f29e255] [cursor=pointer]
+              - generic [ref=f29e257]:
+                - generic [ref=f29e258]: Number *
+                - textbox "Number *" [ref=f29e260]: GrubHub
+              - generic [ref=f29e262]:
+                - generic [ref=f29e263]: Type *
+                - listbox [ref=f29e265] [cursor=pointer]:
+                  - generic [ref=f29e266]:
+                    - generic [ref=f29e267]: Standard
+                    - generic [ref=f29e268]: select
+            - generic [ref=f29e270]:
+              - generic [ref=f29e271]:
+                - generic [ref=f29e272]:
+                  - link "Location" [ref=f29e273] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/10871501-d0e5-485b-9b48-94d523395a9c"
+                  - text: "*"
+                - generic [ref=f29e276]:
+                  - combobox "Select Location" [ref=f29e277]: 218 - Orange
+                  - button "select" [ref=f29e279] [cursor=pointer]
+              - generic [ref=f29e280]:
+                - generic [ref=f29e281]: Comment
+                - textbox "Comment" [ref=f29e283]: E Katella Ave use same sales dates as GrubHub (Tue-Mon) date of JE must be Saturday
+          - generic [ref=f29e213]:
+            - generic [ref=f29e215]:
+              - button "+ Size" [ref=f29e218] [cursor=pointer]
+              - button "- Size" [ref=f29e219] [cursor=pointer]
+            - tablist [ref=f29e288]:
+              - list [ref=f29e289]:
+                - tab "Details" [selected] [ref=f29e290]
+                - tab "Distribution" [ref=f29e293]
+              - tabpanel [ref=f29e296]:
+                - generic [ref=f29e297]:
+                  - generic [ref=f29e298]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f29e302]:
+                          - combobox "Select Account" [ref=f29e303]
+                          - button "select" [ref=f29e305] [cursor=pointer]
+                        - textbox [ref=f29e307]: "0"
+                        - textbox [ref=f29e309]: "0"
+                        - textbox [ref=f29e311]
+                        - generic [ref=f29e314]:
+                          - button "218 - Orange" [ref=f29e317] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f29e319]:
+                          - button "Add" [ref=f29e320] [cursor=pointer]
+                          - button "Clear" [ref=f29e321] [cursor=pointer]
+                  - grid [ref=f29e324]:
+                    - rowgroup [ref=f29e333]:
+                      - row [ref=f29e334]:
+                        - columnheader [ref=f29e335]:
+                          - link [ref=f29e336] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e337]:
+                          - link "Account" [ref=f29e338] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e340]:
+                          - link "Debit" [ref=f29e341] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e342]:
+                          - link "Credit" [ref=f29e343] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e344]:
+                          - link "Comment" [ref=f29e345] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e346]:
+                          - link "Location" [ref=f29e347] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f29e348]
+                  - grid [active] [ref=f29e350]:
+                    - rowgroup [ref=f29e359]:
+                      - row [selected] [ref=f29e450]:
+                        - gridcell [ref=f29e361] [cursor=pointer]
+                        - gridcell "1113 - A/R Grubhub" [ref=f29e362] [cursor=pointer]
+                        - gridcell "0.00" [ref=f29e363] [cursor=pointer]
+                        - gridcell [ref=f29e451] [cursor=pointer]:
+                          - textbox [ref=f29e452]: "0"
+                        - gridcell "ar grubhub - deposit" [ref=f29e367] [cursor=pointer]
+                        - gridcell "218 - Orange" [ref=f29e368] [cursor=pointer]
+                        - gridcell "" [ref=f29e369] [cursor=pointer]
+                      - row [ref=f29e371]:
+                        - gridcell [ref=f29e372]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f29e373]
+                        - gridcell "0.00" [ref=f29e374]
+                        - gridcell "0.00" [ref=f29e376]
+                        - gridcell "commissions" [ref=f29e378]
+                        - gridcell "218 - Orange" [ref=f29e379]
+                        - gridcell "" [ref=f29e380]
+                      - row [ref=f29e382]:
+                        - gridcell [ref=f29e383]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f29e384]
+                        - gridcell "0.00" [ref=f29e385]
+                        - gridcell "0.00" [ref=f29e387]
+                        - gridcell "delivery commissions" [ref=f29e389]
+                        - gridcell "218 - Orange" [ref=f29e390]
+                        - gridcell "" [ref=f29e391]
+                      - row [ref=f29e393]:
+                        - gridcell [ref=f29e394]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f29e395]
+                        - gridcell "0.00" [ref=f29e396]
+                        - gridcell "0.00" [ref=f29e398]
+                        - gridcell "order processing fees" [ref=f29e400]
+                        - gridcell "218 - Orange" [ref=f29e401]
+                        - gridcell "" [ref=f29e402]
+                      - row [ref=f29e404]:
+                        - gridcell [ref=f29e405]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f29e406]
+                        - gridcell "0.00" [ref=f29e407]
+                        - gridcell "0.00" [ref=f29e409]
+                        - gridcell "refund" [ref=f29e411]
+                        - gridcell "218 - Orange" [ref=f29e412]
+                        - gridcell "" [ref=f29e413]
+                  - table [ref=f29e417]:
+                    - rowgroup [ref=f29e426]:
+                      - row [ref=f29e427]:
+                        - cell [ref=f29e428]
+                        - cell [ref=f29e429]
+                        - cell "0.00" [ref=f29e430]
+                        - cell "0.00" [ref=f29e432]
+                        - cell [ref=f29e434]
+                        - cell [ref=f29e435]
+                        - cell [ref=f29e436]
+                  - generic [ref=f29e437]:
+                    - link "Go to the first page" [ref=f29e438]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f29e440]:
+                      - /url: "#"
+                    - list [ref=f29e442]:
+                      - listitem [ref=f29e443]:
+                        - generic [ref=f29e444] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f29e445]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f29e447]:
+                      - /url: "#"
+                    - generic [ref=f29e449]: 1 - 5 of 5 items
+              - text:    
+          - generic [ref=f29e224]:
+            - button "Upload File" [ref=f29e225] [cursor=pointer]
+            - button "Attach from Documents" [ref=f29e226] [cursor=pointer]
+      - group

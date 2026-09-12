@@ -1,0 +1,141 @@
+- generic [ref=f25e17]:
+  - generic [ref=f25e19]:
+    - generic [ref=f25e20]: Theme Builder
+    - button [ref=f25e23] [cursor=pointer]:
+      - generic [ref=f25e24]: 
+    - generic [ref=f25e25]:
+      - generic [ref=f25e26]:
+        - heading "Ribbon" [level=4] [ref=f25e27]
+        - generic [ref=f25e28]:
+          - generic [ref=f25e29]: BG
+          - generic [ref=f25e30]: Font
+          - generic [ref=f25e31]: Hover BG
+          - generic [ref=f25e32]: Hover Font
+        - generic "Menu" [ref=f25e33]:
+          - 'textbox "Current selected color is #ffffff" [ref=f25e37]':
+            - generic [ref=f25e41] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f25e43]':
+            - generic [ref=f25e47] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f25e49]':
+            - generic [ref=f25e53] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f25e55]':
+            - generic [ref=f25e59] [cursor=pointer]
+        - generic "SubMenu" [ref=f25e60]:
+          - 'textbox "Current selected color is #ffffff" [ref=f25e64]':
+            - generic [ref=f25e68] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f25e70]':
+            - generic [ref=f25e74] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f25e76]':
+            - generic [ref=f25e80] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f25e82]':
+            - generic [ref=f25e86] [cursor=pointer]
+      - generic [ref=f25e87]:
+        - heading "Ribbon Logo" [level=4] [ref=f25e88]
+        - button "Upload Ribbon Logo" [ref=f25e93] [cursor=pointer]
+      - generic [ref=f25e94]:
+        - heading "Left Panel" [level=4] [ref=f25e95]
+        - generic [ref=f25e96]:
+          - 'textbox "Current selected color is #ffffff" [ref=f25e99]':
+            - generic [ref=f25e103] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f25e105]':
+            - generic [ref=f25e109] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f25e111]':
+            - generic [ref=f25e115] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f25e117]':
+            - generic [ref=f25e121] [cursor=pointer]
+      - generic [ref=f25e122]:
+        - heading "Components" [level=4] [ref=f25e123]
+        - generic "Normal" [ref=f25e124]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f25e128]':
+            - generic [ref=f25e132] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f25e134]':
+            - generic [ref=f25e138] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f25e140]':
+            - generic [ref=f25e144] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f25e146]':
+            - generic [ref=f25e150] [cursor=pointer]
+        - generic "Selected" [ref=f25e151]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f25e155]':
+            - generic [ref=f25e159] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f25e161]':
+            - generic [ref=f25e165] [cursor=pointer]
+    - generic [ref=f25e166]:
+      - generic [ref=f25e167]:
+        - generic [ref=f25e170]:
+          - combobox "Select Theme" [ref=f25e171]: Default R365 Theme
+          - button "select" [ref=f25e173] [cursor=pointer]
+        - generic [ref=f25e174]:
+          - button "Set As Default" [ref=f25e175] [cursor=pointer]
+          - button "Save" [disabled] [ref=f25e176]
+          - button "Delete" [disabled] [ref=f25e177]
+      - generic [ref=f25e178]:
+        - textbox "Add New Theme" [ref=f25e180]
+        - button "New" [ref=f25e182] [cursor=pointer]
+  - generic [ref=f25e186]:
+    - generic [ref=f25e187]:
+      - navigation [ref=f25e191]:
+        - generic [ref=f25e192]:
+          - generic: Journal Entry - UberEats
+          - generic [ref=f25e194]:
+            - list [ref=f25e195]:
+              - listitem [ref=f25e196]:
+                - button "Save" [ref=f25e197] [cursor=pointer]
+              - listitem [ref=f25e199]:
+                - button "Approve" [ref=f25e200] [cursor=pointer]
+              - listitem [ref=f25e202]:
+                - button "Action" [ref=f25e203] [cursor=pointer]
+            - list [ref=f25e205]:
+              - listitem [ref=f25e206]:
+                - button [ref=f25e207] [cursor=pointer]:
+                  - generic [ref=f25e208]: 
+              - listitem [ref=f25e210]:
+                - link [ref=f25e211] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f25e212]: 
+      - generic [ref=f25e215]:
+        - generic [ref=f25e216]: Unapproved
+        - text: 
+    - generic [ref=f25e219]:
+      - group [ref=f25e220]:
+        - generic [ref=f25e223]:
+          - generic [ref=f25e225]:
+            - generic [ref=f25e226]:
+              - generic [ref=f25e227]:
+                - generic [ref=f25e228]: Date *
+                - generic [ref=f25e231]:
+                  - combobox "Date *" [active] [ref=f25e232]: 9/5/2026
+                  - button "select" [ref=f25e233] [cursor=pointer]
+              - generic [ref=f25e235]:
+                - generic [ref=f25e236]: Number *
+                - textbox "Number *" [ref=f25e238]: UberEats
+              - generic [ref=f25e240]:
+                - generic [ref=f25e241]: Type *
+                - listbox [ref=f25e243] [cursor=pointer]:
+                  - generic [ref=f25e244]:
+                    - generic [ref=f25e245]: Standard
+                    - generic [ref=f25e246]: select
+            - generic [ref=f25e248]:
+              - generic [ref=f25e249]:
+                - generic [ref=f25e250]:
+                  - link "Location" [ref=f25e251] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/72d6c464-4b5a-4b06-a723-72b6c0a26046"
+                  - text: "*"
+                - generic [ref=f25e254]:
+                  - combobox "Select Location" [ref=f25e255]: 269 - Hollywood
+                  - button "select" [ref=f25e257] [cursor=pointer]
+              - generic [ref=f25e258]:
+                - generic [ref=f25e259]: Comment
+                - textbox "Comment" [ref=f25e261]
+          - generic [ref=f25e267]:
+            - generic [ref=f25e269]:
+              - button "+ Size" [ref=f25e270] [cursor=pointer]
+              - button "- Size" [ref=f25e271] [cursor=pointer]
+            - tablist [ref=f25e273]:
+              - list [ref=f25e274]:
+                - tab "Details" [ref=f25e275]
+                - tab "Distribution" [ref=f25e278]
+              - text:         
+          - generic [ref=f25e285]:
+            - button "Upload File" [ref=f25e286] [cursor=pointer]
+            - button "Attach from Documents" [ref=f25e287] [cursor=pointer]
+      - group

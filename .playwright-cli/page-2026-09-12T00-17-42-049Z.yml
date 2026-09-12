@@ -1,0 +1,221 @@
+- generic [ref=f14e2]:
+  - generic [ref=f14e4]:
+    - generic [ref=f14e5]: Theme Builder
+    - button [ref=f14e8] [cursor=pointer]:
+      - generic [ref=f14e9]: 
+    - generic [ref=f14e10]:
+      - generic [ref=f14e11]:
+        - heading "Ribbon" [level=4] [ref=f14e12]
+        - generic [ref=f14e13]:
+          - generic [ref=f14e14]: BG
+          - generic [ref=f14e15]: Font
+          - generic [ref=f14e16]: Hover BG
+          - generic [ref=f14e17]: Hover Font
+        - generic "Menu" [ref=f14e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f14e22]':
+            - generic [ref=f14e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f14e28]':
+            - generic [ref=f14e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f14e34]':
+            - generic [ref=f14e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f14e40]':
+            - generic [ref=f14e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f14e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f14e49]':
+            - generic [ref=f14e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f14e55]':
+            - generic [ref=f14e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f14e61]':
+            - generic [ref=f14e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f14e67]':
+            - generic [ref=f14e71] [cursor=pointer]
+      - generic [ref=f14e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f14e73]
+        - button "Upload Ribbon Logo" [ref=f14e78] [cursor=pointer]
+      - generic [ref=f14e79]:
+        - heading "Left Panel" [level=4] [ref=f14e80]
+        - generic [ref=f14e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f14e84]':
+            - generic [ref=f14e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f14e90]':
+            - generic [ref=f14e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f14e96]':
+            - generic [ref=f14e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f14e102]':
+            - generic [ref=f14e106] [cursor=pointer]
+      - generic [ref=f14e107]:
+        - heading "Components" [level=4] [ref=f14e108]
+        - generic "Normal" [ref=f14e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f14e113]':
+            - generic [ref=f14e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f14e119]':
+            - generic [ref=f14e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f14e125]':
+            - generic [ref=f14e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f14e131]':
+            - generic [ref=f14e135] [cursor=pointer]
+        - generic "Selected" [ref=f14e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f14e140]':
+            - generic [ref=f14e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f14e146]':
+            - generic [ref=f14e150] [cursor=pointer]
+    - generic [ref=f14e151]:
+      - generic [ref=f14e152]:
+        - generic [ref=f14e155]:
+          - combobox "Select Theme" [ref=f14e156]: Default R365 Theme
+          - button "select" [ref=f14e158] [cursor=pointer]
+        - generic [ref=f14e159]:
+          - button "Set As Default" [ref=f14e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f14e161]
+          - button "Delete" [disabled] [ref=f14e162]
+      - generic [ref=f14e163]:
+        - textbox "Add New Theme" [ref=f14e165]
+        - button "New" [ref=f14e167] [cursor=pointer]
+  - generic [ref=f14e226]:
+    - generic [ref=f14e227]:
+      - navigation [ref=f14e231]:
+        - generic [ref=f14e232]:
+          - generic: Journal Entry - P9'26 Accrued Electricity
+          - generic [ref=f14e234]:
+            - list [ref=f14e235]:
+              - listitem [ref=f14e236]:
+                - button "Save" [ref=f14e237] [cursor=pointer]
+              - listitem [ref=f14e272]:
+                - button "Approve" [ref=f14e273] [cursor=pointer]
+              - listitem [ref=f14e239]:
+                - button "Action" [ref=f14e240] [cursor=pointer]
+            - list [ref=f14e242]:
+              - listitem [ref=f14e243]:
+                - button [ref=f14e244] [cursor=pointer]:
+                  - generic [ref=f14e245]: 
+              - listitem [ref=f14e247]:
+                - link [ref=f14e248] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f14e249]: 
+      - generic [ref=f14e277]:
+        - generic [ref=f14e278]: Unapproved
+        - text: 
+    - generic [ref=f14e251]:
+      - group [ref=f14e280]:
+        - generic [ref=f14e255]:
+          - generic [ref=f14e282]:
+            - generic [ref=f14e283]:
+              - generic [ref=f14e284]:
+                - generic [ref=f14e285]: Date *
+                - generic [ref=f14e288]:
+                  - combobox "Date *" [active] [ref=f14e289]: 9/5/2026
+                  - button "select" [ref=f14e290] [cursor=pointer]
+              - generic [ref=f14e292]:
+                - generic [ref=f14e293]: Number *
+                - textbox "Number *" [ref=f14e295]: P9'26 Accrued Electricity
+              - generic [ref=f14e297]:
+                - generic [ref=f14e298]: Type *
+                - listbox [ref=f14e300] [cursor=pointer]:
+                  - generic [ref=f14e301]:
+                    - generic [ref=f14e302]: Standard
+                    - generic [ref=f14e303]: select
+            - generic [ref=f14e305]:
+              - generic [ref=f14e306]:
+                - generic [ref=f14e307]:
+                  - link "Location" [ref=f14e308] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/8f55b444-968c-46b5-9e73-119793350017"
+                  - text: "*"
+                - generic [ref=f14e311]:
+                  - combobox "Select Location" [ref=f14e312]: 224 - West Covina
+                  - button "select" [ref=f14e314] [cursor=pointer]
+              - generic [ref=f14e315]:
+                - generic [ref=f14e316]: Comment
+                - textbox "Comment" [ref=f14e318]: 8/18-9/5
+          - generic [ref=f14e258]:
+            - generic [ref=f14e260]:
+              - button "+ Size" [ref=f14e261] [cursor=pointer]
+              - button "- Size" [ref=f14e262] [cursor=pointer]
+            - tablist [ref=f14e323]:
+              - list [ref=f14e324]:
+                - tab "Details" [selected] [ref=f14e325]
+                - tab "Distribution" [ref=f14e328]
+              - tabpanel [ref=f14e331]:
+                - generic [ref=f14e332]:
+                  - generic [ref=f14e333]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f14e337]:
+                          - combobox "Select Account" [ref=f14e338]
+                          - button "select" [ref=f14e340] [cursor=pointer]
+                        - textbox [ref=f14e342]: "0"
+                        - textbox [ref=f14e344]: "0"
+                        - textbox [ref=f14e346]
+                        - generic [ref=f14e349]:
+                          - button "224 - West Covina" [ref=f14e352] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f14e354]:
+                          - button "Add" [ref=f14e355] [cursor=pointer]
+                          - button "Clear" [ref=f14e356] [cursor=pointer]
+                  - grid [ref=f14e359]:
+                    - rowgroup [ref=f14e368]:
+                      - row [ref=f14e369]:
+                        - columnheader [ref=f14e370]:
+                          - link [ref=f14e371] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e372]:
+                          - link "Account" [ref=f14e373] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e375]:
+                          - link "Debit" [ref=f14e376] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e377]:
+                          - link "Credit" [ref=f14e378] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e379]:
+                          - link "Comment" [ref=f14e380] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e381]:
+                          - link "Location" [ref=f14e382] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f14e383]
+                  - grid [ref=f14e385]:
+                    - rowgroup [ref=f14e394]:
+                      - row [ref=f14e452]:
+                        - gridcell [ref=f14e453]
+                        - gridcell "5630 - Utilities Electric" [ref=f14e454]
+                        - gridcell "2,082.18" [ref=f14e455]
+                        - gridcell "0.00" [ref=f14e457]
+                        - gridcell [ref=f14e459]
+                        - gridcell "224 - West Covina" [ref=f14e460]
+                        - gridcell "" [ref=f14e461]
+                      - row [ref=f14e463]:
+                        - gridcell [ref=f14e464]
+                        - gridcell "2281 - Accrued Electricity" [ref=f14e465]
+                        - gridcell "0.00" [ref=f14e466]
+                        - gridcell "2,082.18" [ref=f14e468]
+                        - gridcell [ref=f14e470]
+                        - gridcell "224 - West Covina" [ref=f14e471]
+                        - gridcell "" [ref=f14e472]
+                  - table [ref=f14e476]:
+                    - rowgroup [ref=f14e485]:
+                      - row [ref=f14e486]:
+                        - cell [ref=f14e487]
+                        - cell [ref=f14e488]
+                        - cell "2,082.18" [ref=f14e489]
+                        - cell "2,082.18" [ref=f14e491]
+                        - cell [ref=f14e493]
+                        - cell [ref=f14e494]
+                        - cell [ref=f14e495]
+                  - generic [ref=f14e439]:
+                    - link "Go to the first page" [ref=f14e440]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f14e442]:
+                      - /url: "#"
+                    - list [ref=f14e444]:
+                      - listitem [ref=f14e496]:
+                        - generic [ref=f14e497] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f14e447]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f14e449]:
+                      - /url: "#"
+                    - generic [ref=f14e451]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=f14e269]:
+            - button "Upload File" [ref=f14e270] [cursor=pointer]
+            - button "Attach from Documents" [ref=f14e271] [cursor=pointer]
+      - group

@@ -1,0 +1,43 @@
+- generic [active]:
+  - generic:
+    - banner [ref=f1e1]:
+      - generic [ref=f1e3]:
+        - button [ref=f1e4] [cursor=pointer]
+        - button [ref=f1e7] [cursor=pointer]
+        - button [ref=f1e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f1e17]:
+      - heading "All Transactions" [level=5] [ref=f1e20]
+      - generic [ref=f1e22]:
+        - iframe [ref=f1e24]:
+          - generic [ref=f2e3]:
+            - generic [ref=f2e4]: Theme Builder
+            - button [ref=f2e7] [cursor=pointer]:
+              - generic [ref=f2e8]: 
+            - generic [ref=f2e9]:
+              - generic [ref=f2e10]:
+                - heading "Ribbon" [level=4] [ref=f2e11]
+                - generic [ref=f2e12]:
+                  - generic [ref=f2e13]: BG
+                  - generic [ref=f2e14]: Font
+                  - generic [ref=f2e15]: Hover BG
+                  - generic [ref=f2e16]: Hover Font
+                - generic "Menu"
+                - generic "SubMenu"
+              - heading "Ribbon Logo" [level=4] [ref=f2e18]
+              - heading "Left Panel" [level=4] [ref=f2e20]
+              - generic [ref=f2e21]:
+                - heading "Components" [level=4] [ref=f2e22]
+                - generic "Normal"
+                - generic "Selected"
+            - generic [ref=f2e23]:
+              - generic [ref=f2e26]:
+                - button "Set As Default" [ref=f2e27] [cursor=pointer]
+                - button "Save" [disabled] [ref=f2e28]
+                - button "Delete" [disabled] [ref=f2e29]
+              - generic [ref=f2e30]:
+                - textbox "Add New Theme" [ref=f2e32]
+                - button "New" [ref=f2e34] [cursor=pointer]
+        - progressbar [ref=f1e26]

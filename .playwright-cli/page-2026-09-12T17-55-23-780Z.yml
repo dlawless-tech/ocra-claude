@@ -1,0 +1,93 @@
+- generic [ref=f57e2]:
+  - generic [ref=f57e4]:
+    - generic [ref=f57e5]: Theme Builder
+    - button [ref=f57e8] [cursor=pointer]:
+      - generic [ref=f57e9]: 
+    - generic [ref=f57e10]:
+      - generic [ref=f57e11]:
+        - heading "Ribbon" [level=4] [ref=f57e12]
+        - generic [ref=f57e13]:
+          - generic [ref=f57e14]: BG
+          - generic [ref=f57e15]: Font
+          - generic [ref=f57e16]: Hover BG
+          - generic [ref=f57e17]: Hover Font
+        - generic "Menu" [ref=f57e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f57e22]':
+            - generic [ref=f57e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f57e28]':
+            - generic [ref=f57e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f57e34]':
+            - generic [ref=f57e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f57e40]':
+            - generic [ref=f57e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f57e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f57e49]':
+            - generic [ref=f57e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f57e55]':
+            - generic [ref=f57e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f57e61]':
+            - generic [ref=f57e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f57e67]':
+            - generic [ref=f57e71] [cursor=pointer]
+      - generic [ref=f57e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f57e73]
+        - button "Upload Ribbon Logo" [ref=f57e78] [cursor=pointer]
+      - generic [ref=f57e79]:
+        - heading "Left Panel" [level=4] [ref=f57e80]
+        - generic [ref=f57e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f57e84]':
+            - generic [ref=f57e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f57e90]':
+            - generic [ref=f57e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f57e96]':
+            - generic [ref=f57e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f57e102]':
+            - generic [ref=f57e106] [cursor=pointer]
+      - generic [ref=f57e107]:
+        - heading "Components" [level=4] [ref=f57e108]
+        - generic "Normal" [ref=f57e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f57e113]':
+            - generic [ref=f57e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f57e119]':
+            - generic [ref=f57e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f57e125]':
+            - generic [ref=f57e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f57e131]':
+            - generic [ref=f57e135] [cursor=pointer]
+        - generic "Selected" [ref=f57e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f57e140]':
+            - generic [ref=f57e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f57e146]':
+            - generic [ref=f57e150] [cursor=pointer]
+    - generic [ref=f57e151]:
+      - generic [ref=f57e152]:
+        - generic [ref=f57e155]:
+          - combobox "Select Theme" [ref=f57e156]
+          - button "select" [ref=f57e158] [cursor=pointer]
+        - generic [ref=f57e159]:
+          - button "Set As Default" [ref=f57e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f57e161]
+          - button "Delete" [disabled] [ref=f57e162]
+      - generic [ref=f57e163]:
+        - textbox "Add New Theme" [ref=f57e165]
+        - button "New" [ref=f57e167] [cursor=pointer]
+  - heading "Loading..." [level=3] [ref=f57e184]
+  - generic [ref=f57e188]:
+    - generic [ref=f57e189]:
+      - navigation [ref=f57e193]:
+        - generic [ref=f57e194]:
+          - generic: Journal Entry
+          - list [ref=f57e197]:
+            - listitem [ref=f57e198]:
+              - button "Save" [ref=f57e199] [cursor=pointer]
+            - listitem [ref=f57e201]:
+              - button "Action" [ref=f57e202] [cursor=pointer]
+      - generic: 
+    - generic [ref=f57e209]:
+      - generic [ref=f57e214]:
+        - button "+ Size" [ref=f57e215] [cursor=pointer]
+        - button "- Size" [ref=f57e216] [cursor=pointer]
+      - generic [ref=f57e221]:
+        - button "Upload File" [ref=f57e222] [cursor=pointer]
+        - button "Attach from Documents" [ref=f57e223] [cursor=pointer]
+        - generic [ref=f57e224]: Loading…
