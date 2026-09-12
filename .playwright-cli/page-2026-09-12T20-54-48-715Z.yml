@@ -1,0 +1,221 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Theme Builder
+    - button [ref=e8] [cursor=pointer]:
+      - generic [ref=e9]: 
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Ribbon" [level=4] [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]: BG
+          - generic [ref=e15]: Font
+          - generic [ref=e16]: Hover BG
+          - generic [ref=e17]: Hover Font
+        - generic "Menu" [ref=e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=e22]':
+            - generic [ref=e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e28]':
+            - generic [ref=e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+            - generic [ref=e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+            - generic [ref=e44] [cursor=pointer]
+        - generic "SubMenu" [ref=e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=e49]':
+            - generic [ref=e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e55]':
+            - generic [ref=e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+            - generic [ref=e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+            - generic [ref=e71] [cursor=pointer]
+      - generic [ref=e72]:
+        - heading "Ribbon Logo" [level=4] [ref=e73]
+        - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - heading "Left Panel" [level=4] [ref=e80]
+        - generic [ref=e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=e84]':
+            - generic [ref=e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e90]':
+            - generic [ref=e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+            - generic [ref=e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+            - generic [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - heading "Components" [level=4] [ref=e108]
+        - generic "Normal" [ref=e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+            - generic [ref=e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=e119]':
+            - generic [ref=e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+            - generic [ref=e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+            - generic [ref=e135] [cursor=pointer]
+        - generic "Selected" [ref=e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+            - generic [ref=e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=e146]':
+            - generic [ref=e150] [cursor=pointer]
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e155]:
+          - combobox "Select Theme" [ref=e156]: Default R365 Theme
+          - button "select" [ref=e158] [cursor=pointer]
+        - generic [ref=e159]:
+          - button "Set As Default" [ref=e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=e161]
+          - button "Delete" [disabled] [ref=e162]
+      - generic [ref=e163]:
+        - textbox "Add New Theme" [ref=e165]
+        - button "New" [ref=e167] [cursor=pointer]
+  - generic [ref=e3109]:
+    - generic [ref=e3110]:
+      - navigation [ref=e3114]:
+        - generic [ref=e3115]:
+          - generic: Journal Entry - P9'26 Accrued Water
+          - generic [ref=e3117]:
+            - list [ref=e3118]:
+              - listitem [ref=e3119]:
+                - button "Save" [ref=e3120] [cursor=pointer]
+              - listitem [ref=e3122]:
+                - button "Approve" [ref=e3123] [cursor=pointer]
+              - listitem [ref=e3125]:
+                - button "Action" [ref=e3126] [cursor=pointer]
+            - list [ref=e3128]:
+              - listitem [ref=e3129]:
+                - button [ref=e3130] [cursor=pointer]:
+                  - generic [ref=e3131]: 
+              - listitem [ref=e3133]:
+                - link [ref=e3134] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e3135]: 
+      - generic [ref=e3138]:
+        - generic [ref=e3139]: Unapproved
+        - text: 
+    - generic [ref=e3142]:
+      - group [ref=e3143]:
+        - generic [ref=e3146]:
+          - generic [ref=e3148]:
+            - generic [ref=e3149]:
+              - generic [ref=e3150]:
+                - generic [ref=e3151]: Date *
+                - generic [ref=e3154]:
+                  - combobox "Date *" [active] [ref=e3155]: 9/5/2026
+                  - button "select" [ref=e3156] [cursor=pointer]
+              - generic [ref=e3158]:
+                - generic [ref=e3159]: Number *
+                - textbox "Number *" [ref=e3161]: P9'26 Accrued Water
+              - generic [ref=e3163]:
+                - generic [ref=e3164]: Type *
+                - listbox [ref=e3166] [cursor=pointer]:
+                  - generic [ref=e3167]:
+                    - generic [ref=e3168]: Standard
+                    - generic [ref=e3169]: select
+            - generic [ref=e3171]:
+              - generic [ref=e3172]:
+                - generic [ref=e3173]:
+                  - link "Location" [ref=e3174] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/3c591a6c-3174-4e51-ac3f-d6bd9180373c"
+                  - text: "*"
+                - generic [ref=e3177]:
+                  - combobox "Select Location" [ref=e3178]: 220 - Costa Mesa
+                  - button "select" [ref=e3180] [cursor=pointer]
+              - generic [ref=e3181]:
+                - generic [ref=e3182]: Comment
+                - textbox "Comment" [ref=e3184]
+          - generic [ref=e3190]:
+            - generic [ref=e3192]:
+              - button "+ Size" [ref=e3193] [cursor=pointer]
+              - button "- Size" [ref=e3194] [cursor=pointer]
+            - tablist [ref=e3196]:
+              - list [ref=e3197]:
+                - tab "Details" [selected] [ref=e3198]
+                - tab "Distribution" [ref=e3201]
+              - tabpanel [ref=e3204]:
+                - generic [ref=e3205]:
+                  - generic [ref=e3206]:
+                    - generic:
+                      - generic:
+                        - generic [ref=e3210]:
+                          - combobox "Select Account" [ref=e3211]
+                          - button "select" [ref=e3213] [cursor=pointer]
+                        - textbox [ref=e3215]: "0"
+                        - textbox [ref=e3217]: "0"
+                        - textbox [ref=e3219]
+                        - generic [ref=e3222]:
+                          - button "220 - Costa Mesa" [ref=e3225] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=e3227]:
+                          - button "Add" [ref=e3228] [cursor=pointer]
+                          - button "Clear" [ref=e3229] [cursor=pointer]
+                  - grid [ref=e3232]:
+                    - rowgroup [ref=e3241]:
+                      - row [ref=e3242]:
+                        - columnheader [ref=e3243]:
+                          - link [ref=e3244] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3245]:
+                          - link "Account" [ref=e3246] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3248]:
+                          - link "Debit" [ref=e3249] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3250]:
+                          - link "Credit" [ref=e3251] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3252]:
+                          - link "Comment" [ref=e3253] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3254]:
+                          - link "Location" [ref=e3255] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e3256]
+                  - grid [ref=e3258]:
+                    - rowgroup [ref=e3267]:
+                      - row [ref=e3268]:
+                        - gridcell [ref=e3269]
+                        - gridcell "5635 - Utilities Water" [ref=e3270]
+                        - gridcell "788.59" [ref=e3271]
+                        - gridcell "0.00" [ref=e3273]
+                        - gridcell [ref=e3275]
+                        - gridcell "220 - Costa Mesa" [ref=e3276]
+                        - gridcell "" [ref=e3277]
+                      - row [ref=e3279]:
+                        - gridcell [ref=e3280]
+                        - gridcell "2285 - Accrued Water" [ref=e3281]
+                        - gridcell "0.00" [ref=e3282]
+                        - gridcell "788.59" [ref=e3284]
+                        - gridcell [ref=e3286]
+                        - gridcell "220 - Costa Mesa" [ref=e3287]
+                        - gridcell "" [ref=e3288]
+                  - table [ref=e3292]:
+                    - rowgroup [ref=e3301]:
+                      - row [ref=e3302]:
+                        - cell [ref=e3303]
+                        - cell [ref=e3304]
+                        - cell "788.59" [ref=e3305]
+                        - cell "788.59" [ref=e3307]
+                        - cell [ref=e3309]
+                        - cell [ref=e3310]
+                        - cell [ref=e3311]
+                  - generic [ref=e3312]:
+                    - link "Go to the first page" [ref=e3313]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=e3315]:
+                      - /url: "#"
+                    - list [ref=e3317]:
+                      - listitem [ref=e3318]:
+                        - generic [ref=e3319] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=e3320]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=e3322]:
+                      - /url: "#"
+                    - generic [ref=e3324]: 1 - 2 of 2 items
+              - text:    
+          - generic [ref=e3329]:
+            - button "Upload File" [ref=e3330] [cursor=pointer]
+            - button "Attach from Documents" [ref=e3331] [cursor=pointer]
+      - group

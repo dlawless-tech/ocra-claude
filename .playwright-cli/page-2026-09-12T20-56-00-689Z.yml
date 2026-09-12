@@ -1,0 +1,65 @@
+- generic [ref=e1]:
+  - link [ref=e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=e11]:
+    - combobox "Select Language" [ref=e25]:
+      - option "English (US)" [selected]
+      - option "Français (CA)"
+      - option "Español"
+      - option "English (CA)"
+      - option "English (AU)"
+      - option "English (NZ)"
+    - generic [ref=e26]:
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]: DoorDash
+          - generic [ref=e36]: Welcome back
+          - generic [ref=e37]:
+            - generic [ref=e38]: Log in to your
+            - generic [ref=e39]: DoorDash Merchant Portal
+        - generic [ref=e121]:
+          - generic [ref=e124]:
+            - generic [ref=e125]: Email
+            - generic [ref=e128]:
+              - textbox "Email" [active] [ref=e130]:
+                - /placeholder: Required
+                - text: mark+42@ocra-us.com
+              - button "Clear email" [ref=e133] [cursor=pointer]
+          - generic [ref=e138]:
+            - generic [ref=e139]: Password
+            - generic [ref=e142]:
+              - textbox "Password" [ref=e144]:
+                - /placeholder: Required
+              - button "Show" [ref=e146] [cursor=pointer]
+            - button "Reset Password" [ref=e150] [cursor=pointer]
+          - button "Log In" [ref=e157] [cursor=pointer]
+          - generic [ref=e162]: or
+          - generic [ref=e165]:
+            - generic [ref=e166]: "Log in with:"
+            - generic [ref=e167]:
+              - button "Google" [ref=e168] [cursor=pointer]
+              - button "Facebook" [ref=e181] [cursor=pointer]
+              - button "Apple" [ref=e190] [cursor=pointer]
+        - separator [ref=e95]
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - generic [ref=e201]: New to DoorDash?
+            - generic [ref=e202]: Partner with us today!
+          - button "Get started" [ref=e203] [cursor=pointer]
+      - generic [ref=e107]:
+        - text: By logging in, you agree to DoorDash's Merchant
+        - link "Security Terms" [ref=e108] [cursor=pointer]:
+          - /url: https://help.doordash.com/legal/document?type=mx-security-terms&region=US
+        - text: .
+    - generic [ref=e109]:
+      - generic [ref=e110]:
+        - generic [ref=e111]:
+          - generic [ref=e112]: run your store
+          - generic [ref=e113]: on the go
+        - generic [ref=e114]: Accept new orders, contact customers, and get real-time alerts all on your phone with the Business Manager app.
+      - generic [ref=e116]:
+        - img "qr code" [ref=e117]
+        - generic [ref=e118]:
+          - generic [ref=e119]: Get it on iOS and Android
+          - generic [ref=e120]: 1.8K+ 5-star ratings

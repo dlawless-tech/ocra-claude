@@ -1,0 +1,77 @@
+- generic [ref=e1]:
+  - link [ref=e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=e5]:
+    - generic [ref=e11]:
+      - combobox "Select Language" [ref=e25]:
+        - option "English (US)" [selected]
+        - option "Français (CA)"
+        - option "Español"
+        - option "English (CA)"
+        - option "English (AU)"
+        - option "English (NZ)"
+      - generic [ref=e26]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: DoorDash
+            - generic [ref=e36]: Welcome back
+            - generic [ref=e37]:
+              - generic [ref=e38]: Log in to your
+              - generic [ref=e39]: DoorDash Merchant Portal
+          - generic [ref=e121]:
+            - generic [ref=e124]:
+              - generic [ref=e125]: Email
+              - generic [ref=e128]:
+                - textbox "Email" [ref=e130]:
+                  - /placeholder: Required
+                  - text: mark+42@ocra-us.com
+                - button "Clear email" [ref=e133] [cursor=pointer]
+            - generic [ref=e138]:
+              - generic [ref=e139]: Password
+              - generic [ref=e142]:
+                - textbox "Password" [ref=e144]:
+                  - /placeholder: Required
+                  - text: Ready42026!
+                - button "Show" [ref=e146] [cursor=pointer]
+              - button "Reset Password" [ref=e150] [cursor=pointer]
+            - generic [ref=e208]:
+              - generic [ref=e209]: This action requires two-factor authentication
+              - generic [ref=e217]: "Trace ID: R-a5700c09-e6a6-4347-8483-570b539febb9."
+            - button "Error Log In" [ref=e218] [cursor=pointer]:
+              - img "Error" [ref=e223]
+              - generic [ref=e158]: Log In
+            - generic [ref=e162]: or
+            - generic [ref=e165]:
+              - generic [ref=e166]: "Log in with:"
+              - generic [ref=e167]:
+                - button "Google" [ref=e168] [cursor=pointer]
+                - button "Facebook" [ref=e181] [cursor=pointer]
+                - button "Apple" [ref=e190] [cursor=pointer]
+          - separator [ref=e95]
+          - generic [ref=e227]:
+            - generic [ref=e228]:
+              - generic [ref=e229]: New to DoorDash?
+              - generic [ref=e230]: Partner with us today!
+            - button "Get started" [ref=e231] [cursor=pointer]
+        - generic [ref=e107]:
+          - text: By logging in, you agree to DoorDash's Merchant
+          - link "Security Terms" [ref=e108] [cursor=pointer]:
+            - /url: https://help.doordash.com/legal/document?type=mx-security-terms&region=US
+          - text: .
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - generic [ref=e112]: run your store
+            - generic [ref=e113]: on the go
+          - generic [ref=e114]: Accept new orders, contact customers, and get real-time alerts all on your phone with the Business Manager app.
+        - generic [ref=e116]:
+          - img "qr code" [ref=e117]
+          - generic [ref=e118]:
+            - generic [ref=e119]: Get it on iOS and Android
+            - generic [ref=e120]: 1.8K+ 5-star ratings
+    - dialog "2-Step Verification" [ref=e239]:
+      - generic [active] [ref=e240]: 2-Step Verification
+      - generic [ref=e241]:
+        - generic [ref=e242]: 2-Step Verification
+        - img "Loading" [ref=e259]
