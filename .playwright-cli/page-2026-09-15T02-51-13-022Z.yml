@@ -1,0 +1,110 @@
+- generic [ref=f89e4]:
+  - generic [ref=f89e5]:
+    - button [ref=f89e6] [cursor=pointer]:
+      - img "Speech bubble" [ref=f89e8]
+    - generic [ref=f89e11]:
+      - generic [ref=f89e12]:
+        - link [ref=f89e13] [cursor=pointer]:
+          - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+        - generic [ref=f89e24]:
+          - button "Help" [ref=f89e26] [cursor=pointer]
+          - button "Notifications" [ref=f89e31] [cursor=pointer]
+          - button [ref=f89e38] [cursor=pointer]
+      - generic [ref=f89e41]:
+        - generic [ref=f89e44]:
+          - button "Business All stores" [ref=f89e46] [cursor=pointer]:
+            - generic:
+              - paragraph: Business
+              - heading "All stores" [level=6]
+          - link "Home" [ref=f89e51] [cursor=pointer]:
+            - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - generic [ref=f89e57]:
+            - generic [ref=f89e58]: Stores
+            - generic:
+              - generic:
+                - generic:
+                  - link "All stores" [ref=f89e69] [cursor=pointer]:
+                    - /url: /manager/stores
+                  - link "Store groups" [ref=f89e73] [cursor=pointer]:
+                    - /url: /manager/groups
+                  - link "Devices" [ref=f89e77] [cursor=pointer]:
+                    - /url: /manager/devices
+          - link "Orders" [ref=f89e81] [cursor=pointer]:
+            - /url: /manager/orders?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - generic [ref=f89e89]: Performance
+          - generic:
+            - generic:
+              - generic:
+                - link "Sales" [ref=f89e102] [cursor=pointer]:
+                  - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c/analytics/sales-v2
+                - link "Operations" [ref=f89e106] [cursor=pointer]:
+                  - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c/analytics/operations
+                - link "Top Eats" [ref=f89e110] [cursor=pointer]:
+                  - /url: /manager/top-eats?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Market benchmarking" [ref=f89e114] [cursor=pointer]:
+                  - /url: /manager/competitive-insights
+          - generic [ref=f89e117]: Customers
+          - generic:
+            - generic:
+              - generic:
+                - link "Customer insights" [ref=f89e129] [cursor=pointer]:
+                  - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c/analytics
+                - link "Reviews" [ref=f89e133] [cursor=pointer]:
+                  - /url: /manager/home/d21ccfb9-4ee6-44d7-a1da-49f51eea295c/feedback
+          - link "Rewards center" [ref=f89e137] [cursor=pointer]:
+            - /url: /manager/rewards-center?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Reports" [ref=f89e144] [cursor=pointer]:
+            - /url: /manager/reports?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Offers" [ref=f89e151] [cursor=pointer]:
+            - /url: /manager/offers?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Marketing" [ref=f89e158] [cursor=pointer]:
+            - /url: /manager/marketing/redirect?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Menu" [ref=f89e165] [cursor=pointer]:
+            - /url: /menumaker/d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Menu pricing" [ref=f89e172] [cursor=pointer]:
+            - /url: /manager/menu-markup?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - generic [ref=f89e178]: Payments
+          - generic [ref=f89e190]:
+            - link "Payouts" [ref=f89e193] [cursor=pointer]:
+              - /url: /manager/payments?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+            - link "Payouts by order" [ref=f89e197] [cursor=pointer]:
+              - /url: /manager/payments/payouts-by-order?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+            - link "Banking" [ref=f89e201] [cursor=pointer]:
+              - /url: /manager/payments/settings?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - link "Users" [ref=f89e205] [cursor=pointer]:
+            - /url: /manager/users?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+          - generic [ref=f89e212]: Settings
+          - generic:
+            - generic:
+              - generic:
+                - link "General" [ref=f89e225] [cursor=pointer]:
+                  - /url: /manager/settings/general?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Holiday Hours" [ref=f89e229] [cursor=pointer]:
+                  - /url: /manager/holiday-hours?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Preparation Times" [ref=f89e233] [cursor=pointer]:
+                  - /url: /manager/prep-times?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Documents" [ref=f89e237] [cursor=pointer]:
+                  - /url: /manager/documents?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Tax/Invoice" [ref=f89e241] [cursor=pointer]:
+                  - /url: /manager/tax-information?restaurantUUID=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+                - link "Appointments" [ref=f89e245] [cursor=pointer]:
+                  - /url: /manager/settings/appointments
+          - generic [ref=f89e248]: Channels
+          - link "Uber Direct" [ref=f89e264] [cursor=pointer]:
+            - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=d21ccfb9-4ee6-44d7-a1da-49f51eea295c
+        - generic [ref=f89e274]:
+          - heading "Payouts" [level=1] [ref=f89e279]
+          - generic [ref=f89e280]:
+            - tablist [ref=f89e282]:
+              - tab "Overview" [selected] [ref=f89e283] [cursor=pointer]
+              - tab "Statements" [ref=f89e284] [cursor=pointer]
+            - tabpanel "Overview" [ref=f89e287]
+          - generic [ref=f89e288]:
+            - generic [ref=f89e289]:
+              - button "NORMS - Los Angeles" [ref=f89e291] [cursor=pointer]
+              - generic "spinner" [ref=f89e296]
+            - button "Download" [ref=f89e298] [cursor=pointer]
+          - generic "spinner" [ref=f89e305]
+  - generic [ref=f89e310] [cursor=pointer]:
+    - img "Person Speech Bubble" [ref=f89e311]
+    - paragraph [ref=f89e314]: Have a question? We'd love to chat with you!

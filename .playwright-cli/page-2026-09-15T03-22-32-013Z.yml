@@ -1,0 +1,245 @@
+- generic [ref=f16e2]:
+  - generic [ref=f16e4]:
+    - generic [ref=f16e5]: Theme Builder
+    - button [ref=f16e8] [cursor=pointer]:
+      - generic [ref=f16e9]: 
+    - generic [ref=f16e10]:
+      - generic [ref=f16e11]:
+        - heading "Ribbon" [level=4] [ref=f16e12]
+        - generic [ref=f16e13]:
+          - generic [ref=f16e14]: BG
+          - generic [ref=f16e15]: Font
+          - generic [ref=f16e16]: Hover BG
+          - generic [ref=f16e17]: Hover Font
+        - generic "Menu" [ref=f16e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f16e22]':
+            - generic [ref=f16e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f16e28]':
+            - generic [ref=f16e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f16e34]':
+            - generic [ref=f16e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f16e40]':
+            - generic [ref=f16e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f16e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f16e49]':
+            - generic [ref=f16e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f16e55]':
+            - generic [ref=f16e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f16e61]':
+            - generic [ref=f16e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f16e67]':
+            - generic [ref=f16e71] [cursor=pointer]
+      - generic [ref=f16e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f16e73]
+        - button "Upload Ribbon Logo" [ref=f16e78] [cursor=pointer]
+      - generic [ref=f16e79]:
+        - heading "Left Panel" [level=4] [ref=f16e80]
+        - generic [ref=f16e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f16e84]':
+            - generic [ref=f16e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f16e90]':
+            - generic [ref=f16e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f16e96]':
+            - generic [ref=f16e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f16e102]':
+            - generic [ref=f16e106] [cursor=pointer]
+      - generic [ref=f16e107]:
+        - heading "Components" [level=4] [ref=f16e108]
+        - generic "Normal" [ref=f16e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f16e113]':
+            - generic [ref=f16e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f16e119]':
+            - generic [ref=f16e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f16e125]':
+            - generic [ref=f16e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f16e131]':
+            - generic [ref=f16e135] [cursor=pointer]
+        - generic "Selected" [ref=f16e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f16e140]':
+            - generic [ref=f16e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f16e146]':
+            - generic [ref=f16e150] [cursor=pointer]
+    - generic [ref=f16e151]:
+      - generic [ref=f16e152]:
+        - generic [ref=f16e155]:
+          - combobox "Select Theme" [ref=f16e156]: Default R365 Theme
+          - button "select" [ref=f16e158] [cursor=pointer]
+        - generic [ref=f16e159]:
+          - button "Set As Default" [ref=f16e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f16e161]
+          - button "Delete" [disabled] [ref=f16e162]
+      - generic [ref=f16e163]:
+        - textbox "Add New Theme" [ref=f16e165]
+        - button "New" [ref=f16e167] [cursor=pointer]
+  - generic [ref=f16e189]:
+    - generic [ref=f16e190]:
+      - navigation [ref=f16e194]:
+        - generic [ref=f16e195]:
+          - generic: Journal Entry - UberEats
+          - generic [ref=f16e197]:
+            - list [ref=f16e198]:
+              - listitem [ref=f16e199]:
+                - button "Save" [ref=f16e200] [cursor=pointer]
+              - listitem [ref=f16e229]:
+                - button "Approve" [ref=f16e230] [cursor=pointer]
+              - listitem [ref=f16e202]:
+                - button "Action" [ref=f16e203] [cursor=pointer]
+            - list [ref=f16e232]:
+              - listitem [ref=f16e233]:
+                - button [ref=f16e234] [cursor=pointer]:
+                  - generic [ref=f16e235]: 
+              - listitem [ref=f16e237]:
+                - link [ref=f16e238] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f16e239]: 
+      - generic [ref=f16e242]:
+        - generic [ref=f16e243]: Unapproved
+        - text: 
+    - generic [ref=f16e206]:
+      - group [ref=f16e245]:
+        - generic [ref=f16e210]:
+          - generic [ref=f16e247]:
+            - generic [ref=f16e248]:
+              - generic [ref=f16e249]:
+                - generic [ref=f16e250]: Date *
+                - generic [ref=f16e253]:
+                  - combobox "Date *" [active] [ref=f16e254]: 9/12/2026
+                  - button "select" [ref=f16e255] [cursor=pointer]
+              - generic [ref=f16e257]:
+                - generic [ref=f16e258]: Number *
+                - textbox "Number *" [ref=f16e260]: UberEats
+              - generic [ref=f16e262]:
+                - generic [ref=f16e263]: Type *
+                - listbox [ref=f16e265] [cursor=pointer]:
+                  - generic [ref=f16e266]:
+                    - generic [ref=f16e267]: Standard
+                    - generic [ref=f16e268]: select
+            - generic [ref=f16e270]:
+              - generic [ref=f16e271]:
+                - generic [ref=f16e272]:
+                  - link "Location" [ref=f16e273] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/6778c11e-fe6e-4bb2-90f0-22e8065d730b"
+                  - text: "*"
+                - generic [ref=f16e276]:
+                  - combobox "Select Location" [ref=f16e277]: 262 - El Monte
+                  - button "select" [ref=f16e279] [cursor=pointer]
+              - generic [ref=f16e280]:
+                - generic [ref=f16e281]: Comment
+                - textbox "Comment" [ref=f16e283]
+          - generic [ref=f16e213]:
+            - generic [ref=f16e215]:
+              - button "+ Size" [ref=f16e218] [cursor=pointer]
+              - button "- Size" [ref=f16e219] [cursor=pointer]
+            - tablist [ref=f16e288]:
+              - list [ref=f16e289]:
+                - tab "Details" [selected] [ref=f16e290]
+                - tab "Distribution" [ref=f16e293]
+              - tabpanel [ref=f16e296]:
+                - generic [ref=f16e297]:
+                  - generic [ref=f16e298]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f16e302]:
+                          - combobox "Select Account" [ref=f16e303]
+                          - button "select" [ref=f16e305] [cursor=pointer]
+                        - textbox [ref=f16e307]: "0"
+                        - textbox [ref=f16e309]: "0"
+                        - textbox [ref=f16e311]
+                        - generic [ref=f16e314]:
+                          - button "262 - El Monte" [ref=f16e317] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f16e319]:
+                          - button "Add" [ref=f16e320] [cursor=pointer]
+                          - button "Clear" [ref=f16e321] [cursor=pointer]
+                  - grid [ref=f16e324]:
+                    - rowgroup [ref=f16e333]:
+                      - row [ref=f16e334]:
+                        - columnheader [ref=f16e335]:
+                          - link [ref=f16e336] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e337]:
+                          - link "Account" [ref=f16e338] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e340]:
+                          - link "Debit" [ref=f16e341] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e342]:
+                          - link "Credit" [ref=f16e343] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e344]:
+                          - link "Comment" [ref=f16e345] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e346]:
+                          - link "Location" [ref=f16e347] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f16e348]
+                  - grid [ref=f16e350]:
+                    - rowgroup [ref=f16e359]:
+                      - row [ref=f16e360]:
+                        - gridcell [ref=f16e361]
+                        - gridcell "1112 - A/R Uber Postmates" [ref=f16e362]
+                        - gridcell "0.00" [ref=f16e363]
+                        - gridcell "261.19" [ref=f16e365]
+                        - gridcell "a/r ubereats - payout" [ref=f16e367]
+                        - gridcell "262 - El Monte" [ref=f16e368]
+                        - gridcell "" [ref=f16e369]
+                      - row [ref=f16e371]:
+                        - gridcell [ref=f16e372]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f16e373]
+                        - gridcell "26.97" [ref=f16e374]
+                        - gridcell "0.00" [ref=f16e376]
+                        - gridcell "marketing" [ref=f16e378]
+                        - gridcell "262 - El Monte" [ref=f16e379]
+                        - gridcell "" [ref=f16e380]
+                      - row [ref=f16e382]:
+                        - gridcell [ref=f16e383]
+                        - gridcell "5514 - Online Ordering Expense" [ref=f16e384]
+                        - gridcell "230.54" [ref=f16e385]
+                        - gridcell "0.00" [ref=f16e387]
+                        - gridcell "uber fees" [ref=f16e389]
+                        - gridcell "262 - El Monte" [ref=f16e390]
+                        - gridcell "" [ref=f16e391]
+                      - row [ref=f16e393]:
+                        - gridcell [ref=f16e394]
+                        - gridcell "7130 - Bad Debt Expense" [ref=f16e395]
+                        - gridcell "3.68" [ref=f16e396]
+                        - gridcell "0.00" [ref=f16e398]
+                        - gridcell "net chargeback amount" [ref=f16e400]
+                        - gridcell "262 - El Monte" [ref=f16e401]
+                        - gridcell "" [ref=f16e402]
+                      - row [ref=f16e404]:
+                        - gridcell [ref=f16e405]
+                        - gridcell "5915 - Delivery over Short" [ref=f16e406]
+                        - gridcell "0.00" [ref=f16e407]
+                        - gridcell "0.00" [ref=f16e409]
+                        - gridcell "difference" [ref=f16e411]
+                        - gridcell "262 - El Monte" [ref=f16e412]
+                        - gridcell "" [ref=f16e413]
+                  - table [ref=f16e417]:
+                    - rowgroup [ref=f16e426]:
+                      - row [ref=f16e427]:
+                        - cell [ref=f16e428]
+                        - cell [ref=f16e429]
+                        - cell "261.19" [ref=f16e430]
+                        - cell "261.19" [ref=f16e432]
+                        - cell [ref=f16e434]
+                        - cell [ref=f16e435]
+                        - cell [ref=f16e436]
+                  - generic [ref=f16e437]:
+                    - link "Go to the first page" [ref=f16e438]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f16e440]:
+                      - /url: "#"
+                    - list [ref=f16e442]:
+                      - listitem [ref=f16e443]:
+                        - generic [ref=f16e444] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f16e445]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f16e447]:
+                      - /url: "#"
+                    - generic [ref=f16e449]: 1 - 5 of 5 items
+              - text:    
+          - generic [ref=f16e224]:
+            - button "Upload File" [ref=f16e225] [cursor=pointer]
+            - button "Attach from Documents" [ref=f16e226] [cursor=pointer]
+      - group

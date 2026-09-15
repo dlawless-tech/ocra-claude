@@ -42,7 +42,7 @@ R365 writes `Rosie’s` and `Vic’s` with a curly apostrophe. Match locations o
 
 ## Phase 1: the Uber figures
 
-Payments > Payouts. The store picker's radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range to the open period, so set the period again after every switch.
+Payments > Payouts. The store picker's radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range to the open period, so set the period again after every switch. Each radio carries no accessible name, so reach it from the store's own paragraph ref rather than by label. An open date popup swallows the click that opens the picker, and the click retries instead of failing, so press Escape between the two.
 
 The date control opens on a **Pay period** tab. Bowery's periods run Monday to Sunday. Clicking any date selects the whole period containing it, so click a midweek date and read the range back: `Selected date range is from 08/31/2026 to 09/06/2026`.
 
@@ -50,7 +50,7 @@ Per store, read off the Overview tab: store name, Total Payout, and the Earnings
 
 Two reading traps:
 
-- Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block.
+- Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block. The breakdown rows are the page's only `[role=treeitem]`, and the cards are `[role=group]`, so reading treeitems document wide is the scoping. Walking down from the `Pay breakdown` heading to its tree finds nothing.
 - A stray click on the payouts page opens an order drawer that covers the date control, and the drawer often loads as "Something went wrong". Screenshot when a click stops landing, and close the drawer before retrying.
 
 Check each store before moving on: `Earnings + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
@@ -63,7 +63,9 @@ Reports > My reports in `r365b`. Run **GL Account Detail** through Customize wit
 
 The window is the pay period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
-Each location's block also shows a beginning balance and a Bank Deposit line clearing it. That pair confirms the prior period's payout landed; a missing deposit is worth reporting before posting.
+Each location's block also shows a beginning balance and a Bank Deposit line clearing it. That pair confirms the prior period's payout landed; a missing deposit is worth reporting before posting. Several stores missing one in the same week is a normal result, not a sign the report is wrong: the Sep 7 - Sep 13 run found a deposit for Shuka alone.
+
+Run the report with **Show Unapproved** on **Yes**, its saved default. D has to count every daily entry Bowery booked, and an entry still awaiting approval is booked.
 
 ## The arithmetic
 
@@ -80,7 +82,9 @@ The difference is the balancing plug, and both it and the fees line post to `632
 
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's payout has already been deposited and booked. Deposits lag by several days and sometimes miss a week, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Delivery Fees.
 
-**Check the resulting A/R balance instead.** After the credit posts, the account's balance for that location should equal Total Payout, which is the receivable awaiting the next deposit. This confirms the formula in one subtraction and works even in a week with no prior entry to compare against.
+**Check the resulting A/R balance instead.** After the credit posts, the account's balance for that location should exceed Total Payout by exactly `beginning balance - deposits in the window`, the receivables from earlier periods still sitting there. A store whose deposit landed clears that term and lands on Total Payout itself; a store with no deposit line lands on Total Payout plus its whole beginning balance. Either way the excess matches a figure already on the report to the cent, which is what confirms D. An excess that matches nothing means D is wrong, and posting on it would expense the gap to Delivery Fees.
+
+This check works in a week with no prior entry to compare against, and it is the reason the arithmetic never reads the beginning balance.
 
 ## Finding the entries
 
@@ -104,7 +108,9 @@ Fill the three lines, save, reload, then Approve and Close. Three checks decide 
 ENTRY_DATE=9/6/2026 scripts/post-entry.sh r365 Cookshop work.json
 ```
 
-Run stores in parallel by giving each worker its own session name. See `scripts/work.example.json` for the work file's shape.
+Run stores in parallel by giving each worker its own session name. See `scripts/work.example.json` for the work file's shape. Give the work file a Windows path such as `C:/Users/.../work.json`: the script reads it through `node`, which resolves a bash `/tmp/...` path against the drive root and reports the file as missing. Key each record on an ASCII fragment, `Rosie` and `Vic`, since the script matches the record and the entry's location cell against the same string.
+
+Sequential posting runs about ninety seconds a store, so a four store run finishes inside ten minutes on one session.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 

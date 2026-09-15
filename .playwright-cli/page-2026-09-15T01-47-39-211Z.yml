@@ -1,0 +1,20 @@
+- generic [ref=f2e2]:
+  - generic [ref=f2e4]:
+    - heading "Log in to Bowerygroup" [level=3] [ref=f2e5]
+    - generic [ref=f2e7]:
+      - textbox "Enter username" [ref=f2e9]: H
+      - generic [ref=f2e10]:
+        - generic [ref=f2e11]:
+          - textbox "Enter password" [ref=f2e12]: H
+          - generic [ref=f2e13] [cursor=pointer]
+        - generic [ref=f2e16]:
+          - generic [ref=f2e17]:
+            - checkbox "Remember me ✓" [ref=f2e18]
+            - generic [ref=f2e19] [cursor=pointer]: Remember me ✓
+          - link "Forgot password?" [ref=f2e21] [cursor=pointer]:
+            - /url: /Account/ForgotPassword?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fbowerygroup.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3D9jQ1s49czCRKd-T08ADnefDPWGMG1c7rOj9WSqm7QGs%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639250336569959549.OTAwY2Q4MjYtMTZlYS00NWM5LThiMWItYTdhMmY0N2NhOTc0MzNiYWY5OGItYTg1Yy00MzZmLWI4Y2YtOGE0YTE3MjJkYjYz%26acr_values%3Dtenant%253Abowerygroup%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5FIdEfbeni9EakiIwYObeRzXlcmXcxbu6PSLghsxrF_Q2fg9d7UpzWKqFlZmqVo0XugNvJPmQVp14pVOYd1JwG3knpbmw7gguy0NsMKSz6UvPwRvRzjolbK1hBLbxZMFnb42n3xlURY03Hx9yCzh8IvKPgmbQ74CizZm6vi4n24nEvnNGV9Gde-UnU4CnA9Or2ZAwwQghKeAcjzQbsV16hkXhbSLLLJQsle9K1p7McqTWXWzCMDmeY-C1TKQtVUaLvy21ALhS37uyyeR37QvEPCPNYAySpWuPX7w_jXch_8BC3G06ji8JgWQpssGhrF4Af-VLdwuwBrqHFaSa6C_z5Gbm5Nnq-DVMH8Wb9dpiHR-LiH928rki3Gux8t47HVH1WZ9aerTmTPL-JMMMWOwtpxIWHfIHKneoFx5bG3izYNsaoKTO0rydm_FrEFJMCN4Ly0Cps9RuPugOH1kwefKVLqIgwjhzeTW6hMC2udwIuFj9Pcwe3o6gnTt1D5_I8G41n1NtP0zmaSo3jyi-s3wxbHHTKHnl9s8oIltud_iY4Trm6nx8BMh2FlqQSheRQr8zai2T6_HNoW5ZKBHtc55Kh6SJl_1JDG1qeQ96sUMRpRk739ykl8EY10oNVq0-ubPZSdEhYO5tW06bt2Hmx_WenP%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0
+        - button "Log in" [ref=f2e22] [cursor=pointer]
+  - paragraph [ref=f2e24]:
+    - text: By clicking Log In, you have read andagree to our
+    - link "Terms & Conditions." [ref=f2e25] [cursor=pointer]:
+      - /url: https://www.restaurant365.com/legal

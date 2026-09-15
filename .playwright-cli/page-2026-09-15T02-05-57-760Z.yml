@@ -1,0 +1,230 @@
+- generic [ref=f15e2]:
+  - generic [ref=f15e4]:
+    - generic [ref=f15e5]: Theme Builder
+    - button [ref=f15e8] [cursor=pointer]:
+      - generic [ref=f15e9]: 
+    - generic [ref=f15e10]:
+      - generic [ref=f15e11]:
+        - heading "Ribbon" [level=4] [ref=f15e12]
+        - generic [ref=f15e13]:
+          - generic [ref=f15e14]: BG
+          - generic [ref=f15e15]: Font
+          - generic [ref=f15e16]: Hover BG
+          - generic [ref=f15e17]: Hover Font
+        - generic "Menu" [ref=f15e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e22]':
+            - generic [ref=f15e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e28]':
+            - generic [ref=f15e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e34]':
+            - generic [ref=f15e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e40]':
+            - generic [ref=f15e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f15e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e49]':
+            - generic [ref=f15e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e55]':
+            - generic [ref=f15e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e61]':
+            - generic [ref=f15e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e67]':
+            - generic [ref=f15e71] [cursor=pointer]
+      - generic [ref=f15e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f15e73]
+        - button "Upload Ribbon Logo" [ref=f15e78] [cursor=pointer]
+      - generic [ref=f15e79]:
+        - heading "Left Panel" [level=4] [ref=f15e80]
+        - generic [ref=f15e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e84]':
+            - generic [ref=f15e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e90]':
+            - generic [ref=f15e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e96]':
+            - generic [ref=f15e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e102]':
+            - generic [ref=f15e106] [cursor=pointer]
+      - generic [ref=f15e107]:
+        - heading "Components" [level=4] [ref=f15e108]
+        - generic "Normal" [ref=f15e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f15e113]':
+            - generic [ref=f15e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f15e119]':
+            - generic [ref=f15e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e125]':
+            - generic [ref=f15e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e131]':
+            - generic [ref=f15e135] [cursor=pointer]
+        - generic "Selected" [ref=f15e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f15e140]':
+            - generic [ref=f15e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f15e146]':
+            - generic [ref=f15e150] [cursor=pointer]
+    - generic [ref=f15e151]:
+      - generic [ref=f15e152]:
+        - generic [ref=f15e155]:
+          - combobox "Select Theme" [ref=f15e156]: Default R365 Theme
+          - button "select" [ref=f15e158] [cursor=pointer]
+        - generic [ref=f15e159]:
+          - button "Set As Default" [ref=f15e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f15e161]
+          - button "Delete" [disabled] [ref=f15e162]
+      - generic [ref=f15e163]:
+        - textbox "Add New Theme" [ref=f15e165]
+        - button "New" [ref=f15e167] [cursor=pointer]
+  - generic [ref=f15e425]:
+    - generic [ref=f15e426]:
+      - navigation [ref=f15e430]:
+        - generic [ref=f15e431]:
+          - generic: Journal Entry - UberEats
+          - generic [ref=f15e433]:
+            - list [ref=f15e434]:
+              - listitem [ref=f15e435]:
+                - button "Save" [ref=f15e436] [cursor=pointer]
+              - listitem [ref=f15e471]:
+                - button "Approve" [ref=f15e472] [cursor=pointer]
+              - listitem [ref=f15e438]:
+                - button "Action" [ref=f15e439] [cursor=pointer]
+            - list [ref=f15e441]:
+              - listitem [ref=f15e442]:
+                - button [ref=f15e443] [cursor=pointer]:
+                  - generic [ref=f15e444]: 
+              - listitem [ref=f15e446]:
+                - link [ref=f15e447] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f15e448]: 
+      - generic [ref=f15e476]:
+        - generic [ref=f15e477]: Unapproved
+        - text: 
+    - generic [ref=f15e450]:
+      - group [ref=f15e479]:
+        - generic [ref=f15e454]:
+          - generic [ref=f15e481]:
+            - generic [ref=f15e482]:
+              - generic [ref=f15e483]:
+                - generic [ref=f15e484]: Date *
+                - generic [ref=f15e487]:
+                  - combobox "Date *" [ref=f15e488]: 9/13/2026
+                  - button "select" [ref=f15e489] [cursor=pointer]
+              - generic [ref=f15e491]:
+                - generic [ref=f15e492]: Number *
+                - textbox "Number *" [ref=f15e494]: UberEats
+              - generic [ref=f15e496]:
+                - generic [ref=f15e497]: Type *
+                - listbox [ref=f15e499] [cursor=pointer]:
+                  - generic [ref=f15e500]:
+                    - generic [ref=f15e501]: Standard
+                    - generic [ref=f15e502]: select
+            - generic [ref=f15e504]:
+              - generic [ref=f15e505]:
+                - generic [ref=f15e506]:
+                  - link "Location" [ref=f15e507] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/97243c57-5ab3-4af2-8939-09191cdcd3dc"
+                  - text: "*"
+                - generic [ref=f15e510]:
+                  - combobox "Select Location" [ref=f15e511]: 700 - Vic’s
+                  - button "select" [ref=f15e513] [cursor=pointer]
+              - generic [ref=f15e514]:
+                - generic [ref=f15e515]: Comment
+                - textbox "Comment" [ref=f15e517]
+          - generic [ref=f15e457]:
+            - generic [ref=f15e459]:
+              - button "+ Size" [ref=f15e460] [cursor=pointer]
+              - button "- Size" [ref=f15e461] [cursor=pointer]
+            - tablist [ref=f15e522]:
+              - list [ref=f15e523]:
+                - tab "Details" [selected] [ref=f15e524]
+                - tab "Distribution" [ref=f15e527]
+              - tabpanel [ref=f15e530]:
+                - generic [ref=f15e531]:
+                  - generic [ref=f15e532]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f15e536]:
+                          - combobox "Select Account" [ref=f15e537]
+                          - button "select" [ref=f15e539] [cursor=pointer]
+                        - textbox [ref=f15e541]: "0"
+                        - textbox [ref=f15e543]: "0"
+                        - textbox [ref=f15e545]
+                        - generic [ref=f15e548]:
+                          - button "700 - Vic’s" [ref=f15e551] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f15e553]:
+                          - button "Add" [ref=f15e554] [cursor=pointer]
+                          - button "Clear" [ref=f15e555] [cursor=pointer]
+                  - grid [ref=f15e558]:
+                    - rowgroup [ref=f15e567]:
+                      - row [ref=f15e568]:
+                        - columnheader [ref=f15e569]:
+                          - link [ref=f15e570] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e571]:
+                          - link "Account" [ref=f15e572] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e574]:
+                          - link "Debit" [ref=f15e575] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e576]:
+                          - link "Credit" [ref=f15e577] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e578]:
+                          - link "Comment" [ref=f15e579] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e580]:
+                          - link "Location" [ref=f15e581] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f15e582]
+                  - grid [active] [ref=f15e584]:
+                    - rowgroup [ref=f15e593]:
+                      - row [ref=f15e594]:
+                        - gridcell [ref=f15e595]
+                        - gridcell "104-04 - A/R - Uber Eats" [ref=f15e596]
+                        - gridcell "0.00" [ref=f15e597]
+                        - gridcell "0.00" [ref=f15e599]
+                        - gridcell "a/r debit from prior week less total payout" [ref=f15e601]
+                        - gridcell "700 - Vic’s" [ref=f15e602]
+                        - gridcell "" [ref=f15e603]
+                      - row [selected] [ref=f15e662]:
+                        - gridcell [ref=f15e606] [cursor=pointer]
+                        - gridcell "632-02 - Delivery Fees" [ref=f15e607] [cursor=pointer]
+                        - gridcell "0.00" [ref=f15e608] [cursor=pointer]
+                        - gridcell [ref=f15e663] [cursor=pointer]:
+                          - textbox [ref=f15e664]: "0"
+                        - gridcell "uber fees" [ref=f15e612] [cursor=pointer]
+                        - gridcell "700 - Vic’s" [ref=f15e613] [cursor=pointer]
+                        - gridcell "" [ref=f15e614] [cursor=pointer]
+                      - row [ref=f15e616]:
+                        - gridcell [ref=f15e617]
+                        - gridcell "632-02 - Delivery Fees" [ref=f15e618]
+                        - gridcell "0.00" [ref=f15e619]
+                        - gridcell "0.00" [ref=f15e621]
+                        - gridcell "difference" [ref=f15e623]
+                        - gridcell "700 - Vic’s" [ref=f15e624]
+                        - gridcell "" [ref=f15e625]
+                  - table [ref=f15e629]:
+                    - rowgroup [ref=f15e638]:
+                      - row [ref=f15e639]:
+                        - cell [ref=f15e640]
+                        - cell [ref=f15e641]
+                        - cell "0.00" [ref=f15e642]
+                        - cell "0.00" [ref=f15e644]
+                        - cell [ref=f15e646]
+                        - cell [ref=f15e647]
+                        - cell [ref=f15e648]
+                  - generic [ref=f15e649]:
+                    - link "Go to the first page" [ref=f15e650]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f15e652]:
+                      - /url: "#"
+                    - list [ref=f15e654]:
+                      - listitem [ref=f15e655]:
+                        - generic [ref=f15e656] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f15e657]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f15e659]:
+                      - /url: "#"
+                    - generic [ref=f15e661]: 1 - 3 of 3 items
+              - text:    
+          - generic [ref=f15e468]:
+            - button "Upload File" [ref=f15e469] [cursor=pointer]
+            - button "Attach from Documents" [ref=f15e470] [cursor=pointer]
+      - group

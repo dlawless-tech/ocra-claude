@@ -71,6 +71,8 @@ The difference line is the gap between what R365 booked as third party sales and
 
 ## Store to location mapping
 
+The estate is 24 stores, and Uber spells the name three ways: `NORMS - Anaheim`, `NORMS (Hollywood)`, `Norms (Rialto)`. Match case-insensitively. A case-sensitive `NORMS` finds 22 and drops `Norms (Las Vegas)` and `Norms (Rialto)` without saying so.
+
 Most Uber store names carry the R365 location word. The R365 location reads `<number> - <store>`, so match on the word rather than the whole name. Three do not match by name:
 
 | Uber Eats | R365 location |
@@ -79,7 +81,9 @@ Most Uber store names carry the R365 location word. The R365 location reads `<nu
 | `NORMS - Los Angeles` | `250 - La Cienega` |
 | `NORMS (Huntington Park)` | `211 - Slauson` |
 
-Confirm every mapping by checking D against that store's Uber Earnings. The two sit within a few percent, so a wrong pairing is obvious.
+Stores > All stores prints a store count and lists each store as `<R365 number>|<uber id> • <address>`, which settles both the enumeration and the mapping. Hollywood, Ontario Mills, and Las Vegas carry a uuid in place of the number, so confirm those three by address.
+
+D and Earnings run within a few percent for most stores and 10% to 16% apart for a handful, so the gap says little about a pairing. It lands in the difference line either way.
 
 ## Finding the entries
 

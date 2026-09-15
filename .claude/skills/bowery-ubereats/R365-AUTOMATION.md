@@ -148,21 +148,26 @@ The dialog's own Run button sits in its footer beside the Default and Public che
 
 Reports open at `/react/reports-management/legacy/MyReports`, reached by clicking **Reports** on the home dashboard. Navigating straight to `/react/reports` renders a blank page.
 
-Everything on that page lives one iframe down, so CSS selectors passed to `playwright-cli` never find it and every lookup has to walk the frame tree.
+Everything on that page lives one iframe down, so CSS selectors passed to `playwright-cli` never find it and every lookup has to walk the frame tree. The dialog's document is the one where `querySelector('md-dialog')` hits. An `eval` that skips the walk runs against the top document and reports every parameter as absent rather than erroring.
 
-The report cards take about thirty seconds to appear, and while they load `contentDocument` walking reports only the Theme Builder frame. The accessibility snapshot sees the cards first, so use it to find the card's **Customize** button. A card holds its heading and its own Customize, and the Customize that reads first in the snapshot belongs to the card above it.
+The report cards take about thirty seconds to appear, and while they load `contentDocument` walking reports only the Theme Builder frame. The accessibility snapshot sees the cards first, so use it to find the card's **Customize** button. A card reads as its heading followed by its own Run and Customize, so the card's Customize is the first one *after* its heading. Searching upward from the heading lands on the previous card's Customize and silently customizes the wrong report. The same headings repeat under Recent and Favorites, so either match works.
 
 The dialog's parameter widgets refuse keyboard and refuse `fill`. A real click focuses the account input, and keystrokes still land nowhere; `fill` runs, and Angular's next digest restores the old text. Only the date textboxes accept `fill`, and only against a ref from a fresh snapshot.
+
+The `input-NN` ids are assigned per render and shift between loads, so find every parameter by the value it is showing rather than by id. Dump `md-dialog input` as `{id, value, placeholder}` first: the Account parameter is the one holding an account string, the location filter holds `All Locations`, and the Start and End textboxes are the two carrying a placeholder.
 
 Drive the rest through Angular instead. An **md-autocomplete** parameter carries an `r365options` controller on the isolate scope's parent, whose `querySearch` returns the real items:
 
 ```js
-const el = d.querySelector('#input-23');            // the Account parameter
+const el = Array.from(d.querySelectorAll('md-dialog input')).find(x => /^\d{3}-\d{2} - /.test(x.value));
 const ac = el.closest('md-autocomplete');
-const o  = w.angular.element(ac).isolateScope().$parent.r365options;
+const sc = w.angular.element(ac).isolateScope();
+const o  = sc.$parent.r365options;
 const it = (await o.querySearch('104-04'))[0];
-ac_scope.$parent.$apply(() => { o.selectedItem = it; o.searchText = it.display; o.selectedItemChange(it); });
+sc.$parent.$apply(() => { o.selectedItem = it; o.searchText = it.display; o.selectedItemChange(it); });
 ```
+
+`querySearch` is async, so await it, and read the input's value back afterwards to confirm the pick landed.
 
 A **button group** parameter (Subtotal By, Show Unapproved, Parent) renders through `ng-transclude`, so its buttons carry no `innerText` for a text lookup and the active one is marked by the `activeR365` class. The label span's nearest `section` is the group; `closest('li')` returns nothing. Find the group by its label span, then call the handler on the button's own scope:
 
