@@ -85,6 +85,15 @@ playwright-cli -s=$S eval "() => { const li=document.querySelector('#Save li[dat
 
 The testids are `saveMenuItem`, `saveAndNewMenuItem`, `saveAndCloseMenuItem`, `approveMenuItem`, `approveAndNewMenuItem`, `approveAndCloseMenuItem`.
 
+On the 9/12/2026 payroll entry, the scope handler for `approveAndCloseMenuItem` ran and approved nothing. A real click on the `li` itself, with the menu hovered open, approved and closed the tab:
+
+```bash
+playwright-cli -s=$S hover '#Approve > a'
+playwright-cli -s=$S click 'li[data-testid="approveAndCloseMenuItem"]'
+```
+
+The entry tab closing is the sign it went through; confirm Approved on the All Transactions grid after `dataSource.read()`.
+
 ## A rejected save answers 200
 
 `SaveTransaction` answers a rejected save with HTTP 200 and the reason in its body, and the form shows nothing at all. Read the body after every save:
