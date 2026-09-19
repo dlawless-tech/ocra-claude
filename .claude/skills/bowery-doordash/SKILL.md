@@ -31,9 +31,11 @@ Credentials live in `~/.claude/bowery-credentials.md`, outside any repo. Read th
 
 DoorDash logs in through `identity.doordash.com` in two steps: fill the email, click **Continue to Log In**, then fill the password and click **Log In**.
 
-**DoorDash then demands two factor authentication, and the first click does not show the code dialog.** It renders "This action requires two-factor authentication" beside the password field and nothing else. Click **Log In** a second time to get the dialog, which mails a 6-digit code to the merchant address. Hand the keyboard over for the code and say so. Never guess or wait on it. One DoorDash session serves the whole run.
+**DoorDash then demands two factor authentication, and the first click does not show the code dialog.** It renders "This action requires two-factor authentication" beside the password field and nothing else. Click **Log In** a second time to get the dialog, which mails a 6-digit code to the merchant address. Hand the keyboard over for the code and say so. Never guess or wait on it. Once the code lands, the session runs unattended.
 
-R365 posts a username and password form at `identity.restaurant365.com`. Log in, then reach pages through the app menu or a known route. Guessing a hash route logs the session out. `scripts/r365-login.sh <session>` does this and is safe to re-run.
+The DoorDash session drops if you `open` a new merchant-portal URL on it. Re-login goes straight through on the same password without a second code, so re-authenticate rather than asking for another one. Navigate the portal by clicking its own links after the first load.
+
+R365 posts a username and password form at `identity.restaurant365.com`. `scripts/r365-login.sh <session>` logs in and is safe to re-run. Reach pages by clicking the home dashboard nav, since opening a `/react/...` URL drops the session; `R365-AUTOMATION.md` carries the detail.
 
 ## The four stores
 
@@ -48,7 +50,19 @@ R365 writes Rosie's and Vic's with a curly apostrophe. Match locations on an ASC
 
 ## Phase 1: the DoorDash figures
 
-**Payouts**, at `merchant-portal.doordash.com/merchant/financials`. It opens on **Last 30 days** across **All businesses and stores**, which already covers a single period's four payouts. Each row reads date paid, payout id, amount, store, so one snapshot of the list gives every id the run needs.
+**Payouts**, at `merchant-portal.doordash.com/merchant/financials`. It opens on **Last 30 days** across **All businesses and stores**, which already covers a single period's four payouts.
+
+The list carries every figure the run needs, one row per store: **Payout date**, **Payout ID**, **Status**, **Store**, **Sales**, **Commission & fees**, **Marketing spend**, **Amendments**, **Net payout**. One snapshot of the table reads all four stores, so the details are worth opening only to confirm the covered window.
+
+Commission & fees and Marketing spend show as negatives and enter R365 as positive debits.
+
+**Amendments carries either sign, and its sign picks the column.** A negative is a charge against the merchant and posts as a debit. A positive is a credit back to the merchant and posts as a credit. Read the sign per store: in the 8/31 to 9/6 week Shuka ran positive at 218.70 while the other three ran negative or zero, and in the 9/7 to 9/13 week Shuka alone ran negative at 57.97.
+
+Check each store before moving on: `Sales - Commission & fees - Marketing spend + Amendments` equals Net payout, with each figure taken at its displayed sign. This closes to the penny when the figures are read right.
+
+**Status reads Pending or Processing until the money moves, and the figures are final either way.** Thursday's payouts are still settling on Thursday, so a period is postable the day it pays.
+
+### The covered window
 
 Click a row to open its detail. Three mechanics govern the page:
 
@@ -62,13 +76,7 @@ The detail header states the covered window verbatim, and it is the only trustwo
 Payout #610462132 for transactions from 12:15 PM on Aug 31, 2026, to 11:04 PM on Sep 6, 2026 for Cookshop
 ```
 
-A window narrower than the period is normal and not a problem. Vic's read Sep 1 to Sep 5 for the 8/31 to 9/6 period, because those were its only order days.
-
-Per store, read the header's window and these five figures: **Net total** (Paid), **Sales**, **Commission & fees**, **Marketing spend** and **Amendments**. Commission & fees and Marketing spend show as negatives and enter R365 as positive debits.
-
-**Amendments carries either sign, and its sign picks the column.** A negative is a charge against the merchant and posts as a debit. A positive is a credit back to the merchant and posts as a credit. Shuka's week ran positive at 218.70 while the other three ran negative or zero, so read the sign per store rather than assuming a charge.
-
-Check each store before moving on: `Sales - Commission & fees - Marketing spend + Amendments` equals Net total, with each card taken at its displayed sign. This closes to the penny when the figures are read right.
+A window narrower than the period is normal. Vic's read Sep 1 to Sep 5 for the 8/31 to 9/6 period and Sep 8 to Sep 12 for 9/7 to 9/13, because those were its only order days. Confirm it against the GL, where a store with a narrow window carries no debit rows on the missing days.
 
 ## Phase 2: the period debits
 
@@ -96,7 +104,7 @@ debit  "marketing spend"                              =  Marketing spend shown p
 
 The A/R line posts to `104-05`, and the four others all post to `632-02 - Delivery Fees`.
 
-**The difference line equals `D - Sales` exactly.** That falls out of the payout identity rather than approximating it, so it is a real check on every other figure: compute the difference as the plug that balances the entry, then confirm it against `D - Sales`. A mismatch means one of the five DoorDash figures or D was read wrong. It is the gap between what R365 booked as third party sales and what DoorDash counted, and it ran from 20.00 to 205.53 across the four stores in a typical week.
+**The difference line equals `D - Sales` exactly.** That falls out of the payout identity rather than approximating it, so it is a real check on every other figure: compute the difference as the plug that balances the entry, then confirm it against `D - Sales`. A mismatch means one of the five DoorDash figures or D was read wrong. It is the gap between what R365 booked as third party sales and what DoorDash counted, and it has run from 20.00 to 205.53 across the four stores in a typical week.
 
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's payout has already been deposited and booked. Payouts lag by four days and sometimes miss a week, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Delivery Fees.
 
@@ -106,7 +114,7 @@ The A/R line posts to `104-05`, and the four others all post to `632-02 - Delive
 
 Bowery carries one DoorDash entry per week, dated the Sunday that ends the period.
 
-Accounting > Transactions > All transactions, route `/react/accounting/legacy/AllTransactions`. Filter Number (`Contains`) to `Door`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
+Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `Door`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
 
 Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text.
 
@@ -126,7 +134,9 @@ Fill the five lines, save, reload, then Approve and Close. Three checks decide w
 ENTRY_DATE=9/6/2026 scripts/post-entry.sh r365 Cookshop work.json
 ```
 
-Run stores in parallel by giving each worker its own session name in the same directory. See `scripts/work.example.json` for the work file's shape, which carries each line's comment and column alongside its amount. A line whose amount is 0 is skipped, which is what a store with no amendments wants.
+Run stores in parallel by giving each worker its own session name in the same directory. Two workers cover four stores in two rounds. See `scripts/work.example.json` for the work file's shape, which carries each line's comment and column alongside its amount. A line whose amount is 0 is skipped, which is what a store with no amendments wants.
+
+Give the work file a Windows path such as the scratchpad directory. `post-entry.sh` reads it through `node`, which resolves `/tmp` against the drive root and fails on a path that bash resolves fine.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 

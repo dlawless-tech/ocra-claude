@@ -1,6 +1,6 @@
 # ADP CSV to the R365 payroll entry
 
-Every rule here reproduces the approved 8/29/2026 entry from that week's CSV, 132 of 142 lines to the cent. The ten that did not are the manual checks and a suspense disposition, both covered below.
+Every rule here reproduces the approved 9/5/2026 entry from that week's CSV, 133 of 143 lines to the cent. The ten that did not are the manual checks, the 1030 split behind them, the tax rounding, and the two lines the Labor Distribution cost center moves, all covered below.
 
 ## Detailed by location
 
@@ -13,7 +13,8 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 | 5212 Salary | `5210 - Store Labor (Salary)` | salary |
 | 6065 Salary | `5210 - Store Labor (Salary)` | salary |
 | 5320 ER SOC SEC, ER MEDICARE, ER SUI, ER FUTA | `5320 - Payroll Taxes` | er taxes |
-| 5300 and 6050, every memo | `5300 - Healthcare` | med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life |
+| 5300, every memo | `5300 - Healthcare` | med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life |
+| 6010 General Manager Bonus | `6010 - General Manager Bonus` | general manager bonus |
 | 5546 CELL PHONE | `5546 - Cell Phone` | cell phone |
 | 5547 and 6390 MILEAGE | `5547 - Mileage` | blank |
 | 5230 QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
@@ -23,7 +24,7 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 
 **Location 370 - Select Industries** posts its salary to `6025 - Salary-Hourly`.
 
-**6050 and 6065 are the Support Center's own accounts**, carrying `GLENTRY_CLASSID` 160 where the restaurants carry 115. They fold into the same 5300 and 5210 lines.
+**6050 and 6065 are the Support Center's own accounts**, carrying `GLENTRY_CLASSID` 160 where the restaurants carry 115. 6065 folds into the same 5210 line. 6050 keeps its own `6050 - Health Care` line at 299, listed below with the rolled-up accounts.
 
 **QTRBA and severance follow the Labor Distribution cost center**, read off the employee's record as `Cost: <location> <account>`. The CSV can code severance to dept 299 while the earning sits in a store's cost center, and the store wins.
 
@@ -33,6 +34,7 @@ One line for the whole estate, whatever locations the CSV spreads it across.
 
 | CSV account | R365 account | Comment |
 |---|---|---|
+| 6050, every memo | `6050 - Health Care` | med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life |
 | 2265 | `2265 - Accrued Vacation` | vacation |
 | 2267 PTO, PTO Paid Out | `2267 - Accrued PTO` | pto |
 | 2270 | `2270 - Accrued Sick Pay` | sick |

@@ -1,0 +1,246 @@
+- generic [ref=f11e2]:
+  - generic [ref=f11e4]:
+    - generic [ref=f11e5]: Theme Builder
+    - button [ref=f11e8] [cursor=pointer]:
+      - generic [ref=f11e9]: 
+    - generic [ref=f11e10]:
+      - generic [ref=f11e11]:
+        - heading "Ribbon" [level=4] [ref=f11e12]
+        - generic [ref=f11e13]:
+          - generic [ref=f11e14]: BG
+          - generic [ref=f11e15]: Font
+          - generic [ref=f11e16]: Hover BG
+          - generic [ref=f11e17]: Hover Font
+        - generic "Menu" [ref=f11e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f11e22]':
+            - generic [ref=f11e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f11e28]':
+            - generic [ref=f11e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f11e34]':
+            - generic [ref=f11e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f11e40]':
+            - generic [ref=f11e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f11e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f11e49]':
+            - generic [ref=f11e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f11e55]':
+            - generic [ref=f11e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f11e61]':
+            - generic [ref=f11e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f11e67]':
+            - generic [ref=f11e71] [cursor=pointer]
+      - generic [ref=f11e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f11e73]
+        - button "Upload Ribbon Logo" [ref=f11e78] [cursor=pointer]
+      - generic [ref=f11e79]:
+        - heading "Left Panel" [level=4] [ref=f11e80]
+        - generic [ref=f11e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f11e84]':
+            - generic [ref=f11e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f11e90]':
+            - generic [ref=f11e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f11e96]':
+            - generic [ref=f11e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f11e102]':
+            - generic [ref=f11e106] [cursor=pointer]
+      - generic [ref=f11e107]:
+        - heading "Components" [level=4] [ref=f11e108]
+        - generic "Normal" [ref=f11e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f11e113]':
+            - generic [ref=f11e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f11e119]':
+            - generic [ref=f11e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f11e125]':
+            - generic [ref=f11e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f11e131]':
+            - generic [ref=f11e135] [cursor=pointer]
+        - generic "Selected" [ref=f11e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f11e140]':
+            - generic [ref=f11e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f11e146]':
+            - generic [ref=f11e150] [cursor=pointer]
+    - generic [ref=f11e151]:
+      - generic [ref=f11e152]:
+        - generic [ref=f11e155]:
+          - combobox "Select Theme" [ref=f11e156]: Default R365 Theme
+          - button "select" [ref=f11e158] [cursor=pointer]
+        - generic [ref=f11e159]:
+          - button "Set As Default" [ref=f11e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f11e161]
+          - button "Delete" [disabled] [ref=f11e162]
+      - generic [ref=f11e163]:
+        - textbox "Add New Theme" [ref=f11e165]
+        - button "New" [ref=f11e167] [cursor=pointer]
+  - generic [ref=f11e452]:
+    - generic [ref=f11e453]:
+      - navigation [ref=f11e457]:
+        - generic [ref=f11e458]:
+          - generic: Journal Entry - DoorDash
+          - generic [ref=f11e460]:
+            - list [ref=f11e461]:
+              - listitem [ref=f11e462]:
+                - button "Save" [ref=f11e463] [cursor=pointer]
+              - listitem [ref=f11e498]:
+                - button "Approve" [ref=f11e499] [cursor=pointer]
+              - listitem [ref=f11e465]:
+                - button "Action" [ref=f11e466] [cursor=pointer]
+            - list [ref=f11e468]:
+              - listitem [ref=f11e469]:
+                - button [ref=f11e470] [cursor=pointer]:
+                  - generic [ref=f11e471]: 
+              - listitem [ref=f11e473]:
+                - link [ref=f11e474] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f11e475]: 
+      - generic [ref=f11e510]:
+        - generic [ref=f11e511]: Unapproved
+        - text: 
+    - generic [ref=f11e477]:
+      - group [ref=f11e513]:
+        - generic [ref=f11e481]:
+          - generic [ref=f11e515]:
+            - generic [ref=f11e516]:
+              - generic [ref=f11e517]:
+                - generic [ref=f11e518]: Date *
+                - generic [ref=f11e521]:
+                  - combobox "Date *" [ref=f11e522]: 9/13/2026
+                  - button "select" [ref=f11e523] [cursor=pointer]
+              - generic [ref=f11e525]:
+                - generic [ref=f11e526]: Number *
+                - textbox "Number *" [ref=f11e528]: DoorDash
+              - generic [ref=f11e530]:
+                - generic [ref=f11e531]: Type *
+                - listbox [ref=f11e533] [cursor=pointer]:
+                  - generic [ref=f11e534]:
+                    - generic [ref=f11e535]: Standard
+                    - generic [ref=f11e536]: select
+            - generic [ref=f11e538]:
+              - generic [ref=f11e539]:
+                - generic [ref=f11e540]:
+                  - link "Location" [ref=f11e541] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/6e450ac6-d7c0-4232-adee-00af2372fd32"
+                  - text: "*"
+                - generic [ref=f11e544]:
+                  - combobox "Select Location" [ref=f11e545]: 400 - Shuka
+                  - button "select" [ref=f11e547] [cursor=pointer]
+              - generic [ref=f11e548]:
+                - generic [ref=f11e549]: Comment
+                - textbox "Comment" [ref=f11e551]
+          - generic [ref=f11e484]:
+            - generic [ref=f11e486]:
+              - button "+ Size" [ref=f11e487] [cursor=pointer]
+              - button "- Size" [ref=f11e488] [cursor=pointer]
+            - tablist [ref=f11e556]:
+              - list [ref=f11e557]:
+                - tab "Details" [selected] [ref=f11e558]
+                - tab "Distribution" [ref=f11e561]
+              - tabpanel [ref=f11e564]:
+                - generic [ref=f11e565]:
+                  - generic [ref=f11e566]:
+                    - generic:
+                      - generic:
+                        - generic [ref=f11e570]:
+                          - combobox "Select Account" [ref=f11e571]
+                          - button "select" [ref=f11e573] [cursor=pointer]
+                        - textbox [ref=f11e575]: "0"
+                        - textbox [ref=f11e577]: "0"
+                        - textbox [ref=f11e579]
+                        - generic [ref=f11e582]:
+                          - button "400 - Shuka" [ref=f11e585] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=f11e587]:
+                          - button "Add" [ref=f11e588] [cursor=pointer]
+                          - button "Clear" [ref=f11e589] [cursor=pointer]
+                  - grid [ref=f11e592]:
+                    - rowgroup [ref=f11e601]:
+                      - row [ref=f11e602]:
+                        - columnheader [ref=f11e603]:
+                          - link [ref=f11e604] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e605]:
+                          - link "Account" [ref=f11e606] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e608]:
+                          - link "Debit" [ref=f11e609] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e610]:
+                          - link "Credit" [ref=f11e611] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e612]:
+                          - link "Comment" [ref=f11e613] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e614]:
+                          - link "Location" [ref=f11e615] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=f11e616]
+                  - grid [active] [ref=f11e618]:
+                    - rowgroup [ref=f11e627]:
+                      - row [selected] [ref=f11e718]:
+                        - gridcell [ref=f11e629] [cursor=pointer]
+                        - gridcell "104-05 - A/R - Door Dash" [ref=f11e630] [cursor=pointer]
+                        - gridcell "0.00" [ref=f11e631] [cursor=pointer]
+                        - gridcell [ref=f11e719] [cursor=pointer]:
+                          - textbox [ref=f11e720]: "0"
+                        - gridcell "a/r debit from prior week less total payout" [ref=f11e635] [cursor=pointer]
+                        - gridcell "400 - Shuka" [ref=f11e636] [cursor=pointer]
+                        - gridcell "" [ref=f11e637] [cursor=pointer]
+                      - row [ref=f11e639]:
+                        - gridcell [ref=f11e640]
+                        - gridcell "632-02 - Delivery Fees" [ref=f11e641]
+                        - gridcell "0.00" [ref=f11e642]
+                        - gridcell "0.00" [ref=f11e644]
+                        - gridcell "commissions & fees" [ref=f11e646]
+                        - gridcell "400 - Shuka" [ref=f11e647]
+                        - gridcell "" [ref=f11e648]
+                      - row [ref=f11e650]:
+                        - gridcell [ref=f11e651]
+                        - gridcell "632-02 - Delivery Fees" [ref=f11e652]
+                        - gridcell "0.00" [ref=f11e653]
+                        - gridcell "0.00" [ref=f11e655]
+                        - gridcell "marketing spend" [ref=f11e657]
+                        - gridcell "400 - Shuka" [ref=f11e658]
+                        - gridcell "" [ref=f11e659]
+                      - row [ref=f11e661]:
+                        - gridcell [ref=f11e662]
+                        - gridcell "632-02 - Delivery Fees" [ref=f11e663]
+                        - gridcell "0.00" [ref=f11e664]
+                        - gridcell "0.00" [ref=f11e666]
+                        - gridcell "amendments" [ref=f11e668]
+                        - gridcell "400 - Shuka" [ref=f11e669]
+                        - gridcell "" [ref=f11e670]
+                      - row [ref=f11e672]:
+                        - gridcell [ref=f11e673]
+                        - gridcell "632-02 - Delivery Fees" [ref=f11e674]
+                        - gridcell "0.00" [ref=f11e675]
+                        - gridcell "0.00" [ref=f11e677]
+                        - gridcell "difference" [ref=f11e679]
+                        - gridcell "400 - Shuka" [ref=f11e680]
+                        - gridcell "" [ref=f11e681]
+                  - table [ref=f11e685]:
+                    - rowgroup [ref=f11e694]:
+                      - row [ref=f11e695]:
+                        - cell [ref=f11e696]
+                        - cell [ref=f11e697]
+                        - cell "0.00" [ref=f11e698]
+                        - cell "0.00" [ref=f11e700]
+                        - cell [ref=f11e702]
+                        - cell [ref=f11e703]
+                        - cell [ref=f11e704]
+                  - generic [ref=f11e705]:
+                    - link "Go to the first page" [ref=f11e706]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=f11e708]:
+                      - /url: "#"
+                    - list [ref=f11e710]:
+                      - listitem [ref=f11e711]:
+                        - generic [ref=f11e712] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f11e713]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=f11e715]:
+                      - /url: "#"
+                    - generic [ref=f11e717]: 1 - 5 of 5 items
+              - text:    
+          - generic [ref=f11e495]:
+            - button "Upload File" [ref=f11e496] [cursor=pointer]
+            - button "Attach from Documents" [ref=f11e497] [cursor=pointer]
+      - group

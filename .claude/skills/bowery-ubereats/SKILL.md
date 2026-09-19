@@ -27,7 +27,7 @@ Bowery and NORMS share one R365 login and hold separate Uber Eats logins, so rea
 
 Uber Eats mails a 4-digit code to the merchant address. Fill the email field, then hand the keyboard over for the code and say so. Never guess or wait on it. One Uber session serves the whole run, since each new session triggers another code.
 
-R365 posts a username and password form at `identity.restaurant365.com`. Log in, then reach pages through the app menu or a known route. Guessing a hash route logs the session out.
+R365 posts a username and password form at `identity.restaurant365.com`. `scripts/r365-login.sh <session>` logs in and is safe to re-run. Reach pages by clicking the home dashboard nav, since opening a `/react/...` URL drops the session; `R365-AUTOMATION.md` carries the detail.
 
 ## The four stores
 
@@ -90,7 +90,7 @@ This check works in a week with no prior entry to compare against, and it is the
 
 Bowery carries one UberEats entry per week, dated the Sunday that ends the pay period, so the period Aug 31 - Sep 6 posts to the entry dated Sep 6.
 
-Accounting > Transactions > All transactions, route `/react/accounting/legacy/AllTransactions`. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
+Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
 
 Each entry arrives as a template: three lines carrying accounts, comments, and location, every amount at 0.00. Bowery reshaped this template in September 2026, so an entry from an earlier week is a two line reclass between `104-04` and `104-00` and reproduces none of the arithmetic above. Verify against the A/R balance rather than against an older entry.
 

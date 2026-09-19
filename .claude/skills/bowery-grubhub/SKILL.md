@@ -31,7 +31,7 @@ Credentials live in `~/.claude/bowery-credentials.md`, outside any repo. Read th
 
 Grubhub takes email and password at `restaurant.grubhub.com/login`. If it challenges with a mailed code, hand the keyboard over and say so. One Grubhub session serves the whole run.
 
-R365 posts a username and password form at `identity.restaurant365.com`. Log in, then reach pages through the app menu or a known route. Guessing a hash route logs the session out. `scripts/r365-login.sh <session>` does this and is safe to re-run.
+R365 posts a username and password form at `identity.restaurant365.com`. `scripts/r365-login.sh <session>` logs in and is safe to re-run. Reach pages by clicking the home dashboard nav, since opening a `/react/...` URL drops the session; `R365-AUTOMATION.md` carries the detail.
 
 ## The four stores
 
@@ -91,7 +91,7 @@ The difference is the balancing plug, and it and the three fee lines all post to
 
 Bowery carries one Grubhub entry per period, dated the Sunday inside it, so the period Sep 1 - Sep 7 posts to the entry dated Sep 6.
 
-Accounting > Transactions > All transactions, route `/react/accounting/legacy/AllTransactions`. Filter Number (`Contains`) to `Grub`, which catches both `GrubHub` and `Grub Hub`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
+Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `Grub`, which catches both `GrubHub` and `Grub Hub`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
 
 Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text. Templates get reshaped between periods, so an entry from an earlier period is worth checking rather than trusting.
 

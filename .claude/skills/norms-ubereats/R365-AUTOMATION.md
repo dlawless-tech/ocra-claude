@@ -74,12 +74,35 @@ R365 normalizes a field to two decimals on blur, so a read-back of `4.00` fails 
 
 ## Ribbon buttons are menu openers
 
-Clicking `Save` or `Approve` commits nothing. Hover the `li`, then click the item from the submenu. Save through `Save`, which sits beside `Save and New` and `Save and Close`. Approve through `Approve and Close`, beside `Approve` and `Approve and New`:
+Clicking `Save` or `Approve` commits nothing. Hover the `li` to open its submenu, then fire the item you want. Save through `Save`, which sits beside `Save and New` and `Save and Close`. Approve through `Approve and Close`, beside `Approve` and `Approve and New`.
+
+The submenu item's `ng-click` sits on its `li`, not on the `a` inside it, and the anchor swallows the click. Clicking the anchor reports success and commits nothing. Call the handler on the `li`'s own scope, addressing the item by `data-testid`:
 
 ```bash
 playwright-cli -s=$S hover '#Save > a'
-playwright-cli -s=$S eval "() => { const li=document.getElementById('Save'); const items=Array.from(li.querySelectorAll('ul li a, ul li button')).filter(a=>a.innerText.trim()==='Save'); items[items.length-1].click(); return 'clicked'; }"
+playwright-cli -s=$S eval "() => { const li=document.querySelector('#Save li[data-testid=\"saveMenuItem\"]'); const sc=window.angular.element(li).scope(); sc.\$apply(() => sc.subMenu.handler()); return sc.subMenu.title; }"
 ```
+
+The testids are `saveMenuItem`, `saveAndNewMenuItem`, `saveAndCloseMenuItem`, `approveMenuItem`, `approveAndNewMenuItem`, `approveAndCloseMenuItem`.
+
+## A rejected save answers 200
+
+`SaveTransaction` answers a rejected save with HTTP 200 and the reason in its body, and the form shows nothing at all. Read the body after every save:
+
+```bash
+playwright-cli -s=$S requests | grep SaveTransaction
+playwright-cli -s=$S response-body <n>
+```
+
+A committed save reads `[["1","<transaction id>"," "],["1",""]]`. A rejected one reads `[["15","The following errors need to be corrected to save or approve this transaction: ..."]]`.
+
+Confirm from the All Transactions grid as well, which reads the server. An entry whose save never landed still shows its old number, date, and amount there.
+
+## Duplicate saves on click and drops the payroll dates
+
+`Action > Duplicate` writes the copy to the server the moment it is clicked, so the new entry exists before anything has been filled in. It arrives numbered `NJ000xxxxx`, dated today, carrying the source entry's amounts.
+
+It does not carry `journalEntryPayrollStartDate` or `journalEntryPayrollEndDate`, both required on a payroll entry. Fill them along with the date and number, and save once before editing lines. Leaving them blank rejects every save, and a whole entry's worth of line edits is lost on the next reload.
 
 ## Reach the grid document through nested iframes
 
@@ -194,6 +217,8 @@ playwright-cli -s=$S eval "() => { history.pushState({}, '', '/react/accounting/
 ```
 
 That leaves entry urls reachable only from the grid, by firing the Number cell's `onclick`, which opens the entry in a second tab.
+
+Writing `location.hash` inside the legacy Angular app logs it out the same way a page load does, so a route change there costs a fresh login and every unsaved edit on the page.
 
 ## Kendo's model.set reaches the line grid
 

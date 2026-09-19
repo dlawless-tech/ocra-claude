@@ -1,0 +1,354 @@
+- generic [ref=e2]:
+  - generic [ref=e4]:
+    - generic [ref=e5]: Theme Builder
+    - button [ref=e8] [cursor=pointer]:
+      - generic [ref=e9]: 
+    - generic [ref=e10]:
+      - generic [ref=e11]:
+        - heading "Ribbon" [level=4] [ref=e12]
+        - generic [ref=e13]:
+          - generic [ref=e14]: BG
+          - generic [ref=e15]: Font
+          - generic [ref=e16]: Hover BG
+          - generic [ref=e17]: Hover Font
+        - generic "Menu" [ref=e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=e22]':
+            - generic [ref=e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e28]':
+            - generic [ref=e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+            - generic [ref=e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+            - generic [ref=e44] [cursor=pointer]
+        - generic "SubMenu" [ref=e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=e49]':
+            - generic [ref=e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e55]':
+            - generic [ref=e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+            - generic [ref=e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+            - generic [ref=e71] [cursor=pointer]
+      - generic [ref=e72]:
+        - heading "Ribbon Logo" [level=4] [ref=e73]
+        - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+      - generic [ref=e79]:
+        - heading "Left Panel" [level=4] [ref=e80]
+        - generic [ref=e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=e84]':
+            - generic [ref=e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=e90]':
+            - generic [ref=e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+            - generic [ref=e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+            - generic [ref=e106] [cursor=pointer]
+      - generic [ref=e107]:
+        - heading "Components" [level=4] [ref=e108]
+        - generic "Normal" [ref=e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+            - generic [ref=e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=e119]':
+            - generic [ref=e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+            - generic [ref=e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+            - generic [ref=e135] [cursor=pointer]
+        - generic "Selected" [ref=e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+            - generic [ref=e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=e146]':
+            - generic [ref=e150] [cursor=pointer]
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e155]:
+          - combobox "Select Theme" [ref=e156]: Default R365 Theme
+          - button "select" [ref=e158] [cursor=pointer]
+        - generic [ref=e159]:
+          - button "Set As Default" [ref=e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=e161]
+          - button "Delete" [disabled] [ref=e162]
+      - generic [ref=e163]:
+        - textbox "Add New Theme" [ref=e165]
+        - button "New" [ref=e167] [cursor=pointer]
+  - generic [ref=e171]:
+    - generic [ref=e172]:
+      - navigation [ref=e176]:
+        - generic [ref=e177]:
+          - generic: Journal Entry - Payroll - Support Center
+          - generic [ref=e179]:
+            - list [ref=e180]:
+              - listitem [ref=e181]:
+                - button "Save" [ref=e182] [cursor=pointer]
+              - listitem [ref=e184]:
+                - button "Approve" [ref=e185] [cursor=pointer]
+              - listitem [ref=e187]:
+                - button "Action" [ref=e188] [cursor=pointer]
+            - list [ref=e190]:
+              - listitem [ref=e191]:
+                - button [ref=e192] [cursor=pointer]:
+                  - generic [ref=e193]: 
+              - listitem [ref=e195]:
+                - link [ref=e196] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=e197]: 
+      - generic [ref=e200]:
+        - generic [ref=e201]: Unapproved
+        - text: 
+    - generic [ref=e204]:
+      - group [ref=e205]:
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - generic [ref=e210]:
+              - generic [ref=e211]:
+                - generic [ref=e212]:
+                  - generic [ref=e213]: Date *
+                  - generic [ref=e216]:
+                    - combobox "Date *" [ref=e217]: 9/3/2026
+                    - button "select" [ref=e218] [cursor=pointer]
+                - generic [ref=e220]:
+                  - generic [ref=e221]: Number *
+                  - textbox "Number *" [ref=e223]: Payroll - Support Center
+                - generic [ref=e225]:
+                  - generic [ref=e226]: Type *
+                  - listbox [ref=e228] [cursor=pointer]:
+                    - generic [ref=e229]:
+                      - generic [ref=e230]: Payroll
+                      - generic [ref=e231]: select
+              - generic [ref=e233]:
+                - generic [ref=e234]:
+                  - generic [ref=e235]:
+                    - link "Location" [ref=e236] [cursor=pointer]:
+                      - /url: "#/form/LocationForm/6330baf0-6c6f-49d8-b59a-dd08686277d2"
+                    - text: "*"
+                  - generic [ref=e239]:
+                    - combobox "Select Location" [ref=e240]: 299 - Norms Support Center
+                    - button "select" [ref=e242] [cursor=pointer]
+                - generic [ref=e243]:
+                  - generic [ref=e244]: Comment
+                  - textbox "Comment" [ref=e246]: WVJ
+            - generic [ref=e252]:
+              - generic [ref=e254]:
+                - generic [ref=e255]: Payroll Start Date
+                - generic [ref=e258]:
+                  - combobox "Payroll Start Date" [ref=e259]: 1/1/1900
+                  - button "select" [ref=e260] [cursor=pointer]
+              - generic [ref=e263]:
+                - generic [ref=e264]: Payroll End Date
+                - generic [ref=e267]:
+                  - combobox "Payroll End Date" [ref=e268]: 1/1/1900
+                  - button "select" [ref=e269] [cursor=pointer]
+          - generic [ref=e273]:
+            - generic [ref=e275]:
+              - button "+ Size" [ref=e276] [cursor=pointer]
+              - button "- Size" [ref=e277] [cursor=pointer]
+            - tablist [ref=e279]:
+              - list [ref=e280]:
+                - tab "Details" [selected] [ref=e281]
+                - tab "Distribution" [ref=e284]
+                - tab "Payroll Estimate Clearing" [ref=e287]
+              - tabpanel [ref=e290]:
+                - generic [ref=e291]:
+                  - generic [ref=e292]:
+                    - generic:
+                      - generic:
+                        - generic [ref=e296]:
+                          - combobox "Select Account" [active] [ref=e297]
+                          - button "select" [ref=e299] [cursor=pointer]
+                        - textbox [ref=e301]: "0.00"
+                        - textbox [ref=e303]: "0.00"
+                        - textbox [ref=e305]
+                        - generic [ref=e308]:
+                          - button "299 - Norms Support Center" [ref=e311] [cursor=pointer]
+                          - text: ;
+                        - generic [ref=e313]:
+                          - button "Add" [ref=e314] [cursor=pointer]
+                          - button "Clear" [ref=e315] [cursor=pointer]
+                  - grid [ref=e318]:
+                    - rowgroup [ref=e327]:
+                      - row [ref=e328]:
+                        - columnheader [ref=e329]:
+                          - link [ref=e330] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e331]:
+                          - link "Account" [ref=e332] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e334]:
+                          - link "Debit" [ref=e335] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e336]:
+                          - link "Credit" [ref=e337] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e338]:
+                          - link "Comment" [ref=e339] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e340]:
+                          - link "Location" [ref=e341] [cursor=pointer]:
+                            - /url: "#"
+                        - columnheader [ref=e342]
+                  - grid [ref=e344]:
+                    - rowgroup [ref=e353]:
+                      - row [ref=e574]:
+                        - gridcell [ref=e575]
+                        - gridcell "6020 - Salaries-Management" [ref=e576]
+                        - gridcell "101,873.51" [ref=e577]
+                        - gridcell "0.00" [ref=e579]
+                        - gridcell "Salary-Management" [ref=e581]
+                        - gridcell "299 - Norms Support Center" [ref=e582]
+                        - gridcell "" [ref=e583]
+                      - row [ref=e585]:
+                        - gridcell [ref=e586]
+                        - gridcell "2267 - Accrued PTO" [ref=e587]
+                        - gridcell "1,636.53" [ref=e588]
+                        - gridcell "0.00" [ref=e590]
+                        - gridcell "PTO Taken" [ref=e592]
+                        - gridcell "299 - Norms Support Center" [ref=e593]
+                        - gridcell "" [ref=e594]
+                      - row [ref=e596]:
+                        - gridcell [ref=e597]
+                        - gridcell "6025 - Salary-Hourly" [ref=e598]
+                        - gridcell "13,051.62" [ref=e599]
+                        - gridcell "0.00" [ref=e601]
+                        - gridcell "regular (hourly) + overtime" [ref=e603]
+                        - gridcell "299 - Norms Support Center" [ref=e604]
+                        - gridcell "" [ref=e605]
+                      - row [ref=e607]:
+                        - gridcell [ref=e608]
+                        - gridcell "6040 - Payroll Tax" [ref=e609]
+                        - gridcell "6,917.15" [ref=e610]
+                        - gridcell "0.00" [ref=e612]
+                        - gridcell "employer taxes" [ref=e614]
+                        - gridcell "299 - Norms Support Center" [ref=e615]
+                        - gridcell "" [ref=e616]
+                      - row [ref=e618]:
+                        - gridcell [ref=e619]
+                        - gridcell "6390 - Gasoline - Mileage-Corp" [ref=e620]
+                        - gridcell "5,700.00" [ref=e621]
+                        - gridcell "0.00" [ref=e623]
+                        - gridcell "mileage" [ref=e625]
+                        - gridcell "299 - Norms Support Center" [ref=e626]
+                        - gridcell "" [ref=e627]
+                      - row [ref=e629]:
+                        - gridcell [ref=e630]
+                        - gridcell "6150 - Cellular Phone" [ref=e631]
+                        - gridcell "3,300.00" [ref=e632]
+                        - gridcell "0.00" [ref=e634]
+                        - gridcell "cell phone" [ref=e636]
+                        - gridcell "299 - Norms Support Center" [ref=e637]
+                        - gridcell "" [ref=e638]
+                      - row [ref=e640]:
+                        - gridcell [ref=e641]
+                        - gridcell "6110 - Meals and entertainment" [ref=e642]
+                        - gridcell "600.00" [ref=e643]
+                        - gridcell "0.00" [ref=e645]
+                        - gridcell "meal reimbursement" [ref=e647]
+                        - gridcell "299 - Norms Support Center" [ref=e648]
+                        - gridcell "" [ref=e649]
+                      - row [ref=e651]:
+                        - gridcell [ref=e652]
+                        - gridcell "6050 - Health Care" [ref=e653]
+                        - gridcell "385.00" [ref=e654]
+                        - gridcell "0.00" [ref=e656]
+                        - gridcell "med reimb" [ref=e658]
+                        - gridcell "299 - Norms Support Center" [ref=e659]
+                        - gridcell "" [ref=e660]
+                      - row [ref=e662]:
+                        - gridcell [ref=e663]
+                        - gridcell "6050 - Health Care" [ref=e664]
+                        - gridcell "0.00" [ref=e665]
+                        - gridcell "5,820.41" [ref=e667]
+                        - gridcell "Insurance EE Copay-Accident / Life / Hosp Indemnity / Critical Illness / Whole Life" [ref=e669]
+                        - gridcell "299 - Norms Support Center" [ref=e670]
+                        - gridcell "" [ref=e671]
+                      - row [ref=e673]:
+                        - gridcell [ref=e674]
+                        - gridcell "2264 - Accrued FSA HSA Deductions" [ref=e675]
+                        - gridcell "0.00" [ref=e676]
+                        - gridcell "503.44" [ref=e678]
+                        - gridcell "HSA /FSA Contribution" [ref=e680]
+                        - gridcell "299 - Norms Support Center" [ref=e681]
+                        - gridcell "" [ref=e682]
+                      - row [ref=e684]:
+                        - gridcell [ref=e685]
+                        - gridcell "2142 - 401(k) Loans" [ref=e686]
+                        - gridcell "0.00" [ref=e687]
+                        - gridcell "1,071.88" [ref=e689]
+                        - gridcell "401k Loan 1" [ref=e691]
+                        - gridcell "299 - Norms Support Center" [ref=e692]
+                        - gridcell "" [ref=e693]
+                      - row [ref=e695]:
+                        - gridcell [ref=e696]
+                        - gridcell "2140 - 401(k) / Roth" [ref=e697]
+                        - gridcell "0.00" [ref=e698]
+                        - gridcell "7,264.31" [ref=e700]
+                        - gridcell "401K / Roth" [ref=e702]
+                        - gridcell "299 - Norms Support Center" [ref=e703]
+                        - gridcell "" [ref=e704]
+                      - row [ref=e706]:
+                        - gridcell [ref=e707]
+                        - gridcell "1040 - Support Center Payroll-6839" [ref=e708]
+                        - gridcell "0.00" [ref=e709]
+                        - gridcell "28,846.12" [ref=e711]
+                        - gridcell "total taxes" [ref=e713]
+                        - gridcell "299 - Norms Support Center" [ref=e714]
+                        - gridcell "" [ref=e715]
+                      - row [ref=e717]:
+                        - gridcell [ref=e718]
+                        - gridcell "1040 - Support Center Payroll-6839" [ref=e719]
+                        - gridcell "0.00" [ref=e720]
+                        - gridcell "88,814.75" [ref=e722]
+                        - gridcell "direct deposit" [ref=e724]
+                        - gridcell "299 - Norms Support Center" [ref=e725]
+                        - gridcell "" [ref=e726]
+                      - row [ref=e728]:
+                        - gridcell [ref=e729]
+                        - gridcell "5230 - Chef / Director Bonus" [ref=e730]
+                        - gridcell "0.00" [ref=e731]
+                        - gridcell "0.00" [ref=e733]
+                        - gridcell "QTRBA" [ref=e735]
+                        - gridcell "299 - Norms Support Center" [ref=e736]
+                        - gridcell "" [ref=e737]
+                      - row [ref=e739]:
+                        - gridcell [ref=e740]
+                        - gridcell "2267 - Accrued PTO" [ref=e741]
+                        - gridcell "0.00" [ref=e742]
+                        - gridcell "336.06" [ref=e744]
+                        - gridcell [ref=e746]
+                        - gridcell "299 - Norms Support Center" [ref=e747]
+                        - gridcell "" [ref=e748]
+                      - row [ref=e750]:
+                        - gridcell [ref=e751]
+                        - gridcell "1199 - In & Out" [ref=e752]
+                        - gridcell "0.00" [ref=e753]
+                        - gridcell "806.84" [ref=e755]
+                        - gridcell "returned" [ref=e757]
+                        - gridcell "299 - Norms Support Center" [ref=e758]
+                        - gridcell "" [ref=e759]
+                  - table [ref=e763]:
+                    - rowgroup [ref=e772]:
+                      - row [ref=e773]:
+                        - cell [ref=e774]
+                        - cell [ref=e775]
+                        - cell "133,463.81" [ref=e776]
+                        - cell "133,463.81" [ref=e778]
+                        - cell [ref=e780]
+                        - cell [ref=e781]
+                        - cell [ref=e782]
+                  - generic [ref=e552]:
+                    - link "Go to the first page" [ref=e553]:
+                      - /url: "#"
+                    - link "Go to the previous page" [ref=e555]:
+                      - /url: "#"
+                    - list [ref=e557]:
+                      - listitem [ref=e783]:
+                        - generic [ref=e784] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=e560]:
+                      - /url: "#"
+                    - link "Go to the last page" [ref=e562]:
+                      - /url: "#"
+                    - generic [ref=e564]: 1 - 17 of 17 items
+              - text:    
+          - generic [ref=e569]:
+            - button "Upload File" [ref=e570] [cursor=pointer]
+            - button "Attach from Documents" [ref=e571] [cursor=pointer]
+      - group

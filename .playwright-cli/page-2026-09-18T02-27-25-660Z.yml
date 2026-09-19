@@ -1,0 +1,976 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: Theme Builder
+      - button [ref=e8] [cursor=pointer]:
+        - generic [ref=e9]: 
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - heading "Ribbon" [level=4] [ref=e12]
+          - generic [ref=e13]:
+            - generic [ref=e14]: BG
+            - generic [ref=e15]: Font
+            - generic [ref=e16]: Hover BG
+            - generic [ref=e17]: Hover Font
+          - generic "Menu" [ref=e18]:
+            - 'textbox "Current selected color is #ffffff" [ref=e22]':
+              - generic [ref=e26] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e28]':
+              - generic [ref=e32] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+              - generic [ref=e38] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+              - generic [ref=e44] [cursor=pointer]
+          - generic "SubMenu" [ref=e45]:
+            - 'textbox "Current selected color is #ffffff" [ref=e49]':
+              - generic [ref=e53] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e55]':
+              - generic [ref=e59] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+              - generic [ref=e65] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+              - generic [ref=e71] [cursor=pointer]
+        - generic [ref=e72]:
+          - heading "Ribbon Logo" [level=4] [ref=e73]
+          - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+        - generic [ref=e79]:
+          - heading "Left Panel" [level=4] [ref=e80]
+          - generic [ref=e81]:
+            - 'textbox "Current selected color is #ffffff" [ref=e84]':
+              - generic [ref=e88] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e90]':
+              - generic [ref=e94] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+              - generic [ref=e100] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+              - generic [ref=e106] [cursor=pointer]
+        - generic [ref=e107]:
+          - heading "Components" [level=4] [ref=e108]
+          - generic "Normal" [ref=e109]:
+            - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+              - generic [ref=e117] [cursor=pointer]
+            - 'textbox "Current selected color is #777777" [ref=e119]':
+              - generic [ref=e123] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+              - generic [ref=e129] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+              - generic [ref=e135] [cursor=pointer]
+          - generic "Selected" [ref=e136]:
+            - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+              - generic [ref=e144] [cursor=pointer]
+            - 'textbox "Current selected color is #ffffff" [ref=e146]':
+              - generic [ref=e150] [cursor=pointer]
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e155]:
+            - combobox "Select Theme" [ref=e156]: Default R365 Theme
+            - button "select" [ref=e158] [cursor=pointer]
+          - generic [ref=e159]:
+            - button "Set As Default" [ref=e160] [cursor=pointer]
+            - button "Save" [disabled] [ref=e161]
+            - button "Delete" [disabled] [ref=e162]
+        - generic [ref=e163]:
+          - textbox "Add New Theme" [ref=e165]
+          - button "New" [ref=e167] [cursor=pointer]
+    - generic [ref=e172]:
+      - generic [ref=e173]:
+        - button "Customize" [ref=e174] [cursor=pointer]
+        - generic:
+          - button "Custom Print" [ref=e175] [cursor=pointer]
+          - button "Custom Export" [ref=e177] [cursor=pointer]
+          - button "Custom Email" [ref=e179] [cursor=pointer]
+          - button "Support" [ref=e181] [cursor=pointer]
+        - generic [ref=e183]:
+          - generic:
+            - button
+            - button
+      - text:   
+      - iframe [ref=e185]:
+        - table [ref=f3e3]:
+          - rowgroup [ref=f3e4]:
+            - row [ref=f3e5]:
+              - cell [ref=f3e6]:
+                - table [ref=f3e9]:
+                  - rowgroup [ref=f3e10]:
+                    - row:
+                      - cell
+                    - text: K K H H K
+                    - row [ref=f3e11]:
+                      - cell [ref=f3e12]:
+                        - navigation "Report actions" [ref=f3e14]:
+                          - table [ref=f3e16]:
+                            - rowgroup [ref=f3e17]:
+                              - row [ref=f3e18]:
+                                - cell [ref=f3e19]:
+                                  - generic [ref=f3e20]:
+                                    - text: A
+                                    - table "First Page" [ref=f3e22]:
+                                      - rowgroup [ref=f3e23]:
+                                        - row [ref=f3e24]:
+                                          - cell "A" [ref=f3e25]
+                                - cell [ref=f3e27]
+                                - cell [ref=f3e28]:
+                                  - generic [ref=f3e29]:
+                                    - text: C
+                                    - table "Previous Page" [ref=f3e31]:
+                                      - rowgroup [ref=f3e32]:
+                                        - row [ref=f3e33]:
+                                          - cell "C" [ref=f3e34]
+                                - cell [ref=f3e36]
+                                - cell [ref=f3e37]:
+                                  - textbox "Current Page" [ref=f3e38]: "1"
+                                - cell [ref=f3e39]
+                                - cell "of" [ref=f3e40]
+                                - cell [ref=f3e41]
+                                - cell "1" [ref=f3e42]
+                                - cell [ref=f3e43]
+                                - cell [ref=f3e44]:
+                                  - generic [ref=f3e45]:
+                                    - text: D
+                                    - table "Next Page" [ref=f3e47]:
+                                      - rowgroup [ref=f3e48]:
+                                        - row [ref=f3e49]:
+                                          - cell "D" [ref=f3e50]
+                                - cell [ref=f3e52]
+                                - cell [ref=f3e53]:
+                                  - generic [ref=f3e54]:
+                                    - text: B
+                                    - table "Last Page" [ref=f3e56]:
+                                      - rowgroup [ref=f3e57]:
+                                        - row [ref=f3e58]:
+                                          - cell "B" [ref=f3e59]
+                          - table [ref=f3e62]:
+                            - rowgroup [ref=f3e63]:
+                              - row [ref=f3e64]:
+                                - cell [ref=f3e65]:
+                                  - generic [ref=f3e66]:
+                                    - table "Refresh" [ref=f3e68]:
+                                      - rowgroup [ref=f3e69]:
+                                        - row [ref=f3e70]:
+                                          - cell "F" [ref=f3e71]
+                                    - text: F
+                          - table [ref=f3e74]:
+                            - rowgroup [ref=f3e75]:
+                              - row [ref=f3e76]:
+                                - cell [ref=f3e77]:
+                                  - generic [ref=f3e78]:
+                                    - text: G
+                                    - table "Go back to the parent report" [ref=f3e80]:
+                                      - rowgroup [ref=f3e81]:
+                                        - row [ref=f3e82]:
+                                          - cell "G" [ref=f3e83]
+                          - table [ref=f3e86]:
+                            - rowgroup [ref=f3e87]:
+                              - row [ref=f3e88]:
+                                - cell "100%" [ref=f3e89]:
+                                  - combobox "Zoom" [ref=f3e90]:
+                                    - option "Page Width"
+                                    - option "Whole Page"
+                                    - option "500%"
+                                    - option "200%"
+                                    - option "150%"
+                                    - option "100%" [selected]
+                                    - option "75%"
+                                    - option "50%"
+                                    - option "25%"
+                                    - option "10%"
+                          - table [ref=f3e92]:
+                            - rowgroup [ref=f3e93]:
+                              - row [ref=f3e94]:
+                                - cell [ref=f3e95]:
+                                  - table "Export drop down menu" [ref=f3e97]:
+                                    - rowgroup [ref=f3e98]:
+                                      - row [ref=f3e99]:
+                                        - cell [ref=f3e100]:
+                                          - link "J K" [ref=f3e101] [cursor=pointer]:
+                                            - /url: javascript:void(0)
+                                            - generic [ref=f3e102]: J
+                                            - generic [ref=f3e103]: K
+                          - table [ref=f3e105]:
+                            - rowgroup [ref=f3e106]:
+                              - row [ref=f3e107]:
+                                - cell [ref=f3e108]:
+                                  - generic [ref=f3e109]:
+                                    - table "Print" [ref=f3e111]:
+                                      - rowgroup [ref=f3e112]:
+                                        - row [ref=f3e113]:
+                                          - cell "I" [ref=f3e114]
+                                    - text: I
+                          - table [ref=f3e117]:
+                            - rowgroup [ref=f3e118]:
+                              - row [ref=f3e119]:
+                                - cell [ref=f3e120]:
+                                  - textbox "Find Text in Report" [ref=f3e121]
+                                - cell [ref=f3e122]
+                                - cell [ref=f3e123]:
+                                  - link "Find" [ref=f3e124]:
+                                    - /url: "#"
+                                - cell [ref=f3e125]
+                                - cell "|" [ref=f3e126]
+                                - cell [ref=f3e127]
+                                - cell [ref=f3e128]:
+                                  - link "Next" [ref=f3e129]:
+                                    - /url: "#"
+                    - row [ref=f3e130]:
+                      - cell [ref=f3e131]:
+                        - main [ref=f3e133]:
+                          - table [ref=f3e135]:
+                            - rowgroup [ref=f3e136]:
+                              - row [ref=f3e137]:
+                                - cell [ref=f3e138]:
+                                  - table [ref=f3e139]:
+                                    - rowgroup [ref=f3e140]:
+                                      - row [ref=f3e141]:
+                                        - cell [ref=f3e142]:
+                                          - table [ref=f3e143]:
+                                            - rowgroup [ref=f3e144]:
+                                              - row [ref=f3e145]:
+                                                - cell [ref=f3e146]:
+                                                  - table [ref=f3e147]:
+                                                    - rowgroup [ref=f3e148]:
+                                                      - row [ref=f3e149]:
+                                                        - cell [ref=f3e150]:
+                                                          - navigation "Report text" [ref=f3e151]:
+                                                            - generic [ref=f3e152]: "Account Detail: 104-05 - A/R - Door Dash"
+                                                          - navigation "Report text" [ref=f3e153]:
+                                                            - generic [ref=f3e154]: 9/7/2026 - 9/13/2026
+                                                          - navigation "Report text" [ref=f3e157]:
+                                                            - generic [ref=f3e158]: "Show All: All Locations"
+                                                          - navigation "Report text" [ref=f3e159]
+                                                          - navigation "Report text" [ref=f3e160]
+                                                          - navigation "Report text" [ref=f3e161]
+                                                          - navigation "Report table"
+                                                          - table [ref=f3e162]:
+                                                            - rowgroup [ref=f3e163]:
+                                                              - row:
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                                - cell
+                                                              - row [ref=f3e164]:
+                                                                - cell [ref=f3e165]
+                                                                - cell [ref=f3e166]
+                                                                - cell [ref=f3e167]
+                                                                - cell "Date Unsorted" [ref=f3e168]:
+                                                                  - generic [ref=f3e170]:
+                                                                    - generic [ref=f3e171]: Date
+                                                                    - img "Unsorted" [ref=f3e174] [cursor=pointer]
+                                                                - cell "Type Unsorted" [ref=f3e175]:
+                                                                  - generic [ref=f3e177]:
+                                                                    - generic [ref=f3e178]: Type
+                                                                    - img "Unsorted" [ref=f3e181] [cursor=pointer]
+                                                                - cell "Ref. Number Unsorted" [ref=f3e182]:
+                                                                  - generic [ref=f3e184]:
+                                                                    - generic [ref=f3e185]: Ref. Number
+                                                                    - img "Unsorted" [ref=f3e188] [cursor=pointer]
+                                                                - cell "Company Unsorted" [ref=f3e189]:
+                                                                  - generic [ref=f3e191]:
+                                                                    - generic [ref=f3e192]: Company
+                                                                    - img "Unsorted" [ref=f3e197] [cursor=pointer]
+                                                                - cell "Location Unsorted" [ref=f3e198]:
+                                                                  - generic [ref=f3e200]:
+                                                                    - generic [ref=f3e201]: Location
+                                                                    - img "Unsorted" [ref=f3e204] [cursor=pointer]
+                                                                - cell "Comment/Item Unsorted" [ref=f3e205]:
+                                                                  - generic [ref=f3e207]:
+                                                                    - generic [ref=f3e208]: Comment/Item
+                                                                    - img "Unsorted" [ref=f3e211] [cursor=pointer]
+                                                                - cell "Debit Unsorted" [ref=f3e212]:
+                                                                  - generic [ref=f3e214]:
+                                                                    - generic [ref=f3e215]: Debit
+                                                                    - img "Unsorted" [ref=f3e218] [cursor=pointer]
+                                                                - cell "Credit Unsorted" [ref=f3e219]:
+                                                                  - generic [ref=f3e221]:
+                                                                    - generic [ref=f3e222]: Credit
+                                                                    - img "Unsorted" [ref=f3e225] [cursor=pointer]
+                                                                - cell "Balance" [ref=f3e226]
+                                                              - row [ref=f3e229]:
+                                                                - cell "Cookshop" [ref=f3e230]
+                                                                - cell [ref=f3e233]
+                                                                - cell [ref=f3e234]
+                                                                - cell [ref=f3e235]
+                                                                - cell [ref=f3e236]
+                                                              - row [ref=f3e237]:
+                                                                - cell [ref=f3e238]
+                                                                - cell [ref=f3e239]
+                                                                - cell "104-05 - A/R - Door Dash" [ref=f3e240]
+                                                                - cell [ref=f3e243]
+                                                                - cell "Beg Balance:" [ref=f3e244]
+                                                                - cell "6,258.22" [ref=f3e247]
+                                                              - row [ref=f3e250]:
+                                                                - cell [ref=f3e251]
+                                                                - cell [ref=f3e252]
+                                                                - cell [ref=f3e253]
+                                                                - cell "9/7/2026" [ref=f3e254]
+                                                                - cell "Journal Entry" [ref=f3e257]
+                                                                - cell [ref=f3e260]:
+                                                                  - generic "NJ00001444" [ref=f3e261]:
+                                                                    - link "NJ00001444" [ref=f3e262] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=b3e11755-77ab-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e264]
+                                                                - cell "Cookshop" [ref=f3e265]
+                                                                - cell [ref=f3e268]
+                                                                - cell "1,313.70" [ref=f3e269]
+                                                                - cell "0.00" [ref=f3e272]
+                                                                - cell "7,571.92" [ref=f3e275]
+                                                              - row [ref=f3e278]:
+                                                                - cell [ref=f3e279]
+                                                                - cell [ref=f3e280]
+                                                                - cell [ref=f3e281]
+                                                                - cell "9/8/2026" [ref=f3e282]
+                                                                - cell "Journal Entry" [ref=f3e285]
+                                                                - cell [ref=f3e288]:
+                                                                  - generic "NJ00001457" [ref=f3e289]:
+                                                                    - link "NJ00001457" [ref=f3e290] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=c6733083-3fac-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e292]
+                                                                - cell "Cookshop" [ref=f3e293]
+                                                                - cell [ref=f3e296]
+                                                                - cell "1,225.92" [ref=f3e297]
+                                                                - cell "0.00" [ref=f3e300]
+                                                                - cell "8,797.84" [ref=f3e303]
+                                                              - row [ref=f3e306]:
+                                                                - cell [ref=f3e307]
+                                                                - cell [ref=f3e308]
+                                                                - cell [ref=f3e309]
+                                                                - cell "9/9/2026" [ref=f3e310]
+                                                                - cell "Journal Entry" [ref=f3e313]
+                                                                - cell [ref=f3e316]:
+                                                                  - generic "NJ00001491" [ref=f3e317]:
+                                                                    - link "NJ00001491" [ref=f3e318] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2e3e23f1-08ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e320]
+                                                                - cell "Cookshop" [ref=f3e321]
+                                                                - cell [ref=f3e324]
+                                                                - cell "1,571.38" [ref=f3e325]
+                                                                - cell "0.00" [ref=f3e328]
+                                                                - cell "10,369.22" [ref=f3e331]
+                                                              - row [ref=f3e334]:
+                                                                - cell [ref=f3e335]
+                                                                - cell [ref=f3e336]
+                                                                - cell [ref=f3e337]
+                                                                - cell "9/10/2026" [ref=f3e338]
+                                                                - cell "Journal Entry" [ref=f3e341]
+                                                                - cell [ref=f3e344]:
+                                                                  - generic "NJ00001502" [ref=f3e345]:
+                                                                    - link "NJ00001502" [ref=f3e346] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=02c622ee-d1ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e348]
+                                                                - cell "Cookshop" [ref=f3e349]
+                                                                - cell [ref=f3e352]
+                                                                - cell "1,253.69" [ref=f3e353]
+                                                                - cell "0.00" [ref=f3e356]
+                                                                - cell "11,622.91" [ref=f3e359]
+                                                              - row [ref=f3e362]:
+                                                                - cell [ref=f3e363]
+                                                                - cell [ref=f3e364]
+                                                                - cell [ref=f3e365]
+                                                                - cell "9/11/2026" [ref=f3e366]
+                                                                - cell "Bank Deposit" [ref=f3e369]
+                                                                - cell [ref=f3e372]:
+                                                                  - generic "BD000156" [ref=f3e373]:
+                                                                    - link "BD000156" [ref=f3e374] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Bank%20Deposit&entityId=ef9d504a-31b1-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e376]
+                                                                - cell "Cookshop" [ref=f3e377]
+                                                                - cell "DoorDash" [ref=f3e380]
+                                                                - cell "0.00" [ref=f3e383]
+                                                                - cell "6,258.22" [ref=f3e386]
+                                                                - cell "5,364.69" [ref=f3e389]
+                                                              - row [ref=f3e392]:
+                                                                - cell [ref=f3e393]
+                                                                - cell [ref=f3e394]
+                                                                - cell [ref=f3e395]
+                                                                - cell "9/11/2026" [ref=f3e396]
+                                                                - cell "Journal Entry" [ref=f3e399]
+                                                                - cell [ref=f3e402]:
+                                                                  - generic "NJ00001522" [ref=f3e403]:
+                                                                    - link "NJ00001522" [ref=f3e404] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=0c427af0-9bae-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e406]
+                                                                - cell "Cookshop" [ref=f3e407]
+                                                                - cell [ref=f3e410]
+                                                                - cell "1,775.59" [ref=f3e411]
+                                                                - cell "0.00" [ref=f3e414]
+                                                                - cell "7,140.28" [ref=f3e417]
+                                                              - row [ref=f3e420]:
+                                                                - cell [ref=f3e421]
+                                                                - cell [ref=f3e422]
+                                                                - cell [ref=f3e423]
+                                                                - cell "9/12/2026" [ref=f3e424]
+                                                                - cell "Journal Entry" [ref=f3e427]
+                                                                - cell [ref=f3e430]:
+                                                                  - generic "NJ00001532" [ref=f3e431]:
+                                                                    - link "NJ00001532" [ref=f3e432] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=796dba35-65af-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e434]
+                                                                - cell "Cookshop" [ref=f3e435]
+                                                                - cell [ref=f3e438]
+                                                                - cell "1,655.01" [ref=f3e439]
+                                                                - cell "0.00" [ref=f3e442]
+                                                                - cell "8,795.29" [ref=f3e445]
+                                                              - row [ref=f3e448]:
+                                                                - cell [ref=f3e449]
+                                                                - cell [ref=f3e450]
+                                                                - cell [ref=f3e451]
+                                                                - cell "9/13/2026" [ref=f3e452]
+                                                                - cell "Journal Entry" [ref=f3e455]
+                                                                - cell [ref=f3e458]:
+                                                                  - generic "NJ00001542" [ref=f3e459]:
+                                                                    - link "NJ00001542" [ref=f3e460] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=963f5746-2eb0-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e462]
+                                                                - cell "Cookshop" [ref=f3e463]
+                                                                - cell [ref=f3e466]
+                                                                - cell "579.88" [ref=f3e467]
+                                                                - cell "0.00" [ref=f3e470]
+                                                                - cell "9,375.17" [ref=f3e473]
+                                                              - row [ref=f3e476]:
+                                                                - cell [ref=f3e477]
+                                                                - cell [ref=f3e478]
+                                                                - cell "Total A/R - Door Dash" [ref=f3e479]
+                                                                - cell [ref=f3e482]
+                                                                - cell "9,375.17" [ref=f3e483]
+                                                                - cell "6,258.22" [ref=f3e486]
+                                                                - cell "9,375.17" [ref=f3e489]
+                                                              - row [ref=f3e492]:
+                                                                - cell [ref=f3e493]
+                                                                - cell [ref=f3e494]
+                                                                - cell [ref=f3e495]
+                                                                - cell [ref=f3e496]
+                                                                - cell [ref=f3e497]
+                                                                - cell [ref=f3e498]
+                                                                - cell [ref=f3e499]
+                                                                - cell [ref=f3e500]
+                                                                - cell [ref=f3e501]
+                                                                - cell [ref=f3e502]
+                                                                - cell [ref=f3e503]
+                                                                - cell [ref=f3e504]
+                                                              - row [ref=f3e505]:
+                                                                - cell [ref=f3e506]
+                                                                - cell [ref=f3e507]
+                                                                - cell [ref=f3e508]
+                                                                - cell [ref=f3e509]
+                                                                - cell [ref=f3e510]
+                                                                - cell [ref=f3e511]
+                                                                - cell [ref=f3e512]
+                                                                - cell [ref=f3e513]
+                                                                - cell [ref=f3e514]
+                                                                - cell [ref=f3e515]
+                                                                - cell [ref=f3e516]
+                                                                - cell [ref=f3e517]
+                                                              - row [ref=f3e518]:
+                                                                - cell "Rosie’s" [ref=f3e519]
+                                                                - cell [ref=f3e522]
+                                                                - cell [ref=f3e523]
+                                                                - cell [ref=f3e524]
+                                                                - cell [ref=f3e525]
+                                                              - row [ref=f3e526]:
+                                                                - cell [ref=f3e527]
+                                                                - cell [ref=f3e528]
+                                                                - cell "104-05 - A/R - Door Dash" [ref=f3e529]
+                                                                - cell [ref=f3e532]
+                                                                - cell "Beg Balance:" [ref=f3e533]
+                                                                - cell "1,713.74" [ref=f3e536]
+                                                              - row [ref=f3e539]:
+                                                                - cell [ref=f3e540]
+                                                                - cell [ref=f3e541]
+                                                                - cell [ref=f3e542]
+                                                                - cell "9/7/2026" [ref=f3e543]
+                                                                - cell "Journal Entry" [ref=f3e546]
+                                                                - cell [ref=f3e549]:
+                                                                  - generic "NJ00001445" [ref=f3e550]:
+                                                                    - link "NJ00001445" [ref=f3e551] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=b4e11755-77ab-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e553]
+                                                                - cell "Rosie’s" [ref=f3e554]
+                                                                - cell [ref=f3e557]
+                                                                - cell "298.75" [ref=f3e558]
+                                                                - cell "0.00" [ref=f3e561]
+                                                                - cell "2,012.49" [ref=f3e564]
+                                                              - row [ref=f3e567]:
+                                                                - cell [ref=f3e568]
+                                                                - cell [ref=f3e569]
+                                                                - cell [ref=f3e570]
+                                                                - cell "9/8/2026" [ref=f3e571]
+                                                                - cell "Journal Entry" [ref=f3e574]
+                                                                - cell [ref=f3e577]:
+                                                                  - generic "NJ00001458" [ref=f3e578]:
+                                                                    - link "NJ00001458" [ref=f3e579] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=c7733083-3fac-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e581]
+                                                                - cell "Rosie’s" [ref=f3e582]
+                                                                - cell [ref=f3e585]
+                                                                - cell "210.95" [ref=f3e586]
+                                                                - cell "0.00" [ref=f3e589]
+                                                                - cell "2,223.44" [ref=f3e592]
+                                                              - row [ref=f3e595]:
+                                                                - cell [ref=f3e596]
+                                                                - cell [ref=f3e597]
+                                                                - cell [ref=f3e598]
+                                                                - cell "9/9/2026" [ref=f3e599]
+                                                                - cell "Journal Entry" [ref=f3e602]
+                                                                - cell [ref=f3e605]:
+                                                                  - generic "NJ00001492" [ref=f3e606]:
+                                                                    - link "NJ00001492" [ref=f3e607] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2f3e23f1-08ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e609]
+                                                                - cell "Rosie’s" [ref=f3e610]
+                                                                - cell [ref=f3e613]
+                                                                - cell "143.16" [ref=f3e614]
+                                                                - cell "0.00" [ref=f3e617]
+                                                                - cell "2,366.60" [ref=f3e620]
+                                                              - row [ref=f3e623]:
+                                                                - cell [ref=f3e624]
+                                                                - cell [ref=f3e625]
+                                                                - cell [ref=f3e626]
+                                                                - cell "9/10/2026" [ref=f3e627]
+                                                                - cell "Journal Entry" [ref=f3e630]
+                                                                - cell [ref=f3e633]:
+                                                                  - generic "NJ00001503" [ref=f3e634]:
+                                                                    - link "NJ00001503" [ref=f3e635] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=03c622ee-d1ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e637]
+                                                                - cell "Rosie’s" [ref=f3e638]
+                                                                - cell [ref=f3e641]
+                                                                - cell "457.05" [ref=f3e642]
+                                                                - cell "0.00" [ref=f3e645]
+                                                                - cell "2,823.65" [ref=f3e648]
+                                                              - row [ref=f3e651]:
+                                                                - cell [ref=f3e652]
+                                                                - cell [ref=f3e653]
+                                                                - cell [ref=f3e654]
+                                                                - cell "9/11/2026" [ref=f3e655]
+                                                                - cell "Bank Deposit" [ref=f3e658]
+                                                                - cell [ref=f3e661]:
+                                                                  - generic "BD000119" [ref=f3e662]:
+                                                                    - link "BD000119" [ref=f3e663] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Bank%20Deposit&entityId=daf7bd77-2cb1-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e665]
+                                                                - cell "Rosie’s" [ref=f3e666]
+                                                                - cell "DoorDash" [ref=f3e669]
+                                                                - cell "0.00" [ref=f3e672]
+                                                                - cell "1,713.74" [ref=f3e675]
+                                                                - cell "1,109.91" [ref=f3e678]
+                                                              - row [ref=f3e681]:
+                                                                - cell [ref=f3e682]
+                                                                - cell [ref=f3e683]
+                                                                - cell [ref=f3e684]
+                                                                - cell "9/11/2026" [ref=f3e685]
+                                                                - cell "Journal Entry" [ref=f3e688]
+                                                                - cell [ref=f3e691]:
+                                                                  - generic "NJ00001523" [ref=f3e692]:
+                                                                    - link "NJ00001523" [ref=f3e693] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=0d427af0-9bae-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e695]
+                                                                - cell "Rosie’s" [ref=f3e696]
+                                                                - cell [ref=f3e699]
+                                                                - cell "186.01" [ref=f3e700]
+                                                                - cell "0.00" [ref=f3e703]
+                                                                - cell "1,295.92" [ref=f3e706]
+                                                              - row [ref=f3e709]:
+                                                                - cell [ref=f3e710]
+                                                                - cell [ref=f3e711]
+                                                                - cell [ref=f3e712]
+                                                                - cell "9/12/2026" [ref=f3e713]
+                                                                - cell "Journal Entry" [ref=f3e716]
+                                                                - cell [ref=f3e719]:
+                                                                  - generic "NJ00001533" [ref=f3e720]:
+                                                                    - link "NJ00001533" [ref=f3e721] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=7a6dba35-65af-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e723]
+                                                                - cell "Rosie’s" [ref=f3e724]
+                                                                - cell [ref=f3e727]
+                                                                - cell "467.01" [ref=f3e728]
+                                                                - cell "0.00" [ref=f3e731]
+                                                                - cell "1,762.93" [ref=f3e734]
+                                                              - row [ref=f3e737]:
+                                                                - cell [ref=f3e738]
+                                                                - cell [ref=f3e739]
+                                                                - cell [ref=f3e740]
+                                                                - cell "9/13/2026" [ref=f3e741]
+                                                                - cell "Journal Entry" [ref=f3e744]
+                                                                - cell [ref=f3e747]:
+                                                                  - generic "NJ00001543" [ref=f3e748]:
+                                                                    - link "NJ00001543" [ref=f3e749] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=973f5746-2eb0-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e751]
+                                                                - cell "Rosie’s" [ref=f3e752]
+                                                                - cell [ref=f3e755]
+                                                                - cell "336.22" [ref=f3e756]
+                                                                - cell "0.00" [ref=f3e759]
+                                                                - cell "2,099.15" [ref=f3e762]
+                                                              - row [ref=f3e765]:
+                                                                - cell [ref=f3e766]
+                                                                - cell [ref=f3e767]
+                                                                - cell "Total A/R - Door Dash" [ref=f3e768]
+                                                                - cell [ref=f3e771]
+                                                                - cell "2,099.15" [ref=f3e772]
+                                                                - cell "1,713.74" [ref=f3e775]
+                                                                - cell "2,099.15" [ref=f3e778]
+                                                              - row [ref=f3e781]:
+                                                                - cell [ref=f3e782]
+                                                                - cell [ref=f3e783]
+                                                                - cell [ref=f3e784]
+                                                                - cell [ref=f3e785]
+                                                                - cell [ref=f3e786]
+                                                                - cell [ref=f3e787]
+                                                                - cell [ref=f3e788]
+                                                                - cell [ref=f3e789]
+                                                                - cell [ref=f3e790]
+                                                                - cell [ref=f3e791]
+                                                                - cell [ref=f3e792]
+                                                                - cell [ref=f3e793]
+                                                              - row [ref=f3e794]:
+                                                                - cell [ref=f3e795]
+                                                                - cell [ref=f3e796]
+                                                                - cell [ref=f3e797]
+                                                                - cell [ref=f3e798]
+                                                                - cell [ref=f3e799]
+                                                                - cell [ref=f3e800]
+                                                                - cell [ref=f3e801]
+                                                                - cell [ref=f3e802]
+                                                                - cell [ref=f3e803]
+                                                                - cell [ref=f3e804]
+                                                                - cell [ref=f3e805]
+                                                                - cell [ref=f3e806]
+                                                              - row [ref=f3e807]:
+                                                                - cell "Shuka" [ref=f3e808]
+                                                                - cell [ref=f3e811]
+                                                                - cell [ref=f3e812]
+                                                                - cell [ref=f3e813]
+                                                                - cell [ref=f3e814]
+                                                              - row [ref=f3e815]:
+                                                                - cell [ref=f3e816]
+                                                                - cell [ref=f3e817]
+                                                                - cell "104-05 - A/R - Door Dash" [ref=f3e818]
+                                                                - cell [ref=f3e821]
+                                                                - cell "Beg Balance:" [ref=f3e822]
+                                                                - cell "13,924.62" [ref=f3e825]
+                                                              - row [ref=f3e828]:
+                                                                - cell [ref=f3e829]
+                                                                - cell [ref=f3e830]
+                                                                - cell [ref=f3e831]
+                                                                - cell "9/7/2026" [ref=f3e832]
+                                                                - cell "Journal Entry" [ref=f3e835]
+                                                                - cell [ref=f3e838]:
+                                                                  - generic "NJ00001441" [ref=f3e839]:
+                                                                    - link "NJ00001441" [ref=f3e840] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=b0e11755-77ab-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e842]
+                                                                - cell "Shuka" [ref=f3e843]
+                                                                - cell [ref=f3e846]
+                                                                - cell "3,406.80" [ref=f3e847]
+                                                                - cell "0.00" [ref=f3e850]
+                                                                - cell "17,331.42" [ref=f3e853]
+                                                              - row [ref=f3e856]:
+                                                                - cell [ref=f3e857]
+                                                                - cell [ref=f3e858]
+                                                                - cell [ref=f3e859]
+                                                                - cell "9/8/2026" [ref=f3e860]
+                                                                - cell "Journal Entry" [ref=f3e863]
+                                                                - cell [ref=f3e866]:
+                                                                  - generic "NJ00001454" [ref=f3e867]:
+                                                                    - link "NJ00001454" [ref=f3e868] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=c3733083-3fac-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e870]
+                                                                - cell "Shuka" [ref=f3e871]
+                                                                - cell [ref=f3e874]
+                                                                - cell "2,661.23" [ref=f3e875]
+                                                                - cell "0.00" [ref=f3e878]
+                                                                - cell "19,992.65" [ref=f3e881]
+                                                              - row [ref=f3e884]:
+                                                                - cell [ref=f3e885]
+                                                                - cell [ref=f3e886]
+                                                                - cell [ref=f3e887]
+                                                                - cell "9/9/2026" [ref=f3e888]
+                                                                - cell "Journal Entry" [ref=f3e891]
+                                                                - cell [ref=f3e894]:
+                                                                  - generic "NJ00001488" [ref=f3e895]:
+                                                                    - link "NJ00001488" [ref=f3e896] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2b3e23f1-08ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e898]
+                                                                - cell "Shuka" [ref=f3e899]
+                                                                - cell [ref=f3e902]
+                                                                - cell "2,982.18" [ref=f3e903]
+                                                                - cell "0.00" [ref=f3e906]
+                                                                - cell "22,974.83" [ref=f3e909]
+                                                              - row [ref=f3e912]:
+                                                                - cell [ref=f3e913]
+                                                                - cell [ref=f3e914]
+                                                                - cell [ref=f3e915]
+                                                                - cell "9/10/2026" [ref=f3e916]
+                                                                - cell "Journal Entry" [ref=f3e919]
+                                                                - cell [ref=f3e922]:
+                                                                  - generic "NJ00001499" [ref=f3e923]:
+                                                                    - link "NJ00001499" [ref=f3e924] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=ffc522ee-d1ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e926]
+                                                                - cell "Shuka" [ref=f3e927]
+                                                                - cell [ref=f3e930]
+                                                                - cell "2,646.85" [ref=f3e931]
+                                                                - cell "0.00" [ref=f3e934]
+                                                                - cell "25,621.68" [ref=f3e937]
+                                                              - row [ref=f3e940]:
+                                                                - cell [ref=f3e941]
+                                                                - cell [ref=f3e942]
+                                                                - cell [ref=f3e943]
+                                                                - cell "9/11/2026" [ref=f3e944]
+                                                                - cell "Bank Deposit" [ref=f3e947]
+                                                                - cell [ref=f3e950]:
+                                                                  - generic "BD000106" [ref=f3e951]:
+                                                                    - link "BD000106" [ref=f3e952] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Bank%20Deposit&entityId=733f8950-28b1-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e954]
+                                                                - cell "Shuka" [ref=f3e955]
+                                                                - cell "DoorDash" [ref=f3e958]
+                                                                - cell "0.00" [ref=f3e961]
+                                                                - cell "13,924.62" [ref=f3e964]
+                                                                - cell "11,697.06" [ref=f3e967]
+                                                              - row [ref=f3e970]:
+                                                                - cell [ref=f3e971]
+                                                                - cell [ref=f3e972]
+                                                                - cell [ref=f3e973]
+                                                                - cell "9/11/2026" [ref=f3e974]
+                                                                - cell "Journal Entry" [ref=f3e977]
+                                                                - cell [ref=f3e980]:
+                                                                  - generic "NJ00001519" [ref=f3e981]:
+                                                                    - link "NJ00001519" [ref=f3e982] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=09427af0-9bae-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e984]
+                                                                - cell "Shuka" [ref=f3e985]
+                                                                - cell [ref=f3e988]
+                                                                - cell "2,883.06" [ref=f3e989]
+                                                                - cell "0.00" [ref=f3e992]
+                                                                - cell "14,580.12" [ref=f3e995]
+                                                              - row [ref=f3e998]:
+                                                                - cell [ref=f3e999]
+                                                                - cell [ref=f3e1000]
+                                                                - cell [ref=f3e1001]
+                                                                - cell "9/12/2026" [ref=f3e1002]
+                                                                - cell "Journal Entry" [ref=f3e1005]
+                                                                - cell [ref=f3e1008]:
+                                                                  - generic "NJ00001529" [ref=f3e1009]:
+                                                                    - link "NJ00001529" [ref=f3e1010] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=766dba35-65af-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1012]
+                                                                - cell "Shuka" [ref=f3e1013]
+                                                                - cell [ref=f3e1016]
+                                                                - cell "1,559.08" [ref=f3e1017]
+                                                                - cell "0.00" [ref=f3e1020]
+                                                                - cell "16,139.20" [ref=f3e1023]
+                                                              - row [ref=f3e1026]:
+                                                                - cell [ref=f3e1027]
+                                                                - cell [ref=f3e1028]
+                                                                - cell [ref=f3e1029]
+                                                                - cell "9/13/2026" [ref=f3e1030]
+                                                                - cell "Journal Entry" [ref=f3e1033]
+                                                                - cell [ref=f3e1036]:
+                                                                  - generic "NJ00001539" [ref=f3e1037]:
+                                                                    - link "NJ00001539" [ref=f3e1038] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=933f5746-2eb0-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1040]
+                                                                - cell "Shuka" [ref=f3e1041]
+                                                                - cell [ref=f3e1044]
+                                                                - cell "3,662.52" [ref=f3e1045]
+                                                                - cell "0.00" [ref=f3e1048]
+                                                                - cell "19,801.72" [ref=f3e1051]
+                                                              - row [ref=f3e1054]:
+                                                                - cell [ref=f3e1055]
+                                                                - cell [ref=f3e1056]
+                                                                - cell "Total A/R - Door Dash" [ref=f3e1057]
+                                                                - cell [ref=f3e1060]
+                                                                - cell "19,801.72" [ref=f3e1061]
+                                                                - cell "13,924.62" [ref=f3e1064]
+                                                                - cell "19,801.72" [ref=f3e1067]
+                                                              - row [ref=f3e1070]:
+                                                                - cell [ref=f3e1071]
+                                                                - cell [ref=f3e1072]
+                                                                - cell [ref=f3e1073]
+                                                                - cell [ref=f3e1074]
+                                                                - cell [ref=f3e1075]
+                                                                - cell [ref=f3e1076]
+                                                                - cell [ref=f3e1077]
+                                                                - cell [ref=f3e1078]
+                                                                - cell [ref=f3e1079]
+                                                                - cell [ref=f3e1080]
+                                                                - cell [ref=f3e1081]
+                                                                - cell [ref=f3e1082]
+                                                              - row [ref=f3e1083]:
+                                                                - cell [ref=f3e1084]
+                                                                - cell [ref=f3e1085]
+                                                                - cell [ref=f3e1086]
+                                                                - cell [ref=f3e1087]
+                                                                - cell [ref=f3e1088]
+                                                                - cell [ref=f3e1089]
+                                                                - cell [ref=f3e1090]
+                                                                - cell [ref=f3e1091]
+                                                                - cell [ref=f3e1092]
+                                                                - cell [ref=f3e1093]
+                                                                - cell [ref=f3e1094]
+                                                                - cell [ref=f3e1095]
+                                                              - row [ref=f3e1096]:
+                                                                - cell "Vic’s" [ref=f3e1097]
+                                                                - cell [ref=f3e1100]
+                                                                - cell [ref=f3e1101]
+                                                                - cell [ref=f3e1102]
+                                                                - cell [ref=f3e1103]
+                                                              - row [ref=f3e1104]:
+                                                                - cell [ref=f3e1105]
+                                                                - cell [ref=f3e1106]
+                                                                - cell "104-05 - A/R - Door Dash" [ref=f3e1107]
+                                                                - cell [ref=f3e1110]
+                                                                - cell "Beg Balance:" [ref=f3e1111]
+                                                                - cell "1,469.93" [ref=f3e1114]
+                                                              - row [ref=f3e1117]:
+                                                                - cell [ref=f3e1118]
+                                                                - cell [ref=f3e1119]
+                                                                - cell [ref=f3e1120]
+                                                                - cell "9/8/2026" [ref=f3e1121]
+                                                                - cell "Journal Entry" [ref=f3e1124]
+                                                                - cell [ref=f3e1127]:
+                                                                  - generic "NJ00001455" [ref=f3e1128]:
+                                                                    - link "NJ00001455" [ref=f3e1129] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=c4733083-3fac-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1131]
+                                                                - cell "Vic’s" [ref=f3e1132]
+                                                                - cell [ref=f3e1135]
+                                                                - cell "363.92" [ref=f3e1136]
+                                                                - cell "0.00" [ref=f3e1139]
+                                                                - cell "1,833.85" [ref=f3e1142]
+                                                              - row [ref=f3e1145]:
+                                                                - cell [ref=f3e1146]
+                                                                - cell [ref=f3e1147]
+                                                                - cell [ref=f3e1148]
+                                                                - cell "9/9/2026" [ref=f3e1149]
+                                                                - cell "Journal Entry" [ref=f3e1152]
+                                                                - cell [ref=f3e1155]:
+                                                                  - generic "NJ00001489" [ref=f3e1156]:
+                                                                    - link "NJ00001489" [ref=f3e1157] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2c3e23f1-08ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1159]
+                                                                - cell "Vic’s" [ref=f3e1160]
+                                                                - cell [ref=f3e1163]
+                                                                - cell "598.56" [ref=f3e1164]
+                                                                - cell "0.00" [ref=f3e1167]
+                                                                - cell "2,432.41" [ref=f3e1170]
+                                                              - row [ref=f3e1173]:
+                                                                - cell [ref=f3e1174]
+                                                                - cell [ref=f3e1175]
+                                                                - cell [ref=f3e1176]
+                                                                - cell "9/10/2026" [ref=f3e1177]
+                                                                - cell "Journal Entry" [ref=f3e1180]
+                                                                - cell [ref=f3e1183]:
+                                                                  - generic "NJ00001500" [ref=f3e1184]:
+                                                                    - link "NJ00001500" [ref=f3e1185] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=00c622ee-d1ad-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1187]
+                                                                - cell "Vic’s" [ref=f3e1188]
+                                                                - cell [ref=f3e1191]
+                                                                - cell "101.26" [ref=f3e1192]
+                                                                - cell "0.00" [ref=f3e1195]
+                                                                - cell "2,533.67" [ref=f3e1198]
+                                                              - row [ref=f3e1201]:
+                                                                - cell [ref=f3e1202]
+                                                                - cell [ref=f3e1203]
+                                                                - cell [ref=f3e1204]
+                                                                - cell "9/11/2026" [ref=f3e1205]
+                                                                - cell "Bank Deposit" [ref=f3e1208]
+                                                                - cell [ref=f3e1211]:
+                                                                  - generic "BD000138" [ref=f3e1212]:
+                                                                    - link "BD000138" [ref=f3e1213] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Bank%20Deposit&entityId=fd5db4f4-2eb1-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1215]
+                                                                - cell "Vic’s" [ref=f3e1216]
+                                                                - cell "DoorDash" [ref=f3e1219]
+                                                                - cell "0.00" [ref=f3e1222]
+                                                                - cell "1,469.93" [ref=f3e1225]
+                                                                - cell "1,063.74" [ref=f3e1228]
+                                                              - row [ref=f3e1231]:
+                                                                - cell [ref=f3e1232]
+                                                                - cell [ref=f3e1233]
+                                                                - cell [ref=f3e1234]
+                                                                - cell "9/11/2026" [ref=f3e1235]
+                                                                - cell "Journal Entry" [ref=f3e1238]
+                                                                - cell [ref=f3e1241]:
+                                                                  - generic "NJ00001520" [ref=f3e1242]:
+                                                                    - link "NJ00001520" [ref=f3e1243] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=0a427af0-9bae-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1245]
+                                                                - cell "Vic’s" [ref=f3e1246]
+                                                                - cell [ref=f3e1249]
+                                                                - cell "249.65" [ref=f3e1250]
+                                                                - cell "0.00" [ref=f3e1253]
+                                                                - cell "1,313.39" [ref=f3e1256]
+                                                              - row [ref=f3e1259]:
+                                                                - cell [ref=f3e1260]
+                                                                - cell [ref=f3e1261]
+                                                                - cell [ref=f3e1262]
+                                                                - cell "9/12/2026" [ref=f3e1263]
+                                                                - cell "Journal Entry" [ref=f3e1266]
+                                                                - cell [ref=f3e1269]:
+                                                                  - generic "NJ00001530" [ref=f3e1270]:
+                                                                    - link "NJ00001530" [ref=f3e1271] [cursor=pointer]:
+                                                                      - /url: https://bowerygroup.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=776dba35-65af-f111-aaa9-000d3a41fbd2
+                                                                - cell [ref=f3e1273]
+                                                                - cell "Vic’s" [ref=f3e1274]
+                                                                - cell [ref=f3e1277]
+                                                                - cell "375.79" [ref=f3e1278]
+                                                                - cell "0.00" [ref=f3e1281]
+                                                                - cell "1,689.18" [ref=f3e1284]
+                                                              - row [ref=f3e1287]:
+                                                                - cell [ref=f3e1288]
+                                                                - cell [ref=f3e1289]
+                                                                - cell "Total A/R - Door Dash" [ref=f3e1290]
+                                                                - cell [ref=f3e1293]
+                                                                - cell "1,689.18" [ref=f3e1294]
+                                                                - cell "1,469.93" [ref=f3e1297]
+                                                                - cell "1,689.18" [ref=f3e1300]
+                                                              - row [ref=f3e1303]:
+                                                                - cell [ref=f3e1304]
+                                                                - cell [ref=f3e1305]
+                                                                - cell [ref=f3e1306]
+                                                                - cell [ref=f3e1307]
+                                                                - cell [ref=f3e1308]
+                                                                - cell [ref=f3e1309]
+                                                                - cell [ref=f3e1310]
+                                                                - cell [ref=f3e1311]
+                                                                - cell [ref=f3e1312]
+                                                                - cell [ref=f3e1313]
+                                                                - cell [ref=f3e1314]
+                                                                - cell [ref=f3e1315]
+                                                              - row [ref=f3e1316]:
+                                                                - cell [ref=f3e1317]
+                                                                - cell [ref=f3e1318]
+                                                                - cell [ref=f3e1319]
+                                                                - cell [ref=f3e1320]
+                                                                - cell [ref=f3e1321]
+                                                                - cell [ref=f3e1322]
+                                                                - cell [ref=f3e1323]
+                                                                - cell [ref=f3e1324]
+                                                                - cell [ref=f3e1325]
+                                                                - cell [ref=f3e1326]
+                                                                - cell [ref=f3e1327]
+                                                                - cell [ref=f3e1328]
+                                                              - row [ref=f3e1329]:
+                                                                - cell [ref=f3e1330]
+                                                                - cell "Grand Total" [ref=f3e1331]
+                                                                - cell [ref=f3e1334]
+                                                                - cell "32,965.22" [ref=f3e1335]
+                                                                - cell "23,366.51" [ref=f3e1338]
+                                                                - cell "32,965.22" [ref=f3e1341]
+                                      - row [ref=f3e1344]:
+                                        - cell "Powered by Restaurant365 Page 1 9/17/2026 10:24:07 PM EDT" [ref=f3e1345]:
+                                          - generic [ref=f3e1346]:
+                                            - generic [ref=f3e1347]: Powered by Restaurant365
+                                            - generic [ref=f3e1349]: Page 1
+                                            - generic [ref=f3e1351]: 9/17/2026 10:24:07 PM EDT
+  - status [ref=e186]

@@ -32,7 +32,9 @@ function mapRow(r) {
     : { acct: '5212', cm: 'regular / overtime / meal penalty', loc: r.loc };
   if (a === '5212' || a === '6065') return { acct: r.loc === '370' ? '6025' : '5210', cm: 'salary', loc: r.loc };
   if (a === '5320') return { acct: '5320', cm: 'er taxes', loc: r.loc };
-  if (a === '5300' || a === '6050') return { acct: '5300', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: r.loc };
+  if (a === '5300') return { acct: '5300', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: r.loc };
+  if (a === '6050') return { acct: '6050', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: '299' };
+  if (a === '6010') return { acct: '6010', cm: 'general manager bonus', loc: r.loc };
   if (a === '5546') return { acct: '5546', cm: 'cell phone', loc: r.loc };
   if (a === '5547' || a === '6390') return { acct: '5547', cm: '', loc: r.loc };
   if (a === '5230') return { acct: '5230', cm: 'QTRBA', loc: r.loc };

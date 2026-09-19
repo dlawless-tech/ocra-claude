@@ -20,15 +20,9 @@ playwright-cli -s=$S press Escape
 - On a large page it writes the YAML to `.playwright-cli/page-*.yml` and prints only a link, so grepping stdout finds nothing.
 - Called too soon after load it captures a partial tree, often just the Theme Builder panel, missing the grid entirely.
 
-Resolve the file if there is one, and retry with a reload before concluding the grid is absent:
+`scripts/snapshot.sh <session> <outfile>` resolves the link, and takes an empty session name for the default browser. Retry with a reload before concluding the grid is absent.
 
-```bash
-snap() {  # snap <session> <outfile>
-  playwright-cli -s=$1 snapshot > "$2" 2>&1
-  F=$(grep -oE '[.]playwright-cli[\\/][A-Za-z0-9._-]+[.]yml' "$2" | head -1 | sed 's|\\\\|/|g')
-  [ -n "$F" ] && [ -f "$F" ] && cat "$F" > "$2"
-}
-```
+Convert the link's backslashes with `tr '\134' '/'`. MSYS rewrites a literal backslash on the way into an argument, so a `sed` substitution against one errors out and leaves the path empty, which downgrades every snapshot on a large page to a bare link.
 
 An empty grep result feeds `sed -n "$((LN-1))p"` a `-1`, which errors as an unknown option. Guard the lookup so the real cause is reported.
 
@@ -144,11 +138,26 @@ The dialog's own Run button sits in its footer beside the Default and Public che
 
 `playwright-cli` keys its browsers to the directory the command runs in. A `cd` mid run makes every session unreachable with "The browser is not open". Keep one directory for a whole run, and give parallel workers distinct session names in that same directory.
 
+## Reach app pages by clicking the dashboard nav
+
+`playwright-cli open` on a `/react/...` URL lands on the login page and drops the session, whether or not it was authenticated a moment earlier. Clicking the same href from the home dashboard works. Land on `/react/home?dashboard=operationsHome`, snapshot, and click the nav link:
+
+```bash
+R=$(grep -B2 '/url: /react/accounting/legacy/AllTransactions' snap.txt | grep -oE 'link .ref=f[0-9]+e[0-9]+.' | grep -oE 'f[0-9]+e[0-9]+')
+playwright-cli -s=$S click $R    # Reports sits at /react/reports-management/legacy/MyReports
+```
+
+The nav renders about 25 seconds after login, and Accounting and Reports take another 30 to settle. The journal entry hash route is the exception and `goto` reaches it directly:
+
+```
+https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>
+```
+
+Expect to re-authenticate mid run. A session can come back logged out after a long report render or an `Approve and Close`, so check `location.hostname` against `bowerygroup.restaurant365.com` before trusting a page, and re-run `scripts/r365-login.sh <session>`. Test the hostname rather than the href: the login page carries the app host inside its own `ReturnUrl`, so an href test reports a logged-out session as authenticated.
+
 ## The report customize dialog takes no typed input
 
-Reports open at `/react/reports-management/legacy/MyReports`, reached by clicking **Reports** on the home dashboard. Navigating straight to `/react/reports` renders a blank page.
-
-Everything on that page lives one iframe down, so CSS selectors passed to `playwright-cli` never find it and every lookup has to walk the frame tree. The dialog's document is the one where `querySelector('md-dialog')` hits. An `eval` that skips the walk runs against the top document and reports every parameter as absent rather than erroring.
+Everything on My Reports lives one iframe down, so CSS selectors passed to `playwright-cli` never find it and every lookup has to walk the frame tree. The dialog's document is the one where `querySelector('md-dialog')` hits. An `eval` that skips the walk runs against the top document and reports every parameter as absent rather than erroring.
 
 The report cards take about thirty seconds to appear, and while they load `contentDocument` walking reports only the Theme Builder frame. The accessibility snapshot sees the cards first, so use it to find the card's **Customize** button. A card reads as its heading followed by its own Run and Customize, so the card's Customize is the first one *after* its heading. Searching upward from the heading lands on the previous card's Customize and silently customizes the wrong report. The same headings repeat under Recent and Favorites, so either match works.
 
@@ -169,16 +178,18 @@ sc.$parent.$apply(() => { o.selectedItem = it; o.searchText = it.display; o.sele
 
 `querySearch` is async, so await it, and read the input's value back afterwards to confirm the pick landed.
 
-A **button group** parameter (Subtotal By, Show Unapproved, Parent) renders through `ng-transclude`, so its buttons carry no `innerText` for a text lookup and the active one is marked by the `activeR365` class. The label span's nearest `section` is the group; `closest('li')` returns nothing. Find the group by its label span, then call the handler on the button's own scope:
+A **button group** parameter (Subtotal By, Show Unapproved, Parent) renders through `ng-transclude`, so its buttons carry no `innerText` for a text lookup. The label span's nearest `section` is the group; `closest('li')` returns nothing. Find the group by its label span, then call the handler on the button's own scope:
 
 ```js
 const sec = Array.from(d.querySelectorAll('span')).find(x => x.textContent.trim() === 'Subtotal By').closest('section');
-const b   = Array.from(sec.querySelectorAll('button'))[1];   // None | Location | Company
+const b   = Array.from(sec.querySelectorAll('button')).find(x => w.angular.element(x).scope().valuePair.display === 'Location');
 const sc  = w.angular.element(b).scope();
 sc.$apply(() => sc.buttonSelected(sc.valuePair, sc.param, {stopPropagation(){}, preventDefault(){}}));
 ```
 
-Confirm a button group from the buttons, never from the parameter's hidden input. That input still reads `None` after Subtotal By has moved to Location. The button's own scope carries `valuePair.wanted`, and the active button carries the `activeR365` class; both report the truth.
+Each button's scope carries a `valuePair` of `{display, value, wanted}`: `display` is the label to match on, and `wanted` is the boolean holding the selection. Match on `display`, since position varies and `wanted` is a flag rather than a name.
+
+Confirm a button group from `valuePair.wanted` alone. The parameter's hidden input still reads `None` after Subtotal By has moved to Location, and the `activeR365` class lags a digest, so both buttons can read active on the call that follows the click.
 
 The dialog's own **Run** button is the one whose `ng-click` is `runReport($event)`, inside `md-dialog` and labelled `exportMenu`. The cards behind the dialog carry their own Run buttons bound to `runReportClicked`, and clicking one of those runs the wrong report with default parameters.
 

@@ -1,0 +1,68 @@
+- generic [ref=e1]:
+  - link [ref=e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=e11]:
+    - generic [ref=e13]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - generic [ref=e19]: DoorDash
+          - generic [ref=e23]: Welcome back
+          - generic [ref=e24]:
+            - generic [ref=e25]: Log in to your
+            - generic [ref=e26]: DoorDash Merchant Portal
+        - generic [ref=e126]:
+          - generic [ref=e129]:
+            - generic [ref=e130]: Email
+            - generic [ref=e133]:
+              - textbox "Email" [active] [ref=e135]:
+                - /placeholder: Required
+                - text: mark+42@ocra-us.com
+              - button "Clear email" [ref=e138] [cursor=pointer]
+          - generic [ref=e143]:
+            - generic [ref=e144]: Password
+            - generic [ref=e147]:
+              - textbox "Password" [ref=e149]:
+                - /placeholder: Required
+              - button "Show" [ref=e151] [cursor=pointer]
+            - button "Reset Password" [ref=e155] [cursor=pointer]
+          - button "Log In" [ref=e162] [cursor=pointer]
+          - generic [ref=e167]: or
+          - generic [ref=e170]:
+            - generic [ref=e171]: "Log in with:"
+            - generic [ref=e172]:
+              - button "Google" [ref=e173] [cursor=pointer]
+              - button "Facebook" [ref=e186] [cursor=pointer]
+              - button "Apple" [ref=e195] [cursor=pointer]
+        - separator [ref=e82]
+        - generic [ref=e204]:
+          - generic [ref=e205]:
+            - generic [ref=e206]: New to DoorDash?
+            - generic [ref=e207]: Partner with us today!
+          - button "Get started" [ref=e208] [cursor=pointer]
+      - generic [ref=e94]:
+        - text: By logging in, you agree to DoorDash's Merchant
+        - link "Security Terms" [ref=e95] [cursor=pointer]:
+          - /url: https://help.doordash.com/legal/document?type=mx-security-terms&region=US
+        - text: .
+    - generic [ref=e96]:
+      - combobox "Select Language" [ref=e110]:
+        - option "English (US)" [selected]
+        - option "Français (CA)"
+        - option "Español"
+        - option "English (CA)"
+        - option "English (AU)"
+        - option "English (NZ)"
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]: run your store
+            - generic [ref=e115]: on the go
+          - generic [ref=e116]: Accept new orders, contact customers, and get real-time alerts all on your phone with the Business Manager app.
+        - generic [ref=e117]:
+          - img "app preview" [ref=e119]
+          - generic [ref=e121]:
+            - img "qr code" [ref=e122]
+            - generic [ref=e123]:
+              - generic [ref=e124]: Get it on iOS and Android
+              - generic [ref=e125]: 1.8K+ 5-star ratings

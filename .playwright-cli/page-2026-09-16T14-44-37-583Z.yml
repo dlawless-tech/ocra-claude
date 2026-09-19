@@ -1,0 +1,52 @@
+- generic [ref=e6]:
+  - generic [ref=e49]:
+    - heading "View status" [level=4] [ref=e88] [cursor=pointer]
+    - button "Toggle Menu" [ref=e53] [cursor=pointer]:
+      - img "Menu icon" [ref=e491]
+    - img "Grubhub logo" [ref=e58] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e493]:
+      - heading "Deposits" [level=1] [ref=e496]
+      - generic [ref=e500]:
+        - generic [active] [ref=e504]:
+          - generic [ref=e505] [cursor=pointer]:
+            - combobox "multi-location-selector" [expanded] [ref=e506]: (4) Locations selected
+            - img "Caret down icon" [ref=e509]
+          - generic [ref=e534]:
+            - listbox [ref=e535]:
+              - generic [ref=e536]:
+                - generic [ref=e541]:
+                  - img "Magnifying glass icon" [ref=e543]
+                  - searchbox "Search" [ref=e546]
+                - option "Select all Check icon" [selected] [ref=e576] [cursor=pointer]:
+                  - generic [ref=e549]: Select all
+                  - img "Check icon" [ref=e578]
+                - generic [ref=e553]:
+                  - option "Cookshop - 10th Ave Check icon" [selected] [ref=e580] [cursor=pointer]:
+                    - generic [ref=e555]: Cookshop - 10th Ave
+                    - img "Check icon" [ref=e582]
+                  - option "Rosie's - E 2nd St Check icon" [selected] [ref=e584] [cursor=pointer]:
+                    - generic [ref=e560]: Rosie's - E 2nd St
+                    - img "Check icon" [ref=e586]
+                  - option "Shuka - MacDougal St Check icon" [selected] [ref=e588] [cursor=pointer]:
+                    - generic [ref=e565]: Shuka - MacDougal St
+                    - img "Check icon" [ref=e590]
+                  - option "Vic's - Great Jones St Check icon" [selected] [ref=e592] [cursor=pointer]:
+                    - generic [ref=e570]: Vic's - Great Jones St
+                    - img "Check icon" [ref=e594]
+            - button "Apply" [ref=e575] [cursor=pointer]
+        - generic [ref=e517]:
+          - textbox "Select a range of dates" [ref=e519]: 09/10/2026 - 09/16/2026
+          - img "Calendar icon" [ref=e524] [cursor=pointer]
+      - generic [ref=e527]:
+        - heading "Recent Deposits(9/10/26 - 9/16/26)" [level=2] [ref=e529]:
+          - text: Recent Deposits
+          - generic [ref=e530]: (9/10/26 - 9/16/26)
+        - generic [ref=e531]: There are no deposits to show.
+    - contentinfo [ref=e79]:
+      - img "Grubhub for Restaurants" [ref=e80]
+      - paragraph [ref=e81]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=e82]:
+        - link "Terms of use" [ref=e83] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy
