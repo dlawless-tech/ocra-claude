@@ -249,6 +249,14 @@ Confirm it took by reading the hidden `input[name="newRowAccountField"]`, which 
 
 The location button opens a checkbox list carrying the current selection. Check the wanted location and uncheck the default, then Escape. To move a line that already exists, copy `locationId` and `location` from a line that carries the wanted one.
 
+The keystrokes can be skipped: the form's scope exposes `gridOptions.journalEntryDetailsGrid.newRowForm`. Set `GLAccountsKendoDropDownList.value(guid)` and trigger `change`, set `model.debit`, `model.credit`, and `model.comment` inside `$apply`, then call `addRowToGrid()`. The row lands at the form's default location. `norms-payroll-labor-breakdown/scripts/apply-split.sh` does this for a batch.
+
+## Deleting a line
+
+A real `playwright-cli click` on the row's `.k-grid-delete` trash icon deletes it, with no dialog on the payroll entry. Address it as `tr[data-uid="<uid>"] .k-grid-delete`, taking the uid from `dataSource.at(i).uid`.
+
+`dataSource.remove(model)` drops the row from the grid and the save leaves it on the server. The save still reports success, so the reopened entry carries the row again and is out of balance by its amount.
+
 ## Shell quoting around eval scripts
 
 Write every eval script to a file with a quoted heredoc (`<<'EOF'`) and pass it as `"$(cat file)"`. Building the same script through `node -e '...'` eats the single quotes inside it, so `$('[data-role=grid]')` arrives as `$([data-role=grid])` and throws.

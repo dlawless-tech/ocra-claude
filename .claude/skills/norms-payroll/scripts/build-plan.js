@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 // Map an ADP PR&TAX csv onto the lines of an R365 payroll entry.
 //
-//   build-plan.js <csv> <lines.json> [--verify]
+//   build-plan.js <csv> <lines.json> --detail <pay-details.csv> [--verify]
 //
 // lines.json is the entry's rendered rows from dump-lines.sh:
-//   [["", "5212 - Store Labor (Hourly)", "...", "31,600.58", "0.00", "regular ...", "211 - Slauson", "", ""], ...]
+//   [["", "5242 - BOH Hourly", "...", "16,064.16", "0.00", "regular ...", "211 - Slauson", "", ""], ...]
 //
 // Prints the plan as [[rowIndex, debit, credit], ...] on stdout, and a report on
 // stderr: totals, lines with no csv row behind them, and amounts with no line to
 // sit on. --verify compares the csv against the amounts already in the entry
 // instead, which is how the mapping is proved on the previous week.
+//
+// --detail is the week's PAY DETAILS LG csv, which splits hourly labor FOH / BOH.
 const fs = require('fs');
+const { loadPayDetails, ALL_LABOR_6025, FOH, BOH } = require('../../norms-payroll-labor-breakdown/scripts/pay-details');
 const R = x => Math.round(x * 100) / 100;
 const num = s => parseFloat(String(s || '0').replace(/,/g, '')) || 0;
 
@@ -29,8 +32,9 @@ function mapRow(r) {
   const a = r.acct, m = (r.memo || '').toUpperCase();
   if (a === '5210') return /SIGN ON BONUS/.test(m)
     ? { acct: '6030', cm: 'sign on bonus', loc: r.loc }
-    : { acct: '5212', cm: 'regular / overtime / meal penalty', loc: r.loc };
-  if (a === '5212' || a === '6065') return { acct: r.loc === '370' ? '6025' : '5210', cm: 'salary', loc: r.loc };
+    : ALL_LABOR_6025.has(r.loc) ? { acct: '6025', cm: 'salary', loc: r.loc }
+    : { acct: 'HOURLY', cm: 'regular / overtime / meal penalty', loc: r.loc };
+  if (a === '5212' || a === '6065') return { acct: ALL_LABOR_6025.has(r.loc) ? '6025' : '5210', cm: 'salary', loc: r.loc };
   if (a === '5320') return { acct: '5320', cm: 'er taxes', loc: r.loc };
   if (a === '5300') return { acct: '5300', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: r.loc };
   if (a === '6050') return { acct: '6050', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: '299' };
@@ -52,6 +56,10 @@ function mapRow(r) {
 }
 
 const [csvPath, linesPath] = process.argv.slice(2);
+const di = process.argv.indexOf('--detail');
+if (di < 0) { console.error('FAIL: --detail <pay-details.csv> is required to split hourly labor'); process.exit(1); }
+let detail;
+try { detail = loadPayDetails(process.argv[di + 1]); } catch (e) { console.error('FAIL: ' + e.message); process.exit(1); }
 const verify = process.argv.includes('--verify');
 const csv = loadCsv(csvPath);
 const rows = JSON.parse(fs.readFileSync(linesPath, 'utf8'));
@@ -61,6 +69,17 @@ if (csvNet !== 0) console.error('WARNING csv does not net to zero: ' + csvNet.to
 
 const want = {};
 for (const r of csv) { const t = mapRow(r); const k = t.loc + '||' + t.acct + '||' + t.cm; want[k] = R((want[k] || 0) + r.amt); }
+
+// hourly splits onto 5241 FOH / 5242 BOH by the pay details file, which must tie to the csv per store
+const unsplit = [];
+for (const k of Object.keys(want).filter(k => k.split('||')[1] === 'HOURLY')) {
+  const [loc, , cm] = k.split('||'), d = detail[loc] || { FOH: 0, BOH: 0 };
+  if (R(d.FOH + d.BOH) !== want[k]) unsplit.push(loc + '  csv ' + want[k].toFixed(2) + '  pay details ' + R(d.FOH + d.BOH).toFixed(2));
+  want[loc + '||' + FOH + '||' + cm] = d.FOH;
+  want[loc + '||' + BOH + '||' + cm] = d.BOH;
+  delete want[k];
+}
+if (unsplit.length) { console.error('FAIL: hourly labor does not tie to the pay details file:\n  ' + unsplit.join('\n  ')); process.exit(1); }
 
 const key = r => (r[6].match(/^(\d+)/) || [])[1] + '||' + r[1].split(' - ')[0] + '||' + r[5];
 const used = new Set(), plan = [], zeroed = [], mismatched = [];

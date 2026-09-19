@@ -5,17 +5,18 @@ description: Post the weekly ADP payroll journal entry into NORMS Restaurant365.
 
 # ADP payroll week into the NORMS journal entry
 
-ADP delivers four files per week. The CSV carries every amount, the Stat Summary says how the cash line splits and is the tie-out, the Labor Distribution names the voids, and the Checks & Vouchers confirms them. Read all four before touching R365.
+ADP delivers four files per week, and the user supplies a fifth. The CSV carries every amount, the Stat Summary says how the cash line splits and is the tie-out, the Labor Distribution names the voids, the Checks & Vouchers confirms them, and the PAY DETAILS LG file splits hourly labor FOH / BOH. Read all five before touching R365.
 
 ```
-c:\Users\trici\OCRA\NORMS - General\Payroll\WE <MM.DD.YY>\
+c:\Users\trici\OCRA\NORMS - General\Payroll\P<NN>'<YY>\WE <week ending>\
   WVM_<paydate>_PR&TAX.csv     every amount, by account and dept, DEBIT signed
   WVM Stat Summary.pdf         funding recap, the cash split and the tie-out
   WVM Labor Distribution.pdf   the Void PP: blocks, one per adjustment
   WVM Checks & Vouchers.pdf    per-employee vouchers, confirms void names
+NORMS - PAY DETAILS LG ... .xlsx   from the user; hourly earnings by <location>.<job GL>
 ```
 
-PDFs read through `pdftotext -layout`. The folder is named for the week ending, the CSV for the pay date, so `WE 09.05.26` holds `WVM_09112026_PR&TAX.csv`.
+PDFs read through `pdftotext -layout`. The folder is named for the week ending, the CSV for the pay date, so `P10'26\WE 9.12` holds `WVM_09182026_PR&TAX.csv`. The week folder's spelling drifts (`WE 09.05.26`, `WE 9.12`), so list the period folder rather than building the name. Convert the pay details file with `../norms-payroll-labor-breakdown/scripts/xlsx-to-csv.js`; ask the user for it if they have not given it.
 
 Read [`MAPPING.md`](MAPPING.md) before building any amount. It carries the account and memo mapping, which lines split by location and which roll up, and the traps that make a plausible entry wrong.
 
@@ -33,7 +34,7 @@ Find it at Accounting > Transactions > All transactions, Number contains `payrol
 
 Apply the mapping to the **prior** week's CSV and compare against that week's approved entry, line by line. A correct mapping reproduces it to the cent. This costs one run and catches a changed ADP file before it reaches 700,000 dollars of postings.
 
-`scripts/build-plan.js --verify` does the comparison and prints every line that fails to match. Four kinds of mismatch are expected, because the CSV is not their source: the named void lines, the `direct deposits` split, the tax rounding, and any suspense disposition. Anything else is a changed ADP file, so stop and read it.
+`scripts/build-plan.js --verify`, with the prior week's pay details file as `--detail`, does the comparison and prints every line that fails to match. Four kinds of mismatch are expected, because the CSV is not their source: the named void lines, the `direct deposits` split, the tax rounding, and any suspense disposition. Anything else is a changed ADP file, so stop and read it.
 
 ## Gather
 
@@ -44,7 +45,7 @@ Apply the mapping to the **prior** week's CSV and compare against that week's ap
 
 ## Build and post
 
-`scripts/build-plan.js` maps the CSV onto the entry's existing lines and emits `[rowIndex, debit, credit]` for every line that changes. Lines with no CSV row behind them this week come back as 0.00, which is how a week without mileage or a sign-on bonus is recorded.
+`scripts/build-plan.js <csv> lines.json --detail <pay-details.csv>` maps the CSV onto the entry's existing lines and emits `[rowIndex, debit, credit]` for every line that changes. It stops if a store's hourly total does not tie to the pay details file, or if the file carries a job GL missing from the key; the fix for either is in [`../norms-payroll-labor-breakdown/SKILL.md`](../norms-payroll-labor-breakdown/SKILL.md). Lines with no CSV row behind them this week come back as 0.00, which is how a week without mileage or a sign-on bonus is recorded.
 
 Post with `scripts/apply-amounts.sh` in chunks, then run the three checks. Skipping any of them is how an empty or unbalanced entry reaches Approved:
 
@@ -71,3 +72,5 @@ The new-row form sits above the line grid: account combobox, debit, credit, comm
 The account combobox refuses `fill`. Click it, `type` the account number with real keystrokes, then ArrowDown and Enter. The location button opens a checkbox list: check the wanted location and uncheck the default before closing.
 
 To move an existing line to another location, copy `locationId` and `location` from a line that already carries it.
+
+A store missing its `5241 - FOH Hourly` line, or an entry still carrying `5212 - Store Labor (Hourly)` lines, is a job for the labor breakdown skill's `apply-split.sh`, which adds, repoints, and deletes those lines by script.

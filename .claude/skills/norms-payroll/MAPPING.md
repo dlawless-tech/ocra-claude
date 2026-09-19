@@ -1,6 +1,6 @@
 # ADP CSV to the R365 payroll entry
 
-Every rule here reproduces the approved 9/5/2026 entry from that week's CSV, 133 of 143 lines to the cent. The ten that did not are the manual checks, the 1030 split behind them, the tax rounding, and the two lines the Labor Distribution cost center moves, all covered below.
+Every rule here reproduces the approved 9/5/2026 entry from that week's CSV, 133 of 143 lines to the cent. The ten that did not are the manual checks, the 1030 split behind them, the tax rounding, and the two lines the Labor Distribution cost center moves, all covered below. The FOH / BOH split reproduces the 9/12/2026 entry, 162 of 167 lines, the five others being its void lines and the 1030 split.
 
 ## Detailed by location
 
@@ -8,7 +8,7 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 
 | CSV account | R365 account | Comment |
 |---|---|---|
-| 5210 Regular, Overtime, Meal Penalty, Double Time | `5212 - Store Labor (Hourly)` | regular / overtime / meal penalty |
+| 5210 Regular, Overtime, Meal Penalty, Double Time | `5241 - FOH Hourly` and `5242 - BOH Hourly`, split below | regular / overtime / meal penalty |
 | 5210 Sign on bonus or new store bonus | `6030 - MIT/SC Bonus` | sign on bonus |
 | 5212 Salary | `5210 - Store Labor (Salary)` | salary |
 | 6065 Salary | `5210 - Store Labor (Salary)` | salary |
@@ -20,9 +20,11 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 | 5230 QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
 | 6060 Severance | `6060 - Severance Pay` | severance |
 
-**The CSV swaps 5210 and 5212 relative to R365.** CSV 5210 is hourly and posts to R365 5212; CSV 5212 is salary and posts to R365 5210. Getting this backwards misposts half a million dollars into two accounts that both look right in a total.
+**CSV 5210 is hourly and CSV 5212 is salary.** Hourly posts to the FOH / BOH pair, salary to R365 `5210`. Getting this backwards misposts half a million dollars into accounts that all look right in a total.
 
-**Location 370 - Select Industries** posts its salary to `6025 - Salary-Hourly`.
+**Hourly splits FOH / BOH by the PAY DETAILS LG file**, since the CSV carries no job GL. `build-plan.js --detail` reads it through the shared key in [`../norms-payroll-labor-breakdown/scripts/pay-details.js`](../norms-payroll-labor-breakdown/scripts/pay-details.js), and refuses to plan unless each store's FOH + BOH equals its CSV hourly total to the cent. Both lines carry the hourly comment. A store with no FOH line yet reports one to add.
+
+**Location 370 - Select Industries** posts all its labor, hourly and salary, to one `6025 - Salary-Hourly` line.
 
 **6050 and 6065 are the Support Center's own accounts**, carrying `GLENTRY_CLASSID` 160 where the restaurants carry 115. 6065 folds into the same 5210 line. 6050 keeps its own `6050 - Health Care` line at 299, listed below with the rolled-up accounts.
 
