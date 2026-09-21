@@ -1,0 +1,161 @@
+- generic [ref=f22e2]:
+  - generic [ref=f22e4]:
+    - generic [ref=f22e5]: Theme Builder
+    - button [ref=f22e8] [cursor=pointer]:
+      - generic [ref=f22e9]: 
+    - generic [ref=f22e10]:
+      - generic [ref=f22e11]:
+        - heading "Ribbon" [level=4] [ref=f22e12]
+        - generic [ref=f22e13]:
+          - generic [ref=f22e14]: BG
+          - generic [ref=f22e15]: Font
+          - generic [ref=f22e16]: Hover BG
+          - generic [ref=f22e17]: Hover Font
+        - generic "Menu" [ref=f22e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f22e22]':
+            - generic [ref=f22e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f22e28]':
+            - generic [ref=f22e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f22e34]':
+            - generic [ref=f22e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f22e40]':
+            - generic [ref=f22e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f22e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f22e49]':
+            - generic [ref=f22e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f22e55]':
+            - generic [ref=f22e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f22e61]':
+            - generic [ref=f22e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f22e67]':
+            - generic [ref=f22e71] [cursor=pointer]
+      - generic [ref=f22e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f22e73]
+        - button "Upload Ribbon Logo" [ref=f22e78] [cursor=pointer]
+      - generic [ref=f22e79]:
+        - heading "Left Panel" [level=4] [ref=f22e80]
+        - generic [ref=f22e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f22e84]':
+            - generic [ref=f22e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f22e90]':
+            - generic [ref=f22e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f22e96]':
+            - generic [ref=f22e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f22e102]':
+            - generic [ref=f22e106] [cursor=pointer]
+      - generic [ref=f22e107]:
+        - heading "Components" [level=4] [ref=f22e108]
+        - generic "Normal" [ref=f22e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f22e113]':
+            - generic [ref=f22e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f22e119]':
+            - generic [ref=f22e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f22e125]':
+            - generic [ref=f22e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f22e131]':
+            - generic [ref=f22e135] [cursor=pointer]
+        - generic "Selected" [ref=f22e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f22e140]':
+            - generic [ref=f22e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f22e146]':
+            - generic [ref=f22e150] [cursor=pointer]
+    - generic [ref=f22e151]:
+      - generic [ref=f22e152]:
+        - generic [ref=f22e155]:
+          - combobox "Select Theme" [ref=f22e156]: Default R365 Theme
+          - button "select" [ref=f22e158] [cursor=pointer]
+        - generic [ref=f22e159]:
+          - button "Set As Default" [ref=f22e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f22e161]
+          - button "Delete" [disabled] [ref=f22e162]
+      - generic [ref=f22e163]:
+        - textbox "Add New Theme" [ref=f22e165]
+        - button "New" [ref=f22e167] [cursor=pointer]
+  - heading "Loading..." [level=3] [ref=f22e185]
+  - generic [ref=f22e189]:
+    - generic [ref=f22e190]:
+      - navigation [ref=f22e194]:
+        - generic [ref=f22e195]:
+          - generic: Journal Entry - Payroll
+          - generic [ref=f22e197]:
+            - list [ref=f22e198]:
+              - listitem [ref=f22e199]:
+                - button "Save" [ref=f22e200] [cursor=pointer]
+              - listitem [ref=f22e202]:
+                - button "Action" [ref=f22e203] [cursor=pointer]
+            - list [ref=f22e205]:
+              - listitem [ref=f22e206]:
+                - button [ref=f22e207] [cursor=pointer]:
+                  - generic [ref=f22e208]: 
+              - listitem [ref=f22e210]:
+                - link [ref=f22e211] [cursor=pointer]:
+                  - /url: ""
+                  - generic [ref=f22e212]: 
+      - generic: 
+    - generic [ref=f22e214]:
+      - group [ref=f22e215]:
+        - generic [ref=f22e218]:
+          - generic [ref=f22e219]:
+            - generic [ref=f22e220]:
+              - generic [ref=f22e221]:
+                - generic [ref=f22e222]:
+                  - generic [ref=f22e223]: Date *
+                  - generic [ref=f22e226]:
+                    - combobox "Date *"
+                    - button "select" [ref=f22e227] [cursor=pointer]
+                - generic [ref=f22e229]:
+                  - generic [ref=f22e230]: Number *
+                  - generic [ref=f22e231]:
+                    - textbox "Number *": Payroll
+              - generic [ref=f22e232]:
+                - generic [ref=f22e233]:
+                  - generic [ref=f22e234]:
+                    - link "Location" [ref=f22e235] [cursor=pointer]:
+                      - /url: "#/form/LocationForm/6e450ac6-d7c0-4232-adee-00af2372fd32"
+                    - text: "*"
+                  - generic [ref=f22e236]:
+                    - textbox "Location *": 6e450ac6-d7c0-4232-adee-00af2372fd32
+                - generic [ref=f22e237]:
+                  - generic [ref=f22e238]: Comment
+                  - textbox "Comment" [ref=f22e240]
+            - generic [ref=f22e244]:
+              - generic [ref=f22e246]:
+                - generic [ref=f22e247]: Payroll Start Date
+                - generic [ref=f22e250]:
+                  - combobox "Payroll Start Date"
+                  - button "select" [ref=f22e251] [cursor=pointer]
+              - generic [ref=f22e254]:
+                - generic [ref=f22e255]: Payroll End Date
+                - generic [ref=f22e258]:
+                  - combobox "Payroll End Date"
+                  - button "select" [ref=f22e259] [cursor=pointer]
+          - generic [ref=f22e263]:
+            - generic [ref=f22e265]:
+              - button "+ Size" [ref=f22e266] [cursor=pointer]
+              - button "- Size" [ref=f22e267] [cursor=pointer]
+            - generic [ref=f22e268]:
+              - list [ref=f22e269]:
+                - listitem [ref=f22e270]: Details
+                - listitem [ref=f22e271]: Distribution
+                - listitem [ref=f22e272]: Payroll Estimate Clearing
+              - generic [ref=f22e278]:
+                - generic [ref=f22e283]:
+                  - button "Task" [ref=f22e284] [cursor=pointer]:
+                    - generic [ref=f22e285]: 
+                    - text: Task
+                  - button "Note" [ref=f22e286] [cursor=pointer]:
+                    - generic [ref=f22e287]: 
+                    - text: Note
+                  - button "Email" [ref=f22e288] [cursor=pointer]:
+                    - generic [ref=f22e289]: 
+                    - text: Email
+                  - button "Text" [ref=f22e290] [cursor=pointer]:
+                    - generic [ref=f22e291]: 
+                    - text: Text
+                - generic [ref=f22e297]:
+                  - list
+          - generic [ref=f22e302]:
+            - button "Upload File" [ref=f22e303] [cursor=pointer]
+            - button "Attach from Documents" [ref=f22e304] [cursor=pointer]
+            - generic [ref=f22e305]: Loading…
+      - group
