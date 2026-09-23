@@ -1,0 +1,154 @@
+- generic:
+  - generic:
+    - banner [ref=f5e1]:
+      - generic [ref=f5e2]:
+        - button [ref=f5e360] [cursor=pointer]
+        - generic [ref=f5e3]:
+          - img "Restaurant365" [ref=f5e364]
+          - generic [ref=f5e367]:
+            - combobox "Search in R365" [ref=f5e371]
+            - button "Open" [ref=f5e373] [cursor=pointer]
+            - group
+          - button [ref=f5e374] [cursor=pointer]:
+            - paragraph [ref=f5e375]: Create
+          - button [ref=f5e376] [cursor=pointer]
+          - button [ref=f5e383] [cursor=pointer]
+    - generic [ref=f5e399]:
+      - generic [ref=f5e400]:
+        - link [ref=f5e402] [cursor=pointer]:
+          - /url: /react/home
+          - button [ref=f5e403]:
+            - paragraph [ref=f5e411]: Dashboards
+        - link [ref=f5e413] [cursor=pointer]:
+          - /url: /react/reports-management/legacy/MyReports
+          - button [active] [ref=f5e414]:
+            - paragraph [ref=f5e419]: Reports
+        - link [ref=f5e421] [cursor=pointer]:
+          - /url: /react/accounting/legacy/AllTransactions
+          - button [ref=f5e422]:
+            - paragraph [ref=f5e427]: Accounting
+        - link [ref=f5e429] [cursor=pointer]:
+          - /url: /react/inventory/legacy/InventoryTransactions
+          - button [ref=f5e430]:
+            - paragraph [ref=f5e435]: Inventory
+        - link [ref=f5e437] [cursor=pointer]:
+          - /url: /react/sales-and-forecasting/daily-sales
+          - button [ref=f5e438]:
+            - paragraph [ref=f5e443]: Sales & forecasting
+        - link [ref=f5e445] [cursor=pointer]:
+          - /url: /react/workforce/employees
+          - button [ref=f5e446]:
+            - paragraph [ref=f5e451]: Workforce
+        - link [ref=f5e453] [cursor=pointer]:
+          - /url: /react/manager-log/log-entries
+          - button [ref=f5e454]:
+            - paragraph [ref=f5e460]: Manager log
+        - link [ref=f5e462] [cursor=pointer]:
+          - /url: /react
+          - button [ref=f5e463]:
+            - paragraph [ref=f5e468]: More
+      - generic [ref=f5e469]:
+        - link [ref=f5e471] [cursor=pointer]:
+          - /url: /react/admin/users
+          - button [ref=f5e472]:
+            - paragraph [ref=f5e477]: Admin
+        - link [ref=f5e479] [cursor=pointer]:
+          - /url: https://www.restaurant365.com/marketplace/
+          - button [ref=f5e480]:
+            - paragraph [ref=f5e485]: Marketplace
+    - navigation:
+      - button [ref=f5e486] [cursor=pointer]
+      - generic [ref=f5e490]:
+        - paragraph [ref=f5e492]: Reports
+        - list [ref=f5e493]:
+          - link "My reports" [ref=f5e494] [cursor=pointer]:
+            - /url: /react/reports-management/legacy/MyReports
+          - link "P&L comparison" [ref=f5e497] [cursor=pointer]:
+            - /url: /react/reports-management/legacy/ProfitAndLossComparison
+          - link "Report subscriptions" [ref=f5e500] [cursor=pointer]:
+            - /url: /react/reports-management/report-subscriptions
+    - generic [ref=f5e508]:
+      - iframe [ref=f5e510]:
+        - generic [ref=f7e2]:
+          - generic [ref=f7e4]:
+            - generic [ref=f7e5]: Theme Builder
+            - button [ref=f7e8] [cursor=pointer]:
+              - generic [ref=f7e9]: 
+            - generic [ref=f7e10]:
+              - generic [ref=f7e11]:
+                - heading "Ribbon" [level=4] [ref=f7e12]
+                - generic [ref=f7e13]:
+                  - generic [ref=f7e14]: BG
+                  - generic [ref=f7e15]: Font
+                  - generic [ref=f7e16]: Hover BG
+                  - generic [ref=f7e17]: Hover Font
+                - generic "Menu" [ref=f7e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f7e22]':
+                    - generic [ref=f7e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f7e28]':
+                    - generic [ref=f7e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f7e34]':
+                    - generic [ref=f7e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f7e40]':
+                    - generic [ref=f7e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f7e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f7e49]':
+                    - generic [ref=f7e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f7e55]':
+                    - generic [ref=f7e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f7e61]':
+                    - generic [ref=f7e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f7e67]':
+                    - generic [ref=f7e71] [cursor=pointer]
+              - generic [ref=f7e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f7e73]
+                - button "Upload Ribbon Logo" [ref=f7e78] [cursor=pointer]
+              - generic [ref=f7e79]:
+                - heading "Left Panel" [level=4] [ref=f7e80]
+                - generic [ref=f7e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f7e84]':
+                    - generic [ref=f7e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f7e90]':
+                    - generic [ref=f7e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f7e96]':
+                    - generic [ref=f7e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f7e102]':
+                    - generic [ref=f7e106] [cursor=pointer]
+              - generic [ref=f7e107]:
+                - heading "Components" [level=4] [ref=f7e108]
+                - generic "Normal" [ref=f7e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f7e113]':
+                    - generic [ref=f7e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f7e119]':
+                    - generic [ref=f7e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f7e125]':
+                    - generic [ref=f7e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f7e131]':
+                    - generic [ref=f7e135] [cursor=pointer]
+                - generic "Selected" [ref=f7e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f7e140]':
+                    - generic [ref=f7e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f7e146]':
+                    - generic [ref=f7e150] [cursor=pointer]
+            - generic [ref=f7e151]:
+              - generic [ref=f7e152]:
+                - generic [ref=f7e155]:
+                  - combobox "Select Theme" [ref=f7e156]: Default R365 Theme
+                  - button "select" [ref=f7e158] [cursor=pointer]
+                - generic [ref=f7e159]:
+                  - button "Set As Default" [ref=f7e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f7e161]
+                  - button "Delete" [disabled] [ref=f7e162]
+              - generic [ref=f7e163]:
+                - textbox "Add New Theme" [ref=f7e165]
+                - button "New" [ref=f7e167] [cursor=pointer]
+          - heading "Loading..." [level=3] [ref=f7e184]
+          - generic [ref=f7e192]:
+            - generic [ref=f7e193]:
+              - textbox "Find a report" [ref=f7e196]
+              - generic [ref=f7e198] [cursor=pointer]: Report Subscriptions
+            - navigation [ref=f7e202]:
+              - listbox "navigation links" [ref=f7e203]:
+                - option "My Reports" [ref=f7e204]
+      - progressbar [ref=f5e512]
+  - iframe

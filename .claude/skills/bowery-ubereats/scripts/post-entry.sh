@@ -8,11 +8,12 @@
 #   ASCII-only fragment, since two Bowery locations carry a curly apostrophe.
 #
 # The work json is an array of objects keyed by that location fragment:
-#   {loc, id, arCredit, fees, diffDr, diffCr, tot}
+#   {loc, id, arCredit, fees, mkt, diffDr, diffCr, tot}
+#   mkt is Uber's Marketing shown positive; omit or 0 when the store has none.
 #   id is the TransactionId; see R365-AUTOMATION.md for harvesting it.
 #
 # Refuses to approve unless three checks pass: every typed amount reads back,
-# the three lines sum to tot on both sides, and the values survive a reload.
+# the named lines sum to tot on both sides, and the values survive a reload.
 set -u
 S="$1"; LOC="$2"
 [ -n "${ENTRY_DATE:-}" ] || { echo "$2 FAIL: ENTRY_DATE not set"; exit 1; }
@@ -21,7 +22,7 @@ WORK="${3:-${BOWERY_UBEREATS_WORK:-./work.json}}"
 [ -f "$WORK" ] || { echo "$LOC FAIL: no work json at $WORK"; exit 1; }
 AR="a/r debit from prior week less total payout"
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n'; }
-J() { node -e 'const fs=require("fs");const d=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const r=d.find(x=>x.loc===process.argv[2]);const v=r[process.argv[3]];process.stdout.write(typeof v==="number"?v.toFixed(2):String(v));' "$WORK" "$LOC" "$1"; }
+J() { node -e 'const fs=require("fs");const d=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));const r=d.find(x=>x.loc===process.argv[2]);const v=r[process.argv[3]]??0;process.stdout.write(typeof v==="number"?v.toFixed(2):String(v));' "$WORK" "$LOC" "$1"; }
 die() { echo "$LOC FAIL: $*"; exit 1; }
 n2() { local x; x=$(echo "$1" | sed -e "s/,//g" -e "s/\"//g"); printf "%.2f" "$x" 2>/dev/null || echo "$1"; }
 # label -> a single-quoted JS string literal. quotes become \x27 / \x22 so the
@@ -85,8 +86,40 @@ fill "uber fees"  debit  "$(J fees)"
 fill "difference" debit  "$(J diffDr)"
 fill "difference" credit "$(J diffCr)"
 
+# marketing line: absent from the template, added through the new-row form
+MKT=$(J mkt)
+LINES="'$AR','uber fees','difference'"
+if [ "$MKT" != "0.00" ]; then
+  LINES="$LINES,'marketing'"
+  HAS=$(playwright-cli -s=$S eval "() => Array.from(document.querySelectorAll('tr')).some(r=>Array.from(r.cells||[]).some(c=>c.innerText.trim()==='marketing'))" 2>&1 | res)
+  [ "$HAS" = "true" ] && die "marketing line already present"
+  TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP
+  AC=$(grep -E 'combobox "Select Account"' $TMP | tail -1 | grep -oE 'ref=[a-zA-Z0-9]+' | cut -d= -f2)
+  ADD=$(grep -E 'button "Add"' $TMP | tail -1 | grep -oE 'ref=[a-zA-Z0-9]+' | cut -d= -f2)
+  rm -f $TMP
+  [ -n "$AC" ] && [ -n "$ADD" ] || die "new-row form not found"
+  playwright-cli -s=$S click $AC >/dev/null 2>&1
+  playwright-cli -s=$S type "632-02" >/dev/null 2>&1
+  sleep 4
+  TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP
+  OPT=$(grep -E 'option "632-02 - Delivery Fees"' $TMP | head -1 | grep -oE 'ref=[a-zA-Z0-9]+' | cut -d= -f2)
+  rm -f $TMP
+  [ -n "$OPT" ] || die "632-02 option not offered"
+  playwright-cli -s=$S click $OPT >/dev/null 2>&1; sleep 2
+  playwright-cli -s=$S fill '#newRowDebitInput' "$MKT" >/dev/null 2>&1
+  playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
+  playwright-cli -s=$S fill 'input[ng-model="gridOptions.journalEntryDetailsGrid.newRowForm.model.comment"]' "marketing" >/dev/null 2>&1
+  playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
+  # form must hold 632-02, the amount, the comment, and the entry's own location
+  FM=$(playwright-cli -s=$S eval "() => { const m=angular.element(document.querySelector('.grid-add-row-button')).scope().gridOptions.journalEntryDetailsGrid.newRowForm.model; const tr=Array.from(document.querySelectorAll('tr')).find(r=>Array.from(r.cells||[]).some(c=>c.innerText.trim()==='uber fees')); const lid=jQuery(tr).closest('[data-role=grid]').data('kendoGrid').dataSource.data()[0].locationId; const a=document.querySelector('input[placeholder=\"Select Account\"]').value; const loc=[].concat(m.location||[])[0]; return [a, parseFloat(m.debit).toFixed(2), m.comment, loc===lid?'locok':'locbad'].join('|'); }" 2>&1 | res | tr -d '"')
+  [ "$FM" = "632-02 - Delivery Fees|$MKT|marketing|locok" ] || die "new-row form holds '$FM'"
+  playwright-cli -s=$S click $ADD >/dev/null 2>&1; sleep 3
+  V=$(playwright-cli -s=$S eval "() => { const r=Array.from(document.querySelectorAll('tr')).find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()==='marketing')); if(!r) return 'none'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()==='marketing'); return cells[i-2].innerText.trim(); }" 2>&1 | res)
+  [ "$(n2 "$V")" = "$MKT" ] || die "marketing line read back '$V' want '$MKT'"
+fi
+
 WANT=$(J tot)
-TOT=$(playwright-cli -s=$S eval "() => { const L=['$AR','uber fees','difference']; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); let dr=0,cr=0; for(const l of L){ const t=rows.find(x=>x.includes(l)); if(!t) return 'MISSING:'+l; dr+=parseFloat((t[3]||'0').replace(/,/g,''))||0; cr+=parseFloat((t[4]||'0').replace(/,/g,''))||0; } return dr.toFixed(2)+'/'+cr.toFixed(2); }" 2>&1 | res | tr -d '"')
+TOT=$(playwright-cli -s=$S eval "() => { const L=[$LINES]; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); let dr=0,cr=0; for(const l of L){ const t=rows.find(x=>x.includes(l)); if(!t) return 'MISSING:'+l; dr+=parseFloat((t[3]||'0').replace(/,/g,''))||0; cr+=parseFloat((t[4]||'0').replace(/,/g,''))||0; } return dr.toFixed(2)+'/'+cr.toFixed(2); }" 2>&1 | res | tr -d '"')
 echo "$LOC pre-save totals: $TOT (want $WANT/$WANT)"
 [ "$TOT" = "$WANT/$WANT" ] || die "totals mismatch $TOT want $WANT/$WANT"
 
@@ -94,7 +127,7 @@ bash "$HERE/ribbon-menu.sh" $S Save "Save" >/dev/null 2>&1
 sleep 12
 playwright-cli -s=$S reload >/dev/null 2>&1
 sleep 14
-VER=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const g=l=>{const r=rows.find(t=>t.includes(l)); return r?r[3]+'/'+r[4]:'?';}; return g('$AR')+' fe '+g('uber fees')+' df '+g('difference'); }" 2>&1 | res | tr -d '"')
+VER=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const g=l=>{const r=rows.find(t=>t.includes(l)); return r?r[3]+'/'+r[4]:'?';}; return g('$AR')+' fe '+g('uber fees')+' df '+g('difference')+' mk '+g('marketing'); }" 2>&1 | res | tr -d '"')
 echo "$LOC after-save: $VER"
 case "$VER" in "0.00/0.00 fe 0.00/0.00"*) die "save did not land";; esac
 

@@ -1,0 +1,163 @@
+- generic:
+  - generic:
+    - banner [ref=f5e1]:
+      - generic [ref=f5e2]:
+        - button [ref=f5e360] [cursor=pointer]
+        - generic [ref=f5e3]:
+          - img "Restaurant365" [ref=f5e364]
+          - generic [ref=f5e367]:
+            - combobox "Search in R365" [ref=f5e371]
+            - button "Open" [ref=f5e373] [cursor=pointer]
+            - group
+          - button [ref=f5e374] [cursor=pointer]:
+            - paragraph [ref=f5e375]: Create
+          - button [ref=f5e376] [cursor=pointer]
+          - button [ref=f5e383] [cursor=pointer]
+    - generic [ref=f5e399]:
+      - generic [ref=f5e400]:
+        - link [ref=f5e402] [cursor=pointer]:
+          - /url: /react/home
+          - button [ref=f5e403]:
+            - paragraph [ref=f5e411]: Dashboards
+        - link [ref=f5e413] [cursor=pointer]:
+          - /url: /react/reports-management/legacy/MyReports
+          - button [ref=f5e414]:
+            - paragraph [ref=f5e419]: Reports
+        - link [ref=f5e421] [cursor=pointer]:
+          - /url: /react/accounting/legacy/AllTransactions
+          - button [active] [ref=f5e422]:
+            - paragraph [ref=f5e427]: Accounting
+        - link [ref=f5e429] [cursor=pointer]:
+          - /url: /react/inventory/legacy/InventoryTransactions
+          - button [ref=f5e430]:
+            - paragraph [ref=f5e435]: Inventory
+        - link [ref=f5e437] [cursor=pointer]:
+          - /url: /react/sales-and-forecasting/daily-sales
+          - button [ref=f5e438]:
+            - paragraph [ref=f5e443]: Sales & forecasting
+        - link [ref=f5e445] [cursor=pointer]:
+          - /url: /react/workforce/employees
+          - button [ref=f5e446]:
+            - paragraph [ref=f5e451]: Workforce
+        - link [ref=f5e453] [cursor=pointer]:
+          - /url: /react/manager-log/log-entries
+          - button [ref=f5e454]:
+            - paragraph [ref=f5e460]: Manager log
+        - link [ref=f5e462] [cursor=pointer]:
+          - /url: /react
+          - button [ref=f5e463]:
+            - paragraph [ref=f5e468]: More
+      - generic [ref=f5e469]:
+        - link [ref=f5e471] [cursor=pointer]:
+          - /url: /react/admin/users
+          - button [ref=f5e472]:
+            - paragraph [ref=f5e477]: Admin
+        - link [ref=f5e479] [cursor=pointer]:
+          - /url: https://www.restaurant365.com/marketplace/
+          - button [ref=f5e480]:
+            - paragraph [ref=f5e485]: Marketplace
+    - navigation:
+      - button [ref=f5e486] [cursor=pointer]
+      - generic [ref=f5e490]:
+        - paragraph [ref=f5e492]: Accounting
+        - list [ref=f5e493]:
+          - button "Accounts payable" [ref=f5e494] [cursor=pointer]:
+            - button [ref=f5e497]
+          - button "Accounts receivable" [ref=f5e500] [cursor=pointer]:
+            - button [ref=f5e503]
+          - button "Banking" [ref=f5e506] [cursor=pointer]:
+            - button [ref=f5e509]
+          - button "General ledger" [ref=f5e512] [cursor=pointer]:
+            - button [ref=f5e515]
+          - button "Transactions" [ref=f5e518] [cursor=pointer]:
+            - button [ref=f5e521]
+          - list [ref=f5e524]:
+            - link "All transactions" [ref=f5e525] [cursor=pointer]:
+              - /url: /react/accounting/legacy/AllTransactions
+            - link "Memorized transactions" [ref=f5e528] [cursor=pointer]:
+              - /url: /react/accounting/legacy/MemorizedTransactions
+            - link "Transaction details" [ref=f5e531] [cursor=pointer]:
+              - /url: /react/accounting/legacy/TransactionDetails
+    - generic [ref=f5e537]:
+      - heading "All Transactions" [level=5] [ref=f5e540]
+      - generic [ref=f5e542]:
+        - iframe [ref=f5e544]:
+          - generic [ref=f7e1]:
+            - generic:
+              - generic [ref=f7e3]:
+                - generic [ref=f7e4]: Theme Builder
+                - button [ref=f7e7] [cursor=pointer]:
+                  - generic [ref=f7e8]: 
+                - generic [ref=f7e9]:
+                  - generic [ref=f7e10]:
+                    - heading "Ribbon" [level=4] [ref=f7e11]
+                    - generic [ref=f7e12]:
+                      - generic [ref=f7e13]: BG
+                      - generic [ref=f7e14]: Font
+                      - generic [ref=f7e15]: Hover BG
+                      - generic [ref=f7e16]: Hover Font
+                    - generic "Menu" [ref=f7e17]:
+                      - 'textbox "Current selected color is #ffffff" [ref=f7e21]':
+                        - generic [ref=f7e25] [cursor=pointer]
+                      - 'textbox "Current selected color is #546e7a" [ref=f7e27]':
+                        - generic [ref=f7e31] [cursor=pointer]
+                      - 'textbox "Current selected color is #f5f5f5" [ref=f7e33]':
+                        - generic [ref=f7e37] [cursor=pointer]
+                      - 'textbox "Current selected color is #0d0d0d" [ref=f7e39]':
+                        - generic [ref=f7e43] [cursor=pointer]
+                    - generic "SubMenu" [ref=f7e44]:
+                      - 'textbox "Current selected color is #ffffff" [ref=f7e48]':
+                        - generic [ref=f7e52] [cursor=pointer]
+                      - 'textbox "Current selected color is #546e7a" [ref=f7e54]':
+                        - generic [ref=f7e58] [cursor=pointer]
+                      - 'textbox "Current selected color is #f5f5f5" [ref=f7e60]':
+                        - generic [ref=f7e64] [cursor=pointer]
+                      - 'textbox "Current selected color is #0d0d0d" [ref=f7e66]':
+                        - generic [ref=f7e70] [cursor=pointer]
+                  - generic [ref=f7e71]:
+                    - heading "Ribbon Logo" [level=4] [ref=f7e72]
+                    - button "Upload Ribbon Logo" [ref=f7e77] [cursor=pointer]
+                  - generic [ref=f7e78]:
+                    - heading "Left Panel" [level=4] [ref=f7e79]
+                    - generic [ref=f7e80]:
+                      - 'textbox "Current selected color is #ffffff" [ref=f7e83]':
+                        - generic [ref=f7e87] [cursor=pointer]
+                      - 'textbox "Current selected color is #546e7a" [ref=f7e89]':
+                        - generic [ref=f7e93] [cursor=pointer]
+                      - 'textbox "Current selected color is #f5f5f5" [ref=f7e95]':
+                        - generic [ref=f7e99] [cursor=pointer]
+                      - 'textbox "Current selected color is #0d0d0d" [ref=f7e101]':
+                        - generic [ref=f7e105] [cursor=pointer]
+                  - generic [ref=f7e106]:
+                    - heading "Components" [level=4] [ref=f7e107]
+                    - generic "Normal" [ref=f7e108]:
+                      - 'textbox "Current selected color is #c3c3c3" [ref=f7e112]':
+                        - generic [ref=f7e116] [cursor=pointer]
+                      - 'textbox "Current selected color is #777777" [ref=f7e118]':
+                        - generic [ref=f7e122] [cursor=pointer]
+                      - 'textbox "Current selected color is #f5f5f5" [ref=f7e124]':
+                        - generic [ref=f7e128] [cursor=pointer]
+                      - 'textbox "Current selected color is #0d0d0d" [ref=f7e130]':
+                        - generic [ref=f7e134] [cursor=pointer]
+                    - generic "Selected" [ref=f7e135]:
+                      - 'textbox "Current selected color is #5ea3cb" [ref=f7e139]':
+                        - generic [ref=f7e143] [cursor=pointer]
+                      - 'textbox "Current selected color is #ffffff" [ref=f7e145]':
+                        - generic [ref=f7e149] [cursor=pointer]
+                - generic [ref=f7e150]:
+                  - generic [ref=f7e151]:
+                    - generic [ref=f7e154]:
+                      - combobox "Select Theme" [ref=f7e155]
+                      - button "select" [ref=f7e157] [cursor=pointer]
+                    - generic [ref=f7e158]:
+                      - button "Set As Default" [ref=f7e159] [cursor=pointer]
+                      - button "Save" [disabled] [ref=f7e160]
+                      - button "Delete" [disabled] [ref=f7e161]
+                  - generic [ref=f7e162]:
+                    - textbox "Add New Theme" [ref=f7e164]
+                    - button "New" [ref=f7e166] [cursor=pointer]
+              - generic [ref=f7e168]:
+                - generic:
+                  - heading [level=3]
+        - progressbar [ref=f5e546]
+  - iframe

@@ -46,14 +46,14 @@ Payments > Payouts. The store picker's radio leaves the page on the old store un
 
 The date control opens on a **Pay period** tab. Bowery's periods run Monday to Sunday. Clicking any date selects the whole period containing it, so click a midweek date and read the range back: `Selected date range is from 08/31/2026 to 09/06/2026`.
 
-Per store, read off the Overview tab: store name, Total Payout, and the Earnings, Uber Fees, Net Chargeback Amount and Net Taxes rows of Pay breakdown. Uber shows Uber Fees as a negative and it enters R365 as a positive debit. Net Taxes is a positive figure for these New York stores, unlike a marketplace-facilitator estate where it is zero.
+Per store, read off the Overview tab: store name, Total Payout, and the Earnings, Marketing, Uber Fees, Net Chargeback Amount and Net Taxes rows of Pay breakdown. Uber shows Marketing and Uber Fees as negatives and each enters R365 as a positive debit. Marketing appears only for a store that ran a promotion that week. Net Taxes is a positive figure for these New York stores, unlike a marketplace-facilitator estate where it is zero.
 
 Two reading traps:
 
 - Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block. The breakdown rows are the page's only `[role=treeitem]`, and the cards are `[role=group]`, so reading treeitems document wide is the scoping. Walking down from the `Pay breakdown` heading to its tree finds nothing.
 - A stray click on the payouts page opens an order drawer that covers the date control, and the drawer often loads as "Something went wrong". Screenshot when a click stops landing, and close the drawer before retrying.
 
-Check each store before moving on: `Earnings + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
+Check each store before moving on: `Earnings + Marketing + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
 
 ## Phase 2: the period debits
 
@@ -69,16 +69,17 @@ Run the report with **Show Unapproved** on **Yes**, its saved default. D has to 
 
 ## The arithmetic
 
-The entry carries three lines, keyed by comment:
+The entry carries three lines, plus a fourth for a store with a Marketing row, keyed by comment:
 
 ```
 credit on "a/r debit from prior week less total payout"  =  D - Total Payout
 debit  on "uber fees"                                    =  Uber Fees shown positive
-"difference"                                             =  (D - Total Payout) - Uber Fees
+debit  on "marketing"                                    =  Marketing shown positive, only when nonzero
+"difference"                                             =  (D - Total Payout) - Uber Fees - Marketing
                                                             debit if positive, credit if negative
 ```
 
-The difference is the balancing plug, and both it and the fees line post to `632-02 - Delivery Fees`. It absorbs everything the two named lines do not model, chargebacks among them, plus the genuine gap `D - Earnings - Net Taxes` between what R365 booked and what Uber settled. It lands at 0.00 for most stores in a typical week, which is a normal result to record and approve.
+The difference is the balancing plug, and it, the fees line and the marketing line all post to `632-02 - Delivery Fees`. It absorbs everything the named lines do not model, chargebacks among them, plus the genuine gap `D - Earnings - Net Taxes` between what R365 booked and what Uber settled. It lands at 0.00 for most stores in a typical week, which is a normal result to record and approve.
 
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's payout has already been deposited and booked. Deposits lag by several days and sometimes miss a week, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Delivery Fees.
 
@@ -92,14 +93,14 @@ Bowery carries one UberEats entry per week, dated the Sunday that ends the pay p
 
 Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
 
-Each entry arrives as a template: three lines carrying accounts, comments, and location, every amount at 0.00. Bowery reshaped this template in September 2026, so an entry from an earlier week is a two line reclass between `104-04` and `104-00` and reproduces none of the arithmetic above. Verify against the A/R balance rather than against an older entry.
+Each entry arrives as a template: three lines carrying accounts, comments, and location, every amount at 0.00. The template has no marketing line, so posting adds one when a store needs it. Bowery reshaped this template in September 2026, so an entry from an earlier week is a two line reclass between `104-04` and `104-00` and reproduces none of the arithmetic above. Verify against the A/R balance rather than against an older entry.
 
 ## Posting
 
-Fill the three lines, save, reload, then Approve and Close. Three checks decide whether an entry is right, and skipping any of them is how empty and unbalanced entries reach Approved:
+Fill the three lines, add the marketing line where Marketing is nonzero, save, reload, then Approve and Close. The marketing line goes in through the grid's new-row form, which [`R365-AUTOMATION.md`](R365-AUTOMATION.md) covers. Three checks decide whether an entry is right, and skipping any of them is how empty and unbalanced entries reach Approved:
 
 1. **Read back every amount** from its cell after typing it. Compare numerically, since R365 renders `4` as `4.00`.
-2. **Sum the three lines before saving** and match the total against the expected figure. Sum the three named rows only, because the footer row would double the count.
+2. **Sum the named lines before saving** and match the total against the expected figure. Sum the named rows only, because the footer row would double the count.
 3. **Reload after saving**, and confirm the values survived. A save that never reached the server leaves every line at 0.00, and approving then commits an empty entry.
 
 `scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
@@ -112,6 +113,8 @@ Run stores in parallel by giving each worker its own session name. See `scripts/
 
 Sequential posting runs about ninety seconds a store, so a four store run finishes inside ten minutes on one session.
 
+To change an entry already Approved, open it, hover the ribbon's **Unapprove** and click its `Unapprove` item, then edit, save and approve through the same three checks.
+
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
 ## Verifying the run
@@ -119,3 +122,14 @@ If the automated save will not land after a retry, re-enter the amounts, tell th
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, amounts, and totals, and report any store that failed just as plainly.
+
+## Closing the windows
+
+Once the run is verified and reported, and the human has no follow-up edits pending, close every browser window from the run's working directory:
+
+```bash
+playwright-cli close-all
+playwright-cli list    # confirms no session is left open
+```
+
+Leave the windows open while the human might still ask for an adjustment, since reopening costs a fresh Uber code and two R365 logins.

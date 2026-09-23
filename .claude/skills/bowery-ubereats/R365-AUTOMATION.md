@@ -41,6 +41,29 @@ playwright-cli -s=$S press Escape
 
 Locate a row by its Comment text rather than by position. Row cells run `["", Account, Account, Debit, Credit, Comment, Location, Asset, ""]`, so from the comment index `i`, Debit is `i-2` and Credit is `i-1`.
 
+The last cell of every row is a trash icon (`span.k-grid-delete`), and one click removes the line at once, with no prompt. Wake the grid on the Comment cell. If a line vanishes, reload without saving and the server copy comes back.
+
+## Adding a line through the new-row form
+
+The grid has no blank row, and tabbing past the last cell adds nothing. A new-row form sits under the grid, with its own Add button (`.grid-add-row-button`), and its Location defaults to the entry's header location:
+
+```bash
+playwright-cli -s=$S click <combobox "Select Account" ref>        # the last one in the snapshot, under the grid
+playwright-cli -s=$S type "632-02"                                # then click option "632-02 - Delivery Fees"
+playwright-cli -s=$S fill '#newRowDebitInput' "117.90"            # or #newRowCreditInput
+playwright-cli -s=$S fill 'input[ng-model="gridOptions.journalEntryDetailsGrid.newRowForm.model.comment"]' "marketing"
+playwright-cli -s=$S click <button "Add" ref>
+```
+
+Before clicking Add, read the form model back and check account, amount, comment and location. The account input's `name` is sometimes absent, so find it by its `Select Account` placeholder:
+
+```js
+const m = angular.element(document.querySelector('.grid-add-row-button')).scope().gridOptions.journalEntryDetailsGrid.newRowForm.model;
+return [document.querySelector('input[placeholder="Select Account"]').value, m.debit, m.credit, m.comment, m.location];
+```
+
+`m.location` holds the location id. Compare it against the `locationId` on the entry's existing rows, from the grid's `kendoGrid.dataSource.data()`. The new line lands in the grid at once, and it reaches the server only on Save.
+
 ## Quote every shell variable interpolated into JavaScript
 
 A bare `$C` in an `eval` string expands to a naked identifier and throws a ReferenceError, which `eval` swallows when its output is discarded:

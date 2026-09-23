@@ -1,0 +1,107 @@
+- generic [ref=f13e5]:
+  - button [ref=f13e7] [cursor=pointer]:
+    - img "AI Assistant - Ask anything" [ref=f13e9]
+  - generic [ref=f13e13]:
+    - generic [ref=f13e14]:
+      - link [ref=f13e15] [cursor=pointer]:
+        - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f13e26]:
+        - button "Help" [ref=f13e28] [cursor=pointer]
+        - button "Notifications" [ref=f13e33] [cursor=pointer]
+        - button "MO" [ref=f13e40] [cursor=pointer]
+    - generic [ref=f13e43]:
+      - generic [ref=f13e46]:
+        - button "Business All stores" [ref=f13e48] [cursor=pointer]:
+          - generic:
+            - paragraph: Business
+            - heading "All stores" [level=6]
+        - link "Home" [ref=f13e53] [cursor=pointer]:
+          - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - generic [ref=f13e59]:
+          - generic [ref=f13e60]: Stores
+          - generic:
+            - generic:
+              - generic:
+                - link "All stores" [ref=f13e71] [cursor=pointer]:
+                  - /url: /manager/stores
+                - link "Store groups" [ref=f13e75] [cursor=pointer]:
+                  - /url: /manager/groups
+                - link "Devices" [ref=f13e79] [cursor=pointer]:
+                  - /url: /manager/devices
+        - link "Orders" [ref=f13e83] [cursor=pointer]:
+          - /url: /manager/orders?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - generic [ref=f13e91]: Performance
+        - generic:
+          - generic:
+            - generic:
+              - link "Sales" [ref=f13e104] [cursor=pointer]:
+                - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics/sales-v2
+              - link "Operations" [ref=f13e108] [cursor=pointer]:
+                - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics/operations
+              - link "Top Eats" [ref=f13e112] [cursor=pointer]:
+                - /url: /manager/top-eats?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Market benchmarking" [ref=f13e116] [cursor=pointer]:
+                - /url: /manager/competitive-insights
+        - generic [ref=f13e119]: Customers
+        - generic:
+          - generic:
+            - generic:
+              - link "Customer insights" [ref=f13e131] [cursor=pointer]:
+                - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/analytics
+              - link "Reviews" [ref=f13e135] [cursor=pointer]:
+                - /url: /manager/home/e93c20e0-7ac8-56e1-9841-c99c9deeee11/feedback
+        - link "Rewards center" [ref=f13e139] [cursor=pointer]:
+          - /url: /manager/rewards-center?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Reports" [ref=f13e146] [cursor=pointer]:
+          - /url: /manager/reports?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Ads" [ref=f13e153] [cursor=pointer]:
+          - /url: /manager/marketing/create/ads?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11&ref=ADS_NAV
+        - link "Offers" [ref=f13e162] [cursor=pointer]:
+          - /url: /manager/offers?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Marketing" [ref=f13e169] [cursor=pointer]:
+          - /url: /manager/marketing/redirect?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Menu" [ref=f13e176] [cursor=pointer]:
+          - /url: /menumaker/e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Menu pricing" [ref=f13e183] [cursor=pointer]:
+          - /url: /manager/menu-markup?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - generic [ref=f13e189]: Payments
+        - generic [ref=f13e201]:
+          - link "Payouts" [ref=f13e204] [cursor=pointer]:
+            - /url: /manager/payments?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+          - link "Payouts by order" [ref=f13e208] [cursor=pointer]:
+            - /url: /manager/payments/payouts-by-order?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+          - link "Banking" [ref=f13e212] [cursor=pointer]:
+            - /url: /manager/payments/settings?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - link "Users" [ref=f13e216] [cursor=pointer]:
+          - /url: /manager/users?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+        - generic [ref=f13e223]: Settings
+        - generic:
+          - generic:
+            - generic:
+              - link "General" [ref=f13e236] [cursor=pointer]:
+                - /url: /manager/settings/general?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Holiday Hours" [ref=f13e240] [cursor=pointer]:
+                - /url: /manager/holiday-hours?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Preparation Times" [ref=f13e244] [cursor=pointer]:
+                - /url: /manager/prep-times?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Documents" [ref=f13e248] [cursor=pointer]:
+                - /url: /manager/documents?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Tax/Invoice" [ref=f13e252] [cursor=pointer]:
+                - /url: /manager/tax-information?restaurantUUID=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+              - link "Appointments" [ref=f13e256] [cursor=pointer]:
+                - /url: /manager/settings/appointments
+        - separator [ref=f13e259]
+        - link "Uber Direct" [ref=f13e261] [cursor=pointer]:
+          - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=e93c20e0-7ac8-56e1-9841-c99c9deeee11
+      - generic [ref=f13e274]:
+        - heading "Payouts" [level=1] [ref=f13e279]
+        - generic [ref=f13e280]:
+          - tablist [ref=f13e282]:
+            - tab "Overview" [selected] [ref=f13e283] [cursor=pointer]
+            - tab "Statements" [ref=f13e284] [cursor=pointer]
+          - tabpanel "Overview" [ref=f13e287]
+        - generic [ref=f13e288]:
+          - generic [ref=f13e289]:
+            - button "Rosie’s Taqueria" [ref=f13e291] [cursor=pointer]
+            - generic "spinner" [ref=f13e296]
+          - button "invoices.download_column" [ref=f13e298] [cursor=pointer]
