@@ -10,12 +10,16 @@ Two phases. **Gather** every figure first, from Grubhub and from one GL report, 
 Sessions:
 
 ```bash
-playwright-cli open --headed https://restaurant.grubhub.com/login                             # Grubhub
-playwright-cli -s=r365 open --headed https://bowerygroup.restaurant365.com/react/accounting   # journal entries
-playwright-cli -s=r365b open --headed https://bowerygroup.restaurant365.com/react/accounting  # GL report
+playwright-cli -s=bgh open --headed https://restaurant.grubhub.com/login                    # Grubhub
+playwright-cli -s=bj open --headed https://bowerygroup.restaurant365.com/react/accounting   # journal entries
+playwright-cli -s=bb open --headed https://bowerygroup.restaurant365.com/react/accounting   # GL report
 ```
 
 `playwright-cli` binds sessions to the working directory. Stay in one directory for a whole run, and never `cd` mid run or the sessions vanish.
+
+The NORMS skills use the default session plus `r365` and `r365b` in the same directory, and a NORMS run may still hold them open. Run `playwright-cli list` first and use the Bowery names above, so this run never navigates or logs out another company's browser. Close only the Bowery sessions when the run ends.
+
+Keep working files in a per-run folder such as `.scratch/bgh<MMDD>/`.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting any of this. R365 is a legacy Angular app whose grids and report dialogs ignore scripted input and fail silently, and every rule in that file was paid for with a wrong or empty entry. It is shared with the `bowery-ubereats` skill, so fix R365 platform behavior there once rather than in two places.
 
@@ -43,26 +47,43 @@ Grubhub's picker names each store by street: `Cookshop - 10th Ave`, `Rosie's - E
 
 ## Phase 1: the Grubhub figures
 
-**Financials > Deposit history**, reached through the hamburger at the top left. Select all four locations and click **Apply**, then set the date range.
+Once logged in, **read the figures from the API the Deposit history page itself calls**, through `eval` in the Grubhub session. Two calls cover all four stores, with no clicking:
 
-The range filters on the date each deposit was **paid**, so it has to cover the days after the period closes. The period 9/1 to 9/7 settled on 9/9. Set a range that runs from a week before the period to today, and read the covered sales dates off each deposit rather than trusting its row date.
+```js
+const H = {authorization: 'Bearer ' + sessionStorage.getItem('authToken'), accept: 'application/json'};
+const rests = JSON.parse(localStorage.getItem('associatedRestaurants'));   // id, name, streetAddress
+const base = 'https://api-order-processing-gtm.grubhub.com/merchant/accounting/customers/';
 
-Click the **deposit ID** to open the detail, which is the only place the fee breakdown appears. The history grid alone gives a net figure and no fees. Two mechanics govern this page:
+// every deposit for all four stores; the window filters on the date PAID
+await fetch(base + rests.map(r => r.id).join(',') + '/deposits/summary?startTime=2026-09-08T00:00:00.000Z&endTime=2026-09-25T06:59:59.000Z', {headers: H});
+// one deposit in full
+await fetch(base + restId + '/deposits/' + dep.restaurant_distribution_id, {headers: H});
+```
 
-- **Only real clicks register.** A scripted `click()` from `eval` silently leaves the panel on whatever deposit is already open, so every deposit reads back as a copy of the first one. Use `playwright-cli click` against a snapshot ref.
-- **Click Back before opening the next deposit.** With the detail panel open, a click on another row does nothing. Resolve the Back control from a fresh snapshot each time, since it is a `generic` carrying the text `Back`.
+The window filters on the date each deposit was **paid**, so run it from a week before the period to a day past today. A Tuesday to Monday period settles on the Wednesday after it (9/15 to 9/21 paid 9/23). The summary call returns empty `totals`, so the per deposit call is what carries the figures, in cents and signed as Grubhub shows them:
 
-Per store, record: the deposit ID, the sales dates it covers, the **net deposit** paid, and every fee line in the detail. Grubhub shows fees as negatives against gross sales and they enter R365 as positive debits. The three fee lines are `Commissions`, `Delivery Commissions` and `Order Processing Fees`, and the R365 template carries one line for each, so keep them apart rather than summing them.
+| Field | Use |
+|---|---|
+| `total` (on the deposit) | net deposit |
+| `totals.prepaid_total` | gross sales, checks the arithmetic |
+| `totals.commission_total` | commissions |
+| `totals.grubhub_delivery_fee_total` | delivery commissions |
+| `totals.processing_fee` | order processing fees |
+| `totals.account_adj` | Grubhub credits or debits outside any order |
 
-If a single period settles as more than one deposit for a store, sum the net deposits, sum each fee line separately, and note both IDs.
+Grubhub shows fees as negatives and they enter R365 as positive debits. The R365 template carries one line for each fee, so keep them apart rather than summing them. Per store, record the deposit's `short_distribution_id`, its net, and the three fees.
 
-Check each store before moving on: gross sales minus the three fee lines equals the Deposit Total shown on the same panel. This closes to the penny when the figures are read right.
+Pick the deposit by the sales dates it covers. `associated_transactions` carries a `transaction_time` per order in UTC, so convert to `America/New_York` before bucketing by day. If a single period settles as more than one deposit for a store, sum the net deposits, sum each fee line separately, and note both IDs.
+
+Check each store before moving on: `prepaid_total` plus every signed field in `totals` equals `total`. With `account_adj` at zero this is gross minus the three fees and closes to the penny. A nonzero `account_adj` comes from a `CS_CREDIT` row labelled "Account Adjustment" in `associated_transactions`. No journal line models it, so it lands in the difference line. Record its order number for the report.
+
+The UI path, **Financials > Deposit history** then click each deposit ID, is the fallback if the API refuses. There only real `playwright-cli click`s register, and Back must be clicked before opening the next deposit.
 
 ## Phase 2: the period debits
 
 The daily journal entries debit `104-06 - A/R - Grub Hub` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
 
-Reports > My reports in `r365b`. Run **GL Account Detail** through Customize with account `104-06 - A/R - Grub Hub`, Start 9/1 and End 9/7, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R - Grub Hub` **Debit** figure, which is that store's D.
+Reports > My reports in `bb`. Run **GL Account Detail** through Customize with account `104-06 - A/R - Grub Hub`, Start 9/1 and End 9/7, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R - Grub Hub` **Debit** figure, which is that store's D.
 
 The window is the period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
@@ -83,6 +104,14 @@ debit  "order processing fees"                        =  Order Processing Fees
 
 The difference is the balancing plug, and it and the three fee lines all post to `632-02 - Delivery Fees`. It absorbs the gap between what R365 booked as third party sales and what Grubhub settled, which runs to a few cents in a typical period. A figure in dollars rather than cents is worth understanding before approving.
 
+To explain a dollar difference, bucket each deposit's `prepaid_amount` by New York day and set it beside the store's daily Journal Entry debits in the GL report. Three causes have turned up:
+
+- **Refunds.** `PCI_SINGLE_REFUND` rows reduce Grubhub's gross, and R365 still carries the original sale.
+- **Account adjustments.** A `CS_CREDIT` raises the net deposit with no sale behind it, pushing the difference toward a credit.
+- **A day R365 overbooks.** R365's daily sales exceed Grubhub's orders for that day, usually an order Grubhub cancelled or has not settled yet. An unsettled order reverses in the next period.
+
+Name the cause and amount per store in the report. Post with the plug, since the A/R balance still ties to the net deposit.
+
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's deposit has already been booked. Deposits lag by several days and sometimes miss a period, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Delivery Fees.
 
 **Check the resulting A/R balance instead.** After the credit posts, the account's balance for that location should equal the net deposit, which is the receivable awaiting settlement. This confirms the formula in one subtraction and works even in a period with no prior entry to compare against.
@@ -91,7 +120,7 @@ The difference is the balancing plug, and it and the three fee lines all post to
 
 Bowery carries one Grubhub entry per period, dated the Sunday inside it, so the period Sep 1 - Sep 7 posts to the entry dated Sep 6.
 
-Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `Grub`, which catches both `GrubHub` and `Grub Hub`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
+Accounting > Transactions > All transactions, reached through the home dashboard's collapsed side menu (`R365-AUTOMATION.md` has the clicks). Filter Number (`Contains`) to `Grub`, which catches both `GrubHub` and `Grub Hub`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
 
 Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text. Templates get reshaped between periods, so an entry from an earlier period is worth checking rather than trusting.
 
@@ -106,7 +135,7 @@ Fill the five lines, save, reload, then Approve and Close. Three checks decide w
 `scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
 
 ```bash
-ENTRY_DATE=9/6/2026 scripts/post-entry.sh r365 Cookshop work.json
+ENTRY_DATE=9/6/2026 scripts/post-entry.sh bj Cookshop work.json
 ```
 
 Run stores in parallel by giving each worker its own session name. See `scripts/work.example.json` for the work file's shape, which carries each line's comment text alongside its amount.

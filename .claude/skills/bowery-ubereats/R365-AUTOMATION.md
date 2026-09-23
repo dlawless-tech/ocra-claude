@@ -170,7 +170,9 @@ R=$(grep -B2 '/url: /react/accounting/legacy/AllTransactions' snap.txt | grep -o
 playwright-cli -s=$S click $R    # Reports sits at /react/reports-management/legacy/MyReports
 ```
 
-The nav renders about 25 seconds after login, and Accounting and Reports take another 30 to settle. The journal entry hash route is the exception and `goto` reaches it directly:
+The nav renders about 25 seconds after login, and Accounting and Reports take another 30 to settle.
+
+The dashboard shows only a Reports link inline. Everything else sits in a side menu collapsed behind the first unlabeled `button` in the banner. Click it, then click the `button "Accounting"`, then `button "Transactions"`, and the `link "All transactions"` appears. Re-snapshot between clicks, since each expansion issues new refs. The journal entry hash route is the exception and `goto` reaches it directly:
 
 ```
 https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>
@@ -214,7 +216,7 @@ Each button's scope carries a `valuePair` of `{display, value, wanted}`: `displa
 
 Confirm a button group from `valuePair.wanted` alone. The parameter's hidden input still reads `None` after Subtotal By has moved to Location, and the `activeR365` class lags a digest, so both buttons can read active on the call that follows the click.
 
-The dialog's own **Run** button is the one whose `ng-click` is `runReport($event)`, inside `md-dialog` and labelled `exportMenu`. The cards behind the dialog carry their own Run buttons bound to `runReportClicked`, and clicking one of those runs the wrong report with default parameters.
+The dialog's own **Run** button is the one whose `ng-click` is `runReport($event)`, inside `md-dialog` and labelled `exportMenu`. Match it with `getAttribute('ng-click').startsWith('runReport(')` from a script file passed as `eval "$(cat run.js)"`. A `$event` typed into a double-quoted `eval` string gets expanded by bash, and the lookup silently finds nothing. The cards behind the dialog carry their own Run buttons bound to `runReportClicked`, and clicking one of those runs the wrong report with default parameters.
 
 Confirm every parameter took before running, since a silently ignored one produces a plausible report of the wrong thing.
 
