@@ -120,12 +120,15 @@ The window is the period because Subtotal By groups only when the window holds d
 
 Each location's block also shows a beginning balance and a Bank Deposit line clearing it. That pair confirms the prior period's deposit landed, and it is what checks the store mapping. A beginning balance larger than the prior deposit means an older receivable is still outstanding, which is worth reporting before posting.
 
+A beginning balance **smaller** than the prior deposit means the prior entry cleared too much. The usual cause is its a/r line posted as a credit in a period where D fell below the net deposit, so the gap is exactly twice that line. Santa Ana's 9/12/2026 entry did this: a 33.38 credit that should have been a debit left A/R short by 66.76. Report it and ask before touching the prior entry, since it is Approved. See **Correcting an approved entry** below.
+
 ## The arithmetic
 
 The entry carries five lines, keyed by the comment R365 already holds on each template line:
 
 ```
-credit "ar grubhub - deposit"     =  D - net deposit
+       "ar grubhub - deposit"     =  D - net deposit
+                                     credit if positive, debit if negative
 debit  "commissions"              =  Commissions
 debit  "delivery commissions"     =  Delivery Commissions
 debit  "order processing fees"    =  Order Processing Fees
@@ -133,9 +136,9 @@ debit  "order processing fees"    =  Order Processing Fees
                                      debit if positive, credit if negative
 ```
 
-The a/r line posts to `1113 - A/R Grubhub`, and the three fee lines to `5514 - Online Ordering Expense`.
+The a/r line posts to `1113 - A/R Grubhub`, and the three fee lines to `5514 - Online Ordering Expense`. The a/r line is usually a credit, and it flips to a debit in a period where the deposit exceeds D, which happens when a deposit reaches back into the previous period's sales.
 
-**The plug line's comment and account differ between stores**, while the first four read the same everywhere. In one period it was `refund & discrepancy` at fifteen stores, `refund + difference` at five, `difference` at two, `refund` at one, and `refund & discrepany`, spelled that way, at Las Vegas. Santa Ana books it to `5915 - Delivery over Short` rather than `5514`. **Harvest every comment from each store's own entry before filling anything**, since the posting script keys each line by its comment text and the template check refuses a store whose comment it cannot find.
+**The plug line's comment and account differ between stores**, while the first four read the same everywhere. In the 9/19/2026 templates, 22 stores booked it to `5915 - Delivery over Short`, under `refund & discrepancy`, `refund and discrepancy`, or `refund + difference`. Downey booked it to `5514` as `refund`, and Las Vegas to `5514` as `refund & discrepany`, spelled that way. Templates drift between periods, so the prior entry's comment can differ from the current template's. **Harvest every comment from each store's own current template before filling anything**, since the posting script keys each line by its comment text and the template check refuses a store whose comment it cannot find.
 
 The plug reduces to `D - gross sales`, the gap between what R365 booked as third party sales and what Grubhub settled. It runs to tens of dollars on a store whose deposit missed a sales day, and it takes either sign. Roughly half the estate lands at 0.00 in a typical period, which is a normal result to record and approve.
 
@@ -176,7 +179,9 @@ Read the lines off each entry with the account and comment together, and match t
 rows.filter(r => r.length === 9 && /^[0-9]{4} - /.test(r[1] || '') && (r[5] || '').trim())
 ```
 
-Filtering on `5514` instead drops Santa Ana's plug line and Las Vegas's tax line, and a template that reads four lines long is the symptom.
+Filtering on `5514` instead drops every plug line booked to `5915` and Las Vegas's tax line, and a template that reads four lines long is the symptom.
+
+Opening each entry by its direct URL (`playwright-cli goto`) works and keeps the session logged in, so a loop over the harvested ids reads all 24 templates in one pass.
 
 ## Posting
 
@@ -195,6 +200,17 @@ ENTRY_DATE=9/5/2026 scripts/post-entry.sh r365 Anaheim work.json
 It also refuses to start on a store whose template is missing any comment the work file names, which is what catches the fifth line before an amount is typed. Run stores in parallel by giving each worker its own session name; four sessions of six stores each covers the estate. See `scripts/work.example.json` for the work file's shape, which carries each line's comment text alongside its amount.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
+
+## Correcting an approved entry
+
+Fix a prior period's entry only on the human's say-so. Open it by direct URL, then:
+
+1. **Unapprove**: a real click on `#Unapprove > a`, then on `li[data-testid="unapproveMenuItem"]`. The `Transaction/UnApprove` response reads `"They all have been unapproved successfully"`.
+2. **Set the amounts** through the line grid's Kendo model (`m.set('debit', ...)`, `m.set('credit', ...)`, zeroing the opposite column), and confirm both sides sum equal.
+3. **Save**, read the `SaveTransaction` body, reload, and read the lines back.
+4. **Approve and Close**, and confirm `"Successfully Approved."` in the `Transaction/Approve` response.
+
+[`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) carries the call shapes for each step.
 
 ## Verifying the run
 

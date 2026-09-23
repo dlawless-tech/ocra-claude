@@ -4,7 +4,7 @@
 # Usage: ENTRY_DATE=9/5/2026 post-entry.sh <session> <r365-location> [work-json]
 #   work-json defaults to $NORMS_GRUBHUB_WORK, else ./work.json
 #   ENTRY_DATE is the entry date as R365 renders it, and is required. NORMS
-#   dates its Grubhub entry the Saturday inside the Mon-Sun period.
+#   dates its Grubhub entry the Saturday inside the Tue-Mon period.
 #   r365-location is a substring of the entry's location cell, so the store
 #   word alone is enough.
 #

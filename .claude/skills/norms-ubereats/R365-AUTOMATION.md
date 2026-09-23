@@ -94,6 +94,8 @@ playwright-cli -s=$S click 'li[data-testid="approveAndCloseMenuItem"]'
 
 On the 9/19/2026 UberEats entries, hovering `#Approve > a` left every item hidden and the item click timed out. A real click on the anchor opens the menu. An entry opened by its direct URL stays on screen reading Unapproved after a successful approve, so the page proves nothing. Read the `Transaction/Approve` response, which reads `"Successfully Approved."` with the entry's id, and confirm Approved on the All Transactions grid after `dataSource.read()`.
 
+An Approved entry shows `Unapprove` on the ribbon in place of `Approve`. A real click on `#Unapprove > a` and then on `li[data-testid="unapproveMenuItem"]` unapproves it with no confirmation dialog, and the `Transaction/UnApprove` response reads `"They all have been unapproved successfully"`.
+
 ## A rejected save answers 200
 
 `SaveTransaction` answers a rejected save with HTTP 200 and the reason in its body, and the form shows nothing at all. Read the body after every save:
@@ -217,15 +219,15 @@ Cells arrive in row order, so a location's block runs from its name through its 
 
 ## A full page load logs the session out
 
-Opening any R365 url in an authenticated session bounces to `identity.restaurant365.com`, `/react/accounting/legacy/AllTransactions` and the direct `#/form/JournalEntryForm/<id>` included. Only the login itself survives a page load.
-
-Reach a route by soft navigation from the loaded app instead:
+Opening `/react/accounting/legacy/AllTransactions` by url in an authenticated session has bounced to `identity.restaurant365.com`. Reach it by soft navigation from a loaded React page instead:
 
 ```bash
 playwright-cli -s=$S eval "() => { history.pushState({}, '', '/react/accounting/legacy/AllTransactions'); window.dispatchEvent(new PopStateEvent('popstate')); }"
 ```
 
-That leaves entry urls reachable only from the grid, by firing the Number cell's `onclick`, which opens the entry in a second tab.
+Run that from a React route such as the home dashboard or My Reports. From a legacy `#/form/...` entry page it changes the url and never renders the grid, so the frame walk finds nothing.
+
+`playwright-cli goto https://norms.restaurant365.com/#/form/JournalEntryForm/<id>` opens an entry and keeps the session, as on the 9/19 UberEats run and the 9/23/2026 Grubhub run across four sessions. If a goto ever lands on the login page, re-run the login script and fall back to firing the grid's Number cell `onclick`, which opens the entry in a second tab.
 
 Writing `location.hash` inside the legacy Angular app logs it out the same way a page load does, so a route change there costs a fresh login and every unsaved edit on the page.
 
