@@ -88,11 +88,11 @@ The testids are `saveMenuItem`, `saveAndNewMenuItem`, `saveAndCloseMenuItem`, `a
 On the 9/12/2026 payroll entry, the scope handler for `approveAndCloseMenuItem` ran and approved nothing. A real click on the `li` itself, with the menu hovered open, approved and closed the tab:
 
 ```bash
-playwright-cli -s=$S hover '#Approve > a'
+playwright-cli -s=$S click '#Approve > a'
 playwright-cli -s=$S click 'li[data-testid="approveAndCloseMenuItem"]'
 ```
 
-The entry tab closing is the sign it went through; confirm Approved on the All Transactions grid after `dataSource.read()`.
+On the 9/19/2026 UberEats entries, hovering `#Approve > a` left every item hidden and the item click timed out. A real click on the anchor opens the menu. An entry opened by its direct URL stays on screen reading Unapproved after a successful approve, so the page proves nothing. Read the `Transaction/Approve` response, which reads `"Successfully Approved."` with the entry's id, and confirm Approved on the All Transactions grid after `dataSource.read()`.
 
 ## A rejected save answers 200
 

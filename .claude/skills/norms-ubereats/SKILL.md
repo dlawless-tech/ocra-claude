@@ -31,7 +31,20 @@ R365 posts a username and password form at `identity.restaurant365.com`. Log in,
 
 Payments > Payouts. Store names vary in form, `NORMS - Carson` beside `NORMS (Ontario Mills)`, so type the store into the picker's search box and read back what it finds. The picker list is virtualized, so scroll it to enumerate every store. Checking the radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range.
 
-The date control opens on a **Pay period** tab. Period length is a store setting, one week for some stores and two for others, so the tab label (`Pay period Aug 3 - Aug 16`) names the loaded period. Clicking any date selects the whole period containing that date and writes `start` and `end` into the URL.
+The picker's radio labels carry no text, so a `label:has-text(...)` selector matches nothing. Click the store name itself. One store, scripted:
+
+```bash
+playwright-cli click '[data-testid=location-selector-button-testid]'
+playwright-cli fill 'input[placeholder="Search"]' "NORMS - Carson"
+playwright-cli click 'p:text-is("NORMS - Carson")'
+playwright-cli click 'button:text-is("Apply")'
+playwright-cli click 'input[aria-label="Select a date range."]'
+playwright-cli click '[aria-label*="September 15th 2026"]'   # any day inside the period
+```
+
+Read the button's text back after Apply to confirm the switch took. The URL's `settlement` parameter belongs to one store, so a hand-built URL loads the wrong store's settlement.
+
+The date control opens on a **Pay period** tab. Period length is a store setting, one week for some stores and two for others, so the tab label (`Pay period Aug 3 - Aug 16`) names the loaded period. Clicking any date selects the whole period containing that date and writes `start` and `end` into the URL. The page states the loaded range as `Selected date range is from 09/14/2026 to 09/20/2026`, so check that sentence for every store.
 
 Per store, read off the Overview tab: store name, Total Payout, Earnings, and the Marketing, Uber Fees, and Net Chargeback Amount rows of Pay breakdown. Uber shows Marketing and Uber Fees as negatives and they enter R365 as positive debits. Net Chargeback carries either sign, and its sign decides its column.
 
@@ -52,6 +65,8 @@ Set **Start to the pay period's first day and End to its last day**, leave the l
 
 The window is the pay period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
+Subtotal By can show Location as active and still return an ungrouped report. The detail rows carry the same figures, so sum them yourself. In the snapshot's cell list each row runs date, type, location, comment, debit, credit, balance; the location is the cell before the comment. D is the sum of a location's `Journal Entry` debits. The `Bank Deposit` rows are the Uber payouts landing, and they only carry credits. Check that the per-location debits add up to the report's `Total A/R Uber Postmates` debit.
+
 ## The arithmetic
 
 ```
@@ -67,7 +82,7 @@ The difference line is the gap between what R365 booked as third party sales and
 
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's payout has already been deposited and booked. Deposits lag by several days and sometimes miss a week, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Online Ordering Expense. In one 24 store run that error would have written off 23,584.09.
 
-**Verify the formula against the previous week before posting a batch.** Open one store's prior approved UberEats entry, pull that store's prior period Uber figures, and confirm `prior D - prior Total Payout` reproduces the approved credit. This catches a changed process in one store's worth of work rather than the whole estate's.
+**Verify the formula against the previous week before posting a batch.** Run the GL report a second time over the prior pay period. For each location, the `Journal Entry` debits are prior D and the `Journal Entry` credit is the approved UberEats credit. `prior D - approved credit` is the prior Total Payout, and it must equal that store's `Bank Deposit` credit in the current period's report. This checks the whole estate from two reports with no Uber reading. A store that fails has a changed process or a missed deposit; before posting it, pull its prior period Uber figures and compare them directly.
 
 ## Store to location mapping
 
@@ -81,7 +96,7 @@ Most Uber store names carry the R365 location word. The R365 location reads `<nu
 | `NORMS - Los Angeles` | `250 - La Cienega` |
 | `NORMS (Huntington Park)` | `211 - Slauson` |
 
-Stores > All stores prints a store count and lists each store as `<R365 number>|<uber id> • <address>`, which settles both the enumeration and the mapping. Hollywood, Ontario Mills, and Las Vegas carry a uuid in place of the number, so confirm those three by address.
+Stores > All stores (`/manager/stores`) prints a store count and lists each store as `<R365 number>|<uber id> • <address>`, which settles both the enumeration and the mapping. It shows five stores a page, so page through with **Next**. Hollywood, Ontario Mills, and Las Vegas carry a uuid in place of the number, so confirm those three by address.
 
 D and Earnings run within a few percent for most stores and 10% to 16% apart for a handful, so the gap says little about a pairing. It lands in the difference line either way.
 
@@ -101,7 +116,13 @@ Fill the five lines, save, reload, then Approve and Close. Three checks decide w
 2. **Sum the five lines before saving** and match the total against the expected figure. Sum the five named rows only, because the footer row would double the count.
 3. **Reload after saving**, and confirm the values survived. A save that never reached the server leaves every line at 0.00, and approving then commits an empty entry.
 
-`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check. Run stores in parallel by giving each worker its own session name.
+`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
+
+```bash
+ENTRY_DATE=9/19/2026 scripts/post-entry.sh r365 Anaheim work.json
+```
+
+`ENTRY_DATE` is the Saturday inside the pay period and moves 7 days each week, so set it per run. Run stores in parallel by giving each worker its own session name; three sessions of eight stores each covers the estate.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 

@@ -1,8 +1,10 @@
 #!/bin/bash
 # Fill, save, verify and approve one UberEats journal entry.
 #
-# Usage: post-entry.sh <session> <r365-location>  [work-json]
+# Usage: ENTRY_DATE=9/19/2026 post-entry.sh <session> <r365-location> [work-json]
 #   work-json defaults to $UBEREATS_WORK, else ./work.json
+#   ENTRY_DATE is the entry date as R365 renders it, and is required. NORMS
+#   dates its UberEats entry the Saturday inside the Mon-Sun pay period.
 #
 # The work json is an array of objects keyed by R365 location:
 #   {loc, id, arCredit, marketing, fees, ncDr, ncCr, diffDr, diffCr, totDr}
@@ -12,6 +14,7 @@
 # the five lines sum to totDr on both sides, and the values survive a reload.
 set -u
 S="$1"; LOC="$2"
+[ -n "${ENTRY_DATE:-}" ] || { echo "$2 FAIL: ENTRY_DATE not set"; exit 1; }
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WORK="${3:-${UBEREATS_WORK:-./work.json}}"
 [ -f "$WORK" ] || { echo "$LOC FAIL: no work json at $WORK"; exit 1; }
@@ -26,7 +29,7 @@ playwright-cli -s=$S goto "https://norms.restaurant365.com/#/form/JournalEntryFo
 sleep 12
 CHK=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const has=l=>rows.some(t=>t.includes(l)); const dt=(document.querySelector('input[name=journalEntryDate]')||{}).value; const loc=(rows.find(t=>t.includes('a/r ubereats - payout'))||[]).join('|'); return {dt, ok:has('a/r ubereats - payout')&&has('marketing')&&has('uber fees')&&has('net chargeback amount')&&has('difference'), loc}; }" 2>&1 | res)
 case "$CHK" in *'"ok": true'*) : ;; *) die "template not loaded: $CHK";; esac
-case "$CHK" in *9/5/2026*) : ;; *) die "wrong date: $CHK";; esac
+case "$CHK" in *"$ENTRY_DATE"*) : ;; *) die "wrong date: want $ENTRY_DATE got $CHK";; esac
 case "$CHK" in *"$LOC"*) : ;; *) die "wrong location: $CHK";; esac
 
 # never touch an entry that is already Approved; pass FORCE=1 to override
@@ -83,7 +86,9 @@ TOT=$(playwright-cli -s=$S eval "() => { const L=['a/r ubereats - payout','marke
 echo "$LOC pre-save totals: $TOT (want $WANT/$WANT)"
 [ "$TOT" = "$WANT/$WANT" ] || die "totals mismatch $TOT want $WANT/$WANT"
 
-bash "$HERE/ribbon-menu.sh" $S Save "Save" >/dev/null 2>&1
+playwright-cli -s=$S hover "#Save > a" >/dev/null 2>&1; sleep 2
+SV=$(playwright-cli -s=$S eval "() => { const li=document.querySelector('#Save li[data-testid=\\"saveMenuItem\\"]'); const sc=window.angular.element(li).scope(); sc.\$apply(() => sc.subMenu.handler()); return sc.subMenu.title; }" 2>&1 | res)
+echo "$LOC save: $SV"
 sleep 12
 playwright-cli -s=$S reload >/dev/null 2>&1
 sleep 14
@@ -91,6 +96,11 @@ VER=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySel
 echo "$LOC after-save: $VER"
 case "$VER" in "0.00/0.00 mk 0.00/0.00"*) die "save did not land";; esac
 
-bash "$HERE/ribbon-menu.sh" $S Approve "Approve and Close" >/dev/null 2>&1
+# hover leaves the menu shut; a real click opens it
+playwright-cli -s=$S click "#Approve > a" >/dev/null 2>&1; sleep 2
+playwright-cli -s=$S click 'li[data-testid="approveAndCloseMenuItem"]' >/dev/null 2>&1
 sleep 14
+AP=$(playwright-cli -s=$S requests 2>&1 | grep "Transaction/Approve" | tail -1 | grep -oE "^[0-9]+")
+AR=$( [ -n "$AP" ] && playwright-cli -s=$S response-body $AP 2>&1 | grep "Successfully Approved" | grep -o "$ID" )
+[ -n "$AR" ] || die "approve not confirmed"
 echo "$LOC DONE"
