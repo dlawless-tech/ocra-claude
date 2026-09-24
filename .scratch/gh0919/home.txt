@@ -1,0 +1,195 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.21              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://norms.restaurant365.com/react/home?dashboard=operationsHome
+- Page Title: Operations Overview | Dashboards
+- Console: 86 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [active]:
+  - generic:
+    - banner [ref=f5e1]:
+      - generic [ref=f5e3]:
+        - button [ref=f5e4] [cursor=pointer]
+        - button [ref=f5e7] [cursor=pointer]
+        - button [ref=f5e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f5e16]:
+      - generic [ref=f5e19]:
+        - combobox "Select Dashboard" [ref=f5e20]: Operations overview
+        - button "Open" [ref=f5e22] [cursor=pointer]
+        - group
+      - generic [ref=f5e27]:
+        - generic [ref=f5e28]:
+          - generic [ref=f5e31]:
+            - generic [ref=f5e32]: Location
+            - generic [ref=f5e33]:
+              - textbox "Location" [ref=f5e34]: Anaheim
+              - generic [ref=f5e35] [cursor=pointer]
+          - paragraph [ref=f5e39]: "High: 79° | Low: 69°"
+        - heading "Today is Wednesday, September 23rd. Let's get Started!" [level=5] [ref=f5e56]
+        - generic [ref=f5e59] [cursor=pointer]:
+          - link "1" [ref=f5e60]:
+            - /url: /react/inventory/invoices?src=Home&filtersString=%255B%257B%2522colId%2522%253A%2522locationName%2522%252C%2522operator%2522%253A%2522%253D%253D%2A%2522%252C%2522value%2522%253A%2522Anaheim%2522%257D%252C%257B%2522colId%2522%253A%2522date%2522%252C%2522operator%2522%253A%2522%253D%253D%2522%252C%2522value%2522%253A%25222026-09-23%2522%257D%252C%257B%2522colId%2522%253A%2522status%2522%252C%2522operator%2522%253A%2522%253D%253D%2A%2522%252C%2522value%2522%253A%2522In%2520Progress%2522%257D%255D
+          - button [ref=f5e61]
+          - link [ref=f5e64]:
+            - /url: /react/inventory/invoices?src=Home&filtersString=%255B%257B%2522colId%2522%253A%2522locationName%2522%252C%2522operator%2522%253A%2522%253D%253D%2A%2522%252C%2522value%2522%253A%2522Anaheim%2522%257D%252C%257B%2522colId%2522%253A%2522date%2522%252C%2522operator%2522%253A%2522%253D%253D%2522%252C%2522value%2522%253A%25222026-09-23%2522%257D%252C%257B%2522colId%2522%253A%2522status%2522%252C%2522operator%2522%253A%2522%253D%253D%2A%2522%252C%2522value%2522%253A%2522In%2520Progress%2522%257D%255D
+            - paragraph [ref=f5e70]: Invoices
+        - generic [ref=f5e72]:
+          - generic:
+            - link "Schedule":
+              - /url: /react/workforce/scheduler?src=Home&locationId=0184ee57-288c-4bd0-a40a-99617f534235
+              - generic:
+                - paragraph: Schedule
+        - generic [ref=f5e75] [cursor=pointer]:
+          - button [ref=f5e76]
+          - link [ref=f5e79]:
+            - /url: /react/inventory/inventory?src=Home&
+            - paragraph [ref=f5e85]: Inventory
+        - generic [ref=f5e87]:
+          - generic:
+            - link "Orders":
+              - /url: /react/inventory/orders?src=Home&
+              - generic:
+                - paragraph: Orders
+        - generic [ref=f5e90] [cursor=pointer]:
+          - button [ref=f5e91]
+          - link [ref=f5e94]:
+            - /url: /react/inventory/transfers?src=Home&
+            - paragraph [ref=f5e100]: Transfers
+        - link [ref=f5e104] [cursor=pointer]:
+          - /url: /react/reports-management/legacy/MyReports
+          - paragraph [ref=f5e110]: Reports
+        - generic [ref=f5e113] [cursor=pointer]:
+          - button [ref=f5e114]
+          - link [ref=f5e117]:
+            - /url: /react/inventory/waste-logs?src=Home&
+            - paragraph [ref=f5e123]: Waste Log
+        - paragraph [ref=f5e135] [cursor=pointer]: Upload Documents
+        - generic [ref=f5e138]:
+          - button [ref=f5e139] [cursor=pointer]
+          - generic [ref=f5e142]:
+            - generic [ref=f5e143]:
+              - heading "A Look at Yesterday" [level=6] [ref=f5e145]
+              - button [ref=f5e147] [cursor=pointer]:
+                - paragraph [ref=f5e152]: Complete DSS
+            - generic [ref=f5e153]:
+              - generic [ref=f5e154]:
+                - generic [ref=f5e159]:
+                  - generic [ref=f5e160]: Total Sales
+                  - heading "$7,191.92" [level=6] [ref=f5e162]
+                - generic [ref=f5e167]:
+                  - generic [ref=f5e168]: Labor
+                  - heading "42.00%" [level=6] [ref=f5e170]
+              - generic [ref=f5e171]:
+                - generic [ref=f5e176]:
+                  - generic [ref=f5e177]: Over / Short
+                  - heading "-$89.48" [level=6] [ref=f5e179]
+                - generic [ref=f5e184]:
+                  - generic [ref=f5e185]: SPLH
+                  - heading "$57.47" [level=6] [ref=f5e187]
+          - generic [ref=f5e188]:
+            - generic [ref=f5e189]:
+              - heading "Week to Date" [level=6] [ref=f5e190]
+              - generic [ref=f5e194]:
+                - generic [ref=f5e195]: Total Sales
+                - heading "$34,483.11" [level=6] [ref=f5e197]
+              - generic [ref=f5e201]:
+                - generic [ref=f5e202]: Labor
+                - heading "30.08%" [level=6] [ref=f5e204]
+            - generic [ref=f5e211]:
+              - generic [ref=f5e213]:
+                - generic [ref=f5e214]: Over / Short
+                - heading "$45.67" [level=6] [ref=f5e216]
+              - link [ref=f5e218] [cursor=pointer]:
+                - /url: /react/home?dashboard=operationsDashboard&locationId=0184ee57-288c-4bd0-a40a-99617f534235
+                - button [ref=f5e219]:
+                  - paragraph [ref=f5e223]: Operations
+        - generic [ref=f5e225]:
+          - generic [ref=f5e227]:
+            - tablist [ref=f5e230]:
+              - tab "Logbook" [selected] [ref=f5e231] [cursor=pointer]
+            - generic [ref=f5e233]:
+              - generic [ref=f5e237]:
+                - generic [ref=f5e238]:
+                  - generic [ref=f5e239]:
+                    - img [ref=f5e240]:
+                      - generic [ref=f5e242]: "-"
+                    - paragraph [ref=f5e243]: All Entries
+                  - generic [ref=f5e244]:
+                    - img [ref=f5e245]:
+                      - generic [ref=f5e247]: "-"
+                    - paragraph [ref=f5e248]: My Entries
+                  - generic [ref=f5e249]:
+                    - img [ref=f5e250]:
+                      - generic [ref=f5e252]: "-"
+                    - paragraph [ref=f5e253]: Must Read
+                  - generic [ref=f5e254]:
+                    - img [ref=f5e255]:
+                      - generic [ref=f5e257]: "-"
+                    - paragraph [ref=f5e258]: Important
+                - button "Tell us something we should know..." [ref=f5e261] [cursor=pointer]
+              - generic [ref=f5e262]:
+                - separator [ref=f5e263]
+                - heading "No Entries yet!" [level=6] [ref=f5e269]
+          - generic [ref=f5e271]:
+            - generic [ref=f5e272]:
+              - 'heading "Business Day: Wednesday, September 23rd" [level=6] [ref=f5e275]': Labor Lineup
+              - generic [ref=f5e276]:
+                - button "print" [disabled]
+            - separator [ref=f5e277]
+            - generic [ref=f5e280]:
+              - generic [ref=f5e281]:
+                - paragraph [ref=f5e284]: View today’s labor lineup
+                - button [ref=f5e285] [cursor=pointer]: Get started with scheduling
+              - generic [ref=f5e286]:
+                - generic [ref=f5e288]:
+                  - generic [ref=f5e290]:
+                    - generic [ref=f5e291]: 7:00 am
+                    - generic [ref=f5e292]: 9:00 pm
+                  - generic [ref=f5e293]:
+                    - generic "Breakfast" [ref=f5e294]
+                    - generic "Launch" [ref=f5e296]
+                    - generic "Dinner" [ref=f5e298]
+                - generic [ref=f5e302]:
+                  - generic:
+                    - generic "John" [ref=f5e328] [cursor=pointer]
+                    - generic [ref=f5e333] [cursor=pointer]
+                    - generic [ref=f5e336] [cursor=pointer]
+                    - generic "Alexa" [ref=f5e339] [cursor=pointer]
+                    - generic [ref=f5e342] [cursor=pointer]
+                    - generic [ref=f5e345] [cursor=pointer]
+                    - generic [ref=f5e348] [cursor=pointer]
+                    - generic [ref=f5e351] [cursor=pointer]
+                    - generic [ref=f5e354] [cursor=pointer]
+                    - generic [ref=f5e357] [cursor=pointer]
+                    - generic [ref=f5e360] [cursor=pointer]
+                    - generic [ref=f5e363] [cursor=pointer]
+                    - generic [ref=f5e366] [cursor=pointer]
+                    - generic [ref=f5e369] [cursor=pointer]
+                    - generic [ref=f5e372] [cursor=pointer]
+                    - generic [ref=f5e375] [cursor=pointer]
+                    - generic [ref=f5e378] [cursor=pointer]
+                    - generic [ref=f5e381] [cursor=pointer]
+                    - generic [ref=f5e384] [cursor=pointer]
+                    - generic [ref=f5e387] [cursor=pointer]
+                    - generic [ref=f5e390] [cursor=pointer]
+                    - generic [ref=f5e393] [cursor=pointer]
+                    - generic [ref=f5e396] [cursor=pointer]
+                    - generic [ref=f5e399] [cursor=pointer]
+                  - generic:
+                    - generic [ref=f5e403] [cursor=pointer]
+                    - generic [ref=f5e404] [cursor=pointer]
+                    - generic [ref=f5e405] [cursor=pointer]
+                    - generic [ref=f5e406] [cursor=pointer]
+                    - generic [ref=f5e407] [cursor=pointer]
+                    - generic [ref=f5e408] [cursor=pointer]
+  - iframe
+```

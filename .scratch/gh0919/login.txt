@@ -1,0 +1,40 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.21              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://restaurant.grubhub.com/login
+- Page Title: Grubhub for Restaurants
+### Snapshot
+```yaml
+- generic [ref=e8]:
+  - generic [ref=e10]:
+    - img "GH Restaurant" [ref=e12]
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - generic [ref=e16]:
+          - generic [ref=e17]: Username or email address
+          - textbox "Username or email address" [ref=e20]
+        - generic [ref=e22]:
+          - generic [ref=e23]: Password
+          - generic [ref=e24]:
+            - textbox "Password" [ref=e26]
+            - button [ref=e29]:
+              - heading "Show" [level=6] [ref=e30] [cursor=pointer]
+        - generic [ref=e33] [cursor=pointer]:
+          - checkbox "Remember me" [ref=e35]
+          - generic [ref=e37]: Remember me
+        - button "Sign in" [ref=e38] [cursor=pointer]
+      - button "Forgot username" [ref=e40] [cursor=pointer]
+      - button "Forgot password" [ref=e42] [cursor=pointer]
+  - contentinfo [ref=e44]:
+    - paragraph [ref=e45]: © 2026 Grubhub Holdings Inc. All rights reserved.
+    - paragraph [ref=e46]: (877) 799-0790
+    - navigation [ref=e47]:
+      - link "Terms of use" [ref=e48] [cursor=pointer]:
+        - /url: "#"
+      - text: Privacy policy
+```
