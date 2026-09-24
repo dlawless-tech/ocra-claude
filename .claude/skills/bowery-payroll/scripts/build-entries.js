@@ -101,7 +101,7 @@ function readChecks(dir, id, kind) {
   const txt = fs.readFileSync(f, 'utf8');
   const checks = [];
   for (const line of txt.split(/\r?\n/))
-    for (const m of line.matchAll(/\b\d{2}\/\d{2}\/\d{4}\s+(?:P\s+)?(\d{4,7})\s+([\d,]+\.\d\d)/g))
+    for (const m of line.matchAll(/\b\d{2}\/\d{2}\/\d{4}\s+(?:P\s+)?(\d{1,7})\s+([\d,]+\.\d\d)/g))
       checks.push({ num: m[1], amount: money(m[2]) });
   const s = txt.match(/TOTAL TRANSACTIONS[^\n]*?(\d+)\s+TOTAL\s+([\d,]+\.\d\d)/);
   return { checks, stated: s ? { count: +s[1], amount: money(s[2]) } : null };

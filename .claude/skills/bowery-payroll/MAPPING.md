@@ -1,6 +1,6 @@
 # The ADP General Ledger to the Bowery R365 payroll entries
 
-Every rule here reproduces the approved 9/13/2026 entries: 477,368.47 across six locations, every amount-bearing line matching on account, side and amount. The only variances are the comment wording and the leftover zero lines named in [`SKILL.md`](SKILL.md).
+Every rule here reproduces the approved 9/13/2026 entries: 477,368.47 across six locations, every amount-bearing line matching on account, side and amount. The only variances are the ones [`SKILL.md`](SKILL.md) lists as expected.
 
 ## The import file
 
@@ -14,6 +14,8 @@ Payroll,Standard,9/13/2026,,,400,100-03,,"68,989.43",400,NET PAYROLL
 `JENumber` is `Payroll` and `Type` is `Standard` on **every** row. `Date` is the period ending. `JELocation` and `DetailLocation` both carry the entity's location number, `ReversalDate` and `JEComment` are empty, and amounts are written with thousands separators, which puts the larger ones in quotes.
 
 Locations run in GL order, 400, 700, 500, 800, 200, 600, each block separated by **two empty rows**. R365 groups lines into one entry by JENumber, Date and location, so the separators are cosmetic and the JENumber is not: the 9/13 file left the Cookshop and Shukette blocks with an empty JENumber, and those are the two entries that had to be built another way.
+
+[`examples/9.13.2026 Bowery PAYROLL IMPORT FILE.csv`](examples/9.13.2026%20Bowery%20PAYROLL%20IMPORT%20FILE.csv) is that file, exactly as it was used. Read it as a sample of the format, and do not copy its content. Besides the two empty JENumber blocks, it has no live check lines, so each run's net payroll sits on one line. It also keeps `PARTIAL DIRECT DEPOSITS` on its own line and writes `145-00` to the entity's location. The builder corrects all four.
 
 ## The entities
 

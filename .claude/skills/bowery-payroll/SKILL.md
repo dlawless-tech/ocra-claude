@@ -64,25 +64,37 @@ bash scripts/dump-lines.sh r365p <TransactionId> "r365-Shuka.json"
 node scripts/compare-plan.js prior/plan.json "Shuka=r365-Shuka.json" ...
 ```
 
-`compare-plan.js` matches on account, side, amount, line location and comment. Two kinds of mismatch are expected and neither is an error:
+`compare-plan.js` matches on account, side, amount, line location and comment. Three kinds of mismatch are expected and none is an error:
 
 - **Comment wording on the net payroll cash line.** Four of the 9/13 locations carry `NET PAYROLL` and two carry `Direct Deposit` or `Direct Deposits`, along with casing drift like `401K PAYABLE` and `WAGES: FOH-MANAGEMENT`. The builder writes the GL's own name.
 - **Leftover zero-amount lines** on an entry built by duplicating a prior week rather than imported.
+- **Net payroll taxes split in two** on those same duplicated entries: the 9/13 Cookshop and Shukette entries carry the hourly and salary taxes as two lines that sum to the builder's one.
 
 Anything else is a changed ADP file, so stop and read it.
 
 ## Post
 
-Hand the import file to the human to load into R365. The `tlaroche` login's navigation carries no import tool, and an entry of this size is not worth keying through the grid: Shuka alone runs 80 lines.
+Do not import a period that is already posted. Filter All Transactions on Number `Payroll` and read the grid's data source; `R365-AUTOMATION.md` carries the call. Six entries dated the period ending mean the period is done.
 
-Do not build a period that is already posted. Filter All Transactions on Number `Payroll` and read the grid's data source; `R365-AUTOMATION.md` carries the call. Six Approved entries dated the period ending mean the period is done.
+Import the file through **Create > Import Journal Entry**, top right of any page. Admin > Import is a different tool with no journal entry type. On a narrow window the search box swallows the top bar, and the X beside it collapses the search to reveal `Create`. The option opens `/#/form/ImportJournalEntryForm/70` in a new tab.
+
+On that form:
+
+1. Uncheck **Beginning Balance** and **Import as Approved**. The entries land Unapproved for the human to approve.
+2. Check **Payroll Journal Entry**, which reveals the pay period fields.
+3. Type the **Payroll Start Date** (the Monday) and **Payroll End Date** (the period ending Sunday) into `#StartDate` and `#EndDate`, then read both back through their `kendoDatePicker`.
+4. Click `Choose File` and hand the CSV to `playwright-cli upload`. Selecting the file starts the import with no further button.
+
+A good import reports `Success` and `6 record(s) created` under Import Result. The upload widget shows a red error icon even on success, so judge by the result line and the read back.
+
+An entry of this size is not worth keying through the grid if the import is unavailable: Shuka alone runs 80 lines.
 
 ## Verify
 
 Re-read every posted entry from R365 rather than trusting what the posting step reported, and check three things per location:
 
-1. The **status** is Approved and the **amount** on the All Transactions grid matches the planned total.
-2. `compare-plan.js` reports a match against `plan.json`, allowing only the two expected variances above.
+1. The **status** is Unapproved until the human approves, and the **amount** on the All Transactions grid matches the planned total.
+2. `compare-plan.js` reports a match against `plan.json`, allowing only the expected variances above.
 3. The line **count** matches the plan. A short entry is an import that dropped rows.
 
 Report the table of locations, line counts, and totals, and report any location that failed just as plainly.
