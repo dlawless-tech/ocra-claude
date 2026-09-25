@@ -35,7 +35,7 @@ It reads the store block (Restaurant, Sales, % of Total, Mgmt Fees) and rounds e
 
 `entryAmount` in `fees.json` is twice the sum of the rounded fees, which is what the All Transactions grid shows. The workbook's own check cell ("This should match the total JE") doubles the unrounded total and can read a cent high: 153,999.57 against the posted 153,999.56 on 9/20/2026. Trust `entryAmount`.
 
-The **Intercompany payments** tab is a separate set of cash transfers with its own weekly entry, and does not feed this one.
+The **Intercompany payments** tab feeds the Intercompany Transfers entry, which `bowery-weekly-ic-transfers` posts, and does not feed this one.
 
 ## Step 2: the entry
 
