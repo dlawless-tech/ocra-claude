@@ -96,6 +96,10 @@ On the 9/19/2026 UberEats entries, hovering `#Approve > a` left every item hidde
 
 An Approved entry shows `Unapprove` on the ribbon in place of `Approve`. A real click on `#Unapprove > a` and then on `li[data-testid="unapproveMenuItem"]` unapproves it with no confirmation dialog, and the `Transaction/UnApprove` response reads `"They all have been unapproved successfully"`.
 
+## Edit and Edit Complete change an approved entry in place
+
+An Approved journal entry carries an **Edit** button above its line grid. A real click turns it into **Edit Complete** and makes the lines editable with the entry still Approved. Set the amounts through `model.set`, then a real click on Edit Complete saves by itself: the `SaveTransaction` body reads committed, and a reload shows the new amounts with the status still Approved. This skips the unapprove, save, and approve round trip. First used on the 9/24/2026 CC Fee Accrual corrections.
+
 ## A rejected save answers 200
 
 `SaveTransaction` answers a rejected save with HTTP 200 and the reason in its body, and the form shows nothing at all. Read the body after every save:
