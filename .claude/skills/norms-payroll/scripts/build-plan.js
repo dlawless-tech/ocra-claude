@@ -41,7 +41,9 @@ function mapRow(r) {
   if (a === '6010') return { acct: '6010', cm: 'general manager bonus', loc: r.loc };
   if (a === '5546') return { acct: '5546', cm: 'cell phone', loc: r.loc };
   if (a === '5547' || a === '6390') return { acct: '5547', cm: '', loc: r.loc };
-  if (a === '5230') return { acct: '5230', cm: 'QTRBA', loc: r.loc };
+  if (a === '5230') return /SELECT DRIVER BONUS/.test(m)
+    ? { acct: '6030', cm: 'select driver bonus', loc: r.loc }
+    : { acct: '5230', cm: 'QTRBA', loc: r.loc };
   if (a === '6060') return { acct: '6060', cm: 'severance', loc: r.loc };
   if (a === '2265') return { acct: '2265', cm: 'vacation', loc: '299' };
   if (a === '2267') return { acct: '2267', cm: 'pto', loc: '299' };

@@ -18,11 +18,14 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 | 5546 CELL PHONE | `5546 - Cell Phone` | cell phone |
 | 5547 and 6390 MILEAGE | `5547 - Mileage` | blank |
 | 5230 QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
+| 5230 Select Driver Bonus | `6030 - MIT/SC Bonus` | select driver bonus |
 | 6060 Severance | `6060 - Severance Pay` | severance |
 
 **CSV 5210 is hourly and CSV 5212 is salary.** Hourly posts to the FOH / BOH pair, salary to R365 `5210`. Getting this backwards misposts half a million dollars into accounts that all look right in a total.
 
 **Hourly splits FOH / BOH by the PAY DETAILS LG file**, since the CSV carries no job GL. `build-plan.js --detail` reads it through the shared key in [`../norms-payroll-labor-breakdown/scripts/pay-details.js`](../norms-payroll-labor-breakdown/scripts/pay-details.js), and refuses to plan unless each store's FOH + BOH equals its CSV hourly total to the cent. Both lines carry the hourly comment. A store with no FOH line yet reports one to add.
+
+**A CSV 5210 `Retro` memo is missing from the pay details file**, so its store fails the tie. Find the `RET` earning in the Labor Distribution, read the employee's `Cost: <location> <job GL>`, and add a row for that cost center carrying the amount to a working copy of the pay details csv.
 
 **Location 370 - Select Industries** posts all its labor, hourly and salary, to one `6025 - Salary-Hourly` line.
 
@@ -68,6 +71,6 @@ The CSV drops an account entirely when a week has none of it. Mileage, cell phon
 
 ## Rounding
 
-The CSV's tax sum runs a few cents under the Stat Summary's Total Taxes, and its ER tax sum under the Stat Summary's by the same amount, so an entry built entirely from the CSV balances. Use the CSV figures and record the difference in the tie-out.
+The CSV's tax sum runs a few cents under the Stat Summary's Total Taxes, and its ER tax sum under the Stat Summary's by the same amount. Post the Stat Summary's Total Taxes on the `total taxes` line, since that is what ADP debits from the bank, and put the same cents on `5320 - Payroll Taxes` at 299 to keep the entry balanced. `build-plan.js` emits the CSV figures, so add both adjustments to the plan by hand.
 
 Account `9999 Suspense` at dept `999` appears in some weeks. It carries no journal line and has to be disposed of deliberately, which is how the 8/29 entry acquired a 24.53 credit on `5320 - Payroll Taxes` at 211 and a 0.44 credit on `5300 - Healthcare` at 299.

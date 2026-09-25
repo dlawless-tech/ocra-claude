@@ -13,9 +13,9 @@ The user supplies the file, named like `NORMS - PAY DETAILS LG ... .xlsx`. Colum
 
 ## The key
 
-`scripts/pay-details.js` holds the job GL key and is its single source of truth for both skills. FOH is 5265, 5270, 5275, 5280, 5285, 6020. BOH is 4085, 5245, 5250, 5255, 5260, 5800. Salary is 5215, 5220, 5230, which post to `5210 - Store Labor (Salary)` and stay out of the split.
+`scripts/pay-details.js` holds the job GL key and is its single source of truth for both skills. FOH is 5265, 5270, 5275, 5280, 5285, 6020. BOH is 4085, 5245, 5250, 5251, 5255, 5260, 5800. Salary is 5215, 5220, 5230, which post to `5210 - Store Labor (Salary)` and stay out of the split.
 
-A job GL missing from the key with money on it fails the build. Ask the user which side it belongs on, then add it to the key. One with only zeros (5251 has appeared) is skipped.
+A job GL missing from the key with money on it fails the build. Ask the user which side it belongs on, then add it to the key. One with only zeros is skipped.
 
 The hourly figure is **Regular + Overtime + Double Time + Meal Penalty** earnings. Sick and PTO earnings sit on the accrued `2270` and `2267` lines and stay out.
 
