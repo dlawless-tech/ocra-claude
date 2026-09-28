@@ -8,8 +8,10 @@ description: Post the weekly management fee journal entry into Bowery Group Rest
 Bowery Group Corp charges each store a management fee every week and sweeps the same amount from the store's bank account to Bowery's. The client computes the fees in a workbook; this skill copies the prior week's entry and loads that week's fees into it.
 
 ```
-c:\Users\trici\OCRA\TML's Files - General\Downloads\BWRY - Mgmt Fees & IC Transfers.xlsx
+c:\Users\trici\OCRA\Flecha - General\Journal Entries\Mgmt Fees & Intercompany Transfers\BoweryGroup_<m.dd>_Mgmt Fees & InterCo Transfers.xlsx
 ```
+
+The week's workbook is the one outside that folder's `Completed` subfolder. The date in its name is typed by hand and has been wrong: `BoweryGroup_9.20_...` held the week ending 9/27/2026. Cell D5 decides the week.
 
 Ask the human for the file if it is missing or its Week Ending is not the week being posted.
 
@@ -35,7 +37,7 @@ It reads the store block (Restaurant, Sales, % of Total, Mgmt Fees) and rounds e
 
 `entryAmount` in `fees.json` is twice the sum of the rounded fees, which is what the All Transactions grid shows. The workbook's own check cell ("This should match the total JE") doubles the unrounded total and can read a cent high: 153,999.57 against the posted 153,999.56 on 9/20/2026. Trust `entryAmount`.
 
-The **Intercompany payments** tab feeds the Intercompany Transfers entry, which `bowery-weekly-ic-transfers` posts, and does not feed this one.
+The intercompany tab feeds the Intercompany Transfers entry, which `bowery-weekly-ic-transfers` posts, and does not feed this one.
 
 ## Step 2: the entry
 
@@ -62,7 +64,7 @@ An Approved entry dated the Week Ending means the week is done; stop and report 
 
 ## Step 3: duplicate the prior week
 
-Open the prior week's entry at `https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>` and use **Action > Duplicate**. A dialog asks `Duplicate transaction and attachments?`; answer **No, transaction only**, so the prior week's workbook stays off the new entry. The copy is written to the server on that click, opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (the Week Ending) and `#journalEntryNumber` (`Management Fees`), read both back, and save once before touching lines:
+Open the prior week's entry at `https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>` and use **Action > Duplicate**. Click the menu row that wraps the `Duplicate` button, the snapshot line just above it; a click on the inner button does nothing. A dialog asks `Duplicate transaction and attachments?`; answer **No, transaction only**, so the prior week's workbook stays off the new entry. The copy is written to the server on that click, opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (the Week Ending) and `#journalEntryNumber` (`Management Fees`), read both back, and save once before touching lines:
 
 ```bash
 bash <skills>/danny-coops-payroll/scripts/save.sh mf
@@ -85,15 +87,15 @@ Then save with `save.sh` and read the body.
 
 ## Step 5: attach the workbook
 
-Every entry carries the workbook it was built from. The line grid's attachment panel holds **Upload File**; a real click opens a file chooser, which `playwright-cli upload` answers. Copy the workbook into the working directory first, since `upload` takes a path relative to it:
+Every entry carries the workbook it was built from, and R365 takes an upload only on a saved entry: upload after Step 4's save has committed. Reload the entry by its id; the attachment panel renders after the grid, so re-snapshot until **Upload File** shows. A real click on it opens a file chooser, which `playwright-cli upload` answers. Copy the workbook into the working directory first, since `upload` takes a path relative to it:
 
 ```bash
 cp "<workbook>" .
 playwright-cli -s=mf click <button "Upload File" ref>
-playwright-cli -s=mf upload "BWRY - Mgmt Fees & IC Transfers.xlsx"
+playwright-cli -s=mf upload "<workbook file name>"
 ```
 
-The upload lands on its own, with no save. It is done when a link named `BWRY - Mgmt Fees & IC Transfers.xlsx` shows in the panel after a reload.
+The upload lands on its own, with no save. It is done when a link named for the workbook shows in the panel after a reload.
 
 ## Step 6: verify and approve
 
@@ -106,10 +108,18 @@ node <skill>/scripts/check-lines.js fees.json readback.txt
 
 It prints `MATCH` only when the date is the Week Ending, the number is `Management Fees`, there are 20 lines, debits equal credits at `entryAmount`, and each store's four lines carry its fee. A third argument checks a different number, such as a test entry's.
 
-Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Management Fees` row Approved at `entryAmount`.
+Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`. Approve and Close shuts the entry's tab and takes its request log with it, so the grid is the proof: the week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Management Fees` row Approved at `entryAmount`.
 
-Report the `check-lines.js` table, the entry's status and amount from the grid, and whether the workbook is attached.
+## Step 7: file the workbook
+
+Once this entry and the week's Intercompany Transfers entries all read Approved on the grid, move the workbook into the `Completed` folder beside it. With Intercompany Transfers still open, leave the workbook in place and say so.
+
+```bash
+mv "<workbook>" "<workbook folder>/Completed/"
+```
+
+Report the `check-lines.js` table, the entry's status and amount from the grid, whether the workbook is attached, and whether it moved to `Completed`.
 
 ## Test entries
 
-A test run numbers the copy `Management Fees TEST` and stops short of approving. Delete it afterward through **Action > Delete** and answer **Yes** to `Are you sure you wish to delete?`; the tab closes on success. Confirm no `TEST` row remains on All Transactions. First run 9/25/2026 against the 9/20/2026 week, which matched on every line with the workbook attached.
+A test run numbers the copy `Management Fees TEST` , stops short of approving, and leaves the workbook in place. Delete it afterward through **Action > Delete** and answer **Yes** to `Are you sure you wish to delete?`; the tab closes on success. Confirm no `TEST` row remains on All Transactions. First run 9/25/2026 against the 9/20/2026 week, which matched on every line with the workbook attached.

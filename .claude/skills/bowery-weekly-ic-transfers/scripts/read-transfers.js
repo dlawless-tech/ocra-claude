@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Read the Cash Transfers to Make block of BWRY - Mgmt Fees & IC Transfers.xlsx into transfers.json.
 //
-//   read-transfers.js <file.xlsx> > transfers.json
+//   read-transfers.js <file.xlsx> > transfers.json               Bowery entry, store-to-store listed under separate
+//   read-transfers.js <file.xlsx> Shuka/Shukette > shuka.json    one store-to-store entry
 //
 // Finds the block by its labels, since the tab's name and columns move between weeks.
 // Exits nonzero when the block disagrees with itself.
@@ -24,9 +25,9 @@ if (fs.existsSync(path.join(dir, 'xl/sharedStrings.xml')))
     strs.push(unesc(t));
   }
 const rels = rd('xl/_rels/workbook.xml.rels');
-const tab = prefix => {
-  const rid = (rd('xl/workbook.xml').match(new RegExp(`<sheet name="${prefix}[^"]*"[^>]*r:id="([^"]+)"`)) || [])[1];
-  if (!rid) fail(`no tab starting "${prefix}"`);
+const tab = name => {
+  const rid = (rd('xl/workbook.xml').match(new RegExp(`<sheet name="[^"]*${name}[^"]*"[^>]*r:id="([^"]+)"`)) || [])[1];
+  if (!rid) fail(`no tab named like "${name}"`);
   const t = rels.match(new RegExp(`Id="${rid}"[^>]*Target="([^"]+)"|Target="([^"]+)"[^>]*Id="${rid}"`));
   const cell = {};
   for (const cm of rd('xl/' + (t[1] || t[2]).replace(/^\/?xl\//, '')).matchAll(/<c r="([A-Z]+\d+)"([^>]*?)(\/>|>([\s\S]*?)<\/c>)/g)) {
@@ -72,6 +73,17 @@ for (let r = row0 + 1; r < row0 + 40; r++) {
   transfers.push({ from: norm(f), to: norm(t), amount: r2(a) });
 }
 const total = r2(transfers.reduce((s, x) => s + x.amount, 0));
-if (stated === undefined) fail('no total under the transfer rows');
-if (Math.abs(total - r2(stated)) > 0.001) fail(`transfers sum to ${total}, the block states ${r2(stated)}`);
-console.log(JSON.stringify({ weekEnding: mdy(we), total, transfers }, null, 1));
+if (stated === undefined) console.error(`WARN: no total under the transfer rows; transfers sum to ${total}`);
+else if (Math.abs(total - r2(stated)) > 0.001) fail(`transfers sum to ${total}, the block states ${r2(stated)}`);
+
+// store-to-store transfers post as their own entry, numbered <To>/<From>, header at the To store
+const loc = { Cookshop: '200 - Cookshop', Shuka: '400 - Shuka', "Rosie's": "500 - Rosie's", Shukette: '600 - Shukette', "Vic's": "700 - Vic's" };
+const sum = ts => r2(ts.reduce((s, x) => s + x.amount, 0));
+const main = transfers.filter(t => t.from === 'Bowery' || t.to === 'Bowery');
+const separate = transfers.filter(t => !main.includes(t)).map(t => ({ number: `Intercompany Transfers - ${t.to}/${t.from}`, location: loc[t.to], weekEnding: mdy(we), total: t.amount, transfers: [t] }));
+const pick = process.argv[3];
+if (pick) {
+  const e = separate.find(x => x.number === `Intercompany Transfers - ${pick}`);
+  if (!e) fail(`no store-to-store transfer "${pick}"; this week has ${separate.map(x => x.number).join(', ') || 'none'}`);
+  console.log(JSON.stringify(e, null, 1));
+} else console.log(JSON.stringify({ weekEnding: mdy(we), number: 'Intercompany Transfers', total: sum(main), transfers: main, separate }, null, 1));

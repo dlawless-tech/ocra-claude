@@ -2,7 +2,7 @@
 // Compare a read-back of the posted entry against transfers.json.
 //
 //   playwright-cli -s=$S eval "$(cat ../bowery-weekly-mgmt-fees/scripts/read-lines.js)" > readback.txt
-//   check-transfers.js transfers.json readback.txt [number]   number defaults to Intercompany Transfers
+//   check-transfers.js transfers.json readback.txt [number]   number defaults to the json's
 const fs = require('fs'), path = require('path');
 const x = require(path.resolve(process.argv[2]));
 let s = fs.readFileSync(process.argv[3], 'utf8');
@@ -15,7 +15,7 @@ const cash = {
 const has = (p, side, amt, comment) => e.lines.some(l => l.a.startsWith(cash[p][0] + ' ') && l.loc.startsWith(cash[p][1] + ' ')
   && Math.abs((side === 'credit' ? l.cr : l.dr) - amt) < 0.001 && (side === 'credit' ? l.dr : l.cr) === 0
   && String(l.c).split('’').join("'") === comment);
-const errs = [], want = process.argv[4] || 'Intercompany Transfers';
+const errs = [], want = process.argv[4] || x.number || 'Intercompany Transfers';
 if (e.date !== x.weekEnding) errs.push(`date ${e.date}, expected ${x.weekEnding}`);
 if (e.number !== want) errs.push(`number "${e.number}", expected "${want}"`);
 if (e.lines.length !== x.transfers.length * 2) errs.push(`${e.lines.length} lines, expected ${x.transfers.length * 2}`);
