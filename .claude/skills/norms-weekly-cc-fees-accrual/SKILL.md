@@ -67,11 +67,15 @@ debit   5510 - Credit Card Fees          accrual
 credit  2016 - Accrued Credit Card Fees  accrual
 ```
 
-The entries exist before the week closes: the 9/19/2026 set was created and approved on 9/19 and the amounts entered on 9/22. If the Saturday has fewer than 24, stop and report which stores are missing rather than building new ones. Through 9/5/2026 the accrual posted as one combined entry across every location, and the per-store set began on 9/12/2026, so an older week reads differently.
+The entries exist before the week closes, either Approved or Unapproved at 0.00: the 9/19/2026 set was created and approved on 9/19 and the amounts entered on 9/22, while the 9/26/2026 set sat Unapproved until it was filled on 9/28. Read each row's `ApprovalStatus` to pick its path in Step 4. If the Saturday has fewer than 24, stop and report which stores are missing rather than building new ones. Through 9/5/2026 the accrual posted as one combined entry across every location, and the per-store set began on 9/12/2026, so an older week reads differently.
 
 ## Step 4: posting
 
-Open each entry by its direct URL, `https://norms.restaurant365.com/#/form/JournalEntryForm/<TransactionId>`. The entries are already Approved, and they edit in place without unapproving:
+Open each entry by its direct URL, `https://norms.restaurant365.com/#/form/JournalEntryForm/<TransactionId>`. The path depends on the entry's status.
+
+### An Approved entry
+
+It edits in place without unapproving:
 
 1. A real `playwright-cli click 'button.btn-default:has-text("Edit")'` on the **Edit** button above the line grid. It turns into **Edit Complete**.
 2. Set both lines through the line grid's Kendo model, finding each line by its account:
@@ -88,7 +92,20 @@ Open each entry by its direct URL, `https://norms.restaurant365.com/#/form/Journ
 3. A real click on **Edit Complete**. It saves on its own: read the newest `SaveTransaction` body, which reads `[["1","<TransactionId>"," "],["1",""]]` when committed.
 4. Reload by the same URL and read both lines back numerically.
 
-An entry is done when its two lines each read the accrual after the reload and it still reads Approved. On 9/24/2026 this corrected five approved entries at about a minute each.
+On 9/24/2026 this corrected five approved entries at about a minute each.
+
+### An Unapproved entry
+
+It opens with the lines already editable and the button above the grid already reading **Edit Complete**, so skip the Edit click:
+
+1. Set both lines through the Kendo model as above.
+2. Save through the ribbon's `Save` submenu (`saveMenuItem`, fired on the `li`'s scope) and read the `SaveTransaction` body for the committed shape.
+3. Approve with a real click on `#Approve > a`, then a real click on `li[data-testid="approveMenuItem"]`. The `Transaction/Approve` body reads `"Successfully Approved."` with the entry's id.
+4. Reload by the same URL and read both lines back numerically.
+
+On 9/28/2026 this filled and approved all 24 entries for 9/26 at about 50 seconds each. The ribbon mechanics are in the automation notes.
+
+An entry is done, on either path, when its two lines each read the accrual after the reload and it reads Approved.
 
 ## Verifying the run
 
