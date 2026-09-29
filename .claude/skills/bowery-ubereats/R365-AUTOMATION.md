@@ -59,10 +59,10 @@ Before clicking Add, read the form model back and check account, amount, comment
 
 ```js
 const m = angular.element(document.querySelector('.grid-add-row-button')).scope().gridOptions.journalEntryDetailsGrid.newRowForm.model;
-return [document.querySelector('input[placeholder="Select Account"]').value, m.debit, m.credit, m.comment, m.location];
+return [document.querySelector('input[placeholder="Select Account"]').value, m.debit, m.credit, m.comment, m.locationId];
 ```
 
-`m.location` holds the location id. Compare it against the `locationId` on the entry's existing rows, from the grid's `kendoGrid.dataSource.data()`. The new line lands in the grid at once, and it reaches the server only on Save.
+`m.locationId` holds the location id as a one element array; older builds named it `m.location`. Compare it against the `locationId` on the entry's existing rows, from the grid's `kendoGrid.dataSource.data()`. The new line lands in the grid at once, and it reaches the server only on Save.
 
 ## Quote every shell variable interpolated into JavaScript
 
