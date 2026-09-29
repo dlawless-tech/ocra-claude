@@ -84,6 +84,8 @@ The difference line is the gap between what R365 booked as third party sales and
 
 **Verify the formula against the previous week before posting a batch.** Run the GL report a second time over the prior pay period. For each location, the `Journal Entry` debits are prior D and the `Journal Entry` credit is the approved UberEats credit. `prior D - approved credit` is the prior Total Payout, and it must equal that store's `Bank Deposit` credit in the current period's report. This checks the whole estate from two reports with no Uber reading. A store that fails has a changed process or a missed deposit; before posting it, pull its prior period Uber figures and compare them directly.
 
+**A deposit that has not landed never holds an entry.** The entry needs only this period's D and this period's Uber figures, so post it the same day. A store with no `Bank Deposit` row passes the check when its prior period Uber Total Payout equals `prior D - approved credit`: the deposit is late, and the check is done. Only a mismatch there holds the store, since it means the process changed. Report late deposits with their amounts so the human can chase them.
+
 ## Store to location mapping
 
 The estate is 24 stores, and Uber spells the name three ways: `NORMS - Anaheim`, `NORMS (Hollywood)`, `Norms (Rialto)`. Match case-insensitively. A case-sensitive `NORMS` finds 22 and drops `Norms (Las Vegas)` and `Norms (Rialto)` without saying so.
