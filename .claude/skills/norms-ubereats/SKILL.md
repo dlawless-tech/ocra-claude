@@ -131,3 +131,13 @@ If the automated save will not land after a retry, re-enter the amounts, tell th
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, amounts, and totals, and report any store that failed just as plainly.
+
+## Closing the sessions
+
+Once the grid check passes, close every browser session the run opened, the Uber session and each R365 session including any parallel workers:
+
+```bash
+for S in default r365 r365b; do playwright-cli -s=$S close; done
+```
+
+Run `playwright-cli list` first and close only the sessions this run opened, leaving any that were already open when it started. Close from the same working directory the run used, since sessions bind to it.
