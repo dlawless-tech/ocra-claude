@@ -1,7 +1,8 @@
 #!/usr/bin/env node
-// Build the Danny & Coop's payroll entry from the two payroll exports, and map
+// Build the Danny & Coop's payroll entry from the payroll exports, and map
 // it onto an entry's dumped lines.
 //
+//   build-plan.js <payroll-journal.csv> [--entry je.json] [--out edits.json]
 //   build-plan.js <account-summary.csv> <payroll-summary.csv> [--entry je.json] [--out edits.json]
 //
 // Without --entry: prints the plan. With --entry: compares the plan against
@@ -14,8 +15,9 @@ const args = process.argv.slice(2);
 const flag = n => { const i = args.indexOf(n); return i < 0 ? null : args.splice(i, 2)[1]; };
 const entryPath = flag('--entry');
 const outPath = flag('--out');
-const [acctPath, empPath] = args;
-if (!acctPath || !empPath) { console.error('usage: build-plan.js <account-summary.csv> <payroll-summary.csv> [--entry je.json] [--out edits.json]'); process.exit(2); }
+const journal = args.length === 1;
+const [acctPath, empPath] = journal ? [null, args[0]] : args;
+if (!empPath) { console.error('usage: build-plan.js <payroll-journal.csv> | <account-summary.csv> <payroll-summary.csv> [--entry je.json] [--out edits.json]'); process.exit(2); }
 
 const fail = m => { console.error('STOP: ' + m); process.exit(1); };
 const c2 = n => Math.round(n * 100);
@@ -37,8 +39,32 @@ function csv(text) {
 }
 const money = s => { s = (s || '').replace(/[$,\s]/g, ''); return !s || s === '-' ? 0 : c2(parseFloat(s)); };
 
+// journal: per-employee rows only, so derive the account summary; direct deposit is the plug
+function acctFromJournal(rows) {
+  const h = rows[0], tot = rows[rows.length - 1], emps = rows.slice(1, -1);
+  const at = n => { const i = h.indexOf(n); if (i < 0) fail(`payroll journal has no ${n} column`); return i; };
+  const v = n => money(tot[at(n)]);
+  const $ = c => '$' + fmt(c);
+  const out = [['Category', 'Description', 'Debit', 'Credit']];
+  let dr = 0;
+  const earn = { Wages: 'Hourly (Regular) Amt', Overtime: 'Overtime Amt', 'Non-Hourly Wages': 'Non-Hourly Regular Amt', Salaries: 'Salaried Amt', Bonus: 'Bonus Amt', Tips: 'Paycheck Tips Amt' };
+  for (const [d, n] of Object.entries(earn)) { out.push(['Earnings', d, $(v(n)), '-']); dr += v(n); }
+  out.push(['Reimbursements', 'Reimbursements', $(v('Reimbursements')), '-']);
+  for (const n of h.filter(n => /Deduction$/.test(n))) out.push(['Deductions', n, $(v(n)), $(v(n))]);
+  for (const n of h.filter(n => /\(ER\)$/.test(n))) { out.push(['Taxes', n, $(v(n)), '-']); dr += v(n); }
+  const pm = at('Payment Method'), net = at('Net Pay');
+  for (const r of emps) if (!['Manual', 'Direct Deposit'].includes(r[pm])) fail(`${r[1]} ${r[0]} has payment method ${r[pm]}`);
+  let ck = 0;
+  for (const r of emps.filter(r => r[pm] === 'Manual')) { out.push(['Paper Check', `${r[1]} ${r[0]}`, '', r[net]]); ck += money(r[net]); }
+  const ins = v('New York Paid Family Leave Insurance (EE)') + v('New York SDI (EE)');
+  out.push(['Direct Deposit', '', '', $(dr - ins - ck)]);
+  const md = s => new Date(s + 'T12:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  out.push(['Selected Payrolls', `${md(tot[at('Period Start')])} - ${md(tot[at('Period End')])} (Pay day: ${md(tot[at('Payday')])})`]);
+  return out;
+}
+
 // account summary
-const acct = csv(fs.readFileSync(acctPath, 'utf8'));
+const acct = journal ? acctFromJournal(csv(fs.readFileSync(empPath, 'utf8'))) : csv(fs.readFileSync(acctPath, 'utf8'));
 const hdr = acct[0];
 const col = n => { const i = hdr.indexOf(n); if (i < 0) fail(`account summary has no ${n} column`); return i; };
 const [CAT, DESC, DR, CR] = ['Category', 'Description', 'Debit', 'Credit'].map(col);
@@ -50,7 +76,7 @@ const m = sel[1].match(/^(\w+ \d+, \d{4}) - (\w+ \d+, \d{4}) \(Pay day: (\w+ \d+
 if (!m) fail('cannot read period from: ' + sel[1]);
 const mdy = s => { const d = new Date(s); return `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`; };
 const period = { start: mdy(m[1]), end: mdy(m[2]), payDay: mdy(m[3]) };
-const fileDay = empPath.match(/(\d{4})-(\d{2})-(\d{2})\.csv$/i);
+const fileDay = !journal && empPath.match(/(\d{4})-(\d{2})-(\d{2})\.csv$/i);
 if (fileDay && `${+fileDay[2]}/${+fileDay[3]}/${fileDay[1]}` !== period.payDay) fail(`payroll summary is for pay day ${fileDay[0].slice(0, 10)}, account summary for ${period.payDay}`);
 
 const known = {
