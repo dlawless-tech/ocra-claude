@@ -76,6 +76,17 @@ It confirms `Successfully Approved` in the server's reply. The week is done when
 
 Report each store's four changes, entry total, status, and attachment.
 
+## Step 5: close the windows
+
+Once the week is approved and reported, close every browser window from the run's working directory:
+
+```bash
+playwright-cli -s=inv close
+playwright-cli list    # confirms no session is left open
+```
+
+This ends the run, and a correction afterward logs in to both sites again. Close after a correction the same way.
+
 ## Correcting a past entry
 
 A past week whose counts changed in Craftable, or that started from the wrong balances, is corrected in place. Build that week's `lines.json` with `pull-audits.sh` for its Sunday, then:
