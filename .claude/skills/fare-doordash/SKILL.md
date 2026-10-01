@@ -12,15 +12,15 @@ Through August 2026 these were monthly entries, one per store, each with that st
 Sessions, all from one working directory, since `playwright-cli` binds sessions to it:
 
 ```bash
-playwright-cli -s=fdd2 open --headed https://www.doordash.com/merchant/login   # DoorDash
-bash <skill>/../fare-ubereats/scripts/r365-login.sh fdd                       # fare.restaurant365.com
+bash <skill>/scripts/dd-login.sh fdd2                       # DoorDash merchant portal
+bash <skill>/../fare-ubereats/scripts/r365-login.sh fdd     # fare.restaurant365.com
 ```
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting R365; the same build serves FARE.
 
 ## Logins
 
-Credentials live in `~/.claude/fare-credentials.md`, outside any repo: R365 `tlaroche`, DoorDash `mark+33@ocra-us.com` with a password. DoorDash logs in through `identity.doordash.com` in two steps: fill the email, click **Continue to Log In**, then fill the password and click **Log In**. If it asks for a mailed code, hand the keyboard over and say so.
+Credentials live in `~/.claude/fare-credentials.md`, outside any repo: R365 `tlaroche`, DoorDash `mark+33@ocra-us.com` with a password. `dd-login.sh` reads the DoorDash block and logs in through `identity.doordash.com`. If it stops on a mailed code, hand the keyboard over and say so. Both browsers can close mid run; re-run the login scripts and carry on.
 
 ## Phase 1: read DoorDash
 
@@ -28,15 +28,15 @@ DoorDash pays each Monday to Sunday week the following **Thursday**, one payout 
 
 **Overlays swallow real clicks on this portal.** The DoorDash Assistant chat panel and a "reports in one place" intro dialog sit over the page and every `click` times out on them. Collapse the chat (`button "Collapse Chat"`) and close the dialog first. Nav buttons that still time out take an `eval` click: `[...document.querySelectorAll('button')].find(e=>e.innerText.trim()==='Financials').click()`.
 
-Build the report: Financials, open any payout row, **Create report**. Leave **All stores (10)**, **One-time report**, **By payout date**, and all four CSVs checked. Pick the Thursday from the payout date menu, then **Create report**. It lands on the Reports page and reads **Download** within a minute. The download saves a zip under `.playwright-cli/`:
-
 ```bash
-mkdir w0913 && cd w0913 && unzip ../.playwright-cli/financial-2026-09-17-*.zip && cd ..
+bash <skill>/scripts/dd-report.sh fdd2 9/17/2026 w0913
 node <skill>/scripts/build-lines.js w0913 9/13/2026 > lines.json
 node <skill>/scripts/split-payouts.js w0913 w0913/att
 ```
 
 The 9/6/2026 week alone passes `--from 2026-09-01`, which drops the 8/31 rows from the 9/10 payout. Without `--from`, `build-lines.js` stops on any row dated outside the week. It also stops on an unknown store, a store whose detail does not add to its payout net, and on Adjustments or tax passed to the store, which the entry does not model. `scripts/stores.json` maps DoorDash Store IDs to R365 locations; map by ID, since DoorDash store names change.
+
+`dd-report.sh` goes Financials, a payout row, **Create report**, keeps **All stores (10)**, **By payout date** and all four CSVs, picks the Thursday from the payout date menu, then waits on the Reports page for the row's **Download**, downloads the zip and unzips it. The Download button appears early with a Loading spinner inside it, and a click then fetches nothing. The menu offers only payouts that exist, so a week is readable from its Thursday on.
 
 `split-payouts.js` writes each store's row of the payout summary to `DoorDash payout <date> <store>.csv`, the file attached to its entry.
 
@@ -57,10 +57,16 @@ A store with no sales still gets its entry, every line at 0.00 and the header an
 ## Phase 2: post
 
 ```bash
-bash <skill>/scripts/post-store.sh fdd lines.json "Logan Square" <source TransactionId>
+bash <skill>/scripts/run-week.sh fdd lines.json w0913/att sources.txt ids0913.txt
 ```
 
-The source is the store's prior week `DoorDash` entry. For 9/6/2026 it was the store's 8/31 monthly:
+`sources.txt` holds one `store|TransactionId` per line, each store's prior week `DoorDash` entry. `run-week.sh` writes the same shape to its last argument for every store it approves, so this week's ids file is next week's sources. For each store it logs in again, closes extra tabs, runs `post-store.sh`, then attaches the store's payout CSV with `attach.sh` and approves with `approve.sh`, each step gated on the one before: `MATCH`, then `attached`. The zero store has no attachment and is approved once its read-back shows `no sales this week` on every line. A store that fails prints `FAIL`, its id if a copy exists, and stays unapproved.
+
+`post-store.sh` duplicates the source (transaction only) and saves the copy with the date and number, then sets the header location, trims, adds and sets lines, saves, reloads, and prints the `check-lines.js` table. A source with no attachments, such as the zero store's, skips R365's "transaction only" question and opens the copy tab directly. A failure after the duplicate step leaves a saved copy holding the source's amounts; finish it in place with `REDO=<id> post-store.sh ...` rather than duplicating again.
+
+A run stopped mid store can still have finished that store. Read the week's rows in All Transactions before redoing anything.
+
+For 9/6/2026 the sources were the 8/31 monthlies:
 
 | Store | 8/31 TransactionId |
 |---|---|
@@ -74,20 +80,6 @@ The source is the store's prior week `DoorDash` entry. For 9/6/2026 it was the s
 | Sterling | `788aacbf-7d86-4261-81c6-b7c69a3b14c9` |
 | Lakeview | `fbeddc2d-98b2-43d1-a65d-5b63018bbfbe` |
 | Old Town | `a50f5ad5-aa37-419e-8672-60480ba0f8fd` |
-
-The script duplicates the source (transaction only) and saves the copy with the date and number, then sets the header location, trims, adds and sets lines, saves, reloads, and prints the `check-lines.js` table. Read `MATCH` for each store. Close the extra tabs between stores, since `duplicate.sh` picks the newest copy tab. A failure after the duplicate step leaves a saved copy holding the source's amounts; finish it in place with `REDO=<id> post-store.sh ...` rather than duplicating again.
-
-Then, per store with `MATCH`:
-
-```bash
-bash <skill>/../fare-ubereats/scripts/attach.sh fdd <id> "w0913/att/DoorDash payout 2026-09-17 Logan Square.csv"
-```
-
-```bash
-bash <skill>/../fare-ubereats/scripts/approve.sh fdd <id>
-```
-
-R365 takes an upload only on a saved entry. Approve a store only after it reads `MATCH` and `attach.sh` prints `attached`; chain the three so a failed attach stops before approval. The zero store has no attachment and is approved once its read-back shows every line at 0.00.
 
 ## Verifying the run
 
