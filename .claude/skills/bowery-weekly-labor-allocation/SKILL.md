@@ -8,10 +8,12 @@ description: Post the weekly labor allocation journal entry into Bowery Group Re
 Some employees are paid out of one store and work for another. Each week the client lists them in a workbook, and this skill copies the prior week's entry and loads that week's allocations and payroll taxes into it.
 
 ```
-c:\Users\trici\OCRA\TML's Files - General\Downloads\Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx
+C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Weekly Labor Allocations\
+  Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx   the week waiting to post
+  Completed\                                         every posted week's workbook
 ```
 
-A new file arrives each week, named for its week ending. Ask the human for it if the week's file is missing.
+A new file arrives each week, named for its week ending. Ask the human for it if the week's file is missing. The share syncs to Teams through OneDrive.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting R365, for the login, the side-menu walk to All Transactions, the grid data source, and the new-row form. The duplicate, save, and approve behavior lives in [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) under **Duplicate saves on click**, **A rejected save answers 200**, and **Ribbon buttons are menu openers**.
 
@@ -42,7 +44,7 @@ The code wins over the label: the 9/20/2026 file wrote Andy's position as `251 -
 
 Payroll taxes are 7.65% of each store's net (wages allocated in minus wages paid out), rounded to the cent: a debit for a store that gained labor, a credit for one that gave it. The reader checks the workbook's own tax block against that and stops on a difference.
 
-It also stops when the rounded tax debits miss the credits by a cent; ask which store takes the cent. The wage total and grand total cells are checked when present and are missing from some weeks' files.
+It also stops when the rounded tax debits miss the credits by a cent; ask which store takes the cent, then rerun with `--cent <store>`, which moves that store's tax line by the gap. The 9/27/2026 file rounded to 217.77 debits against 217.78 credits, and Cookshop, the debit with the largest rounding remainder, took the cent at 51.98. The wage total and grand total cells are checked when present and are missing from some weeks' files.
 
 `total` in `labor.json` is wages plus tax credits, the entry amount the All Transactions grid shows.
 
@@ -89,19 +91,20 @@ When the week's moves or tax lines and the entry's lines differ, it changes noth
 - `ADD tax 610-01 @ <location> debit|credit <amount>` for a store newly carrying a net. Add it with a blank comment.
 - `REMOVE wage pair ...` or `REMOVE tax line @ <store>` for lines the week lacks. Delete them with their trash icons.
 
+The new-row form's location is a button that defaults to Bowery Group Corp. Set it through the model, `newRowForm.model.locationId = ['<id>']` inside the scope's `$apply`, taking the id from the `journalEntryLocation` combobox's data source, and read it back before Add. Shuka carries a closed date of 8/30/2026 there, yet the 9/27/2026 entry saved and approved with Shuka lines.
+
 Then rerun `set-labor.js` until it reports `set`. A `STOP:` names a line that fits no pair; read it before going further. Save with `save.sh` and read the body.
 
 ## Step 5: attach the workbook
 
-Every entry carries the workbook it was built from. A real click on **Upload File** in the line grid's attachment panel opens a file chooser, which `playwright-cli upload` answers with a path relative to the working directory:
+Every entry carries the workbook it was built from. Copy it into a folder under the working directory holding only that file, and let the payroll attach script upload it and read the attachment back after a reload:
 
 ```bash
-cp "<workbook>" .
-playwright-cli -s=la click <button "Upload File" ref>
-playwright-cli -s=la upload "Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx"
+mkdir -p att && cp "<workbook>" att/
+bash <skills>/bowery-payroll/scripts/attach.sh la <id> att
 ```
 
-The upload lands on its own, with no save. It is done when the workbook's link shows in the panel after a reload.
+It prints `attached: Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx` when done. The upload lands on its own, with no save.
 
 ## Step 6: verify and approve
 
@@ -114,9 +117,20 @@ node <skill>/scripts/check-labor.js labor.json readback.txt
 
 It prints `MATCH` only when the date is the Week Ending, the number is `Labor Allocation`, the line count is two per move plus the tax lines, debits equal credits at `total`, every move's credit and debit sit on the right account and location under the employee's name, and every tax line is in place. A third argument checks a different number, such as a test entry's.
 
-Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Labor Allocation` row Approved at `total`.
+Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. Approve and Close shuts the copy's tab, and its requests go with it, so the response can be unreadable; the grid then decides. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Labor Allocation` row Approved at `total`.
 
-Report the `check-labor.js` table, the entry's status and amount from the grid, whether the workbook is attached, and any `RENAMED`, `ADD`, or `REMOVE` the run handled.
+## Step 7: file the workbook
+
+Once the entry is approved with the workbook attached, move the workbook into `Completed`:
+
+```bash
+L="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Labor Allocations"
+mv "$L/Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx" "$L/Completed/"
+```
+
+Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its workbook in place. Close the session with `playwright-cli -s=la close`.
+
+Report the `check-labor.js` table, the entry's status and amount from the grid, whether the workbook is attached and filed, and any `RENAMED`, `ADD`, or `REMOVE` the run handled.
 
 ## Test entries
 

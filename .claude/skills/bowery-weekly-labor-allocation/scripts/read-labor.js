@@ -1,14 +1,16 @@
 #!/usr/bin/env node
 // Read a Bowery Group Labor Allocation workbook into labor.json.
 //
-//   read-labor.js <file.xlsx> > labor.json
+//   read-labor.js <file.xlsx> [--cent <store>] > labor.json
 //
 // Exits nonzero when the workbook disagrees with itself or names a position with no account.
 const fs = require('fs'), os = require('os'), path = require('path');
 const { execFileSync } = require('child_process');
 
-const src = process.argv[2];
-if (!src) { console.error('usage: read-labor.js <file.xlsx>'); process.exit(1); }
+const args = process.argv.slice(2), ci = args.indexOf('--cent');
+const centStore = ci >= 0 ? args.splice(ci, 2)[1] : null;
+const src = args[0];
+if (!src) { console.error('usage: read-labor.js <file.xlsx> [--cent <store>]'); process.exit(1); }
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lab-'));
 execFileSync('unzip', ['-o', '-q', src, '-d', dir]);
 const rd = f => fs.readFileSync(path.join(dir, f), 'utf8');
@@ -77,8 +79,17 @@ for (const s of stores) {
   if (!near(dr, net > 0 ? r2(net * 0.0765) : 0) || !near(cr, net < 0 ? r2(-net * 0.0765) : 0)) fail(`${s} tax ${dr}/${cr} is not 7.65% of its net ${r2(net)}`);
   if (dr || cr) tax.push({ store: s, debit: dr, credit: cr });
 }
-const tdr = r2(tax.reduce((t, x) => t + x.debit, 0)), tcr = r2(tax.reduce((t, x) => t + x.credit, 0));
-if (!near(tdr, tcr)) fail(`rounded tax debits ${tdr} miss credits ${tcr}; ask which store takes the cent`);
+let tdr = r2(tax.reduce((t, x) => t + x.debit, 0)), tcr = r2(tax.reduce((t, x) => t + x.credit, 0));
+// --cent <store>: that store's tax line absorbs a one-cent rounding gap
+if (!near(tdr, tcr) && centStore) {
+  const gap = r2(tdr - tcr), t = tax.find(x => x.store === store(centStore));
+  if (!t) fail(`--cent store "${centStore}" carries no tax line`);
+  if (Math.abs(gap) > 0.011) fail(`tax gap ${gap} is more than a cent`);
+  if (t.debit) t.debit = r2(t.debit - gap); else t.credit = r2(t.credit + gap);
+  tdr = r2(tax.reduce((s, x) => s + x.debit, 0)); tcr = r2(tax.reduce((s, x) => s + x.credit, 0));
+  console.error(`cent: ${t.store} tax now ${t.debit || t.credit}`);
+}
+if (!near(tdr, tcr)) fail(`rounded tax debits ${tdr} miss credits ${tcr}; ask which store takes the cent, then rerun with --cent <store>`);
 
 const total = r2(wages + tcr);
 // grand total cell (wages + tax credits) is absent some weeks; check it when present
