@@ -10,13 +10,15 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 |---|---|---|
 | 5210 Regular, Overtime, Meal Penalty, Double Time | `5241 - FOH Hourly` and `5242 - BOH Hourly`, split below | regular / overtime / meal penalty |
 | 5210 Sign on bonus or new store bonus | `6030 - MIT/SC Bonus` | sign on bonus |
+| 5210 Referral Bonus | `6030 - MIT/SC Bonus` | referral bonus |
 | 5212 Salary | `5210 - Store Labor (Salary)` | salary |
 | 6065 Salary | `5210 - Store Labor (Salary)` | salary |
 | 5320 ER SOC SEC, ER MEDICARE, ER SUI, ER FUTA | `5320 - Payroll Taxes` | er taxes |
 | 5300, every memo | `5300 - Healthcare` | med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life |
 | 6010 General Manager Bonus | `6010 - General Manager Bonus` | general manager bonus |
 | 5546 CELL PHONE | `5546 - Cell Phone` | cell phone |
-| 5547 and 6390 MILEAGE | `5547 - Mileage` | blank |
+| 5547 MILEAGE | `5547 - Mileage` | blank |
+| 6390 MILEAGE | `6130 - Vehicle Expenses` | blank |
 | 5230 QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
 | 5230 Select Driver Bonus | `6030 - MIT/SC Bonus` | select driver bonus |
 | 6060 Severance | `6060 - Severance Pay` | severance |
@@ -29,7 +31,7 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 
 **Location 370 - Select Industries** posts all its labor, hourly and salary, to one `6025 - Salary-Hourly` line.
 
-**6050 and 6065 are the Support Center's own accounts**, carrying `GLENTRY_CLASSID` 160 where the restaurants carry 115. 6065 folds into the same 5210 line. 6050 keeps its own `6050 - Health Care` line at 299, listed below with the rolled-up accounts.
+**Dept 299 carries the Support Center's own accounts**, with `GLENTRY_CLASSID` 160 where the restaurants carry 115. Since the 9/19/2026 entry, its salary (CSV 5212 and 6065) posts to `6065 - MIT Labor` and its ER taxes to `6040 - Payroll Tax`, both at 299. 6390 and 6050 only ever arrive at 299. 6050 keeps its own `6050 - Health Care` line, listed below with the rolled-up accounts.
 
 **QTRBA and severance follow the Labor Distribution cost center**, read off the employee's record as `Cost: <location> <account>`. The CSV can code severance to dept 299 while the earning sits in a store's cost center, and the store wins.
 
@@ -49,6 +51,8 @@ One line for the whole estate, whatever locations the CSV spreads it across.
 | 2140 401K, ROTH, ROTH$, 401(k) Roth | `2140 - 401(k) / Roth` | 401k / roth |
 | 2120, 2122, 2124, 2126, 2128, 2130, 2132 | `1030 - Restaurant Payroll-6821` | total taxes |
 | 1030 CHECKINGS, CHECKING, SAVINGS, Net Amount, NET PAY | `1030 - Restaurant Payroll-6821` | split below |
+
+**The entry carries wage garnishments and total taxes on two 1030 lines with blank comments**, garnishments first. The commented `wage garnishments` line stays 0.00. `build-plan.js` keys on the comment, so it plans garnishments onto the commented line and reports total taxes as having no line. Move both amounts onto the blank lines by hand.
 
 Memos arrive in mixed case and mixed spelling across locations, `Accident` beside `ACCIDENT` and `Medical Pre-tax` beside `Med Pre Tax`. Map on the account, so a new spelling lands correctly on its own.
 
@@ -71,6 +75,6 @@ The CSV drops an account entirely when a week has none of it. Mileage, cell phon
 
 ## Rounding
 
-The CSV's tax sum runs a few cents under the Stat Summary's Total Taxes, and its ER tax sum under the Stat Summary's by the same amount. Post the Stat Summary's Total Taxes on the `total taxes` line, since that is what ADP debits from the bank, and put the same cents on `5320 - Payroll Taxes` at 299 to keep the entry balanced. `build-plan.js` emits the CSV figures, so add both adjustments to the plan by hand.
+The CSV's tax sum differs from the Stat Summary's Total Taxes by a few cents, usually under and on 9/26/2026 over, and its ER tax sum differs from the Stat Summary's by the same amount. Post the Stat Summary's Total Taxes on the total taxes line, since that is what ADP debits from the bank, and move `6040 - Payroll Tax` at 299 by the same cents to keep the entry balanced. `build-plan.js` emits the CSV figures, so add both adjustments to the plan by hand.
 
 Account `9999 Suspense` at dept `999` appears in some weeks. It carries no journal line and has to be disposed of deliberately, which is how the 8/29 entry acquired a 24.53 credit on `5320 - Payroll Taxes` at 211 and a 0.44 credit on `5300 - Healthcare` at 299.

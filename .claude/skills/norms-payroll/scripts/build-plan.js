@@ -30,17 +30,18 @@ function loadCsv(p) {
 // see MAPPING.md
 function mapRow(r) {
   const a = r.acct, m = (r.memo || '').toUpperCase();
-  if (a === '5210') return /SIGN ON BONUS/.test(m)
-    ? { acct: '6030', cm: 'sign on bonus', loc: r.loc }
+  if (a === '5210') return /SIGN ON BONUS/.test(m) ? { acct: '6030', cm: 'sign on bonus', loc: r.loc }
+    : /REFERRAL BONUS/.test(m) ? { acct: '6030', cm: 'referral bonus', loc: r.loc }
     : ALL_LABOR_6025.has(r.loc) ? { acct: '6025', cm: 'salary', loc: r.loc }
     : { acct: 'HOURLY', cm: 'regular / overtime / meal penalty', loc: r.loc };
-  if (a === '5212' || a === '6065') return { acct: ALL_LABOR_6025.has(r.loc) ? '6025' : '5210', cm: 'salary', loc: r.loc };
-  if (a === '5320') return { acct: '5320', cm: 'er taxes', loc: r.loc };
+  if (a === '5212' || a === '6065') return { acct: r.loc === '299' ? '6065' : ALL_LABOR_6025.has(r.loc) ? '6025' : '5210', cm: 'salary', loc: r.loc };
+  if (a === '5320') return { acct: r.loc === '299' ? '6040' : '5320', cm: 'er taxes', loc: r.loc };
   if (a === '5300') return { acct: '5300', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: r.loc };
   if (a === '6050') return { acct: '6050', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: '299' };
   if (a === '6010') return { acct: '6010', cm: 'general manager bonus', loc: r.loc };
   if (a === '5546') return { acct: '5546', cm: 'cell phone', loc: r.loc };
-  if (a === '5547' || a === '6390') return { acct: '5547', cm: '', loc: r.loc };
+  if (a === '5547') return { acct: '5547', cm: '', loc: r.loc };
+  if (a === '6390') return { acct: '6130', cm: '', loc: r.loc };
   if (a === '5230') return /SELECT DRIVER BONUS/.test(m)
     ? { acct: '6030', cm: 'select driver bonus', loc: r.loc }
     : { acct: '5230', cm: 'QTRBA', loc: r.loc };
