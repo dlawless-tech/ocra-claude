@@ -1,0 +1,81 @@
+<!doctype html><html><head><meta charset="utf-8"><title>FARE Uber Eats Findings</title><style>
+@page{size:letter;margin:0.6in 0.55in}body{font-family:Segoe UI,Arial,sans-serif;font-size:10pt;color:#1a1a1a;line-height:1.35}
+h1{font-size:17pt;margin:0 0 2px;color:#1F4E78}h2{font-size:12pt;color:#1F4E78;border-bottom:1.5px solid #1F4E78;padding-bottom:2px;margin:16px 0 6px;break-after:avoid}
+.sub{color:#555;margin-bottom:10px}table{border-collapse:collapse;width:100%;margin:4px 0 6px;font-size:8.8pt;break-inside:avoid}th{background:#1F4E78;color:#fff;padding:4px 5px;text-align:right;font-weight:600}th:first-child,td:first-child{text-align:left}
+td{padding:3px 5px;border-bottom:1px solid #ddd;text-align:right}tr.tot td{font-weight:700;border-top:1.5px solid #333;border-bottom:2px double #333}tr.sub td{font-weight:600;border-top:1px solid #333}tr.ex td{color:#555;font-style:italic}
+td.l{text-align:left}.box{background:#EEF4FA;border-left:4px solid #1F4E78;padding:7px 10px;margin:6px 0;break-inside:avoid}.box ul{margin:4px 0;padding-left:18px}.box li{margin:2px 0}
+ol.find>li{margin:0 0 8px;break-inside:avoid}.amt{font-weight:700}.pri{display:inline-block;font-size:7.5pt;font-weight:700;padding:1px 5px;border-radius:3px;color:#fff;margin-right:4px}.High{background:#C00000}.Medium{background:#C55A11}.Low{background:#7F7F7F}
+.why{color:#444;margin-top:2px}.note{font-size:8.5pt;color:#555;break-inside:avoid}
+</style></head><body>
+<h1>FARE Uber Eats Reconciliation: Findings</h1>
+<div class="sub">Uber payouts 12/29/25 to 9/21/26 vs R365 GL through 9/27/26 &nbsp;|&nbsp; All sales, fees and refunds exclude sales tax &nbsp;|&nbsp; Prepared 9/30/26 &nbsp;|&nbsp; Workbook: FARE UberEats Review 12.29.25 to 9.27.26.xlsx</div>
+<div class="box"><b>Bottom line</b><ul>
+<li>Ex-tax Uber sales were <b>909,388.39</b>. Every store ties to the GL within 1% except <b>Lakeview</b> (GL about 25% high, 4,117.43) and <b>Logan Square</b> (GL about 0.8% high, 1,978.73).</li>
+<li>Four fixes before September close: reclass the Holding deposits (<b>89,166.86</b>), correct the LaSalle 7/14 deposit (<b>2,498.31</b>), record <b>10,641.76</b> of September deposits, and book September fees (<b>14,462.86</b> excl tax).</li>
+<li>The 1111 Uber Eats Deposit Clearing balance of <b>64,528.32</b> is fully explained by location.</li>
+<li>Uber is taking 24% backup withholding from Lakeview and Old Town, which points to a missing W-9.</li></ul></div>
+
+<h2>Sources and method</h2>
+<table><tr><th>Source</th><th style="text-align:left">Detail</th></tr>
+<tr><td>Uber Eats payout exports</td><td class="l">FARE UberEats 12.29 to 6.30.26.csv and 7.1 to 9.27.26.csv: 230 payouts, 10 stores</td></tr>
+<tr><td>R365 GL Account Detail</td><td class="l">1111 Uber Eats Deposit Clearing, plus 7380, 7630, 4905 and 7535 (UberEats Fees JE lines), 12/1/25 to 9/30/26, all locations, unapproved included</td></tr>
+<tr><td>Sales tax</td><td class="l">Excluded. Uber sales, refunds and offers are taken before tax. The GL books Uber sales to 1111 with tax, so GL DSS is restated before tax at each payout's Uber tax rate. Tax, MF tax and 2270 sit on the workbook's Sales Tax (excluded) tab only so 1111 ties.</td></tr>
+<tr><td>Matching</td><td class="l">Each payout compared to GL DSS for the weeks it covers. Deposits matched to payouts by exact amount and date (216 of 229). The 12/29/25 payouts cover December activity booked in QB and are excluded.</td></tr></table>
+
+<h2>Results by location (excl. sales tax)</h2>
+<table><tr><th>Location</th><th>Uber sales</th><th>GL DSS sales</th><th>Operating sales var</th><th>Uber deductions</th><th>GL fees booked</th><th>1111 corrected</th><th>1111 as posted</th><th>Posting diff</th></tr><tr><td>150 Riverside</td><td>38,834</td><td>38,062</td><td>(85)</td><td>13,391</td><td>13,352</td><td>(702)</td><td>0</td><td>702</td></tr><tr><td>Loop (S Franklin)</td><td>77,890</td><td>77,457</td><td>(68)</td><td>14,358</td><td>13,233</td><td>6,479</td><td>6,440</td><td>(38)</td></tr><tr><td>Lake + LaSalle</td><td>43,437</td><td>35,527</td><td>(4)</td><td>18,297</td><td>14,400</td><td>(4,230)</td><td>2,764</td><td>6,995</td></tr><tr><td>Logan Square</td><td>517,026</td><td>350,278</td><td>1,979</td><td>236,208</td><td>151,053</td><td>(61,461)</td><td>19,972</td><td>81,433</td></tr><tr><td>Northwestern Memorial Hospital</td><td>105,472</td><td>104,999</td><td>(87)</td><td>45,848</td><td>44,704</td><td>2,544</td><td>2,503</td><td>(41)</td></tr><tr><td>Oak Park</td><td>85,455</td><td>85,538</td><td>637</td><td>41,960</td><td>40,139</td><td>5,587</td><td>4,847</td><td>(740)</td></tr><tr><td>Old Post Office</td><td>287</td><td>286</td><td>0</td><td>35</td><td>32</td><td>26</td><td>26</td><td>0</td></tr><tr><td>Sterling Food Hall</td><td>1,981</td><td>1,988</td><td>7</td><td>189</td><td>178</td><td>269</td><td>305</td><td>36</td></tr><tr><td>Lakeview (W Diversey)</td><td>16,937</td><td>21,054</td><td>4,117</td><td>4,084</td><td>1,917</td><td>13,631</td><td>11,388</td><td>(2,243)</td></tr><tr><td>Old Town</td><td>22,071</td><td>22,330</td><td>259</td><td>5,405</td><td>2,909</td><td>9,921</td><td>9,921</td><td>0</td></tr><tr><td>Holding LLC</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>92,466</td><td>6,362</td><td>(86,104)</td></tr><tr class="tot"><td>Total</td><td>909,388</td><td>737,519</td><td>6,753</td><td>379,775</td><td>281,918</td><td>64,528</td><td>64,528</td><td>0</td></tr></table>
+<div class="note">Operating sales var excludes pre-2026 sales inside catch-up payouts. Deductions are fees, marketing and refunds. The 1111 balance columns are as booked, so they still carry sales tax; the bridge below separates it. Posting diff is what the proposed reclass moves.</div>
+
+<h2>What makes up the 1111 balance</h2>
+<table><tr><th>Component</th><th>Amount</th></tr><tr><td>Operating sales variance (GL DSS vs Uber)</td><td>6,753.41</td></tr><tr><td>Pre-2026 sales in 2026 catch-up payouts</td><td>(178,622.75)</td></tr><tr><td>September Uber deductions not yet booked</td><td>14,462.86</td></tr><tr><td>Other fee variance (mostly pre-2026 deductions in catch-ups)</td><td>83,394.60</td></tr><tr><td>Uber payouts not deposited / deposit variance</td><td>8,143.45</td></tr><tr><td>GL DSS after last paid period (9/21-9/27, paid 9/28)</td><td>21,652.92</td></tr><tr><td>QB opening balance 12/31/25 (at Holding)</td><td>92,465.91</td></tr>
+<tr class="sub"><td>Subtotal excl. sales tax</td><td>48,250.40</td></tr>
+<tr class="ex"><td>Sales tax and backup withholding carried in 1111 (excluded; see Sales Tax tab)</td><td>16,277.92</td></tr>
+<tr class="tot"><td>1111 balance 9/27/26</td><td>64,528.32</td></tr></table>
+<div class="note">Uber paid 178,622.75 of pre-2026 sales (excl tax) in 2026: Logan Square 2/2 (5,725 orders), Lake + LaSalle 7/13 (1,080 orders), and 12/29-12/31 stubs in the 1/5 payouts. Net of their deductions, those collections relieve the QB opening balance.</div>
+
+<h2>Findings and actions</h2>
+<ol class="find">
+<li><span class="pri High">HIGH</span><b>Uber deposits booked to Holding</b>: <span class="amt">89,166.86</span> reclass
+<div>Jan-Jun Uber deposits (342,860.57) posted to FARE Holding LLC. The 8/31 UberEats AJE moved 263,750.90 to the stores, but not at the per-store deposit amounts. Holding sits at 6,361.53; Logan Square is overstated 81,433.36 and LaSalle 6,994.71.</div>
+<div class="why">Action: review and post the Proposed Reclass JE (workbook tab). Each line is the store's posting difference, so after posting every store equals its corrected balance.</div></li>
+<li><span class="pri High">HIGH</span><b>LaSalle deposit does not match payout</b>: <span class="amt">2,498.31</span>
+<div>Deposit BD002517 on 7/14 is 23,698.74. Uber's 7/13 catch-up payout (ref 449EDNBXFGU2BKT) is 21,200.43.</div>
+<div class="why">Action: pull the 7/14 bank line. If it shows 21,200.43, correct the deposit. If it shows 23,698.74, a second Uber payment is inside it and needs its own source.</div></li>
+<li><span class="pri High">HIGH</span><b>September payouts with no deposit in R365</b>: <span class="amt">10,641.76</span>
+<div>9/14 and 9/21 payouts: Logan Square 3,457.26 + 4,062.27; Oak Park 1,131.18 + 783.69; Lake + LaSalle 586.47 + 454.82; Sterling 144.59 + 21.48.</div>
+<div class="why">Action: record the 9/15 and 9/22 Uber deposits. The other stores deposited those weeks, so check the bank feed these four land in.</div></li>
+<li><span class="pri High">HIGH</span><b>Lakeview DSS about 25% above Uber</b>: <span class="amt">4,117.43</span> excl tax
+<div>Every week since opening, GL DSS Third Party Delivery runs 23-25% above Uber sales, before and after tax.</div>
+<div class="why">Action: check the Lakeview POS payment mapping to 1111. Another delivery channel, tips, or marked-up menu prices may be posting as Uber. If so, Lakeview sales are overstated by this amount and 1111 will never clear.</div></li>
+<li><span class="pri Medium">MEDIUM</span><b>September fees not booked</b>: <span class="amt">14,462.86</span> excl tax
+<div>No UberEats Fees entries after 8/31. Fee, marketing and refund deductions on the 9/8, 9/14 and 9/21 payouts sit in 1111: marketplace fees 12,439.95, marketing 1,471.47, refunds 551.44.</div>
+<div class="why">Action: post the September fee entries.</div></li>
+<li><span class="pri Medium">MEDIUM</span><b>Logan Square DSS about 0.8% above Uber</b>: <span class="amt">1,978.73</span> excl tax
+<div>GL DSS exceeds Uber sales every week.</div>
+<div class="why">Action: compare one week of Toast Uber orders to Uber order detail. Likely tips or an item price difference.</div></li>
+<li><span class="pri Medium">MEDIUM</span><b>QB opening balance at Holding</b>: <span class="amt">92,465.91</span>
+<div>Estimated pre-2026 net collected in 2026 is 88,667.25 (Logan Square 83,001.26, LaSalle 4,439.92, small stubs), leaving about 3,798.66 unexplained.</div>
+<div class="why">Action: tie to the QB 12/31/25 Uber receivable by store, then move it from Holding to the stores. The estimate prorates each catch-up payout by its pre-2026 share of sales, so use it as a guide, not a posting figure.</div></li>
+<li><span class="pri Medium">MEDIUM</span><b>Backup withholding taken by Uber</b>: <span class="amt">6,511.34</span>
+<div>Lakeview 2,793.40 and Old Town 3,717.94, withheld at 24% on every payout. It books to 2270 with the sales tax, so it sits outside the ex-tax figures above. Logan Square also had 4,082.33 withheld on the 2/2 catch-up.</div>
+<div class="why">Action: submit W-9s to Uber for Lakeview and Old Town to stop the withholding.</div></li>
+<li><span class="pri Low">LOW</span><b>Smaller items</b>
+<div>Feb fee JE credits 1111 Riverside 21.68 short and Logan Square 21.68 over. Single-payout sales variances: Northwestern 7/20, Oak Park 1/12 and 1/19 (offset by 1/5), Riverside 7/27, Old Town first week. Two payouts exceed Uber's listed components (Old Town 8/10 48.13, Sterling 7/27 4.00).</div></li>
+</ol>
+
+<h2>Fees, marketing and refunds (excl. sales tax; payouts 1/5 to 8/31 vs Jan-Aug fee JEs)</h2>
+<table><tr><th>Category</th><th>Uber</th><th>GL</th><th>GL account</th><th>Variance</th></tr>
+<tr><td>Marketplace fees</td><td>176,335.50</td><td>143,308.04</td><td>7380</td><td>33,027.46</td></tr>
+<tr><td>Marketing and promotions (offers, offer fees, ads)</td><td>180,488.61</td><td>132,191.25</td><td>7630 + 4905</td><td>48,297.36</td></tr>
+<tr><td>Refunds / chargebacks</td><td>8,540.25</td><td>6,418.33</td><td>7535</td><td>2,121.92</td></tr>
+<tr><td>Unlisted items</td><td>(52.14)</td><td></td><td></td><td>(52.14)</td></tr>
+<tr class="tot"><td>Total</td><td>365,312.22</td><td>281,917.62</td><td></td><td>83,394.60</td></tr></table>
+<div class="note">Most of the variance is deductions on pre-2026 sales inside the Logan Square and LaSalle catch-up payouts, which the 2026 JEs correctly leave out. The rest is timing: the JEs follow Uber's monthly statements by order date, payouts run by week. Per-store detail is on the Fees &amp; Refunds tab.</div>
+
+<h2>Not verified</h2><ul>
+<li>Bank statements: deposits were matched to the GL, not to the bank.</li>
+<li>QB 12/31/25 Uber receivable detail by store.</li>
+<li>Uber monthly statements: fee JEs compared in total, not statement by statement.</li>
+<li>GL DSS before tax is an estimate: 1111 books Uber sales with tax and does not split it.</li>
+<li>9/28 payout (sales 9/21-9/27): not in the export yet.</li></ul>
+</body></html>

@@ -1,0 +1,13 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"9/27/2026\",\"number\":\"GrubHub\",\"lines\":[{\"a\":\"1103 - Grubhub Deposit Clearing\",\"dr\":0,\"cr\":30.7,\"c\":\"orders 9/22 - 9/28, deposit 261002309wJo84L\",\"loc\":\"10900 - FARE Sterling Food Hall\"},{\"a\":\"7570 - Grubhub Marketing\",\"dr\":11.49,\"cr\":0,\"c\":\"marketing + ad spend\",\"loc\":\"10900 - FARE Sterling Food Hall\"},{\"a\":\"7350 - Grubhub Third Party Fees\",\"dr\":5.42,\"cr\":0,\"c\":\"delivery + order processing\",\"loc\":\"10900 - FARE Sterling Food Hall\"},{\"a\":\"2270 - Sales Tax Payable\",\"dr\":13.79,\"cr\":0,\"c\":\"sales tax withheld\",\"loc\":\"10900 - FARE Sterling Food Hall\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```

@@ -1,0 +1,639 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/financials/payout-details/11521564/48418693/614157885?business_id=11521564
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 1 errors, 16 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e47]:
+    - generic [ref=f10e51]:
+      - generic [ref=f10e53]:
+        - generic [ref=f10e56] [cursor=pointer]:
+          - button "Assistant" [ref=f10e742]
+          - generic [ref=f10e60]: Beta
+        - button "Expand Chat" [ref=f10e1409] [cursor=pointer]
+      - generic [ref=f10e1412]:
+        - generic: Pause my store
+        - generic [ref=f10e1416]:
+          - textbox [ref=f10e1418]
+          - generic [ref=f10e1420]:
+            - button "Start voice recording" [ref=f10e1422] [cursor=pointer]
+            - button "send" [disabled] [ref=f10e2143]
+    - navigation "Merchant Navigation" [ref=f10e752]:
+      - generic [ref=f10e139]:
+        - button "DoorDash" [ref=f10e753] [cursor=pointer]
+        - img "FARE" [ref=f10e754]
+      - generic [ref=f10e153]:
+        - list [ref=f10e154]:
+          - listitem [ref=f10e155]:
+            - button "Home" [ref=f10e755] [cursor=pointer]
+        - list [ref=f10e163]:
+          - listitem [ref=f10e164]:
+            - button "Insights" [ref=f10e756] [cursor=pointer]
+        - list [ref=f10e172]:
+          - listitem [ref=f10e173]:
+            - button "Reports" [ref=f10e757] [cursor=pointer]
+        - list [ref=f10e181]:
+          - listitem [ref=f10e182]:
+            - button "Customers" [ref=f10e758] [cursor=pointer]
+        - list [ref=f10e193]:
+          - listitem [ref=f10e194]:
+            - button "Orders" [ref=f10e759] [cursor=pointer]
+        - list [ref=f10e203]:
+          - listitem [ref=f10e204]:
+            - button "Stores" [ref=f10e760] [cursor=pointer]
+        - list [ref=f10e212]:
+          - listitem [ref=f10e213]:
+            - button "Marketing" [ref=f10e761] [cursor=pointer]
+        - list [ref=f10e221]:
+          - listitem [ref=f10e222]:
+            - button "Menu pricing" [ref=f10e762] [cursor=pointer]
+        - list [ref=f10e230]:
+          - listitem [ref=f10e231]:
+            - button "Financials" [ref=f10e763] [cursor=pointer]
+        - list [ref=f10e240]:
+          - listitem [ref=f10e241]:
+            - button "Manage users" [ref=f10e764] [cursor=pointer]
+        - list [ref=f10e250]:
+          - listitem [ref=f10e251]:
+            - button "Settings" [ref=f10e765] [cursor=pointer]
+        - list [ref=f10e259]:
+          - listitem [ref=f10e260]:
+            - button "Add solutions" [ref=f10e766] [cursor=pointer]
+        - list [ref=f10e269]:
+          - listitem [ref=f10e270]:
+            - button "Help" [ref=f10e767] [cursor=pointer]
+        - list "Channels" [ref=f10e768]:
+          - listitem [ref=f10e283]:
+            - button "Online Ordering" [ref=f10e769] [cursor=pointer]
+          - listitem [ref=f10e292]:
+            - button "Request a delivery" [ref=f10e770] [cursor=pointer]
+      - button "Mark Rubinstein menu" [ref=f10e771] [cursor=pointer]
+    - generic [ref=f10e306]:
+      - generic [ref=f10e1432]:
+        - navigation [ref=f10e1433]:
+          - generic [ref=f10e1435]:
+            - button "Show Side Menu" [ref=f10e1436] [cursor=pointer]
+            - generic [ref=f10e1439]: Payouts
+        - generic [ref=f10e1445]:
+          - generic [ref=f10e1446]:
+            - generic [ref=f10e1447]:
+              - button "Payouts" [ref=f10e1448] [cursor=pointer]
+              - generic [ref=f10e1453]: /
+            - generic [ref=f10e1455]:
+              - generic [ref=f10e1456]: Payout on September 24, 2026
+              - generic [ref=f10e1457]: "Payout #614157885 for transactions from 1:55 PM on Sep 14, 2026, to 7:32 PM on Sep 20, 2026 for FARE Lakeview (Marketplace)"
+          - button "Create report" [ref=f10e1458] [cursor=pointer]
+      - generic [ref=f10e1467]:
+        - generic [ref=f10e1469]:
+          - generic [ref=f10e1471]:
+            - generic [ref=f10e1472]: Understand this payout
+            - generic [ref=f10e1473]: Your assistant can break down the tax and commission behind this specific payout
+          - generic [ref=f10e1474]:
+            - button "Break down this payout" [ref=f10e1475] [cursor=pointer]
+            - button "Compare to my last payout" [ref=f10e1480] [cursor=pointer]
+        - generic [ref=f10e1485]:
+          - generic [ref=f10e1490]:
+            - generic [ref=f10e1491]:
+              - generic [ref=f10e1492]: Net total
+              - generic [ref=f10e1494]: Paid
+            - generic [ref=f10e1498]:
+              - generic [ref=f10e1499]: $1,173.22
+              - generic [ref=f10e1500]:
+                - generic [ref=f10e1501]: 15.07%
+                - generic [ref=f10e1505]: vs. last payout
+          - button "Show details" [ref=f10e1507] [cursor=pointer]
+        - generic [ref=f10e1518]:
+          - generic [ref=f10e1521] [cursor=pointer]:
+            - generic [ref=f10e1522]: Sales
+            - generic [ref=f10e1524]: $1,323.55
+          - generic [ref=f10e1529] [cursor=pointer]:
+            - generic [ref=f10e1530]: Commission & fees
+            - generic [ref=f10e1532]: "-$128.44"
+          - generic [ref=f10e1537] [cursor=pointer]:
+            - generic [ref=f10e1538]: Marketing spend
+            - generic [ref=f10e1540]: $0.00
+          - generic [ref=f10e1545] [cursor=pointer]:
+            - generic [ref=f10e1546]: Amendments
+            - generic [ref=f10e1548]: "-$21.89"
+        - generic [ref=f10e1551]: 55 Transactions
+        - generic [ref=f10e1553]:
+          - button "All transaction types" [ref=f10e1560] [cursor=pointer]
+          - generic [ref=f10e1565]:
+            - table [ref=f10e1568]:
+              - rowgroup [ref=f10e1569]:
+                - row [ref=f10e1570]:
+                  - columnheader "Transaction ID" [ref=f10e1571]
+                  - columnheader "Date" [ref=f10e1576]
+                  - columnheader "Time" [ref=f10e1581]
+                  - columnheader "Order ID" [ref=f10e1586]
+                  - columnheader "Channel" [ref=f10e1591]
+                  - columnheader "Transaction type" [ref=f10e1596]
+                  - columnheader "Description" [ref=f10e1601]
+                  - columnheader "Subtotal" [ref=f10e1606]
+                  - columnheader "Tax" [ref=f10e1611]
+                  - columnheader "Customer fees" [ref=f10e1616]
+                  - columnheader "Tax (customer fees)" [ref=f10e1621]
+                  - columnheader "Commission" [ref=f10e1626]
+                  - columnheader "Merchant fees" [ref=f10e1631]
+                  - columnheader "Tax (merchant fees)" [ref=f10e1636]
+                  - columnheader "Error charges" [ref=f10e1641]
+                  - columnheader "Adjustments" [ref=f10e1646]
+                  - columnheader "Marketing fees" [ref=f10e1651]
+                  - columnheader "Customer discounts" [ref=f10e1656]
+                  - columnheader "Marketing credit" [ref=f10e1661]
+                  - columnheader "Net total" [ref=f10e1666]
+              - rowgroup [ref=f10e1671]:
+                - row [ref=f10e1672]:
+                  - cell "18574407543" [ref=f10e1673]
+                  - cell "9/20/2026" [ref=f10e1674]
+                  - cell "7:32 PM" [ref=f10e1675]
+                  - cell [ref=f10e1676]:
+                    - link "493B615D" [ref=f10e1677] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/c44e31ce-8708-3001-b581-d450493b615d
+                  - cell "Marketplace" [ref=f10e1678]
+                  - cell "Order" [ref=f10e1679]
+                  - cell [ref=f10e1680]
+                  - cell "$33.96" [ref=f10e1681]
+                  - cell "$0.00" [ref=f10e1682]
+                  - cell "$0.00" [ref=f10e1683]
+                  - cell "$0.00" [ref=f10e1684]
+                  - cell "-$8.49" [ref=f10e1685]
+                  - cell "$0.00" [ref=f10e1686]
+                  - cell "$0.00" [ref=f10e1687]
+                  - cell "$0.00" [ref=f10e1688]
+                  - cell "$0.00" [ref=f10e1689]
+                  - cell "$0.00" [ref=f10e1690]
+                  - cell "$0.00" [ref=f10e1691]
+                  - cell "$0.00" [ref=f10e1692]
+                  - cell "$25.47" [ref=f10e1693]
+                - row [ref=f10e1694]:
+                  - cell "18574323641" [ref=f10e1695]
+                  - cell "9/20/2026" [ref=f10e1696]
+                  - cell "7:26 PM" [ref=f10e1697]
+                  - cell [ref=f10e1698]:
+                    - link "723F71D0" [ref=f10e1699] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/a9698a95-1886-3001-990a-cbe9723f71d0
+                  - cell "Marketplace" [ref=f10e1700]
+                  - cell "Order" [ref=f10e1701]
+                  - cell [ref=f10e1702]
+                  - cell "$31.47" [ref=f10e1703]
+                  - cell "$0.00" [ref=f10e1704]
+                  - cell "$0.00" [ref=f10e1705]
+                  - cell "$0.00" [ref=f10e1706]
+                  - cell "-$7.87" [ref=f10e1707]
+                  - cell "$0.00" [ref=f10e1708]
+                  - cell "$0.00" [ref=f10e1709]
+                  - cell "$0.00" [ref=f10e1710]
+                  - cell "$0.00" [ref=f10e1711]
+                  - cell "$0.00" [ref=f10e1712]
+                  - cell "$0.00" [ref=f10e1713]
+                  - cell "$0.00" [ref=f10e1714]
+                  - cell "$23.60" [ref=f10e1715]
+                - row [ref=f10e1716]:
+                  - cell "18573701595" [ref=f10e1717]
+                  - cell "9/20/2026" [ref=f10e1718]
+                  - cell "6:44 PM" [ref=f10e1719]
+                  - cell [ref=f10e1720]:
+                    - link "A9A7C2E0" [ref=f10e1721] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/ca3cb061-fbe7-3001-aa87-593aa9a7c2e0
+                  - cell "Marketplace" [ref=f10e1722]
+                  - cell "Order" [ref=f10e1723]
+                  - cell [ref=f10e1724]
+                  - cell "$33.47" [ref=f10e1725]
+                  - cell "$0.00" [ref=f10e1726]
+                  - cell "$0.00" [ref=f10e1727]
+                  - cell "$0.00" [ref=f10e1728]
+                  - cell "-$8.37" [ref=f10e1729]
+                  - cell "$0.00" [ref=f10e1730]
+                  - cell "$0.00" [ref=f10e1731]
+                  - cell "$0.00" [ref=f10e1732]
+                  - cell "$0.00" [ref=f10e1733]
+                  - cell "$0.00" [ref=f10e1734]
+                  - cell "$0.00" [ref=f10e1735]
+                  - cell "$0.00" [ref=f10e1736]
+                  - cell "$25.10" [ref=f10e1737]
+                - row [ref=f10e1738]:
+                  - cell "18572973813" [ref=f10e1739]
+                  - cell "9/20/2026" [ref=f10e1740]
+                  - cell "5:55 PM" [ref=f10e1741]
+                  - cell [ref=f10e1742]:
+                    - link "367D6B88" [ref=f10e1743] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/fd011c49-5798-3001-a112-c7bd367d6b88
+                  - cell "Marketplace" [ref=f10e1744]
+                  - cell "Order" [ref=f10e1745]
+                  - cell [ref=f10e1746]
+                  - cell "$34.96" [ref=f10e1747]
+                  - cell "$0.00" [ref=f10e1748]
+                  - cell "$0.00" [ref=f10e1749]
+                  - cell "$0.00" [ref=f10e1750]
+                  - cell "-$8.74" [ref=f10e1751]
+                  - cell "$0.00" [ref=f10e1752]
+                  - cell "$0.00" [ref=f10e1753]
+                  - cell "$0.00" [ref=f10e1754]
+                  - cell "$0.00" [ref=f10e1755]
+                  - cell "$0.00" [ref=f10e1756]
+                  - cell "$0.00" [ref=f10e1757]
+                  - cell "$0.00" [ref=f10e1758]
+                  - cell "$26.22" [ref=f10e1759]
+                - row [ref=f10e1760]:
+                  - cell "18572022418" [ref=f10e1761]
+                  - cell "9/20/2026" [ref=f10e1762]
+                  - cell "4:47 PM" [ref=f10e1763]
+                  - cell [ref=f10e1764]:
+                    - link "2A633296" [ref=f10e1765] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/6239086e-82d0-3001-82bd-34672a633296
+                  - cell "Marketplace" [ref=f10e1766]
+                  - cell "Order" [ref=f10e1767]
+                  - cell [ref=f10e1768]
+                  - cell "$40.43" [ref=f10e1769]
+                  - cell "$0.00" [ref=f10e1770]
+                  - cell "$0.00" [ref=f10e1771]
+                  - cell "$0.00" [ref=f10e1772]
+                  - cell "-$10.11" [ref=f10e1773]
+                  - cell "$0.00" [ref=f10e1774]
+                  - cell "$0.00" [ref=f10e1775]
+                  - cell "$0.00" [ref=f10e1776]
+                  - cell "$0.00" [ref=f10e1777]
+                  - cell "$0.00" [ref=f10e1778]
+                  - cell "$0.00" [ref=f10e1779]
+                  - cell "$0.00" [ref=f10e1780]
+                  - cell "$30.32" [ref=f10e1781]
+                - row [ref=f10e1782]:
+                  - cell "18571310030" [ref=f10e1783]
+                  - cell "9/20/2026" [ref=f10e1784]
+                  - cell "3:51 PM" [ref=f10e1785]
+                  - cell [ref=f10e1786]:
+                    - link "2CC05076" [ref=f10e1787] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/0decc1d7-52d5-3001-b047-9e302cc05076
+                  - cell "Marketplace" [ref=f10e1788]
+                  - cell "Order" [ref=f10e1789]
+                  - cell [ref=f10e1790]
+                  - cell "$29.96" [ref=f10e1791]
+                  - cell "$0.00" [ref=f10e1792]
+                  - cell "$0.00" [ref=f10e1793]
+                  - cell "$0.00" [ref=f10e1794]
+                  - cell "-$7.49" [ref=f10e1795]
+                  - cell "$0.00" [ref=f10e1796]
+                  - cell "$0.00" [ref=f10e1797]
+                  - cell "$0.00" [ref=f10e1798]
+                  - cell "$0.00" [ref=f10e1799]
+                  - cell "$0.00" [ref=f10e1800]
+                  - cell "$0.00" [ref=f10e1801]
+                  - cell "$0.00" [ref=f10e1802]
+                  - cell "$22.47" [ref=f10e1803]
+                - row [ref=f10e1804]:
+                  - cell "18569369258" [ref=f10e1805]
+                  - cell "9/20/2026" [ref=f10e1806]
+                  - cell "1:07 PM" [ref=f10e1807]
+                  - cell [ref=f10e1808]:
+                    - link "B6FCDF2F" [ref=f10e1809] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/ca7682c4-798a-3001-b405-b6f5b6fcdf2f
+                  - cell "Marketplace" [ref=f10e1810]
+                  - cell "Order" [ref=f10e1811]
+                  - cell [ref=f10e1812]
+                  - cell "$33.98" [ref=f10e1813]
+                  - cell "$0.00" [ref=f10e1814]
+                  - cell "$0.00" [ref=f10e1815]
+                  - cell "$0.00" [ref=f10e1816]
+                  - cell "-$8.50" [ref=f10e1817]
+                  - cell "$0.00" [ref=f10e1818]
+                  - cell "$0.00" [ref=f10e1819]
+                  - cell "$0.00" [ref=f10e1820]
+                  - cell "$0.00" [ref=f10e1821]
+                  - cell "$0.00" [ref=f10e1822]
+                  - cell "$0.00" [ref=f10e1823]
+                  - cell "$0.00" [ref=f10e1824]
+                  - cell "$25.48" [ref=f10e1825]
+                - row [ref=f10e1826]:
+                  - cell "18569002709" [ref=f10e1827]
+                  - cell "9/20/2026" [ref=f10e1828]
+                  - cell "12:35 PM" [ref=f10e1829]
+                  - cell [ref=f10e1830]:
+                    - link "31CE90FC" [ref=f10e1831] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/2d6ced73-8133-3001-af41-f3a231ce90fc
+                  - cell "Marketplace" [ref=f10e1832]
+                  - cell "Order" [ref=f10e1833]
+                  - cell [ref=f10e1834]
+                  - cell "$33.48" [ref=f10e1835]
+                  - cell "$0.00" [ref=f10e1836]
+                  - cell "$0.00" [ref=f10e1837]
+                  - cell "$0.00" [ref=f10e1838]
+                  - cell "-$8.37" [ref=f10e1839]
+                  - cell "$0.00" [ref=f10e1840]
+                  - cell "$0.00" [ref=f10e1841]
+                  - cell "$0.00" [ref=f10e1842]
+                  - cell "$0.00" [ref=f10e1843]
+                  - cell "$0.00" [ref=f10e1844]
+                  - cell "$0.00" [ref=f10e1845]
+                  - cell "$0.00" [ref=f10e1846]
+                  - cell "$25.11" [ref=f10e1847]
+                - row [ref=f10e1848]:
+                  - cell "18561606149" [ref=f10e1849]
+                  - cell "9/19/2026" [ref=f10e1850]
+                  - cell "6:44 PM" [ref=f10e1851]
+                  - cell [ref=f10e1852]:
+                    - link "B48821DA" [ref=f10e1853] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/9a36d751-a0d1-3001-8c7f-c5eab48821da
+                  - cell "Marketplace" [ref=f10e1854]
+                  - cell "Order" [ref=f10e1855]
+                  - cell [ref=f10e1856]
+                  - cell "$48.17" [ref=f10e1857]
+                  - cell "$0.00" [ref=f10e1858]
+                  - cell "$0.00" [ref=f10e1859]
+                  - cell "$0.00" [ref=f10e1860]
+                  - cell "-$12.04" [ref=f10e1861]
+                  - cell "$0.00" [ref=f10e1862]
+                  - cell "$0.00" [ref=f10e1863]
+                  - cell "$0.00" [ref=f10e1864]
+                  - cell "$0.00" [ref=f10e1865]
+                  - cell "$0.00" [ref=f10e1866]
+                  - cell "$0.00" [ref=f10e1867]
+                  - cell "$0.00" [ref=f10e1868]
+                  - cell "$36.13" [ref=f10e1869]
+                - row [ref=f10e1870]:
+                  - cell "18560934860" [ref=f10e1871]
+                  - cell "9/19/2026" [ref=f10e1872]
+                  - cell "6:02 PM" [ref=f10e1873]
+                  - cell [ref=f10e1874]:
+                    - link "79933184" [ref=f10e1875] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/2c04a2d3-1bb3-3001-8af9-313c79933184
+                  - cell "Marketplace" [ref=f10e1876]
+                  - cell "Order" [ref=f10e1877]
+                  - cell [ref=f10e1878]
+                  - cell "$43.44" [ref=f10e1879]
+                  - cell "$0.00" [ref=f10e1880]
+                  - cell "$0.00" [ref=f10e1881]
+                  - cell "$0.00" [ref=f10e1882]
+                  - cell "-$10.86" [ref=f10e1883]
+                  - cell "$0.00" [ref=f10e1884]
+                  - cell "$0.00" [ref=f10e1885]
+                  - cell "$0.00" [ref=f10e1886]
+                  - cell "$0.00" [ref=f10e1887]
+                  - cell "$0.00" [ref=f10e1888]
+                  - cell "$0.00" [ref=f10e1889]
+                  - cell "$0.00" [ref=f10e1890]
+                  - cell "$32.58" [ref=f10e1891]
+                - row [ref=f10e1892]:
+                  - cell "18560893989" [ref=f10e1893]
+                  - cell "9/19/2026" [ref=f10e1894]
+                  - cell "5:59 PM" [ref=f10e1895]
+                  - cell [ref=f10e1896]:
+                    - link "406381F4" [ref=f10e1897] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/a39f71f2-129e-3001-b195-acc9406381f4
+                  - cell "Marketplace" [ref=f10e1898]
+                  - cell "Order" [ref=f10e1899]
+                  - cell [ref=f10e1900]
+                  - cell "$14.99" [ref=f10e1901]
+                  - cell "$0.00" [ref=f10e1902]
+                  - cell "$0.00" [ref=f10e1903]
+                  - cell "$0.00" [ref=f10e1904]
+                  - cell "-$3.75" [ref=f10e1905]
+                  - cell "$0.00" [ref=f10e1906]
+                  - cell "$0.00" [ref=f10e1907]
+                  - cell "$0.00" [ref=f10e1908]
+                  - cell "$0.00" [ref=f10e1909]
+                  - cell "$0.00" [ref=f10e1910]
+                  - cell "$0.00" [ref=f10e1911]
+                  - cell "$0.00" [ref=f10e1912]
+                  - cell "$11.24" [ref=f10e1913]
+                - row [ref=f10e1914]:
+                  - cell "18550738208" [ref=f10e1915]
+                  - cell "9/18/2026" [ref=f10e1916]
+                  - cell "8:16 PM" [ref=f10e1917]
+                  - cell [ref=f10e1918]:
+                    - link "9E5D3515" [ref=f10e1919] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/517e9eb5-d191-3001-9e9e-ee7d9e5d3515
+                  - cell "Marketplace" [ref=f10e1920]
+                  - cell "Order" [ref=f10e1921]
+                  - cell [ref=f10e1922]
+                  - cell "$18.48" [ref=f10e1923]
+                  - cell "$0.00" [ref=f10e1924]
+                  - cell "$0.00" [ref=f10e1925]
+                  - cell "$0.00" [ref=f10e1926]
+                  - cell "-$4.62" [ref=f10e1927]
+                  - cell "$0.00" [ref=f10e1928]
+                  - cell "$0.00" [ref=f10e1929]
+                  - cell "$0.00" [ref=f10e1930]
+                  - cell "$0.00" [ref=f10e1931]
+                  - cell "$0.00" [ref=f10e1932]
+                  - cell "$0.00" [ref=f10e1933]
+                  - cell "$0.00" [ref=f10e1934]
+                  - cell "$13.86" [ref=f10e1935]
+                - row [ref=f10e1936]:
+                  - cell "18549980964" [ref=f10e1937]
+                  - cell "9/18/2026" [ref=f10e1938]
+                  - cell "7:32 PM" [ref=f10e1939]
+                  - cell [ref=f10e1940]:
+                    - link "A3D339B2" [ref=f10e1941] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/c650efcd-47d6-3001-9660-f557a3d339b2
+                  - cell "Marketplace" [ref=f10e1942]
+                  - cell "Order" [ref=f10e1943]
+                  - cell [ref=f10e1944]
+                  - cell "$15.98" [ref=f10e1945]
+                  - cell "$0.00" [ref=f10e1946]
+                  - cell "$0.00" [ref=f10e1947]
+                  - cell "$0.00" [ref=f10e1948]
+                  - cell "-$4.00" [ref=f10e1949]
+                  - cell "$0.00" [ref=f10e1950]
+                  - cell "$0.00" [ref=f10e1951]
+                  - cell "$0.00" [ref=f10e1952]
+                  - cell "$0.00" [ref=f10e1953]
+                  - cell "$0.00" [ref=f10e1954]
+                  - cell "$0.00" [ref=f10e1955]
+                  - cell "$0.00" [ref=f10e1956]
+                  - cell "$11.98" [ref=f10e1957]
+                - row [ref=f10e1958]:
+                  - cell "18548072657" [ref=f10e1959]
+                  - cell "9/18/2026" [ref=f10e1960]
+                  - cell "5:40 PM" [ref=f10e1961]
+                  - cell [ref=f10e1962]:
+                    - link "14EBFE9A" [ref=f10e1963] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/b841a94a-887c-3001-ae67-714b14ebfe9a
+                  - cell "Marketplace" [ref=f10e1964]
+                  - cell "Order" [ref=f10e1965]
+                  - cell [ref=f10e1966]
+                  - cell "$19.98" [ref=f10e1967]
+                  - cell "$0.00" [ref=f10e1968]
+                  - cell "$0.00" [ref=f10e1969]
+                  - cell "$0.00" [ref=f10e1970]
+                  - cell "-$5.00" [ref=f10e1971]
+                  - cell "$0.00" [ref=f10e1972]
+                  - cell "$0.00" [ref=f10e1973]
+                  - cell "$0.00" [ref=f10e1974]
+                  - cell "$0.00" [ref=f10e1975]
+                  - cell "$0.00" [ref=f10e1976]
+                  - cell "$0.00" [ref=f10e1977]
+                  - cell "$0.00" [ref=f10e1978]
+                  - cell "$14.98" [ref=f10e1979]
+                - row [ref=f10e1980]:
+                  - cell "18545441834" [ref=f10e1981]
+                  - cell "9/18/2026" [ref=f10e1982]
+                  - cell "1:58 PM" [ref=f10e1983]
+                  - cell [ref=f10e1984]:
+                    - link "98A78D50" [ref=f10e1985] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/88e76e91-854c-3001-b74c-a31898a78d50
+                  - cell "Marketplace" [ref=f10e1986]
+                  - cell "Order" [ref=f10e1987]
+                  - cell [ref=f10e1988]
+                  - cell "$17.47" [ref=f10e1989]
+                  - cell "$0.00" [ref=f10e1990]
+                  - cell "$0.00" [ref=f10e1991]
+                  - cell "$0.00" [ref=f10e1992]
+                  - cell "-$4.37" [ref=f10e1993]
+                  - cell "$0.00" [ref=f10e1994]
+                  - cell "$0.00" [ref=f10e1995]
+                  - cell "$0.00" [ref=f10e1996]
+                  - cell "$0.00" [ref=f10e1997]
+                  - cell "$0.00" [ref=f10e1998]
+                  - cell "$0.00" [ref=f10e1999]
+                  - cell "$0.00" [ref=f10e2000]
+                  - cell "$13.10" [ref=f10e2001]
+                - row [ref=f10e2002]:
+                  - cell "18545365382" [ref=f10e2003]
+                  - cell "9/18/2026" [ref=f10e2004]
+                  - cell "1:51 PM" [ref=f10e2005]
+                  - cell [ref=f10e2006]:
+                    - link "98E54116" [ref=f10e2007] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/adcd8bfd-1456-3001-be48-3e1598e54116
+                  - cell "Marketplace" [ref=f10e2008]
+                  - cell "Order" [ref=f10e2009]
+                  - cell [ref=f10e2010]
+                  - cell "$19.47" [ref=f10e2011]
+                  - cell "$0.00" [ref=f10e2012]
+                  - cell "$0.00" [ref=f10e2013]
+                  - cell "$0.00" [ref=f10e2014]
+                  - cell "-$4.87" [ref=f10e2015]
+                  - cell "$0.00" [ref=f10e2016]
+                  - cell "$0.00" [ref=f10e2017]
+                  - cell "$0.00" [ref=f10e2018]
+                  - cell "$0.00" [ref=f10e2019]
+                  - cell "$0.00" [ref=f10e2020]
+                  - cell "$0.00" [ref=f10e2021]
+                  - cell "$0.00" [ref=f10e2022]
+                  - cell "$14.60" [ref=f10e2023]
+                - row [ref=f10e2024]:
+                  - cell "18544674228" [ref=f10e2025]
+                  - cell "9/18/2026" [ref=f10e2026]
+                  - cell "12:50 PM" [ref=f10e2027]
+                  - cell [ref=f10e2028]:
+                    - link "3E4F0992" [ref=f10e2029] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/4a9f87ea-9a01-3001-973b-90923e4f0992
+                  - cell "Marketplace" [ref=f10e2030]
+                  - cell "Order" [ref=f10e2031]
+                  - cell [ref=f10e2032]
+                  - cell "$39.46" [ref=f10e2033]
+                  - cell "$0.00" [ref=f10e2034]
+                  - cell "$0.00" [ref=f10e2035]
+                  - cell "$0.00" [ref=f10e2036]
+                  - cell "-$2.37" [ref=f10e2037]
+                  - cell "$0.00" [ref=f10e2038]
+                  - cell "$0.00" [ref=f10e2039]
+                  - cell "$0.00" [ref=f10e2040]
+                  - cell "$0.00" [ref=f10e2041]
+                  - cell "$0.00" [ref=f10e2042]
+                  - cell "$0.00" [ref=f10e2043]
+                  - cell "$0.00" [ref=f10e2044]
+                  - cell "$37.09" [ref=f10e2045]
+                - row [ref=f10e2046]:
+                  - cell "18543542432" [ref=f10e2047]
+                  - cell "9/18/2026" [ref=f10e2048]
+                  - cell "11:14 AM" [ref=f10e2049]
+                  - cell [ref=f10e2050]:
+                    - link "723DCD85" [ref=f10e2051] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/f6b82d90-1d29-3001-9365-4150723dcd85
+                  - cell "Marketplace" [ref=f10e2052]
+                  - cell "Order" [ref=f10e2053]
+                  - cell [ref=f10e2054]
+                  - cell "$34.46" [ref=f10e2055]
+                  - cell "$0.00" [ref=f10e2056]
+                  - cell "$0.00" [ref=f10e2057]
+                  - cell "$0.00" [ref=f10e2058]
+                  - cell "-$8.62" [ref=f10e2059]
+                  - cell "$0.00" [ref=f10e2060]
+                  - cell "$0.00" [ref=f10e2061]
+                  - cell "$0.00" [ref=f10e2062]
+                  - cell "$0.00" [ref=f10e2063]
+                  - cell "$0.00" [ref=f10e2064]
+                  - cell "$0.00" [ref=f10e2065]
+                  - cell "$0.00" [ref=f10e2066]
+                  - cell "$25.84" [ref=f10e2067]
+                - row [ref=f10e2068]:
+                  - cell "18538989936" [ref=f10e2069]
+                  - cell "9/17/2026" [ref=f10e2070]
+                  - cell "8:33 PM" [ref=f10e2071]
+                  - cell [ref=f10e2072]:
+                    - link "47D06F0E" [ref=f10e2073] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/5710cee7-2f21-3001-b4df-d63e47d06f0e
+                  - cell "Marketplace" [ref=f10e2074]
+                  - cell "Order" [ref=f10e2075]
+                  - cell [ref=f10e2076]
+                  - cell "$19.47" [ref=f10e2077]
+                  - cell "$0.00" [ref=f10e2078]
+                  - cell "$0.00" [ref=f10e2079]
+                  - cell "$0.00" [ref=f10e2080]
+                  - cell "$0.00" [ref=f10e2081]
+                  - cell "$0.00" [ref=f10e2082]
+                  - cell "$0.00" [ref=f10e2083]
+                  - cell "$0.00" [ref=f10e2084]
+                  - cell "$0.00" [ref=f10e2085]
+                  - cell "$0.00" [ref=f10e2086]
+                  - cell "$0.00" [ref=f10e2087]
+                  - cell "$0.00" [ref=f10e2088]
+                  - cell "$19.47" [ref=f10e2089]
+                - row [ref=f10e2090]:
+                  - cell "18538824969" [ref=f10e2091]
+                  - cell "9/17/2026" [ref=f10e2092]
+                  - cell "8:21 PM" [ref=f10e2093]
+                  - cell [ref=f10e2094]:
+                    - link "39A58EAC" [ref=f10e2095] [cursor=pointer]:
+                      - /url: /merchant/financials/payout-details/11521564/48418693/614157885/42932686-a895-3001-96c1-a3a639a58eac
+                  - cell "Marketplace" [ref=f10e2096]
+                  - cell "Order" [ref=f10e2097]
+                  - cell [ref=f10e2098]
+                  - cell "$25.94" [ref=f10e2099]
+                  - cell "$0.00" [ref=f10e2100]
+                  - cell "$0.00" [ref=f10e2101]
+                  - cell "$0.00" [ref=f10e2102]
+                  - cell "$0.00" [ref=f10e2103]
+                  - cell "$0.00" [ref=f10e2104]
+                  - cell "$0.00" [ref=f10e2105]
+                  - cell "$0.00" [ref=f10e2106]
+                  - cell "$0.00" [ref=f10e2107]
+                  - cell "$0.00" [ref=f10e2108]
+                  - cell "$0.00" [ref=f10e2109]
+                  - cell "$0.00" [ref=f10e2110]
+                  - cell "$25.94" [ref=f10e2111]
+            - generic [ref=f10e2113]:
+              - generic [ref=f10e2114]: 1-20 of 55 results
+              - navigation "pagination" [ref=f10e2116]:
+                - list [ref=f10e2117]:
+                  - listitem [ref=f10e2118]:
+                    - button "go to previous page" [disabled] [ref=f10e2119]
+                  - listitem [ref=f10e2122]:
+                    - button "you are currently on page 1" [ref=f10e2123] [cursor=pointer]:
+                      - generic [ref=f10e2124]: "1"
+                  - listitem [ref=f10e2125]:
+                    - button "go to page 2" [ref=f10e2126] [cursor=pointer]:
+                      - generic [ref=f10e2127]: "2"
+                  - listitem [ref=f10e2128]:
+                    - button "go to page 3" [ref=f10e2129] [cursor=pointer]:
+                      - generic [ref=f10e2130]: "3"
+                  - listitem [ref=f10e2131]:
+                    - button "go to next page" [ref=f10e2132] [cursor=pointer]
+              - generic [ref=f10e2135]:
+                - generic [ref=f10e2136]: "Rows per page:"
+                - button "20" [ref=f10e2138] [cursor=pointer]
+  - iframe [ref=f10e5]:
+    
+```

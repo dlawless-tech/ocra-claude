@@ -1,0 +1,1 @@
+const fs=require('fs');const t=fs.readFileSync(process.argv[2],'utf8');const l=t.split('\n').find(x=>x.startsWith('"'));const s=JSON.parse(l);fs.writeFileSync(process.argv[3],s.replace(/^LEN \d+\n/,'').replace(/^﻿/,''));console.log(s.slice(0,1200));

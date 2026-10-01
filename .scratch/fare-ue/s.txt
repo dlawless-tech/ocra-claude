@@ -1,0 +1,414 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://fare.restaurant365.com/react/home?dashboard=financialDashboard
+- Page Title: Financial | Dashboards
+- Console: 83 errors, 1 warnings
+### Snapshot
+```yaml
+- generic:
+  - banner [ref=f53e1]:
+    - generic [ref=f53e3]:
+      - button [ref=f53e4] [cursor=pointer]
+      - button [ref=f53e7] [cursor=pointer]
+      - button [ref=f53e10] [cursor=pointer]
+  - generic [ref=f53e22]:
+    - generic [ref=f53e25]:
+      - combobox [ref=f53e617]: Financial
+      - button [ref=f53e618] [cursor=pointer]
+      - group
+    - generic [ref=f53e31]:
+      - generic [ref=f53e32]:
+        - generic [ref=f53e34]:
+          - heading [level=5] [ref=f53e619]: Hello Tricia! Let’s get the day started.
+          - button [ref=f53e621] [cursor=pointer]: Default Dashboard
+        - generic [ref=f53e47]:
+          - button [ref=f53e48] [cursor=pointer]
+          - button [ref=f53e622] [cursor=pointer]: Settings
+      - generic [ref=f53e60]:
+        - generic [ref=f53e63] [cursor=pointer]:
+          - button [ref=f53e64]
+          - paragraph [ref=f53e73]: Invoices
+        - generic [ref=f53e76] [cursor=pointer]:
+          - button [ref=f53e77]
+          - paragraph [ref=f53e87]: Journal Entries
+        - generic [ref=f53e90] [cursor=pointer]:
+          - button [ref=f53e91]
+          - paragraph [ref=f53e100]: My Reports
+        - paragraph [ref=f53e112] [cursor=pointer]: Upload Documents
+      - generic [ref=f53e113]:
+        - generic [ref=f53e115]:
+          - heading [level=5] [ref=f53e623]: September 29th - September 29th, 2026
+          - generic [ref=f53e119]:
+            - paragraph [ref=f53e121]: Excludes Unapproved Transactions
+            - generic [ref=f53e124]:
+              - generic [ref=f53e125]: Select Locations
+              - generic [ref=f53e126]:
+                - textbox [ref=f53e624]: All Locations
+                - generic [ref=f53e128] [cursor=pointer]
+                - group:
+                  - generic: Select Locations
+            - generic [ref=f53e134]:
+              - generic [ref=f53e135]: Date Range
+              - generic [ref=f53e136] [cursor=pointer]:
+                - button [ref=f53e625]: yesterday
+                - textbox: yesterday
+                - group:
+                  - generic: Date Range
+            - generic [ref=f53e141]:
+              - generic [ref=f53e142]: Compare to
+              - generic [ref=f53e143] [cursor=pointer]:
+                - button [ref=f53e626]: "2025"
+                - textbox: "2025"
+                - group:
+                  - generic: Compare to
+        - generic [ref=f53e149]:
+          - generic [ref=f53e152]:
+            - generic [ref=f53e153]: Profit
+            - generic [ref=f53e157]:
+              - separator [ref=f53e158]
+              - generic [ref=f53e161]:
+                - paragraph [ref=f53e162]: Net Profit
+                - heading [level=4] [ref=f53e627]: $50,217.76
+                - heading [level=5] [ref=f53e628]:
+                  - strong [ref=f53e165]: "-%"
+                - text: Compared to September 29, 2025
+              - menuitem [ref=f53e629] [cursor=pointer]:
+                - generic [ref=f53e170]:
+                  - button [ref=f53e171]
+                  - paragraph [ref=f53e174]: Profit After Controllable
+                  - paragraph [ref=f53e175]: 50,217.76
+          - generic [ref=f53e178]:
+            - generic [ref=f53e182]:
+              - text: Income vs Cost of Goods Sold
+              - generic [ref=f53e183]:
+                - paragraph [ref=f53e184]: Net Sales
+                - button [ref=f53e185] [cursor=pointer]
+            - generic [ref=f53e188]:
+              - separator [ref=f53e189]
+              - generic [ref=f53e192]:
+                - paragraph [ref=f53e193]: Total Sales
+                - heading [level=4] [ref=f53e630]: $52,230.01
+                - heading [level=5] [ref=f53e631]:
+                  - strong [ref=f53e196]: "-%"
+                - text: Compared to September 29, 2025
+              - menu [ref=f53e199]:
+                - menuitem [ref=f53e632] [cursor=pointer]:
+                  - generic [ref=f53e202]:
+                    - button [ref=f53e203]
+                    - paragraph [ref=f53e206]: Total Food and Beverage CoGS
+                    - paragraph [ref=f53e207]: "0.00"
+                - generic [ref=f53e208]:
+                  - separator [ref=f53e209]
+                  - menuitem [ref=f53e633] [cursor=pointer]:
+                    - generic [ref=f53e211]:
+                      - button [ref=f53e212]
+                      - paragraph [ref=f53e215]: Food and Beverage CoGS %
+                      - paragraph [ref=f53e216]: 0.00%
+              - generic [ref=f53e217]:
+                - separator [ref=f53e218]
+                - tablist [ref=f53e634]:
+                  - tab [selected] [ref=f53e635] [cursor=pointer]: $ Dollar
+                  - tab [ref=f53e636] [cursor=pointer]: "% Percentage"
+                - generic [ref=f53e225]:
+                  - generic [ref=f53e226]:
+                    - generic [ref=f53e227]: Sales ($)
+                    - generic [ref=f53e232]: Cost of Goods Sold ($)
+                  - img [ref=f53e237]:
+                    - generic [ref=f53e238]:
+                      - generic [ref=f53e239]:
+                        - img [ref=f53e242]:
+                          - generic [ref=f53e243]: $53,470.92
+                        - img [ref=f53e245]:
+                          - generic [ref=f53e246]: $0.00
+                      - generic [ref=f53e247]:
+                        - img [ref=f53e249]:
+                          - generic [ref=f53e250]: "-$1.50"
+                        - img [ref=f53e252]:
+                          - generic [ref=f53e253]: $0.00
+                      - generic [ref=f53e254]:
+                        - generic [ref=f53e255]:
+                          - generic [ref=f53e256]: Food Sales
+                          - generic [ref=f53e257]: 102.38% of total
+                        - generic [ref=f53e258]:
+                          - generic [ref=f53e259]: General
+                          - generic [ref=f53e260]: "-0.00% of total"
+          - generic [ref=f53e263]:
+            - generic [ref=f53e264]: Profit And Loss
+            - tablist [ref=f53e637]:
+              - tab [selected] [ref=f53e638] [cursor=pointer]: $ Dollar
+              - tab [ref=f53e639] [cursor=pointer]: "% Percentage"
+            - generic [ref=f53e275]:
+              - generic [ref=f53e276]: Income / Sales
+              - generic [ref=f53e280]:
+                - separator [ref=f53e281]
+                - menu [ref=f53e282]:
+                  - menuitem [ref=f53e640] [cursor=pointer]:
+                    - generic [ref=f53e285]:
+                      - button [ref=f53e286]
+                      - paragraph [ref=f53e289]: Sales
+                      - paragraph [ref=f53e290]: $52,230.01
+                  - generic [ref=f53e291]:
+                    - separator [ref=f53e292]
+                    - menuitem [ref=f53e641] [cursor=pointer]:
+                      - generic [ref=f53e294]:
+                        - button [ref=f53e295]
+                        - paragraph [ref=f53e298]: Total
+                        - paragraph [ref=f53e299]: $52,230.01
+            - generic [ref=f53e301]:
+              - generic [ref=f53e302]: Costs / Expenses
+              - generic [ref=f53e306]:
+                - separator [ref=f53e307]
+                - menu [ref=f53e308]:
+                  - menuitem [ref=f53e642] [cursor=pointer]:
+                    - generic [ref=f53e311]:
+                      - button [ref=f53e312]
+                      - paragraph [ref=f53e315]: Prime Cost
+                      - paragraph [ref=f53e316]: $1,124.12
+                  - generic [ref=f53e317]:
+                    - separator [ref=f53e318]
+                    - menuitem [ref=f53e643] [cursor=pointer]:
+                      - generic [ref=f53e320]:
+                        - button [ref=f53e321]
+                        - paragraph [ref=f53e324]: Operating Expense
+                        - paragraph [ref=f53e325]: $888.13
+                  - generic [ref=f53e326]:
+                    - separator [ref=f53e327]
+                    - menuitem [ref=f53e644] [cursor=pointer]:
+                      - generic [ref=f53e329]:
+                        - button [ref=f53e330]
+                        - paragraph [ref=f53e333]: Non Controllable Expense
+                        - paragraph [ref=f53e334]: $0.00
+                  - generic [ref=f53e335]:
+                    - separator [ref=f53e336]
+                    - menuitem [ref=f53e645] [cursor=pointer]:
+                      - generic [ref=f53e338]:
+                        - button [ref=f53e339]
+                        - paragraph [ref=f53e342]: Corporate Overhead And Other
+                        - paragraph [ref=f53e343]: $0.00
+                  - generic [ref=f53e344]:
+                    - separator [ref=f53e345]
+                    - menuitem [ref=f53e646] [cursor=pointer]:
+                      - generic [ref=f53e347]:
+                        - button [ref=f53e348]
+                        - paragraph [ref=f53e351]: Income Tax
+                        - paragraph [ref=f53e352]: $0.00
+                  - generic [ref=f53e353]:
+                    - separator [ref=f53e354]
+                    - menuitem [ref=f53e647] [cursor=pointer]:
+                      - generic [ref=f53e356]:
+                        - button [ref=f53e357]
+                        - paragraph [ref=f53e360]: Total
+                        - paragraph [ref=f53e361]: $2,012.25
+            - generic [ref=f53e363]:
+              - generic [ref=f53e364]: Total
+              - generic [ref=f53e368]:
+                - separator [ref=f53e369]
+                - menuitem [ref=f53e648] [cursor=pointer]:
+                  - generic [ref=f53e372]:
+                    - button [ref=f53e373]
+                    - paragraph [ref=f53e376]: Total Profit And Loss
+                    - paragraph [ref=f53e377]: $50,217.76
+                - generic [ref=f53e378]:
+                  - separator [ref=f53e379]
+                  - menuitem [ref=f53e649] [cursor=pointer]:
+                    - generic [ref=f53e381]:
+                      - button [ref=f53e382]
+                      - paragraph [ref=f53e385]: Profit After Controllable
+                      - paragraph [ref=f53e386]: $50,217.76
+          - generic [ref=f53e389]:
+            - generic [ref=f53e393]:
+              - text: Sales vs Labor
+              - generic [ref=f53e394]:
+                - paragraph [ref=f53e395]: Net Sales
+                - button [ref=f53e396] [cursor=pointer]
+            - generic [ref=f53e399]:
+              - separator [ref=f53e400]
+              - generic [ref=f53e403]:
+                - paragraph [ref=f53e404]: Total Sales
+                - heading [level=4] [ref=f53e650]: $52,230.01
+                - heading [level=5] [ref=f53e651]:
+                  - strong [ref=f53e407]: "-%"
+                - text: Compared to September 29, 2025
+              - menu [ref=f53e410]:
+                - menuitem [ref=f53e652] [cursor=pointer]:
+                  - generic [ref=f53e413]:
+                    - button [ref=f53e414]
+                    - paragraph [ref=f53e417]: Total Labor
+                    - paragraph [ref=f53e418]: "0.00"
+                - generic [ref=f53e419]:
+                  - separator [ref=f53e420]
+                  - menuitem [ref=f53e653] [cursor=pointer]:
+                    - generic [ref=f53e422]:
+                      - button [ref=f53e423]
+                      - paragraph [ref=f53e426]: Labor %
+                      - paragraph [ref=f53e427]: 0.00%
+              - separator [ref=f53e428]
+              - tablist [ref=f53e654]:
+                - tab [selected] [ref=f53e655] [cursor=pointer]: $ Dollar
+                - tab [ref=f53e656] [cursor=pointer]: "% Percentage"
+              - generic [ref=f53e435]:
+                - generic [ref=f53e436]:
+                  - generic [ref=f53e437]: Sales ($)
+                  - generic [ref=f53e442]: Labor ($)
+                - img [ref=f53e447]:
+                  - generic [ref=f53e448]:
+                    - img [ref=f53e452]:
+                      - generic [ref=f53e453]: $52,230.01
+                    - generic [ref=f53e455]:
+                      - generic [ref=f53e456]: Sales
+                      - generic [ref=f53e457]: 100.00% of total
+          - generic [ref=f53e461]:
+            - generic [ref=f53e462]: Gross Profit Margin
+            - generic [ref=f53e466]:
+              - separator [ref=f53e467]
+              - generic [ref=f53e470]:
+                - paragraph [ref=f53e471]: Total Gross Profit Margin
+                - heading [level=4] [ref=f53e657]: 97.85%
+              - generic [ref=f53e476]:
+                - generic [ref=f53e481]:
+                  - paragraph [ref=f53e482]: September 29, 2025
+                  - paragraph [ref=f53e483]: 0.00%
+                - generic [ref=f53e487]:
+                  - generic [ref=f53e488]: By Market
+                  - generic [ref=f53e489]:
+                    - combobox [ref=f53e658] [cursor=pointer]
+                    - group:
+                      - generic: By Market
+          - generic [ref=f53e493]:
+            - generic [ref=f53e494]: Balance Sheet
+            - generic [ref=f53e499]:
+              - generic [ref=f53e500]: Assets
+              - generic [ref=f53e504]:
+                - separator [ref=f53e505]
+                - menuitem [ref=f53e659] [cursor=pointer]:
+                  - generic [ref=f53e508]:
+                    - button [ref=f53e509]
+                    - paragraph [ref=f53e512]: Current Asset
+                    - paragraph [ref=f53e513]: $1,187,776.04
+                - generic [ref=f53e514]:
+                  - separator [ref=f53e515]
+                  - menuitem [ref=f53e660] [cursor=pointer]:
+                    - generic [ref=f53e517]:
+                      - button [ref=f53e518]
+                      - paragraph [ref=f53e521]: Fixed Asset
+                      - paragraph [ref=f53e522]: $3,738,808.85
+                - generic [ref=f53e523]:
+                  - separator [ref=f53e524]
+                  - menuitem [ref=f53e661] [cursor=pointer]:
+                    - generic [ref=f53e526]:
+                      - button [ref=f53e527]
+                      - paragraph [ref=f53e530]: Other Asset
+                      - paragraph [ref=f53e531]: $362,881.99
+                - generic [ref=f53e532]:
+                  - separator [ref=f53e533]
+                  - menuitem [ref=f53e662] [cursor=pointer]:
+                    - generic [ref=f53e535]:
+                      - button [ref=f53e536]
+                      - paragraph [ref=f53e539]: Total Assets
+                      - paragraph [ref=f53e540]: $5,289,466.88
+            - generic [ref=f53e542]:
+              - generic [ref=f53e543]: Liabilities / Equity
+              - generic [ref=f53e547]:
+                - separator [ref=f53e548]
+                - menuitem [ref=f53e663] [cursor=pointer]:
+                  - generic [ref=f53e551]:
+                    - button [ref=f53e552]
+                    - paragraph [ref=f53e555]: Liabilities
+                    - paragraph [ref=f53e556]: $4,709,541.99
+                - generic [ref=f53e557]:
+                  - separator [ref=f53e558]
+                  - menuitem [ref=f53e664] [cursor=pointer]:
+                    - generic [ref=f53e560]:
+                      - button [ref=f53e561]
+                      - paragraph [ref=f53e564]: Equity
+                      - paragraph [ref=f53e565]: $579,924.89
+                - generic [ref=f53e566]:
+                  - separator [ref=f53e567]
+                  - menuitem [ref=f53e665] [cursor=pointer]:
+                    - generic [ref=f53e569]:
+                      - button [ref=f53e570]
+                      - paragraph [ref=f53e573]: Total Liabilities and Equity
+                      - paragraph [ref=f53e574]: $5,289,466.88
+          - generic [ref=f53e577]:
+            - generic [ref=f53e581]:
+              - text: EBIT
+              - generic [ref=f53e582]:
+                - paragraph [ref=f53e583]: EBIT
+                - button [ref=f53e584] [cursor=pointer]
+            - generic [ref=f53e587]:
+              - separator [ref=f53e588]
+              - generic [ref=f53e591]:
+                - paragraph [ref=f53e592]: Earnings
+                - heading [level=4] [ref=f53e666]: $50,217.76
+                - heading [level=5] [ref=f53e667]:
+                  - strong [ref=f53e595]: "-%"
+                - text: Compared to September 29, 2025
+          - generic [ref=f53e600]:
+            - generic [ref=f53e601]: Cash Balance
+            - generic [ref=f53e605]:
+              - separator [ref=f53e606]
+              - generic [ref=f53e609]:
+                - paragraph [ref=f53e610]: Cash Balance
+                - heading [level=4] [ref=f53e668]: $584,841.06
+                - heading [level=5] [ref=f53e669]:
+                  - strong [ref=f53e613]: "-%"
+                - text: Compared to September 29, 2025
+  - generic [ref=f53e616]: $52,230.01
+  - generic [ref=f53e671]:
+    - paragraph [ref=f53e673]: Your Apps
+    - list [ref=f53e674]:
+      - button [ref=f53e776] [cursor=pointer]:
+        - generic [ref=f53e777]: Dashboards
+      - button [ref=f53e778] [cursor=pointer]:
+        - generic [ref=f53e779]: Reports
+      - button [ref=f53e780] [cursor=pointer]:
+        - generic [ref=f53e781]: Accounting
+      - button [ref=f53e782] [cursor=pointer]:
+        - generic [ref=f53e783]: Inventory
+      - button [ref=f53e784] [cursor=pointer]:
+        - generic [ref=f53e785]: Sales & forecasting
+      - button [ref=f53e786] [cursor=pointer]:
+        - generic [ref=f53e787]: Workforce
+      - button [ref=f53e788] [cursor=pointer]:
+        - generic [ref=f53e789]: More
+    - list [ref=f53e741]:
+      - button [ref=f53e790] [cursor=pointer]:
+        - generic [ref=f53e791]: Admin
+      - button [ref=f53e792] [cursor=pointer]:
+        - generic [ref=f53e793]: Help
+      - button [ref=f53e794] [cursor=pointer]:
+        - generic [ref=f53e795]: Account
+      - button [ref=f53e796] [cursor=pointer]:
+        - generic [ref=f53e797]: Marketplace
+  - generic [ref=f53e799]:
+    - generic [ref=f53e800]:
+      - button [ref=f53e801] [cursor=pointer]
+      - paragraph [ref=f53e804]: Accounting
+    - list [ref=f53e805]:
+      - button "Accounts payable" [ref=f53e806] [cursor=pointer]:
+        - button [ref=f53e809]
+      - button "Accounts receivable" [ref=f53e812] [cursor=pointer]:
+        - button [ref=f53e815]
+      - button "Banking" [ref=f53e818] [cursor=pointer]:
+        - button [ref=f53e821]
+      - button "Fixed assets" [ref=f53e824] [cursor=pointer]:
+        - button [ref=f53e827]
+      - button "General ledger" [ref=f53e830] [cursor=pointer]:
+        - button [ref=f53e833]
+      - button "Transactions" [active] [ref=f53e836] [cursor=pointer]:
+        - button [ref=f53e839]
+      - list [ref=f53e844]:
+        - link "All transactions" [ref=f53e845] [cursor=pointer]:
+          - /url: /react/accounting/legacy/AllTransactions
+        - link "Memorized transactions" [ref=f53e848] [cursor=pointer]:
+          - /url: /react/accounting/legacy/MemorizedTransactions
+        - link "Transaction details" [ref=f53e851] [cursor=pointer]:
+          - /url: /react/accounting/legacy/TransactionDetails
+  - tooltip "Transactions"
+```

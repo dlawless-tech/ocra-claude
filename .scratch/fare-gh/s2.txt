@@ -1,0 +1,188 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://fare.restaurant365.com/react/reports-management/legacy/MyReports
+- Page Title: My Reports
+- Console: 79 errors, 1 warnings
+### Snapshot
+```yaml
+- generic:
+  - generic:
+    - banner [ref=f7e1]:
+      - generic [ref=f7e3]:
+        - button [ref=f7e4] [cursor=pointer]
+        - button [ref=f7e7] [cursor=pointer]
+        - button [ref=f7e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - iframe [active] [ref=f7e27]:
+      - generic [active] [ref=f8e1]:
+        - generic [ref=f8e2]:
+          - generic [ref=f8e4]:
+            - generic [ref=f8e5]: Theme Builder
+            - button [ref=f8e8] [cursor=pointer]:
+              - generic [ref=f8e9]: 
+            - generic [ref=f8e10]:
+              - generic [ref=f8e11]:
+                - heading "Ribbon" [level=4] [ref=f8e12]
+                - generic [ref=f8e13]:
+                  - generic [ref=f8e14]: BG
+                  - generic [ref=f8e15]: Font
+                  - generic [ref=f8e16]: Hover BG
+                  - generic [ref=f8e17]: Hover Font
+                - generic "Menu" [ref=f8e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f8e22]':
+                    - generic [ref=f8e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f8e28]':
+                    - generic [ref=f8e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f8e34]':
+                    - generic [ref=f8e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f8e40]':
+                    - generic [ref=f8e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f8e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f8e49]':
+                    - generic [ref=f8e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f8e55]':
+                    - generic [ref=f8e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f8e61]':
+                    - generic [ref=f8e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f8e67]':
+                    - generic [ref=f8e71] [cursor=pointer]
+              - generic [ref=f8e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f8e73]
+                - button "Upload Ribbon Logo" [ref=f8e78] [cursor=pointer]
+              - generic [ref=f8e79]:
+                - heading "Left Panel" [level=4] [ref=f8e80]
+                - generic [ref=f8e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f8e84]':
+                    - generic [ref=f8e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f8e90]':
+                    - generic [ref=f8e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f8e96]':
+                    - generic [ref=f8e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f8e102]':
+                    - generic [ref=f8e106] [cursor=pointer]
+              - generic [ref=f8e107]:
+                - heading "Components" [level=4] [ref=f8e108]
+                - generic "Normal" [ref=f8e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f8e113]':
+                    - generic [ref=f8e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f8e119]':
+                    - generic [ref=f8e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f8e125]':
+                    - generic [ref=f8e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f8e131]':
+                    - generic [ref=f8e135] [cursor=pointer]
+                - generic "Selected" [ref=f8e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f8e140]':
+                    - generic [ref=f8e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f8e146]':
+                    - generic [ref=f8e150] [cursor=pointer]
+            - generic [ref=f8e151]:
+              - generic [ref=f8e152]:
+                - generic [ref=f8e155]:
+                  - combobox "Select Theme" [ref=f8e156]: Default R365 Theme
+                  - button "select" [ref=f8e158] [cursor=pointer]
+                - generic [ref=f8e159]:
+                  - button "Set As Default" [ref=f8e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f8e161]
+                  - button "Delete" [disabled] [ref=f8e162]
+              - generic [ref=f8e163]:
+                - textbox "Add New Theme" [ref=f8e165]
+                - button "New" [ref=f8e167] [cursor=pointer]
+          - generic [ref=f8e175]:
+            - generic [ref=f8e176]:
+              - textbox "Find a report" [ref=f8e179]
+              - generic [ref=f8e181] [cursor=pointer]: Report Subscriptions
+            - navigation [ref=f8e185]:
+              - listbox "navigation links" [ref=f8e186]:
+                - option "My Reports" [selected] [ref=f8e187]
+                - option "Accounting" [ref=f8e190]
+                - option "Inventory" [ref=f8e193]
+                - option "Operations" [ref=f8e196]
+                - option "Payroll" [ref=f8e199]
+                - option "Training" [ref=f8e202]
+                - option "Workforce" [ref=f8e205]
+            - generic [ref=f8e210]:
+              - generic [ref=f8e211]:
+                - generic [ref=f8e212]:
+                  - heading "Recent" [level=4] [ref=f8e213]
+                  - button [ref=f8e214] [cursor=pointer]
+                - generic [ref=f8e216]:
+                  - generic [ref=f8e217]:
+                    - generic [ref=f8e218]:
+                      - button "GL Account Detail Report Button" [ref=f8e219] [cursor=pointer]
+                      - heading "GL Account Detail" [level=3] [ref=f8e223]
+                    - generic [ref=f8e224]:
+                      - generic [ref=f8e226]:
+                        - button "View ▼" [ref=f8e229] [cursor=pointer]:
+                          - generic [ref=f8e230]:
+                            - generic [ref=f8e231]: View
+                            - generic [ref=f8e232]: ▼
+                        - combobox "Select a view" [ref=f8e235]: System View
+                      - button "Quick Parameters" [ref=f8e238] [cursor=pointer]
+                      - button "Run" [ref=f8e240] [cursor=pointer]
+                      - button "exportMenu" [ref=f8e242] [cursor=pointer]
+                      - button "reportParams" [ref=f8e245] [cursor=pointer]: Customize
+                  - generic [ref=f8e246]:
+                    - generic [ref=f8e247]:
+                      - button "Balance Sheet Report Button" [ref=f8e248] [cursor=pointer]:
+                        - generic "Favorite" [ref=f8e250]
+                      - heading "Balance Sheet" [level=3] [ref=f8e252]
+                    - generic [ref=f8e253]:
+                      - generic [ref=f8e255]:
+                        - button "View ▼" [ref=f8e258] [cursor=pointer]:
+                          - generic [ref=f8e259]:
+                            - generic [ref=f8e260]: View
+                            - generic [ref=f8e261]: ▼
+                        - combobox "Select a view" [ref=f8e264]: System View
+                      - button "Quick Parameters" [ref=f8e267] [cursor=pointer]
+                      - button "Run" [ref=f8e269] [cursor=pointer]
+                      - button "exportMenu" [ref=f8e271] [cursor=pointer]
+                      - button "reportParams" [ref=f8e274] [cursor=pointer]: Customize
+              - generic [ref=f8e275]:
+                - generic [ref=f8e276]:
+                  - heading "Favorites" [level=4] [ref=f8e277]
+                  - button [ref=f8e278] [cursor=pointer]
+                - generic [ref=f8e281]:
+                  - generic [ref=f8e282]:
+                    - generic [ref=f8e283]:
+                      - button "Balance Sheet Report Button" [ref=f8e284] [cursor=pointer]:
+                        - generic "Favorite" [ref=f8e286]
+                      - heading "Balance Sheet" [level=3] [ref=f8e288]
+                    - generic [ref=f8e289]:
+                      - generic [ref=f8e291]:
+                        - button "View ▼" [ref=f8e294] [cursor=pointer]:
+                          - generic [ref=f8e295]:
+                            - generic [ref=f8e296]: View
+                            - generic [ref=f8e297]: ▼
+                        - combobox "Select a view" [ref=f8e300]: System View
+                      - button "Quick Parameters" [ref=f8e303] [cursor=pointer]
+                      - button "Run" [ref=f8e305] [cursor=pointer]
+                      - button "exportMenu" [ref=f8e307] [cursor=pointer]
+                      - button "reportParams" [ref=f8e310] [cursor=pointer]: Customize
+                  - generic [ref=f8e340]:
+                    - generic [ref=f8e341]:
+                      - button "Profit and Loss Report Button" [ref=f8e342] [cursor=pointer]:
+                        - generic "Favorite" [ref=f8e344]
+                      - heading "Profit and Loss" [level=3] [ref=f8e346]
+                    - generic [ref=f8e347]:
+                      - generic [ref=f8e349]:
+                        - button "View ▼" [ref=f8e352] [cursor=pointer]:
+                          - generic [ref=f8e353]:
+                            - generic [ref=f8e354]: View
+                            - generic [ref=f8e355]: ▼
+                        - combobox "Select a view" [ref=f8e358]: System View
+                      - button "Quick Parameters" [ref=f8e361] [cursor=pointer]
+                      - button "Run" [ref=f8e363] [cursor=pointer]
+                      - button "exportMenu" [ref=f8e365] [cursor=pointer]
+                      - button "reportParams" [ref=f8e368] [cursor=pointer]: Customize
+        - status [ref=f8e369]
+  - iframe
+```

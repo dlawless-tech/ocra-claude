@@ -1,0 +1,184 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/summary/reports/financials?business_id=11521564&report_category=financials&report_types=4%2C2&filter_date=2026-09-24T10%3A30%3A03.356Z&filter_stores=48418693
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 1 errors, 24 warnings
+### Snapshot
+```yaml
+- generic [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e10]:
+    - generic [ref=f10e47]:
+      - generic [ref=f10e51]:
+        - generic [ref=f10e53]:
+          - generic [ref=f10e56] [cursor=pointer]:
+            - button "Assistant" [ref=f10e742]
+            - generic [ref=f10e60]: Beta
+          - button "Expand Chat" [ref=f10e1409] [cursor=pointer]
+        - generic [ref=f10e1412]:
+          - generic: Pause my store
+          - generic [ref=f10e1416]:
+            - textbox [ref=f10e1418]
+            - generic [ref=f10e1420]:
+              - button "Start voice recording" [ref=f10e1422] [cursor=pointer]
+              - button "send" [disabled] [ref=f10e2143]
+      - navigation "Merchant Navigation" [ref=f10e752]:
+        - generic [ref=f10e139]:
+          - button "DoorDash" [ref=f10e753] [cursor=pointer]
+          - img "FARE" [ref=f10e754]
+        - generic [ref=f10e153]:
+          - list [ref=f10e154]:
+            - listitem [ref=f10e155]:
+              - button "Home" [ref=f10e755] [cursor=pointer]
+          - list [ref=f10e163]:
+            - listitem [ref=f10e164]:
+              - button "Insights" [ref=f10e756] [cursor=pointer]
+          - list [ref=f10e172]:
+            - listitem [ref=f10e173]:
+              - button "Reports" [ref=f10e757] [cursor=pointer]
+          - list [ref=f10e181]:
+            - listitem [ref=f10e182]:
+              - button "Customers" [ref=f10e758] [cursor=pointer]
+          - list [ref=f10e193]:
+            - listitem [ref=f10e194]:
+              - button "Orders" [ref=f10e759] [cursor=pointer]
+          - list [ref=f10e203]:
+            - listitem [ref=f10e204]:
+              - button "Stores" [ref=f10e760] [cursor=pointer]
+          - list [ref=f10e212]:
+            - listitem [ref=f10e213]:
+              - button "Marketing" [ref=f10e761] [cursor=pointer]
+          - list [ref=f10e221]:
+            - listitem [ref=f10e222]:
+              - button "Menu pricing" [ref=f10e762] [cursor=pointer]
+          - list [ref=f10e230]:
+            - listitem [ref=f10e231]:
+              - button "Financials" [ref=f10e763] [cursor=pointer]
+          - list [ref=f10e240]:
+            - listitem [ref=f10e241]:
+              - button "Manage users" [ref=f10e764] [cursor=pointer]
+          - list [ref=f10e250]:
+            - listitem [ref=f10e251]:
+              - button "Settings" [ref=f10e765] [cursor=pointer]
+          - list [ref=f10e259]:
+            - listitem [ref=f10e260]:
+              - button "Add solutions" [ref=f10e766] [cursor=pointer]
+          - list [ref=f10e269]:
+            - listitem [ref=f10e270]:
+              - button "Help" [ref=f10e767] [cursor=pointer]
+          - list "Channels" [ref=f10e768]:
+            - listitem [ref=f10e283]:
+              - button "Online Ordering" [ref=f10e769] [cursor=pointer]
+            - listitem [ref=f10e292]:
+              - button "Request a delivery" [ref=f10e770] [cursor=pointer]
+        - button "Mark Rubinstein menu" [ref=f10e771] [cursor=pointer]
+      - navigation [ref=f10e2152]:
+        - button "Show Side Menu" [ref=f10e2155] [cursor=pointer]
+    - generic [ref=f10e2166]:
+      - navigation [ref=f10e2167]:
+        - generic [ref=f10e2169]:
+          - generic [ref=f10e2170]: DoorDash
+          - generic [ref=f10e2174]: Report builder
+        - generic [ref=f10e2176]: Step 2 of 2
+        - button "Close" [ref=f10e2180] [cursor=pointer]
+      - generic [ref=f10e2190]:
+        - main [ref=f10e2193]:
+          - generic [ref=f10e2195]:
+            - button "Back" [ref=f10e2196] [cursor=pointer]
+            - generic [ref=f10e2199]: Back
+          - generic [ref=f10e2200]:
+            - generic [ref=f10e2201]: Customize your financial report
+            - generic [ref=f10e2204]:
+              - generic [ref=f10e2205]: Choose stores
+              - button "All stores (10)" [ref=f10e2212] [cursor=pointer]
+              - generic [ref=f10e2216]: Choose a time range
+              - radiogroup "choose between one-time and recurring scheduled report" [ref=f10e2222]:
+                - radio "One-time report" [checked] [ref=f10e2223] [cursor=pointer]
+                - radio "Recurring report" [ref=f10e2228] [cursor=pointer]
+              - generic [ref=f10e2233]: We'll notify you via email when your report is ready. This can take a few minutes for smaller reports, and up to a few hours for reports with large amounts of data.
+              - generic [ref=f10e2237]:
+                - generic [ref=f10e2241]:
+                  - radio "By payout date" [checked] [ref=f10e2243] [cursor=pointer]
+                  - generic [ref=f10e2244] [cursor=pointer]: By payout date
+                - generic [ref=f10e2250]:
+                  - radio "By date range" [ref=f10e2252] [cursor=pointer]
+                  - generic [ref=f10e2253] [cursor=pointer]: By date range
+              - generic [ref=f10e2257]:
+                - generic [ref=f10e2258]: Payout date
+                - button "9/24/2026" [expanded] [ref=f10e2261] [cursor=pointer]
+                - generic [ref=f10e2266]: Includes all data for the payout that occurred on selected date. You may select a payout date within the last 2 years
+              - generic [ref=f10e2268]:
+                - generic [ref=f10e2269]: Choose information to include
+                - generic [ref=f10e2271]: You will receive a separate CSV file for each category of information.
+              - generic [ref=f10e2274]:
+                - generic [ref=f10e2278]:
+                  - generic [ref=f10e2281] [cursor=pointer]:
+                    - generic [ref=f10e2282]: Transactions overview
+                    - generic [ref=f10e2284]: Consolidated view of key transaction data for understanding earnings, fees, and taxes at a glance
+                  - checkbox "Transactions overview Consolidated view of key transaction data for understanding earnings, fees, and taxes at a glance" [checked] [ref=f10e2286] [cursor=pointer]
+                - generic [ref=f10e2290]:
+                  - generic [ref=f10e2293] [cursor=pointer]:
+                    - generic [ref=f10e2294]: Transactions breakdown
+                    - generic [ref=f10e2296]: Granular breakdown of transaction data for comprehensive reconciliation and analysis, including additional detail on fees and taxes
+                  - checkbox "Transactions breakdown Granular breakdown of transaction data for comprehensive reconciliation and analysis, including additional detail on fees and taxes" [checked] [ref=f10e2298] [cursor=pointer]
+                - generic [ref=f10e2302]:
+                  - generic [ref=f10e2305] [cursor=pointer]:
+                    - generic [ref=f10e2306]: Error charges and adjustments
+                    - generic [ref=f10e2308]: Overview of charges made due to order errors or discrepancies, including adjustment amounts and explanations
+                  - checkbox "Error charges and adjustments Overview of charges made due to order errors or discrepancies, including adjustment amounts and explanations" [checked] [ref=f10e2310] [cursor=pointer]
+                - generic [ref=f10e2314]:
+                  - generic [ref=f10e2317] [cursor=pointer]:
+                    - generic [ref=f10e2318]: Payouts
+                    - generic [ref=f10e2320]: Overview of total transaction subtotals, commission, fees, error charges, and adjustments that contributed to each payout
+                  - checkbox "Payouts Overview of total transaction subtotals, commission, fees, error charges, and adjustments that contributed to each payout" [checked] [ref=f10e2322] [cursor=pointer]
+              - generic [ref=f10e2324]:
+                - text: To learn more about report definitions, you can
+                - button "download" [ref=f10e2325] [cursor=pointer]
+                - text: a separate file or go to our
+                - link "Learning Center" [ref=f10e2326] [cursor=pointer]:
+                  - /url: https://merchants.doordash.com/learning-center/payout-and-monthly-statement
+          - button "Create report" [ref=f10e2328] [cursor=pointer]
+        - generic [ref=f10e2338]:
+          - generic [ref=f10e2339]: Your report summary
+          - generic [ref=f10e2340]:
+            - generic [ref=f10e2341]: Channels
+            - generic [ref=f10e2342]: Marketplace, Online Ordering
+          - generic [ref=f10e2343]:
+            - generic [ref=f10e2344]: Stores
+            - generic [ref=f10e2345]: 10 stores
+          - generic [ref=f10e2346]:
+            - generic [ref=f10e2347]: Payout date
+            - generic [ref=f10e2348]: Sep 24
+          - separator [ref=f10e2349]
+          - generic [ref=f10e2350]: Included data
+          - generic [ref=f10e2352]:
+            - img "Included data" [ref=f10e2353]
+            - generic [ref=f10e2355]: Transactions overview
+          - generic [ref=f10e2356]:
+            - img "Included data" [ref=f10e2357]
+            - generic [ref=f10e2359]: Transactions breakdown
+          - generic [ref=f10e2360]:
+            - img "Included data" [ref=f10e2361]
+            - generic [ref=f10e2363]: Error charges and adjustments
+          - generic [ref=f10e2364]:
+            - img "Included data" [ref=f10e2365]
+            - generic [ref=f10e2367]: Payouts
+    - menu [ref=f10e2371]:
+      - generic [ref=f10e2372]:
+        - menuitem "9/24/2026" [active] [ref=f10e2374] [cursor=pointer]
+        - menuitem "9/17/2026" [ref=f10e2383] [cursor=pointer]
+        - menuitem "9/10/2026" [ref=f10e2389] [cursor=pointer]
+        - menuitem "9/3/2026" [ref=f10e2395] [cursor=pointer]
+        - menuitem "8/27/2026" [ref=f10e2401] [cursor=pointer]
+        - menuitem "More payout dates" [ref=f10e2407] [cursor=pointer]
+  - iframe [ref=f10e5]:
+    
+```

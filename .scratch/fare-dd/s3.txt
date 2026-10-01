@@ -1,0 +1,331 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/financials?business_id=11521564
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 0 errors, 12 warnings
+### Snapshot
+```yaml
+- generic [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e11]:
+    - button "Open DoorDash AI Assistant" [ref=f10e1406] [cursor=pointer]
+    - generic [ref=f10e47]:
+      - generic [ref=f10e51]:
+        - generic [ref=f10e53]:
+          - generic [ref=f10e56] [cursor=pointer]:
+            - button "Assistant" [ref=f10e742]
+            - generic [ref=f10e60]: Beta
+          - button "Expand Chat" [active] [ref=f10e1409] [cursor=pointer]
+        - generic [ref=f10e1412]:
+          - generic: Pause my store
+          - generic [ref=f10e1416]:
+            - textbox [ref=f10e1418]
+            - generic [ref=f10e1420]:
+              - button "Start voice recording" [ref=f10e1422] [cursor=pointer]
+              - button "send" [disabled] [ref=f10e1426]
+      - navigation "Merchant Navigation" [ref=f10e752]:
+        - generic [ref=f10e139]:
+          - button "DoorDash" [ref=f10e753] [cursor=pointer]
+          - img "FARE" [ref=f10e754]
+        - generic [ref=f10e153]:
+          - list [ref=f10e154]:
+            - listitem [ref=f10e155]:
+              - button "Home" [ref=f10e755] [cursor=pointer]
+          - list [ref=f10e163]:
+            - listitem [ref=f10e164]:
+              - button "Insights" [ref=f10e756] [cursor=pointer]
+          - list [ref=f10e172]:
+            - listitem [ref=f10e173]:
+              - button "Reports" [ref=f10e757] [cursor=pointer]
+          - list [ref=f10e181]:
+            - listitem [ref=f10e182]:
+              - button "Customers" [ref=f10e758] [cursor=pointer]
+          - list [ref=f10e193]:
+            - listitem [ref=f10e194]:
+              - button "Orders" [ref=f10e759] [cursor=pointer]
+          - list [ref=f10e203]:
+            - listitem [ref=f10e204]:
+              - button "Stores" [ref=f10e760] [cursor=pointer]
+          - list [ref=f10e212]:
+            - listitem [ref=f10e213]:
+              - button "Marketing" [ref=f10e761] [cursor=pointer]
+          - list [ref=f10e221]:
+            - listitem [ref=f10e222]:
+              - button "Menu pricing" [ref=f10e762] [cursor=pointer]
+          - list [ref=f10e230]:
+            - listitem [ref=f10e231]:
+              - button "Financials" [ref=f10e763] [cursor=pointer]
+          - list [ref=f10e240]:
+            - listitem [ref=f10e241]:
+              - button "Manage users" [ref=f10e764] [cursor=pointer]
+          - list [ref=f10e250]:
+            - listitem [ref=f10e251]:
+              - button "Settings" [ref=f10e765] [cursor=pointer]
+          - list [ref=f10e259]:
+            - listitem [ref=f10e260]:
+              - button "Add solutions" [ref=f10e766] [cursor=pointer]
+          - list [ref=f10e269]:
+            - listitem [ref=f10e270]:
+              - button "Help" [ref=f10e767] [cursor=pointer]
+          - list "Channels" [ref=f10e768]:
+            - listitem [ref=f10e283]:
+              - button "Online Ordering" [ref=f10e769] [cursor=pointer]
+            - listitem [ref=f10e292]:
+              - button "Request a delivery" [ref=f10e770] [cursor=pointer]
+        - button "Mark Rubinstein menu" [ref=f10e771] [cursor=pointer]
+      - generic [ref=f10e306]:
+        - generic [ref=f10e855]:
+          - navigation [ref=f10e856]:
+            - generic [ref=f10e858]:
+              - button "Show Side Menu" [ref=f10e859] [cursor=pointer]
+              - generic [ref=f10e862]: Payouts
+          - generic [ref=f10e869]:
+            - text: Here is where you will find a summary of your Transactions and Payouts.
+            - link "Learn more" [ref=f10e870] [cursor=pointer]:
+              - /url: https://get.doordash.com/en-us/learning-center/payout-and-monthly-statement?utm_source=DoorDash&utm_medium=Direct&utm_campaign=MX_US_IPN_WEB_OTH_MPL_MTP_MOF_EXA_ENG_5_CUSXXX___MX_Portal_Internal_Link
+        - generic [ref=f10e875]:
+          - generic [ref=f10e877]:
+            - generic [ref=f10e879]:
+              - generic [ref=f10e880]: Turn payout questions into answers
+              - generic [ref=f10e881]: Your assistant can explain payouts and break down where your money went
+            - button "Break down my payouts" [ref=f10e883] [cursor=pointer]
+          - generic [ref=f10e890]:
+            - button "Last 30 days" [ref=f10e892] [cursor=pointer]
+            - button "All stores (10)" [ref=f10e898] [cursor=pointer]
+          - generic [ref=f10e903]:
+            - table [ref=f10e906]:
+              - rowgroup [ref=f10e907]:
+                - row [ref=f10e908]:
+                  - columnheader "Payout date" [ref=f10e909]
+                  - columnheader "Payout ID" [ref=f10e914]
+                  - columnheader "Status" [ref=f10e917]
+                  - columnheader "Store" [ref=f10e920]
+                  - columnheader "Sales" [ref=f10e923]
+                  - columnheader "Commission & fees" [ref=f10e928]
+                  - columnheader "Marketing spend" [ref=f10e933]
+                  - columnheader "Amendments" [ref=f10e938]
+                  - columnheader "Net payout" [ref=f10e943]
+              - rowgroup [ref=f10e948]:
+                - row [ref=f10e949]:
+                  - cell "9/24/2026" [ref=f10e950]
+                  - cell "614002647" [ref=f10e952]
+                  - cell "Paid" [ref=f10e954]
+                  - cell "FARE Loop (S Franklin) (Marketplace)" [ref=f10e959]
+                  - cell "$1,537.33" [ref=f10e961]
+                  - cell "-$263.59" [ref=f10e963]
+                  - cell "-$55.00" [ref=f10e965]
+                  - cell "$0.00" [ref=f10e967]
+                  - cell "$1,218.74" [ref=f10e969]
+                - row [ref=f10e971]:
+                  - cell "9/24/2026" [ref=f10e972]
+                  - cell "614345660" [ref=f10e974]
+                  - cell "Paid" [ref=f10e976]
+                  - cell "FARE Oak Park (Marketplace)" [ref=f10e981]
+                  - cell "$1,509.80" [ref=f10e983]
+                  - cell "-$373.65" [ref=f10e985]
+                  - cell "-$71.52" [ref=f10e987]
+                  - cell "-$24.09" [ref=f10e989]
+                  - cell "$1,040.54" [ref=f10e991]
+                - row [ref=f10e993]:
+                  - cell "9/24/2026" [ref=f10e994]
+                  - cell "614393781" [ref=f10e996]
+                  - cell "Paid" [ref=f10e998]
+                  - cell "FARE Old Post Office (Marketplace)" [ref=f10e1003]
+                  - cell "$346.54" [ref=f10e1005]
+                  - cell "-$97.36" [ref=f10e1007]
+                  - cell "-$22.00" [ref=f10e1009]
+                  - cell "$0.00" [ref=f10e1011]
+                  - cell "$227.18" [ref=f10e1013]
+                - row [ref=f10e1015]:
+                  - cell "9/24/2026" [ref=f10e1016]
+                  - cell "614209721" [ref=f10e1018]
+                  - cell "Paid" [ref=f10e1020]
+                  - cell "FARE Northwestern Memorial Hospital (Marketplace)" [ref=f10e1025]
+                  - cell "$518.19" [ref=f10e1027]
+                  - cell "-$112.54" [ref=f10e1029]
+                  - cell "$0.00" [ref=f10e1031]
+                  - cell "-$18.73" [ref=f10e1033]
+                  - cell "$386.92" [ref=f10e1035]
+                - row [ref=f10e1037]:
+                  - cell "9/24/2026" [ref=f10e1038]
+                  - cell "614157885" [ref=f10e1040]
+                  - cell "Paid" [ref=f10e1042]
+                  - cell "FARE Lakeview (Marketplace)" [ref=f10e1047]
+                  - cell "$1,323.55" [ref=f10e1049]
+                  - cell "-$128.44" [ref=f10e1051]
+                  - cell "$0.00" [ref=f10e1053]
+                  - cell "-$21.89" [ref=f10e1055]
+                  - cell "$1,173.22" [ref=f10e1057]
+                - row [ref=f10e1059]:
+                  - cell "9/24/2026" [ref=f10e1060]
+                  - cell "614197006" [ref=f10e1062]
+                  - cell "Paid" [ref=f10e1064]
+                  - cell "FARE Lake & LaSalle (Marketplace)" [ref=f10e1069]
+                  - cell "$548.12" [ref=f10e1071]
+                  - cell "-$116.63" [ref=f10e1073]
+                  - cell "$0.00" [ref=f10e1075]
+                  - cell "$0.00" [ref=f10e1077]
+                  - cell "$431.49" [ref=f10e1079]
+                - row [ref=f10e1081]:
+                  - cell "9/24/2026" [ref=f10e1082]
+                  - cell "614227229" [ref=f10e1084]
+                  - cell "Paid" [ref=f10e1086]
+                  - cell "FARE Logan Square (Marketplace)" [ref=f10e1091]
+                  - cell "$4,567.53" [ref=f10e1093]
+                  - cell "-$1,097.02" [ref=f10e1095]
+                  - cell "-$134.39" [ref=f10e1097]
+                  - cell "-$61.74" [ref=f10e1099]
+                  - cell "$3,274.38" [ref=f10e1101]
+                - row [ref=f10e1103]:
+                  - cell "9/24/2026" [ref=f10e1104]
+                  - cell "614290925" [ref=f10e1106]
+                  - cell "Paid" [ref=f10e1108]
+                  - cell "FARE Old Town (Marketplace)" [ref=f10e1113]
+                  - cell "$2,904.50" [ref=f10e1115]
+                  - cell "-$612.01" [ref=f10e1117]
+                  - cell "$0.00" [ref=f10e1119]
+                  - cell "-$33.92" [ref=f10e1121]
+                  - cell "$2,258.57" [ref=f10e1123]
+                - row [ref=f10e1125]:
+                  - cell "9/24/2026" [ref=f10e1126]
+                  - cell "614251497" [ref=f10e1128]
+                  - cell "Paid" [ref=f10e1130]
+                  - cell "FARE Sterling Food Hall (Marketplace)" [ref=f10e1135]
+                  - cell "$180.99" [ref=f10e1137]
+                  - cell "-$33.77" [ref=f10e1139]
+                  - cell "$0.00" [ref=f10e1141]
+                  - cell "$0.00" [ref=f10e1143]
+                  - cell "$147.22" [ref=f10e1145]
+                - row [ref=f10e1147]:
+                  - cell "9/17/2026" [ref=f10e1148]
+                  - cell "612385442" [ref=f10e1150]
+                  - cell "Paid" [ref=f10e1152]
+                  - cell "FARE Sterling Food Hall (Marketplace)" [ref=f10e1157]
+                  - cell "$127.37" [ref=f10e1159]
+                  - cell "-$17.54" [ref=f10e1161]
+                  - cell "$0.00" [ref=f10e1163]
+                  - cell "$0.00" [ref=f10e1165]
+                  - cell "$109.83" [ref=f10e1167]
+                - row [ref=f10e1169]:
+                  - cell "9/17/2026" [ref=f10e1170]
+                  - cell "612415307" [ref=f10e1172]
+                  - cell "Paid" [ref=f10e1174]
+                  - cell "FARE Logan Square (Marketplace)" [ref=f10e1179]
+                  - cell "$3,879.23" [ref=f10e1181]
+                  - cell "-$942.35" [ref=f10e1183]
+                  - cell "-$141.36" [ref=f10e1185]
+                  - cell "-$76.84" [ref=f10e1187]
+                  - cell "$2,718.68" [ref=f10e1189]
+                - row [ref=f10e1191]:
+                  - cell "9/17/2026" [ref=f10e1192]
+                  - cell "612033848" [ref=f10e1194]
+                  - cell "Paid" [ref=f10e1196]
+                  - cell "FARE Loop (S Franklin) (Marketplace)" [ref=f10e1201]
+                  - cell "$539.19" [ref=f10e1203]
+                  - cell "-$70.30" [ref=f10e1205]
+                  - cell "-$33.00" [ref=f10e1207]
+                  - cell "$0.00" [ref=f10e1209]
+                  - cell "$435.89" [ref=f10e1211]
+                - row [ref=f10e1213]:
+                  - cell "9/17/2026" [ref=f10e1214]
+                  - cell "612269253" [ref=f10e1216]
+                  - cell "Paid" [ref=f10e1218]
+                  - cell "FARE Lakeview (Marketplace)" [ref=f10e1223]
+                  - cell "$1,453.05" [ref=f10e1225]
+                  - cell "$0.00" [ref=f10e1227]
+                  - cell "$0.00" [ref=f10e1229]
+                  - cell "-$71.59" [ref=f10e1231]
+                  - cell "$1,381.46" [ref=f10e1233]
+                - row [ref=f10e1235]:
+                  - cell "9/17/2026" [ref=f10e1236]
+                  - cell "612095843" [ref=f10e1238]
+                  - cell "Paid" [ref=f10e1240]
+                  - cell "FARE Old Post Office (Marketplace)" [ref=f10e1245]
+                  - cell "$83.66" [ref=f10e1247]
+                  - cell "-$12.05" [ref=f10e1249]
+                  - cell "-$11.00" [ref=f10e1251]
+                  - cell "$0.00" [ref=f10e1253]
+                  - cell "$60.61" [ref=f10e1255]
+                - row [ref=f10e1257]:
+                  - cell "9/17/2026" [ref=f10e1258]
+                  - cell "612070463" [ref=f10e1260]
+                  - cell "Paid" [ref=f10e1262]
+                  - cell "FARE Lake & LaSalle (Marketplace)" [ref=f10e1267]
+                  - cell "$535.08" [ref=f10e1269]
+                  - cell "-$127.12" [ref=f10e1271]
+                  - cell "$0.00" [ref=f10e1273]
+                  - cell "$0.00" [ref=f10e1275]
+                  - cell "$407.96" [ref=f10e1277]
+                - row [ref=f10e1279]:
+                  - cell "9/17/2026" [ref=f10e1280]
+                  - cell "611977120" [ref=f10e1282]
+                  - cell "Paid" [ref=f10e1284]
+                  - cell "FARE Oak Park (Marketplace)" [ref=f10e1289]
+                  - cell "$1,144.09" [ref=f10e1291]
+                  - cell "-$249.55" [ref=f10e1293]
+                  - cell "-$79.46" [ref=f10e1295]
+                  - cell "$0.00" [ref=f10e1297]
+                  - cell "$815.08" [ref=f10e1299]
+                - row [ref=f10e1301]:
+                  - cell "9/17/2026" [ref=f10e1302]
+                  - cell "612428777" [ref=f10e1304]
+                  - cell "Paid" [ref=f10e1306]
+                  - cell "FARE Old Town (Marketplace)" [ref=f10e1311]
+                  - cell "$1,852.56" [ref=f10e1313]
+                  - cell "-$404.94" [ref=f10e1315]
+                  - cell "$0.00" [ref=f10e1317]
+                  - cell "-$13.74" [ref=f10e1319]
+                  - cell "$1,433.88" [ref=f10e1321]
+                - row [ref=f10e1323]:
+                  - cell "9/17/2026" [ref=f10e1324]
+                  - cell "612273733" [ref=f10e1326]
+                  - cell "Paid" [ref=f10e1328]
+                  - cell "FARE Northwestern Memorial Hospital (Marketplace)" [ref=f10e1333]
+                  - cell "$352.32" [ref=f10e1335]
+                  - cell "-$80.14" [ref=f10e1337]
+                  - cell "-$11.00" [ref=f10e1339]
+                  - cell "$0.00" [ref=f10e1341]
+                  - cell "$261.18" [ref=f10e1343]
+                - row [ref=f10e1345]:
+                  - cell "9/10/2026" [ref=f10e1346]
+                  - cell "610551056" [ref=f10e1348]
+                  - cell "Paid" [ref=f10e1350]
+                  - cell "FARE Logan Square (Marketplace)" [ref=f10e1355]
+                  - cell "$5,127.60" [ref=f10e1357]
+                  - cell "-$1,221.93" [ref=f10e1359]
+                  - cell "-$133.88" [ref=f10e1361]
+                  - cell "-$5.50" [ref=f10e1363]
+                  - cell "$3,766.29" [ref=f10e1365]
+                - row [ref=f10e1367]:
+                  - cell "9/10/2026" [ref=f10e1368]
+                  - cell "610445896" [ref=f10e1370]
+                  - cell "Paid" [ref=f10e1372]
+                  - cell "FARE Lake & LaSalle (Marketplace)" [ref=f10e1377]
+                  - cell "$745.37" [ref=f10e1379]
+                  - cell "-$137.83" [ref=f10e1381]
+                  - cell "$0.00" [ref=f10e1383]
+                  - cell "$0.00" [ref=f10e1385]
+                  - cell "$607.54" [ref=f10e1387]
+            - navigation "Table Pagination" [ref=f10e1390]:
+              - list [ref=f10e1391]:
+                - listitem [ref=f10e1392]:
+                  - button "go to previous page" [disabled] [ref=f10e1393]
+                - listitem [ref=f10e1396]:
+                  - button "you are currently on page 1" [ref=f10e1397] [cursor=pointer]:
+                    - generic [ref=f10e1398]: "1"
+                - listitem [ref=f10e1399]:
+                  - button "go to page 2" [ref=f10e1400] [cursor=pointer]:
+                    - generic [ref=f10e1401]: "2"
+                - listitem [ref=f10e1402]:
+                  - button "go to next page" [ref=f10e1403] [cursor=pointer]
+  - iframe [ref=f10e5]:
+    
+```

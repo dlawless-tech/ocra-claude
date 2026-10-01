@@ -1,0 +1,22 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"LEN 1897\ntextbox1,Textbox72,Textbox70,Textbox87,Textbox91,Textbox3\r\nAccount Detail: 4207 - DoorDash Catering Sales,12/1/2025 - 9/30/2026,Show All:  All Locations,,,\r\n\r\nLocationName1,ParentAccountName,BegBalAmount2,AccountName,BegBalAmount,TrxDate,TrxType,TrxNumber,TrxCompany,LocationName,Comment,Comment1,Debit,Credit,Textbox17,Textbox49,Textbox31,Debit1,Credit1,Textbox33,Textbox39,Textbox46,Textbox47,Textbox50,Debit2,Credit2,Textbox101\r\n1,4207 - DoorDash Catering Sales,0.00,4207 - DoorDash Catering Sales,0.00,8/5/2026,Journal Entry, NJ00018845,,FARE Logan Square,,,0.00,274.00,274.00,Total DoorDash Catering Sales,,0.00,\"1,611.00\",\"1,611.00\",Total DoorDash Catering Sales,0.00,\"1,611.00\",\"1,611.00\",0.00,\"1,611.00\",\"1,611.00\"\r\n1,4207 - DoorDash Catering Sales,0.00,4207 - DoorDash Catering Sales,0.00,8/9/2026,Journal Entry, NJ00018826,,FARE Oak Park,,,0.00,243.00,517.00,Total DoorDash Catering Sales,,0.00,\"1,611.00\",\"1,611.00\",Total DoorDash Catering Sales,0.00,\"1,611.00\",\"1,611.00\",0.00,\"1,611.00\",\"1,611.00\"\r\n1,4207 - DoorDash Catering Sales,0.00,4207 - DoorDash Catering Sales,0.00,8/15/2026,Journal Entry, NJ00019241,,FARE Oak Park,,,0.00,184.00,701.00,Total DoorDash Catering Sales,,0.00,\"1,611.00\",\"1,611.00\",Total DoorDash Catering Sales,0.00,\"1,611.00\",\"1,611.00\",0.00,\"1,611.00\",\"1,611.00\"\r\n1,4207 - DoorDash Catering Sales,0.00,4207 - DoorDash Catering Sales,0.00,8/31/2026,Journal Entry, NJ00020534,,FARE Logan Square,,,0.00,549.00,\"1,250.00\",Total DoorDash Catering Sales,,0.00,\"1,611.00\",\"1,611.00\",Total DoorDash Catering Sales,0.00,\"1,611.00\",\"1,611.00\",0.00,\"1,611.00\",\"1,611.00\"\r\n1,4207 - DoorDash Catering Sales,0.00,4207 - DoorDash Catering Sales,0.00,9/17/2026,Journal Entry, NJ00021651,,FARE Logan Square,,,0.00,361.00,\"1,611.00\",Total DoorDash Catering Sales,,0.00,\"1,611.00\",\"1,611.00\",Total DoorDash Catering Sales,0.00,\"1,611.00\",\"1,611.00\",0.00,\"1,611.00\",\"1,611.00\"\r\n\r\n"
+### Ran Playwright code
+```js
+await page.evaluate('async () => { const seen=[]; const walk=(d)=>{ seen.push(d); for(const f of d.querySelectorAll(\'iframe\')){ try{ if(f.contentDocument) walk(f.contentDocument); }catch(e){} } }; walk(document);\nconst d=seen.find(x=>/ReportViewer.aspx/.test(x.defaultView.location.href)); const w=d.defaultView;\nconst iv=w.$find(\'ReportViewerControl\')._getInternalViewer(); const base=iv.ExportUrlBase;\nconst r=await fetch(base+\'CSV\'); const t=await r.text(); return \'LEN \'+t.length+\'\\n\'+t; }');
+```
+### Open tabs
+- 0: [My Reports](https://fare.restaurant365.com/react/reports-management/legacy/MyReports)
+- 1: (current) [GL Account Detail](https://fare.restaurant365.com/#/ReportViewer)
+### Page
+- Page URL: https://fare.restaurant365.com/#/ReportViewer
+- Page Title: GL Account Detail
+- Console: 70 errors, 16 warnings
+### Events
+- New console entries: ..\.playwright-cli\console-2026-09-30T23-36-29-716Z.log#L198-L209

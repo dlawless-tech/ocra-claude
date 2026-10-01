@@ -1,0 +1,204 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/reports?business_id=11521564
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 1 errors, 29 warnings
+### Snapshot
+```yaml
+- generic [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e10]:
+    - generic [ref=f10e47]:
+      - generic [ref=f10e51]:
+        - generic [ref=f10e53]:
+          - generic [ref=f10e56] [cursor=pointer]:
+            - button "Assistant" [ref=f10e742]
+            - generic [ref=f10e60]: Beta
+          - button "Expand Chat" [ref=f10e1409] [cursor=pointer]
+        - generic [ref=f10e1412]:
+          - generic: Pause my store
+          - generic [ref=f10e1416]:
+            - textbox [ref=f10e1418]
+            - generic [ref=f10e1420]:
+              - button "Start voice recording" [ref=f10e1422] [cursor=pointer]
+              - button "send" [disabled] [ref=f10e2143]
+      - navigation "Merchant Navigation" [ref=f10e752]:
+        - generic [ref=f10e139]:
+          - button "DoorDash" [ref=f10e753] [cursor=pointer]
+          - img "FARE" [ref=f10e754]
+        - generic [ref=f10e153]:
+          - list [ref=f10e154]:
+            - listitem [ref=f10e155]:
+              - button "Home" [ref=f10e755] [cursor=pointer]
+          - list [ref=f10e163]:
+            - listitem [ref=f10e164]:
+              - button "Insights" [ref=f10e756] [cursor=pointer]
+          - list [ref=f10e172]:
+            - listitem [ref=f10e173]:
+              - button "Reports" [ref=f10e757] [cursor=pointer]
+          - list [ref=f10e181]:
+            - listitem [ref=f10e182]:
+              - button "Customers" [ref=f10e758] [cursor=pointer]
+          - list [ref=f10e193]:
+            - listitem [ref=f10e194]:
+              - button "Orders" [ref=f10e759] [cursor=pointer]
+          - list [ref=f10e203]:
+            - listitem [ref=f10e204]:
+              - button "Stores" [ref=f10e760] [cursor=pointer]
+          - list [ref=f10e212]:
+            - listitem [ref=f10e213]:
+              - button "Marketing" [ref=f10e761] [cursor=pointer]
+          - list [ref=f10e221]:
+            - listitem [ref=f10e222]:
+              - button "Menu pricing" [ref=f10e762] [cursor=pointer]
+          - list [ref=f10e230]:
+            - listitem [ref=f10e231]:
+              - button "Financials" [ref=f10e763] [cursor=pointer]
+          - list [ref=f10e240]:
+            - listitem [ref=f10e241]:
+              - button "Manage users" [ref=f10e764] [cursor=pointer]
+          - list [ref=f10e250]:
+            - listitem [ref=f10e251]:
+              - button "Settings" [ref=f10e765] [cursor=pointer]
+          - list [ref=f10e259]:
+            - listitem [ref=f10e260]:
+              - button "Add solutions" [ref=f10e766] [cursor=pointer]
+          - list [ref=f10e269]:
+            - listitem [ref=f10e270]:
+              - button "Help" [ref=f10e767] [cursor=pointer]
+          - list "Channels" [ref=f10e768]:
+            - listitem [ref=f10e283]:
+              - button "Online Ordering" [ref=f10e769] [cursor=pointer]
+            - listitem [ref=f10e292]:
+              - button "Request a delivery" [ref=f10e770] [cursor=pointer]
+        - button "Mark Rubinstein menu" [ref=f10e771] [cursor=pointer]
+      - generic [ref=f10e306]:
+        - navigation [ref=f10e2418]:
+          - generic [ref=f10e2419]:
+            - button [ref=f10e2420] [cursor=pointer]
+            - generic [ref=f10e2423]: Reports
+          - button "Create report" [ref=f10e2425] [cursor=pointer]
+        - generic [ref=f10e2432]:
+          - generic [ref=f10e2434]:
+            - generic [ref=f10e2435]:
+              - generic [ref=f10e2436]:
+                - generic [ref=f10e2437]: Reports
+                - generic [ref=f10e2439]: Create and manage the reports that provide access to sales, operations, and financial data for your business on DoorDash.
+              - button "Create report" [ref=f10e2440] [cursor=pointer]
+            - generic [ref=f10e2451]:
+              - generic [ref=f10e2453]:
+                - generic [ref=f10e2454]: Download multiple reports all at once
+                - generic [ref=f10e2455]: Get sales, financials, and marketing reports for this month all in one go
+              - button "Generate all reports" [ref=f10e2457] [cursor=pointer]
+            - generic [ref=f10e2463]:
+              - generic [ref=f10e2464] [cursor=pointer]: Available
+              - generic [ref=f10e2465] [cursor=pointer]: Scheduled
+          - separator [ref=f10e2467]
+          - generic [ref=f10e2471]:
+            - table [ref=f10e2474]:
+              - rowgroup [ref=f10e2475]:
+                - row [ref=f10e2476]:
+                  - columnheader "Date created Sort Date created" [ref=f10e2477] [cursor=pointer]:
+                    - generic [ref=f10e2478]:
+                      - generic [ref=f10e2479]: Date created
+                      - button "Sort Date created" [ref=f10e2480]:
+                        - img "Sort Date created" [ref=f10e2481]
+                  - columnheader "Channel" [ref=f10e2483]
+                  - columnheader "Type" [ref=f10e2486]
+                  - columnheader "View by" [ref=f10e2489]
+                  - columnheader "Time frame" [ref=f10e2492]
+                  - columnheader "Locations" [ref=f10e2495]
+                  - columnheader "Action" [ref=f10e2498]
+              - rowgroup [ref=f10e2501]:
+                - row [ref=f10e2502]:
+                  - cell "Sep 30, 2026 6:20 PM" [ref=f10e2503]:
+                    - generic [ref=f10e2504]: Sep 30, 2026
+                    - generic [ref=f10e2505]: 6:20 PM
+                  - cell "Marketplace, Online Ordering" [ref=f10e2506]
+                  - cell "Financials" [ref=f10e2508]
+                  - cell "-" [ref=f10e2510]
+                  - cell "Payout on Sep 10, 2026" [ref=f10e2512]
+                  - cell "10 stores" [ref=f10e2514]
+                  - cell [ref=f10e2516]:
+                    - button "Download" [ref=f10e2518] [cursor=pointer]
+                - row [ref=f10e2521]:
+                  - cell "Sep 30, 2026 5:19 PM" [ref=f10e2522]:
+                    - generic [ref=f10e2523]: Sep 30, 2026
+                    - generic [ref=f10e2524]: 5:19 PM
+                  - cell "Marketplace, Online Ordering, Drive On-Demand" [ref=f10e2525]
+                  - cell "Sales" [ref=f10e2527]
+                  - cell "Order" [ref=f10e2529]
+                  - cell "Dec 29, 2025 – Sep 29, 2026" [ref=f10e2531]
+                  - cell "10 stores" [ref=f10e2533]
+                  - cell [ref=f10e2535]:
+                    - button "Download" [ref=f10e2537] [cursor=pointer]
+                - row [ref=f10e2540]:
+                  - cell "Sep 30, 2026 5:16 PM" [ref=f10e2541]:
+                    - generic [ref=f10e2542]: Sep 30, 2026
+                    - generic [ref=f10e2543]: 5:16 PM
+                  - cell "Marketplace, Online Ordering" [ref=f10e2544]
+                  - cell "Financials" [ref=f10e2546]
+                  - cell "-" [ref=f10e2548]
+                  - cell "Dec 29, 2025 – Sep 27, 2026" [ref=f10e2550]
+                  - cell "10 stores" [ref=f10e2552]
+                  - cell [ref=f10e2554]:
+                    - button "Download" [ref=f10e2556] [cursor=pointer]
+                - row [ref=f10e2559]:
+                  - cell "Sep 28, 2026 11:31 AM" [ref=f10e2560]:
+                    - generic [ref=f10e2561]: Sep 28, 2026
+                    - generic [ref=f10e2562]: 11:31 AM
+                  - cell "Marketplace, Online Ordering" [ref=f10e2563]
+                  - cell "Financials" [ref=f10e2565]
+                  - cell "-" [ref=f10e2567]
+                  - cell "Aug 1 – 31, 2026" [ref=f10e2569]
+                  - cell "10 stores" [ref=f10e2571]
+                  - cell [ref=f10e2573]:
+                    - button "Download" [ref=f10e2575] [cursor=pointer]
+                - row [ref=f10e2578]:
+                  - cell "Feb 10, 2026 3:28 PM" [ref=f10e2579]:
+                    - generic [ref=f10e2580]: Feb 10, 2026
+                    - generic [ref=f10e2581]: 3:28 PM
+                  - cell "Marketplace, Online Ordering" [ref=f10e2582]
+                  - cell "Financials" [ref=f10e2584]
+                  - cell "-" [ref=f10e2586]
+                  - cell "Nov 1 – Dec 31, 2025" [ref=f10e2588]
+                  - cell "8 stores" [ref=f10e2590]
+                  - cell "Expired" [ref=f10e2592]
+                - row [ref=f10e2595]:
+                  - cell "Feb 10, 2026 3:26 PM" [ref=f10e2596]:
+                    - generic [ref=f10e2597]: Feb 10, 2026
+                    - generic [ref=f10e2598]: 3:26 PM
+                  - cell "Marketplace, Online Ordering" [ref=f10e2599]
+                  - cell "Financials" [ref=f10e2601]
+                  - cell "-" [ref=f10e2603]
+                  - cell "Nov 1 – Dec 31, 2025" [ref=f10e2605]
+                  - cell "1 store" [ref=f10e2607]
+                  - cell "Expired" [ref=f10e2609]
+            - navigation "Table Pagination" [ref=f10e2613]:
+              - list [ref=f10e2614]:
+                - listitem [ref=f10e2615]:
+                  - button "go to previous page" [disabled] [ref=f10e2616]
+                - listitem [ref=f10e2619]:
+                  - button "you are currently on page 1" [ref=f10e2620] [cursor=pointer]:
+                    - generic [ref=f10e2621]: "1"
+                - listitem [ref=f10e2622]:
+                  - button "go to next page" [disabled] [ref=f10e2623]
+    - dialog "All your DoorDash reports in one place" [ref=f10e2629]:
+      - generic [active] [ref=f10e2630]: All your DoorDash reports in one place
+      - button "Close All your DoorDash reports in one place" [ref=f10e2632] [cursor=pointer]
+      - generic [ref=f10e2635]:
+        - img "All your DoorDash reports in one place" [ref=f10e2636]
+        - generic [ref=f10e2637]: All your DoorDash reports in one place
+        - generic [ref=f10e2639]: The Reports tab is a dedicated place to view and download all the reports you’ve created for your business. You can also create and edit a recurring report to arrive in your inbox on a weekly or monthly schedule.
+      - button "Got it" [ref=f10e2644] [cursor=pointer]
+  - iframe [ref=f10e5]:
+    
+```

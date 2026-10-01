@@ -1,0 +1,217 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/reports?business_id=11521564
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 7 errors, 45 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e12]:
+    - generic [ref=f10e16]:
+      - generic [ref=f10e18]:
+        - generic [ref=f10e21] [cursor=pointer]:
+          - button "Assistant" [ref=f10e908]
+          - generic [ref=f10e25]: Beta
+        - button "Expand Chat" [ref=f10e1910] [cursor=pointer]
+      - generic [ref=f10e1913]:
+        - generic: Pause my store
+        - generic [ref=f10e1917]:
+          - textbox [ref=f10e1919]
+          - generic [ref=f10e1921]:
+            - button "Start voice recording" [ref=f10e1923] [cursor=pointer]
+            - button "send" [disabled] [ref=f10e3714]
+    - navigation "Merchant Navigation" [ref=f10e920]:
+      - generic [ref=f10e135]:
+        - button "DoorDash" [ref=f10e921] [cursor=pointer]
+        - img "FARE" [ref=f10e922]
+      - generic [ref=f10e149]:
+        - list [ref=f10e150]:
+          - listitem [ref=f10e151]:
+            - button "Home" [ref=f10e923] [cursor=pointer]
+        - list [ref=f10e159]:
+          - listitem [ref=f10e160]:
+            - button "Insights" [ref=f10e924] [cursor=pointer]
+        - list [ref=f10e168]:
+          - listitem [ref=f10e169]:
+            - button "Reports" [ref=f10e925] [cursor=pointer]
+        - list [ref=f10e177]:
+          - listitem [ref=f10e178]:
+            - button "Customers" [ref=f10e926] [cursor=pointer]
+        - list [ref=f10e189]:
+          - listitem [ref=f10e190]:
+            - button "Orders" [ref=f10e927] [cursor=pointer]
+        - list [ref=f10e199]:
+          - listitem [ref=f10e200]:
+            - button "Stores" [ref=f10e928] [cursor=pointer]
+        - list [ref=f10e208]:
+          - listitem [ref=f10e209]:
+            - button "Marketing" [ref=f10e929] [cursor=pointer]
+        - list [ref=f10e217]:
+          - listitem [ref=f10e218]:
+            - button "Menu pricing" [ref=f10e930] [cursor=pointer]
+        - list [ref=f10e226]:
+          - listitem [ref=f10e227]:
+            - button "Financials" [ref=f10e931] [cursor=pointer]
+        - list [ref=f10e236]:
+          - listitem [ref=f10e237]:
+            - button "Manage users" [ref=f10e932] [cursor=pointer]
+        - list [ref=f10e246]:
+          - listitem [ref=f10e247]:
+            - button "Settings" [ref=f10e933] [cursor=pointer]
+        - list [ref=f10e255]:
+          - listitem [ref=f10e256]:
+            - button "Add solutions" [ref=f10e934] [cursor=pointer]
+        - list [ref=f10e265]:
+          - listitem [ref=f10e266]:
+            - button "Help" [ref=f10e935] [cursor=pointer]
+        - list "Channels" [ref=f10e936]:
+          - listitem [ref=f10e279]:
+            - button "Online Ordering" [ref=f10e937] [cursor=pointer]
+          - listitem [ref=f10e288]:
+            - button "Request a delivery" [ref=f10e938] [cursor=pointer]
+      - button "Mark Rubinstein menu" [ref=f10e939] [cursor=pointer]
+    - generic [ref=f10e302]:
+      - navigation [ref=f10e4000]:
+        - generic [ref=f10e4001]:
+          - button [ref=f10e4002] [cursor=pointer]
+          - generic [ref=f10e4005]: Reports
+        - button "Create report" [ref=f10e4007] [cursor=pointer]
+      - generic [ref=f10e4012]:
+        - generic [ref=f10e4014]:
+          - generic [ref=f10e4015]:
+            - generic [ref=f10e4016]:
+              - generic [ref=f10e4017]: Reports
+              - generic [ref=f10e4019]: Create and manage the reports that provide access to sales, operations, and financial data for your business on DoorDash.
+            - button "Create report" [ref=f10e4020] [cursor=pointer]
+          - generic [ref=f10e4031]:
+            - generic [ref=f10e4033]:
+              - generic [ref=f10e4034]: Download multiple reports all at once
+              - generic [ref=f10e4035]: Get sales, financials, and marketing reports for this month all in one go
+            - button "Generate all reports" [ref=f10e4037] [cursor=pointer]
+          - generic [ref=f10e4043]:
+            - generic [ref=f10e4044] [cursor=pointer]: Available
+            - generic [ref=f10e4045] [cursor=pointer]: Scheduled
+        - separator [ref=f10e4047]
+        - generic [ref=f10e4533]:
+          - table [ref=f10e4536]:
+            - rowgroup [ref=f10e4537]:
+              - row [ref=f10e4538]:
+                - columnheader "Date created Sort Date created" [ref=f10e4539] [cursor=pointer]:
+                  - generic [ref=f10e4540]:
+                    - generic [ref=f10e4541]: Date created
+                    - button "Sort Date created" [ref=f10e4542]:
+                      - img "Sort Date created" [ref=f10e4543]
+                - columnheader "Channel" [ref=f10e4545]
+                - columnheader "Type" [ref=f10e4548]
+                - columnheader "View by" [ref=f10e4551]
+                - columnheader "Time frame" [ref=f10e4554]
+                - columnheader "Locations" [ref=f10e4557]
+                - columnheader "Action" [ref=f10e4560]
+            - rowgroup [ref=f10e4563]:
+              - row [ref=f10e4564]:
+                - cell "Sep 30, 2026 8:12 PM" [ref=f10e4565]:
+                  - generic [ref=f10e4566]: Sep 30, 2026
+                  - generic [ref=f10e4567]: 8:12 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4568]
+                - cell "Financials" [ref=f10e4570]
+                - cell "-" [ref=f10e4572]
+                - cell "Payout on Sep 24, 2026" [ref=f10e4574]
+                - cell "10 stores" [ref=f10e4576]
+                - cell [ref=f10e4578]:
+                  - button "Download" [ref=f10e4580] [cursor=pointer]
+              - row [ref=f10e4583]:
+                - cell "Sep 30, 2026 8:08 PM" [ref=f10e4584]:
+                  - generic [ref=f10e4585]: Sep 30, 2026
+                  - generic [ref=f10e4586]: 8:08 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4587]
+                - cell "Financials" [ref=f10e4589]
+                - cell "-" [ref=f10e4591]
+                - cell "Payout on Sep 17, 2026" [ref=f10e4593]
+                - cell "10 stores" [ref=f10e4595]
+                - cell [ref=f10e4597]:
+                  - button "Download" [ref=f10e4599] [cursor=pointer]
+              - row [ref=f10e4602]:
+                - cell "Sep 30, 2026 6:20 PM" [ref=f10e4603]:
+                  - generic [ref=f10e4604]: Sep 30, 2026
+                  - generic [ref=f10e4605]: 6:20 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4606]
+                - cell "Financials" [ref=f10e4608]
+                - cell "-" [ref=f10e4610]
+                - cell "Payout on Sep 10, 2026" [ref=f10e4612]
+                - cell "10 stores" [ref=f10e4614]
+                - cell [ref=f10e4616]:
+                  - button "Download" [ref=f10e4618] [cursor=pointer]
+              - row [ref=f10e4621]:
+                - cell "Sep 30, 2026 5:19 PM" [ref=f10e4622]:
+                  - generic [ref=f10e4623]: Sep 30, 2026
+                  - generic [ref=f10e4624]: 5:19 PM
+                - cell "Marketplace, Online Ordering, Drive On-Demand" [ref=f10e4625]
+                - cell "Sales" [ref=f10e4627]
+                - cell "Order" [ref=f10e4629]
+                - cell "Dec 29, 2025 – Sep 29, 2026" [ref=f10e4631]
+                - cell "10 stores" [ref=f10e4633]
+                - cell [ref=f10e4635]:
+                  - button "Download" [ref=f10e4637] [cursor=pointer]
+              - row [ref=f10e4640]:
+                - cell "Sep 30, 2026 5:16 PM" [ref=f10e4641]:
+                  - generic [ref=f10e4642]: Sep 30, 2026
+                  - generic [ref=f10e4643]: 5:16 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4644]
+                - cell "Financials" [ref=f10e4646]
+                - cell "-" [ref=f10e4648]
+                - cell "Dec 29, 2025 – Sep 27, 2026" [ref=f10e4650]
+                - cell "10 stores" [ref=f10e4652]
+                - cell [ref=f10e4654]:
+                  - button "Download" [ref=f10e4656] [cursor=pointer]
+              - row [ref=f10e4659]:
+                - cell "Sep 28, 2026 11:31 AM" [ref=f10e4660]:
+                  - generic [ref=f10e4661]: Sep 28, 2026
+                  - generic [ref=f10e4662]: 11:31 AM
+                - cell "Marketplace, Online Ordering" [ref=f10e4663]
+                - cell "Financials" [ref=f10e4665]
+                - cell "-" [ref=f10e4667]
+                - cell "Aug 1 – 31, 2026" [ref=f10e4669]
+                - cell "10 stores" [ref=f10e4671]
+                - cell [ref=f10e4673]:
+                  - button "Download" [ref=f10e4675] [cursor=pointer]
+              - row [ref=f10e4678]:
+                - cell "Feb 10, 2026 3:28 PM" [ref=f10e4679]:
+                  - generic [ref=f10e4680]: Feb 10, 2026
+                  - generic [ref=f10e4681]: 3:28 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4682]
+                - cell "Financials" [ref=f10e4684]
+                - cell "-" [ref=f10e4686]
+                - cell "Nov 1 – Dec 31, 2025" [ref=f10e4688]
+                - cell "8 stores" [ref=f10e4690]
+                - cell "Expired" [ref=f10e4692]
+              - row [ref=f10e4695]:
+                - cell "Feb 10, 2026 3:26 PM" [ref=f10e4696]:
+                  - generic [ref=f10e4697]: Feb 10, 2026
+                  - generic [ref=f10e4698]: 3:26 PM
+                - cell "Marketplace, Online Ordering" [ref=f10e4699]
+                - cell "Financials" [ref=f10e4701]
+                - cell "-" [ref=f10e4703]
+                - cell "Nov 1 – Dec 31, 2025" [ref=f10e4705]
+                - cell "1 store" [ref=f10e4707]
+                - cell "Expired" [ref=f10e4709]
+          - navigation "Table Pagination" [ref=f10e4713]:
+            - list [ref=f10e4714]:
+              - listitem [ref=f10e4715]:
+                - button "go to previous page" [disabled] [ref=f10e4716]
+              - listitem [ref=f10e4719]:
+                - button "you are currently on page 1" [ref=f10e4720] [cursor=pointer]:
+                  - generic [ref=f10e4721]: "1"
+              - listitem [ref=f10e4722]:
+                - button "go to next page" [disabled] [ref=f10e4723]
+  - iframe [ref=f10e5]:
+    
+```

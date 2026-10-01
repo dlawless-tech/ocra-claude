@@ -1,0 +1,2 @@
+module.exports={
+'FARE | Northwestern Hospital':'FARE Northwestern Memorial Hospital','FARE (Riverside)':'FARE 150 Riverside','FARE (Logan Square)':'FARE Logan Square','FARE -  Franklin St.':'FARE Loop (S Franklin)','FARE (Oak Park)':'FARE Oak Park','FARE - Old Post Office':'FARE Old Post Office','FARE | Sterling Food Hall (previously Revival)':'FARE Sterling Food Hall','FARE (Lakeview)':'FARE Lakeview (W Diversey)','FARE Old Town (North Wells Street)':'FARE Old Town','FARE (Lasalle)':'FARE Lake + LaSalle'};

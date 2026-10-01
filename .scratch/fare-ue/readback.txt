@@ -1,0 +1,13 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"9/27/2026\",\"number\":\"UberEats Fees\",\"lines\":[{\"a\":\"2270 - Sales Tax Payable\",\"dr\":2.25,\"cr\":0,\"c\":\"\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"7380 - Uber Eats Third Party Fees\",\"dr\":1.87,\"cr\":0,\"c\":\"marketplace fees\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"1111 - Uber Eats Deposit Clearing\",\"dr\":0,\"cr\":4.12,\"c\":\"\",\"loc\":\"10800 - FARE Old Post Office\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```

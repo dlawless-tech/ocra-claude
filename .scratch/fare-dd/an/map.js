@@ -1,0 +1,1 @@
+module.exports={'24838002':'FARE Loop (S Franklin)','27639120':'FARE Northwestern Memorial Hospital','27691532':'FARE Sterling Food Hall','27692205':'FARE Old Post Office','34924997':'FARE 150 Riverside','34927909':'FARE Logan Square','35921417':'FARE Lake + LaSalle','36771243':'FARE Oak Park','45975770':'FARE Old Town','48418693':'FARE Lakeview (W Diversey)'};

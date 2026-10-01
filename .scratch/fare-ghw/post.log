@@ -1,0 +1,89 @@
+##### Sterling
+FAIL: header reads 8/31/2026|GrubHub
+western
+id 192eda80-138a-486e-a5af-8169cddf2233
+"header 10600 - FARE Northwestern Memorial Hospital"
+"lines already here"
+"removed 0, left 6"
+"removed 7535 - Third Party Refunds"
+"nothing to add"
+"set 5 lines, debits 55.08 credits 55.08"
+debit   7350 - Grubhub Third Party Fees               13.97  delivery + order processing    ok
+debit   7570 - Grubhub Marketing                      11.49  marketing + ad spend           ok
+debit   4905 - Third Party App Marketing Comps        17.99  restaurant promotions          ok
+debit   2270 - Sales Tax Payable                      11.63  sales tax withheld             ok
+credit  1103 - Grubhub Deposit Clearing               55.08  orders 9/1 - 9/7, deposit 260911095decLdN ok
+Total                                                 55.08  entry 55.08
+MATCH
+##### Loop
+id 27f3aa0b-6767-4589-9a4f-5dae05699aa1
+"header 10300 - FARE Loop (S Franklin)"
+"lines already here"
+"removed 0, left 6"
+"removed 4905 - Third Party App Marketing Comps ; removed 7535 - Third Party Refunds"
+"nothing to add"
+"set 4 lines, debits 655.35 credits 655.35"
+debit   7350 - Grubhub Third Party Fees              143.82  delivery + order processing    ok
+debit   7570 - Grubhub Marketing                     234.92  marketing + ad spend           ok
+debit   2270 - Sales Tax Payable                     276.61  sales tax withheld             ok
+credit  1103 - Grubhub Deposit Clearing              655.35  orders 9/1 - 9/7, deposit 260911093tbqQJv + 26091109U9gtKiI ok
+Total                                                655.35  entry 655.35
+MATCH
+##### LaSalle
+id 96e9351c-a12c-4c0e-9987-07f2718d3aff
+"header 10400 - FARE Lake + LaSalle"
+"lines already here"
+"removed 0, left 5"
+"removed 7535 - Third Party Refunds"
+"nothing to add"
+"set 4 lines, debits 54.78 credits 54.78"
+debit   7350 - Grubhub Third Party Fees               18.60  delivery + order processing    ok
+debit   7570 - Grubhub Marketing                      19.30  marketing + ad spend           ok
+debit   2270 - Sales Tax Payable                      16.88  sales tax withheld             ok
+credit  1103 - Grubhub Deposit Clearing               54.78  orders 9/1 - 9/7, deposit 26091109v6wEPnr ok
+Total                                                 54.78  entry 54.78
+MATCH
+##### Old Town
+id dae63c05-7258-4914-8a2f-3446268c8793
+"header 11300 - FARE Old Town"
+"lines already here"
+"removed 0, left 6"
+"removed 4905 - Third Party App Marketing Comps ; removed 7535 - Third Party Refunds"
+"nothing to add"
+"set 4 lines, debits 191.83 credits 191.83"
+debit   7350 - Grubhub Third Party Fees               63.26  delivery + order processing    ok
+debit   7570 - Grubhub Marketing                      59.70  marketing + ad spend           ok
+debit   2270 - Sales Tax Payable                      68.87  sales tax withheld             ok
+credit  1103 - Grubhub Deposit Clearing              191.83  orders 9/1 - 9/7, deposit 26091109dcGDmvz ok
+Total                                                191.83  entry 191.83
+MATCH
+##### Oak Park
+id f7c08d9e-244f-4f86-9614-ac863f068bb4
+"header 10700 - FARE Oak Park"
+"moved 6 lines"
+"removed 0, left 6"
+"nothing to trim"
+"nothing to add"
+"set 6 lines, debits 440.66 credits 440.66"
+debit   7350 - Grubhub Third Party Fees              113.62  delivery + order processing    ok
+debit   7570 - Grubhub Marketing                     155.51  marketing + ad spend           ok
+debit   4905 - Third Party App Marketing Comps        94.34  restaurant promotions          ok
+debit   7535 - Third Party Refunds                     6.88  cancellations + order adjustments ok
+debit   2270 - Sales Tax Payable                      70.31  sales tax withheld             ok
+credit  1103 - Grubhub Deposit Clearing              440.66  orders 9/1 - 9/7, deposit 26091109TqOzF5X ok
+Total                                                440.66  entry 440.66
+MATCH
+##### Old Post Office
+id f4e2304c-8242-45a2-b320-90044ced5f2a
+"header 10800 - FARE Old Post Office"
+"lines already here"
+"removed 0, left 5"
+"{\"date\":\"9/6/2026\",\"number\":\"GrubHub\",\"lines\":[{\"a\":\"1103 - Grubhub Deposit Clearing\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"7535 - Third Party Refunds\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"7570 - Grubhub Marketing\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"7350 - Grubhub Third Party Fees\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"10800 - FARE Old Post Office\"},{\"a\":\"2270 - Sales Tax Payable\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"10800 - FARE Old Post Office\"}]}"
+##### Riverside
+FAIL: no duplicate dialog
+##### Lakeview
+id e97b8616-7d49-48a5-986d-406c94b88285
+"header 11200 - FARE Lakeview (W Diversey)"
+"lines already here"
+"removed 0, left 6"
+"{\"date\":\"9/6/2026\",\"number\":\"GrubHub\",\"lines\":[{\"a\":\"1103 - Grubhub Deposit Clearing\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"4905 - Third Party App Marketing Comps\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7570 - Grubhub Marketing\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7350 - Grubhub Third Party Fees\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7535 - Third Party Refunds\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"2270 - Sales Tax Payable\",\"dr\":0,\"cr\":0,\"c\":\"no sales this week\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"}]}"

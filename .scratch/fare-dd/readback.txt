@@ -1,0 +1,13 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"9/20/2026\",\"number\":\"DoorDash\",\"lines\":[{\"a\":\"1102 - DoorDash Deposit Clearing\",\"dr\":0,\"cr\":150.33,\"c\":\"total withheld from payouts\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7535 - Third Party Refunds\",\"dr\":21.89,\"cr\":0,\"c\":\"error charges\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7310 - DoorDash Third Party Fees\",\"dr\":128.44,\"cr\":0,\"c\":\"commission\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```
