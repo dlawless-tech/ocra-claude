@@ -5,13 +5,15 @@ description: Post the weekly purchase transfers journal entry into Bowery Group 
 
 # Weekly purchase transfers into the Bowery journal entry
 
-The client logs each cost reallocation on the **Reallocations** tab of a weekly tracker: Date, From Location, To Location, Description / Reason, Amount, From GL, To GL. This skill copies the prior week's entry and loads that week's rows into it. The file is named for its Week Ending:
+The client logs each cost reallocation on the **Reallocations** tab of the GL Reallocation Tracker: Date, From Location, To Location, Description / Reason, Amount, From GL, To GL. This skill copies the prior week's entry and loads that week's rows into it. The tracker arrives each week in the Bowery Teams share:
 
 ```
-c:\Users\trici\OCRA\TML's Files - General\Downloads\GL_Reallocation_Tracker 9.20.26.xlsx
+C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Weekly Purchase Transfers\
+  GL_Reallocation_Tracker*.xlsx                      the week waiting to post
+  Completed\GL_Reallocation_Tracker <M.D.YY>.xlsx    every posted week's tracker
 ```
 
-Ask the human for the file if it is missing or its name is not the week being posted.
+Its name carries no week (the 9/27/2026 file arrived as `GL_Reallocation_Tracker (2).xlsx`), and it is a running log that still holds earlier weeks' rows. Ask the human for the file if none sits at the top of the folder, or if more than one does. The share syncs to Teams through OneDrive.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting R365, for the login, the side-menu walk to All Transactions, the grid data source, and the new-row form. The duplicate, save, and approve behavior lives in [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) under **Duplicate saves on click**, **A rejected save answers 200**, and **Ribbon buttons are menu openers**.
 
@@ -23,15 +25,15 @@ bash <skills>/bowery-ubereats/scripts/r365-login.sh pt
 
 ## The week
 
-The Week Ending is the `M.D.YY` in the file name, a Sunday, and the entry is dated that Sunday. Every row's Date falls in the seven days ending that Sunday; the 9/20/2026 tracker's one row is dated 9/20/2026.
+The Week Ending is the Sunday after the latest Approved `Purchase Transfers` entry on All Transactions, and the entry is dated that Sunday. The week's rows are those dated in the seven days ending that Sunday. The 9/27/2026 tracker held a 9/20 row, already posted at 230.90, and a 9/26 row of 291.00 for the week.
 
 ## Step 1: read the tracker
 
 ```bash
-node <skill>/scripts/read-tracker.js "<tracker>" > lines.json
+node <skill>/scripts/read-tracker.js "<tracker>" <M.D.YY> > lines.json
 ```
 
-It reads rows 5 down to the `Total logged:` row, maps each location to its R365 name, and turns each row into two entry lines: a credit to the From GL at the From location and a debit to the To GL at the To location. Rows that land on the same side, GL, and location add into one line. It stops when the file name carries no Sunday, a row's date falls outside the week, a location is unknown, a GL is missing from the **GL Expense Accounts** tab, a row moves a GL onto itself, the rows miss `Total logged:`, or the week logs no rows. A week with no rows posts no entry; report that.
+It reads rows 5 down to the `Total logged:` row, maps each location to its R365 name, and turns each row into two entry lines: a credit to the From GL at the From location and a debit to the To GL at the To location. Rows that land on the same side, GL, and location add into one line. Rows dated outside the week go to `skipped`; check each against an entry already posted. It stops when the week ending is not a Sunday, a location is unknown, a GL is missing from the **GL Expense Accounts** tab, a row moves a GL onto itself, the tab has no `Total logged:` row, all rows together miss its amount, or the week logs no rows. A week with no rows posts no entry; report that.
 
 | Tracker   | Location                 |
 |-----------|--------------------------|
@@ -85,12 +87,12 @@ Then rerun `set-lines.js` until it reports `set`. A `STOP:` names a zero line or
 
 ## Step 5: attach the tracker
 
-Every entry carries the tracker it was built from. A real click on **Upload File** in the line grid's attachment panel opens a file chooser, which `playwright-cli upload` answers with a path relative to the working directory:
+Every entry carries the tracker it was built from, copied under the week's name. A real click on **Upload File** in the line grid's attachment panel opens a file chooser, which `playwright-cli upload` answers with a path relative to the working directory:
 
 ```bash
-cp "<tracker>" .
+cp "<tracker>" "GL_Reallocation_Tracker <M.D.YY>.xlsx"
 playwright-cli -s=pt click <button "Upload File" ref>
-playwright-cli -s=pt upload "GL_Reallocation_Tracker 9.20.26.xlsx"
+playwright-cli -s=pt upload "GL_Reallocation_Tracker <M.D.YY>.xlsx"
 ```
 
 Take the Upload File ref from a snapshot of a freshly reloaded entry; a snapshot taken right after a save can come back partial and without the button. The upload lands on its own, with no save. It is done when the tracker's link shows in the panel after a reload.
@@ -106,9 +108,20 @@ node <skill>/scripts/check-lines.js lines.json readback.txt
 
 It prints `MATCH` only when the date is the Week Ending, the number is `Purchase Transfers`, the entry holds exactly the week's lines, debits equal credits at `total`, and every line sits on its side, GL, and location at its amount. A third argument checks a different number, such as a test entry's.
 
-Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Purchase Transfers` row Approved at `total`.
+Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The approve closes the entry's tab and its request log with it, so when the response is gone, reload the entry by id and read `Approved` in its snapshot. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Purchase Transfers` row Approved at `total`.
 
-Report the `check-lines.js` table, each row's Description / Reason, the entry's status and amount from the grid, and whether the tracker is attached.
+## Step 7: file the tracker
+
+Once the entry is approved with the tracker attached, move the tracker into `Completed` under the week's name:
+
+```bash
+P="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Purchase Transfers"
+mv -n "$P/<tracker>" "$P/Completed/GL_Reallocation_Tracker <M.D.YY>.xlsx"
+```
+
+Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its tracker in place. Close the session with `playwright-cli -s=pt close`.
+
+Report the `check-lines.js` table, each row's Description / Reason, the `skipped` rows, the entry's status and amount from the grid, and whether the tracker is attached and filed.
 
 ## Test entries
 
