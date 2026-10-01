@@ -87,3 +87,13 @@ R365 takes an upload only on a saved entry. `approve.sh` clicks Approve, then Ap
 ## Verifying the run
 
 All Transactions, filter Date to the Sunday and read the grid's data source (see `R365-AUTOMATION.md`): ten `UberEats Fees` rows, one per store, each at its store with the planned amount. Every row reads Approved. Report the store table, the withholding per store, and any zero store.
+
+## Closing the windows
+
+Once every week of the run is approved and reported, close both browsers from the run's working directory:
+
+```bash
+bash <skill>/scripts/close.sh
+```
+
+It closes `fue-uber` and `fue-r365` and confirms neither is left open. Close only these two by name, never every session, since other FARE runs keep their own browsers open on the same machine. Keep the Uber session open between weeks of one run, because reopening it costs a new emailed code. A correction afterward logs in to both sites again; close after it the same way.
