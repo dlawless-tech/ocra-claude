@@ -16,8 +16,10 @@ bash "$SNAP" $S snap.dup.txt; R=$(ref 'button "Action"'); [ -n "$R" ] || { echo 
 playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 2
 bash "$SNAP" $S snap.dup.txt; R=$(row Duplicate); [ -n "$R" ] || { echo "FAIL: no Duplicate row"; exit 1; }
 playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 3
-bash "$SNAP" $S snap.dup.txt; R=$(ref 'button "No, transaction only"'); [ -n "$R" ] || { echo "FAIL: no duplicate dialog"; exit 1; }
-playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 15
+# a source with no attachments skips the dialog and opens the copy tab directly
+bash "$SNAP" $S snap.dup.txt; R=$(ref 'button "No, transaction only"')
+if [ -n "$R" ]; then playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 15
+else sleep 12; playwright-cli -s=$S tab-list 2>&1 | grep -qE '^- [0-9]+: .*NJ[0-9]+' || { echo "FAIL: no duplicate dialog or copy tab"; exit 1; }; fi
 
 T=$(playwright-cli -s=$S tab-list 2>&1 | grep -E '^- [0-9]+: .*NJ[0-9]+' | tail -1 | grep -oE '^- [0-9]+' | grep -oE '[0-9]+')
 [ -n "$T" ] || { echo "FAIL: no NJ copy tab"; exit 1; }

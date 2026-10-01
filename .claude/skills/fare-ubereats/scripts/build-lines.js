@@ -17,7 +17,7 @@ const c = v => Math.round(v * 100) / 100;
 const num = s => +s.replace(/[$,]/g, '');
 
 // top-level rows and the sub rows each one is allowed to carry
-const TOP = ['Earnings', 'Uber Fees', 'Marketing', 'Net Chargeback Amount', 'Net Taxes', 'Total payout'];
+const TOP = ['Earnings', 'Uber Fees', 'Marketing', 'Net Chargeback Amount', 'Other payments', 'Net Taxes', 'Total payout'];
 const stores = [];
 for (const blk of fs.readFileSync(file, 'utf8').split(/^== /m).slice(1)) {
   const [head, ...rows] = blk.trim().split('\n');
@@ -38,6 +38,9 @@ for (const blk of fs.readFileSync(file, 'utf8').split(/^== /m).slice(1)) {
   for (const k of top) if (!TOP.includes(k)) stop(`${name}: unmodeled row "${k}" ${r[k]}`);
   const earn = get('Earnings'), payout = get('Total payout');
   const bw = get('Backup Withholding Tax');
+  // Other payments carries only the withholding refund; anything else in it is unmodeled
+  const reimb = get('Backup Withholding Reimbursement');
+  if (c(get('Other payments') - reimb) !== 0) stop(`${name}: Other payments ${get('Other payments')} is more than the withholding reimbursement ${reimb}`);
   const taxOnEarn = get('Tax on Earnings');
   const lines = [];
   const add = (gl, amt, comment) => { amt = c(amt); if (amt > 0) lines.push({ side: 'debit', gl, amount: amt, comment }); else if (amt < 0) lines.push({ side: 'credit', gl, amount: -amt, comment }); };
@@ -49,8 +52,9 @@ for (const blk of fs.readFileSync(file, 'utf8').split(/^== /m).slice(1)) {
   add(GL.cb, -get('Net Chargeback Amount'), 'net chargeback');
   add(GL.tax, -(get('Net Taxes') - taxOnEarn - bw), '');
   add(GL.tax, -bw, "backup withholding");
+  add(GL.tax, -reimb, "backup withholding reimbursement");
   const dr = lines.reduce((t, l) => t + (l.side === 'debit' ? l.amount : -l.amount), 0);
-  // earnings + tax on earnings - payout = everything Uber kept
+  // earnings + tax on earnings - payout = everything Uber kept, net of refunds
   const kept = c(earn + taxOnEarn - payout);
   if (Math.abs(c(dr) - kept) > 0.005) stop(`${name}: lines ${c(dr)} != kept ${kept}`);
   if (c(dr) !== 0) add(GL.clear, -dr, '');

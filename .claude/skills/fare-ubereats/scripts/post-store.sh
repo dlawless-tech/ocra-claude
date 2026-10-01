@@ -1,6 +1,6 @@
 #!/bin/bash
 # Build one store's weekly entry by duplicating a source entry, check it. Does not approve.
-# usage: post-store.sh <session> <lines.json> <uber store> <source TransactionId>
+# usage: post-store.sh <session> <lines.json> <uber store> <source TransactionId> [existing copy id]
 # Source is any FARE UberEats Fees entry holding lines at this store. Prints the new id, then the check table.
 set -u
 S="$1"; L="$2"; ST="$3"; SRC="$4"; NUM="UberEats Fees"
@@ -10,7 +10,16 @@ ev() { playwright-cli -s=$S eval "$(cat "$1")" 2>&1 | res; }
 js() { node -e 'const x=require(require("path").resolve(process.argv[1]));const s=x.stores.find(v=>v.store===process.argv[2]);process.stdout.write(String(process.argv[3]==="we"?x.weekEnding:s[process.argv[3]]))' "$L" "$ST" "$1"; }
 WE=$(js we); LOC=$(js loc)
 
-ID=$(bash "$D/duplicate.sh" $S "$SRC" "$WE" "$NUM") || { echo "$ID"; exit 1; }
+if [ -n "${5:-}" ]; then
+  # finish a copy a failed run left behind: open it, date and number it, save
+  ID="$5"
+  playwright-cli -s=$S goto "https://fare.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+  playwright-cli -s=$S fill '#journalEntryDate' "$WE" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
+  playwright-cli -s=$S fill '#journalEntryNumber' "$NUM" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
+  bash "$SK/danny-coops-payroll/scripts/save.sh" $S | grep -q "\"$ID\"" || { echo "FAIL: save of existing copy"; exit 1; }
+else
+  ID=$(bash "$D/duplicate.sh" $S "$SRC" "$WE" "$NUM") || { echo "$ID"; exit 1; }
+fi
 echo "id $ID"
 
 # header location, by name from the combobox's own list
@@ -42,9 +51,13 @@ if [ "$(js zero)" = "true" ]; then
   OUT=$(bash "$SK/danny-coops-payroll/scripts/save.sh" $S)
   echo "$OUT" | grep -q "\"$ID\"" || { echo "FAIL: save answered $OUT"; exit 1; }
   playwright-cli -s=$S goto "https://fare.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
-  playwright-cli -s=$S eval "$(cat "$SK/bowery-weekly-mgmt-fees/scripts/read-lines.js")" 2>&1 | res
-  exit 0
+  playwright-cli -s=$S eval "$(cat "$SK/bowery-weekly-mgmt-fees/scripts/read-lines.js")" > readback.txt 2>&1
+  node -e 'let s=require("fs").readFileSync("readback.txt","utf8");s=s.slice(s.indexOf("\"{"),s.lastIndexOf("}\"")+2);const e=JSON.parse(JSON.parse(s));const [we,loc]=process.argv.slice(1);const ok=e.date===we&&e.number==="UberEats Fees"&&e.lines.length&&e.lines.every(l=>!l.dr&&!l.cr&&l.loc===loc&&l.c==="no sales this week");console.log(ok?"MATCH":"MISMATCH "+JSON.stringify(e));process.exit(ok?0:1)' "$WE" "$LOC"
+  exit $?
 fi
+
+# a zero week's source carries the no-sales header comment
+playwright-cli -s=$S fill '#journalEntryComment' '' >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
 
 # the store's own leftovers: zero lines and doubled GLs go, the set step keys the rest
 cat > trim.js <<EOF
