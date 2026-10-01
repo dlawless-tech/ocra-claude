@@ -84,3 +84,16 @@ For 9/6/2026 the sources were the 8/31 monthlies:
 ## Verifying the run
 
 All Transactions, filter Number to `Door` and read the grid's data source (see `R365-AUTOMATION.md`): ten `DoorDash` rows on the Sunday, one per store, each Approved at its store with the planned amount and its payout CSV attached. Report the store table with payout IDs, and every zero store.
+
+## Closing the run
+
+Once the last week is verified, close this run's two sessions by name from the run's working directory:
+
+```bash
+playwright-cli -s=fdd2 close   # DoorDash
+playwright-cli -s=fdd close    # R365
+```
+
+Other FARE skills run their own sessions on the same machine, so never use `kill-all` or `close-all`. Close them on a failed or stopped run too, after reporting what was left unfinished.
+
+A stopped background run can keep posting: its child scripts outlive the loop. After stopping one, confirm with `ps` that no `run-week.sh` or `post-store.sh` is still running, then read the week in All Transactions before redoing any store.
