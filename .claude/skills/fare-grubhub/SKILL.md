@@ -5,7 +5,7 @@ description: Post the weekly Grubhub fee journal entries into FARE Restaurant365
 
 # FARE Grubhub fees, weekly by store
 
-Each Grubhub period runs **Tuesday to Monday**. Each period posts one Journal Entry per store numbered `GrubHub`, dated the **Sunday inside the period**, header location the store, every line at the store. The period 9/1 to 9/7/2026 posts on 9/6/2026. Two phases: **read** every store from Grubhub, then **post**.
+Each Grubhub period runs **Tuesday to Monday**. Each period posts one Journal Entry per store numbered `GrubHub`, dated the **Sunday inside the period**, header location the store, every line at the store. The period 9/1 to 9/7/2026 posts on 9/6/2026. Steps: **read** every store from Grubhub, **post** and check each entry, **approve** the week, then **close every window** the run opened.
 
 Through August 2026 these were monthly entries, one per store, each with that store's Grubhub monthly statement attached. The August statements ran through Monday 8/31, so the first weekly period is 9/1 to 9/7.
 
@@ -78,4 +78,12 @@ All Transactions, filter Number to `Grub` and read the grid's data source (see `
 
 ## Finish
 
-Close this run's sessions by name: `playwright-cli -s=fgh close` and `playwright-cli -s=fghr close`. Other FARE skills run their own sessions on the same machine, so never use `kill-all` or `close-all`. After stopping a background loop, confirm with `ps` that its child scripts are gone before touching the browser again.
+Every run ends by closing all of its windows, the Grubhub window and the R365 window, after approval or after a stop:
+
+```bash
+playwright-cli -s=fgh close
+playwright-cli -s=fghr close
+playwright-cli list    # neither fgh nor fghr may remain
+```
+
+Other FARE skills run their own sessions on the same machine, so never use `kill-all` or `close-all`. After stopping a background loop, confirm with `ps` that its child scripts are gone before touching the browser again.
