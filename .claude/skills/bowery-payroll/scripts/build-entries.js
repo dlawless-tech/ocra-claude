@@ -121,8 +121,20 @@ for (const id of Object.keys(LOC)) {
   let tax = null;
 
   const block = (rows, kind) => {
-    const r = readChecks(CHECKS, id, kind);
-    const checks = r.checks, stated = r.stated;
+    // a combined GL (no salary file) carries both runs' net payroll in one row,
+    // so both runs' checks draw against it
+    const kinds = kind === 'hourly' && !SALARY ? ['hourly', 'salary'] : [kind];
+    const checks = [];
+    for (const k of kinds) {
+      const r = readChecks(CHECKS, id, k);
+      checks.push(...r.checks);
+      if (r.stated) {
+        const parsed = r.checks.reduce((a, b) => a + b.amount, 0);
+        if (r.checks.length !== r.stated.count || parsed !== r.stated.amount)
+          fail.push(loc.name + ' ' + k + ': parsed ' + r.checks.length + ' checks / ' + fmt(parsed) +
+                    ' against a stated ' + r.stated.count + ' / ' + fmt(r.stated.amount));
+      }
+    }
     // the cash account is whatever the net payroll rows carry
     const net = rows.filter(x => x.name === 'NET PAYROLL' || x.name === 'PARTIAL DIRECT DEPOSITS');
     const cash = net.length ? net[0].account : null;
@@ -135,13 +147,6 @@ for (const id of Object.keys(LOC)) {
     for (const c of checks) {
       const i = pool.indexOf(c.amount);
       if (i >= 0) { pool.splice(i, 1); theirs.push(c); } else mine.push(c);
-    }
-
-    if (stated) {
-      const parsed = checks.reduce((a, b) => a + b.amount, 0);
-      if (checks.length !== stated.count || parsed !== stated.amount)
-        fail.push(loc.name + ' ' + kind + ': parsed ' + checks.length + ' checks / ' + fmt(parsed) +
-                  ' against a stated ' + stated.count + ' / ' + fmt(stated.amount));
     }
 
     const netTotal = net.reduce((a, b) => a + b.credit - b.debit, 0);

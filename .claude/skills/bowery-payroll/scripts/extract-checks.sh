@@ -27,7 +27,9 @@ shopt -s nullglob
 place() {
   local pdf="$1" hint="$2" txt id sub kind
   txt="$TMP/out.txt"
-  pdftotext -table "$pdf" "$txt" 2>/dev/null || { echo "UNREADABLE $(basename "$pdf")"; return; }
+  # pdftotext on Windows fails on an apostrophe in the path (Rosie's, Vic's)
+  cp "$pdf" "$TMP/in.pdf"
+  pdftotext -table "$TMP/in.pdf" "$txt" 2>/dev/null || { echo "UNREADABLE $(basename "$pdf")"; return; }
   id=$(grep -oE 'CLIENT +[0-9]{6}' "$txt" | head -1 | grep -oE '[0-9]{6}')
   [ -n "$id" ] || { echo "NO CLIENT ID $(basename "$pdf")"; return; }
   sub=$(grep -oE 'CLIENT +[0-9]{6}.*' "$txt" | head -1 | sed 's/.* - //')
