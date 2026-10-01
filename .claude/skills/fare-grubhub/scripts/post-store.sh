@@ -12,7 +12,7 @@ WE=$(js we); LOC=$(js loc)
 
 # REDO=<id> refills a copy already made instead of duplicating again
 if [ -n "${REDO:-}" ]; then ID="$REDO"; playwright-cli -s=$S goto "https://fare.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
-else ID=$(bash "$UE/duplicate.sh" $S "$SRC" "$WE" "$NUM") || { echo "$ID"; exit 1; }; fi
+else ID=$(bash "$D/duplicate.sh" $S "$SRC" "$WE" "$NUM") || { echo "$ID"; exit 1; }; fi
 echo "id $ID"
 
 # header location, by name from the combobox's own list
@@ -57,6 +57,9 @@ if [ "$(js zero)" = "true" ]; then
   playwright-cli -s=$S eval "$(cat "$SK/bowery-weekly-mgmt-fees/scripts/read-lines.js")" 2>&1 | res
   exit 0
 fi
+
+# a zero-week source leaves its header comment behind
+playwright-cli -s=$S eval "() => document.getElementById('journalEntryComment').value" 2>&1 | res | grep -q "no sales this week" && { playwright-cli -s=$S fill '#journalEntryComment' '' >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1; echo "cleared header comment"; }
 
 # the store's own leftovers: zero lines and doubled GLs go, the set step keys the rest
 cat > trim.js <<EOF

@@ -36,7 +36,7 @@ for (const d of w.deposits) {
   for (const t of tx) {
     if (t.transaction_type === 'PCI_SINGLE_ONLINE') gross += t.prepaid_amount;
     else if (t.transaction_type === 'PCI_SINGLE_REFUND') ref += t.prepaid_amount;
-    else if (t.transaction_type === 'MISC_CHARGE') misc += t.prepaid_amount;
+    else if (t.transaction_type === 'MISC_CHARGE' || t.transaction_type === 'CS_CREDIT') misc += t.prepaid_amount;
     else stop(`${d.short_distribution_id}: unmodeled row ${t.transaction_type} "${t.transaction_type_description}"`);
   }
   if (gross + ref !== T.prepaid_total) stop(`${d.short_distribution_id}: orders ${gross} + refunds ${ref} != prepaid_total ${T.prepaid_total}`);
