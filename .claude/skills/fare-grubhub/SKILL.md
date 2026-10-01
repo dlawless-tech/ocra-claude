@@ -61,14 +61,21 @@ The source is the store's prior week `GrubHub` entry. For 9/6/2026 it was the st
 
 The copy is saved before any line is set, so a failure after the duplicate step leaves a copy holding the source's amounts. Finish it in place with `REDO=<id> post-store.sh ...` rather than duplicating again.
 
-Approve every store once it reads `MATCH`, the zero stores included:
+## Phase 3: approve
 
-```bash
-bash <skill>/../fare-ubereats/scripts/approve.sh fghr <id>
-```
+Once every store reads `MATCH`, zero stores included, approve the week in bulk from Accounting > Transactions > All transactions:
 
-It clicks Approve, then Approve and Close, and confirms the ribbon flipped to Unapprove.
+1. Filter **Number** to `GrubHub` and **Approval Status** to `Unapproved`. Status alone would also select other unapproved FARE entries, such as Uber Eats or DoorDash.
+2. Read the grid before selecting. Every row must be one of this run's `GrubHub` entries, dated a Sunday this run posted. Stop and ask on anything else.
+3. Click the select-all box in the header next to Approval Status.
+4. Edit Selected > Approve.
+
+Approving through each entry's ribbon (`../fare-ubereats/scripts/approve.sh`) takes about a minute per entry, so keep it for a single store.
 
 ## Verifying the run
 
 All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved. Report the store table with deposit IDs, and every zero store.
+
+## Finish
+
+Close this run's sessions by name: `playwright-cli -s=fgh close` and `playwright-cli -s=fghr close`. Other FARE skills run their own sessions on the same machine, so never use `kill-all` or `close-all`. After stopping a background loop, confirm with `ps` that its child scripts are gone before touching the browser again.
