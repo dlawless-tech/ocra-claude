@@ -18,27 +18,29 @@ sed 's/bowerygroup\.restaurant365\.com/unoatfifth.restaurant365.com/g' <skills>/
 bash login.sh dl
 ```
 
-Stripe is `https://dashboard.stripe.com/login`, account `acct_1JKplFAju1EvNWw5` (Dlenadc), in a headed session `st`. Sign-in texts a 6-digit code to the phone ending 8525; ask the human for it, or to type it into the open window. On a **review your account info** prompt, choose **Skip for Now**.
+Stripe is `https://dashboard.stripe.com/login`, account `acct_1JKplFAju1EvNWw5` (Dlenadc), in a headed session `st`. Sign-in texts a 6-digit code to the phone ending 8525; ask the human for it, or to type it into the open window. On a **review your account info** prompt, choose **Skip for Now**. No Stripe password is saved for dLena, so the human signs in to the `st` window and you take over from the dashboard.
 
 ## Step 2: the unmatched Stripe lines
 
-In R365 open Accounting > Banking > Bank activity (it opens in a second tab; the page is `/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000`), select `1123 - dLena Deposits / Income 4001`, and answer **No** to the refresh warning. Read the Unmatched grid:
+In R365 open Accounting > Banking > Bank activity (it opens in a second tab; the page is `/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000`), select `1123 - dLena Deposits / Income 4001`, and answer **No** to the refresh warning. If Atlantic Union Bank's **Edit Credentials** dialog opens over the page, click its **Cancel**; it blocks every click, including the Deposit link. Read the Unmatched grid:
 
 ```js
 () => jQuery('#BankActivityUnmatchedGrid').data('kendoGrid').dataSource.data().toJSON().filter(r => /STRIPE/.test(r.Name)).map(r => [new Date(r.Date).toLocaleDateString(), r.Amount])
 ```
 
-Each line pairs with one Stripe payout of the same amount on Transactions > Payouts (`<acct>/payouts`); the payout's id is the `po_...` in its row link. A payout Stripe shows as paid that has no bank line yet is not ready; leave it for the next run.
+Each line pairs with one Stripe payout of the same amount on Transactions > Payouts (`<acct>/payouts`); the payout's id is the `po_...` in its row link. A payout Stripe shows as paid that has no bank line yet waits for the next run, unless it was collected in a month that is closing (see Step 3).
 
 ## Step 3: post each payout
 
 ```bash
-bash <skill>/scripts/post-payout.sh dl st <po_id> <bank amount>
+bash <skill>/scripts/post-payout.sh dl st <po_id> <bank amount> [deposit date M/D/YYYY]
 ```
 
 It checks the payout amount against the bank line, clicks **Export** on the payout's Transactions table and saves the file as `Stripe payout <YYYY-MM-DD> <amount>.csv`, builds the lines with `plan-lines.js`, clicks the bank line's **Deposit** link, keys each line through the Adjustments tab's new-row form (`add-lines.sh`), checks the Deposit Total equals the bank amount, attaches the export through **Upload File**, and clicks **Create Deposit**, which saves and approves in one step. It then reopens the saved deposit and runs `check-deposit.js`, which prints `MATCH Bank Deposit - BD000xxx <amount>` only when the date, every line, the Approved status and the attachment all agree. Each failure message says whether the deposit was created; one that was not leaves the bank line unmatched, so close the deposit window and rerun.
 
-The deposit takes the bank line's date, which R365 prefills. At month end, date it by when Stripe collected the payout instead; stop and confirm the date with the human for any payout that crosses a month.
+The deposit takes the bank line's date, which R365 prefills. At month end, date it by when Stripe collected the charges instead (the `Created` column of the export): stop and confirm the date with the human for any payout that crosses a month, then pass the agreed date as the fifth argument. The export file keeps the bank date in its name.
+
+A payout collected in a closing month whose bank line has not landed yet can be posted ahead, when the human asks: pass its amount and the date, and the script builds a standalone deposit on a blank `BankDepositForm` (it opens on 1123 and 10200), keys the same lines, attaches the export, and saves through the ribbon's **Approve** > **Approve**. The bank line should match it when bank activity downloads. On the next run, check that it did: an unmatched Stripe line at that amount must be matched to the existing deposit, since its **Deposit** link would post the payout twice.
 
 ## The lines
 
@@ -57,6 +59,8 @@ The comment always carries the event's full month, day and year; the name may be
 
 The new-row Amount box runs a calculator that swallows a typed minus and keeps the remaining balance, so `add-lines.sh` sets a negative amount on the form's model (`gridOptions.bankDepositDetailsGrid.newRowForm.model.amount`) and reads it back before **Add**. A fee line that happens to equal the remaining balance hides this; the read-back catches it.
 
-## First run
+## Runs
 
 9/28/2026, from the 9/16 payout BD000355 as the pattern. Posted BD000369 (9/21, $15,919.86), BD000370 (9/22, $651.36), BD000371 (9/23, $9,198.29), BD000373 (9/24, $15,179.82, two refunds and two fee refunds) and BD000372 (9/25, $2,333.92), each a `MATCH`.
+
+10/2/2026: BD000376 (9/28, $995.55), BD000377 (9/29, $1,926.64), BD000378 (9/30, $9,437.37), BD000379 (10/1 bank line dated 9/30, $2,023.14, the first with `Stripe Fee` rows) and BD000381 (the 10/2 payout posted ahead, dated 9/30, $13,723.34), each a `MATCH`.

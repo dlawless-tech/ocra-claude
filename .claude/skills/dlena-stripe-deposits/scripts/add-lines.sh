@@ -1,10 +1,11 @@
 #!/bin/bash
 # Key a plan's lines into the open Bank Deposit's Adjustments tab.
-# Usage: add-lines.sh <session> <plan.json>
+# Usage: add-lines.sh <session> <plan.json> [scope selector]
+# Scope defaults to the bank line's Create Deposit window; a standalone BankDepositForm passes body.
 # Prints each line as added, then the grid read back; exits 1 on a line that did not land.
 set -u
 S="$1"; PLAN="$2"
-W='.k-window:has-text("Create Deposit")'
+W="${3:-.k-window:has-text(\"Create Deposit\")}"
 res() { sed -n '/### Result/{n;p;}'; }
 SN="$(dirname "$0")/../../bowery-ubereats/scripts/snapshot.sh"
 # run a playwright-cli action; stop the run if it errors
