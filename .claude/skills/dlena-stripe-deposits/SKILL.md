@@ -51,9 +51,9 @@ One adjustment line per Stripe charge, at its **gross** amount, location `10200 
 | `OpenTable Experience: ... Reservation date HH:MM YYYY-Mon-DD` | 1218 or 2440 by reservation date | `M/D/YY OpenTable` |
 | `OpenTable No-Show: ...`, all in the payout added into one line | 4915 - Cancellation Fee Income | `OpenTable NoShows` |
 | a Refund row | the account its charge would take, by the same event date | the charge's comment, at the negative amount |
-| the payout's fees, less any `Application fee refund` adjustments, as one negative line | 8110 - Credit Card Fees | blank |
+| the payout's fees, plus any `Stripe Fee` rows (`Stripe processing fees`, billed separately and often weeks old), less any `Application fee refund` adjustments, as one negative line | 8110 - Credit Card Fees | blank |
 
-The comment always carries the event's full month, day and year; the name may be shortened (`plan-lines.js` drops `LLC` and `Inc`). A payout with several charges for one event keeps one line per charge, and a refund of one of them stays its own negative line. `plan-lines.js` stops with `STOP:` on any row it cannot place: an adjustment other than a fee refund, or a description outside these patterns. Place those with the human and key the deposit by hand; nothing is created before that stop.
+The comment always carries the event's full month, day and year; the name may be shortened (`plan-lines.js` drops `LLC` and `Inc`). A payout with several charges for one event keeps one line per charge, and a refund of one of them stays its own negative line. `plan-lines.js` stops with `STOP:` on any row it cannot place: an adjustment other than a fee refund, any other row type, or a description outside these patterns. Place those with the human and key the deposit by hand; nothing is created before that stop.
 
 The new-row Amount box runs a calculator that swallows a typed minus and keeps the remaining balance, so `add-lines.sh` sets a negative amount on the form's model (`gridOptions.bankDepositDetailsGrid.newRowForm.model.amount`) and reads it back before **Add**. A fee line that happens to equal the remaining balance hides this; the read-back catches it.
 

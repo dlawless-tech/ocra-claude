@@ -35,8 +35,9 @@ const lines = []; let fees = 0, noShow = 0;
 for (const r of body) {
   const type = r[T], desc = r[D].trim(), amt = Number(r[A]);
   fees += Number(r[F] || 0);
-  // Stripe's fee refund comes back as a positive adjustment against the fees
+  // fee refund (positive) and separately billed processing fees (negative) both net into the fees
   if (type === 'Adjustment' && /^Application fee refund/i.test(desc)) { fees -= amt; continue; }
+  if (type === 'Stripe Fee') { fees -= amt; continue; }
   // a refund carries its negative amount to the charge's own account and comment
   if (type !== 'Charge' && type !== 'Refund') stop(`${type} row "${desc}" ${amt}: place it by hand`);
   let m;
