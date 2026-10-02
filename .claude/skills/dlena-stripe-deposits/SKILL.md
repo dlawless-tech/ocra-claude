@@ -59,6 +59,18 @@ The comment always carries the event's full month, day and year; the name may be
 
 The new-row Amount box runs a calculator that swallows a typed minus and keeps the remaining balance, so `add-lines.sh` sets a negative amount on the form's model (`gridOptions.bankDepositDetailsGrid.newRowForm.model.amount`) and reads it back before **Add**. A fee line that happens to equal the remaining balance hides this; the read-back catches it.
 
+## Finish
+
+Every run ends by closing both of its windows, the R365 window and the Stripe window, after the last `MATCH` or after a stop. Run it from the run's working directory, since sessions bind to it:
+
+```bash
+playwright-cli -s=dl close
+playwright-cli -s=st close
+playwright-cli list    # neither dl nor st may remain
+```
+
+Other skills run their own sessions on the same machine, so never use `kill-all` or `close-all`.
+
 ## Runs
 
 9/28/2026, from the 9/16 payout BD000355 as the pattern. Posted BD000369 (9/21, $15,919.86), BD000370 (9/22, $651.36), BD000371 (9/23, $9,198.29), BD000373 (9/24, $15,179.82, two refunds and two fee refunds) and BD000372 (9/25, $2,333.92), each a `MATCH`.
