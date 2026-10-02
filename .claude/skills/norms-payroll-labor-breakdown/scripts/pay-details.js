@@ -21,9 +21,8 @@ function loadPayDetails(csvPath) {
   if (cols.includes(-1)) throw new Error('pay details missing column ' + HOURLY_COLS[cols.indexOf(-1)]);
   const by = {}, unknown = [];
   for (const r of rows) {
-    // excel stores col B as a number: 222.5250 arrives as 222.525
-    const [loc, raw = ''] = r[1].split('.');
-    const gl = raw.padEnd(4, '0');
+    // excel stores col B as a float: 222.5250 arrives as 222.525 or 222.52500000000001
+    const [loc, gl] = (+r[1]).toFixed(4).split('.');
     const amt = cols.reduce((s, i) => s + (+r[i] || 0), 0);
     const side = KEY[gl];
     if (!side) { if (Math.abs(amt) >= 0.005) unknown.push(`${r[1]} = ${r2(amt)}`); continue; }
