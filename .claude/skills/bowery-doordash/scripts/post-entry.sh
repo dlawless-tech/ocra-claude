@@ -47,11 +47,20 @@ case "$CHK" in *'"miss": []'*) : ;; *) die "template missing comments: $CHK";; e
 case "$CHK" in *"$ENTRY_DATE"*) : ;; *) die "wrong date: want $ENTRY_DATE got $CHK";; esac
 case "$CHK" in *"$LOC"*) : ;; *) die "wrong location: want $LOC got $CHK";; esac
 
-# never touch an entry that is already Approved; pass FORCE=1 to override
+# Approved entry is read-only. Empty template (every line 0.00): unapprove it.
+# Filled Approved entry: leave alone unless FORCE=1
 ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
-if [ "$ST" = "Approved" ] && [ "${FORCE:-0}" != "1" ]; then
-  echo "$LOC SKIP: already Approved"
-  exit 0
+if [ "$ST" = "Approved" ]; then
+  FILLED=$(playwright-cli -s=$S eval "() => { const L=[${JSLIST%,}]; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); return L.some(l=>{const t=rows.find(x=>x.includes(l)); return t && (parseFloat((t[3]||'0').replace(/,/g,''))||parseFloat((t[4]||'0').replace(/,/g,'')));}) ? 'filled' : 'empty'; }" 2>&1 | res | tr -d '"')
+  if [ "$FILLED" != "empty" ]; then
+    [ "${FORCE:-0}" = "1" ] || { echo "$LOC SKIP: already Approved"; exit 0; }
+    die "FORCE=1 on a filled Approved entry: unapprove it by hand first"
+  fi
+  bash "$HERE/ribbon-menu.sh" $S Unapprove "Unapprove" >/dev/null 2>&1
+  sleep 8
+  ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
+  [ "$ST" = "Unapproved" ] || die "could not unapprove the empty template ($ST)"
+  echo "$LOC unapproved the empty template"
 fi
 
 # one real click wakes the grid editor; scripted clicks alone are ignored.

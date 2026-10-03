@@ -1,11 +1,11 @@
 ---
 name: bowery-doordash
-description: Reconcile DoorDash payouts into the matching Bowery Group Restaurant365 journal entries, for one store or for all four in a batch. Use when asked to post or balance a Bowery DoorDash payout in R365, to pull a Bowery store's DoorDash payout figures, or to check the Bowery A/R Door Dash balance against a payout.
+description: Reconcile DoorDash payouts into the matching Bowery Group Restaurant365 journal entries, for one store or for all four in a batch, with a tie-out and the DoorDash payout capture attached to each as backup. Use when asked to post or balance a Bowery DoorDash payout in R365, to pull a Bowery store's DoorDash payout figures, or to check the Bowery A/R Door Dash balance against a payout.
 ---
 
 # DoorDash payout into a Bowery journal entry
 
-Two phases. **Gather** every figure first, from DoorDash and from one GL report, then **post** the entries. Both phases read in bulk, so a four store run costs about the same reading as a single store.
+Two phases. **Gather** every figure first, from DoorDash and from one GL report, then **post** the entries and attach their backup. Both phases read in bulk, so a four store run costs about the same reading as a single store.
 
 Sessions:
 
@@ -15,7 +15,7 @@ playwright-cli -s=r365 open --headed https://bowerygroup.restaurant365.com/react
 playwright-cli -s=r365b open --headed https://bowerygroup.restaurant365.com/react/accounting  # GL report
 ```
 
-`playwright-cli` binds sessions to the working directory. Stay in one directory for a whole run, and never `cd` mid run or the sessions vanish.
+`playwright-cli` binds sessions to the working directory. Stay in one directory for a whole run, and never `cd` mid run or the sessions vanish. Run from a scratch directory such as the scratchpad: captures, backup PDFs and the files `attach.sh` uploads land under it, and `playwright-cli upload` takes a path relative to it.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting any of this. R365 is a legacy Angular app whose grids and report dialogs ignore scripted input and fail silently, and every rule in that file was paid for with a wrong or empty entry. It is shared with the `bowery-ubereats` and `bowery-grubhub` skills, so fix R365 platform behavior there once rather than in three places.
 
@@ -118,6 +118,8 @@ Accounting > Transactions > All transactions, reached by clicking **Accounting**
 
 Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text.
 
+A template can arrive already **Approved** at 0.00, as the 9/27 week did. An Approved entry is read-only: the grid cells open no editor. `post-entry.sh` unapproves an Approved entry whose lines are all 0.00, prints `unapproved the empty template`, and posts it as usual. An Approved entry carrying any amount is someone's finished work: the script skips it, and changing one is the human's call.
+
 Entries from before September 2026 are a two line reclass between `104-05` and `104-00` and reproduce none of the arithmetic above, so an older week is worth checking rather than trusting as a model. Verify against the A/R balance instead.
 
 ## Posting
@@ -140,8 +142,23 @@ Give the work file a Windows path such as the scratchpad directory. `post-entry.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
+## Backup on every entry
+
+Every entry carries one PDF named `DoorDash <store> <MM.DD> backup.pdf`, where store is `Cookshop`, `Rosie`, `Shuka` or `Vic` and the date is the entry's. Page one is the tie-out: the entry as posted, the DoorDash figures closing to the net payout, D less the net payout against the posted A/R credit, D less Sales against the posted difference, and R365's debits to 104-05 by day. Page two is the payout's own detail page, cropped to its header and summary tiles.
+`<skills>` is the repo's `.claude/skills` folder, written absolute since the run sits in a scratch directory. The page builder and capture live here; the GL day split and the PDF renderer are shared with `bowery-grubhub`, and the attach script with `bowery-payroll`.
+
+1. **Capture** each payout in the DoorDash session, from the Payouts list or any open detail. It prints the detail header, which doubles as the covered-window check, and hides the Qualtrics survey popup before the shot:
+   ```bash
+   bash <skills>/bowery-doordash/scripts/backup/capture-payout.sh 615993619 shots/Cookshop.png
+   ```
+   Look at every capture before building, since an overlay that slips past the script covers the tiles.
+2. **Read** each saved entry back: open `#/form/JournalEntryForm/<TransactionId>` and `eval "$(cat <skills>/bowery-doordash/scripts/backup/read-entry.js)"`, which returns `{status, date, location, lines}` with `lines` as `[account, debit, credit, comment]`.
+3. **Build** one page per entry from a plan file: `{entryDate, store, location, status, lines, glDays, payout, png, note?}`. `glDays` is the location's object from `node <skills>/bowery-grubhub/scripts/backup/gl-days.js cells.txt` run on the Phase 2 report's cells (saved with the `grep -oE 'cell ...'` line in `R365-AUTOMATION.md`). `payout` is `{id, date, window, sales, commission, marketing, amendments, net}` at DoorDash's displayed signs. `node <skills>/bowery-doordash/scripts/backup/build-backup.js plan.json html/<store>.html` prints `ties` or `DOES NOT TIE`. Stop on the second.
+4. **Render**: `bash <skills>/bowery-grubhub/scripts/backup/render-pdf.sh html <store> att/<store>/<pdf name> ...` prints each PDF's size. A file under 1 KB is a blank page.
+5. **Attach**, with each PDF alone in its `att/<store>` folder: `bash <skills>/bowery-payroll/scripts/attach.sh r365 <TransactionId> att/<store>`. It deletes any attachment not in the folder, so list the entry's attachments first and leave an entry alone if it holds someone else's file. An Approved entry takes an upload and stays Approved.
+
 ## Verifying the run
 
-Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
+Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved**, the amount matches the planned total for that store, and the `Attachment` field shows the backup PDF. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
-Report the table of stores, payout ids, amounts, and totals, and report any store that failed just as plainly.
+Report the table of stores, payout ids, amounts, totals, and backup attached, and report any store that failed just as plainly.
