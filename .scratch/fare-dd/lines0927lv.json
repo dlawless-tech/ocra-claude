@@ -1,0 +1,40 @@
+{
+ "weekEnding": "9/27/2026",
+ "start": "2026-09-21",
+ "end": "2026-09-27",
+ "stores": [
+  {
+   "store": "Lakeview",
+   "loc": "11200 - FARE Lakeview (W Diversey)",
+   "amount": 396.67,
+   "sales": 1748.04,
+   "net": 1351.37,
+   "payoutNet": 1351.37,
+   "payoutIds": [
+    "616096032"
+   ],
+   "payoutDate": "2026-10-01",
+   "zero": false,
+   "lines": [
+    {
+     "side": "credit",
+     "gl": "1102 - DoorDash Deposit Clearing",
+     "amount": 396.67,
+     "comment": "total withheld from payouts"
+    },
+    {
+     "side": "debit",
+     "gl": "7310 - DoorDash Third Party Fees",
+     "amount": 331.09,
+     "comment": "commission"
+    },
+    {
+     "side": "debit",
+     "gl": "7535 - Third Party Refunds",
+     "amount": 65.58,
+     "comment": "error charges"
+    }
+   ]
+  }
+ ]
+}

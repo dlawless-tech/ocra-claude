@@ -12,60 +12,60 @@
 ### Snapshot
 ```yaml
 - generic:
-  - banner [ref=f66e1]:
-    - generic [ref=f66e3]:
-      - button [ref=f66e4] [cursor=pointer]
-      - button [ref=f66e7] [cursor=pointer]
-      - button [ref=f66e10] [cursor=pointer]
-  - generic [ref=f66e23]:
-    - paragraph [ref=f66e25]: Your Apps
-    - list [ref=f66e26]:
-      - button [ref=f66e128] [cursor=pointer]:
-        - generic [ref=f66e129]: Dashboards
-      - button [ref=f66e130] [cursor=pointer]:
-        - generic [ref=f66e131]: Reports
-      - button [ref=f66e132] [cursor=pointer]:
-        - generic [ref=f66e133]: Accounting
-      - button [ref=f66e134] [cursor=pointer]:
-        - generic [ref=f66e135]: Inventory
-      - button [ref=f66e136] [cursor=pointer]:
-        - generic [ref=f66e137]: Sales & forecasting
-      - button [ref=f66e138] [cursor=pointer]:
-        - generic [ref=f66e139]: Workforce
-      - button [ref=f66e140] [cursor=pointer]:
-        - generic [ref=f66e141]: More
-    - list [ref=f66e93]:
-      - button [ref=f66e142] [cursor=pointer]:
-        - generic [ref=f66e143]: Admin
-      - button [ref=f66e144] [cursor=pointer]:
-        - generic [ref=f66e145]: Help
-      - button [ref=f66e146] [cursor=pointer]:
-        - generic [ref=f66e147]: Account
-      - button [ref=f66e148] [cursor=pointer]:
-        - generic [ref=f66e149]: Marketplace
-  - generic [ref=f66e151]:
-    - generic [ref=f66e152]:
-      - button [ref=f66e153] [cursor=pointer]
-      - paragraph [ref=f66e156]: Accounting
-    - list [ref=f66e157]:
-      - button "Accounts payable" [ref=f66e158] [cursor=pointer]:
-        - button [ref=f66e161]
-      - button "Accounts receivable" [ref=f66e164] [cursor=pointer]:
-        - button [ref=f66e167]
-      - button "Banking" [ref=f66e170] [cursor=pointer]:
-        - button [ref=f66e173]
-      - button "Fixed assets" [ref=f66e176] [cursor=pointer]:
-        - button [ref=f66e179]
-      - button "General ledger" [ref=f66e182] [cursor=pointer]:
-        - button [ref=f66e185]
-      - button "Transactions" [active] [ref=f66e188] [cursor=pointer]:
-        - button [ref=f66e191]
-      - list [ref=f66e196]:
-        - link "All transactions" [ref=f66e197] [cursor=pointer]:
+  - banner [ref=f38e1]:
+    - generic [ref=f38e3]:
+      - button [ref=f38e4] [cursor=pointer]
+      - button [ref=f38e7] [cursor=pointer]
+      - button [ref=f38e10] [cursor=pointer]
+  - generic [ref=f38e23]:
+    - paragraph [ref=f38e25]: Your Apps
+    - list [ref=f38e26]:
+      - button [ref=f38e128] [cursor=pointer]:
+        - generic [ref=f38e129]: Dashboards
+      - button [ref=f38e130] [cursor=pointer]:
+        - generic [ref=f38e131]: Reports
+      - button [ref=f38e132] [cursor=pointer]:
+        - generic [ref=f38e133]: Accounting
+      - button [ref=f38e134] [cursor=pointer]:
+        - generic [ref=f38e135]: Inventory
+      - button [ref=f38e136] [cursor=pointer]:
+        - generic [ref=f38e137]: Sales & forecasting
+      - button [ref=f38e138] [cursor=pointer]:
+        - generic [ref=f38e139]: Workforce
+      - button [ref=f38e140] [cursor=pointer]:
+        - generic [ref=f38e141]: More
+    - list [ref=f38e93]:
+      - button [ref=f38e142] [cursor=pointer]:
+        - generic [ref=f38e143]: Admin
+      - button [ref=f38e144] [cursor=pointer]:
+        - generic [ref=f38e145]: Help
+      - button [ref=f38e146] [cursor=pointer]:
+        - generic [ref=f38e147]: Account
+      - button [ref=f38e148] [cursor=pointer]:
+        - generic [ref=f38e149]: Marketplace
+  - generic [ref=f38e151]:
+    - generic [ref=f38e152]:
+      - button [ref=f38e153] [cursor=pointer]
+      - paragraph [ref=f38e156]: Accounting
+    - list [ref=f38e157]:
+      - button "Accounts payable" [ref=f38e158] [cursor=pointer]:
+        - button [ref=f38e161]
+      - button "Accounts receivable" [ref=f38e164] [cursor=pointer]:
+        - button [ref=f38e167]
+      - button "Banking" [ref=f38e170] [cursor=pointer]:
+        - button [ref=f38e173]
+      - button "Fixed assets" [ref=f38e176] [cursor=pointer]:
+        - button [ref=f38e179]
+      - button "General ledger" [ref=f38e182] [cursor=pointer]:
+        - button [ref=f38e185]
+      - button "Transactions" [active] [ref=f38e188] [cursor=pointer]:
+        - button [ref=f38e191]
+      - list [ref=f38e196]:
+        - link "All transactions" [ref=f38e197] [cursor=pointer]:
           - /url: /react/accounting/legacy/AllTransactions
-        - link "Memorized transactions" [ref=f66e200] [cursor=pointer]:
+        - link "Memorized transactions" [ref=f38e200] [cursor=pointer]:
           - /url: /react/accounting/legacy/MemorizedTransactions
-        - link "Transaction details" [ref=f66e203] [cursor=pointer]:
+        - link "Transaction details" [ref=f38e203] [cursor=pointer]:
           - /url: /react/accounting/legacy/TransactionDetails
   - tooltip "Transactions"
 ```

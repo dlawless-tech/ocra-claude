@@ -1,5 +1,5 @@
 () => {
-const want = [{"side":"credit","gl":"1102 - DoorDash Deposit Clearing","amount":150.33,"comment":"total withheld from payouts"},{"side":"debit","gl":"7310 - DoorDash Third Party Fees","amount":128.44,"comment":"commission"},{"side":"debit","gl":"7535 - Third Party Refunds","amount":21.89,"comment":"error charges"}];
+const want = [{"side":"credit","gl":"1102 - DoorDash Deposit Clearing","amount":396.67,"comment":"total withheld from payouts"},{"side":"debit","gl":"7310 - DoorDash Third Party Fees","amount":331.09,"comment":"commission"},{"side":"debit","gl":"7535 - Third Party Refunds","amount":65.58,"comment":"error charges"}];
 const loc = "11200 - FARE Lakeview (W Diversey)";
 const apo = v => String(v || '').split(String.fromCharCode(8217)).join("'");
 const key = (side, gl, c) => side + ' | ' + apo(gl) + ' | ' + (c || '');

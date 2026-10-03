@@ -1,0 +1,1 @@
+require("http").createServer((q,s)=>{const f=__dirname+"/html/"+decodeURIComponent(q.url.slice(1));require("fs").readFile(f,(e,d)=>{if(e){s.writeHead(404);return s.end();}s.writeHead(200,{"content-type":"text/html; charset=utf-8"});s.end(d);});}).listen(8765,"127.0.0.1");

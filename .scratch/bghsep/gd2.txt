@@ -1,0 +1,131 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://restaurant.grubhub.com/financials/deposit-history/2221704
+- Page Title: Financials - Grubhub for Restaurants
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f3e1]:
+  - img:
+    - generic "icon-add-circle"
+    - generic "icon-add-dollar"
+    - generic "add-photo-icon"
+    - generic "icon-add"
+    - generic "icon-adjust-order"
+    - generic "icon-adjust-time"
+    - generic "icon-alert"
+    - generic "Page 1"
+    - generic "icon-bag"
+    - generic "icon-basket"
+    - generic "Page 1"
+    - generic "icon-bicyclist"
+    - generic "calendar-error-icon"
+    - generic "icon-calendar-time"
+    - generic "icon-calendar"
+    - generic "icon-cash"
+    - generic "icon-checkmark"
+    - generic "icon-clock"
+    - generic "icon-close"
+    - generic "icon-cog"
+    - generic "icon-coupon"
+    - generic "icon-credit"
+    - generic "icon-cut"
+    - generic "icon-cutlery"
+    - generic "icon-delivery-car"
+    - generic "icon-delivery"
+    - generic "Grabber"
+    - generic "icon-driver"
+    - generic "icon-edit-tip"
+    - generic "pencil 1"
+    - generic "icon-flag"
+    - generic "icon-help"
+    - generic "icon-hidden"
+    - generic "icon-horn"
+    - generic "icon-info"
+    - generic "toggle_ico"
+    - generic "lightbulb"
+    - generic "icon-list"
+    - generic "icon-mail"
+    - generic "icon-menu"
+    - generic "icon-more-vertical"
+    - generic "icon-more"
+    - generic "Group 13"
+    - generic "icon-pickup"
+    - generic "icon-pin"
+    - generic "Group 7"
+    - generic:
+      - generic "background"
+      - generic "Layer 1"
+    - generic "icon-refresh"
+    - generic "icon-remove"
+    - generic "icon-search"
+    - generic "icon-subtract-circle"
+    - generic "icon-subtract"
+    - generic "icon-timer"
+    - generic "icon-todo"
+    - generic "Group 5 Copy"
+    - generic "icon-user"
+    - generic "icon-visible"
+    - generic "icon-warning-circle-outline"
+    - generic "icon-warning"
+    - generic "icon-wrench"
+  - generic [ref=f3e6]:
+    - generic [ref=f3e7]:
+      - heading "View status" [level=4] [ref=f3e156] [cursor=pointer]
+      - button "Toggle Menu" [ref=f3e157] [cursor=pointer]:
+        - img "Menu icon" [ref=f3e158]
+      - img "Grubhub logo" [ref=f3e159] [cursor=pointer]
+    - generic [ref=f3e24]:
+      - generic [ref=f3e26]:
+        - heading "Deposits" [level=1] [ref=f3e160]
+        - generic [ref=f3e33]:
+          - generic [ref=f3e38] [cursor=pointer]:
+            - combobox "multi-location-selector" [ref=f3e161]: (1) Location selected
+            - img "Caret down icon" [ref=f3e162]
+          - generic [ref=f3e50]:
+            - textbox "Select a range of dates" [ref=f3e163]: 09/27/2026 - 10/03/2026
+            - img "Calendar icon" [ref=f3e164] [cursor=pointer]
+        - generic [ref=f3e60]:
+          - heading "Recent Deposits(9/27/26 - 10/3/26)" [level=2] [ref=f3e165]:
+            - text: Recent Deposits
+            - generic [ref=f3e63]: (9/27/26 - 10/3/26)
+          - table [ref=f3e66]:
+            - rowgroup [ref=f3e67]:
+              - row [ref=f3e166]:
+                - columnheader "Date" [ref=f3e167] [cursor=pointer]
+                - columnheader "Restaurant" [ref=f3e168] [cursor=pointer]
+                - columnheader "Distribution ID" [ref=f3e169] [cursor=pointer]
+                - columnheader "Deposit ID" [ref=f3e170] [cursor=pointer]
+                - columnheader "Total" [ref=f3e171] [cursor=pointer]
+            - rowgroup [ref=f3e82]:
+              - row [ref=f3e172] [cursor=pointer]:
+                - cell "9/30/26" [ref=f3e173]
+                - cell "Shuka - MacDougal St" [ref=f3e174]
+                - cell "26100230jo_F6pj" [ref=f3e175]
+                - cell "D-AQAAAAAAIeaIAAABoPr7yIAAAAGg8K8QgAEAAAGg64i0gA" [ref=f3e176]
+                - cell "$5,580.80" [ref=f3e177]
+              - row [ref=f3e178] [cursor=pointer]:
+                - cell "9/30/26" [ref=f3e179]
+                - cell "Shuka - MacDougal St" [ref=f3e180]
+                - cell "26100201jo_F6pj" [ref=f3e181]
+                - cell "D-AQAAAAAAIeaIAAABoPr7yIAAAAGg9dVsgAIAAAGg9dVsgA" [ref=f3e182]
+                - cell "$820.89" [ref=f3e183]
+            - rowgroup [ref=f3e95]:
+              - row [ref=f3e184]:
+                - cell "Grand Total" [ref=f3e185]
+                - cell [ref=f3e98]
+                - cell "$6,401.69" [ref=f3e186]
+      - contentinfo [ref=f3e101]:
+        - img "Grubhub for Restaurants" [ref=f3e187]
+        - paragraph [ref=f3e103]: © 2026 Grubhub Holdings Inc. All rights reserved.
+        - navigation [ref=f3e104]:
+          - link "Terms of use" [ref=f3e188] [cursor=pointer]:
+            - /url: "#"
+          - text: Privacy policy
+```

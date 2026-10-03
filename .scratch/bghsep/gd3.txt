@@ -1,0 +1,67 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://restaurant.grubhub.com/financials/deposit-history/2221704
+- Page Title: Financials - Grubhub for Restaurants
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [ref=f6e6]:
+  - generic [ref=f6e7]:
+    - heading "View status" [level=4] [ref=f6e15] [cursor=pointer]
+    - button "Toggle Menu" [ref=f6e16] [cursor=pointer]:
+      - img "Menu icon" [ref=f6e17]
+    - img "Grubhub logo" [ref=f6e21] [cursor=pointer]
+  - generic [ref=f6e24]:
+    - generic [ref=f6e26]:
+      - heading "Deposits" [level=1] [ref=f6e29]
+      - generic [ref=f6e33]:
+        - generic [ref=f6e38] [cursor=pointer]:
+          - combobox "multi-location-selector" [ref=f6e39]: (1) Location selected
+          - img "Caret down icon" [ref=f6e42]
+        - generic [ref=f6e50]:
+          - textbox "Select a range of dates" [active] [ref=f6e52]: 09/27/2026 - 10/03/2026
+          - img "Calendar icon" [ref=f6e57] [cursor=pointer]
+      - generic [ref=f6e60]:
+        - heading "Recent Deposits(9/27/26 - 10/3/26)" [level=2] [ref=f6e62]:
+          - text: Recent Deposits
+          - generic [ref=f6e63]: (9/27/26 - 10/3/26)
+        - table [ref=f6e66]:
+          - rowgroup [ref=f6e67]:
+            - row [ref=f6e68]:
+              - columnheader "Date" [ref=f6e69] [cursor=pointer]
+              - columnheader "Restaurant" [ref=f6e74] [cursor=pointer]
+              - columnheader "Distribution ID" [ref=f6e76] [cursor=pointer]
+              - columnheader "Deposit ID" [ref=f6e78] [cursor=pointer]
+              - columnheader "Total" [ref=f6e80] [cursor=pointer]
+          - rowgroup [ref=f6e82]:
+            - row [ref=f6e83] [cursor=pointer]:
+              - cell "9/30/26" [ref=f6e84]
+              - cell "Shuka - MacDougal St" [ref=f6e85]
+              - cell "26100230jo_F6pj" [ref=f6e86]
+              - cell "D-AQAAAAAAIeaIAAABoPr7yIAAAAGg8K8QgAEAAAGg64i0gA" [ref=f6e87]
+              - cell "$5,580.80" [ref=f6e88]
+            - row [ref=f6e89] [cursor=pointer]:
+              - cell "9/30/26" [ref=f6e90]
+              - cell "Shuka - MacDougal St" [ref=f6e91]
+              - cell "26100201jo_F6pj" [ref=f6e92]
+              - cell "D-AQAAAAAAIeaIAAABoPr7yIAAAAGg9dVsgAIAAAGg9dVsgA" [ref=f6e93]
+              - cell "$820.89" [ref=f6e94]
+          - rowgroup [ref=f6e95]:
+            - row [ref=f6e96]:
+              - cell "Grand Total" [ref=f6e97]
+              - cell [ref=f6e98]
+              - cell "$6,401.69" [ref=f6e99]
+    - contentinfo [ref=f6e101]:
+      - img "Grubhub for Restaurants" [ref=f6e102]
+      - paragraph [ref=f6e103]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=f6e104]:
+        - link "Terms of use" [ref=f6e105] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy
+```

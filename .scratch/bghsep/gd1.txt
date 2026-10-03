@@ -1,0 +1,81 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://restaurant.grubhub.com/financials/deposit-history/2221704
+- Page Title: Financials - Grubhub for Restaurants
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [ref=f3e1]:
+  - generic [ref=f3e6]:
+    - generic [ref=f3e7]:
+      - heading [level=4] [ref=f3e106] [cursor=pointer]: View status
+      - button [ref=f3e107] [cursor=pointer]
+      - generic [ref=f3e19] [cursor=pointer]
+    - generic [ref=f3e24]:
+      - generic [ref=f3e26]:
+        - heading [level=1] [ref=f3e110]: Deposits
+        - generic [ref=f3e33]:
+          - combobox [ref=f3e111] [cursor=pointer]: (1) Location selected
+          - generic [ref=f3e50]:
+            - textbox [ref=f3e113]:
+              - /placeholder: Select a range of dates
+              - text: 09/27/2026 - 10/03/2026
+            - img [ref=f3e114] [cursor=pointer]
+        - generic [ref=f3e60]:
+          - heading [level=2] [ref=f3e115]:
+            - text: Recent Deposits
+            - generic [ref=f3e63]: (9/27/26 - 10/3/26)
+          - table [ref=f3e66]:
+            - rowgroup [ref=f3e67]:
+              - row [ref=f3e116]:
+                - columnheader [ref=f3e117] [cursor=pointer]:
+                  - generic [ref=f3e70]: Date
+                - columnheader [ref=f3e118] [cursor=pointer]:
+                  - generic [ref=f3e75]: Restaurant
+                - columnheader [ref=f3e119] [cursor=pointer]:
+                  - generic [ref=f3e77]: Distribution ID
+                - columnheader [ref=f3e120] [cursor=pointer]:
+                  - generic [ref=f3e79]: Deposit ID
+                - columnheader [ref=f3e121] [cursor=pointer]:
+                  - generic [ref=f3e81]: Total
+            - rowgroup [ref=f3e82]:
+              - row [ref=f3e122] [cursor=pointer]:
+                - cell [ref=f3e123]: 9/30/26
+                - cell [ref=f3e124]: Shuka - MacDougal St
+                - cell [ref=f3e125]: 26100230jo_F6pj
+                - cell [ref=f3e126]: D-AQAAAAAAIeaIAAABoPr7yIAAAAGg8K8QgAEAAAGg64i0gA
+                - cell [ref=f3e127]: $5,580.80
+              - row [ref=f3e128] [cursor=pointer]:
+                - cell [ref=f3e129]: 9/30/26
+                - cell [ref=f3e130]: Shuka - MacDougal St
+                - cell [ref=f3e131]: 26100201jo_F6pj
+                - cell [ref=f3e132]: D-AQAAAAAAIeaIAAABoPr7yIAAAAGg9dVsgAIAAAGg9dVsgA
+                - cell [ref=f3e133]: $820.89
+            - rowgroup [ref=f3e95]:
+              - row [ref=f3e134]:
+                - cell [ref=f3e135]: Grand Total
+                - cell [ref=f3e98]
+                - cell [ref=f3e136]: $6,401.69
+      - contentinfo [ref=f3e101]:
+        - paragraph [ref=f3e103]: © 2026 Grubhub Holdings Inc. All rights reserved.
+        - navigation [ref=f3e104]:
+          - link [ref=f3e138] [cursor=pointer]:
+            - /url: "#"
+            - text: Terms of use
+          - text: Privacy policy
+  - dialog [active] [ref=f3e141]:
+    - button "Close" [ref=f3e142] [cursor=pointer]: ×
+    - heading "Updated GFM Terms" [level=2] [ref=f3e146]
+    - paragraph [ref=f3e150]:
+      - text: We recently updated our
+      - link "Grubhub for Merchants Terms of Use" [ref=f3e151] [cursor=pointer]:
+        - /url: https://restaurant.grubhub.com/terms-of-use
+      - text: . By clicking ‘I agree,’ or continuing to use Grubhub for Merchants and/or the Grubhub services on or after Oct 15, you agree to the updated terms.
+    - button "I agree" [ref=f3e155] [cursor=pointer]
+```
