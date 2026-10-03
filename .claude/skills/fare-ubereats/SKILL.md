@@ -1,6 +1,6 @@
 ---
 name: fare-ubereats
-description: Post the weekly Uber Eats fee journal entries into FARE Restaurant365, one per store, clearing 1111 Uber Eats Deposit Clearing against marketplace fees, marketing, chargebacks and marketplace facilitator tax from each store's Uber pay breakdown. Use when asked to post, balance, or approve the FARE UberEats Fees entries in R365, or to pull a FARE store's weekly Uber Eats figures.
+description: Post the weekly Uber Eats fee journal entries into FARE Restaurant365, one per store, clearing 1111 Uber Eats Deposit Clearing against marketplace fees, marketing, chargebacks and marketplace facilitator tax from each store's Uber Earnings breakdown, with a backup PDF tying the entry to Uber attached. Use when asked to post, balance, or approve the FARE UberEats Fees entries in R365, or to pull a FARE store's weekly Uber Eats figures.
 ---
 
 # FARE Uber Eats fees, weekly by store
@@ -34,13 +34,13 @@ Credentials live in `~/.claude/fare-credentials.md`, outside any repo: R365 `tla
 
 ## Phase 1: read Uber
 
-Land on Payments > Payouts (`/manager/payments?restaurantUUID=...`), then:
+The source is **Financials > Earnings** (`/manager/payments/earnings`), which replaced the Payments > Payouts pay breakdown in October 2026. Once logged in:
 
 ```bash
 bash <skill>/scripts/read-week.sh 2026-09-07 2026-09-13
 ```
 
-It loads the **Custom Range** (`start`, `end`, `rangeType=1` in the URL), walks the ten stores in `scripts/stores.json` through the store picker, expands every Pay breakdown row, writes `week.txt`, and saves each store's expanded page to `backup/` as the entry's attachment. Uber's own Download button only queues a report for hours later and Statements are monthly, so the saved page is the weekly backup. The picker takes only a real click on the store name by snapshot ref, and the range survives the switch. The `restaurantUUID` in the URL follows the picked store, so a hand-typed uuid for another store is how every block comes back as one store's figures. Each block's header carries the store name read off the page, and `build-lines.js` refuses a block whose page name disagrees.
+For each store in `scripts/uuids.json` it loads the Earnings page by URL (`restaurantUUID`, `start`, `end`, `rangeType=1`), dismisses the what's-new modal, clicks **Expand all**, and writes the breakdown tree to `week.txt` with each row's depth. It also screenshots the breakdown card, with the side menu and the floating chat and Reviews widgets hidden, to `backup/Uber <start>_<end>_<store>.png` for the backup PDF. Each block's header carries the store, range and Net sales read off the page, and `build-lines.js` refuses a block whose page store, uuid or range disagrees.
 
 ```bash
 node <skill>/scripts/build-lines.js week.txt 9/13/2026 > lines.json
@@ -48,20 +48,20 @@ node <skill>/scripts/build-lines.js week.txt 9/13/2026 > lines.json
 
 ## The lines
 
-| Uber row | GL | Comment |
+| Uber Earnings row | GL | Comment |
 |---|---|---|
-| Uber Fees (Marketplace Fee) | Dr 7380 - Uber Eats Third Party Fees | `marketplace fees` |
-| Marketing: Offers on items | Dr 4905 - Third Party App Marketing Comps | `offers on items` |
-| Marketing: Ad Spends | Dr 7630 - Uber Eats Marketing | `ad spends` |
-| Net Chargeback Amount (top row) | Dr 7535 - Third Party Refunds | `net chargeback` |
-| Net Taxes less Tax on Earnings less Backup Withholding | Dr 2270 - Sales Tax Payable | |
-| Backup Withholding Tax | Dr 2270 - Sales Tax Payable | `backup withholding` |
-| Other payments: Backup Withholding Reimbursement | Cr 2270 - Sales Tax Payable | `backup withholding reimbursement` |
-| net of the above | 1111 - Uber Eats Deposit Clearing, opposite side | |
+| Uber Fees > Net Marketplace Fee (incl. tax) | Dr 7380 - Uber Eats Third Party Fees | `marketplace fees` |
+| Marketing > Offers on items > Offers on items (excl. tax) | Dr 4905 - Third Party App Marketing Comps | `offers on items` |
+| Marketing > Ad spend > Ad spend (excl. tax) | Dr 7630 - Uber Eats Marketing | `ad spends` |
+| Amendments > Net Chargeback Amount > Chargebacks (excl. tax) | Dr 7535 - Third Party Refunds | `net chargeback` |
+| Tax On Offers on items, Tax on chargebacks, Amendments > Marketplace Facilitator Tax | Dr 2270 - Sales Tax Payable | |
+| Amendments > Income tax deduction | Dr 2270 - Sales Tax Payable | `backup withholding` |
+| Amendments > Other payments > Backup Withholding Reimbursement | Cr 2270 - Sales Tax Payable | `backup withholding reimbursement` |
+| Gross Sales less Net sales | 1111 - Uber Eats Deposit Clearing, opposite side | |
 
-The 2270 line is Marketplace Facilitator Tax plus the tax on chargebacks and offers, which lands equal to Tax on Earnings. The check: the debits equal `Earnings + Tax on Earnings - Total payout`. `build-lines.js` stops on a store that misses it, and on any top-level row outside Earnings, Uber Fees, Marketing, Net Chargeback Amount, Other payments, Net Taxes and Total payout, and on Other payments holding anything beyond the withholding refund. Report each stop to the human and ask how it books.
+`scripts/breakdown.js` holds this mapping for both `build-lines.js` and the backup page. The check: the debits equal `Gross Sales - Net sales`, and the top rows add to Net sales. `build-lines.js` stops on a store that misses either, and on any row the table does not name, including a tax row under Uber Fees. Report each stop to the human and ask how it books.
 
-**Backup Withholding Tax** is the 24% Uber withholds from some stores' payouts (Lakeview and Old Town in September 2026), shown as `Adjustments` on the monthly statement. It books to 2270 on its own line, as the human chose on 9/30/2026, and the line scripts key on GL plus comment so 2270 carries every line. Uber refunds it later as Other payments (both stores on 9/27/2026), which credits 2270 and can flip 1111 to a debit.
+**Income tax deduction** is the backup withholding tax, the 24% Uber withholds from some stores' payouts (Lakeview and Old Town in September 2026), shown as `Adjustments` on the monthly statement and as Backup Withholding Tax on the old Payouts page. It books to 2270 on its own line, as the human chose on 9/30/2026, and the line scripts key on GL plus comment so 2270 carries every line. Uber refunds it later as Other payments (both stores on 9/27/2026), which credits 2270 and can flip 1111 to a debit.
 
 A store with no sales still gets its entry, every line at 0.00 and the header and line comments `no sales this week`, so the week reads as reviewed. `post-store.sh` clears the header comment on a week with sales, since the copy inherits it from a zero week. R365 keeps a stale header Amount on an all-zero entry, so the grid can show a figure the lines do not carry; read the lines.
 
@@ -75,18 +75,18 @@ The source is the prior week's entry for that store. For the 9/6/2026 week it wa
 
 R365 writes the copy on the Duplicate click, before it is dated or numbered, so a run that fails mid duplicate leaves an unapproved `NJ000xxxxx` entry dated today at the store. Find it in All Transactions and finish it rather than duplicating again: pass its id as the fifth argument to `post-store.sh`. Other FARE skills leave `NJ` copies too; leave those alone.
 
-Then, per store with `MATCH`:
+Then, per store with `MATCH`, from the week's directory:
 
 ```bash
-bash <skill>/scripts/attach.sh fue-r365 <id> "backup/Uber <start>_<end>_<store>.pdf"
+bash <skill>/scripts/backup-store.sh fue-r365 <id> "<uber store>"
 bash <skill>/scripts/approve.sh fue-r365 <id>
 ```
 
-R365 takes an upload only on a saved entry. `approve.sh` clicks Approve, then Approve and Close, and confirms the ribbon flipped to Unapprove after a fresh load; a same-hash `goto` does not reload. Approve every store once it reads `MATCH` with its attachment, the zero store included.
+`backup-store.sh` reads the saved entry back from R365, builds the backup page with `build-backup.js` from that read-back, `week.txt` and the screenshot, renders it to `backup/Uber Eats backup <start>_<end>_<store>.pdf` and attaches it. The PDF shows the entry as posted, the Uber figures behind each line, the payout tie to Net sales, and the Uber screenshot. It stops before attaching when the entry and Uber disagree; report that store's `DOES NOT TIE` line. Uber revises a week after it closes, so backing up an entry posted earlier can show a gap the original run did not see (Old Town's 9/20/2026 entry read 6.94 short in fees and tax on 10/3/2026); ask the human whether to correct the entry before attaching. R365 takes an upload only on a saved entry, and an upload to an Approved entry leaves it Approved, so a missing backup is added without unapproving. `approve.sh` clicks Approve, then Approve and Close, and confirms the ribbon flipped to Unapprove after a fresh load; a same-hash `goto` does not reload. Approve every store once it reads `MATCH` with its attachment, the zero store included.
 
 ## Verifying the run
 
-All Transactions, filter Date to the Sunday and read the grid's data source (see `R365-AUTOMATION.md`): ten `UberEats Fees` rows, one per store, each at its store with the planned amount. Every row reads Approved. Report the store table, the withholding per store, and any zero store.
+All Transactions, filter Date to the Sunday and read the grid's data source (see `R365-AUTOMATION.md`): ten `UberEats Fees` rows, one per store, each at its store with the planned amount. Every row reads Approved and lists its `Uber Eats backup` PDF. Report the store table, the withholding per store, and any zero store.
 
 ## Closing the windows
 

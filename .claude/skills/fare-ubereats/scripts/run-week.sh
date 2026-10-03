@@ -1,5 +1,5 @@
 #!/bin/bash
-# One full week: read Uber, build lines, then per store post, attach, approve.
+# One full week: read Uber, build lines, then per store post, attach the backup PDF, approve.
 # usage: run-week.sh <start YYYY-MM-DD> <end YYYY-MM-DD> <weekEnding M/D/YYYY> <prior ids file> <out ids file>
 # ids files hold "<uber store>|<TransactionId>" per line; the prior week's entry is each store's source.
 # Stops a store at its first failed step and carries on; the out file lists only approved stores.
@@ -19,8 +19,7 @@ while IFS= read -r ST; do
   grep -vE '^(debit|credit) ' post.txt
   ID=$(sed -n 's/^id //p' post.txt)
   [ $P -eq 0 ] && grep -q '^MATCH' post.txt || { echo "FAIL: $ST not posted cleanly${ID:+ (entry $ID left unapproved)}"; continue; }
-  PDF="backup/Uber ${A}_${B}_$(echo "$ST" | tr -d '|.()' | tr -s ' ').pdf"
-  bash "$D/attach.sh" $S "$ID" "$PDF" || continue
+  bash "$D/backup-store.sh" $S "$ID" "$ST" || { echo "FAIL: $ST backup (entry $ID left unapproved)"; continue; }
   bash "$D/approve.sh" $S "$ID" && echo "$ST|$ID" >> "$OUT"
 done < <(node -e 'console.log(Object.keys(require(process.argv[1])).join("\n"))' "$(cd "$D"; pwd -W 2>/dev/null || pwd)/stores.json")
 echo "approved $(wc -l < "$OUT") of 10"

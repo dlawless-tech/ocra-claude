@@ -1,64 +1,31 @@
 #!/usr/bin/env node
-// Turn the week's Uber pay breakdowns into one set of entry lines per store.
+// Turn the week's Uber Earnings breakdowns into one set of entry lines per store.
 //
 //   build-lines.js week.txt <weekEnding M/D/YYYY> > lines.json
 //
-// week.txt holds one block per store: "== <uber store> | ..." then the expanded Pay breakdown rows.
-// Stops on an unknown store or a row the entry does not model. Backup withholding books to 2270 on its own line.
-const fs = require('fs');
+// week.txt is read-week.sh's output. Stops on an unknown store, a page showing another store or range,
+// or a row the entry does not model (see breakdown.js).
+const fs = require('fs'), path = require('path');
+const { c, parseWeek, mapStore } = require('./breakdown');
 const [file, weekEnding] = process.argv.slice(2);
-const LOC = require(require("path").join(__dirname, "stores.json"));
-const GL = {
-  fees: '7380 - Uber Eats Third Party Fees', ads: '7630 - Uber Eats Marketing', offers: '4905 - Third Party App Marketing Comps',
-  cb: '7535 - Third Party Refunds', tax: '2270 - Sales Tax Payable', clear: '1111 - Uber Eats Deposit Clearing',
-};
+const LOC = require(path.join(__dirname, 'stores.json')), UUID = require(path.join(__dirname, 'uuids.json'));
 const stop = m => { console.error('STOP: ' + m); process.exit(1); };
-const c = v => Math.round(v * 100) / 100;
-const num = s => +s.replace(/[$,]/g, '');
+const [, start, end] = /^# (\S+) (\S+)/.exec(fs.readFileSync(file, 'utf8')) || stop('week.txt has no "# <start> <end>" line');
+const day = d => String(+d.slice(8)), yr = end.slice(0, 4);
 
-// top-level rows and the sub rows each one is allowed to carry
-const TOP = ['Earnings', 'Uber Fees', 'Marketing', 'Net Chargeback Amount', 'Other payments', 'Net Taxes', 'Total payout'];
 const stores = [];
-for (const blk of fs.readFileSync(file, 'utf8').split(/^== /m).slice(1)) {
-  const [head, ...rows] = blk.trim().split('\n');
-  const name = head.split(' | "')[0].trim();
-  const loc = LOC[name];
-  if (!loc) stop(`unknown store "${name}"`);
-  if (!head.includes(' | ' + name + ' | Selected date range')) stop(`${name}: header does not confirm the store and range: ${head}`);
-  // first occurrence wins; Net Taxes nests its own "Net Chargeback Amount" under MF tax
-  const r = {};
-  for (const row of rows) {
-    const m = /^(.*?) (-?\$[\d,]+\.\d\d)$/.exec(row.trim());
-    if (!m) continue;
-    if (m[1] === 'Net Taxes') r['Net Chargeback Amount'] = r['Net Chargeback Amount'] || 0;
-    if (!(m[1] in r)) r[m[1]] = num(m[2]);
-  }
-  const get = k => r[k] || 0;
-  const top = Object.keys(r).filter(k => /^(Earnings|Uber Fees|Marketing|Net Chargeback Amount|Net Taxes|Total payout|Other.*)$/.test(k));
-  for (const k of top) if (!TOP.includes(k)) stop(`${name}: unmodeled row "${k}" ${r[k]}`);
-  const earn = get('Earnings'), payout = get('Total payout');
-  const bw = get('Backup Withholding Tax');
-  // Other payments carries only the withholding refund; anything else in it is unmodeled
-  const reimb = get('Backup Withholding Reimbursement');
-  if (c(get('Other payments') - reimb) !== 0) stop(`${name}: Other payments ${get('Other payments')} is more than the withholding reimbursement ${reimb}`);
-  const taxOnEarn = get('Tax on Earnings');
-  const lines = [];
-  const add = (gl, amt, comment) => { amt = c(amt); if (amt > 0) lines.push({ side: 'debit', gl, amount: amt, comment }); else if (amt < 0) lines.push({ side: 'credit', gl, amount: -amt, comment }); };
-  add(GL.fees, -get('Uber Fees'), 'marketplace fees');
-  const mk = get('Marketing');
-  const offers = get('Offers on items') || get('Offers On Items');
-  add(GL.offers, -offers, 'offers on items');
-  add(GL.ads, -(mk - offers), 'ad spends');
-  add(GL.cb, -get('Net Chargeback Amount'), 'net chargeback');
-  add(GL.tax, -(get('Net Taxes') - taxOnEarn - bw), '');
-  add(GL.tax, -bw, "backup withholding");
-  add(GL.tax, -reimb, "backup withholding reimbursement");
-  const dr = lines.reduce((t, l) => t + (l.side === 'debit' ? l.amount : -l.amount), 0);
-  // earnings + tax on earnings - payout = everything Uber kept, net of refunds
-  const kept = c(earn + taxOnEarn - payout);
-  if (Math.abs(c(dr) - kept) > 0.005) stop(`${name}: lines ${c(dr)} != kept ${kept}`);
-  if (c(dr) !== 0) add(GL.clear, -dr, '');
+for (const b of parseWeek(file)) {
+  const loc = LOC[b.name];
+  if (!loc) stop(`unknown store "${b.name}"`);
+  if (b.uuid !== UUID[b.name] || b.pageStore !== b.name) stop(`${b.name}: page shows "${b.pageStore}" for ${b.uuid}`);
+  // "Sep 21 – 27, 2026", "Aug 31 – Sep 6, 2026"
+  const [from, to] = b.range.split(' – ');
+  if (!to || from.split(' ').pop() !== day(start) || !to.endsWith(` ${day(end)}, ${yr}`) && to !== `${day(end)}, ${yr}`) stop(`${b.name}: page range "${b.range}", expected ${start} to ${end}`);
+  const m = mapStore(b);
+  if (m.stop) stop(`${b.name}: ${m.stop}`);
+  const lines = m.lines.map(l => ({ side: l.amt > 0 ? 'debit' : 'credit', gl: l.gl, amount: Math.abs(l.amt), comment: l.comment }));
   const amount = c(lines.filter(l => l.side === 'debit').reduce((t, l) => t + l.amount, 0));
-  stores.push({ store: name, loc, amount, earnings: earn, payout, withholding: -bw, zero: earn === 0 && lines.length === 0, lines });
+  const bw = m.lines.find(l => l.comment === 'backup withholding');
+  stores.push({ store: b.name, loc, amount, gross: m.gross, payout: m.net, withholding: bw ? bw.amt : 0, zero: !m.gross && !lines.length, lines });
 }
-process.stdout.write(JSON.stringify({ weekEnding, stores }, null, 1));
+process.stdout.write(JSON.stringify({ weekEnding, start, end, stores }, null, 1));
