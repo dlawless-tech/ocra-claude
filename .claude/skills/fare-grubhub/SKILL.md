@@ -1,11 +1,11 @@
 ---
 name: fare-grubhub
-description: Post the weekly Grubhub fee journal entries into FARE Restaurant365, one per store, clearing 1103 Grubhub Deposit Clearing against delivery and processing fees, marketing and ad spend, promotions, refunds and withheld sales tax from each store's Grubhub deposits. Use when asked to post, balance, or approve the FARE GrubHub entries in R365, or to pull a FARE store's weekly Grubhub figures.
+description: Post the weekly Grubhub fee journal entries into FARE Restaurant365, one per store, clearing 1103 Grubhub Deposit Clearing against delivery and processing fees, marketing and ad spend, promotions, refunds and withheld sales tax from each store's Grubhub deposits, with a backup PDF tying the entry to those deposits attached. Use when asked to post, balance, or approve the FARE GrubHub entries in R365, or to pull a FARE store's weekly Grubhub figures.
 ---
 
 # FARE Grubhub fees, weekly by store
 
-Each Grubhub period runs **Tuesday to Monday**. Each period posts one Journal Entry per store numbered `GrubHub`, dated the **Sunday inside the period**, header location the store, every line at the store. The period 9/1 to 9/7/2026 posts on 9/6/2026. Steps: **read** every store from Grubhub, **post** and check each entry, **approve** the week, then **close every window** the run opened.
+Each Grubhub period runs **Tuesday to Monday**. Each period posts one Journal Entry per store numbered `GrubHub`, dated the **Sunday inside the period**, header location the store, every line at the store. The period 9/1 to 9/7/2026 posts on 9/6/2026. Steps: **read** every store from Grubhub, **post** and check each entry, **attach the backup** to each, **approve** the week, then **close every window** the run opened.
 
 Through August 2026 these were monthly entries, one per store, each with that store's Grubhub monthly statement attached. The August statements ran through Monday 8/31, so the first weekly period is 9/1 to 9/7.
 
@@ -57,11 +57,23 @@ A store with no orders still gets its entry, every line at 0.00 and the header a
 bash <skill>/scripts/post-store.sh fghr lines.json "Logan Square" <source TransactionId>
 ```
 
-The source is the store's prior week `GrubHub` entry. For 9/6/2026 it was the store's 8/31 monthly. Oak Park had no prior entry: give it any store's entry and the script moves the copied lines to Oak Park. The weekly entries carry no attachment, so R365 skips the "transaction only" prompt for them; `scripts/duplicate.sh` handles both cases. The script duplicates the source (transaction only) and saves the copy with the date and number, then sets the header location, trims, adds and sets lines, saves, reloads, and prints the `check-lines.js` table. Read `MATCH` for each store. Close the extra tabs between stores, since `duplicate.sh` picks the newest copy tab.
+The source is the store's prior week `GrubHub` entry. For 9/6/2026 it was the store's 8/31 monthly. Oak Park had no prior entry: give it any store's entry and the script moves the copied lines to Oak Park. R365 asks "transaction only" when the source holds an attachment; `scripts/duplicate.sh` answers it, so the copy never takes the source's backup. The script duplicates the source (transaction only) and saves the copy with the date and number, then sets the header location, trims, adds and sets lines, saves, reloads, and prints the `check-lines.js` table. Read `MATCH` for each store. Close the extra tabs between stores, since `duplicate.sh` picks the newest copy tab.
 
 The copy is saved before any line is set, so a failure after the duplicate step leaves a copy holding the source's amounts. Finish it in place with `REDO=<id> post-store.sh ...` rather than duplicating again.
 
-## Phase 3: approve
+## Phase 3: attach the backup
+
+Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, zero stores included. Page one is the tie-out: the entry as posted, each deposit's Grubhub fields mapped to the entry's GLs against the posted lines, and prepaid orders less the deposit total against the 1103 credit. The pages after it are Grubhub's own deposit pages, one per deposit, captured from Financials > Deposit history, since that page has no download. A zero store's pages are its empty deposit history over the Tuesday to Monday after the period, when its deposit would have been paid, then the location picker showing that store checked.
+
+```bash
+bash <skill>/scripts/backup/backup-week.sh fgh fghr week.raw ids.txt
+```
+
+`ids.txt` holds one `store|TransactionId` line per store, from each `post-store.sh` `id` line. The script reads every entry back from R365, captures each deposit its 1103 comment names, builds each page, prints `ties` or `DOES NOT TIE` per store, renders the PDFs and attaches them. Work lands in `backup-<period start>/`. A store that does not tie gets no attachment and the script ends on `STOP`; find the cause before approving. A rerun skips captures already taken and entries already holding their file, so rerun it after fixing a store.
+
+The attachment lands on approved entries too, so a backup missed on an approved week goes on without unapproving.
+
+## Phase 4: approve
 
 Once every store reads `MATCH`, zero stores included, approve the week in bulk from Accounting > Transactions > All transactions:
 
@@ -74,7 +86,7 @@ Approving through each entry's ribbon (`../fare-ubereats/scripts/approve.sh`) ta
 
 ## Verifying the run
 
-All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved. Report the store table with deposit IDs, and every zero store.
+All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved, and its `Attachment` field shows the backup. Report the store table with deposit IDs and backup attached, and every zero store.
 
 ## Finish
 
