@@ -1,11 +1,11 @@
 ---
 name: fare-doordash
-description: Post the weekly DoorDash fee journal entries into FARE Restaurant365, one per store, clearing 1102 DoorDash Deposit Clearing against commission, marketing fees, store-funded discounts and error charges from DoorDash's weekly financial report, with the store's payout attached. Use when asked to post, balance, or approve the FARE DoorDash entries in R365, or to pull a FARE store's weekly DoorDash figures.
+description: Post the weekly DoorDash fee journal entries into FARE Restaurant365, one per store, clearing 1102 DoorDash Deposit Clearing against commission, marketing fees, store-funded discounts and error charges from DoorDash's weekly financial report, with the store's payout CSV and a backup PDF tying the entry to DoorDash attached. Use when asked to post, balance, or approve the FARE DoorDash entries in R365, or to pull a FARE store's weekly DoorDash figures.
 ---
 
 # FARE DoorDash fees, weekly by store
 
-Each week, Monday to Sunday, posts one Journal Entry per store numbered `DoorDash`, dated the **Sunday**, header location the store, every line at the store, with that store's payout CSV attached. Two phases: **read** the week's DoorDash report, then **post**.
+Each week, Monday to Sunday, posts one Journal Entry per store numbered `DoorDash`, dated the **Sunday**, header location the store, every line at the store, with that store's payout CSV and backup PDF attached. Three phases: **read** the week's DoorDash report, **post**, then attach the **backup**. An entry is finished only once its backup PDF is on it.
 
 Through August 2026 these were monthly entries, one per store, each with that store's DoorDash monthly statement PDF attached. The first weekly entry is dated 9/6/2026 and covers 9/1 to 9/6, since 8/31 sat in the August monthly. Every later week is the full Monday to Sunday.
 
@@ -81,9 +81,27 @@ For 9/6/2026 the sources were the 8/31 monthlies:
 | Lakeview | `fbeddc2d-98b2-43d1-a65d-5b63018bbfbe` |
 | Old Town | `a50f5ad5-aa37-419e-8672-60480ba0f8fd` |
 
+## Phase 3: backup
+
+The payout CSV is DoorDash's raw row and does not show how it becomes the entry. Every store with a payout also gets `DoorDash <store> <MM.DD> backup.pdf`, MM.DD the entry's Sunday:
+
+1. **Tie-out.** The entry as R365 reads it back, DoorDash's week totals by column mapped to each line, and the payout tie: payout net, less any rows outside the week, equals the week's net.
+2. **Payout page.** A screenshot of each payout's detail page in the DoorDash portal: header with the covered window, then the Net total, Sales, Commission & fees, Marketing spend and Amendments tiles. The page maps to the entry as Commission & fees to 7310, Marketing spend to 4905 plus 7540, Amendments to 7535 (error charges), and Sales less Net total to the 1102 credit.
+3. **Transactions.** Every DoorDash transaction in the week with its columns, totaled.
+
+```bash
+bash <skill>/scripts/backup-week.sh fdd2 fdd w0913 lines.json ids0913.txt bk0913
+```
+
+`backup-week.sh` captures each payout with `capture-payout.sh`, reads every entry back from R365, builds the pages with `build-backup.js --posted --shots`, renders them with `../bowery-grubhub/scripts/backup/render-pdf.sh` and attaches each PDF with `attach.sh`, beside the CSV. It stops before attaching anything if a page prints `DOES NOT TIE`: a posted line off DoorDash's column totals, an entry dated off the week, or a payout tile off the report. It skips an entry that already holds its PDF, so a rerun is safe. The zero store gets no backup.
+
+`capture-payout.sh` opens the payout by URL, `payout-details/11521564/<Store ID>/<payout id>`, so it reaches any past payout without paging the Payouts list. It hides the Assistant panel and the Qualtrics survey and crops above the transaction list. Look at a capture or two before trusting a new week's run, since a new overlay can slip past the script.
+
+The 9/6/2026 week's payouts include 8/31, which the August monthly booked. Its pages show those rows as the "outside the week" line of the payout tie, and the payout page tiles cover the whole payout.
+
 ## Verifying the run
 
-All Transactions, filter Number to `Door` and read the grid's data source (see `R365-AUTOMATION.md`): ten `DoorDash` rows on the Sunday, one per store, each Approved at its store with the planned amount and its payout CSV attached. Report the store table with payout IDs, and every zero store.
+All Transactions, filter Number to `Door` and read the grid's data source (see `R365-AUTOMATION.md`): ten `DoorDash` rows on the Sunday, one per store, each Approved at its store with the planned amount, its payout CSV and its backup PDF attached. Report the store table with payout IDs, and every zero store.
 
 ## Closing the run
 

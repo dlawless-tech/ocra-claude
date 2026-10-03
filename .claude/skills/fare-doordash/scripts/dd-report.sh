@@ -36,8 +36,8 @@ for i in $(seq 1 30); do clear_overlays
   [ -n "$R" ] && break; sleep 20; playwright-cli -s=$S reload >/dev/null 2>&1; sleep 8
 done
 [ -n "$R" ] || { echo "FAIL: report for $LBL never ready"; exit 1; }
-Z=$(playwright-cli -s=$S click $R 2>&1 | grep -oE 'Downloading file [^ ]+\.zip' | awk '{print $3}'); sleep 8
-# playwright-cli saves the file with dashes for underscores
-F=".playwright-cli/$(echo "$Z" | tr '_' '-')"
-[ -n "$Z" ] && [ -f "$F" ] || { echo "FAIL: download not found ($Z)"; exit 1; }
+touch .dd-mark; playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 8
+# the click's output does not always name the file: take the newest zip saved since the click
+F=$(find .playwright-cli -maxdepth 1 -name 'financial-*.zip' -newer .dd-mark 2>/dev/null | head -1)
+[ -n "$F" ] || { echo "FAIL: download not found"; exit 1; }
 mkdir -p "$OUT" && unzip -o -q "$F" -d "$OUT" && ls "$OUT"
