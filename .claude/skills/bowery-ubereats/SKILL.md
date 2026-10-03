@@ -5,7 +5,7 @@ description: Reconcile Uber Eats payouts into the matching Bowery Group Restaura
 
 # Uber Eats payout into a Bowery journal entry
 
-Two phases. **Gather** every figure first, from Uber Eats and from one GL report, then **post** the entries. Both phases read in bulk, so a four store run costs about the same reading as a single store.
+Two phases. **Gather** every figure and each store-week's backup first, from Uber Eats and from one GL report, then **post** the entries and attach the backup. Both phases read in bulk, so a four store run costs about the same reading as a single store.
 
 Sessions:
 
@@ -53,7 +53,20 @@ Two reading traps:
 - Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block. The breakdown rows are the page's only `[role=treeitem]`, and the cards are `[role=group]`, so reading treeitems document wide is the scoping. Walking down from the `Pay breakdown` heading to its tree finds nothing.
 - A stray click on the payouts page opens an order drawer that covers the date control, and the drawer often loads as "Something went wrong". Screenshot when a click stops landing, and close the drawer before retrying.
 
+The date popup opens reliably only on a freshly loaded page. After one pick, the next click on the control often toggles nothing, and walking months in that state drifts the calendar to the wrong year. Reload before each pick: the page keeps the store and the last range across a reload, and the calendar opens on that range's month.
+
 Check each store before moving on: `Earnings + Marketing + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
+
+### The backup
+
+Every entry carries its store-week's Uber Payouts page as an attachment. With the store and period showing, capture it:
+
+```bash
+scripts/capture-backup.sh <uber-session> Rosie backup
+# SAVED backup/UberEats Rosie WE 2026-09-27.png {...breakdown...}
+```
+
+It refuses to save a page whose breakdown does not add to Total payout, and it names the file from the period on the page, so the name always matches what the image shows. The full-page PNG holds the store, the period, the pay breakdown, the daily payouts, and the refunds. A PDF print of this page comes out blank, so take the screenshot.
 
 ## Phase 2: the period debits
 
@@ -89,7 +102,7 @@ This check works in a week with no prior entry to compare against, and it is the
 
 ## Finding the entries
 
-Bowery carries one UberEats entry per week, dated the Sunday that ends the pay period, so the period Aug 31 - Sep 6 posts to the entry dated Sep 6.
+Bowery carries one UberEats entry per store per week, dated the Sunday that ends the pay period, so the period Aug 31 - Sep 6 posts to the entry dated Sep 6.
 
 Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
 
@@ -113,13 +126,32 @@ Run stores in parallel by giving each worker its own session name. See `scripts/
 
 Sequential posting runs about ninety seconds a store, so a four store run finishes inside ten minutes on one session.
 
-To change an entry already Approved, open it, hover the ribbon's **Unapprove** and click its `Unapprove` item, then edit, save and approve through the same three checks.
+Then attach the store-week's backup and confirm it reads back:
+
+```bash
+scripts/attach-backup.sh r365 <TransactionId> "backup/UberEats Rosie WE 2026-09-27.png"
+# ATTACHED UberEats Rosie WE 2026-09-27.png
+```
+
+Attaching needs no save and leaves an Approved entry Approved. The script skips a file already attached, so reruns are safe.
+
+## Correcting an approved entry
+
+`post-entry.sh` skips an Approved entry and stops on one that already has a marketing line, so a correction goes through `scripts/fix-entry.sh` with the same work file:
+
+```bash
+ENTRY_DATE=9/27/2026 scripts/fix-entry.sh r365 Rosie work.json
+```
+
+It unapproves, writes every named line (zeroing the opposite column), runs the same three checks, and approves again. A `FAIL` says whether the entry was left Unapproved. An entry missing a marketing line it now needs goes through `FORCE=1 post-entry.sh` instead. Attach the backup afterwards if the entry has none.
+
+To check a past month, rebuild D for every week from one GL Account Detail run across the month, read each entry's lines, and compare. A wrong week shows up as a store whose A/R balance after the entry misses Total Payout by an amount no deposit explains.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
 ## Verifying the run
 
-Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
+Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store, and that each entry lists its backup. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, amounts, and totals, and report any store that failed just as plainly.
 
