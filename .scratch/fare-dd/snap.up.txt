@@ -5,245 +5,229 @@
 ║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
 ╚════════════════════════════════════════════════════════════════════╝
 
-### Open tabs
-- 0: [Journal Entry - DoorDash](https://fare.restaurant365.com/#/form/JournalEntryForm/27436c05-90b4-4f7e-81f1-b840073a4fbd)
-- 1: (current) [Journal Entry - DoorDash](https://fare.restaurant365.com/#/form/JournalEntryForm/9aae3411-978e-4a3d-a494-3a26d00b8e07)
 ### Page
-- Page URL: https://fare.restaurant365.com/#/form/JournalEntryForm/9aae3411-978e-4a3d-a494-3a26d00b8e07
+- Page URL: https://fare.restaurant365.com/#/form/JournalEntryForm/f2b77a5a-d452-4478-801c-26270ddf7aae
 - Page Title: Journal Entry - DoorDash
-- Console: 95 errors, 1 warnings
+- Console: 192 errors, 0 warnings
 ### Snapshot
 ```yaml
-- generic [ref=e2]:
-  - generic [ref=e4]:
-    - generic [ref=e5]: Theme Builder
-    - button [ref=e8] [cursor=pointer]:
-      - generic [ref=e9]: 
-    - generic [ref=e10]:
-      - generic [ref=e11]:
-        - heading "Ribbon" [level=4] [ref=e12]
-        - generic [ref=e13]:
-          - generic [ref=e14]: BG
-          - generic [ref=e15]: Font
-          - generic [ref=e16]: Hover BG
-          - generic [ref=e17]: Hover Font
-        - generic "Menu" [ref=e18]:
-          - 'textbox "Current selected color is #ffffff" [ref=e22]':
-            - generic [ref=e26] [cursor=pointer]
-          - 'textbox "Current selected color is #546e7a" [ref=e28]':
-            - generic [ref=e32] [cursor=pointer]
-          - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
-            - generic [ref=e38] [cursor=pointer]
-          - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
-            - generic [ref=e44] [cursor=pointer]
-        - generic "SubMenu" [ref=e45]:
-          - 'textbox "Current selected color is #ffffff" [ref=e49]':
-            - generic [ref=e53] [cursor=pointer]
-          - 'textbox "Current selected color is #546e7a" [ref=e55]':
-            - generic [ref=e59] [cursor=pointer]
-          - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
-            - generic [ref=e65] [cursor=pointer]
-          - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
-            - generic [ref=e71] [cursor=pointer]
-      - generic [ref=e72]:
-        - heading "Ribbon Logo" [level=4] [ref=e73]
-        - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
-      - generic [ref=e79]:
-        - heading "Left Panel" [level=4] [ref=e80]
-        - generic [ref=e81]:
-          - 'textbox "Current selected color is #ffffff" [ref=e84]':
-            - generic [ref=e88] [cursor=pointer]
-          - 'textbox "Current selected color is #546e7a" [ref=e90]':
-            - generic [ref=e94] [cursor=pointer]
-          - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
-            - generic [ref=e100] [cursor=pointer]
-          - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
-            - generic [ref=e106] [cursor=pointer]
-      - generic [ref=e107]:
-        - heading "Components" [level=4] [ref=e108]
-        - generic "Normal" [ref=e109]:
-          - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
-            - generic [ref=e117] [cursor=pointer]
-          - 'textbox "Current selected color is #777777" [ref=e119]':
-            - generic [ref=e123] [cursor=pointer]
-          - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
-            - generic [ref=e129] [cursor=pointer]
-          - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
-            - generic [ref=e135] [cursor=pointer]
-        - generic "Selected" [ref=e136]:
-          - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
-            - generic [ref=e144] [cursor=pointer]
-          - 'textbox "Current selected color is #ffffff" [ref=e146]':
-            - generic [ref=e150] [cursor=pointer]
-    - generic [ref=e151]:
-      - generic [ref=e152]:
-        - generic [ref=e155]:
-          - combobox "Select Theme" [ref=e156]: Default R365 Theme
-          - button "select" [ref=e158] [cursor=pointer]
-        - generic [ref=e159]:
-          - button "Set As Default" [ref=e160] [cursor=pointer]
-          - button "Save" [disabled] [ref=e161]
-          - button "Delete" [disabled] [ref=e162]
-      - generic [ref=e163]:
-        - textbox "Add New Theme" [ref=e165]
-        - button "New" [ref=e167] [cursor=pointer]
-  - generic [ref=e653]:
-    - generic [ref=e654]:
-      - navigation [ref=e658]:
-        - generic [ref=e659]:
+- generic [ref=f7e2]:
+  - generic [ref=f7e4]:
+    - generic [ref=f7e5]: Theme Builder
+    - button [ref=f7e8] [cursor=pointer]:
+      - generic [ref=f7e9]: 
+    - generic [ref=f7e10]:
+      - generic [ref=f7e11]:
+        - heading "Ribbon" [level=4] [ref=f7e12]
+        - generic [ref=f7e13]:
+          - generic [ref=f7e14]: BG
+          - generic [ref=f7e15]: Font
+          - generic [ref=f7e16]: Hover BG
+          - generic [ref=f7e17]: Hover Font
+        - generic "Menu" [ref=f7e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e22]':
+            - generic [ref=f7e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e28]':
+            - generic [ref=f7e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e34]':
+            - generic [ref=f7e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e40]':
+            - generic [ref=f7e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f7e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e49]':
+            - generic [ref=f7e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e55]':
+            - generic [ref=f7e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e61]':
+            - generic [ref=f7e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e67]':
+            - generic [ref=f7e71] [cursor=pointer]
+      - generic [ref=f7e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f7e73]
+        - button "Upload Ribbon Logo" [ref=f7e78] [cursor=pointer]
+      - generic [ref=f7e79]:
+        - heading "Left Panel" [level=4] [ref=f7e80]
+        - generic [ref=f7e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f7e84]':
+            - generic [ref=f7e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f7e90]':
+            - generic [ref=f7e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e96]':
+            - generic [ref=f7e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e102]':
+            - generic [ref=f7e106] [cursor=pointer]
+      - generic [ref=f7e107]:
+        - heading "Components" [level=4] [ref=f7e108]
+        - generic "Normal" [ref=f7e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f7e113]':
+            - generic [ref=f7e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f7e119]':
+            - generic [ref=f7e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f7e125]':
+            - generic [ref=f7e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f7e131]':
+            - generic [ref=f7e135] [cursor=pointer]
+        - generic "Selected" [ref=f7e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f7e140]':
+            - generic [ref=f7e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f7e146]':
+            - generic [ref=f7e150] [cursor=pointer]
+    - generic [ref=f7e151]:
+      - generic [ref=f7e152]:
+        - generic [ref=f7e155]:
+          - combobox "Select Theme" [ref=f7e156]: Default R365 Theme
+          - button "select" [ref=f7e158] [cursor=pointer]
+        - generic [ref=f7e159]:
+          - button "Set As Default" [ref=f7e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f7e161]
+          - button "Delete" [disabled] [ref=f7e162]
+      - generic [ref=f7e163]:
+        - textbox "Add New Theme" [ref=f7e165]
+        - button "New" [ref=f7e167] [cursor=pointer]
+  - generic [ref=f7e10602]:
+    - generic [ref=f7e10603]:
+      - navigation [ref=f7e10607]:
+        - generic [ref=f7e10608]:
           - generic: Journal Entry - DoorDash
-          - generic [ref=e661]:
-            - list [ref=e662]:
-              - listitem [ref=e663]:
-                - button "Save" [ref=e664] [cursor=pointer]
-              - listitem [ref=e666]:
-                - button "Approve" [ref=e667] [cursor=pointer]
-              - listitem [ref=e669]:
-                - button "Action" [ref=e670] [cursor=pointer]
-            - list [ref=e672]:
-              - listitem [ref=e673]:
-                - button [ref=e674] [cursor=pointer]:
-                  - generic [ref=e675]: 
-              - listitem [ref=e677]:
-                - link [ref=e678] [cursor=pointer]:
+          - generic [ref=f7e10610]:
+            - list [ref=f7e10611]:
+              - listitem [ref=f7e10612]:
+                - button "Save" [ref=f7e10613] [cursor=pointer]
+              - listitem [ref=f7e10648]:
+                - button "Unapprove" [ref=f7e10649] [cursor=pointer]
+              - listitem [ref=f7e10615]:
+                - button "Action" [ref=f7e10616] [cursor=pointer]
+            - list [ref=f7e10618]:
+              - listitem [ref=f7e10619]:
+                - button [ref=f7e10620] [cursor=pointer]:
+                  - generic [ref=f7e10621]: 
+              - listitem [ref=f7e10623]:
+                - link [ref=f7e10624] [cursor=pointer]:
                   - /url: ""
-                  - generic [ref=e679]: 
-      - generic [ref=e682]:
-        - generic [ref=e683]: Unapproved
+                  - generic [ref=f7e10625]: 
+      - generic [ref=f7e10653]:
+        - generic [ref=f7e10654]: Approved
         - text: 
-    - generic [ref=e686]:
-      - group [ref=e687]:
-        - generic [ref=e690]:
-          - generic [ref=e692]:
-            - generic [ref=e693]:
-              - generic [ref=e694]:
-                - generic [ref=e695]: Date *
-                - generic [ref=e698]:
-                  - combobox "Date *" [active] [ref=e699]: 9/27/2026
-                  - button "select" [ref=e700] [cursor=pointer]
-              - generic [ref=e702]:
-                - generic [ref=e703]: Number *
-                - textbox "Number *" [ref=e705]: DoorDash
-              - generic [ref=e707]:
-                - generic [ref=e708]: Type *
-                - listbox [ref=e710] [cursor=pointer]:
-                  - generic [ref=e711]:
-                    - generic [ref=e712]: Standard
-                    - generic [ref=e713]: select
-            - generic [ref=e715]:
-              - generic [ref=e716]:
-                - generic [ref=e717]:
-                  - link "Location" [ref=e718] [cursor=pointer]:
+    - generic [ref=f7e10627]:
+      - group [ref=f7e10656]:
+        - generic [ref=f7e10631]:
+          - generic [ref=f7e10658]:
+            - generic [ref=f7e10659]:
+              - generic [ref=f7e10660]:
+                - generic [ref=f7e10661]: Date *
+                - generic [ref=f7e10664]:
+                  - combobox "Date *" [active]: 9/6/2026
+                  - button "select" [ref=f7e10665] [cursor=pointer]
+              - generic [ref=f7e10667]:
+                - generic [ref=f7e10668]: Number *
+                - generic [ref=f7e10669]:
+                  - textbox "Number *": DoorDash
+              - generic [ref=f7e10671]:
+                - generic [ref=f7e10672]: Type *
+                - listbox [ref=f7e10674] [cursor=pointer]:
+                  - generic [ref=f7e10675]:
+                    - generic [ref=f7e10676]: Standard
+                    - generic [ref=f7e10677]: select
+            - generic [ref=f7e10679]:
+              - generic [ref=f7e10680]:
+                - generic [ref=f7e10681]:
+                  - link "Location" [ref=f7e10682] [cursor=pointer]:
                     - /url: "#/form/LocationForm/60ce4eaa-98eb-4510-ae8b-4ff065053ce0"
                   - text: "*"
-                - generic [ref=e721]:
-                  - combobox "Select Location" [ref=e722]: 11200 - FARE Lakeview (W Diversey)
-                  - button "select" [ref=e724] [cursor=pointer]
-              - generic [ref=e725]:
-                - generic [ref=e726]: Comment
-                - textbox "Comment" [ref=e728]
-            - generic [ref=e730]:
-              - generic [ref=e731]: Link to Asset
-              - checkbox "Link to Asset" [ref=e733]
-          - generic [ref=e738]:
-            - generic [ref=e740]:
-              - button "+ Size" [ref=e741] [cursor=pointer]
-              - button "- Size" [ref=e742] [cursor=pointer]
-            - tablist [ref=e744]:
-              - list [ref=e745]:
-                - tab "Details" [selected] [ref=e746]
-                - tab "Distribution" [ref=e749]
-              - tabpanel [ref=e752]:
-                - generic [ref=e753]:
-                  - generic [ref=e754]:
-                    - generic:
-                      - generic:
-                        - generic [ref=e758]:
-                          - combobox "Select Account" [ref=e759]
-                          - button "select" [ref=e761] [cursor=pointer]
-                        - textbox [ref=e763]: "0"
-                        - textbox [ref=e765]: "0"
-                        - textbox [ref=e767]
-                        - generic [ref=e770]:
-                          - button "11200 - FARE Lakeview (W Diversey)" [ref=e773] [cursor=pointer]
-                          - text: ;
-                        - generic [ref=e775]:
-                          - button "Add" [ref=e776] [cursor=pointer]
-                          - button "Clear" [ref=e777] [cursor=pointer]
-                  - grid [ref=e780]:
-                    - rowgroup [ref=e789]:
-                      - row [ref=e790]:
-                        - columnheader [ref=e791]:
-                          - link [ref=e792] [cursor=pointer]:
+                - generic [ref=f7e10685]:
+                  - combobox "Select Location": 11200 - FARE Lakeview (W Diversey)
+                  - button "select" [ref=f7e10687] [cursor=pointer]
+              - generic [ref=f7e10688]:
+                - generic [ref=f7e10689]: Comment
+                - textbox "Comment" [ref=f7e10691]
+            - generic [ref=f7e10693]:
+              - generic [ref=f7e10694]: Link to Asset
+              - checkbox "Link to Asset" [disabled] [ref=f7e10696]
+          - generic [ref=f7e10634]:
+            - generic [ref=f7e10636]:
+              - button "Edit" [ref=f7e10700] [cursor=pointer]
+              - button "+ Size" [ref=f7e10637] [cursor=pointer]
+              - button "- Size" [ref=f7e10638] [cursor=pointer]
+            - tablist [ref=f7e10702]:
+              - list [ref=f7e10703]:
+                - tab "Details" [selected] [ref=f7e10704]
+                - tab "Distribution" [ref=f7e10707]
+              - tabpanel [ref=f7e10710]:
+                - generic [ref=f7e10711]:
+                  - grid [ref=f7e10715]:
+                    - rowgroup [ref=f7e10724]:
+                      - row [ref=f7e10725]:
+                        - columnheader [ref=f7e10726]:
+                          - link [ref=f7e10727] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e793]:
-                          - link "Account" [ref=e794] [cursor=pointer]:
+                        - columnheader [ref=f7e10728]:
+                          - link "Account" [ref=f7e10729] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e796]:
-                          - link "Debit" [ref=e797] [cursor=pointer]:
+                        - columnheader [ref=f7e10731]:
+                          - link "Debit" [ref=f7e10732] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e798]:
-                          - link "Credit" [ref=e799] [cursor=pointer]:
+                        - columnheader [ref=f7e10733]:
+                          - link "Credit" [ref=f7e10734] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e800]:
-                          - link "Comment" [ref=e801] [cursor=pointer]:
+                        - columnheader [ref=f7e10735]:
+                          - link "Comment" [ref=f7e10736] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e802]:
-                          - link "Location" [ref=e803] [cursor=pointer]:
+                        - columnheader [ref=f7e10737]:
+                          - link "Location" [ref=f7e10738] [cursor=pointer]:
                             - /url: "#"
-                        - columnheader [ref=e804]
-                  - grid [ref=e806]:
-                    - rowgroup [ref=e815]:
-                      - row [ref=e816]:
-                        - gridcell [ref=e817]
-                        - gridcell "1102 - DoorDash Deposit Clearing" [ref=e818]
-                        - gridcell "0.00" [ref=e819]
-                        - gridcell "396.67" [ref=e821]
-                        - gridcell "total withheld from payouts" [ref=e823]
-                        - gridcell "11200 - FARE Lakeview (W Diversey)" [ref=e824]
-                        - gridcell "" [ref=e825]
-                      - row [ref=e827]:
-                        - gridcell [ref=e828]
-                        - gridcell "7535 - Third Party Refunds" [ref=e829]
-                        - gridcell "65.58" [ref=e830]
-                        - gridcell "0.00" [ref=e832]
-                        - gridcell "error charges" [ref=e834]
-                        - gridcell "11200 - FARE Lakeview (W Diversey)" [ref=e835]
-                        - gridcell "" [ref=e836]
-                      - row [ref=e838]:
-                        - gridcell [ref=e839]
-                        - gridcell "7310 - DoorDash Third Party Fees" [ref=e840]
-                        - gridcell "331.09" [ref=e841]
-                        - gridcell "0.00" [ref=e843]
-                        - gridcell "commission" [ref=e845]
-                        - gridcell "11200 - FARE Lakeview (W Diversey)" [ref=e846]
-                        - gridcell "" [ref=e847]
-                  - table [ref=e851]:
-                    - rowgroup [ref=e860]:
-                      - row [ref=e861]:
-                        - cell [ref=e862]
-                        - cell [ref=e863]
-                        - cell "396.67" [ref=e864]
-                        - cell "396.67" [ref=e866]
-                        - cell [ref=e868]
-                        - cell [ref=e869]
-                        - cell [ref=e870]
-                  - generic [ref=e871]:
-                    - link "Go to the first page" [ref=e872]:
+                        - columnheader [ref=f7e10739]
+                  - grid [ref=f7e10741]:
+                    - rowgroup [ref=f7e10750]:
+                      - row [ref=f7e10751]:
+                        - gridcell [ref=f7e10752]
+                        - gridcell "1102 - DoorDash Deposit Clearing" [ref=f7e10753]
+                        - gridcell "0.00" [ref=f7e10754]
+                        - gridcell "45.94" [ref=f7e10756]
+                        - gridcell "total withheld from payouts" [ref=f7e10758]
+                        - gridcell "11200 - FARE Lakeview (W Diversey)" [ref=f7e10759]
+                        - gridcell "" [ref=f7e10760]
+                      - row [ref=f7e10762]:
+                        - gridcell [ref=f7e10763]
+                        - gridcell "7535 - Third Party Refunds" [ref=f7e10764]
+                        - gridcell "45.94" [ref=f7e10765]
+                        - gridcell "0.00" [ref=f7e10767]
+                        - gridcell "error charges" [ref=f7e10769]
+                        - gridcell "11200 - FARE Lakeview (W Diversey)" [ref=f7e10770]
+                        - gridcell "" [ref=f7e10771]
+                  - table [ref=f7e10775]:
+                    - rowgroup [ref=f7e10784]:
+                      - row [ref=f7e10785]:
+                        - cell [ref=f7e10786]
+                        - cell [ref=f7e10787]
+                        - cell "45.94" [ref=f7e10788]
+                        - cell "45.94" [ref=f7e10790]
+                        - cell [ref=f7e10792]
+                        - cell [ref=f7e10793]
+                        - cell [ref=f7e10794]
+                  - generic [ref=f7e10795]:
+                    - link "Go to the first page" [ref=f7e10796]:
                       - /url: "#"
-                    - link "Go to the previous page" [ref=e874]:
+                    - link "Go to the previous page" [ref=f7e10798]:
                       - /url: "#"
-                    - list [ref=e876]:
-                      - listitem [ref=e877]:
-                        - generic [ref=e878] [cursor=pointer]: "1"
-                    - link "Go to the next page" [ref=e879]:
+                    - list [ref=f7e10800]:
+                      - listitem [ref=f7e10801]:
+                        - generic [ref=f7e10802] [cursor=pointer]: "1"
+                    - link "Go to the next page" [ref=f7e10803]:
                       - /url: "#"
-                    - link "Go to the last page" [ref=e881]:
+                    - link "Go to the last page" [ref=f7e10805]:
                       - /url: "#"
-                    - generic [ref=e883]: 1 - 3 of 3 items
+                    - generic [ref=f7e10807]: 1 - 2 of 2 items
               - text:    
-          - generic [ref=e888]:
-            - button "Upload File" [ref=e889] [cursor=pointer]
-            - button "Attach from Documents" [ref=e890] [cursor=pointer]
+          - generic [ref=f7e10641]:
+            - generic [ref=f7e10645]:
+              - button "Upload File" [ref=f7e10646] [cursor=pointer]
+              - button "Attach from Documents" [ref=f7e10647] [cursor=pointer]
+              - generic [ref=f7e10809]:
+                - link "DoorDash payout 2026-09-10 Lakeview.csv" [ref=f7e10813] [cursor=pointer]:
+                  - /url: ""
+                - button [ref=f7e10814] [cursor=pointer]:
+                  - generic [ref=f7e10815]: 
+            - button "Open attachment viewer" [ref=f7e10816] [cursor=pointer]
+      - separator [ref=f7e10817]
       - group
 ```

@@ -1,0 +1,533 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchants.ubereats.com/manager/payments/earnings?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c&start=2026-09-07&end=2026-09-13&rangeType=1&dateRange=custom
+- Page Title: Uber Eats Manager
+- Console: 3 errors, 6 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f191e1]:
+  - generic [ref=f191e4]:
+    - generic [ref=f191e5]:
+      - button [ref=f191e6] [cursor=pointer]:
+        - img "AI Assistant - Ask anything" [ref=f191e8]
+      - generic [ref=f191e12]:
+        - generic [ref=f191e13]:
+          - link [ref=f191e14] [cursor=pointer]:
+            - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c
+          - generic [ref=f191e25]:
+            - button "Help" [ref=f191e27] [cursor=pointer]
+            - button "Notifications" [ref=f191e32] [cursor=pointer]
+            - button "MR" [ref=f191e39] [cursor=pointer]
+        - generic [ref=f191e42]:
+          - generic [ref=f191e45]:
+            - link "Home" [ref=f191e47] [cursor=pointer]:
+              - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - generic [ref=f191e53]:
+              - generic [ref=f191e54]: Stores
+              - generic:
+                - generic:
+                  - generic:
+                    - link "All stores" [ref=f191e65] [cursor=pointer]:
+                      - /url: /manager/stores
+                    - link "Store groups" [ref=f191e69] [cursor=pointer]:
+                      - /url: /manager/groups
+                    - link "Devices" [ref=f191e73] [cursor=pointer]:
+                      - /url: /manager/devices
+            - link "Orders" [ref=f191e77] [cursor=pointer]:
+              - /url: /manager/orders?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - generic [ref=f191e85]: Performance
+            - generic:
+              - generic:
+                - generic:
+                  - link "Sales" [ref=f191e98] [cursor=pointer]:
+                    - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c/analytics/sales-v2
+                  - link "Operations" [ref=f191e102] [cursor=pointer]:
+                    - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c/analytics/operations
+                  - link "Top Eats" [ref=f191e106] [cursor=pointer]:
+                    - /url: /manager/top-eats?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Market benchmarking" [ref=f191e110] [cursor=pointer]:
+                    - /url: /manager/competitive-insights
+            - generic [ref=f191e113]: Customers
+            - generic:
+              - generic:
+                - generic:
+                  - link "Customer insights" [ref=f191e125] [cursor=pointer]:
+                    - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c/analytics
+                  - link "Reviews" [ref=f191e129] [cursor=pointer]:
+                    - /url: /manager/home/5c88fb4a-a4a7-5054-a232-2f62119c114c/feedback
+            - link "Rewards center" [ref=f191e133] [cursor=pointer]:
+              - /url: /manager/rewards-center?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Reports" [ref=f191e140] [cursor=pointer]:
+              - /url: /manager/reports?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Ads" [ref=f191e147] [cursor=pointer]:
+              - /url: /manager/marketing/create/ads?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c&ref=ADS_NAV
+            - link "Offers" [ref=f191e156] [cursor=pointer]:
+              - /url: /manager/offers?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Marketing" [ref=f191e163] [cursor=pointer]:
+              - /url: /manager/marketing/redirect?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Menu" [ref=f191e170] [cursor=pointer]:
+              - /url: /menumaker/5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Menu pricing" [ref=f191e177] [cursor=pointer]:
+              - /url: /manager/menu-markup?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - generic [ref=f191e183]: Financials
+            - generic [ref=f191e195]:
+              - link "Earnings" [ref=f191e198] [cursor=pointer]:
+                - /url: /manager/payments/earnings?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+              - link "Payouts" [ref=f191e202] [cursor=pointer]:
+                - /url: /manager/payments?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+              - link "Statements" [ref=f191e206] [cursor=pointer]:
+                - /url: /manager/payments/statements?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+              - link "Banking" [ref=f191e210] [cursor=pointer]:
+                - /url: /manager/payments/settings?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - link "Users" [ref=f191e214] [cursor=pointer]:
+              - /url: /manager/users?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+            - generic [ref=f191e221]: Settings
+            - generic:
+              - generic:
+                - generic:
+                  - link "General" [ref=f191e234] [cursor=pointer]:
+                    - /url: /manager/settings/general?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Holiday Hours" [ref=f191e238] [cursor=pointer]:
+                    - /url: /manager/holiday-hours?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Preparation Times" [ref=f191e242] [cursor=pointer]:
+                    - /url: /manager/prep-times?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Documents" [ref=f191e246] [cursor=pointer]:
+                    - /url: /manager/documents?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Tax/Invoice" [ref=f191e250] [cursor=pointer]:
+                    - /url: /manager/tax-information?restaurantUUID=5c88fb4a-a4a7-5054-a232-2f62119c114c
+                  - link "Appointments" [ref=f191e254] [cursor=pointer]:
+                    - /url: /manager/settings/appointments
+            - separator [ref=f191e257]
+            - link "Uber Direct" [ref=f191e259] [cursor=pointer]:
+              - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=5c88fb4a-a4a7-5054-a232-2f62119c114c
+          - generic [ref=f191e272]:
+            - heading [level=1] [ref=f191e277]:
+              - text: Earnings
+              - button "What's new" [ref=f191e278] [cursor=pointer]
+            - paragraph [ref=f191e284]: A detailed breakdown of your sales, expenses, and deductions
+            - generic [ref=f191e285]:
+              - generic [ref=f191e286]:
+                - button "FARE Old Town (North Wells Street)" [ref=f191e289] [cursor=pointer]
+                - button "Sep 7 – 13, 2026" [ref=f191e301] [cursor=pointer]
+              - button "Download" [ref=f191e305] [cursor=pointer]
+            - generic [ref=f191e310]:
+              - generic [ref=f191e311]:
+                - generic [ref=f191e312]:
+                  - generic [ref=f191e313]: Net sales
+                  - heading "$1,879.23" [level=3] [ref=f191e315]
+                - button "Expand all" [ref=f191e735] [cursor=pointer]
+              - tree [ref=f191e739]:
+                - treeitem "Right Gross Sales Sales (incl. tax) $3,677.97" [ref=f191e740] [cursor=pointer]:
+                  - generic [ref=f191e741]:
+                    - img "Right" [ref=f191e743]
+                    - generic [ref=f191e745]:
+                      - generic [ref=f191e746]:
+                        - generic [ref=f191e747]: Gross Sales
+                        - paragraph [ref=f191e749]: Sales (incl. tax)
+                      - generic [ref=f191e750]: $3,677.97
+                - treeitem "Blank Marketing $0.00" [ref=f191e751]:
+                  - generic [ref=f191e752]:
+                    - img "Blank" [ref=f191e754]
+                    - generic [ref=f191e755]:
+                      - generic [ref=f191e756]: Marketing
+                      - generic [ref=f191e759]: $0.00
+                - treeitem "Right Uber Fees Net Marketplace Fee (incl. tax) -$749.77" [ref=f191e760] [cursor=pointer]:
+                  - generic [ref=f191e761]:
+                    - img "Right" [ref=f191e763]
+                    - generic [ref=f191e765]:
+                      - generic [ref=f191e766]:
+                        - generic [ref=f191e767]: Uber Fees
+                        - paragraph [ref=f191e769]: Net Marketplace Fee (incl. tax)
+                      - generic [ref=f191e770]: "-$749.77"
+                - treeitem "Right Amendments Net Chargeback Amount (incl. tax), Marketplace Facilitator Tax, +1 more -$1,048.97" [ref=f191e771] [cursor=pointer]:
+                  - generic [ref=f191e772]:
+                    - img "Right" [ref=f191e774]
+                    - generic [ref=f191e776]:
+                      - generic [ref=f191e777]:
+                        - generic [ref=f191e778]: Amendments
+                        - paragraph [ref=f191e780]: Net Chargeback Amount (incl. tax), Marketplace Facilitator Tax, +1 more
+                      - generic [ref=f191e781]: "-$1,048.97"
+                - treeitem "Blank Net sales $1,879.23" [ref=f191e782]:
+                  - generic [ref=f191e783]:
+                    - img "Blank" [ref=f191e785]
+                    - generic [ref=f191e786]:
+                      - generic [ref=f191e787]: Net sales
+                      - generic [ref=f191e790]: $1,879.23
+              - paragraph [ref=f191e316]: "Note: Net taxes are -$588.33. Tax amounts shown reflect taxes that have either been passed on to you as part of your payout or adjusted on your behalf during this payout period. You are responsible for any applicable tax reporting, remittance, or other obligations."
+            - generic [ref=f191e318]:
+              - heading "Net Sales By Order" [level=5] [ref=f191e320]
+              - generic [ref=f191e321]:
+                - generic [ref=f191e324] [cursor=pointer]:
+                  - generic [ref=f191e325]: All orders
+                  - generic:
+                    - combobox "Selected All orders. All orders"
+                - textbox "Search customer name or order ID" [ref=f191e336]
+              - table [ref=f191e338]:
+                - rowgroup [ref=f191e339]:
+                  - row [ref=f191e340]:
+                    - columnheader "Order ID" [ref=f191e341]
+                    - columnheader "Date and time" [ref=f191e343]
+                    - columnheader "Customer name" [ref=f191e345]
+                    - columnheader "Fulfillment type" [ref=f191e347]
+                    - columnheader "Order status" [ref=f191e349]
+                    - columnheader "Sales (excl. tax)" [ref=f191e351]
+                    - columnheader "Tax on sales" [ref=f191e353]
+                    - columnheader "Other earnings" [ref=f191e355]
+                    - columnheader "Marketing" [ref=f191e357]
+                    - columnheader "Uber fees" [ref=f191e359]
+                    - columnheader "Chargebacks" [ref=f191e361]
+                    - columnheader "Other amendments" [ref=f191e363]
+                    - columnheader "Net sales" [ref=f191e365]
+                - rowgroup [ref=f191e367]:
+                  - row [ref=f191e368]:
+                    - cell [ref=f191e369]:
+                      - button "F7FF1" [ref=f191e370] [cursor=pointer]
+                    - cell [ref=f191e371]:
+                      - paragraph [ref=f191e372]: 2026-09-07 11:33
+                    - cell [ref=f191e373]:
+                      - paragraph [ref=f191e374]: Darnell M
+                    - cell [ref=f191e375]:
+                      - paragraph [ref=f191e376]: Delivery
+                    - cell "Completed" [ref=f191e377]:
+                      - generic "Completed" [ref=f191e382]
+                    - cell [ref=f191e383]:
+                      - paragraph [ref=f191e384]: $37.46
+                    - cell [ref=f191e385]:
+                      - paragraph [ref=f191e386]: $4.50
+                    - cell [ref=f191e387]:
+                      - paragraph [ref=f191e388]: $0.00
+                    - cell [ref=f191e389]:
+                      - paragraph [ref=f191e390]: $0.00
+                    - cell [ref=f191e391]:
+                      - paragraph [ref=f191e392]: "-$9.37"
+                    - cell [ref=f191e393]:
+                      - paragraph [ref=f191e394]: $0.00
+                    - cell [ref=f191e395]:
+                      - paragraph [ref=f191e396]: "-$4.50"
+                    - cell "$28.09" [ref=f191e397]
+                  - row [ref=f191e399]:
+                    - cell [ref=f191e400]:
+                      - button "957CD" [ref=f191e401] [cursor=pointer]
+                    - cell [ref=f191e402]:
+                      - paragraph [ref=f191e403]: 2026-09-07 12:16
+                    - cell [ref=f191e404]:
+                      - paragraph [ref=f191e405]: Anya K
+                    - cell [ref=f191e406]:
+                      - paragraph [ref=f191e407]: Delivery
+                    - cell "Completed" [ref=f191e408]:
+                      - generic "Completed" [ref=f191e413]
+                    - cell [ref=f191e414]:
+                      - paragraph [ref=f191e415]: $23.10
+                    - cell [ref=f191e416]:
+                      - paragraph [ref=f191e417]: $2.77
+                    - cell [ref=f191e418]:
+                      - paragraph [ref=f191e419]: $0.00
+                    - cell [ref=f191e420]:
+                      - paragraph [ref=f191e421]: $0.00
+                    - cell [ref=f191e422]:
+                      - paragraph [ref=f191e423]: "-$5.78"
+                    - cell [ref=f191e424]:
+                      - paragraph [ref=f191e425]: $0.00
+                    - cell [ref=f191e426]:
+                      - paragraph [ref=f191e427]: "-$2.77"
+                    - cell "$17.32" [ref=f191e428]
+                  - row [ref=f191e430]:
+                    - cell [ref=f191e431]:
+                      - button "9C5E7" [ref=f191e432] [cursor=pointer]
+                    - cell [ref=f191e433]:
+                      - paragraph [ref=f191e434]: 2026-09-07 13:08
+                    - cell [ref=f191e435]:
+                      - paragraph [ref=f191e436]: Alexandra M
+                    - cell [ref=f191e437]:
+                      - paragraph [ref=f191e438]: Delivery
+                    - cell "Completed" [ref=f191e439]:
+                      - generic "Completed" [ref=f191e444]
+                    - cell [ref=f191e445]:
+                      - paragraph [ref=f191e446]: $26.85
+                    - cell [ref=f191e447]:
+                      - paragraph [ref=f191e448]: $3.23
+                    - cell [ref=f191e449]:
+                      - paragraph [ref=f191e450]: $0.00
+                    - cell [ref=f191e451]:
+                      - paragraph [ref=f191e452]: $0.00
+                    - cell [ref=f191e453]:
+                      - paragraph [ref=f191e454]: "-$6.71"
+                    - cell [ref=f191e455]:
+                      - paragraph [ref=f191e456]: $0.00
+                    - cell [ref=f191e457]:
+                      - paragraph [ref=f191e458]: "-$3.23"
+                    - cell "$20.14" [ref=f191e459]
+                  - row [ref=f191e461]:
+                    - cell [ref=f191e462]:
+                      - button "52BDB" [ref=f191e463] [cursor=pointer]
+                    - cell [ref=f191e464]:
+                      - paragraph [ref=f191e465]: 2026-09-07 13:59
+                    - cell [ref=f191e466]:
+                      - paragraph [ref=f191e467]: Abby M
+                    - cell [ref=f191e468]:
+                      - paragraph [ref=f191e469]: Delivery
+                    - cell "Completed" [ref=f191e470]:
+                      - generic "Completed" [ref=f191e475]
+                    - cell [ref=f191e476]:
+                      - paragraph [ref=f191e477]: $29.34
+                    - cell [ref=f191e478]:
+                      - paragraph [ref=f191e479]: $3.52
+                    - cell [ref=f191e480]:
+                      - paragraph [ref=f191e481]: $0.00
+                    - cell [ref=f191e482]:
+                      - paragraph [ref=f191e483]: $0.00
+                    - cell [ref=f191e484]:
+                      - paragraph [ref=f191e485]: "-$7.34"
+                    - cell [ref=f191e486]:
+                      - paragraph [ref=f191e487]: $0.00
+                    - cell [ref=f191e488]:
+                      - paragraph [ref=f191e489]: "-$3.52"
+                    - cell "$22.00" [ref=f191e490]
+                  - row [ref=f191e492]:
+                    - cell [ref=f191e493]:
+                      - button "1818B" [ref=f191e494] [cursor=pointer]
+                    - cell [ref=f191e495]:
+                      - paragraph [ref=f191e496]: 2026-09-07 14:44
+                    - cell [ref=f191e497]:
+                      - paragraph [ref=f191e498]: Foster R
+                    - cell [ref=f191e499]:
+                      - paragraph [ref=f191e500]: Pickup
+                    - cell "Completed" [ref=f191e501]:
+                      - generic "Completed" [ref=f191e506]
+                    - cell [ref=f191e507]:
+                      - paragraph [ref=f191e508]: $29.97
+                    - cell [ref=f191e509]:
+                      - paragraph [ref=f191e510]: $3.60
+                    - cell [ref=f191e511]:
+                      - paragraph [ref=f191e512]: $0.00
+                    - cell [ref=f191e513]:
+                      - paragraph [ref=f191e514]: $0.00
+                    - cell [ref=f191e515]:
+                      - paragraph [ref=f191e516]: "-$2.10"
+                    - cell [ref=f191e517]:
+                      - paragraph [ref=f191e518]: $0.00
+                    - cell [ref=f191e519]:
+                      - paragraph [ref=f191e520]: "-$3.60"
+                    - cell "$27.87" [ref=f191e521]
+                  - row [ref=f191e523]:
+                    - cell [ref=f191e524]:
+                      - button "0E42D" [ref=f191e525] [cursor=pointer]
+                    - cell [ref=f191e526]:
+                      - paragraph [ref=f191e527]: 2026-09-07 15:53
+                    - cell [ref=f191e528]:
+                      - paragraph [ref=f191e529]: Grace M
+                    - cell [ref=f191e530]:
+                      - paragraph [ref=f191e531]: Pickup
+                    - cell "Completed" [ref=f191e532]:
+                      - generic "Completed" [ref=f191e537]
+                    - cell [ref=f191e538]:
+                      - paragraph [ref=f191e539]: $51.23
+                    - cell [ref=f191e540]:
+                      - paragraph [ref=f191e541]: $6.15
+                    - cell [ref=f191e542]:
+                      - paragraph [ref=f191e543]: $0.00
+                    - cell [ref=f191e544]:
+                      - paragraph [ref=f191e545]: $0.00
+                    - cell [ref=f191e546]:
+                      - paragraph [ref=f191e547]: "-$3.59"
+                    - cell [ref=f191e548]:
+                      - paragraph [ref=f191e549]: $0.00
+                    - cell [ref=f191e550]:
+                      - paragraph [ref=f191e551]: "-$6.15"
+                    - cell "$47.64" [ref=f191e552]
+                  - row [ref=f191e554]:
+                    - cell [ref=f191e555]:
+                      - button "2EEF2" [ref=f191e556] [cursor=pointer]
+                    - cell [ref=f191e557]:
+                      - paragraph [ref=f191e558]: 2026-09-07 15:57
+                    - cell [ref=f191e559]:
+                      - paragraph [ref=f191e560]: Jordan P
+                    - cell [ref=f191e561]:
+                      - paragraph [ref=f191e562]: Pickup
+                    - cell "Completed" [ref=f191e563]:
+                      - generic "Completed" [ref=f191e568]
+                    - cell [ref=f191e569]:
+                      - paragraph [ref=f191e570]: $31.18
+                    - cell [ref=f191e571]:
+                      - paragraph [ref=f191e572]: $3.74
+                    - cell [ref=f191e573]:
+                      - paragraph [ref=f191e574]: $0.00
+                    - cell [ref=f191e575]:
+                      - paragraph [ref=f191e576]: $0.00
+                    - cell [ref=f191e577]:
+                      - paragraph [ref=f191e578]: "-$2.18"
+                    - cell [ref=f191e579]:
+                      - paragraph [ref=f191e580]: $0.00
+                    - cell [ref=f191e581]:
+                      - paragraph [ref=f191e582]: "-$3.74"
+                    - cell "$29.00" [ref=f191e583]
+                  - row [ref=f191e585]:
+                    - cell [ref=f191e586]:
+                      - button "0AD54" [ref=f191e587] [cursor=pointer]
+                    - cell [ref=f191e588]:
+                      - paragraph [ref=f191e589]: 2026-09-07 18:06
+                    - cell [ref=f191e590]:
+                      - paragraph [ref=f191e591]: Lindsay L
+                    - cell [ref=f191e592]:
+                      - paragraph [ref=f191e593]: Delivery
+                    - cell "Completed" [ref=f191e594]:
+                      - generic "Completed" [ref=f191e599]
+                    - cell [ref=f191e600]:
+                      - paragraph [ref=f191e601]: $31.24
+                    - cell [ref=f191e602]:
+                      - paragraph [ref=f191e603]: $3.75
+                    - cell [ref=f191e604]:
+                      - paragraph [ref=f191e605]: $0.00
+                    - cell [ref=f191e606]:
+                      - paragraph [ref=f191e607]: $0.00
+                    - cell [ref=f191e608]:
+                      - paragraph [ref=f191e609]: "-$7.81"
+                    - cell [ref=f191e610]:
+                      - paragraph [ref=f191e611]: $0.00
+                    - cell [ref=f191e612]:
+                      - paragraph [ref=f191e613]: "-$3.75"
+                    - cell "$23.43" [ref=f191e614]
+                  - row [ref=f191e616]:
+                    - cell [ref=f191e617]:
+                      - button "EA465" [ref=f191e618] [cursor=pointer]
+                    - cell [ref=f191e619]:
+                      - paragraph [ref=f191e620]: 2026-09-07 18:09
+                    - cell [ref=f191e621]:
+                      - paragraph [ref=f191e622]: Brad B
+                    - cell [ref=f191e623]:
+                      - paragraph [ref=f191e624]: Delivery
+                    - cell "Completed" [ref=f191e625]:
+                      - generic "Completed" [ref=f191e630]
+                    - cell [ref=f191e631]:
+                      - paragraph [ref=f191e632]: $43.72
+                    - cell [ref=f191e633]:
+                      - paragraph [ref=f191e634]: $5.26
+                    - cell [ref=f191e635]:
+                      - paragraph [ref=f191e636]: $0.00
+                    - cell [ref=f191e637]:
+                      - paragraph [ref=f191e638]: $0.00
+                    - cell [ref=f191e639]:
+                      - paragraph [ref=f191e640]: "-$10.93"
+                    - cell [ref=f191e641]:
+                      - paragraph [ref=f191e642]: $0.00
+                    - cell [ref=f191e643]:
+                      - paragraph [ref=f191e644]: "-$5.26"
+                    - cell "$32.79" [ref=f191e645]
+                  - row [ref=f191e647]:
+                    - cell [ref=f191e648]:
+                      - button "C9B3C" [ref=f191e649] [cursor=pointer]
+                    - cell [ref=f191e650]:
+                      - paragraph [ref=f191e651]: 2026-09-07 18:11
+                    - cell [ref=f191e652]:
+                      - paragraph [ref=f191e653]: Mia M
+                    - cell [ref=f191e654]:
+                      - paragraph [ref=f191e655]: Delivery
+                    - cell "Completed" [ref=f191e656]:
+                      - generic "Completed" [ref=f191e661]
+                    - cell [ref=f191e662]:
+                      - paragraph [ref=f191e663]: $9.95
+                    - cell [ref=f191e664]:
+                      - paragraph [ref=f191e665]: $1.19
+                    - cell [ref=f191e666]:
+                      - paragraph [ref=f191e667]: $0.00
+                    - cell [ref=f191e668]:
+                      - paragraph [ref=f191e669]: $0.00
+                    - cell [ref=f191e670]:
+                      - paragraph [ref=f191e671]: "-$2.49"
+                    - cell [ref=f191e672]:
+                      - paragraph [ref=f191e673]: $0.00
+                    - cell [ref=f191e674]:
+                      - paragraph [ref=f191e675]: "-$1.19"
+                    - cell "$7.46" [ref=f191e676]
+              - generic [ref=f191e678]:
+                - generic [ref=f191e679]:
+                  - generic [ref=f191e680]: Rows per page
+                  - generic [ref=f191e684] [cursor=pointer]:
+                    - generic [ref=f191e685]: "10"
+                    - generic:
+                      - combobox "Selected 10."
+                - generic [ref=f191e689]:
+                  - button "Prev" [disabled] [ref=f191e690]
+                  - generic [ref=f191e695]: 1 of 10
+                  - button "Next" [ref=f191e696] [cursor=pointer]
+            - generic [ref=f191e795]:
+              - heading "Uber Fees" [level=1] [ref=f191e797]
+              - paragraph [ref=f191e798]: The fees you pay depend on how your customers order and how they receive their order.
+            - generic [ref=f191e799]:
+              - generic [ref=f191e800]:
+                - generic [ref=f191e802]:
+                  - generic [ref=f191e803]: Delivery, powered by Uber
+                  - paragraph [ref=f191e807]: 25% per order
+                - paragraph [ref=f191e809]: 80 orders
+              - generic [ref=f191e810]:
+                - generic [ref=f191e812]:
+                  - generic [ref=f191e813]: Delivery, powered by Uber (Postmates)
+                  - paragraph [ref=f191e817]: 25% per order
+                - paragraph [ref=f191e819]: 3 orders
+              - generic [ref=f191e820]:
+                - generic [ref=f191e822]:
+                  - generic [ref=f191e823]: Pick up
+                  - paragraph [ref=f191e827]: 7% per order
+                - paragraph [ref=f191e829]: 10 orders
+              - generic [ref=f191e830]:
+                - generic [ref=f191e832]:
+                  - generic [ref=f191e833]: Pick up (Postmates)
+                  - paragraph [ref=f191e837]: 7% per order
+                - paragraph [ref=f191e839]: 1 orders
+              - generic [ref=f191e840]:
+                - generic [ref=f191e842]:
+                  - generic [ref=f191e843]:
+                    - generic [ref=f191e844]: Uber One member orders
+                    - img [ref=f191e846] [cursor=pointer]
+                  - generic [ref=f191e850]:
+                    - paragraph [ref=f191e852]: +0% per delivery order
+                    - paragraph [ref=f191e854]: Fees paid on Uber One member orders help Uber offer promotions to Uber One members on eligible orders from your store.
+                    - generic [ref=f191e855]:
+                      - generic [ref=f191e856]:
+                        - generic [ref=f191e857]: Total Renewable Membership Marketplace fees paid
+                        - generic [ref=f191e858]: $0.00
+                      - generic [ref=f191e859]:
+                        - generic [ref=f191e860]: Total membership savings offered by Uber to Uber One members
+                        - generic [ref=f191e861]: $300.12
+                - generic:
+                  - paragraph
+    - generic [ref=f191e707] [cursor=pointer]:
+      - heading "Chat with AI Assistant" [level=5] [ref=f191e714]
+      - paragraph [ref=f191e715]: Try the new AI assistant to help you work faster and smarter on Uber Eats Manager.
+      - list [ref=f191e716]:
+        - listitem "Update holiday and menu hours" [ref=f191e717]:
+          - paragraph [ref=f191e725]: Update holiday and menu hours
+        - listitem "Ask Assistant for anything or get instant help from our support team" [ref=f191e726]:
+          - paragraph [ref=f191e732]: Ask Assistant for anything or get instant help from our support team
+      - button "Get Started" [ref=f191e734]
+  - generic:
+    - generic [ref=f191e863] [cursor=pointer]:
+      - img "face happy" [ref=f191e864]
+      - generic [ref=f191e866]: Reviews
+    - generic [ref=f191e867]:
+      - generic [ref=f191e868]:
+        - generic [ref=f191e869]:
+          - text: Share your feedback (Optional)
+          - img "close" [ref=f191e871] [cursor=pointer]
+        - generic [ref=f191e873]:
+          - generic [ref=f191e874]: How easy or difficult is it to understand your payout information?
+          - generic [ref=f191e875]:
+            - generic [ref=f191e876] [cursor=pointer]: Extremely Difficult
+            - generic [ref=f191e882] [cursor=pointer]
+            - generic [ref=f191e887] [cursor=pointer]
+            - generic [ref=f191e892] [cursor=pointer]
+            - generic [ref=f191e897] [cursor=pointer]: Extremely Easy
+      - textbox [ref=f191e904]
+      - generic [ref=f191e905]: Submit
+    - generic [ref=f191e908]:
+      - text: Thank you
+      - img "close" [ref=f191e910] [cursor=pointer]
+```
+### Events
+- New console entries: ..\.playwright-cli\console-2026-10-03T17-10-45-300Z.log#L16-L19

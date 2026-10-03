@@ -6,4 +6,4 @@ playwright-cli -s=$S click $(grep -A3 'banner' s.txt | grep -oE 'button .ref=f?[
 playwright-cli -s=$S click $(r 'button "Accounting"') >/dev/null 2>&1; sleep 2; bash $SN $S s.txt
 playwright-cli -s=$S click $(r 'button "Transactions"') >/dev/null 2>&1; sleep 2; bash $SN $S s.txt
 playwright-cli -s=$S click $(r 'link "All transactions"') >/dev/null 2>&1; sleep 20
-playwright-cli -s=$S eval "$(cat $2)" 2>&1 | sed -n '/### Result/{n;p}' | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const l of JSON.parse(s).split("\n"))if(/Riverside|^DoorDash/.test(l))console.log(l)})'
+playwright-cli -s=$S eval "$(cat $2)" 2>&1 | sed -n '/### Result/{n;p}' | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{for(const l of JSON.parse(s).split("\n"))if(/^DoorDash/.test(l))console.log(l)})'

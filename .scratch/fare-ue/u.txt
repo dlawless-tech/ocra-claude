@@ -6,443 +6,525 @@
 ╚════════════════════════════════════════════════════════════════════╝
 
 ### Page
-- Page URL: https://merchants.ubereats.com/manager/payments?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6&start=2026-09-21&end=2026-09-27&rangeType=1
+- Page URL: https://merchants.ubereats.com/manager/payments/earnings?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4&start=2026-09-14&end=2026-09-20&rangeType=1&dateRange=custom
 - Page Title: Uber Eats Manager
-- Console: 3 errors, 6 warnings
+- Console: 3 errors, 4 warnings
 ### Snapshot
 ```yaml
-- generic [ref=f123e1]:
-  - generic [ref=f123e4]:
-    - generic [ref=f123e5]:
-      - button [ref=f123e6] [cursor=pointer]:
-        - img "AI Assistant - Ask anything" [ref=f123e8]
-      - generic [ref=f123e12]:
-        - generic [ref=f123e13]:
-          - link [ref=f123e14] [cursor=pointer]:
-            - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6
-          - generic [ref=f123e25]:
-            - button "Help" [ref=f123e27] [cursor=pointer]
-            - button "Notifications" [ref=f123e32] [cursor=pointer]
-            - button "MR" [ref=f123e39] [cursor=pointer]
-        - generic [ref=f123e42]:
-          - generic [ref=f123e45]:
-            - link "Home" [ref=f123e47] [cursor=pointer]:
-              - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - generic [ref=f123e53]:
-              - generic [ref=f123e54]: Stores
+- generic [active] [ref=f30e1]:
+  - generic [ref=f30e4]:
+    - generic [ref=f30e5]:
+      - button [ref=f30e6] [cursor=pointer]:
+        - img "AI Assistant - Ask anything" [ref=f30e8]
+      - generic [ref=f30e12]:
+        - generic [ref=f30e13]:
+          - link [ref=f30e14] [cursor=pointer]:
+            - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+          - generic [ref=f30e25]:
+            - button "Help" [ref=f30e27] [cursor=pointer]
+            - button "Notifications" [ref=f30e32] [cursor=pointer]
+            - button "MR" [ref=f30e39] [cursor=pointer]
+        - generic [ref=f30e42]:
+          - generic [ref=f30e45]:
+            - link "Home" [ref=f30e47] [cursor=pointer]:
+              - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - generic [ref=f30e53]:
+              - generic [ref=f30e54]: Stores
               - generic:
                 - generic:
                   - generic:
-                    - link "All stores" [ref=f123e65] [cursor=pointer]:
+                    - link "All stores" [ref=f30e65] [cursor=pointer]:
                       - /url: /manager/stores
-                    - link "Store groups" [ref=f123e69] [cursor=pointer]:
+                    - link "Store groups" [ref=f30e69] [cursor=pointer]:
                       - /url: /manager/groups
-                    - link "Devices" [ref=f123e73] [cursor=pointer]:
+                    - link "Devices" [ref=f30e73] [cursor=pointer]:
                       - /url: /manager/devices
-            - link "Orders" [ref=f123e77] [cursor=pointer]:
-              - /url: /manager/orders?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - generic [ref=f123e85]: Performance
+            - link "Orders" [ref=f30e77] [cursor=pointer]:
+              - /url: /manager/orders?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - generic [ref=f30e85]: Performance
             - generic:
               - generic:
                 - generic:
-                  - link "Sales" [ref=f123e98] [cursor=pointer]:
-                    - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6/analytics/sales-v2
-                  - link "Operations" [ref=f123e102] [cursor=pointer]:
-                    - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6/analytics/operations
-                  - link "Top Eats" [ref=f123e106] [cursor=pointer]:
-                    - /url: /manager/top-eats?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Market benchmarking" [ref=f123e110] [cursor=pointer]:
+                  - link "Sales" [ref=f30e98] [cursor=pointer]:
+                    - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4/analytics/sales-v2
+                  - link "Operations" [ref=f30e102] [cursor=pointer]:
+                    - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4/analytics/operations
+                  - link "Top Eats" [ref=f30e106] [cursor=pointer]:
+                    - /url: /manager/top-eats?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Market benchmarking" [ref=f30e110] [cursor=pointer]:
                     - /url: /manager/competitive-insights
-            - generic [ref=f123e113]: Customers
+            - generic [ref=f30e113]: Customers
             - generic:
               - generic:
                 - generic:
-                  - link "Customer insights" [ref=f123e125] [cursor=pointer]:
-                    - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6/analytics
-                  - link "Reviews" [ref=f123e129] [cursor=pointer]:
-                    - /url: /manager/home/a8c92d30-c7dd-58d1-838f-00a764ee6be6/feedback
-            - link "Rewards center" [ref=f123e133] [cursor=pointer]:
-              - /url: /manager/rewards-center?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Reports" [ref=f123e140] [cursor=pointer]:
-              - /url: /manager/reports?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Ads" [ref=f123e147] [cursor=pointer]:
-              - /url: /manager/marketing/create/ads?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6&ref=ADS_NAV
-            - link "Offers" [ref=f123e156] [cursor=pointer]:
-              - /url: /manager/offers?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Marketing" [ref=f123e163] [cursor=pointer]:
-              - /url: /manager/marketing/redirect?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Menu" [ref=f123e170] [cursor=pointer]:
-              - /url: /menumaker/a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Menu pricing" [ref=f123e177] [cursor=pointer]:
-              - /url: /manager/menu-markup?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - generic [ref=f123e183]: Payments
-            - generic [ref=f123e195]:
-              - link "Payouts" [ref=f123e198] [cursor=pointer]:
-                - /url: /manager/payments?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-              - link "Payouts by order" [ref=f123e202] [cursor=pointer]:
-                - /url: /manager/payments/payouts-by-order?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-              - link "Banking" [ref=f123e206] [cursor=pointer]:
-                - /url: /manager/payments/settings?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - link "Users" [ref=f123e210] [cursor=pointer]:
-              - /url: /manager/users?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-            - generic [ref=f123e217]: Settings
+                  - link "Customer insights" [ref=f30e125] [cursor=pointer]:
+                    - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4/analytics
+                  - link "Reviews" [ref=f30e129] [cursor=pointer]:
+                    - /url: /manager/home/9e98e4ec-2157-57cc-829f-e4f692c7bdd4/feedback
+            - link "Rewards center" [ref=f30e133] [cursor=pointer]:
+              - /url: /manager/rewards-center?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Reports" [ref=f30e140] [cursor=pointer]:
+              - /url: /manager/reports?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Ads" [ref=f30e147] [cursor=pointer]:
+              - /url: /manager/marketing/create/ads?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4&ref=ADS_NAV
+            - link "Offers" [ref=f30e156] [cursor=pointer]:
+              - /url: /manager/offers?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Marketing" [ref=f30e163] [cursor=pointer]:
+              - /url: /manager/marketing/redirect?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Menu" [ref=f30e170] [cursor=pointer]:
+              - /url: /menumaker/9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Menu pricing" [ref=f30e177] [cursor=pointer]:
+              - /url: /manager/menu-markup?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - generic [ref=f30e183]: Financials
+            - generic [ref=f30e195]:
+              - link "Earnings" [ref=f30e198] [cursor=pointer]:
+                - /url: /manager/payments/earnings?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+              - link "Payouts" [ref=f30e202] [cursor=pointer]:
+                - /url: /manager/payments?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+              - link "Statements" [ref=f30e206] [cursor=pointer]:
+                - /url: /manager/payments/statements?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+              - link "Banking" [ref=f30e210] [cursor=pointer]:
+                - /url: /manager/payments/settings?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - link "Users" [ref=f30e214] [cursor=pointer]:
+              - /url: /manager/users?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+            - generic [ref=f30e221]: Settings
             - generic:
               - generic:
                 - generic:
-                  - link "General" [ref=f123e230] [cursor=pointer]:
-                    - /url: /manager/settings/general?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Holiday Hours" [ref=f123e234] [cursor=pointer]:
-                    - /url: /manager/holiday-hours?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Preparation Times" [ref=f123e238] [cursor=pointer]:
-                    - /url: /manager/prep-times?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Documents" [ref=f123e242] [cursor=pointer]:
-                    - /url: /manager/documents?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Tax/Invoice" [ref=f123e246] [cursor=pointer]:
-                    - /url: /manager/tax-information?restaurantUUID=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-                  - link "Appointments" [ref=f123e250] [cursor=pointer]:
+                  - link "General" [ref=f30e234] [cursor=pointer]:
+                    - /url: /manager/settings/general?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Holiday Hours" [ref=f30e238] [cursor=pointer]:
+                    - /url: /manager/holiday-hours?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Preparation Times" [ref=f30e242] [cursor=pointer]:
+                    - /url: /manager/prep-times?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Documents" [ref=f30e246] [cursor=pointer]:
+                    - /url: /manager/documents?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Tax/Invoice" [ref=f30e250] [cursor=pointer]:
+                    - /url: /manager/tax-information?restaurantUUID=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+                  - link "Appointments" [ref=f30e254] [cursor=pointer]:
                     - /url: /manager/settings/appointments
-            - separator [ref=f123e253]
-            - link "Uber Direct" [ref=f123e255] [cursor=pointer]:
-              - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=a8c92d30-c7dd-58d1-838f-00a764ee6be6
-          - generic [ref=f123e268]:
-            - heading "Payouts" [level=1] [ref=f123e273]
-            - generic [ref=f123e274]:
-              - tablist [ref=f123e276]:
-                - tab "Overview" [selected] [ref=f123e277] [cursor=pointer]
-                - tab "Statements" [ref=f123e278] [cursor=pointer]
-              - tabpanel "Overview" [ref=f123e281]
-            - generic [ref=f123e282]:
-              - generic [ref=f123e283]:
-                - button "FARE | Sterling Food Hall (previously Revival)" [ref=f123e713] [cursor=pointer]
-                - button [ref=f123e297]:
-                  - textbox "Select a date range." [ref=f123e301]:
-                    - /placeholder: YYYY/MM/DD – YYYY/MM/DD
-                    - text: 09/21/2026 – 09/27/2026
-                  - paragraph: Selected date range is from 09/21/2026 to 09/27/2026.
-              - button "Download" [ref=f123e306] [cursor=pointer]
-            - generic [ref=f123e346]:
-              - group "Total Payout $47.03" [ref=f123e348]:
-                - generic [ref=f123e349]: Total Payout
-                - heading [level=5] [ref=f123e352]: $47.03
-              - group "Customers 2" [ref=f123e354]:
-                - generic [ref=f123e355]: Customers
-                - heading [level=5] [ref=f123e358]: "2"
-              - group "Orders 2 tooltip Number of orders your restaurant has completed. This includes canceled or unfulfilled orders if you've already been paid or are expecting payment for them." [ref=f123e360]:
-                - generic [ref=f123e361]:
-                  - generic [ref=f123e362]: Orders
-                  - img [ref=f123e364] [cursor=pointer]
-                - heading [level=5] [ref=f123e369]: "2"
-              - group "Net Chargeback Amount $0.00" [ref=f123e371]:
-                - generic [ref=f123e372]: Net Chargeback Amount
-                - heading [level=5] [ref=f123e375]: $0.00
-              - group "Payout from Uber One member orders $47.03 tooltip The payout value generated from orders placed by Uber One members" [ref=f123e377]:
-                - generic [ref=f123e378]:
-                  - generic [ref=f123e379]: Payout from Uber One member orders
-                  - img [ref=f123e381] [cursor=pointer]
-                - heading [level=5] [ref=f123e386]: $47.03
-              - group "Uber One member customers 2" [ref=f123e388]:
-                - generic [ref=f123e389]: Uber One member customers
-                - heading [level=5] [ref=f123e392]: "2"
-              - group "Uber One member orders 2" [ref=f123e394]:
-                - generic [ref=f123e395]: Uber One member orders
-                - heading [level=5] [ref=f123e398]: "2"
-            - generic [ref=f123e399]:
-              - generic [ref=f123e402]:
-                - heading "Pay breakdown" [level=1] [ref=f123e404]
-                - paragraph [ref=f123e405]: Your next payout is Oct 05, 2026. Payments typically deposit in 1-3 business days but may vary based on your bank.
-              - tree [ref=f123e407]:
-                - treeitem "Down Earnings $50.57" [expanded] [ref=f123e589] [cursor=pointer]:
-                  - generic [ref=f123e409]:
-                    - img "Down" [ref=f123e590]
-                    - generic [ref=f123e413]:
-                      - generic [ref=f123e414]: Earnings
-                      - generic [ref=f123e416]:
-                        - generic:
-                          - deletion
-                        - generic [ref=f123e417]: $50.57
-                  - group [ref=f123e592]:
-                    - treeitem "Down Sales (excl. tax) $50.57" [expanded] [ref=f123e651]:
-                      - generic [ref=f123e594]:
-                        - img "Down" [ref=f123e652]
-                        - generic [ref=f123e598]:
-                          - generic [ref=f123e599]: Sales (excl. tax)
-                          - generic [ref=f123e601]:
-                            - generic:
-                              - deletion
-                            - generic [ref=f123e602]: $50.57
-                      - group [ref=f123e654]:
-                        - treeitem "Blank Sales from Uber One members $50.57" [ref=f123e655]:
-                          - generic [ref=f123e656]:
-                            - img "Blank" [ref=f123e658]
-                            - generic [ref=f123e659]:
-                              - generic [ref=f123e660]: Sales from Uber One members
-                              - generic [ref=f123e662]:
-                                - generic:
-                                  - deletion
-                                - generic [ref=f123e663]: $50.57
-                        - treeitem "Blank Sales from non Uber One members $0.00" [ref=f123e664]:
-                          - generic [ref=f123e665]:
-                            - img "Blank" [ref=f123e667]
-                            - generic [ref=f123e668]:
-                              - generic [ref=f123e669]: Sales from non Uber One members
-                              - generic [ref=f123e671]:
-                                - generic:
-                                  - deletion
-                                - generic [ref=f123e672]: $0.00
-                - treeitem "Down Uber Fees -$3.54" [expanded] [ref=f123e603] [cursor=pointer]:
-                  - generic [ref=f123e419]:
-                    - img "Down" [ref=f123e604]
-                    - generic [ref=f123e423]:
-                      - generic [ref=f123e424]: Uber Fees
-                      - generic [ref=f123e426]:
-                        - generic:
-                          - deletion
-                        - generic [ref=f123e427]: "-$3.54"
-                  - group [ref=f123e606]:
-                    - treeitem "Down Marketplace Fee -$3.54" [expanded] [ref=f123e673]:
-                      - generic [ref=f123e608]:
-                        - img "Down" [ref=f123e674]
-                        - generic [ref=f123e612]:
-                          - generic [ref=f123e613]: Marketplace Fee
-                          - generic [ref=f123e620]:
-                            - generic:
-                              - deletion
-                            - generic [ref=f123e621]: "-$3.54"
-                      - group [ref=f123e676]:
-                        - treeitem "Blank Pick up - 2 orders -$3.54" [ref=f123e677]:
-                          - generic [ref=f123e678]:
-                            - img "Blank" [ref=f123e680]
-                            - generic [ref=f123e681]:
-                              - generic [ref=f123e682]: Pick up - 2 orders
-                              - generic [ref=f123e684]:
-                                - generic:
-                                  - deletion
-                                - generic [ref=f123e685]: "-$3.54"
-                - treeitem "Down Net Taxes $0.00" [expanded] [ref=f123e622] [cursor=pointer]:
-                  - generic [ref=f123e429]:
-                    - img "Down" [ref=f123e623]
-                    - generic [ref=f123e433]:
-                      - generic [ref=f123e434]: Net Taxes
-                      - generic [ref=f123e436]:
-                        - generic:
-                          - deletion
-                        - generic [ref=f123e437]: $0.00
-                  - group [ref=f123e625]:
-                    - treeitem "Down Tax on Earnings $6.07" [expanded] [ref=f123e686]:
-                      - generic [ref=f123e627]:
-                        - img "Down" [ref=f123e687]
-                        - generic [ref=f123e631]:
-                          - generic [ref=f123e632]: Tax on Earnings
-                          - generic [ref=f123e634]:
-                            - generic:
-                              - deletion
-                            - generic [ref=f123e635]: $6.07
-                      - group [ref=f123e689]:
-                        - treeitem "Blank Tax on Sales $6.07" [ref=f123e690]:
-                          - generic [ref=f123e691]:
-                            - img "Blank" [ref=f123e693]
-                            - generic [ref=f123e694]:
-                              - generic [ref=f123e695]: Tax on Sales
-                              - generic [ref=f123e697]:
-                                - generic:
-                                  - deletion
-                                - generic [ref=f123e698]: $6.07
-                    - treeitem "Down Marketplace Facilitator Tax -$6.07" [expanded] [ref=f123e699]:
-                      - generic [ref=f123e637]:
-                        - img "Down" [ref=f123e700]
-                        - generic [ref=f123e641]:
-                          - generic [ref=f123e642]: Marketplace Facilitator Tax
-                          - generic [ref=f123e649]:
-                            - generic:
-                              - deletion
-                            - generic [ref=f123e650]: "-$6.07"
-                      - group [ref=f123e702]:
-                        - treeitem "Blank Marketplace Facilitator Tax on Sales -$6.07" [ref=f123e703]:
-                          - generic [ref=f123e704]:
-                            - img "Blank" [ref=f123e706]
-                            - generic [ref=f123e707]:
-                              - generic [ref=f123e708]: Marketplace Facilitator Tax on Sales
-                              - generic [ref=f123e710]:
-                                - generic:
-                                  - deletion
-                                - generic [ref=f123e711]: "-$6.07"
-                - treeitem "Blank Total payout $47.03" [ref=f123e438]:
-                  - generic [ref=f123e439]:
-                    - img "Blank" [ref=f123e441]
-                    - generic [ref=f123e442]:
-                      - generic [ref=f123e443]:
-                        - generic [ref=f123e444]: Total payout
-                        - img [ref=f123e446] [cursor=pointer]
-                      - generic [ref=f123e450]:
-                        - generic:
-                          - deletion
-                        - generic [ref=f123e451]: $47.03
-            - generic [ref=f123e453]:
-              - heading [level=1] [ref=f123e458]
-              - group "button group" [ref=f123e464]:
-                - button [disabled] [ref=f123e465]
-                - button [disabled] [ref=f123e468]
-            - generic [ref=f123e473]:
-              - generic [ref=f123e474]: Wed, Sep 23
-              - generic [ref=f123e476]:
-                - generic [ref=f123e477]: Sales
-                - generic [ref=f123e478]: $50.57
-              - generic [ref=f123e480]:
-                - generic [ref=f123e481]: Total Payout
-                - generic [ref=f123e482]: $47.03
-            - heading "Customer refunds" [level=1] [ref=f123e488]
-            - generic [ref=f123e489]: No refunds
-            - generic [ref=f123e495]:
-              - heading "Uber Fees" [level=1] [ref=f123e497]
-              - paragraph [ref=f123e498]: The fees you pay depend on how your customers order and how they receive their order.
-            - generic [ref=f123e499]:
-              - generic [ref=f123e500]:
-                - generic [ref=f123e502]:
-                  - generic [ref=f123e503]: Pick up
-                  - paragraph [ref=f123e507]: 7% per order
-                - paragraph [ref=f123e509]: 2 orders
-              - generic [ref=f123e510]:
-                - generic [ref=f123e512]:
-                  - generic [ref=f123e513]:
-                    - generic [ref=f123e514]: Uber One member orders
-                    - img [ref=f123e516] [cursor=pointer]
-                  - generic [ref=f123e520]:
-                    - paragraph [ref=f123e522]: +0% per delivery order
-                    - paragraph [ref=f123e524]: Fees paid on Uber One member orders help Uber offer promotions to Uber One members on eligible orders from your store.
-                    - generic [ref=f123e525]:
-                      - generic [ref=f123e526]:
-                        - generic [ref=f123e527]: Total Renewable Membership Marketplace fees paid
-                        - generic [ref=f123e528]: $0.00
-                      - generic [ref=f123e529]:
-                        - generic [ref=f123e530]: Total membership savings offered by Uber to Uber One members
-                        - generic [ref=f123e531]: $2.53
+            - separator [ref=f30e257]
+            - link "Uber Direct" [ref=f30e259] [cursor=pointer]:
+              - /url: https://direct.uber.com/?utm_source=uem&restaurant_uuid=9e98e4ec-2157-57cc-829f-e4f692c7bdd4
+          - generic [ref=f30e272]:
+            - heading [level=1] [ref=f30e277]:
+              - text: Earnings
+              - button "What's new" [ref=f30e278] [cursor=pointer]
+            - paragraph [ref=f30e284]: A detailed breakdown of your sales, expenses, and deductions
+            - generic [ref=f30e285]:
+              - generic [ref=f30e286]:
+                - button "FARE (Logan Square)" [ref=f30e289] [cursor=pointer]
+                - button "Sep 14 – 20, 2026" [ref=f30e301] [cursor=pointer]
+              - button "Download" [ref=f30e305] [cursor=pointer]
+            - generic [ref=f30e310]:
+              - generic [ref=f30e311]:
+                - generic [ref=f30e312]:
+                  - generic [ref=f30e313]: Net sales
+                  - heading "$4,062.27" [level=3] [ref=f30e315]
+                - button "Expand all" [ref=f30e316] [cursor=pointer]
+              - tree [ref=f30e320]:
+                - treeitem "Right Gross Sales Sales (incl. tax) $6,629.65" [ref=f30e321] [cursor=pointer]:
+                  - generic [ref=f30e322]:
+                    - img "Right" [ref=f30e324]
+                    - generic [ref=f30e326]:
+                      - generic [ref=f30e327]:
+                        - generic [ref=f30e328]: Gross Sales
+                        - paragraph [ref=f30e330]: Sales (incl. tax)
+                      - generic [ref=f30e331]: $6,629.65
+                - treeitem "Right Marketing Offers on items (incl. tax), Ad spend (incl. tax) -$434.42" [ref=f30e332] [cursor=pointer]:
+                  - generic [ref=f30e333]:
+                    - img "Right" [ref=f30e335]
+                    - generic [ref=f30e337]:
+                      - generic [ref=f30e338]:
+                        - generic [ref=f30e339]: Marketing
+                        - paragraph [ref=f30e341]: Offers on items (incl. tax), Ad spend (incl. tax)
+                      - generic [ref=f30e342]: "-$434.42"
+                - treeitem "Right Uber Fees Net Marketplace Fee (incl. tax) -$1,446.56" [ref=f30e343] [cursor=pointer]:
+                  - generic [ref=f30e344]:
+                    - img "Right" [ref=f30e346]
+                    - generic [ref=f30e348]:
+                      - generic [ref=f30e349]:
+                        - generic [ref=f30e350]: Uber Fees
+                        - paragraph [ref=f30e352]: Net Marketplace Fee (incl. tax)
+                      - generic [ref=f30e353]: "-$1,446.56"
+                - treeitem "Right Amendments Net Chargeback Amount (incl. tax), Marketplace Facilitator Tax -$686.40" [ref=f30e354] [cursor=pointer]:
+                  - generic [ref=f30e355]:
+                    - img "Right" [ref=f30e357]
+                    - generic [ref=f30e359]:
+                      - generic [ref=f30e360]:
+                        - generic [ref=f30e361]: Amendments
+                        - paragraph [ref=f30e363]: Net Chargeback Amount (incl. tax), Marketplace Facilitator Tax
+                      - generic [ref=f30e364]: "-$686.40"
+                - treeitem "Blank Net sales $4,062.27" [ref=f30e365]:
+                  - generic [ref=f30e366]:
+                    - img "Blank" [ref=f30e368]
+                    - generic [ref=f30e369]:
+                      - generic [ref=f30e370]: Net sales
+                      - generic [ref=f30e373]: $4,062.27
+              - paragraph [ref=f30e374]: "Note: Net taxes are $8.33. Tax amounts shown reflect taxes that have either been passed on to you as part of your payout or adjusted on your behalf during this payout period. You are responsible for any applicable tax reporting, remittance, or other obligations."
+            - generic [ref=f30e376]:
+              - heading "Net Sales By Order" [level=5] [ref=f30e378]
+              - generic [ref=f30e379]:
+                - generic [ref=f30e382] [cursor=pointer]:
+                  - generic [ref=f30e383]: All orders
+                  - generic:
+                    - combobox "Selected All orders. All orders"
+                - textbox "Search customer name or order ID" [ref=f30e394]
+              - table [ref=f30e396]:
+                - rowgroup [ref=f30e397]:
+                  - row [ref=f30e398]:
+                    - columnheader "Order ID" [ref=f30e399]
+                    - columnheader "Date and time" [ref=f30e401]
+                    - columnheader "Customer name" [ref=f30e403]
+                    - columnheader "Fulfillment type" [ref=f30e405]
+                    - columnheader "Order status" [ref=f30e407]
+                    - columnheader "Sales (excl. tax)" [ref=f30e409]
+                    - columnheader "Tax on sales" [ref=f30e411]
+                    - columnheader "Other earnings" [ref=f30e413]
+                    - columnheader "Marketing" [ref=f30e415]
+                    - columnheader "Uber fees" [ref=f30e417]
+                    - columnheader "Chargebacks" [ref=f30e419]
+                    - columnheader "Other amendments" [ref=f30e421]
+                    - columnheader "Net sales" [ref=f30e423]
+                - rowgroup [ref=f30e425]:
+                  - row [ref=f30e426]:
+                    - cell [ref=f30e427]:
+                      - button "50159" [ref=f30e428] [cursor=pointer]
+                    - cell [ref=f30e429]:
+                      - paragraph [ref=f30e430]: 2026-09-14 12:24
+                    - cell [ref=f30e431]:
+                      - paragraph [ref=f30e432]: Kellie M
+                    - cell [ref=f30e433]:
+                      - paragraph [ref=f30e434]: Delivery
+                    - cell "Completed" [ref=f30e435]:
+                      - generic "Completed" [ref=f30e440]
+                    - cell [ref=f30e441]:
+                      - paragraph [ref=f30e442]: $29.96
+                    - cell [ref=f30e443]:
+                      - paragraph [ref=f30e444]: $3.31
+                    - cell [ref=f30e445]:
+                      - paragraph [ref=f30e446]: $0.00
+                    - cell [ref=f30e447]:
+                      - paragraph [ref=f30e448]: $0.00
+                    - cell [ref=f30e449]:
+                      - paragraph [ref=f30e450]: "-$7.49"
+                    - cell [ref=f30e451]:
+                      - paragraph [ref=f30e452]: $0.00
+                    - cell [ref=f30e453]:
+                      - paragraph [ref=f30e454]: "-$3.09"
+                    - cell "$22.47" [ref=f30e455]
+                  - row [ref=f30e457]:
+                    - cell [ref=f30e458]:
+                      - button "F43F5" [ref=f30e459] [cursor=pointer]
+                    - cell [ref=f30e460]:
+                      - paragraph [ref=f30e461]: 2026-09-14 12:29
+                    - cell [ref=f30e462]:
+                      - paragraph [ref=f30e463]: Bridget F
+                    - cell [ref=f30e464]:
+                      - paragraph [ref=f30e465]: Delivery
+                    - cell "Completed" [ref=f30e466]:
+                      - generic "Completed" [ref=f30e471]
+                    - cell [ref=f30e472]:
+                      - paragraph [ref=f30e473]: $24.98
+                    - cell [ref=f30e474]:
+                      - paragraph [ref=f30e475]: $2.75
+                    - cell [ref=f30e476]:
+                      - paragraph [ref=f30e477]: $0.00
+                    - cell [ref=f30e478]:
+                      - paragraph [ref=f30e479]: $0.00
+                    - cell [ref=f30e480]:
+                      - paragraph [ref=f30e481]: "-$6.25"
+                    - cell [ref=f30e482]:
+                      - paragraph [ref=f30e483]: $0.00
+                    - cell [ref=f30e484]:
+                      - paragraph [ref=f30e485]: "-$2.75"
+                    - cell "$18.73" [ref=f30e486]
+                  - row [ref=f30e488]:
+                    - cell [ref=f30e489]:
+                      - button "92DF5" [ref=f30e490] [cursor=pointer]
+                    - cell [ref=f30e491]:
+                      - paragraph [ref=f30e492]: 2026-09-14 12:53
+                    - cell [ref=f30e493]:
+                      - paragraph [ref=f30e494]: Gracie Y
+                    - cell [ref=f30e495]:
+                      - paragraph [ref=f30e496]: Delivery
+                    - cell "Completed" [ref=f30e497]:
+                      - generic "Completed" [ref=f30e502]
+                    - cell [ref=f30e503]:
+                      - paragraph [ref=f30e504]: $34.33
+                    - cell [ref=f30e505]:
+                      - paragraph [ref=f30e506]: $3.78
+                    - cell [ref=f30e507]:
+                      - paragraph [ref=f30e508]: $0.00
+                    - cell [ref=f30e509]:
+                      - paragraph [ref=f30e510]: $0.00
+                    - cell [ref=f30e511]:
+                      - paragraph [ref=f30e512]: "-$8.58"
+                    - cell [ref=f30e513]:
+                      - paragraph [ref=f30e514]: $0.00
+                    - cell [ref=f30e515]:
+                      - paragraph [ref=f30e516]: "-$3.78"
+                    - cell "$25.75" [ref=f30e517]
+                  - row [ref=f30e519]:
+                    - cell [ref=f30e520]:
+                      - button "D2B16" [ref=f30e521] [cursor=pointer]
+                    - cell [ref=f30e522]:
+                      - paragraph [ref=f30e523]: 2026-09-14 12:55
+                    - cell [ref=f30e524]:
+                      - paragraph [ref=f30e525]: Melissa C
+                    - cell [ref=f30e526]:
+                      - paragraph [ref=f30e527]: Delivery
+                    - cell "Completed" [ref=f30e528]:
+                      - generic "Completed" [ref=f30e533]
+                    - cell [ref=f30e534]:
+                      - paragraph [ref=f30e535]: $25.60
+                    - cell [ref=f30e536]:
+                      - paragraph [ref=f30e537]: $2.82
+                    - cell [ref=f30e538]:
+                      - paragraph [ref=f30e539]: $0.00
+                    - cell [ref=f30e540]:
+                      - paragraph [ref=f30e541]: "-$5.55"
+                    - cell [ref=f30e542]:
+                      - paragraph [ref=f30e543]: "-$5.15"
+                    - cell [ref=f30e544]:
+                      - paragraph [ref=f30e545]: $0.00
+                    - cell [ref=f30e546]:
+                      - paragraph [ref=f30e547]: "-$2.27"
+                    - cell "$15.45" [ref=f30e548]
+                  - row [ref=f30e550]:
+                    - cell [ref=f30e551]:
+                      - button "661E5" [ref=f30e552] [cursor=pointer]
+                    - cell [ref=f30e553]:
+                      - paragraph [ref=f30e554]: 2026-09-14 12:59
+                    - cell [ref=f30e555]:
+                      - paragraph [ref=f30e556]: Rachel E
+                    - cell [ref=f30e557]:
+                      - paragraph [ref=f30e558]: Delivery
+                    - cell "Completed" [ref=f30e559]:
+                      - generic "Completed" [ref=f30e564]
+                    - cell [ref=f30e565]:
+                      - paragraph [ref=f30e566]: $30.92
+                    - cell [ref=f30e567]:
+                      - paragraph [ref=f30e568]: $3.41
+                    - cell [ref=f30e569]:
+                      - paragraph [ref=f30e570]: $0.00
+                    - cell [ref=f30e571]:
+                      - paragraph [ref=f30e572]: "-$5.56"
+                    - cell [ref=f30e573]:
+                      - paragraph [ref=f30e574]: "-$6.48"
+                    - cell [ref=f30e575]:
+                      - paragraph [ref=f30e576]: $0.00
+                    - cell [ref=f30e577]:
+                      - paragraph [ref=f30e578]: "-$2.85"
+                    - cell "$19.44" [ref=f30e579]
+                  - row [ref=f30e581]:
+                    - cell [ref=f30e582]:
+                      - button "4B8BE" [ref=f30e583] [cursor=pointer]
+                    - cell [ref=f30e584]:
+                      - paragraph [ref=f30e585]: 2026-09-14 13:07
+                    - cell [ref=f30e586]:
+                      - paragraph [ref=f30e587]: Molly H
+                    - cell [ref=f30e588]:
+                      - paragraph [ref=f30e589]: Delivery
+                    - cell "Completed" [ref=f30e590]:
+                      - generic "Completed" [ref=f30e595]
+                    - cell [ref=f30e596]:
+                      - paragraph [ref=f30e597]: $14.97
+                    - cell [ref=f30e598]:
+                      - paragraph [ref=f30e599]: $1.66
+                    - cell [ref=f30e600]:
+                      - paragraph [ref=f30e601]: $0.00
+                    - cell [ref=f30e602]:
+                      - paragraph [ref=f30e603]: $0.00
+                    - cell [ref=f30e604]:
+                      - paragraph [ref=f30e605]: "-$3.74"
+                    - cell [ref=f30e606]:
+                      - paragraph [ref=f30e607]: $0.00
+                    - cell [ref=f30e608]:
+                      - paragraph [ref=f30e609]: "-$1.66"
+                    - cell "$11.23" [ref=f30e610]
+                  - row [ref=f30e612]:
+                    - cell [ref=f30e613]:
+                      - button "5BA32" [ref=f30e614] [cursor=pointer]
+                    - cell [ref=f30e615]:
+                      - paragraph [ref=f30e616]: 2026-09-14 13:11
+                    - cell [ref=f30e617]:
+                      - paragraph [ref=f30e618]: Mary M
+                    - cell [ref=f30e619]:
+                      - paragraph [ref=f30e620]: Delivery
+                    - cell "Completed" [ref=f30e621]:
+                      - generic "Completed" [ref=f30e626]
+                    - cell [ref=f30e627]:
+                      - paragraph [ref=f30e628]: $53.09
+                    - cell [ref=f30e629]:
+                      - paragraph [ref=f30e630]: $5.84
+                    - cell [ref=f30e631]:
+                      - paragraph [ref=f30e632]: $0.00
+                    - cell [ref=f30e633]:
+                      - paragraph [ref=f30e634]: $0.00
+                    - cell [ref=f30e635]:
+                      - paragraph [ref=f30e636]: "-$13.27"
+                    - cell [ref=f30e637]:
+                      - paragraph [ref=f30e638]: $0.00
+                    - cell [ref=f30e639]:
+                      - paragraph [ref=f30e640]: "-$5.84"
+                    - cell "$39.82" [ref=f30e641]
+                  - row [ref=f30e643]:
+                    - cell [ref=f30e644]:
+                      - button "6DC31" [ref=f30e645] [cursor=pointer]
+                    - cell [ref=f30e646]:
+                      - paragraph [ref=f30e647]: 2026-09-14 13:27
+                    - cell [ref=f30e648]:
+                      - paragraph [ref=f30e649]: Taylor Z
+                    - cell [ref=f30e650]:
+                      - paragraph [ref=f30e651]: Delivery
+                    - cell "Completed" [ref=f30e652]:
+                      - generic "Completed" [ref=f30e657]
+                    - cell [ref=f30e658]:
+                      - paragraph [ref=f30e659]: $47.39
+                    - cell [ref=f30e660]:
+                      - paragraph [ref=f30e661]: $5.21
+                    - cell [ref=f30e662]:
+                      - paragraph [ref=f30e663]: $0.00
+                    - cell [ref=f30e664]:
+                      - paragraph [ref=f30e665]: $0.00
+                    - cell [ref=f30e666]:
+                      - paragraph [ref=f30e667]: "-$11.85"
+                    - cell [ref=f30e668]:
+                      - paragraph [ref=f30e669]: $0.00
+                    - cell [ref=f30e670]:
+                      - paragraph [ref=f30e671]: "-$5.21"
+                    - cell "$35.54" [ref=f30e672]
+                  - row [ref=f30e674]:
+                    - cell [ref=f30e675]:
+                      - button "1D53C" [ref=f30e676] [cursor=pointer]
+                    - cell [ref=f30e677]:
+                      - paragraph [ref=f30e678]: 2026-09-14 13:28
+                    - cell [ref=f30e679]:
+                      - paragraph [ref=f30e680]: Jeremiah H
+                    - cell [ref=f30e681]:
+                      - paragraph [ref=f30e682]: Delivery
+                    - cell "Completed" [ref=f30e683]:
+                      - generic "Completed" [ref=f30e688]
+                    - cell [ref=f30e689]:
+                      - paragraph [ref=f30e690]: $26.85
+                    - cell [ref=f30e691]:
+                      - paragraph [ref=f30e692]: $2.96
+                    - cell [ref=f30e693]:
+                      - paragraph [ref=f30e694]: $0.00
+                    - cell [ref=f30e695]:
+                      - paragraph [ref=f30e696]: $0.00
+                    - cell [ref=f30e697]:
+                      - paragraph [ref=f30e698]: "-$6.71"
+                    - cell [ref=f30e699]:
+                      - paragraph [ref=f30e700]: $0.00
+                    - cell [ref=f30e701]:
+                      - paragraph [ref=f30e702]: "-$2.96"
+                    - cell "$20.14" [ref=f30e703]
+                  - row [ref=f30e705]:
+                    - cell [ref=f30e706]:
+                      - button "F7487" [ref=f30e707] [cursor=pointer]
+                    - cell [ref=f30e708]:
+                      - paragraph [ref=f30e709]: 2026-09-14 13:41
+                    - cell [ref=f30e710]:
+                      - paragraph [ref=f30e711]: Taylor F
+                    - cell [ref=f30e712]:
+                      - paragraph [ref=f30e713]: Delivery
+                    - cell "Completed" [ref=f30e714]:
+                      - generic "Completed" [ref=f30e719]
+                    - cell [ref=f30e720]:
+                      - paragraph [ref=f30e721]: $21.84
+                    - cell [ref=f30e722]:
+                      - paragraph [ref=f30e723]: $2.40
+                    - cell [ref=f30e724]:
+                      - paragraph [ref=f30e725]: $0.00
+                    - cell [ref=f30e726]:
+                      - paragraph [ref=f30e727]: $0.00
+                    - cell [ref=f30e728]:
+                      - paragraph [ref=f30e729]: "-$5.46"
+                    - cell [ref=f30e730]:
+                      - paragraph [ref=f30e731]: $0.00
+                    - cell [ref=f30e732]:
+                      - paragraph [ref=f30e733]: "-$2.40"
+                    - cell "$16.38" [ref=f30e734]
+              - generic [ref=f30e736]:
+                - generic [ref=f30e737]:
+                  - generic [ref=f30e738]: Rows per page
+                  - generic [ref=f30e742] [cursor=pointer]:
+                    - generic [ref=f30e743]: "10"
+                    - generic:
+                      - combobox "Selected 10."
+                - generic [ref=f30e747]:
+                  - button "Prev" [disabled] [ref=f30e748]
+                  - generic [ref=f30e753]: 1 of 18
+                  - button "Next" [ref=f30e754] [cursor=pointer]
+            - generic [ref=f30e763]:
+              - heading "Uber Fees" [level=1] [ref=f30e765]
+              - paragraph [ref=f30e766]: The fees you pay depend on how your customers order and how they receive their order.
+            - generic [ref=f30e767]:
+              - generic [ref=f30e768]:
+                - generic [ref=f30e770]:
+                  - generic [ref=f30e771]: Delivery, powered by Uber
+                  - paragraph [ref=f30e775]: 25% per order
+                - paragraph [ref=f30e777]: 167 orders
+              - generic [ref=f30e778]:
+                - generic [ref=f30e780]:
+                  - generic [ref=f30e781]: Delivery, powered by Uber (Postmates)
+                  - paragraph [ref=f30e785]: 25% per order
+                - paragraph [ref=f30e787]: 2 orders
+              - generic [ref=f30e788]:
+                - generic [ref=f30e790]:
+                  - generic [ref=f30e791]: Pick up
+                  - paragraph [ref=f30e795]: 6% per order
+                - paragraph [ref=f30e797]: 6 orders
+              - generic [ref=f30e798]:
+                - generic [ref=f30e800]:
+                  - generic [ref=f30e801]:
+                    - generic [ref=f30e802]: Uber One member orders
+                    - img [ref=f30e804] [cursor=pointer]
+                  - generic [ref=f30e808]:
+                    - paragraph [ref=f30e810]: +0% per delivery order
+                    - paragraph [ref=f30e812]: Fees paid on Uber One member orders help Uber offer promotions to Uber One members on eligible orders from your store.
+                    - generic [ref=f30e813]:
+                      - generic [ref=f30e814]:
+                        - generic [ref=f30e815]: Total Renewable Membership Marketplace fees paid
+                        - generic [ref=f30e816]: $0.00
+                      - generic [ref=f30e817]:
+                        - generic [ref=f30e818]: Total membership savings offered by Uber to Uber One members
+                        - generic [ref=f30e819]: $484.23
                 - generic:
                   - paragraph
-    - generic:
-      - generic [ref=f123e317] [cursor=pointer]:
-        - heading "Chat with AI Assistant" [level=5] [ref=f123e324]
-        - paragraph [ref=f123e325]: Try the new AI assistant to help you work faster and smarter on Uber Eats Manager.
-        - list [ref=f123e326]:
-          - listitem "Update holiday and menu hours" [ref=f123e327]:
-            - paragraph [ref=f123e335]: Update holiday and menu hours
-          - listitem "Ask Assistant for anything or get instant help from our support team" [ref=f123e336]:
-            - paragraph [ref=f123e342]: Ask Assistant for anything or get instant help from our support team
-        - button "Get Started" [ref=f123e344]
-      - generic [ref=f123e729]:
-        - textbox "Search by store name or address" [ref=f123e736]
-        - generic [ref=f123e738]:
-          - tablist [ref=f123e740]:
-            - tab "Stores" [selected] [ref=f123e741] [cursor=pointer]
-            - tab "Store groups" [disabled] [ref=f123e742]
-          - tabpanel [ref=f123e746]:
-            - generic [ref=f123e747]:
-              - generic [ref=f123e748]:
-                - generic [ref=f123e749]: 10 stores
-                - button "Add store" [ref=f123e750] [cursor=pointer]
-              - generic [ref=f123e754]:
-                - button "List item" [ref=f123e755] [cursor=pointer]:
-                  - generic [ref=f123e756]:
-                    - generic [ref=f123e757]:
-                      - radio
-                    - generic [ref=f123e761]:
-                      - paragraph [ref=f123e762]:
-                        - generic [ref=f123e763]: FARE - Franklin St.
-                      - paragraph [ref=f123e764]: 71 South Franklin Street
-                - button "List item" [ref=f123e765] [cursor=pointer]:
-                  - generic [ref=f123e766]:
-                    - generic [ref=f123e767]:
-                      - radio
-                    - generic [ref=f123e771]:
-                      - paragraph [ref=f123e772]:
-                        - generic [ref=f123e773]: FARE - Old Post Office
-                      - paragraph [ref=f123e774]: 433 West Van Buren Street
-                - button "List item" [ref=f123e775] [cursor=pointer]:
-                  - generic [ref=f123e776]:
-                    - generic [ref=f123e777]:
-                      - radio
-                    - generic [ref=f123e781]:
-                      - paragraph [ref=f123e782]:
-                        - generic [ref=f123e783]: FARE (Lakeview)
-                      - paragraph [ref=f123e784]: 614 West Diversey Parkway
-                - button "List item" [ref=f123e785] [cursor=pointer]:
-                  - generic [ref=f123e786]:
-                    - generic [ref=f123e787]:
-                      - radio
-                    - generic [ref=f123e791]:
-                      - paragraph [ref=f123e792]:
-                        - generic [ref=f123e793]: FARE (Lasalle)
-                      - paragraph [ref=f123e794]: 200 North LaSalle Street
-                - button "List item" [ref=f123e795] [cursor=pointer]:
-                  - generic [ref=f123e796]:
-                    - generic [ref=f123e797]:
-                      - radio
-                    - generic [ref=f123e801]:
-                      - paragraph [ref=f123e802]:
-                        - generic [ref=f123e803]: FARE (Logan Square)
-                      - paragraph [ref=f123e804]: 2255 North Milwaukee Avenue
-                - button "List item" [ref=f123e805] [cursor=pointer]:
-                  - generic [ref=f123e806]:
-                    - generic [ref=f123e807]:
-                      - radio
-                    - generic [ref=f123e811]:
-                      - paragraph [ref=f123e812]:
-                        - generic [ref=f123e813]: FARE (Oak Park)
-                      - paragraph [ref=f123e814]: 1000 Lake Street
-                - button "List item" [ref=f123e815] [cursor=pointer]:
-                  - generic [ref=f123e816]:
-                    - generic [ref=f123e817]:
-                      - radio
-                    - generic [ref=f123e821]:
-                      - paragraph [ref=f123e822]:
-                        - generic [ref=f123e823]: FARE (Riverside)
-                      - paragraph [ref=f123e824]: 150 North Riverside Plaza
-                - button "List item" [ref=f123e825] [cursor=pointer]:
-                  - generic [ref=f123e826]:
-                    - generic [ref=f123e827]:
-                      - radio
-                    - generic [ref=f123e831]:
-                      - paragraph [ref=f123e832]:
-                        - generic [ref=f123e833]: FARE | Northwestern Hospital
-                      - paragraph [ref=f123e834]: 251 East Huron Street
-                - button "List item" [ref=f123e835] [cursor=pointer]:
-                  - generic [ref=f123e836]:
-                    - generic [ref=f123e837]:
-                      - radio
-                    - generic [ref=f123e841]:
-                      - paragraph [ref=f123e842]:
-                        - generic [ref=f123e843]: FARE | Sterling Food Hall (previously Revival)
-                      - paragraph [ref=f123e844]: 125 South Clark Street
-                - button "List item" [active] [ref=f123e845] [cursor=pointer]:
-                  - generic [ref=f123e846]:
-                    - generic [ref=f123e847]:
-                      - radio [checked]
-                    - generic [ref=f123e851]:
-                      - paragraph [ref=f123e852]:
-                        - generic [ref=f123e853]: FARE Old Town (North Wells Street)
-                      - paragraph [ref=f123e854]: 868 North Wells Street
-        - generic [ref=f123e857]:
-          - generic [ref=f123e858]: 1 selected
-          - button "Apply" [ref=f123e859] [cursor=pointer]
+    - generic [ref=f30e823] [cursor=pointer]:
+      - heading "Chat with AI Assistant" [level=5] [ref=f30e830]
+      - paragraph [ref=f30e831]: Try the new AI assistant to help you work faster and smarter on Uber Eats Manager.
+      - list [ref=f30e832]:
+        - listitem "Update holiday and menu hours" [ref=f30e833]:
+          - paragraph [ref=f30e841]: Update holiday and menu hours
+        - listitem "Ask Assistant for anything or get instant help from our support team" [ref=f30e842]:
+          - paragraph [ref=f30e848]: Ask Assistant for anything or get instant help from our support team
+      - button "Get Started" [ref=f30e850]
   - generic:
-    - generic [ref=f123e534] [cursor=pointer]:
-      - img "face happy" [ref=f123e535]
-      - generic [ref=f123e537]: Reviews
-    - generic [ref=f123e538]:
-      - generic [ref=f123e539]:
-        - generic [ref=f123e540]:
+    - generic [ref=f30e852] [cursor=pointer]:
+      - img "face happy" [ref=f30e853]
+      - generic [ref=f30e855]: Reviews
+    - generic [ref=f30e856]:
+      - generic [ref=f30e857]:
+        - generic [ref=f30e858]:
           - text: Share your feedback (Optional)
-          - img "close" [ref=f123e542] [cursor=pointer]
-        - generic [ref=f123e544]:
-          - generic [ref=f123e545]: How easy or difficult is it to understand your payout information?
-          - generic [ref=f123e546]:
-            - generic [ref=f123e547] [cursor=pointer]: Extremely Difficult
-            - generic [ref=f123e553] [cursor=pointer]
-            - generic [ref=f123e558] [cursor=pointer]
-            - generic [ref=f123e563] [cursor=pointer]
-            - generic [ref=f123e568] [cursor=pointer]: Extremely Easy
-      - textbox [ref=f123e575]
-      - generic [ref=f123e576]: Submit
-    - generic [ref=f123e579]:
+          - img "close" [ref=f30e860] [cursor=pointer]
+        - generic [ref=f30e862]:
+          - generic [ref=f30e863]: How easy or difficult is it to understand your payout information?
+          - generic [ref=f30e864]:
+            - generic [ref=f30e865] [cursor=pointer]: Extremely Difficult
+            - generic [ref=f30e871] [cursor=pointer]
+            - generic [ref=f30e876] [cursor=pointer]
+            - generic [ref=f30e881] [cursor=pointer]
+            - generic [ref=f30e886] [cursor=pointer]: Extremely Easy
+      - textbox [ref=f30e893]
+      - generic [ref=f30e894]: Submit
+    - generic [ref=f30e897]:
       - text: Thank you
-      - img "close" [ref=f123e581] [cursor=pointer]
+      - img "close" [ref=f30e899] [cursor=pointer]
 ```
+### Events
+- New console entries: .playwright-cli\console-2026-10-03T16-30-25-969Z.log#L16-L17

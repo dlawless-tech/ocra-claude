@@ -6,225 +6,365 @@
 ╚════════════════════════════════════════════════════════════════════╝
 
 ### Page
-- Page URL: https://merchant-portal.doordash.com/merchant/reports?business_id=11521564
+- Page URL: https://merchant-portal.doordash.com/merchant/financials?business_id=11521564
 - Page Title: DoorDash Food Delivery | Merchant Portal
-- Console: 2 errors, 29 warnings
+- Console: 4 errors, 18 warnings
 ### Snapshot
 ```yaml
 - generic [active] [ref=f10e1]:
-  - link [ref=f10e5] [cursor=pointer]:
+  - link [ref=f10e2] [cursor=pointer]:
     - /url: "#"
     - text: ___
-  - generic [ref=f10e10]:
-    - button "Open DoorDash AI Assistant" [ref=f10e1905] [cursor=pointer]
-    - generic [ref=f10e11]:
+  - generic [ref=f10e9]:
+    - generic [ref=f10e13]:
       - generic [ref=f10e15]:
-        - generic [ref=f10e17]:
-          - generic [ref=f10e20] [cursor=pointer]:
-            - button "Assistant" [ref=f10e902]
-            - generic [ref=f10e24]: Beta
-          - button "Expand Chat" [ref=f10e1908] [cursor=pointer]
-        - generic [ref=f10e1911]:
-          - generic: Pause my store
-          - generic [ref=f10e1915]:
-            - textbox [ref=f10e1917]
-            - generic [ref=f10e1919]:
-              - button "Start voice recording" [ref=f10e1921] [cursor=pointer]
-              - button "send" [disabled] [ref=f10e1925]
-      - navigation "Merchant Navigation" [ref=f10e914]:
-        - generic [ref=f10e134]:
-          - button "DoorDash" [ref=f10e915] [cursor=pointer]
-          - img "FARE" [ref=f10e916]
-        - generic [ref=f10e148]:
-          - list [ref=f10e149]:
-            - listitem [ref=f10e150]:
-              - button "Home" [ref=f10e917] [cursor=pointer]
-          - list [ref=f10e158]:
-            - listitem [ref=f10e159]:
-              - button "Insights" [ref=f10e918] [cursor=pointer]
-          - list [ref=f10e167]:
-            - listitem [ref=f10e168]:
-              - button "Reports" [ref=f10e919] [cursor=pointer]
-          - list [ref=f10e176]:
-            - listitem [ref=f10e177]:
-              - button "Customers" [ref=f10e920] [cursor=pointer]
-          - list [ref=f10e188]:
-            - listitem [ref=f10e189]:
-              - button "Orders" [ref=f10e921] [cursor=pointer]
-          - list [ref=f10e198]:
-            - listitem [ref=f10e199]:
-              - button "Stores" [ref=f10e922] [cursor=pointer]
-          - list [ref=f10e207]:
-            - listitem [ref=f10e208]:
-              - button "Marketing" [ref=f10e923] [cursor=pointer]
-          - list [ref=f10e216]:
-            - listitem [ref=f10e217]:
-              - button "Menu pricing" [ref=f10e924] [cursor=pointer]
-          - list [ref=f10e225]:
-            - listitem [ref=f10e226]:
-              - button "Financials" [ref=f10e925] [cursor=pointer]
-          - list [ref=f10e235]:
-            - listitem [ref=f10e236]:
-              - button "Manage users" [ref=f10e926] [cursor=pointer]
-          - list [ref=f10e245]:
-            - listitem [ref=f10e246]:
-              - button "Settings" [ref=f10e927] [cursor=pointer]
-          - list [ref=f10e254]:
-            - listitem [ref=f10e255]:
-              - button "Add solutions" [ref=f10e928] [cursor=pointer]
-          - list [ref=f10e264]:
-            - listitem [ref=f10e265]:
-              - button "Help" [ref=f10e929] [cursor=pointer]
-          - list "Channels" [ref=f10e930]:
-            - listitem [ref=f10e278]:
-              - button "Online Ordering" [ref=f10e931] [cursor=pointer]
-            - listitem [ref=f10e287]:
-              - button "Request a delivery" [ref=f10e932] [cursor=pointer]
-        - button "Mark Rubinstein menu" [ref=f10e933] [cursor=pointer]
-      - generic [ref=f10e301]:
-        - navigation [ref=f10e2199]:
-          - generic [ref=f10e2200]:
-            - button [ref=f10e2201] [cursor=pointer]
-            - generic [ref=f10e2204]: Reports
-          - button "Create report" [ref=f10e2206] [cursor=pointer]
-        - generic [ref=f10e2213]:
-          - generic [ref=f10e2215]:
-            - generic [ref=f10e2216]:
-              - generic [ref=f10e2217]:
-                - generic [ref=f10e2218]: Reports
-                - generic [ref=f10e2220]: Create and manage the reports that provide access to sales, operations, and financial data for your business on DoorDash.
-              - button "Create report" [ref=f10e2221] [cursor=pointer]
-            - generic [ref=f10e2232]:
-              - generic [ref=f10e2234]:
-                - generic [ref=f10e2235]: Download multiple reports all at once
-                - generic [ref=f10e2236]: Get sales, financials, and marketing reports for this month all in one go
-              - button "Generate all reports" [ref=f10e2238] [cursor=pointer]
-            - generic [ref=f10e2244]:
-              - generic [ref=f10e2245] [cursor=pointer]: Available
-              - generic [ref=f10e2246] [cursor=pointer]: Scheduled
-          - separator [ref=f10e2248]
-          - generic [ref=f10e2252]:
-            - table [ref=f10e2255]:
-              - rowgroup [ref=f10e2256]:
-                - row [ref=f10e2257]:
-                  - columnheader "Date created Sort Date created" [ref=f10e2258] [cursor=pointer]:
-                    - generic [ref=f10e2259]:
-                      - generic [ref=f10e2260]: Date created
-                      - button "Sort Date created" [ref=f10e2261]:
-                        - img "Sort Date created" [ref=f10e2262]
-                  - columnheader "Channel" [ref=f10e2264]
-                  - columnheader "Type" [ref=f10e2267]
-                  - columnheader "View by" [ref=f10e2270]
-                  - columnheader "Time frame" [ref=f10e2273]
-                  - columnheader "Locations" [ref=f10e2276]
-                  - columnheader "Action" [ref=f10e2279]
-              - rowgroup [ref=f10e2282]:
-                - row [ref=f10e2283]:
-                  - cell "Oct 2, 2026 11:25 AM" [ref=f10e2284]:
-                    - generic [ref=f10e2285]: Oct 2, 2026
-                    - generic [ref=f10e2286]: 11:25 AM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2287]
-                  - cell "Financials" [ref=f10e2289]
-                  - cell "-" [ref=f10e2291]
-                  - cell "Payout on Oct 1, 2026" [ref=f10e2293]
-                  - cell "10 stores" [ref=f10e2295]
-                  - cell [ref=f10e2297]:
-                    - button "Download" [ref=f10e2299] [cursor=pointer]
-                - row [ref=f10e2302]:
-                  - cell "Sep 30, 2026 8:12 PM" [ref=f10e2303]:
-                    - generic [ref=f10e2304]: Sep 30, 2026
-                    - generic [ref=f10e2305]: 8:12 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2306]
-                  - cell "Financials" [ref=f10e2308]
-                  - cell "-" [ref=f10e2310]
-                  - cell "Payout on Sep 24, 2026" [ref=f10e2312]
-                  - cell "10 stores" [ref=f10e2314]
-                  - cell [ref=f10e2316]:
-                    - button "Download" [ref=f10e2318] [cursor=pointer]
-                - row [ref=f10e2321]:
-                  - cell "Sep 30, 2026 8:08 PM" [ref=f10e2322]:
-                    - generic [ref=f10e2323]: Sep 30, 2026
-                    - generic [ref=f10e2324]: 8:08 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2325]
-                  - cell "Financials" [ref=f10e2327]
-                  - cell "-" [ref=f10e2329]
-                  - cell "Payout on Sep 17, 2026" [ref=f10e2331]
-                  - cell "10 stores" [ref=f10e2333]
-                  - cell [ref=f10e2335]:
-                    - button "Download" [ref=f10e2337] [cursor=pointer]
-                - row [ref=f10e2340]:
-                  - cell "Sep 30, 2026 6:20 PM" [ref=f10e2341]:
-                    - generic [ref=f10e2342]: Sep 30, 2026
-                    - generic [ref=f10e2343]: 6:20 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2344]
-                  - cell "Financials" [ref=f10e2346]
-                  - cell "-" [ref=f10e2348]
-                  - cell "Payout on Sep 10, 2026" [ref=f10e2350]
-                  - cell "10 stores" [ref=f10e2352]
-                  - cell [ref=f10e2354]:
-                    - button "Download" [ref=f10e2356] [cursor=pointer]
-                - row [ref=f10e2359]:
-                  - cell "Sep 30, 2026 5:19 PM" [ref=f10e2360]:
-                    - generic [ref=f10e2361]: Sep 30, 2026
-                    - generic [ref=f10e2362]: 5:19 PM
-                  - cell "Marketplace, Online Ordering, Drive On-Demand" [ref=f10e2363]
-                  - cell "Sales" [ref=f10e2365]
-                  - cell "Order" [ref=f10e2367]
-                  - cell "Dec 29, 2025 – Sep 29, 2026" [ref=f10e2369]
-                  - cell "10 stores" [ref=f10e2371]
-                  - cell [ref=f10e2373]:
-                    - button "Download" [ref=f10e2375] [cursor=pointer]
-                - row [ref=f10e2378]:
-                  - cell "Sep 30, 2026 5:16 PM" [ref=f10e2379]:
-                    - generic [ref=f10e2380]: Sep 30, 2026
-                    - generic [ref=f10e2381]: 5:16 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2382]
-                  - cell "Financials" [ref=f10e2384]
-                  - cell "-" [ref=f10e2386]
-                  - cell "Dec 29, 2025 – Sep 27, 2026" [ref=f10e2388]
-                  - cell "10 stores" [ref=f10e2390]
-                  - cell [ref=f10e2392]:
-                    - button "Download" [ref=f10e2394] [cursor=pointer]
-                - row [ref=f10e2397]:
-                  - cell "Sep 28, 2026 11:31 AM" [ref=f10e2398]:
-                    - generic [ref=f10e2399]: Sep 28, 2026
-                    - generic [ref=f10e2400]: 11:31 AM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2401]
-                  - cell "Financials" [ref=f10e2403]
-                  - cell "-" [ref=f10e2405]
-                  - cell "Aug 1 – 31, 2026" [ref=f10e2407]
-                  - cell "10 stores" [ref=f10e2409]
-                  - cell [ref=f10e2411]:
-                    - button "Download" [ref=f10e2413] [cursor=pointer]
-                - row [ref=f10e2416]:
-                  - cell "Feb 10, 2026 3:28 PM" [ref=f10e2417]:
-                    - generic [ref=f10e2418]: Feb 10, 2026
-                    - generic [ref=f10e2419]: 3:28 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2420]
-                  - cell "Financials" [ref=f10e2422]
-                  - cell "-" [ref=f10e2424]
-                  - cell "Nov 1 – Dec 31, 2025" [ref=f10e2426]
-                  - cell "8 stores" [ref=f10e2428]
-                  - cell "Expired" [ref=f10e2430]
-                - row [ref=f10e2433]:
-                  - cell "Feb 10, 2026 3:26 PM" [ref=f10e2434]:
-                    - generic [ref=f10e2435]: Feb 10, 2026
-                    - generic [ref=f10e2436]: 3:26 PM
-                  - cell "Marketplace, Online Ordering" [ref=f10e2437]
-                  - cell "Financials" [ref=f10e2439]
-                  - cell "-" [ref=f10e2441]
-                  - cell "Nov 1 – Dec 31, 2025" [ref=f10e2443]
-                  - cell "1 store" [ref=f10e2445]
-                  - cell "Expired" [ref=f10e2447]
-            - navigation "Table Pagination" [ref=f10e2451]:
-              - list [ref=f10e2452]:
-                - listitem [ref=f10e2453]:
-                  - button "go to previous page" [disabled] [ref=f10e2454]
-                - listitem [ref=f10e2457]:
-                  - button "you are currently on page 1" [ref=f10e2458] [cursor=pointer]:
-                    - generic [ref=f10e2459]: "1"
-                - listitem [ref=f10e2460]:
-                  - button "go to next page" [disabled] [ref=f10e2461]
-  - iframe [ref=f10e901]:
+        - generic [ref=f10e18] [cursor=pointer]:
+          - button "Assistant" [ref=f10e901]
+          - generic [ref=f10e22]: Beta
+        - generic [ref=f10e25]:
+          - button "Start new chat" [ref=f10e902] [cursor=pointer]
+          - button "All chats" [ref=f10e903] [cursor=pointer]
+          - button "Collapse Chat" [ref=f10e904] [cursor=pointer]
+      - generic [ref=f10e47]:
+        - generic [ref=f10e48]: Financials page
+        - generic [ref=f10e53]:
+          - generic [ref=f10e1886]: All 10 store payouts from 10/1/2026 are marked Paid - funds are confirmed across locations.
+          - generic [ref=f10e1887]: Logan Square leads with $3,773.85 in sales but carries -$904.90 in commission and -$153.00 in marketing spend, resulting in the highest deductions of the batch. Oak Park also shows a notable -$136.85 amendment worth investigating.
+        - generic [ref=f10e56]: If you want me to stop sending you page-specific messages, just tell me.
+        - generic [ref=f10e1855]: Payout Details page
+        - generic [ref=f10e1860]:
+          - generic [ref=f10e1889]: Net total of $1,259.08 is paid and up 3.31% vs. last payout - $1,497.22 in sales across 51 transactions (Sep 21–Sep 25).
+          - generic [ref=f10e1890]: Commission & fees totaled -$216.14 and marketing spend -$22.00, together accounting for the gap between sales and net payout.
+        - generic [ref=f10e1891]: Financials page
+        - generic [ref=f10e1896]:
+          - generic [ref=f10e1897]: All 10 store payouts dated 10/1/2026 show Paid status - cash is moving cleanly across locations.
+          - generic [ref=f10e1898]: FARE Oak Park carries the largest amendments at -$136.85, and FARE Logan Square has the highest marketing spend at -$153.00, both pulling net payouts noticeably below gross sales.
+      - generic [ref=f10e1901]:
+        - generic [ref=f10e1902]:
+          - generic [ref=f10e1903]: What do you want to do next?
+          - button "Close" [ref=f10e1905] [cursor=pointer]
+        - generic [ref=f10e1910]:
+          - button "1 Break down amendments across all stores" [ref=f10e1911] [cursor=pointer]:
+            - generic [ref=f10e1912]: "1"
+            - generic [ref=f10e1914]: Break down amendments across all stores
+          - button "2 Analyze commission fees by location" [ref=f10e1919] [cursor=pointer]:
+            - generic [ref=f10e1920]: "2"
+            - generic [ref=f10e1922]: Analyze commission fees by location
+          - button "3 Explain why Oak Park amendments are high" [ref=f10e1925] [cursor=pointer]:
+            - generic [ref=f10e1926]: "3"
+            - generic [ref=f10e1928]: Explain why Oak Park amendments are high
+          - button "4 Something else" [ref=f10e1931] [cursor=pointer]:
+            - generic [ref=f10e1932]: "4"
+            - generic [ref=f10e1934]: Something else
+      - generic [ref=f10e102]:
+        - generic: Ask anything...
+        - generic [ref=f10e106]:
+          - textbox [ref=f10e108]
+          - generic [ref=f10e110]:
+            - button "Start voice recording" [ref=f10e910] [cursor=pointer]
+            - button "send" [disabled] [ref=f10e1937]
+      - generic [ref=f10e119]:
+        - generic [ref=f10e120]: Uses AI, may contain inaccuracies
+        - button "Learn more" [ref=f10e912] [cursor=pointer]
+    - navigation "Merchant Navigation" [ref=f10e913]:
+      - generic [ref=f10e132]:
+        - button "DoorDash" [ref=f10e914] [cursor=pointer]
+        - button "Expand navigation" [ref=f10e915] [cursor=pointer]
+        - img "FARE" [ref=f10e916]
+      - generic [ref=f10e150]:
+        - list [ref=f10e151]:
+          - listitem [ref=f10e152]:
+            - button "Home" [ref=f10e917] [cursor=pointer]
+        - list [ref=f10e160]:
+          - listitem [ref=f10e161]:
+            - button "Insights" [ref=f10e918] [cursor=pointer]
+        - list [ref=f10e169]:
+          - listitem [ref=f10e170]:
+            - button "Reports" [ref=f10e919] [cursor=pointer]
+        - list [ref=f10e178]:
+          - listitem [ref=f10e179]:
+            - button "Customers" [ref=f10e920] [cursor=pointer]
+        - list [ref=f10e190]:
+          - listitem [ref=f10e191]:
+            - button "Orders" [ref=f10e921] [cursor=pointer]
+        - list [ref=f10e200]:
+          - listitem [ref=f10e201]:
+            - button "Stores" [ref=f10e922] [cursor=pointer]
+        - list [ref=f10e209]:
+          - listitem [ref=f10e210]:
+            - button "Marketing" [ref=f10e923] [cursor=pointer]
+        - list [ref=f10e218]:
+          - listitem [ref=f10e219]:
+            - button "Menu pricing" [ref=f10e924] [cursor=pointer]
+        - list [ref=f10e227]:
+          - listitem [ref=f10e228]:
+            - button "Financials" [ref=f10e925] [cursor=pointer]
+        - list [ref=f10e237]:
+          - listitem [ref=f10e238]:
+            - button "Manage users" [ref=f10e926] [cursor=pointer]
+        - list [ref=f10e247]:
+          - listitem [ref=f10e248]:
+            - button "Settings" [ref=f10e927] [cursor=pointer]
+        - list [ref=f10e256]:
+          - listitem [ref=f10e257]:
+            - button "Add solutions" [ref=f10e928] [cursor=pointer]
+        - list [ref=f10e266]:
+          - listitem [ref=f10e267]:
+            - button "Help" [ref=f10e929] [cursor=pointer]
+        - list "Channels" [ref=f10e930]:
+          - listitem [ref=f10e280]:
+            - button "Online Ordering" [ref=f10e931] [cursor=pointer]
+          - listitem [ref=f10e289]:
+            - button "Request a delivery" [ref=f10e932] [cursor=pointer]
+      - button "Mark Rubinstein menu" [ref=f10e933] [cursor=pointer]
+    - generic [ref=f10e303]:
+      - navigation [ref=f10e1872]:
+        - generic [ref=f10e1876]:
+          - generic [ref=f10e1877]: Payouts
+          - generic [ref=f10e1879]:
+            - text: Here is where you will find a summary of your Transactions and Payouts.
+            - link "Learn more" [ref=f10e1880] [cursor=pointer]:
+              - /url: https://get.doordash.com/en-us/learning-center/payout-and-monthly-statement?utm_source=DoorDash&utm_medium=Direct&utm_campaign=MX_US_IPN_WEB_OTH_MPL_MTP_MOF_EXA_ENG_5_CUSXXX___MX_Portal_Internal_Link
+        - separator [ref=f10e1882]
+      - generic [ref=f10e1941]:
+        - generic [ref=f10e1943]:
+          - generic [ref=f10e1945]:
+            - generic [ref=f10e1946]: Turn payout questions into answers
+            - generic [ref=f10e1947]: Your assistant can explain payouts and break down where your money went
+          - button "Break down my payouts" [ref=f10e1949] [cursor=pointer]
+        - generic [ref=f10e1955]:
+          - generic [ref=f10e1956]:
+            - button "Last 30 days" [ref=f10e1958] [cursor=pointer]
+            - button "All stores (10)" [ref=f10e1964] [cursor=pointer]
+          - button "Create report" [ref=f10e1968] [cursor=pointer]
+        - generic [ref=f10e1974]:
+          - table [ref=f10e1977]:
+            - rowgroup [ref=f10e1978]:
+              - row [ref=f10e1979]:
+                - columnheader "Payout date" [ref=f10e1980]
+                - columnheader "Payout ID" [ref=f10e1985]
+                - columnheader "Status" [ref=f10e1988]
+                - columnheader "Store" [ref=f10e1991]
+                - columnheader "Sales" [ref=f10e1994]
+                - columnheader "Commission & fees" [ref=f10e1999]
+                - columnheader "Marketing spend" [ref=f10e2004]
+                - columnheader "Amendments" [ref=f10e2009]
+                - columnheader "Net payout" [ref=f10e2014]
+            - rowgroup [ref=f10e2019]:
+              - row [ref=f10e2020] [cursor=pointer]:
+                - cell "10/1/2026" [ref=f10e2021]
+                - cell "615928182" [ref=f10e2023]
+                - cell "Paid" [ref=f10e2025]
+                - cell "FARE Loop (S Franklin) (Marketplace)" [ref=f10e2030]
+                - cell "$1,497.22" [ref=f10e2032]
+                - cell "-$216.14" [ref=f10e2034]
+                - cell "-$22.00" [ref=f10e2036]
+                - cell "$0.00" [ref=f10e2038]
+                - cell "$1,259.08" [ref=f10e2040]
+              - row [ref=f10e2042]:
+                - cell "10/1/2026" [ref=f10e2043]
+                - cell "616128216" [ref=f10e2045]
+                - cell "Paid" [ref=f10e2047]
+                - cell "FARE Lake & LaSalle (Marketplace)" [ref=f10e2052]
+                - cell "$1,155.30" [ref=f10e2054]
+                - cell "-$247.67" [ref=f10e2056]
+                - cell "$0.00" [ref=f10e2058]
+                - cell "-$27.16" [ref=f10e2060]
+                - cell "$880.47" [ref=f10e2062]
+              - row [ref=f10e2064]:
+                - cell "10/1/2026" [ref=f10e2065]
+                - cell "616096032" [ref=f10e2067]
+                - cell "Paid" [ref=f10e2069]
+                - cell "FARE Lakeview (Marketplace)" [ref=f10e2074]
+                - cell "$1,748.04" [ref=f10e2076]
+                - cell "-$331.09" [ref=f10e2078]
+                - cell "$0.00" [ref=f10e2080]
+                - cell "-$65.58" [ref=f10e2082]
+                - cell "$1,351.37" [ref=f10e2084]
+              - row [ref=f10e2086]:
+                - cell "10/1/2026" [ref=f10e2087]
+                - cell "616123719" [ref=f10e2089]
+                - cell "Paid" [ref=f10e2091]
+                - cell "FARE Sterling Food Hall (Marketplace)" [ref=f10e2096]
+                - cell "$263.43" [ref=f10e2098]
+                - cell "-$46.03" [ref=f10e2100]
+                - cell "-$11.00" [ref=f10e2102]
+                - cell "$0.00" [ref=f10e2104]
+                - cell "$206.40" [ref=f10e2106]
+              - row [ref=f10e2108]:
+                - cell "10/1/2026" [ref=f10e2109]
+                - cell "616160233" [ref=f10e2111]
+                - cell "Paid" [ref=f10e2113]
+                - cell "FARE Old Town (Marketplace)" [ref=f10e2118]
+                - cell "$2,208.08" [ref=f10e2120]
+                - cell "-$488.18" [ref=f10e2122]
+                - cell "$0.00" [ref=f10e2124]
+                - cell "-$15.62" [ref=f10e2126]
+                - cell "$1,704.28" [ref=f10e2128]
+              - row [ref=f10e2130]:
+                - cell "10/1/2026" [ref=f10e2131]
+                - cell "616136337" [ref=f10e2133]
+                - cell "Paid" [ref=f10e2135]
+                - cell "FARE Old Post Office (Marketplace)" [ref=f10e2140]
+                - cell "$332.13" [ref=f10e2142]
+                - cell "-$83.15" [ref=f10e2144]
+                - cell "-$22.00" [ref=f10e2146]
+                - cell "$0.00" [ref=f10e2148]
+                - cell "$226.98" [ref=f10e2150]
+              - row [ref=f10e2152]:
+                - cell "10/1/2026" [ref=f10e2153]
+                - cell "615908712" [ref=f10e2155]
+                - cell "Paid" [ref=f10e2157]
+                - cell "FARE Logan Square (Marketplace)" [ref=f10e2162]
+                - cell "$3,773.85" [ref=f10e2164]
+                - cell "-$904.90" [ref=f10e2166]
+                - cell "-$153.00" [ref=f10e2168]
+                - cell "-$52.32" [ref=f10e2170]
+                - cell "$2,663.63" [ref=f10e2172]
+              - row [ref=f10e2174]:
+                - cell "10/1/2026" [ref=f10e2175]
+                - cell "616118906" [ref=f10e2177]
+                - cell "Paid" [ref=f10e2179]
+                - cell "FARE Oak Park (Marketplace)" [ref=f10e2184]
+                - cell "$1,811.74" [ref=f10e2186]
+                - cell "-$434.47" [ref=f10e2188]
+                - cell "-$79.00" [ref=f10e2190]
+                - cell "-$136.85" [ref=f10e2192]
+                - cell "$1,161.42" [ref=f10e2194]
+              - row [ref=f10e2196]:
+                - cell "10/1/2026" [ref=f10e2197]
+                - cell "616053717" [ref=f10e2199]
+                - cell "Paid" [ref=f10e2201]
+                - cell "FARE Northwestern Memorial Hospital (Marketplace)" [ref=f10e2206]
+                - cell "$621.80" [ref=f10e2208]
+                - cell "-$139.06" [ref=f10e2210]
+                - cell "-$22.00" [ref=f10e2212]
+                - cell "-$5.51" [ref=f10e2214]
+                - cell "$455.23" [ref=f10e2216]
+              - row [ref=f10e2218]:
+                - cell "9/24/2026" [ref=f10e2219]
+                - cell "614002647" [ref=f10e2221]
+                - cell "Paid" [ref=f10e2223]
+                - cell "FARE Loop (S Franklin) (Marketplace)" [ref=f10e2228]
+                - cell "$1,537.33" [ref=f10e2230]
+                - cell "-$263.59" [ref=f10e2232]
+                - cell "-$55.00" [ref=f10e2234]
+                - cell "$0.00" [ref=f10e2236]
+                - cell "$1,218.74" [ref=f10e2238]
+              - row [ref=f10e2240]:
+                - cell "9/24/2026" [ref=f10e2241]
+                - cell "614345660" [ref=f10e2243]
+                - cell "Paid" [ref=f10e2245]
+                - cell "FARE Oak Park (Marketplace)" [ref=f10e2250]
+                - cell "$1,509.80" [ref=f10e2252]
+                - cell "-$373.65" [ref=f10e2254]
+                - cell "-$71.52" [ref=f10e2256]
+                - cell "-$24.09" [ref=f10e2258]
+                - cell "$1,040.54" [ref=f10e2260]
+              - row [ref=f10e2262]:
+                - cell "9/24/2026" [ref=f10e2263]
+                - cell "614393781" [ref=f10e2265]
+                - cell "Paid" [ref=f10e2267]
+                - cell "FARE Old Post Office (Marketplace)" [ref=f10e2272]
+                - cell "$346.54" [ref=f10e2274]
+                - cell "-$97.36" [ref=f10e2276]
+                - cell "-$22.00" [ref=f10e2278]
+                - cell "$0.00" [ref=f10e2280]
+                - cell "$227.18" [ref=f10e2282]
+              - row [ref=f10e2284]:
+                - cell "9/24/2026" [ref=f10e2285]
+                - cell "614209721" [ref=f10e2287]
+                - cell "Paid" [ref=f10e2289]
+                - cell "FARE Northwestern Memorial Hospital (Marketplace)" [ref=f10e2294]
+                - cell "$518.19" [ref=f10e2296]
+                - cell "-$112.54" [ref=f10e2298]
+                - cell "$0.00" [ref=f10e2300]
+                - cell "-$18.73" [ref=f10e2302]
+                - cell "$386.92" [ref=f10e2304]
+              - row [ref=f10e2306]:
+                - cell "9/24/2026" [ref=f10e2307]
+                - cell "614157885" [ref=f10e2309]
+                - cell "Paid" [ref=f10e2311]
+                - cell "FARE Lakeview (Marketplace)" [ref=f10e2316]
+                - cell "$1,323.55" [ref=f10e2318]
+                - cell "-$128.44" [ref=f10e2320]
+                - cell "$0.00" [ref=f10e2322]
+                - cell "-$21.89" [ref=f10e2324]
+                - cell "$1,173.22" [ref=f10e2326]
+              - row [ref=f10e2328]:
+                - cell "9/24/2026" [ref=f10e2329]
+                - cell "614197006" [ref=f10e2331]
+                - cell "Paid" [ref=f10e2333]
+                - cell "FARE Lake & LaSalle (Marketplace)" [ref=f10e2338]
+                - cell "$548.12" [ref=f10e2340]
+                - cell "-$116.63" [ref=f10e2342]
+                - cell "$0.00" [ref=f10e2344]
+                - cell "$0.00" [ref=f10e2346]
+                - cell "$431.49" [ref=f10e2348]
+              - row [ref=f10e2350]:
+                - cell "9/24/2026" [ref=f10e2351]
+                - cell "614227229" [ref=f10e2353]
+                - cell "Paid" [ref=f10e2355]
+                - cell "FARE Logan Square (Marketplace)" [ref=f10e2360]
+                - cell "$4,567.53" [ref=f10e2362]
+                - cell "-$1,097.02" [ref=f10e2364]
+                - cell "-$134.39" [ref=f10e2366]
+                - cell "-$61.74" [ref=f10e2368]
+                - cell "$3,274.38" [ref=f10e2370]
+              - row [ref=f10e2372]:
+                - cell "9/24/2026" [ref=f10e2373]
+                - cell "614290925" [ref=f10e2375]
+                - cell "Paid" [ref=f10e2377]
+                - cell "FARE Old Town (Marketplace)" [ref=f10e2382]
+                - cell "$2,904.50" [ref=f10e2384]
+                - cell "-$612.01" [ref=f10e2386]
+                - cell "$0.00" [ref=f10e2388]
+                - cell "-$33.92" [ref=f10e2390]
+                - cell "$2,258.57" [ref=f10e2392]
+              - row [ref=f10e2394]:
+                - cell "9/24/2026" [ref=f10e2395]
+                - cell "614251497" [ref=f10e2397]
+                - cell "Paid" [ref=f10e2399]
+                - cell "FARE Sterling Food Hall (Marketplace)" [ref=f10e2404]
+                - cell "$180.99" [ref=f10e2406]
+                - cell "-$33.77" [ref=f10e2408]
+                - cell "$0.00" [ref=f10e2410]
+                - cell "$0.00" [ref=f10e2412]
+                - cell "$147.22" [ref=f10e2414]
+              - row [ref=f10e2416]:
+                - cell "9/17/2026" [ref=f10e2417]
+                - cell "612385442" [ref=f10e2419]
+                - cell "Paid" [ref=f10e2421]
+                - cell "FARE Sterling Food Hall (Marketplace)" [ref=f10e2426]
+                - cell "$127.37" [ref=f10e2428]
+                - cell "-$17.54" [ref=f10e2430]
+                - cell "$0.00" [ref=f10e2432]
+                - cell "$0.00" [ref=f10e2434]
+                - cell "$109.83" [ref=f10e2436]
+              - row [ref=f10e2438]:
+                - cell "9/17/2026" [ref=f10e2439]
+                - cell "612415307" [ref=f10e2441]
+                - cell "Paid" [ref=f10e2443]
+                - cell "FARE Logan Square (Marketplace)" [ref=f10e2448]
+                - cell "$3,879.23" [ref=f10e2450]
+                - cell "-$942.35" [ref=f10e2452]
+                - cell "-$141.36" [ref=f10e2454]
+                - cell "-$76.84" [ref=f10e2456]
+                - cell "$2,718.68" [ref=f10e2458]
+          - navigation "Table Pagination" [ref=f10e2461]:
+            - list [ref=f10e2462]:
+              - listitem [ref=f10e2463]:
+                - button "go to previous page" [disabled] [ref=f10e2464]
+              - listitem [ref=f10e2467]:
+                - button "you are currently on page 1" [ref=f10e2468] [cursor=pointer]:
+                  - generic [ref=f10e2469]: "1"
+              - listitem [ref=f10e2470]:
+                - button "go to page 2" [ref=f10e2471] [cursor=pointer]:
+                  - generic [ref=f10e2472]: "2"
+              - listitem [ref=f10e2473]:
+                - button "go to next page" [ref=f10e2474] [cursor=pointer]
+  - iframe [ref=f10e900]:
     
 ```
+### Events
+- New console entries: .playwright-cli\console-2026-10-03T16-17-04-568Z.log#L52

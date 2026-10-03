@@ -1,0 +1,19 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"9/27/2026\",\"number\":\"UberEats Fees\",\"lines\":[{\"a\":\"1111 - Uber Eats Deposit Clearing\",\"dr\":1613.64,\"cr\":0,\"c\":\"\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7380 - Uber Eats Third Party Fees\",\"dr\":756.93,\"cr\":0,\"c\":\"marketplace fees\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"7535 - Third Party Refunds\",\"dr\":43.94,\"cr\":0,\"c\":\"net chargeback\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"2270 - Sales Tax Payable\",\"dr\":378.89,\"cr\":0,\"c\":\"\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"},{\"a\":\"2270 - Sales Tax Payable\",\"dr\":0,\"cr\":2793.4,\"c\":\"backup withholding reimbursement\",\"loc\":\"11200 - FARE Lakeview (W Diversey)\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```
+### Page
+- Page URL: https://fare.restaurant365.com/#/form/JournalEntryForm/6bcfff1b-0a60-4f28-87a4-3a74cdb8b4c4
+- Page Title: Journal Entry - UberEats Fees
+- Console: 40 errors, 0 warnings
+### Events
+- New console entries: ..\.playwright-cli\console-2026-10-03T16-41-35-653Z.log#L26-L97
