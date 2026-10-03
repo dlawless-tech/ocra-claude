@@ -231,3 +231,7 @@ grep -oE 'cell "[^"]*"' snapshot.txt | sed 's/^cell "//; s/"$//'
 ```
 
 Cells arrive in row order, so a location's block runs from its name through its `Total ...` row.
+
+## Duplicating an entry
+
+`Action > Duplicate` on a saved journal entry opens the copy in a **new tab**, already holding an id and numbered `NJ...`, dated today, with every line and amount of the source. Select the last tab before touching it, set `input[name="journalEntryDate"]` and `input[name="journalEntryNumber"]` with `fill` then Tab, and change or zero every amount, since the copied ones are live. The source entry is left untouched.

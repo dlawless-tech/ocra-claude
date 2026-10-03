@@ -1,11 +1,11 @@
 ---
 name: bowery-grubhub
-description: Reconcile Grubhub deposits into the matching Bowery Group Restaurant365 journal entries, for one store or for all four in a batch. Use when asked to post or balance a Bowery Grubhub deposit in R365, to pull a Bowery store's Grubhub period figures, or to check the Bowery A/R Grub Hub balance against a deposit.
+description: Reconcile Grubhub deposits into the matching Bowery Group Restaurant365 journal entries, for one store or for all four in a batch, with a tie-out and Grubhub deposit PDF attached to each, and a separate entry for the part of a period before month end. Use when asked to post or balance a Bowery Grubhub deposit in R365, to pull a Bowery store's Grubhub period figures, or to check the Bowery A/R Grub Hub balance against a deposit.
 ---
 
 # Grubhub deposit into a Bowery journal entry
 
-Two phases. **Gather** every figure first, from Grubhub and from one GL report, then **post** the entries. Both phases read in bulk, so a four store run costs about the same reading as a single store.
+Two phases. **Gather** every figure first, from Grubhub and from one GL report, then **post** the entries and attach their backup. Both phases read in bulk, so a four store run costs about the same reading as a single store.
 
 Sessions:
 
@@ -14,6 +14,8 @@ playwright-cli -s=bgh open --headed https://restaurant.grubhub.com/login        
 playwright-cli -s=bj open --headed https://bowerygroup.restaurant365.com/react/accounting   # journal entries
 playwright-cli -s=bb open --headed https://bowerygroup.restaurant365.com/react/accounting   # GL report
 ```
+
+`scripts/backup/render-pdf.sh` opens and closes its own headless `bpdf` session.
 
 `playwright-cli` binds sessions to the working directory. Stay in one directory for a whole run, and never `cd` mid run or the sessions vanish.
 
@@ -28,6 +30,19 @@ Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATIO
 Bowery's Grubhub period runs **Tuesday to Monday**, so September's first period is 9/1 through 9/7. The journal entry is dated the **Sunday inside the period**, 9/6 for that one, and the GL report window is the period itself, 9/1 through 9/7.
 
 The Uber Eats period is Monday to Sunday and its entry is dated the Sunday that ends the period. Carrying that habit here dates the entry 9/7 and reads a window one day off.
+
+### Month end splits the period
+
+Grubhub cuts every deposit at month end. A period that crosses into a new month settles as two deposits, and each gets its own entry:
+
+| Part | Sales window | Entry date | Deposit |
+|---|---|---|---|
+| Before month end | period start to the last day of the month | the last day of the month | paid the 1st, a day after month end |
+| After month end | the 1st to the period's Monday | the Sunday inside the period, or the Monday when the month ended on that Sunday | paid the usual Wednesday |
+
+Period 9/29 to 10/5 2026: a 9/30 entry for 9/29 to 9/30 (deposits `26100201...`, paid 10/1), then the 10/4 entry for 10/1 to 10/5 only. A month that ends on the period's Monday needs no split.
+
+R365 pre-creates only the Sunday template, so the month-end entry has to be made. `scripts/duplicate-entry.sh <session> <prior entry id> <M/D/YYYY>` duplicates the store's previous GrubHub entry, sets the date and number, zeroes every line, saves, and prints the new id for the work file.
 
 ## Logins
 
@@ -47,7 +62,14 @@ Grubhub's picker names each store by street: `Cookshop - 10th Ave`, `Rosie's - E
 
 ## Phase 1: the Grubhub figures
 
-Once logged in, **read the figures from the API the Deposit history page itself calls**, through `eval` in the Grubhub session. Two calls cover all four stores, with no clicking:
+Once logged in, **read the figures from the API the Deposit history page itself calls**, through `eval` in the Grubhub session. `scripts/deposits.js` pulls every deposit with its totals, its sales by New York day, and its refund and adjustment rows, which the backup reuses:
+
+```bash
+sed -e 's/__START__/2026-09-08/' -e 's/__END__/2026-09-25/' .claude/skills/bowery-grubhub/scripts/deposits.js > .scratch/bgh<MMDD>/dep.js
+playwright-cli -s=bgh eval "$(cat .scratch/bgh<MMDD>/dep.js)" | sed -n '/### Result/,/### Ran/p' | sed '1d;$d' > .scratch/bgh<MMDD>/deps.json
+```
+
+The calls underneath, two for all four stores:
 
 ```js
 const H = {authorization: 'Bearer ' + sessionStorage.getItem('authToken'), accept: 'application/json'};
@@ -84,6 +106,8 @@ The UI path, **Financials > Deposit history** then click each deposit ID, is the
 The daily journal entries debit `104-06 - A/R - Grub Hub` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
 
 Reports > My reports in `bb`. Run **GL Account Detail** through Customize with account `104-06 - A/R - Grub Hub`, Start 9/1 and End 9/7, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R - Grub Hub` **Debit** figure, which is that store's D.
+
+Save the report's cells (`grep -oE 'cell "[^"]*"' <snapshot> | sed 's/^cell "//; s/"$//' > cells.txt`). `node scripts/backup/gl-days.js cells.txt` turns them into each location's debits by day, which the backup and any difference hunt both use.
 
 The window is the period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
@@ -142,8 +166,21 @@ Run stores in parallel by giving each worker its own session name. See `scripts/
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
+## Backup on every entry
+
+Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, where store is `Cookshop`, `Rosie`, `Shuka` or `Vic`. Page one is the tie-out: the entry as posted, D less the net deposit against the posted A/R credit, the three fees, the difference, R365 against Grubhub by day, the deposit's refund and adjustment rows, and a note naming the cause of any dollar difference. The pages after it are Grubhub's own deposit page. The Grubhub page has no download button, so the capture is the source document.
+
+1. **Capture** each deposit, all in the `bgh` session:
+   ```bash
+   bash scripts/backup/capture-deposit.sh bgh <restaurant id> <short_distribution_id> .scratch/bgh<MMDD>/shots/<sid>.png "09/01/2026 - 10/03/2026"
+   ```
+   It prints the page's Deposit Total; check it against the net. Restaurant ids: Cookshop 2224512, Rosie's 2217880, Shuka 2221704, Vic's 2220039. Close the terms popup and never click "I agree"; the script does this.
+2. **Build** one page per entry from a plan file: `{entryDate, store, location, status, window, lines, glDays, deposit, png, note}`. `lines` are read back from the saved entry as `[account, debit, credit, comment]`, `glDays` is the location's object from `gl-days.js`, and `deposit` is the record from `deps.json`, which is a JSON string to parse twice. `node scripts/backup/build-backup.js plan.json <id>.html` prints `ties` or `DOES NOT TIE`. Stop on the second.
+3. **Render**: `bash scripts/backup/render-pdf.sh <html dir> <id> <out.pdf> ...` serves the pages on localhost, since the browser blocks `file:` URLs, and prints each PDF's size. A file under 1 KB is a blank page.
+4. **Attach** after approving: put each PDF alone in a folder under the working directory and run `bash .claude/skills/bowery-payroll/scripts/attach.sh bj <TransactionId> <folder>`. It deletes any attachment not in the folder, so list the entry's attachments first and leave an entry alone if it holds someone else's file.
+
 ## Verifying the run
 
-Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
+Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved**, the amount matches the planned total for that store, and the `Attachment` field shows the backup. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
-Report the table of stores, deposit IDs, amounts, and totals, and report any store that failed just as plainly.
+Report the table of stores, deposit IDs, amounts, totals, and backup attached, and report any store that failed just as plainly.
