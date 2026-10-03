@@ -29,7 +29,7 @@ bash <skill>/scripts/list-payouts.sh tsp <store> <start minus 7 days>
 
 Each deposit pairs with the payout of the same net amount dated up to 7 days before it; the bank posts a payout one to five business days after its payout date. Where several payouts share an amount (194.45 is common), pair oldest payout to oldest deposit. Pairing is done when every deposit has its payout.
 
-- A payout with no deposit has not reached R365 yet. Leave it for next week's run and list it in the report.
+- A payout with no deposit has not reached R365 yet. Leave it for next week's run and list it in the report, unless it was paid out in a month that is closing; then ask the human whether to post it ahead (see **Month end: post a payout ahead**).
 - A deposit with no payout: stop and show it to the human.
 
 ## Step 3: post each pair
@@ -50,6 +50,23 @@ Report a table per store: deposit, date, 253-00 credit, 632-00 debit, 401-27 deb
 playwright-cli -s=bts close
 playwright-cli -s=tsp close
 ```
+
+## Month end: post a payout ahead
+
+A payout dated in a closing month whose bank line lands in the next month is posted ahead as a standalone deposit dated the payout date. It stays outstanding until bank activity downloads, and R365 matches the bank line to it automatically. The 9/29/2026 Vic's payout went in this way as BD000397.
+
+1. Open a blank form at `https://bowerygroup.restaurant365.com/#/form/BankDepositForm/00000000-0000-0000-0000-000000000000`. It opens on `800 - Bowery Group Corp`, and its Checking Account list holds only that location's accounts, so set the location first, then the account (`100-05` Rosie's, `100-08` Vic's, `100-10` Cookshop).
+2. Set every dropdown through its Kendo widget, since a click on these inputs often misses and the typed text then lands in whichever field holds focus. The widget sits beside the visible input:
+   ```js
+   const w = jQuery('[name=bankDepositLocation_input]:visible').closest('.k-widget').find('[data-role=combobox]').data('kendoComboBox');
+   w.dataSource.filter({field: w.options.dataTextField, operator: 'contains', value: '700'});
+   // after the read: w.value(<matching item>[w.options.dataValueField]); w.trigger('change');
+   ```
+   The Adjustments new-row account picker is the same widget behind `input[placeholder="Select Account"]`, with `label` as its text field.
+3. `fill` then `press Tab` on `#bankDepositDate` and `#bankDepositComment` (`Refunds from Paysafe`, so `find-deposits.sh` finds it).
+4. Open the Adjustments tab by clicking its `[role=tab]` element through `eval`; a `text=Adjustments` click lands elsewhere. Leave the Undeposited Payments tab's rows unchecked.
+5. Add the lines from **The lines** (253-00 positive, debits negative on the form model), check the Deposit Total equals the payout net, attach the payout PDF, then save through the ribbon: hover `#Approve > a` and click its last `Approve` item. The new id appears in `location.hash`.
+6. Reload the deposit and read it with `scripts/read-deposit.js`: Approved, the lines, the total and the PDF.
 
 ## The lines
 

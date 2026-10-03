@@ -34,11 +34,11 @@ echo "payout $PO gross $GROSS refund $REFUND fee $FEE net $NET"
 node -e "process.exit($FEE<0?1:0)" || { echo "FAIL: negative fee $FEE (nothing changed)"; exit 1; }
 WANT=$( { echo "253-00=$GROSS"; [ "$FEE" != "0.00" ] && echo "632-00=-$FEE"; [ "$REFUND" != "0.00" ] && echo "401-27=-$REFUND"; } | sort | paste -sd, )"|$NET"
 
-# 2. print the payout page as one wide page; overflow boxes opened so every column shows
+# 2. print the payout page as one page, full height; overflow boxes opened so every column and row shows
 $T resize 1600 1200 >/dev/null 2>&1; sleep 2
 $T eval "() => { document.querySelectorAll('*').forEach(e=>{const c=getComputedStyle(e); if(/(auto|scroll|hidden)/.test(c.overflow+c.overflowX+c.overflowY))e.style.overflow='visible'; if(c.maxHeight!=='none')e.style.maxHeight='none'; if(e.scrollHeight>e.clientHeight&&c.height!=='auto'&&e!==document.documentElement&&e!==document.body)e.style.height='auto';}); }" >/dev/null 2>&1
 P=$(node -e 'console.log(JSON.stringify(process.argv[1]))' "$F")
-$T run-code "async page => { await page.emulateMedia({media:'screen'}); await page.pdf({path:$P, width:'1600px', height:'1500px', printBackground:true, pageRanges:'1'}); return 'ok'; }" >/dev/null 2>&1
+$T run-code "async page => { await page.emulateMedia({media:'screen'}); const h=await page.evaluate(()=>document.documentElement.scrollHeight); await page.pdf({path:$P, width:'1600px', height:Math.max(1500,h+40)+'px', printBackground:true, pageRanges:'1'}); return 'ok'; }" >/dev/null 2>&1
 [ -s "$F" ] || { echo "FAIL: no pdf $F (nothing changed)"; exit 1; }
 
 # 3. the deposit's lines
