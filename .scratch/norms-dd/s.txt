@@ -1,0 +1,437 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/financials?business_id=4360
+- Page Title: DoorDash Food Delivery | Merchant Portal
+- Console: 2 errors, 13 warnings
+### Snapshot
+```yaml
+- generic [ref=f11e1]:
+  - link [ref=f11e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f11e9]:
+    - generic [ref=f11e13]:
+      - generic [ref=f11e15]:
+        - generic [ref=f11e18] [cursor=pointer]:
+          - button "Assistant" [ref=f11e808]
+          - generic [ref=f11e22]: Beta
+        - generic [ref=f11e25]:
+          - button "Start new chat" [ref=f11e809] [cursor=pointer]
+          - button "All chats" [ref=f11e810] [cursor=pointer]
+          - button "Collapse Chat" [ref=f11e811] [cursor=pointer]
+      - generic [ref=f11e868]:
+        - generic [ref=f11e869]: Financials page
+        - generic [ref=f11e874]:
+          - generic [ref=f11e875]: All 20 visible payouts dated 10/1/2026 show Paid status across 27 stores - no pending or failed disbursements on this page.
+          - generic [ref=f11e876]: Norms (Downey) carries the largest negative amendments at -$155.78, worth a closer look to confirm the deduction is expected.
+        - generic [ref=f11e877]: If you want me to stop sending you page-specific messages, just tell me.
+      - generic [ref=f11e885]:
+        - generic [ref=f11e886]:
+          - generic [ref=f11e887]: What do you want to do next?
+          - button "Close" [ref=f11e889] [cursor=pointer]
+        - generic [ref=f11e894]:
+          - button "1 Break down amendments by store" [ref=f11e895] [cursor=pointer]:
+            - generic [ref=f11e896]: "1"
+            - generic [ref=f11e898]: Break down amendments by store
+          - button "2 Explain why net payouts vary across stores" [ref=f11e903] [cursor=pointer]:
+            - generic [ref=f11e904]: "2"
+            - generic [ref=f11e906]: Explain why net payouts vary across stores
+          - button "3 Identify stores with highest commission fees" [ref=f11e909] [cursor=pointer]:
+            - generic [ref=f11e910]: "3"
+            - generic [ref=f11e912]: Identify stores with highest commission fees
+          - button "4 Something else" [ref=f11e915] [cursor=pointer]:
+            - generic [ref=f11e916]: "4"
+            - generic [ref=f11e918]: Something else
+      - generic [ref=f11e71]:
+        - generic: Ask anything...
+        - generic [ref=f11e75]:
+          - textbox [ref=f11e77]
+          - generic [ref=f11e79]:
+            - button "Start voice recording" [ref=f11e815] [cursor=pointer]
+            - button "send" [disabled] [ref=f11e921]
+      - generic [ref=f11e88]:
+        - generic [ref=f11e89]: Uses AI, may contain inaccuracies
+        - button "Learn more" [ref=f11e817] [cursor=pointer]
+    - navigation "Merchant Navigation" [ref=f11e818]:
+      - generic [ref=f11e101]:
+        - button "DoorDash" [ref=f11e819] [cursor=pointer]
+        - img "NORMS" [ref=f11e820]
+      - generic [ref=f11e115]:
+        - list [ref=f11e116]:
+          - listitem [ref=f11e117]:
+            - button "Home" [ref=f11e821] [cursor=pointer]
+        - list [ref=f11e125]:
+          - listitem [ref=f11e126]:
+            - button "Insights" [ref=f11e822] [cursor=pointer]
+        - list [ref=f11e134]:
+          - listitem [ref=f11e135]:
+            - button "Reports" [ref=f11e823] [cursor=pointer]
+        - list [ref=f11e143]:
+          - listitem [ref=f11e144]:
+            - button "Customers" [ref=f11e824] [cursor=pointer]
+        - list [ref=f11e155]:
+          - listitem [ref=f11e156]:
+            - button "Orders" [ref=f11e825] [cursor=pointer]
+        - list [ref=f11e165]:
+          - listitem [ref=f11e166]:
+            - button "Stores" [ref=f11e826] [cursor=pointer]
+        - list [ref=f11e174]:
+          - listitem [ref=f11e175]:
+            - button "Marketing" [ref=f11e827] [cursor=pointer]
+        - list [ref=f11e183]:
+          - listitem [ref=f11e184]:
+            - button "Menu pricing" [ref=f11e828] [cursor=pointer]
+        - list [ref=f11e192]:
+          - listitem [ref=f11e193]:
+            - button "Financials" [ref=f11e829] [cursor=pointer]
+        - list [ref=f11e202]:
+          - listitem [ref=f11e203]:
+            - button "Manage users" [ref=f11e830] [cursor=pointer]
+        - list [ref=f11e212]:
+          - listitem [ref=f11e213]:
+            - button "Settings" [ref=f11e831] [cursor=pointer]
+        - list [ref=f11e221]:
+          - listitem [ref=f11e222]:
+            - button "Add solutions" [ref=f11e832] [cursor=pointer]
+        - list [ref=f11e231]:
+          - listitem [ref=f11e232]:
+            - button "Help" [ref=f11e833] [cursor=pointer]
+        - list "Channels" [ref=f11e834]:
+          - listitem [ref=f11e245]:
+            - button "Direct Ordering" [ref=f11e835] [cursor=pointer]
+          - listitem [ref=f11e254]:
+            - button "Request a delivery" [ref=f11e836] [cursor=pointer]
+      - button "Mark Rubinstein menu" [ref=f11e837] [cursor=pointer]
+    - generic [ref=f11e268]:
+      - generic [ref=f11e929]:
+        - navigation [ref=f11e930]:
+          - generic [ref=f11e932]:
+            - button "Show Side Menu" [ref=f11e933] [cursor=pointer]
+            - generic [ref=f11e936]: Payouts
+        - generic [ref=f11e943]:
+          - text: Here is where you will find a summary of your Transactions and Payouts.
+          - link "Learn more" [ref=f11e944] [cursor=pointer]:
+            - /url: https://get.doordash.com/en-us/learning-center/payout-and-monthly-statement?utm_source=DoorDash&utm_medium=Direct&utm_campaign=MX_US_IPN_WEB_OTH_MPL_MTP_MOF_EXA_ENG_5_CUSXXX___MX_Portal_Internal_Link
+      - generic [ref=f11e949]:
+        - status [ref=f11e951]:
+          - img "Important information icon" [ref=f11e953]
+          - generic [ref=f11e957]:
+            - generic [ref=f11e958]: Accelerate your business growth with up to $443,700 from DoorDash Capital
+            - generic [ref=f11e959]: Get up to $443,700 in as little as 1-2 days if approved. Use it for inventory, rent, hiring, or cash flow—you'll pay it back automatically through your DoorDash sales.
+          - button "View offer" [ref=f11e962] [cursor=pointer]
+          - button "Close" [ref=f11e968] [cursor=pointer]
+        - generic [ref=f11e972]:
+          - generic [ref=f11e974]:
+            - generic [ref=f11e975]: Turn payout questions into answers
+            - generic [ref=f11e976]: Your assistant can explain payouts and break down where your money went
+          - button "Break down my payouts" [ref=f11e978] [cursor=pointer]
+        - generic [ref=f11e985]:
+          - button "Last 30 days" [ref=f11e987] [cursor=pointer]
+          - button "All stores (27)" [ref=f11e993] [cursor=pointer]
+        - generic [ref=f11e998]:
+          - table [ref=f11e1001]:
+            - rowgroup [ref=f11e1002]:
+              - row [ref=f11e1003]:
+                - columnheader "Payout date" [ref=f11e1004]
+                - columnheader "Payout ID" [ref=f11e1009]
+                - columnheader "Status" [ref=f11e1012]
+                - columnheader "Store" [ref=f11e1015]
+                - columnheader "Sales" [ref=f11e1018]
+                - columnheader "Commission & fees" [ref=f11e1023]
+                - columnheader "Marketing spend" [ref=f11e1028]
+                - columnheader "Amendments" [ref=f11e1033]
+                - columnheader "Net payout" [ref=f11e1038]
+            - rowgroup [ref=f11e1043]:
+              - row [ref=f11e1516]:
+                - cell "10/1/2026" [ref=f11e1045]
+                - cell "615828666" [ref=f11e1517]
+                - cell "Paid" [ref=f11e1049]
+                - cell "Norms (Anaheim)" [ref=f11e1518]
+                - cell "$2,606.46" [ref=f11e1519]
+                - cell "-$574.05" [ref=f11e1520]
+                - cell "-$109.38" [ref=f11e1521]
+                - cell "-$15.61" [ref=f11e1522]
+                - cell "$1,907.42" [ref=f11e1523]
+              - row [ref=f11e1524]:
+                - cell "10/1/2026" [ref=f11e1067]
+                - cell "616120621" [ref=f11e1525]
+                - cell "Paid" [ref=f11e1071]
+                - cell "Norms (Pico Rivera)" [ref=f11e1526]
+                - cell "$2,006.15" [ref=f11e1527]
+                - cell "-$437.65" [ref=f11e1528]
+                - cell "-$51.27" [ref=f11e1529]
+                - cell "-$39.22" [ref=f11e1530]
+                - cell "$1,478.01" [ref=f11e1531]
+              - row [ref=f11e1532]:
+                - cell "10/1/2026" [ref=f11e1089]
+                - cell "616101830" [ref=f11e1533]
+                - cell "Paid" [ref=f11e1093]
+                - cell "Norms (Whittier)" [ref=f11e1534]
+                - cell "$3,171.51" [ref=f11e1535]
+                - cell "-$688.36" [ref=f11e1536]
+                - cell "-$116.33" [ref=f11e1537]
+                - cell "-$59.13" [ref=f11e1538]
+                - cell "$2,307.69" [ref=f11e1539]
+              - row [ref=f11e1540]:
+                - cell "10/1/2026" [ref=f11e1111]
+                - cell "616167133" [ref=f11e1541]
+                - cell "Paid" [ref=f11e1115]
+                - cell "Norms (Santa Ana)" [ref=f11e1542]
+                - cell "$2,866.04" [ref=f11e1543]
+                - cell "-$620.85" [ref=f11e1544]
+                - cell "-$139.78" [ref=f11e1545]
+                - cell "-$17.27" [ref=f11e1546]
+                - cell "$2,088.14" [ref=f11e1547]
+              - row [ref=f11e1548]:
+                - cell "9/24/2026" [ref=f11e1549]
+                - cell "613898245" [ref=f11e1550]
+                - cell "Paid" [ref=f11e1137]
+                - cell "Norms (West Covina)" [ref=f11e1551]
+                - cell "$960.97" [ref=f11e1552]
+                - cell "-$210.23" [ref=f11e1553]
+                - cell "-$10.00" [ref=f11e1554]
+                - cell "$0.00" [ref=f11e1555]
+                - cell "$740.74" [ref=f11e1556]
+              - row [ref=f11e1557]:
+                - cell "9/24/2026" [ref=f11e1558]
+                - cell "614372685" [ref=f11e1559]
+                - cell "Paid" [ref=f11e1159]
+                - cell "Norms (Van Nuys)" [ref=f11e1560]
+                - cell "$4,303.90" [ref=f11e1561]
+                - cell "-$931.54" [ref=f11e1562]
+                - cell "-$105.89" [ref=f11e1563]
+                - cell "-$20.13" [ref=f11e1564]
+                - cell "$3,246.34" [ref=f11e1565]
+              - row [ref=f11e1566]:
+                - cell "9/24/2026" [ref=f11e1567]
+                - cell "613845407" [ref=f11e1568]
+                - cell "Paid" [ref=f11e1181]
+                - cell "Norms (La Cienega)" [ref=f11e1569]
+                - cell "$4,917.04" [ref=f11e1570]
+                - cell "-$1,011.41" [ref=f11e1571]
+                - cell "-$322.63" [ref=f11e1572]
+                - cell "$30.25" [ref=f11e1573]
+                - cell "$3,613.25" [ref=f11e1574]
+              - row [ref=f11e1575]:
+                - cell "9/24/2026" [ref=f11e1576]
+                - cell "613870109" [ref=f11e1577]
+                - cell "Paid" [ref=f11e1203]
+                - cell "Norms (Slauson)" [ref=f11e1578]
+                - cell "$2,772.82" [ref=f11e1579]
+                - cell "-$612.82" [ref=f11e1580]
+                - cell "-$60.92" [ref=f11e1581]
+                - cell "-$67.35" [ref=f11e1582]
+                - cell "$2,031.73" [ref=f11e1583]
+              - row [ref=f11e1584]:
+                - cell "9/24/2026" [ref=f11e1585]
+                - cell "613848816" [ref=f11e1586]
+                - cell "Paid" [ref=f11e1225]
+                - cell "Norms (Huntington)" [ref=f11e1587]
+                - cell "$3,294.96" [ref=f11e1588]
+                - cell "-$705.62" [ref=f11e1589]
+                - cell "-$254.86" [ref=f11e1590]
+                - cell "-$5.77" [ref=f11e1591]
+                - cell "$2,328.71" [ref=f11e1592]
+              - row [ref=f11e1593]:
+                - cell "9/24/2026" [ref=f11e1594]
+                - cell "613963850" [ref=f11e1595]
+                - cell "Paid" [ref=f11e1247]
+                - cell "Norms (Ontario Mills)" [ref=f11e1252]
+                - cell "$961.52" [ref=f11e1596]
+                - cell "-$217.62" [ref=f11e1597]
+                - cell "-$17.97" [ref=f11e1258]
+                - cell "-$25.48" [ref=f11e1598]
+                - cell "$700.45" [ref=f11e1599]
+              - row [ref=f11e1600]:
+                - cell "9/24/2026" [ref=f11e1601]
+                - cell "613981870" [ref=f11e1602]
+                - cell "Paid" [ref=f11e1269]
+                - cell "Norms (Carson)" [ref=f11e1274]
+                - cell "$2,056.97" [ref=f11e1603]
+                - cell "-$450.76" [ref=f11e1604]
+                - cell "-$58.92" [ref=f11e1605]
+                - cell "-$46.07" [ref=f11e1606]
+                - cell "$1,501.22" [ref=f11e1607]
+              - row [ref=f11e1608]:
+                - cell "9/24/2026" [ref=f11e1609]
+                - cell "613939109" [ref=f11e1610]
+                - cell "Paid" [ref=f11e1291]
+                - cell "Norms (Downey)" [ref=f11e1611]
+                - cell "$2,157.14" [ref=f11e1612]
+                - cell "-$457.69" [ref=f11e1613]
+                - cell "-$71.13" [ref=f11e1614]
+                - cell "$0.00" [ref=f11e1615]
+                - cell "$1,628.32" [ref=f11e1616]
+              - row [ref=f11e1617]:
+                - cell "9/24/2026" [ref=f11e1618]
+                - cell "613846540" [ref=f11e1619]
+                - cell "Paid" [ref=f11e1313]
+                - cell "Norms Rialto (Renaissance Pkwy)" [ref=f11e1620]
+                - cell "$2,467.54" [ref=f11e1621]
+                - cell "-$551.57" [ref=f11e1622]
+                - cell "-$14.99" [ref=f11e1623]
+                - cell "-$49.48" [ref=f11e1624]
+                - cell "$1,851.50" [ref=f11e1625]
+              - row [ref=f11e1626]:
+                - cell "9/24/2026" [ref=f11e1627]
+                - cell "614046830" [ref=f11e1628]
+                - cell "Paid" [ref=f11e1335]
+                - cell "Norms (South Torrance)" [ref=f11e1629]
+                - cell "$1,522.52" [ref=f11e1630]
+                - cell "-$329.74" [ref=f11e1631]
+                - cell "-$34.95" [ref=f11e1632]
+                - cell "$0.00" [ref=f11e1633]
+                - cell "$1,157.83" [ref=f11e1634]
+              - row [ref=f11e1635]:
+                - cell "9/24/2026" [ref=f11e1636]
+                - cell "613888648" [ref=f11e1637]
+                - cell "Paid" [ref=f11e1357]
+                - cell "Norms (Orange)" [ref=f11e1638]
+                - cell "$1,016.75" [ref=f11e1639]
+                - cell "-$215.44" [ref=f11e1640]
+                - cell "-$50.61" [ref=f11e1641]
+                - cell "-$40.29" [ref=f11e1642]
+                - cell "$710.41" [ref=f11e1643]
+              - row [ref=f11e1644]:
+                - cell "9/24/2026" [ref=f11e1645]
+                - cell "614384480" [ref=f11e1646]
+                - cell "Paid" [ref=f11e1379]
+                - cell "Norms (Anaheim)" [ref=f11e1647]
+                - cell "$2,244.99" [ref=f11e1648]
+                - cell "-$498.36" [ref=f11e1649]
+                - cell "-$91.85" [ref=f11e1650]
+                - cell "$22.43" [ref=f11e1651]
+                - cell "$1,677.21" [ref=f11e1652]
+              - row [ref=f11e1653]:
+                - cell "9/24/2026" [ref=f11e1654]
+                - cell "614097755" [ref=f11e1655]
+                - cell "Paid" [ref=f11e1401]
+                - cell "Norms (Lakewood)" [ref=f11e1656]
+                - cell "$4,199.86" [ref=f11e1657]
+                - cell "-$928.63" [ref=f11e1658]
+                - cell "-$61.97" [ref=f11e1659]
+                - cell "-$26.16" [ref=f11e1660]
+                - cell "$3,183.10" [ref=f11e1661]
+              - row [ref=f11e1662]:
+                - cell "9/24/2026" [ref=f11e1663]
+                - cell "614095762" [ref=f11e1664]
+                - cell "Paid" [ref=f11e1423]
+                - cell "Norms (Valley Blvd)" [ref=f11e1428]
+                - cell "$1,342.62" [ref=f11e1665]
+                - cell "-$269.82" [ref=f11e1666]
+                - cell "-$81.29" [ref=f11e1667]
+                - cell "$0.00" [ref=f11e1668]
+                - cell "$991.51" [ref=f11e1669]
+              - row [ref=f11e1670]:
+                - cell "9/24/2026" [ref=f11e1671]
+                - cell "613924264" [ref=f11e1672]
+                - cell "Paid" [ref=f11e1445]
+                - cell "Norms (Santa Ana)" [ref=f11e1673]
+                - cell "$2,299.37" [ref=f11e1674]
+                - cell "-$503.86" [ref=f11e1675]
+                - cell "-$77.90" [ref=f11e1676]
+                - cell "$28.29" [ref=f11e1677]
+                - cell "$1,745.90" [ref=f11e1678]
+              - row [ref=f11e1679]:
+                - cell "9/24/2026" [ref=f11e1680]
+                - cell "614368017" [ref=f11e1681]
+                - cell "Paid" [ref=f11e1467]
+                - cell "NORMS - 4605 W Charleston Blvd" [ref=f11e1682]
+                - cell "$2,127.23" [ref=f11e1683]
+                - cell "-$496.95" [ref=f11e1684]
+                - cell "-$112.64" [ref=f11e1685]
+                - cell "-$9.30" [ref=f11e1686]
+                - cell "$1,508.34" [ref=f11e1687]
+          - navigation "Table Pagination" [ref=f11e1485]:
+            - list [ref=f11e1486]:
+              - listitem [ref=f11e1487]:
+                - button "go to previous page" [ref=f11e1488] [cursor=pointer]
+              - listitem [ref=f11e1491]:
+                - button "go to page 1" [ref=f11e1690] [cursor=pointer]:
+                  - generic [ref=f11e1493]: "1"
+              - listitem [ref=f11e1494]:
+                - button "you are currently on page 2" [active] [ref=f11e1691] [cursor=pointer]:
+                  - generic [ref=f11e1496]: "2"
+              - listitem [ref=f11e1497]:
+                - button "go to page 3" [ref=f11e1498] [cursor=pointer]:
+                  - generic [ref=f11e1499]: "3"
+              - listitem [ref=f11e1500]:
+                - button "go to page 4" [ref=f11e1501] [cursor=pointer]:
+                  - generic [ref=f11e1502]: "4"
+              - listitem [ref=f11e1503]:
+                - button "go to page 5" [ref=f11e1504] [cursor=pointer]:
+                  - generic [ref=f11e1505]: "5"
+              - listitem [ref=f11e1506]:
+                - button "go to next page" [ref=f11e1507] [cursor=pointer]
+  - iframe [ref=f11e807]:
+    
+  - dialog "Feedback Popup" [ref=f11e1510]:
+    - button "Close" [ref=f11e1512] [cursor=pointer]:
+      - img "Close" [ref=f11e1513]
+    - iframe [ref=f11e1515]:
+      - generic [ref=f25e1]:
+        - generic: Page Loaded
+        - alert
+        - generic [ref=f25e5]:
+          - generic [ref=f25e8]:
+            - generic [ref=f25e12]:
+              - banner
+            - generic [ref=f25e13]:
+              - main [ref=f25e14]:
+                - combobox "Language" [ref=f25e16]:
+                  - option "Deutsch"
+                  - option "English" [selected]
+                  - option "Español"
+                  - option "Français (Canada)"
+                  - option "日本語"
+                  - option "简体中文"
+                  - option "繁體中文"
+                - generic [ref=f25e17]:
+                  - generic:
+                    - generic:
+                      - group
+                - group "How likely are you to recommend DoorDash to another business?" [ref=f25e21]:
+                  - generic [ref=f25e24]:
+                    - text: Not at all likely Extremely Likely
+                    - generic [ref=f25e25]: "0"
+                    - generic [ref=f25e29]: "1"
+                    - generic [ref=f25e33]: "2"
+                    - generic [ref=f25e37]: "3"
+                    - generic [ref=f25e41]: "4"
+                    - generic [ref=f25e45]: "5"
+                    - generic [ref=f25e49]: "6"
+                    - generic [ref=f25e53]: "7"
+                    - generic [ref=f25e57]: "8"
+                    - generic [ref=f25e61]: "9"
+                    - generic [ref=f25e65]: "10"
+                    - radio "0" [ref=f25e69]
+                    - radio "1" [ref=f25e70]
+                    - radio "2" [ref=f25e71]
+                    - radio "3" [ref=f25e72]
+                    - radio "4" [ref=f25e73]
+                    - radio "5" [ref=f25e74]
+                    - radio "6" [ref=f25e75]
+                    - radio "7" [ref=f25e76]
+                    - radio "8" [ref=f25e77]
+                    - radio "9" [ref=f25e78]
+                    - radio "10" [ref=f25e79]
+              - navigation [ref=f25e80]:
+                - button "Next" [ref=f25e81] [cursor=pointer]
+            - progressbar [ref=f25e84]:
+              - rowgroup [ref=f25e85]:
+                - row [ref=f25e86]:
+                  - cell "Survey Completion" [ref=f25e87]
+                - row [ref=f25e89]:
+                  - cell "0%" [ref=f25e90]
+                  - cell "Current Progress 0%" [ref=f25e91]
+                  - cell "100%" [ref=f25e94]
+          - 'link "Powered by Qualtrics: Learn more about Qualtrics in a new tab" [ref=f25e97] [cursor=pointer]':
+            - /url: https://www.qualtrics.com/powered-by-qualtrics/?utm_source=internal%2Binitiatives&utm_medium=survey%2Bpowered%2Bby%2Bqualtrics&utm_content=doordash
+            - text: Powered by QualtricsA
+```

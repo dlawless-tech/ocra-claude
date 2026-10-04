@@ -1,0 +1,1 @@
+() => { window.__h2=[]; const of=window.fetch; window.fetch=function(u,o){ try{ if(u instanceof Request && /payout_summaries/.test(u.url)){ const c=u.clone(); const hs={}; c.headers.forEach((v,k)=>hs[k]=v); c.text().then(t=>window.__h2.push({url:u.url,headers:hs,body:t})); } }catch(e){} return of.apply(this,arguments); }; return 'ok'; }

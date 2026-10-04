@@ -1,0 +1,1 @@
+() => { const t=document.body.innerText; const i=t.indexOf('Attachment'); return JSON.stringify({memo:(document.querySelector('#journalEntryMemo,textarea')||{}).value, att: Array.from(document.querySelectorAll('a')).map(a=>a.innerText.trim()).filter(x=>/\.(pdf|xlsx?|csv)$/i.test(x)), snippet:t.slice(0,1500)}); }
