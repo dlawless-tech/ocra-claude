@@ -85,6 +85,12 @@ Approve each with a real click on `#Approve > a` then `li[data-testid="approveAn
 
 Move the PDF into `Completed` inside the Sales folder, which syncs to Teams. The workbook is a running yearly file and stays.
 
+Close the browser by its session name; other Claude sessions on this machine share `playwright-cli`, so close only `ss`:
+
+```bash
+playwright-cli -s=ss close
+```
+
 Report both entries' lines, the PDF tie, and status.
 
 ## No beginning balance
