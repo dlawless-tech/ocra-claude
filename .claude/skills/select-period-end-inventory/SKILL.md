@@ -77,7 +77,13 @@ Reload and read it back with `<skills>/bowery-weekly-mgmt-fees/scripts/read-line
 
 The period is done when `gl-balance.sh` over the period shows the entry and `END` equals the count, and the All Transactions grid shows the entry Approved at `total`. Then move both files into `Completed` inside the Inventory folder, which syncs to Teams.
 
-Report the count by location, the GL balance before, the change, and the entry's status.
+Close the run's browser by name, leaving other runs' sessions open:
+
+```bash
+playwright-cli -s=inv close
+```
+
+The run is finished once `playwright-cli list` no longer shows `inv`. Report the count by location, the GL balance before, the change, and the entry's status.
 
 ## History
 
