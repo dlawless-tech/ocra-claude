@@ -70,11 +70,15 @@ credit  6699 - Marketing Offset        offset      299 - Norms Support Center
 
 Line comments are blank. The entry has posted weekly since 7/18/2026; the 7/11/2026 entry is a larger catch-up and reads differently.
 
+The entry usually exists before the week closes, Approved at 0.00 with all 25 lines in place: the 10/3/2026 entry sat that way until it was filled on 10/5. Read the row's `ApprovalStatus` to pick its path in Step 4.
+
 If no entry carries the Saturday's date, open the prior week's and use **Action > Duplicate**. The copy is written to the server on click, numbered `NJ000xxxxx` and dated today, so set the date to the Saturday and the number to `Chainwide Advertising`, and save once before touching lines. If the prior week lacks a store that reports net sales this week, stop and report it rather than adding a line.
 
 ## Step 4: posting
 
-Open the entry by its direct URL, `https://norms.restaurant365.com/#/form/JournalEntryForm/<TransactionId>`. An entry that already reads Approved needs the unapprove flow in the automation notes before its lines take a change.
+Open the entry by its direct URL, `https://norms.restaurant365.com/#/form/JournalEntryForm/<TransactionId>`. The path depends on the entry's status; both set the lines the same way.
+
+### Setting the lines
 
 Set every line through the line grid's Kendo model. Match a debit line to its store by the location's name, the text after `<number> - `, which is how the report labels its columns:
 
@@ -89,7 +93,24 @@ g.dataSource.data().forEach(m => {
 
 Every one of the 24 stores must receive an amount; a store in `acc` with no line, or a 5410 line with no store in `acc`, stops the run.
 
-Then Save, read the `SaveTransaction` body, reload, read all 25 lines back numerically, confirm debits equal credits, and Approve and Close, confirming `"Successfully Approved."` in the `Transaction/Approve` response.
+### An Approved entry
+
+It edits in place without unapproving:
+
+1. A real `playwright-cli click 'button.btn-default:has-text("Edit")'` on the **Edit** button above the line grid. It turns into **Edit Complete**.
+2. Set the lines as above.
+3. A real click on **Edit Complete**. It saves on its own: read the newest `SaveTransaction` body, which reads `[["1","<TransactionId>"," "],["1",""]]` when committed. The entry stays Approved.
+4. Reload by the same URL, read all 25 lines back numerically, and confirm debits equal credits.
+
+On 10/5/2026 this filled the 10/3/2026 entry in one pass.
+
+### An Unapproved entry
+
+1. Set the lines as above.
+2. Save, read the `SaveTransaction` body, reload, read all 25 lines back numerically, and confirm debits equal credits.
+3. Approve and Close, confirming `"Successfully Approved."` in the `Transaction/Approve` response.
+
+The ribbon's Save and Approve mechanics are in the automation notes.
 
 ## Verifying the run
 
