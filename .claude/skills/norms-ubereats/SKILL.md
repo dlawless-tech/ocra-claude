@@ -31,22 +31,22 @@ R365 posts a username and password form at `identity.restaurant365.com`. Log in,
 
 Payments > Payouts. Store names vary in form, `NORMS - Carson` beside `NORMS (Ontario Mills)`, so type the store into the picker's search box and read back what it finds. The picker list is virtualized, so scroll it to enumerate every store. Checking the radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range.
 
-The picker's radio labels carry no text, so a `label:has-text(...)` selector matches nothing. Click the store name itself. One store, scripted:
+The picker's radio labels carry no text, and the store name sits in a span inside each `List item` button, so `p:text-is(...)` matches nothing. Click that button from `eval`, matching the name exactly. One store, scripted:
 
 ```bash
-playwright-cli click '[data-testid=location-selector-button-testid]'
-playwright-cli fill 'input[placeholder="Search"]' "NORMS - Carson"
-playwright-cli click 'p:text-is("NORMS - Carson")'
+playwright-cli click '#store-selector-trigger'
+playwright-cli fill 'input[placeholder*="Search"]' "NORMS - Carson"
+playwright-cli eval "() => { const e=Array.from(document.querySelectorAll('button span, button p')).find(x=>x.innerText.trim()==='NORMS - Carson' && x.closest('button').id!=='store-selector-trigger'); e.closest('button').click(); return 'ok'; }"
 playwright-cli click 'button:text-is("Apply")'
 playwright-cli click 'input[aria-label="Select a date range."]'
 playwright-cli click '[aria-label*="September 15th 2026"]'   # any day inside the period
 ```
 
-Read the button's text back after Apply to confirm the switch took. The URL's `settlement` parameter belongs to one store, so a hand-built URL loads the wrong store's settlement.
+Read `#store-selector-trigger`'s text back after Apply to confirm the switch took. The URL's `settlement` parameter belongs to one store, so a hand-built URL loads the wrong store's settlement.
 
 The date control opens on a **Pay period** tab. Period length is a store setting, one week for some stores and two for others, so the tab label (`Pay period Aug 3 - Aug 16`) names the loaded period. Clicking any date selects the whole period containing that date and writes `start` and `end` into the URL. The page states the loaded range as `Selected date range is from 09/14/2026 to 09/20/2026`, so check that sentence for every store.
 
-Per store, read off the Overview tab: store name, Total Payout, Earnings, and the Marketing, Uber Fees, and Net Chargeback Amount rows of Pay breakdown. Uber shows Marketing and Uber Fees as negatives and they enter R365 as positive debits. Net Chargeback carries either sign, and its sign decides its column.
+Per store, read off the Overview tab: store name, Total Payout, Earnings, and the Marketing, Uber Fees, and Net Chargeback Amount rows of Pay breakdown. The breakdown is a `[role=tree]` of top-level `treeitem`s, and their `innerText` truncates some labels (`Earning`, `Uber Fee`, `Net Taxe`), so match rows by prefix. Uber shows Marketing and Uber Fees as negatives and they enter R365 as positive debits. Net Chargeback carries either sign, and its sign decides its column.
 
 Two reading traps:
 
@@ -59,13 +59,13 @@ Check each store before moving on: `Earnings + Marketing + Uber Fees + Net Charg
 
 The daily `Third Party Delivery` journal entries debit `1112 - A/R Uber Postmates` with each day's third party sales. The period's debits, call this **D**, are what the entry clears.
 
-Reports > My reports in `r365b`. On the GL Account Detail card pick the **UberEats** view, then Customize. It loads with account `1112 - A/R Uber Postmates` and Filter By Location.
+Reports > My reports in `r365b`. On the GL Account Detail card pick the **UberEats** view through the card's `View ▼` button, which lists views as buttons, then Customize. It loads with account `1112 - A/R Uber Postmates` and Filter By Location.
 
 Set **Start to the pay period's first day and End to its last day**, leave the location filter on all locations, set **Subtotal By** to **Location**, and Run. Read each location's `Total A/R Uber Postmates` **Debit** figure, which is that store's D.
 
 The window is the pay period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
-Subtotal By can show Location as active and still return an ungrouped report. The detail rows carry the same figures, so sum them yourself. In the snapshot's cell list each row runs date, type, location, comment, debit, credit, balance; the location is the cell before the comment. D is the sum of a location's `Journal Entry` debits. The `Bank Deposit` rows are the Uber payouts landing, and they only carry credits. Check that the per-location debits add up to the report's `Total A/R Uber Postmates` debit.
+Subtotal By can show Location as active and still return an ungrouped report, and the same dialog run twice has come back once of each shape. The detail rows carry the same figures in both, so sum them yourself. In the snapshot's cell list each row runs date, type, location, comment, debit, credit, balance; the location is the cell before the comment. A row ends at the next date cell or the next `Total A/R Uber Postmates` cell, whichever comes first, which parses either shape. D is the sum of a location's `Journal Entry` debits. The `Bank Deposit` rows are the Uber payouts landing, and they only carry credits. Check that the per-location debits add up to the report's `Total A/R Uber Postmates` debit.
 
 ## The arithmetic
 
@@ -98,7 +98,7 @@ Most Uber store names carry the R365 location word. The R365 location reads `<nu
 | `NORMS - Los Angeles` | `250 - La Cienega` |
 | `NORMS (Huntington Park)` | `211 - Slauson` |
 
-Stores > All stores (`/manager/stores`) prints a store count and lists each store as `<R365 number>|<uber id> • <address>`, which settles both the enumeration and the mapping. It shows five stores a page, so page through with **Next**. Hollywood, Ontario Mills, and Las Vegas carry a uuid in place of the number, so confirm those three by address.
+The store picker prints a store count and lists each store as `<R365 number>|<uber id> • <address>`, which settles both the enumeration and the mapping. Collect the list by scrolling the picker's scroll container from `eval`, harvesting the two paragraphs of each `List item` button as it renders. Hollywood, Ontario Mills, and Las Vegas carry a uuid in place of the number, so confirm those three by address.
 
 D and Earnings run within a few percent for most stores and 10% to 16% apart for a handful, so the gap says little about a pairing. It lands in the difference line either way.
 
@@ -108,7 +108,7 @@ R365 carries one entry per week dated that week's Saturday, whatever length Uber
 
 Accounting > Transactions > All transactions, route `/react/accounting/legacy/AllTransactions`. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
 
-Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00.
+Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. Read `ApprovalStatus` at harvest, since it picks the posting script. The 10/3/2026 templates all arrived **Approved** at 0.00.
 
 ## Posting
 
@@ -124,7 +124,15 @@ Fill the five lines, save, reload, then Approve and Close. Three checks decide w
 ENTRY_DATE=9/19/2026 scripts/post-entry.sh r365 Anaheim work.json
 ```
 
-`ENTRY_DATE` is the Saturday inside the pay period and moves 7 days each week, so set it per run. Run stores in parallel by giving each worker its own session name; three sessions of eight stores each covers the estate.
+`ENTRY_DATE` is the Saturday inside the pay period and moves 7 days each week, so set it per run.
+
+`post-entry.sh` skips an Approved entry. For a template that arrived Approved at 0.00, `scripts/edit-entry.sh` takes the same arguments and work json, fills the lines through Edit and Edit Complete, and leaves the entry Approved, with the same three checks:
+
+```bash
+ENTRY_DATE=10/3/2026 scripts/edit-entry.sh r365 Anaheim work.json
+```
+
+Run stores in parallel by giving each worker its own session name; three sessions of eight stores each covers the estate.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
