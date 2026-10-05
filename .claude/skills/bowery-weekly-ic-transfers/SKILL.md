@@ -10,10 +10,10 @@ Each week the client settles the intercompany balances between Bowery Group Corp
 The client drops the workbook in the Teams folder, and it moves to `Completed` once posted:
 
 ```
-c:\Users\trici\OCRA\Flecha - General\Journal Entries\Mgmt Fees & Intercompany Transfers\BoweryGroup_<m.dd>_Mgmt Fees & InterCo Transfers.xlsx
+c:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\<m.d> BG_Mgmt Fees & IC Trfs.xlsx
 ```
 
-The week's workbook is the one outside `Completed`. The date in its name is typed by hand and has been wrong: `BoweryGroup_9.20_...` held the week ending 9/27/2026. Cell D5 decides the week.
+The week's workbook is the one outside `Completed`. The client names the file by hand, and both the name pattern and the date in it drift: `BoweryGroup_9.20_...` held the week ending 9/27/2026. Cell D5 decides the week.
 
 The same workbook feeds the Management Fees entry, so it usually arrives alongside a `bowery-weekly-mgmt-fees` run. Ask the human for the file if it is missing or its Week Ending is not the week being posted.
 
@@ -35,7 +35,7 @@ The entry is dated the workbook's Week Ending, a Sunday, read from cell D5 of th
 node <skill>/scripts/read-transfers.js "<workbook>" > transfers.json
 ```
 
-The intercompany tab changes name and shape between weeks: `Intercompany payments` on 9/20/2026, `09.27 Intercompany Transfers` on 9/27/2026, with the entity columns reordered and renamed. The reader finds the tab by the word `Intercompany` in its name and the block by its `From` / `To` / `Amount` headers. It stops on an unknown party, a transfer to itself, two transfers between the same parties, a balance sheet date that is not the week before, or transfers that miss the block's stated total. Zero-amount rows are dropped. The 9/27/2026 block carried no total row; the reader then warns and sums the rows.
+The intercompany tab changes name and shape between weeks: `Intercompany payments` on 9/20/2026, `09.27 Intercompany Transfers` on 9/27/2026, with the entity columns reordered and renamed. The reader finds the tab by the word `Intercompany` in its name and the block by its `From` / `To` / `Amount` headers. A header can sit one column left of its data (10/4/2026: `From` in B16, the names in column C), and the reader then reads the column to its right. It stops on an unknown party, a transfer to itself, two transfers between the same parties, a balance sheet date that is not the week before, or transfers that miss the block's stated total. Zero-amount rows are dropped. The 9/27/2026 block carried no total row; the reader then warns and sums the rows.
 
 `transfers.json` holds the Bowery entry: every transfer with Bowery on one side, and `total`, the amount the All Transactions grid shows. A transfer between two stores posts as its own entry, listed under `separate` (see **Store-to-store transfers**).
 

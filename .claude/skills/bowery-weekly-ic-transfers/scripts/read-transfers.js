@@ -56,7 +56,11 @@ const hdr = Object.keys(ic).find(k => ic[k] === 'From');
 if (!hdr) fail('no "From" header under Cash Transfers to Make');
 const row0 = +hdr.match(/\d+/)[0];
 const col = label => { const k = Object.keys(ic).find(k => +k.match(/\d+/)[0] === row0 && ic[k] === label); if (!k) fail(`no "${label}" header`); return k.match(/^[A-Z]+/)[0]; };
-const cF = col('From'), cT = col('To'), cA = col('Amount');
+// header can sit one column left of its data (10/4/2026: From in B16, names in C)
+const filled = c => { for (let r = row0 + 1; r < row0 + 40; r++) if (ic[c + r] !== undefined && String(ic[c + r]).trim() !== '') return true; return false; };
+const next = c => String.fromCharCode(c.charCodeAt(0) + 1);
+const hdrs = ['From', 'To', 'Amount'].map(col);
+const [cF, cT, cA] = hdrs.map(c => !filled(c) && !hdrs.includes(next(c)) && filled(next(c)) ? next(c) : c);
 
 const parties = ['Bowery', 'Cookshop', 'Shuka', "Rosie's", 'Shukette', "Vic's"];
 const norm = s => { const t = String(s).split('’').join("'"); return parties.find(p => p.toLowerCase() === t.toLowerCase()) || (/^rosies$/i.test(t) ? "Rosie's" : /^vics$/i.test(t) ? "Vic's" : null); };

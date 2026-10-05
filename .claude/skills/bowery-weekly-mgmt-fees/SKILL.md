@@ -8,10 +8,10 @@ description: Post the weekly management fee journal entry into Bowery Group Rest
 Bowery Group Corp charges each store a management fee every week and sweeps the same amount from the store's bank account to Bowery's. The client computes the fees in a workbook; this skill copies the prior week's entry and loads that week's fees into it.
 
 ```
-c:\Users\trici\OCRA\Flecha - General\Journal Entries\Mgmt Fees & Intercompany Transfers\BoweryGroup_<m.dd>_Mgmt Fees & InterCo Transfers.xlsx
+c:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\<m.d> BG_Mgmt Fees & IC Trfs.xlsx
 ```
 
-The week's workbook is the one outside that folder's `Completed` subfolder. The date in its name is typed by hand and has been wrong: `BoweryGroup_9.20_...` held the week ending 9/27/2026. Cell D5 decides the week.
+The week's workbook is the one outside that folder's `Completed` subfolder. The client names the file by hand, and both the name pattern and the date in it drift: `BoweryGroup_9.20_...` held the week ending 9/27/2026. Cell D5 decides the week.
 
 Ask the human for the file if it is missing or its Week Ending is not the week being posted.
 
