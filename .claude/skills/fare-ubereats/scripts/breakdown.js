@@ -54,7 +54,7 @@ function mapStore(b) {
         const sub = kids(R, j).map(k => R[k]);
         if (!sub.length) { put(...gl, -m.amt, s(m)); continue; }
         for (const x of sub) {
-          if (/\(excl\. tax\)$/.test(x.label)) put(...gl, -x.amt, s(x));
+          if (/\(excl\. (tax|VAT)\)$/.test(x.label)) put(...gl, -x.amt, s(x));
           else if (/^Tax on/i.test(x.label)) put(GL.tax, '', -x.amt, s(x));
           else stops.push(`unmodeled marketing row "${x.label}" ${x.amt}`);
         }

@@ -51,7 +51,7 @@ node <skill>/scripts/build-lines.js week.txt 9/13/2026 > lines.json
 | Uber Earnings row | GL | Comment |
 |---|---|---|
 | Uber Fees > Net Marketplace Fee (incl. tax) | Dr 7380 - Uber Eats Third Party Fees | `marketplace fees` |
-| Marketing > Offers on items > Offers on items (excl. tax) | Dr 4905 - Third Party App Marketing Comps | `offers on items` |
+| Marketing > Offers on items > Offers on items (excl. tax), also labeled (excl. VAT) | Dr 4905 - Third Party App Marketing Comps | `offers on items` |
 | Marketing > Ad spend > Ad spend (excl. tax) | Dr 7630 - Uber Eats Marketing | `ad spends` |
 | Amendments > Net Chargeback Amount > Chargebacks (excl. tax) | Dr 7535 - Third Party Refunds | `net chargeback` |
 | Tax On Offers on items, Tax on chargebacks, Amendments > Marketplace Facilitator Tax | Dr 2270 - Sales Tax Payable | |
@@ -59,7 +59,7 @@ node <skill>/scripts/build-lines.js week.txt 9/13/2026 > lines.json
 | Amendments > Other payments > Backup Withholding Reimbursement | Cr 2270 - Sales Tax Payable | `backup withholding reimbursement` |
 | Gross Sales less Net sales | 1111 - Uber Eats Deposit Clearing, opposite side | |
 
-`scripts/breakdown.js` holds this mapping for both `build-lines.js` and the backup page. The check: the debits equal `Gross Sales - Net sales`, and the top rows add to Net sales. `build-lines.js` stops on a store that misses either, and on any row the table does not name, including a tax row under Uber Fees. Report each stop to the human and ask how it books.
+`scripts/breakdown.js` holds this mapping for both `build-lines.js` and the backup page. The check: the debits equal `Gross Sales - Net sales`, and the top rows add to Net sales. `build-lines.js` stops on a store that misses either, and on any row the table does not name, including a tax row under Uber Fees. Report each stop to the human and ask how it books. Uber sometimes renames a row without changing what it holds, such as `(excl. VAT)` for `(excl. tax)` on Franklin St.'s offers in the 10/4/2026 week. A row whose parent, siblings and amounts match a mapped row is the same row: add the new label to `breakdown.js` and rerun with `SKIP_READ=1`.
 
 **Income tax deduction** is the backup withholding tax, the 24% Uber withholds from some stores' payouts (Lakeview and Old Town in September 2026), shown as `Adjustments` on the monthly statement and as Backup Withholding Tax on the old Payouts page. It books to 2270 on its own line, as the human chose on 9/30/2026, and the line scripts key on GL plus comment so 2270 carries every line. Uber refunds it later as Other payments (both stores on 9/27/2026), which credits 2270 and can flip 1111 to a debit.
 
