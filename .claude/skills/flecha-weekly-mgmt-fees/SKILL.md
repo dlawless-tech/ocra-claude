@@ -31,7 +31,7 @@ On the home dashboard the My Reports tile does not route. Soft navigate instead:
 playwright-cli -s=fl eval "() => { history.pushState({}, '', '/react/reports-management/legacy/MyReports'); window.dispatchEvent(new PopStateEvent('popstate')); }"
 ```
 
-The cards take about 40 seconds. Several cards share the Profit and Loss name; use the one headed exactly `Profit and Loss`. Open **View**, click **Weekly Mgmt Fee - Previous**, and confirm the card's combobox reads that name. Then open that card's **Customize**.
+The cards take about 40 seconds. Several cards share the Profit and Loss name, and two are headed exactly `Profit and Loss`; use the first in the snapshot, since the second sits under Favorites. Open **View**, click **Weekly Mgmt Fee - Previous**, and confirm the card's combobox reads that name. Then open that card's **Customize**.
 
 The view was created on 9/29/2026 under this login with every setting the run needs. Confirm each one in the dialog before running:
 
@@ -55,7 +55,7 @@ node <skill>/scripts/fees.js rep.txt > fees.json
 
 It reads the `Week Ending` header and the `Total Net Sales` row across `Flecha 4S Ranch`, `Flecha HB`, `Flecha NB`, `Flecha Town Square` and `Total`, and computes each fee as `Math.round(net * 7) / 100`, rounding half up to the cent. It stops when the headers differ or the stores miss the Total. **Confirm `weekEnding` in `fees.json` is the Sunday being posted** before using a figure. This reproduces every September 2026 week to the penny.
 
-Before posting, compare each store with its prior week. A store down more than about 10% often means a missing sales day; report it and ask whether to wait.
+Before posting, compare each store's fee with the prior weeks' `MGMT Fees` entries. A store down more than about 10% often means a missing sales day. Check it from the report snapshot: the `Food Sales` row's last `Click to see details` link opens the GL Account Detail for the week (`playwright-cli tab-new "<url>"`, about 30 seconds to render), and its cells list one credit per store per day. Seven days for the store means the dip is real, so post it and name it in the report; a missing day means report it and ask whether to wait. On 10/4/2026 4S Ranch ran 13% below 9/27 with all seven days in.
 
 ## Step 2: the entry
 
@@ -65,6 +65,8 @@ Soft navigate to All Transactions (from a React page such as the home dashboard)
 g.dataSource.pageSize(1000);
 g.dataSource.filter({logic: 'and', filters: [{field: 'Number', operator: 'contains', value: 'mgmt'}]});
 ```
+
+On 10/6/2026 `view()` still returned unfiltered rows six seconds after the filter. Pick the rows from `g.dataSource.data()` by `/mgmt/i.test(x.Number)`, which holds every `MGMT Fees` week once the page size is up.
 
 Keep the row dated the Sunday. Each week carries **one Journal Entry numbered `MGMT Fees`**, location Corporate, comment `To record 7% corporate management fee`, with eight lines, each store paired with a Corporate line right after it:
 
@@ -79,7 +81,7 @@ debit   7588 - Corp Management Fee   fee   104 - Flecha NB
 credit  7588 - Corp Management Fee   fee   100 - Corporate
 ```
 
-Every line comment reads `P8-W3 (7%) Management Fees` in every week. Keep it exactly as it is; the client wants it unchanged. The grid's `Amount` equals the sum of the four fees, `entryAmount` in `fees.json`. A row already Approved at `entryAmount` means the week is done; stop and report it. A row for the Sunday at any other amount is a correction: take it straight to Step 4.
+Every line comment reads `P8-W3 (7%) Management Fees` in every week. Keep it exactly as it is; the client wants it unchanged. The grid's `Amount` equals the sum of the four fees, `entryAmount` in `fees.json`. A row already Approved at `entryAmount` means the week is done; stop and report it. A row for the Sunday at any other amount is a correction: take it straight to Step 4. Expect one: the 9/27 and 10/4/2026 rows were both found Approved at about 81% of their week, filled before Sunday's sales landed.
 
 ## Step 3: copy the prior week
 
@@ -108,6 +110,6 @@ The 9/27/2026 correction ran this path in about three minutes.
 
 ## Verifying the run
 
-Return to the home dashboard, soft navigate to All Transactions, and refilter. The Sunday's `MGMT Fees` row reads Approved with `Amount` equal to `entryAmount`. The grid reads the server, so it is the record of what posted.
+Return to the home dashboard, soft navigate to All Transactions, and refilter. Leaving the entry page takes a full load, and `goto https://flecha.restaurant365.com/` logged the session out on 10/6/2026; recover with `goto https://flecha.restaurant365.com/react/accounting`, re-run the login script, then soft navigate. The Sunday's `MGMT Fees` row reads Approved with `Amount` equal to `entryAmount`. The grid reads the server, so it is the record of what posted.
 
 Report a table of store, Total Net Sales, fee, and posted amount, with the total, and name any store you held back for missing sales.
