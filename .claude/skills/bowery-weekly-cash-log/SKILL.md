@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-cash-log
-description: Post the weekly cash log journal entries into Bowery Group Restaurant365, one per store, booking cash tips to Tips Payable and cash payouts to their expense accounts from each store's Cash Deposits & Payouts PDF. Use when asked to fill, balance, or approve the Bowery Weekly Log - Deposits, Tips, Paid Outs entries in R365, or to check a week's entries against the store cash logs.
+description: Post the weekly cash log journal entries into Bowery Group Restaurant365, one per store, booking cash tips to Tips Payable and cash payouts to their expense accounts from each store's Cash Deposits & Payouts PDF, and entering the log's manual checks as MC-numbered Bank Expenses on the store's operating account. Use when asked to fill, balance, or approve the Bowery Weekly Log - Deposits, Tips, Paid Outs entries in R365, to enter Bowery manual checks, or to check a week's entries against the store cash logs.
 ---
 
 # Weekly cash logs into the Bowery journal entries
@@ -39,7 +39,8 @@ The PDFs defeat text extraction: `pdftotext` scrambles the payout table's column
 - `totalCashTips` and `cashPurchasesTotal` are the **Week Total** column of page 1's Total Cash Tips and Cash Purchases rows.
 - `payouts` is every filled row of page 2's purchase table, with its Expense Category copied whole as `gl`. Shuka's table heads the vendor column `Vendor & Items`; put that text in `description`.
 - `gl` is always the log's own coding. When it fits the item poorly, add `"question"` to that payout, naming the likelier account: `"question": "blueberries coded to liquor, food?"`. It rides in the line comment for the reviewer.
-- The manual checks table under it stays out: those checks post through AP. The Over / Short rows stay out too.
+- `checks` is every filled row of the manual checks table under it, which stays out of the journal entry: `{ "date": "10/1/2026", "number": "2956", "amount": 363.20, "payee": "Big Geyser", "invoice": "82664222", "gl": "510-04" }`. Take `gl` from the Expense GL Coding or Expense Category column; Cookshop's 10/4/2026 log left that blank and wrote `GL CODE 510-04` under Replacement Check Info. A check with no GL anywhere fails in an unattended run and is asked about otherwise.
+- The Over / Short rows stay out.
 
 Store names are `Cookshop`, `Shuka`, `Rosie's`, `Shukette`, `Vic's`. Re-read any figure the render leaves ambiguous; a transcription slip passes every later check.
 
@@ -99,15 +100,60 @@ Snapshot refs read `f12e203` on a session's first tab and `e662` on later ones; 
 
 For each store with `MATCH`, open the entry by id, then a real click on `#Approve > a` and on `li[data-testid="approveAndCloseMenuItem"]`. On an entry opened by `goto` the tab stays open after a successful approve. The ribbon then shows `#Unapprove` in place of `#Approve`, and the All Transactions grid, after `dataSource.read()`, shows the store's Week Ending row Approved at the tips. The grid is the proof.
 
-## Step 6: file the logs
+## Step 6: manual checks
 
-Move each approved store's PDF into its subfolder:
+Manual checks never reach AP, so each one goes in as a Bank Expense on the store's operating account. First filter All Transactions on Number `MC<check number>`; a row already there means the check is entered, so skip it and report it. Then per check:
+
+```bash
+bash <skill>/scripts/post-check.sh cl "<store>" <date> <number> <amount> "<payee>" "<invoice>" <gl> "<pdf>"
+```
+
+| Field | Value |
+|---|---|
+| Checking Account | the store's operating account: Cookshop 100-10, Shuka 100-03, Rosie's 100-05, Shukette 100-06, Vic's 100-08 (`Op` in an account name means operating) |
+| Number | `MC` and the log's check number, always: `MC2956` |
+| Vendor | the R365 vendor whose name matches the payee, ignoring case, punctuation and `INC`/`LLC`/`CORP`; picking it fills Paid To and the address |
+| Paid To | the payee as written, when no vendor matches. Never create a vendor |
+| Location | the store |
+| Check Memo | `Inv <invoice #>` |
+| Amount, Date | the check's amount and check date |
+| Detail | one line: the check's GL at the amount, comment `<payee> Inv <invoice #>`, at the store |
+
+The script saves, attaches the store's log PDF, reloads, and prints `MATCH` once number, date, amount, account, the single line and the attachment read back. It prints whether it used a Vendor or Paid To; a Paid To check goes in the report. On `MATCH`, open the expense by id at `#/form/BankExpenseForm/<id>` and approve it with a real click on `#Approve > a`, then `li[data-testid="approveAndCloseMenuItem"]`; the reloaded expense shows `#Unapprove`.
+
+First entered 10/6/2026: Cookshop check 2956 to Big Geyser, 363.20, as `MC2956` against vendor `BIG GEYSER, INC`, approved. That one was driven by hand; `post-check.sh` is built from it and has not yet run end to end.
+
+## Step 7: file the logs
+
+Move each store's PDF into its subfolder once its entry and every manual check are approved:
 
 ```bash
 mv "<pdf>" "<Weekly Cash Logs folder>/<Store>/"
 ```
 
-Report, per store, the `check-lines.js` table, every `WARN` and how it was settled, the grid status and amount, whether the PDF is attached, and whether it moved.
+Report, per store, the `check-lines.js` table, each manual check's number, amount, Vendor or Paid To, and status, every `WARN` and how it was settled, the grid status and amount, whether the PDF is attached, and whether it moved.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays, every 15 minutes from 7:00 to 12:00 (`scripts/register-task.ps1` sets it up). Once all five logs for the prior Sunday are in the folder and none changed in the last 5 minutes, it starts this skill headless with a prompt beginning `Unattended run`, naming the work directory and the five PDFs. It writes `started.txt` in the work directory first, so the week runs once; `-Force` reruns it. If logs are still missing at the cutoff, it posts the missing stores to Teams and posts nothing to R365.
+
+No human answers during the run, so:
+
+- Never ask. A figure the render leaves unreadable fails that store.
+- Approve a store only on `MATCH` with no date or total `WARN`. A store with one is saved and checked, left unapproved, and its PDF stays at the folder root. A questioned payout posts as coded and does not block approval.
+- A store with an Approved entry dated the Week Ending is `skipped`.
+- One store failing does not stop the others.
+- A manual check is approved on `MATCH`, whether it went to a Vendor or Paid To.
+
+End by writing `result.json` in the work directory; the wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/4/2026", "note": "",
+  "stores": [ { "store": "Shuka", "status": "approved", "amount": 547.32, "transactionId": "...", "attached": true, "filed": true, "warnings": [],
+      "checks": [ { "number": "MC2956", "amount": 363.20, "paidTo": "vendor BIG GEYSER, INC", "status": "approved" } ] } ] }
+```
+
+`status`, for an entry or a check, is `approved`, `posted-unapproved`, `skipped`, or `failed`. `warnings` holds every `WARN`, every questioned payout, and for a failed store the step that failed. The Teams webhook URL lives in `~/.claude/bowery-cash-log.json` as `{"teamsWebhook": "<url>"}`, outside the repo.
 
 ## Test entries
 
