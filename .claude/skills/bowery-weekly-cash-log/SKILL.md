@@ -153,7 +153,7 @@ End by writing `result.json` in the work directory; the wrapper posts it to Team
       "checks": [ { "number": "MC2956", "amount": 363.20, "paidTo": "vendor BIG GEYSER, INC", "status": "approved" } ] } ] }
 ```
 
-`status`, for an entry or a check, is `approved`, `posted-unapproved`, `skipped`, or `failed`. `warnings` holds every `WARN`, every questioned payout, and for a failed store the step that failed. The Teams webhook URL lives in `~/.claude/bowery-cash-log.json` as `{"teamsWebhook": "<url>"}`, outside the repo.
+`status`, for an entry or a check, is `approved`, `posted-unapproved`, `skipped`, or `failed`. `warnings` holds every `WARN`, every questioned payout, and for a failed store the step that failed. The Teams webhook URL lives in `~/.claude/bowery-cash-log.json`, outside the repo, with the person to tag: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. `mentionWhen` set to `attention` tags only on a miss, a failure, an unapproved store or check, a warning, or a Paid To check.
 
 ## Test entries
 
