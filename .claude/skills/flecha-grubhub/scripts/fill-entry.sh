@@ -34,10 +34,13 @@ R=$(playwright-cli -s=$S eval "() => { const g=jQuery('[data-role=grid]').data('
 [ "$R" = "$DT|GrubHub" ] || die "set: $R"
 
 # ribbon items only commit on real clicks
-playwright-cli -s=$S click '#Save > a' >/dev/null 2>&1; sleep 2
-playwright-cli -s=$S click 'li[data-testid="saveMenuItem"]' >/dev/null 2>&1
-sleep 10
-B=$(body SaveTransaction)
+# the menu can miss its first click after an unapprove reload, so try twice
+B=
+for TRY in 1 2; do
+  playwright-cli -s=$S click '#Save > a' >/dev/null 2>&1; sleep 3
+  playwright-cli -s=$S click 'li[data-testid="saveMenuItem"]' >/dev/null 2>&1; sleep 10
+  B=$(body SaveTransaction); [ -n "$B" ] && break
+done
 ID=$(echo "$B" | grep -oE '1[\\"]*,[\\"]*[0-9a-f-]{36}' | grep -oE '[0-9a-f-]{36}' | head -1)
 [ -n "$ID" ] || die "save: $B"
 
