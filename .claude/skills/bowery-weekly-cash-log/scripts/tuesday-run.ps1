@@ -56,6 +56,8 @@ Set-Location $Repo
 $ErrorActionPreference = 'Continue'
 & claude -p $prompt --permission-mode auto 2>&1 | Out-File -Append -Encoding utf8 $log
 Log "claude exited $LASTEXITCODE"
+# backstop for a run that died before Step 8; sessions bind to the work dir
+Push-Location $run; & playwright-cli -s=cl close 2>&1 | Out-Null; Pop-Location
 
 $result = Join-Path $run 'result.json'
 if (-not (Test-Path $result)) {

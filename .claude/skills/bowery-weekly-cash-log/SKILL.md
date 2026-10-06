@@ -133,6 +133,10 @@ mv "<pdf>" "<Weekly Cash Logs folder>/<Store>/"
 
 Report, per store, the `check-lines.js` table, each manual check's number, amount, Vendor or Paid To, and status, every `WARN` and how it was settled, the grid status and amount, whether the PDF is attached, and whether it moved.
 
+## Step 8: close the browser
+
+Close every session this run opened, by name, from the work directory: `playwright-cli -s=cl close`. Never `close-all` or `kill-all`; other runs share this machine's sessions. Done when `playwright-cli list` no longer shows `cl`.
+
 ## Unattended run
 
 `scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays, every 15 minutes from 7:00 to 12:00 (`scripts/register-task.ps1` sets it up). Once all five logs for the prior Sunday are in the folder and none changed in the last 5 minutes, it starts this skill headless with a prompt beginning `Unattended run`, naming the work directory and the five PDFs. It writes `started.txt` in the work directory first, so the week runs once; `-Force` reruns it. If logs are still missing at the cutoff, it posts the missing stores to Teams and posts nothing to R365.
