@@ -106,7 +106,7 @@ Bowery carries one UberEats entry per store per week, dated the Sunday that ends
 
 Accounting > Transactions > All transactions, reached by clicking **Accounting** in the home dashboard nav. Filter Number (`Contains`) to `UberEats`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. [`R365-AUTOMATION.md`](R365-AUTOMATION.md) carries the call and the direct entry URL it feeds.
 
-Each entry arrives as a template: three lines carrying accounts, comments, and location, every amount at 0.00. The template has no marketing line, so posting adds one when a store needs it. Bowery reshaped this template in September 2026, so an entry from an earlier week is a two line reclass between `104-04` and `104-00` and reproduces none of the arithmetic above. Verify against the A/R balance rather than against an older entry.
+Each entry arrives as a template: three lines carrying accounts, comments, and location, every amount at 0.00. Since October 2026 the templates arrive already **Approved**, so an Approved status alone says nothing about whether the entry was posted; the amounts do. The template has no marketing line, so posting adds one when a store needs it. Bowery reshaped this template in September 2026, so an entry from an earlier week is a two line reclass between `104-04` and `104-00` and reproduces none of the arithmetic above. Verify against the A/R balance rather than against an older entry.
 
 ## Posting
 
@@ -116,7 +116,7 @@ Fill the three lines, add the marketing line where Marketing is nonzero, save, r
 2. **Sum the named lines before saving** and match the total against the expected figure. Sum the named rows only, because the footer row would double the count.
 3. **Reload after saving**, and confirm the values survived. A save that never reached the server leaves every line at 0.00, and approving then commits an empty entry.
 
-`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
+`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check. It unapproves an Approved template whose lines are all still 0.00 and then fills it, and it skips an Approved entry that already carries amounts:
 
 ```bash
 ENTRY_DATE=9/6/2026 scripts/post-entry.sh r365 Cookshop work.json
@@ -137,7 +137,7 @@ Attaching needs no save and leaves an Approved entry Approved. The script skips 
 
 ## Correcting an approved entry
 
-`post-entry.sh` skips an Approved entry and stops on one that already has a marketing line, so a correction goes through `scripts/fix-entry.sh` with the same work file:
+`post-entry.sh` skips an Approved entry that carries amounts and stops on one that already has a marketing line, so a correction goes through `scripts/fix-entry.sh` with the same work file:
 
 ```bash
 ENTRY_DATE=9/27/2026 scripts/fix-entry.sh r365 Rosie work.json
