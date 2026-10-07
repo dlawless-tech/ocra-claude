@@ -112,3 +112,24 @@ An entry is done, on either path, when its two lines each read the accrual after
 Refilter the All Transactions grid after `dataSource.read()` and check every one of the 24 rows for the Saturday: status Approved and `Amount` equal to that store's accrual. The grid reads the server, so it is the record of what posted.
 
 Report a table of store, Total Net Sales, accrual, and posted amount, with the estate total, and list any store that did not post or that you held back for missing sales.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 6:00, 8:00 and 10:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending, the prior week ending, and the work directory. A run that leaves no store held writes `done.txt`, and later triggers that day do nothing; the 10:00 run writes it regardless. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask. Use session `ccfu`, every command from the repo root. Bash resets its directory between calls, so pass the work directory as an absolute path.
+- A rejected login, or a report header that does not read the week ending, fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- Fewer than 24 entries for the Saturday: post the ones there, list each missing store as `missing`.
+- Compare each store's accrual with its prior-week entry's `Amount` on the grid. A store more than 10% below it is `held`, posted nothing. A later trigger reruns the whole skill, so a held store gets its turn once its sales land.
+- An entry already Approved at the accrual is `skipped`. Fill an Approved entry with `scripts/post-approved.sh ccfu <TransactionId> <accrual>`, which prints the save body and `OK` once the reload reads back. An Unapproved entry takes the Unapproved path in Step 4. A store whose save, read-back, or approve fails is `failed`, with the failing step in `warnings`, and the others carry on.
+
+Finish with **Verifying the run**, close `ccfu`, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/3/2026", "note": "",
+  "stores": [ { "store": "Anaheim", "status": "approved", "netSales": 86391.27, "accrual": 1511.85, "amount": 1511.85, "prior": 1530.68, "transactionId": "...", "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, `held`, `missing`, `posted-unapproved`, or `failed`. `amount` is what the grid shows posted. The webhook lives in `~/.claude/norms-cc-fees-accrual.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. The mention is skipped while `email` is blank; `mentionWhen` set to `attention` tags only when a store is not approved.
