@@ -1,10 +1,10 @@
 #!/bin/bash
 # List the Meat Credit Adj entries from All Transactions: date, status, amount, id.
-# usage: meat-entries.sh <session>
+# usage: meat-entries.sh <session> [rows, default 8]
 # The dashboard nav never renders its links for this login, so route the SPA
 # to the page directly; a goto on the /react URL drops the session instead.
 set -u
-S="$1"
+S="$1"; ROWS="${2:-8}"
 res() { sed -n "/### Result/,/### Ran/p" | sed -n 2p | tr -d "\""; }
 # off a /react/ page, a full navigation logs out; log back in onto the dashboard
 case "$(playwright-cli -s=$S eval "() => location.pathname" 2>&1 | res)" in /react/*) : ;;
@@ -20,5 +20,5 @@ const g=d.defaultView.jQuery('[data-role=grid]').data('kendoGrid');
 g.dataSource.filter({field:'Number',operator:'contains',value:'meat credit'});
 await new Promise(r=>setTimeout(r,8000));
 const dt=x=>{const D=new Date(x.Date);return (D.getMonth()+1)+'/'+D.getDate()+'/'+D.getFullYear();};
-return g.dataSource.view().slice(0,8).map(x=>[dt(x),x.ApprovalStatus,x.Amount,x.TransactionId].join(' ')).join(' | ');
+return g.dataSource.view().slice(0,$ROWS).map(x=>[dt(x),x.ApprovalStatus,x.Amount,x.TransactionId].join(' ')).join(' | ');
 }" 2>&1 | sed -n '/### Result/,/### Ran/p' | sed -n '2p' | tr -d '"' | tr '|' '\n'

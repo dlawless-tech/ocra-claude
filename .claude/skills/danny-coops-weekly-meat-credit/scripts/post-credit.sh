@@ -1,5 +1,5 @@
 #!/bin/bash
-# Set a Meat Credit Adj entry to <amount> and leave it Approved.
+# Set a Meat Credit Adj entry to <amount> and the rate's comment, and leave it Approved.
 # usage: post-credit.sh <session> <TransactionId> <amount>
 # An Approved entry is unapproved first. Lines: Dr 16000 Prepaid, Cr 52300 Meat.
 # Prints OK with the amount read back after reload, or FAIL naming the step.
@@ -7,6 +7,7 @@ set -u
 S="$1"; ID="$2"; AMT="$3"
 HERE="$(dirname "$0")"
 PAY="$HERE/../../danny-coops-payroll/scripts"
+NOTE="2.1% of weekly purchases"
 URL="https://dannyandcoops.restaurant365.com/#/form/JournalEntryForm/$ID"
 res() { sed -n '/### Result/{n;p;}' | sed 's/^"//; s/"$//'; }
 js() { playwright-cli -s=$S eval "$1" 2>&1 | res; }
@@ -36,10 +37,14 @@ R=$(js "() => { $GRID; const d=g.dataSource.data(); const a=$AMT; let n=0;
   d.forEach(r=>{ if(/^52300 /.test(r.glAccount)){ r.set('credit',a); r.set('debit',0); n++; } if(/^16000 /.test(r.glAccount)){ r.set('debit',a); r.set('credit',0); n++; } });
   return n; }")
 [ "$R" = 2 ] || fail "expected one 52300 and one 16000 line, set $R"
+playwright-cli -s=$S fill '#journalEntryComment' "$NOTE" >/dev/null 2>&1
+playwright-cli -s=$S press Tab >/dev/null 2>&1
 bash "$PAY/save.sh" "$S" | grep -q "^\[\[\"1\"" || fail "save rejected"
 
 open
 [ "$(lines)" = "$WANT $WANT 2" ] || fail "read back $(lines), want $WANT $WANT 2"
+C=$(js "() => document.getElementById('journalEntryComment').value.trim()")
+[ "$C" = "$NOTE" ] || fail "comment read back $C"
 playwright-cli -s=$S click '#Approve > a' >/dev/null 2>&1; sleep 2
 playwright-cli -s=$S click 'li[data-testid=approveAndCloseMenuItem]' >/dev/null 2>&1; sleep 10
 # Approve and Close can take the request log with the tab; reopen to confirm
