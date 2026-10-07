@@ -5,7 +5,7 @@ description: Post the weekly payroll journal entry into Danny & Coop's Restauran
 
 # Danny & Coops payroll week into the R365 journal entry
 
-Files land in `c:\Users\trici\OCRA\TML's Files - General\Downloads` or its live `we <M.D>` week folder, sometimes prefixed with the week, so list both and match on the name's tail. Finished files sit in `Downloads\Completed\we <M.D>`. From the 9/27 week on, the user sends one file:
+From the 10/4 week on, files land in `c:\Users\trici\OCRA\Danny and Coops - General\Payroll`, and finished files move to its `Completed` folder. Earlier weeks came through `c:\Users\trici\OCRA\TML's Files - General\Downloads`, sometimes prefixed with the week, so match on the name's tail. From the 9/27 week on, the user sends one file:
 
 ```
 payroll-journal_<date>.csv        one row per employee plus a totals row: period, pay day, payment method, every earnings, tax and deduction column, net pay
@@ -58,14 +58,14 @@ Any difference is a changed export, or a prior entry keyed by hand, so stop and 
 ## Post
 
 1. `scripts/r365-login.sh <session>`, then `scripts/all-transactions.sh <session>`. It lists the latest Payroll entries with date, status, amount, and id. An Approved entry dated the period end means the week is done.
-2. Open the prior week's entry by id, then `Action > Duplicate`. The copy opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (period end), `#journalEntryNumber` (`Payroll`), `#journalEntryPayrollStartDate`, and `#journalEntryPayrollEndDate`, read all four back, and `scripts/save.sh <session>` before touching lines.
+2. Open the prior week's entry by id, then `Action > Duplicate`. A "Duplicate transaction and attachments?" dialog follows: click `No, transaction only`, since the week's own file gets attached later. The copy opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (period end), `#journalEntryNumber` (`Payroll`), `#journalEntryPayrollStartDate`, and `#journalEntryPayrollEndDate`, read all four back, and `scripts/save.sh <session>` before touching lines.
 3. `scripts/dump-lines.sh <session> je.json`, then `node scripts/build-plan.js <files> --entry je.json --out edits.json`. Check lines pair with checks by employee name first, then by position. The builder prints `ADD LINE` for each check with no row to sit on and `DELETE row` for each check row the week lacks.
 4. `scripts/apply-edits.sh <session> edits.json` sets debit, credit, and comment on each changed row, adds the new check lines, and deletes the unneeded ones. The script prints its `edited`, `added`, and `deleted` counts; they match the builder's output, and `err` is empty.
 5. Dump and rerun the builder before saving. Then `save.sh`, reload by passing the id to `dump-lines.sh`, and rerun the builder with `--entry`. It prints `entry matches plan` only when the server copy is right.
 6. `scripts/attach.sh <session> <file>` attaches the week's file and prints `attached <name>`. `save.sh`, reload through `dump-lines.sh` with the id, and confirm the file is still listed and the entry still matches the plan.
 7. Approve through **Approve and Close**, then rerun `all-transactions.sh`: the week reads Approved at the planned total.
 
-8. `scripts/file-week.sh <original file> <period end>` moves the week's file from Downloads into `Completed\we <M.D>`, creating the folder, and prints `filed <path>`. It refuses to overwrite a file already there.
+8. `scripts/file-week.sh <original file>` moves the week's file into `Payroll\Completed` and prints `filed <path>`. It refuses to overwrite a file already there.
 
 Report the plan's lines and total, the final status and amount from All Transactions, and, for a journal week, that direct deposit is derived and awaits the bank tie.
 
@@ -73,7 +73,7 @@ Report the plan's lines and total, the final status and amount from All Transact
 
 Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Danny & Coops Payroll - Wednesday Watch**, Wednesdays every 10 minutes from 2:00 to 6:50 PM. It looks for a `*payroll-journal*.csv` in Downloads or a `we *` folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Danny & Coops Payroll - Wednesday Watch**, Wednesdays every 10 minutes from 2:00 to 6:50 PM. It looks for a `*payroll-journal*.csv` in the Payroll folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
 - **Danny & Coops Payroll - Wednesday**, 7:00 PM. The last check, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
 
 The wrapper reads the week from the CSV's Period End, copies the file to `.scratch/danny-coops-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, journal copy, and original file, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-File <csv>` names the file.

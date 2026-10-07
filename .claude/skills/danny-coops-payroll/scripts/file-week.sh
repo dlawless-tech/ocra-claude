@@ -1,9 +1,9 @@
 #!/bin/bash
-# Move the week's journal into Downloads\Completed\we <M.D>, creating the folder.
-# usage: file-week.sh <original file> <period end M/D/YYYY>
+# Move the week's journal into the Payroll folder's Completed.
+# usage: file-week.sh <original file>
 set -u
-F="$1"; WE="$2"
-D="/c/Users/trici/OCRA/TML's Files - General/Downloads/Completed/we $(echo "$WE" | cut -d/ -f1-2 | tr / .)"
+F="$1"
+D="/c/Users/trici/OCRA/Danny and Coops - General/Payroll/Completed"
 [ -f "$F" ] || { echo "FAIL: no $F"; exit 1; }
 mkdir -p "$D"
 [ -e "$D/$(basename "$F")" ] && { echo "FAIL: $D/$(basename "$F") already exists"; exit 1; }

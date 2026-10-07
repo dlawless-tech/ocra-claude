@@ -7,14 +7,13 @@ $ErrorActionPreference = 'Stop'
 $Repo = (Resolve-Path "$PSScriptRoot\..\..\..\..").Path
 $Notify = "$PSScriptRoot\notify-teams.ps1"
 $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
-$Downloads = "C:\Users\trici\OCRA\TML's Files - General\Downloads"
+$Drop = 'C:\Users\trici\OCRA\Danny and Coops - General\Payroll'
 $Base = Join-Path $Repo '.scratch\danny-coops-payroll'
 New-Item -ItemType Directory -Force $Base | Out-Null
 
-# journal files outside Completed: Downloads itself and its live week folders; skip one still syncing
+# skip a file still syncing
 if ($File) { $found = @(Get-Item -LiteralPath $File) } else {
-  $dirs = @($Downloads) + @(Get-ChildItem -LiteralPath $Downloads -Directory | Where-Object { $_.Name -like 'we *' } | ForEach-Object { $_.FullName })
-  $found = @($dirs | ForEach-Object { Get-ChildItem -LiteralPath $_ -File -Filter '*payroll-journal*.csv' } |
+  $found = @(Get-ChildItem -LiteralPath $Drop -File -Filter '*payroll-journal*.csv' |
     Where-Object { $_.LastWriteTime -lt (Get-Date).AddMinutes(-2) } | Sort-Object LastWriteTime -Descending)
 }
 
@@ -23,12 +22,13 @@ if (-not $found.Count) {
     # last Sunday's week already run, or filed by hand
     $sun = (Get-Date).Date.AddDays(-[int](Get-Date).DayOfWeek)
     $ran = Test-Path (Join-Path $Base ("wk{0:MMdd}\done.txt" -f $sun))
-    $filed = Get-ChildItem -LiteralPath (Join-Path $Downloads ("Completed\we {0}.{1}" -f $sun.Month, $sun.Day)) -Filter '*payroll-journal*.csv' -ErrorAction SilentlyContinue
+    $filed = Get-ChildItem -LiteralPath (Join-Path $Drop 'Completed') -Filter '*payroll-journal*.csv' -ErrorAction SilentlyContinue |
+      Where-Object { (Import-Csv -LiteralPath $_.FullName | Select-Object -First 1).'Period End' -eq ('{0:yyyy-MM-dd}' -f $sun) }
     # one missing-file card per day
     $mark = Join-Path $Base ("missing-{0:yyyyMMdd}.txt" -f (Get-Date))
     if (-not $ran -and -not $filed -and -not (Test-Path $mark)) {
       Set-Content -Encoding utf8 $mark (Get-Date -Format s)
-      & $Notify -Title 'Danny & Coops Payroll: journal file not in yet' -Lines @("No payroll-journal CSV in Downloads as of $(Get-Date -Format 'ddd M/d h:mm tt'). The entry posts on its own once the file is dropped there.")
+      & $Notify -Title 'Danny & Coops Payroll: journal file not in yet' -Lines @("No payroll-journal CSV in Danny and Coops - General\Payroll as of $(Get-Date -Format 'ddd M/d h:mm tt'). The entry posts on its own once the file is dropped there.")
     }
   }
   exit 0
@@ -47,7 +47,7 @@ foreach ($f in $found) {
   function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
   $title = "Danny & Coops Payroll, W.E. $weFull"
 
-  # the Downloads path carries an apostrophe that MSYS path conversion mangles
+  # the run works from a copy; the original stays put until it is filed
   Copy-Item -LiteralPath $f.FullName (Join-Path $run $f.Name) -Force
   $result = Join-Path $run 'result.json'
   if (Test-Path $result) { Move-Item -Force $result (Join-Path $run ("result-{0:HHmm}.json" -f (Get-Date))) }

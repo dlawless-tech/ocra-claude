@@ -48,7 +48,9 @@ function acctFromJournal(rows) {
   const out = [['Category', 'Description', 'Debit', 'Credit']];
   let dr = 0;
   const earn = { Wages: 'Hourly (Regular) Amt', Overtime: 'Overtime Amt', 'Non-Hourly Wages': 'Non-Hourly Regular Amt', Salaries: 'Salaried Amt', Bonus: 'Bonus Amt', Tips: 'Paycheck Tips Amt' };
-  for (const [d, n] of Object.entries(earn)) { out.push(['Earnings', d, $(v(n)), '-']); dr += v(n); }
+  // export drops an earnings column nobody earned that week
+  const ve = n => h.includes(n) ? v(n) : 0;
+  for (const [d, n] of Object.entries(earn)) { out.push(['Earnings', d, $(ve(n)), '-']); dr += ve(n); }
   out.push(['Reimbursements', 'Reimbursements', $(v('Reimbursements')), '-']);
   for (const n of h.filter(n => /Deduction$/.test(n))) out.push(['Deductions', n, $(v(n)), $(v(n))]);
   for (const n of h.filter(n => /\(ER\)$/.test(n))) { out.push(['Taxes', n, $(v(n)), '-']); dr += v(n); }
@@ -100,6 +102,8 @@ const eh = emp[0];
 const tot = emp[emp.length - 1];
 if (tot[0] || tot[1]) fail('payroll summary last row is not the totals row');
 const et = n => { const i = eh.indexOf(n); if (i < 0) fail(`payroll summary has no ${n} column`); return money(tot[i]); };
+// a dropped earnings column is 0; the gross tie still catches an unmapped one
+const ee = n => eh.includes(n) ? et(n) : 0;
 const eeInsurance = et('New York Paid Family Leave Insurance (EE)') + et('New York SDI (EE)');
 
 const hourly = sum('Earnings', ['Wages', 'Overtime', 'Non-Hourly Wages']);
@@ -110,10 +114,10 @@ const taxes = sum('Taxes') - eeInsurance;
 
 // cross-check the two files
 const tie = (label, a, b) => { if (a !== b) fail(`${label}: account summary ${fmt(a)} vs payroll summary ${fmt(b)}`); };
-tie('hourly', hourly, et('Hourly (Regular) Amt') + et('Overtime Amt') + et('Non-Hourly Regular Amt'));
-tie('salaries', salaries, et('Salaried Amt'));
-tie('bonus', bonus, et('Bonus Amt'));
-tie('tips', tips, et('Paycheck Tips Amt'));
+tie('hourly', hourly, ee('Hourly (Regular) Amt') + ee('Overtime Amt') + ee('Non-Hourly Regular Amt'));
+tie('salaries', salaries, ee('Salaried Amt'));
+tie('bonus', bonus, ee('Bonus Amt'));
+tie('tips', tips, ee('Paycheck Tips Amt'));
 tie('gross', hourly + salaries + bonus + tips, et('Gross Total'));
 
 const dd = acct.filter(r => r[CAT] === 'Direct Deposit').reduce((t, r) => t + money(r[CR]), 0);
