@@ -1,0 +1,1431 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Open tabs
+- 0: [Journal Entry - MGMT Fees](https://flecha.restaurant365.com/#/form/JournalEntryForm/5f470113-0614-44d5-a015-a88f27fd4a99)
+- 1: (current) [GL Account Detail - Report Viewer](https://flecha.restaurant365.com/ReportServer/Pages/ReportViewer.aspx?/NA01/GL+Account+Detail&rs:Command=Render&rs:ParameterLanguage=en-US&rc:LinkTarget=_blank&Database=flecha&User=fc1d6774-dc17-49e3-9e16-163d30097de9&SQLServer=pro-sqlag-621.restaurant365.com&TimeZoneCode=PDT&UtcOffset=-07&SumByTrxYes=1&ExcludeAccountsWithoutActivity=False&SubtotalBy=0&ShowUnapproved=1&Account=5B491BD4-2CE6-EE11-B68D-6045BD313EA9&FilterBy=Location&Filter=30F3A091-BC04-4C38-ABE4-F3345D5156D6&Filter=3169EE7C-8CD6-4286-80A4-75BE7357F0B0&Filter=ACC4804F-CC80-456A-B6E7-10B25DA3317E&Filter=75104F62-86C0-471A-A538-82D9BE7EF848&Start=9/28/2026&End=10/4/2026&Calendar=1&CustomField=0&CustomFieldOptions=-1)
+### Page
+- Page URL: https://flecha.restaurant365.com/ReportServer/Pages/ReportViewer.aspx?/NA01/GL+Account+Detail&rs:Command=Render&rs:ParameterLanguage=en-US&rc:LinkTarget=_blank&Database=flecha&User=fc1d6774-dc17-49e3-9e16-163d30097de9&SQLServer=pro-sqlag-621.restaurant365.com&TimeZoneCode=PDT&UtcOffset=-07&SumByTrxYes=1&ExcludeAccountsWithoutActivity=False&SubtotalBy=0&ShowUnapproved=1&Account=5B491BD4-2CE6-EE11-B68D-6045BD313EA9&FilterBy=Location&Filter=30F3A091-BC04-4C38-ABE4-F3345D5156D6&Filter=3169EE7C-8CD6-4286-80A4-75BE7357F0B0&Filter=ACC4804F-CC80-456A-B6E7-10B25DA3317E&Filter=75104F62-86C0-471A-A538-82D9BE7EF848&Start=9/28/2026&End=10/4/2026&Calendar=1&CustomField=0&CustomFieldOptions=-1
+- Page Title: GL Account Detail - Report Viewer
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- table [ref=e3]:
+  - rowgroup [ref=e4]:
+    - row [ref=e324]:
+      - cell [ref=e325]:
+        - table [ref=e24]:
+          - rowgroup [ref=e25]:
+            - row:
+              - cell
+            - row [ref=e26]:
+              - cell [ref=e27]:
+                - table [ref=e30]:
+                  - rowgroup [ref=e31]:
+                    - row [ref=e32]:
+                      - cell [ref=e33]:
+                        - table [ref=e34]:
+                          - rowgroup [ref=e35]:
+                            - row [ref=e36]:
+                              - cell "Account" [ref=e37]
+                              - cell [ref=e39]:
+                                - table [ref=e42]:
+                                  - rowgroup [ref=e43]:
+                                    - row [ref=e44]:
+                                      - cell [ref=e45]:
+                                        - textbox "Account" [ref=e46]: 4100 - Food Sales
+                                      - cell [ref=e47]:
+                                        - button "Account" [ref=e48] [cursor=pointer]: K
+                              - cell [ref=e49]
+                              - cell "Parent" [ref=e50]
+                              - cell [ref=e52]:
+                                - combobox "Parent" [ref=e54]:
+                                  - option "Include Subaccounts" [selected]
+                                  - option "This Account Only"
+                              - cell [ref=e55]
+                              - cell [ref=e56]
+                              - cell [ref=e57]
+                              - cell [ref=e58]
+                              - cell [ref=e59]
+                              - cell [ref=e60]
+                            - row [ref=e61]:
+                              - cell "Filter By" [ref=e62]
+                              - cell [ref=e64]:
+                                - combobox "Filter By" [ref=e66]:
+                                  - option "Show All"
+                                  - option "Location" [selected]
+                                  - option "Group"
+                                  - option "Legal Entity"
+                              - cell [ref=e67]
+                              - cell "Filter" [ref=e68]
+                              - cell [ref=e70]:
+                                - table [ref=e73]:
+                                  - rowgroup [ref=e74]:
+                                    - row [ref=e75]:
+                                      - cell [ref=e76]:
+                                        - textbox "Filter" [ref=e77]: 101 - Flecha HB,102 - Flecha Town Square,103 - Flecha 4S Ranch,104 - Flecha NB
+                                      - cell [ref=e78]:
+                                        - button "Filter" [ref=e79] [cursor=pointer]: K
+                              - cell [ref=e80]
+                              - cell [ref=e81]
+                              - cell [ref=e82]
+                              - cell [ref=e83]
+                              - cell [ref=e84]
+                              - cell [ref=e85]
+                            - row [ref=e86]:
+                              - cell "Start" [ref=e87]
+                              - cell [ref=e89]:
+                                - table [ref=e92]:
+                                  - rowgroup [ref=e93]:
+                                    - row [ref=e94]:
+                                      - cell [ref=e95]:
+                                        - textbox "Start" [ref=e96]: 9/28/2026
+                                      - cell [ref=e97]:
+                                        - button "Start" [ref=e98] [cursor=pointer]: H
+                                      - cell [ref=e99]:
+                                        - generic [ref=e100]:
+                                          - 'checkbox "Start: NULL" [ref=e101]'
+                                          - text: "NULL"
+                              - cell [ref=e102]
+                              - cell "End" [ref=e103]
+                              - cell [ref=e105]:
+                                - table [ref=e108]:
+                                  - rowgroup [ref=e109]:
+                                    - row [ref=e110]:
+                                      - cell [ref=e111]:
+                                        - textbox "End" [ref=e112]: 10/4/2026
+                                      - cell [ref=e113]:
+                                        - button "End" [ref=e114] [cursor=pointer]: H
+                                      - cell [ref=e115]:
+                                        - generic [ref=e116]:
+                                          - 'checkbox "End: NULL" [ref=e117]'
+                                          - text: "NULL"
+                              - cell [ref=e118]
+                              - cell [ref=e119]
+                              - cell [ref=e120]
+                              - cell [ref=e121]
+                              - cell [ref=e122]
+                              - cell [ref=e123]
+                            - row [ref=e124]:
+                              - cell "Show Unapproved" [ref=e125]
+                              - cell [ref=e127]:
+                                - combobox "Show Unapproved" [ref=e129]:
+                                  - option "No"
+                                  - option "Yes" [selected]
+                              - cell [ref=e130]
+                              - cell "Calendar" [ref=e131]
+                              - cell [ref=e133]:
+                                - combobox "Calendar" [ref=e135]:
+                                  - option "Fiscal" [selected]
+                                  - option "Operational"
+                              - cell [ref=e136]
+                              - cell [ref=e137]
+                              - cell [ref=e138]
+                              - cell [ref=e139]
+                              - cell [ref=e140]
+                              - cell [ref=e141]
+                            - row [ref=e142]:
+                              - cell "Sum by Transaction" [ref=e143]
+                              - cell [ref=e145]:
+                                - combobox "Sum by Transaction" [ref=e147]:
+                                  - option "Yes" [selected]
+                                  - option "No"
+                              - cell [ref=e148]
+                              - cell "Subtotal By" [ref=e149]
+                              - cell [ref=e151]:
+                                - combobox "Subtotal By" [ref=e153]:
+                                  - option "None" [selected]
+                                  - option "Location"
+                                  - option "Company"
+                              - cell [ref=e154]
+                              - cell "Show Comment/Location/#" [ref=e155]
+                              - cell [ref=e157]:
+                                - combobox "Show Comment/Location/#" [ref=e159]:
+                                  - option "Abbreviated" [selected]
+                                  - option "Full"
+                              - cell [ref=e160]
+                              - cell [ref=e161]
+                              - cell [ref=e162]
+                            - row [ref=e163]:
+                              - cell "Balance" [ref=e164]
+                              - cell [ref=e166]:
+                                - combobox "Balance" [ref=e168]:
+                                  - option "Typical" [selected]
+                                  - option "DR(+)/CR(-)"
+                              - cell [ref=e169]
+                              - cell "Include Stat Accounts" [ref=e170]
+                              - cell [ref=e172]:
+                                - combobox "Include Stat Accounts" [ref=e174]:
+                                  - option "No"
+                                  - option "Yes" [selected]
+                              - cell [ref=e175]
+                              - cell "Exclude GL w/out Activity" [ref=e176]
+                              - cell [ref=e178]:
+                                - combobox "Exclude GL w/out Activity" [ref=e180]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                              - cell [ref=e181]
+                              - cell "Hide Zero Balances" [ref=e182]
+                              - cell [ref=e184]:
+                                - combobox "Hide Zero Balances" [ref=e186]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                            - row [ref=e187]:
+                              - cell "Calculate to 4 decimals" [ref=e188]
+                              - cell [ref=e190]:
+                                - combobox "Calculate to 4 decimals" [ref=e192]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                              - cell [ref=e193]
+                              - cell "Show Comment or Item" [ref=e194]
+                              - cell [ref=e196]:
+                                - combobox "Show Comment or Item" [ref=e198]:
+                                  - option "Comment" [selected]
+                                  - option "Item"
+                              - cell [ref=e199]
+                              - cell "Custom Fields" [ref=e200]
+                              - cell [ref=e202]:
+                                - combobox "Custom Fields" [ref=e204]:
+                                  - option "None" [selected]
+                              - cell [ref=e205]
+                              - cell "Custom Field Options" [ref=e206]
+                              - cell [ref=e208]:
+                                - table [ref=e211]:
+                                  - rowgroup [ref=e212]:
+                                    - row [ref=e213]:
+                                      - cell [ref=e214]:
+                                        - textbox "Custom Field Options" [ref=e215]: None
+                                      - cell [ref=e216]:
+                                        - button "Custom Field Options" [ref=e217] [cursor=pointer]: K
+                      - cell
+                      - cell [ref=e218]:
+                        - table [ref=e219]:
+                          - rowgroup [ref=e220]:
+                            - row [ref=e221]:
+                              - cell [ref=e222]:
+                                - button "View Report" [ref=e223]
+            - row [ref=e224]:
+              - cell [ref=e225]:
+                - button "Hide Parameters" [ref=e227] [cursor=pointer]
+            - row [ref=e228]:
+              - cell [ref=e229]:
+                - navigation "Report actions" [ref=e231]:
+                  - table [ref=e233]:
+                    - rowgroup [ref=e234]:
+                      - row [ref=e326]:
+                        - cell [ref=e236]:
+                          - generic [ref=e237]:
+                            - text: A
+                            - table "First Page" [ref=e239]:
+                              - rowgroup [ref=e240]:
+                                - row [ref=e241]:
+                                  - cell "A" [ref=e242]
+                        - cell [ref=e244]
+                        - cell [ref=e245]:
+                          - generic [ref=e246]:
+                            - text: C
+                            - table "Previous Page" [ref=e248]:
+                              - rowgroup [ref=e249]:
+                                - row [ref=e250]:
+                                  - cell "C" [ref=e251]
+                        - cell [ref=e253]
+                        - cell [ref=e327]:
+                          - textbox "Current Page" [ref=e255]: "1"
+                        - cell [ref=e256]
+                        - cell "of" [ref=e257]
+                        - cell [ref=e258]
+                        - cell "1" [ref=e328]
+                        - cell [ref=e260]
+                        - cell [ref=e261]:
+                          - generic [ref=e262]:
+                            - text: D
+                            - table "Next Page" [ref=e264]:
+                              - rowgroup [ref=e265]:
+                                - row [ref=e266]:
+                                  - cell "D" [ref=e267]
+                        - cell [ref=e269]
+                        - cell [ref=e270]:
+                          - generic [ref=e271]:
+                            - text: B
+                            - table "Last Page" [ref=e273]:
+                              - rowgroup [ref=e274]:
+                                - row [ref=e275]:
+                                  - cell "B" [ref=e276]
+                  - table [ref=e279]:
+                    - rowgroup [ref=e280]:
+                      - row [ref=e281]:
+                        - cell [ref=e282]:
+                          - generic [ref=e283]:
+                            - table "Refresh" [ref=e330]:
+                              - rowgroup [ref=e331]:
+                                - row [ref=e332]:
+                                  - cell "F" [ref=e333]
+                            - text: F
+                  - table [ref=e291]:
+                    - rowgroup [ref=e292]:
+                      - row [ref=e293]:
+                        - cell "100%" [ref=e294]:
+                          - combobox "Zoom" [ref=e295]:
+                            - option "Page Width"
+                            - option "Whole Page"
+                            - option "500%"
+                            - option "200%"
+                            - option "150%"
+                            - option "100%" [selected]
+                            - option "75%"
+                            - option "50%"
+                            - option "25%"
+                            - option "10%"
+                  - table [ref=e297]:
+                    - rowgroup [ref=e298]:
+                      - row [ref=e299]:
+                        - cell [ref=e300]:
+                          - table "Export drop down menu" [ref=e302]:
+                            - rowgroup [ref=e303]:
+                              - row [ref=e304]:
+                                - cell [ref=e305]:
+                                  - link "J K" [ref=e306] [cursor=pointer]:
+                                    - /url: javascript:void(0)
+                                    - generic [ref=e307]: J
+                                    - generic [ref=e308]: K
+                  - table [ref=e310]:
+                    - rowgroup [ref=e311]:
+                      - row [ref=e312]:
+                        - cell [ref=e313]:
+                          - generic [ref=e314]:
+                            - table "Print" [ref=e336]:
+                              - rowgroup [ref=e337]:
+                                - row [ref=e338]:
+                                  - cell "I" [ref=e339]
+                            - text: I
+            - row [ref=e321]:
+              - cell [ref=e322]:
+                - main [ref=e341]:
+                  - table [ref=e343]:
+                    - rowgroup [ref=e344]:
+                      - row [ref=e345]:
+                        - cell [ref=e346]:
+                          - table [ref=e347]:
+                            - rowgroup [ref=e348]:
+                              - row [ref=e349]:
+                                - cell [ref=e350]:
+                                  - table [ref=e351]:
+                                    - rowgroup [ref=e352]:
+                                      - row [ref=e353]:
+                                        - cell [ref=e354]:
+                                          - table [ref=e355]:
+                                            - rowgroup [ref=e356]:
+                                              - row [ref=e357]:
+                                                - cell [ref=e358]:
+                                                  - navigation "Report text" [ref=e359]:
+                                                    - generic [ref=e360]: "Account Detail: 4100 - Food Sales"
+                                                  - navigation "Report text" [ref=e361]:
+                                                    - generic [ref=e362]: 9/28/2026 - 10/4/2026
+                                                  - navigation "Report text" [ref=e365]:
+                                                    - generic [ref=e366]: "Location: 103 - Flecha 4S Ranch; 101 - Flecha HB; 104 - Flecha NB; 102 - Flecha Town Square"
+                                                  - navigation "Report text" [ref=e367]
+                                                  - navigation "Report text" [ref=e368]
+                                                  - navigation "Report text" [ref=e369]
+                                                  - navigation "Report table"
+                                                  - table [ref=e370]:
+                                                    - rowgroup [ref=e371]:
+                                                      - row:
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                      - row [ref=e372]:
+                                                        - cell [ref=e373]
+                                                        - cell [ref=e374]
+                                                        - cell [ref=e375]
+                                                        - cell "Date Unsorted" [ref=e376]:
+                                                          - generic [ref=e378]:
+                                                            - generic [ref=e379]: Date
+                                                            - img "Unsorted" [ref=e382] [cursor=pointer]
+                                                        - cell "Type Unsorted" [ref=e383]:
+                                                          - generic [ref=e385]:
+                                                            - generic [ref=e386]: Type
+                                                            - img "Unsorted" [ref=e389] [cursor=pointer]
+                                                        - cell "Ref. Number Unsorted" [ref=e390]:
+                                                          - generic [ref=e392]:
+                                                            - generic [ref=e393]: Ref. Number
+                                                            - img "Unsorted" [ref=e396] [cursor=pointer]
+                                                        - cell "Company Unsorted" [ref=e397]:
+                                                          - generic [ref=e399]:
+                                                            - generic [ref=e400]: Company
+                                                            - img "Unsorted" [ref=e405] [cursor=pointer]
+                                                        - cell "Location Unsorted" [ref=e406]:
+                                                          - generic [ref=e408]:
+                                                            - generic [ref=e409]: Location
+                                                            - img "Unsorted" [ref=e412] [cursor=pointer]
+                                                        - cell "Comment/Item Unsorted" [ref=e413]:
+                                                          - generic [ref=e415]:
+                                                            - generic [ref=e416]: Comment/Item
+                                                            - img "Unsorted" [ref=e419] [cursor=pointer]
+                                                        - cell "Debit Unsorted" [ref=e420]:
+                                                          - generic [ref=e422]:
+                                                            - generic [ref=e423]: Debit
+                                                            - img "Unsorted" [ref=e426] [cursor=pointer]
+                                                        - cell "Credit Unsorted" [ref=e427]:
+                                                          - generic [ref=e429]:
+                                                            - generic [ref=e430]: Credit
+                                                            - img "Unsorted" [ref=e433] [cursor=pointer]
+                                                        - cell "Balance" [ref=e434]
+                                                      - row [ref=e437]:
+                                                        - cell [ref=e438]
+                                                        - cell "4100 - Food Sales" [ref=e439]
+                                                        - cell [ref=e442]
+                                                        - cell "Beg Balance:" [ref=e443]
+                                                        - cell "9,010,467.93" [ref=e446]
+                                                      - row [ref=e449]:
+                                                        - cell [ref=e450]
+                                                        - cell [ref=e451]
+                                                        - cell [ref=e452]
+                                                        - cell [ref=e453]
+                                                        - cell [ref=e454]
+                                                        - cell [ref=e455]
+                                                        - cell [ref=e456]
+                                                        - cell [ref=e457]
+                                                        - cell [ref=e458]
+                                                        - cell [ref=e459]
+                                                        - cell [ref=e460]
+                                                        - cell [ref=e461]
+                                                      - row [ref=e462]:
+                                                        - cell [ref=e463]
+                                                        - cell [ref=e464]
+                                                        - cell "4100 - Food Sales" [ref=e465]
+                                                        - cell [ref=e468]
+                                                        - cell "Beg Balance:" [ref=e469]
+                                                        - cell "0.00" [ref=e472]
+                                                      - row [ref=e475]:
+                                                        - cell [ref=e476]
+                                                        - cell [ref=e477]
+                                                        - cell "Total Food Sales" [ref=e478]
+                                                        - cell [ref=e481]
+                                                        - cell "0.00" [ref=e482]
+                                                        - cell "0.00" [ref=e485]
+                                                        - cell "0.00" [ref=e488]
+                                                      - row [ref=e491]:
+                                                        - cell [ref=e492]
+                                                        - cell [ref=e493]
+                                                        - cell [ref=e494]
+                                                        - cell [ref=e495]
+                                                        - cell [ref=e496]
+                                                        - cell [ref=e497]
+                                                        - cell [ref=e498]
+                                                        - cell [ref=e499]
+                                                        - cell [ref=e500]
+                                                        - cell [ref=e501]
+                                                        - cell [ref=e502]
+                                                        - cell [ref=e503]
+                                                      - row [ref=e504]:
+                                                        - cell [ref=e505]
+                                                        - cell [ref=e506]
+                                                        - cell "4110 - Food Sales (Excl N/A Bev)" [ref=e507]
+                                                        - cell [ref=e510]
+                                                        - cell "Beg Balance:" [ref=e511]
+                                                        - cell "8,729,917.19" [ref=e514]
+                                                      - row [ref=e517]:
+                                                        - cell [ref=e518]
+                                                        - cell [ref=e519]
+                                                        - cell [ref=e520]
+                                                        - cell "9/28/2026" [ref=e521]
+                                                        - cell "Journal Entry" [ref=e524]
+                                                        - cell [ref=e527]:
+                                                          - generic "JE00015643" [ref=e528]:
+                                                            - link "JE00015643" [ref=e529] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2063ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e531]
+                                                        - cell "Flecha NB" [ref=e532]
+                                                        - cell [ref=e535]
+                                                        - cell "0.00" [ref=e536]
+                                                        - cell "4,182.30" [ref=e539]
+                                                        - cell "8,734,099.49" [ref=e542]
+                                                      - row [ref=e545]:
+                                                        - cell [ref=e546]
+                                                        - cell [ref=e547]
+                                                        - cell [ref=e548]
+                                                        - cell "9/28/2026" [ref=e549]
+                                                        - cell "Journal Entry" [ref=e552]
+                                                        - cell [ref=e555]:
+                                                          - generic "JE00015644" [ref=e556]:
+                                                            - link "JE00015644" [ref=e557] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2163ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e559]
+                                                        - cell "Flecha HB" [ref=e560]
+                                                        - cell [ref=e563]
+                                                        - cell "0.00" [ref=e564]
+                                                        - cell "4,675.45" [ref=e567]
+                                                        - cell "8,738,774.94" [ref=e570]
+                                                      - row [ref=e573]:
+                                                        - cell [ref=e574]
+                                                        - cell [ref=e575]
+                                                        - cell [ref=e576]
+                                                        - cell "9/28/2026" [ref=e577]
+                                                        - cell "Journal Entry" [ref=e580]
+                                                        - cell [ref=e583]:
+                                                          - generic "JE00015645" [ref=e584]:
+                                                            - link "JE00015645" [ref=e585] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2263ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e587]
+                                                        - cell "Flecha Town Square" [ref=e588]
+                                                        - cell [ref=e591]
+                                                        - cell "0.00" [ref=e592]
+                                                        - cell "5,543.00" [ref=e595]
+                                                        - cell "8,744,317.94" [ref=e598]
+                                                      - row [ref=e601]:
+                                                        - cell [ref=e602]
+                                                        - cell [ref=e603]
+                                                        - cell [ref=e604]
+                                                        - cell "9/28/2026" [ref=e605]
+                                                        - cell "Journal Entry" [ref=e608]
+                                                        - cell [ref=e611]:
+                                                          - generic "JE00015646" [ref=e612]:
+                                                            - link "JE00015646" [ref=e613] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2363ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e615]
+                                                        - cell "Flecha 4S Ranch" [ref=e616]
+                                                        - cell [ref=e619]
+                                                        - cell "0.00" [ref=e620]
+                                                        - cell "4,583.10" [ref=e623]
+                                                        - cell "8,748,901.04" [ref=e626]
+                                                      - row [ref=e629]:
+                                                        - cell [ref=e630]
+                                                        - cell [ref=e631]
+                                                        - cell [ref=e632]
+                                                        - cell "9/29/2026" [ref=e633]
+                                                        - cell "Journal Entry" [ref=e636]
+                                                        - cell [ref=e639]:
+                                                          - generic "JE00015656" [ref=e640]:
+                                                            - link "JE00015656" [ref=e641] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=dcf4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e643]
+                                                        - cell "Flecha NB" [ref=e644]
+                                                        - cell [ref=e647]
+                                                        - cell "0.00" [ref=e648]
+                                                        - cell "9,755.20" [ref=e651]
+                                                        - cell "8,758,656.24" [ref=e654]
+                                                      - row [ref=e657]:
+                                                        - cell [ref=e658]
+                                                        - cell [ref=e659]
+                                                        - cell [ref=e660]
+                                                        - cell "9/29/2026" [ref=e661]
+                                                        - cell "Journal Entry" [ref=e664]
+                                                        - cell [ref=e667]:
+                                                          - generic "JE00015657" [ref=e668]:
+                                                            - link "JE00015657" [ref=e669] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=ddf4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e671]
+                                                        - cell "Flecha HB" [ref=e672]
+                                                        - cell [ref=e675]
+                                                        - cell "0.00" [ref=e676]
+                                                        - cell "5,393.25" [ref=e679]
+                                                        - cell "8,764,049.49" [ref=e682]
+                                                      - row [ref=e685]:
+                                                        - cell [ref=e686]
+                                                        - cell [ref=e687]
+                                                        - cell [ref=e688]
+                                                        - cell "9/29/2026" [ref=e689]
+                                                        - cell "Journal Entry" [ref=e692]
+                                                        - cell [ref=e695]:
+                                                          - generic "JE00015658" [ref=e696]:
+                                                            - link "JE00015658" [ref=e697] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=def4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e699]
+                                                        - cell "Flecha Town Square" [ref=e700]
+                                                        - cell [ref=e703]
+                                                        - cell "0.00" [ref=e704]
+                                                        - cell "6,486.50" [ref=e707]
+                                                        - cell "8,770,535.99" [ref=e710]
+                                                      - row [ref=e713]:
+                                                        - cell [ref=e714]
+                                                        - cell [ref=e715]
+                                                        - cell [ref=e716]
+                                                        - cell "9/29/2026" [ref=e717]
+                                                        - cell "Journal Entry" [ref=e720]
+                                                        - cell [ref=e723]:
+                                                          - generic "JE00015659" [ref=e724]:
+                                                            - link "JE00015659" [ref=e725] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=dff4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e727]
+                                                        - cell "Flecha 4S Ranch" [ref=e728]
+                                                        - cell [ref=e731]
+                                                        - cell "0.00" [ref=e732]
+                                                        - cell "4,512.56" [ref=e735]
+                                                        - cell "8,775,048.55" [ref=e738]
+                                                      - row [ref=e741]:
+                                                        - cell [ref=e742]
+                                                        - cell [ref=e743]
+                                                        - cell [ref=e744]
+                                                        - cell "9/30/2026" [ref=e745]
+                                                        - cell "Journal Entry" [ref=e748]
+                                                        - cell [ref=e751]:
+                                                          - generic "JE00015668" [ref=e752]:
+                                                            - link "JE00015668" [ref=e753] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4535d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e755]
+                                                        - cell "Flecha NB" [ref=e756]
+                                                        - cell [ref=e759]
+                                                        - cell "0.00" [ref=e760]
+                                                        - cell "7,436.25" [ref=e763]
+                                                        - cell "8,782,484.80" [ref=e766]
+                                                      - row [ref=e769]:
+                                                        - cell [ref=e770]
+                                                        - cell [ref=e771]
+                                                        - cell [ref=e772]
+                                                        - cell "9/30/2026" [ref=e773]
+                                                        - cell "Journal Entry" [ref=e776]
+                                                        - cell [ref=e779]:
+                                                          - generic "JE00015669" [ref=e780]:
+                                                            - link "JE00015669" [ref=e781] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4635d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e783]
+                                                        - cell "Flecha HB" [ref=e784]
+                                                        - cell [ref=e787]
+                                                        - cell "0.00" [ref=e788]
+                                                        - cell "7,830.43" [ref=e791]
+                                                        - cell "8,790,315.23" [ref=e794]
+                                                      - row [ref=e797]:
+                                                        - cell [ref=e798]
+                                                        - cell [ref=e799]
+                                                        - cell [ref=e800]
+                                                        - cell "9/30/2026" [ref=e801]
+                                                        - cell "Journal Entry" [ref=e804]
+                                                        - cell [ref=e807]:
+                                                          - generic "JE00015670" [ref=e808]:
+                                                            - link "JE00015670" [ref=e809] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4735d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e811]
+                                                        - cell "Flecha Town Square" [ref=e812]
+                                                        - cell [ref=e815]
+                                                        - cell "0.00" [ref=e816]
+                                                        - cell "7,411.42" [ref=e819]
+                                                        - cell "8,797,726.65" [ref=e822]
+                                                      - row [ref=e825]:
+                                                        - cell [ref=e826]
+                                                        - cell [ref=e827]
+                                                        - cell [ref=e828]
+                                                        - cell "9/30/2026" [ref=e829]
+                                                        - cell "Journal Entry" [ref=e832]
+                                                        - cell [ref=e835]:
+                                                          - generic "JE00015671" [ref=e836]:
+                                                            - link "JE00015671" [ref=e837] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4835d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e839]
+                                                        - cell "Flecha 4S Ranch" [ref=e840]
+                                                        - cell [ref=e843]
+                                                        - cell "0.00" [ref=e844]
+                                                        - cell "3,711.30" [ref=e847]
+                                                        - cell "8,801,437.95" [ref=e850]
+                                                      - row [ref=e853]:
+                                                        - cell [ref=e854]
+                                                        - cell [ref=e855]
+                                                        - cell [ref=e856]
+                                                        - cell "10/1/2026" [ref=e857]
+                                                        - cell "Journal Entry" [ref=e860]
+                                                        - cell [ref=e863]:
+                                                          - generic "JE00015684" [ref=e864]:
+                                                            - link "JE00015684" [ref=e865] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3fd58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e867]
+                                                        - cell "Flecha NB" [ref=e868]
+                                                        - cell [ref=e871]
+                                                        - cell "0.00" [ref=e872]
+                                                        - cell "10,464.75" [ref=e875]
+                                                        - cell "8,811,902.70" [ref=e878]
+                                                      - row [ref=e881]:
+                                                        - cell [ref=e882]
+                                                        - cell [ref=e883]
+                                                        - cell [ref=e884]
+                                                        - cell "10/1/2026" [ref=e885]
+                                                        - cell "Journal Entry" [ref=e888]
+                                                        - cell [ref=e891]:
+                                                          - generic "JE00015685" [ref=e892]:
+                                                            - link "JE00015685" [ref=e893] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=40d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e895]
+                                                        - cell "Flecha HB" [ref=e896]
+                                                        - cell [ref=e899]
+                                                        - cell "0.00" [ref=e900]
+                                                        - cell "5,746.80" [ref=e903]
+                                                        - cell "8,817,649.50" [ref=e906]
+                                                      - row [ref=e909]:
+                                                        - cell [ref=e910]
+                                                        - cell [ref=e911]
+                                                        - cell [ref=e912]
+                                                        - cell "10/1/2026" [ref=e913]
+                                                        - cell "Journal Entry" [ref=e916]
+                                                        - cell [ref=e919]:
+                                                          - generic "JE00015686" [ref=e920]:
+                                                            - link "JE00015686" [ref=e921] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=41d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e923]
+                                                        - cell "Flecha Town Square" [ref=e924]
+                                                        - cell [ref=e927]
+                                                        - cell "0.00" [ref=e928]
+                                                        - cell "6,113.40" [ref=e931]
+                                                        - cell "8,823,762.90" [ref=e934]
+                                                      - row [ref=e937]:
+                                                        - cell [ref=e938]
+                                                        - cell [ref=e939]
+                                                        - cell [ref=e940]
+                                                        - cell "10/1/2026" [ref=e941]
+                                                        - cell "Journal Entry" [ref=e944]
+                                                        - cell [ref=e947]:
+                                                          - generic "JE00015687" [ref=e948]:
+                                                            - link "JE00015687" [ref=e949] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=42d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e951]
+                                                        - cell "Flecha 4S Ranch" [ref=e952]
+                                                        - cell [ref=e955]
+                                                        - cell "0.00" [ref=e956]
+                                                        - cell "5,822.13" [ref=e959]
+                                                        - cell "8,829,585.03" [ref=e962]
+                                                      - row [ref=e965]:
+                                                        - cell [ref=e966]
+                                                        - cell [ref=e967]
+                                                        - cell [ref=e968]
+                                                        - cell "10/2/2026" [ref=e969]
+                                                        - cell "Journal Entry" [ref=e972]
+                                                        - cell [ref=e975]:
+                                                          - generic "JE00015696" [ref=e976]:
+                                                            - link "JE00015696" [ref=e977] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9f261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e979]
+                                                        - cell "Flecha NB" [ref=e980]
+                                                        - cell [ref=e983]
+                                                        - cell "0.00" [ref=e984]
+                                                        - cell "14,004.95" [ref=e987]
+                                                        - cell "8,843,589.98" [ref=e990]
+                                                      - row [ref=e993]:
+                                                        - cell [ref=e994]
+                                                        - cell [ref=e995]
+                                                        - cell [ref=e996]
+                                                        - cell "10/2/2026" [ref=e997]
+                                                        - cell "Journal Entry" [ref=e1000]
+                                                        - cell [ref=e1003]:
+                                                          - generic "JE00015697" [ref=e1004]:
+                                                            - link "JE00015697" [ref=e1005] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a0261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1007]
+                                                        - cell "Flecha HB" [ref=e1008]
+                                                        - cell [ref=e1011]
+                                                        - cell "0.00" [ref=e1012]
+                                                        - cell "11,944.60" [ref=e1015]
+                                                        - cell "8,855,534.58" [ref=e1018]
+                                                      - row [ref=e1021]:
+                                                        - cell [ref=e1022]
+                                                        - cell [ref=e1023]
+                                                        - cell [ref=e1024]
+                                                        - cell "10/2/2026" [ref=e1025]
+                                                        - cell "Journal Entry" [ref=e1028]
+                                                        - cell [ref=e1031]:
+                                                          - generic "JE00015698" [ref=e1032]:
+                                                            - link "JE00015698" [ref=e1033] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a1261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1035]
+                                                        - cell "Flecha Town Square" [ref=e1036]
+                                                        - cell [ref=e1039]
+                                                        - cell "0.00" [ref=e1040]
+                                                        - cell "9,289.20" [ref=e1043]
+                                                        - cell "8,864,823.78" [ref=e1046]
+                                                      - row [ref=e1049]:
+                                                        - cell [ref=e1050]
+                                                        - cell [ref=e1051]
+                                                        - cell [ref=e1052]
+                                                        - cell "10/2/2026" [ref=e1053]
+                                                        - cell "Journal Entry" [ref=e1056]
+                                                        - cell [ref=e1059]:
+                                                          - generic "JE00015699" [ref=e1060]:
+                                                            - link "JE00015699" [ref=e1061] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a2261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1063]
+                                                        - cell "Flecha 4S Ranch" [ref=e1064]
+                                                        - cell [ref=e1067]
+                                                        - cell "0.00" [ref=e1068]
+                                                        - cell "8,032.85" [ref=e1071]
+                                                        - cell "8,872,856.63" [ref=e1074]
+                                                      - row [ref=e1077]:
+                                                        - cell [ref=e1078]
+                                                        - cell [ref=e1079]
+                                                        - cell [ref=e1080]
+                                                        - cell "10/3/2026" [ref=e1081]
+                                                        - cell "Journal Entry" [ref=e1084]
+                                                        - cell [ref=e1087]:
+                                                          - generic "JE00015709" [ref=e1088]:
+                                                            - link "JE00015709" [ref=e1089] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=01a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1091]
+                                                        - cell "Flecha HB" [ref=e1092]
+                                                        - cell [ref=e1095]
+                                                        - cell "0.00" [ref=e1096]
+                                                        - cell "24,673.77" [ref=e1099]
+                                                        - cell "8,897,530.40" [ref=e1102]
+                                                      - row [ref=e1105]:
+                                                        - cell [ref=e1106]
+                                                        - cell [ref=e1107]
+                                                        - cell [ref=e1108]
+                                                        - cell "10/3/2026" [ref=e1109]
+                                                        - cell "Journal Entry" [ref=e1112]
+                                                        - cell [ref=e1115]:
+                                                          - generic "JE00015710" [ref=e1116]:
+                                                            - link "JE00015710" [ref=e1117] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=02a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1119]
+                                                        - cell "Flecha Town Square" [ref=e1120]
+                                                        - cell [ref=e1123]
+                                                        - cell "0.00" [ref=e1124]
+                                                        - cell "9,752.90" [ref=e1127]
+                                                        - cell "8,907,283.30" [ref=e1130]
+                                                      - row [ref=e1133]:
+                                                        - cell [ref=e1134]
+                                                        - cell [ref=e1135]
+                                                        - cell [ref=e1136]
+                                                        - cell "10/3/2026" [ref=e1137]
+                                                        - cell "Journal Entry" [ref=e1140]
+                                                        - cell [ref=e1143]:
+                                                          - generic "JE00015711" [ref=e1144]:
+                                                            - link "JE00015711" [ref=e1145] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=03a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1147]
+                                                        - cell "Flecha 4S Ranch" [ref=e1148]
+                                                        - cell [ref=e1151]
+                                                        - cell "0.00" [ref=e1152]
+                                                        - cell "7,072.70" [ref=e1155]
+                                                        - cell "8,914,356.00" [ref=e1158]
+                                                      - row [ref=e1161]:
+                                                        - cell [ref=e1162]
+                                                        - cell [ref=e1163]
+                                                        - cell [ref=e1164]
+                                                        - cell "10/3/2026" [ref=e1165]
+                                                        - cell "Journal Entry" [ref=e1168]
+                                                        - cell [ref=e1171]:
+                                                          - generic "JE00015733" [ref=e1172]:
+                                                            - link "JE00015733" [ref=e1173] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=93194852-05c1-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1175]
+                                                        - cell "Flecha NB" [ref=e1176]
+                                                        - cell [ref=e1179]
+                                                        - cell "0.00" [ref=e1180]
+                                                        - cell "17,782.18" [ref=e1183]
+                                                        - cell "8,932,138.18" [ref=e1186]
+                                                      - row [ref=e1189]:
+                                                        - cell [ref=e1190]
+                                                        - cell [ref=e1191]
+                                                        - cell [ref=e1192]
+                                                        - cell "10/4/2026" [ref=e1193]
+                                                        - cell "Journal Entry" [ref=e1196]
+                                                        - cell [ref=e1199]:
+                                                          - generic "JE00015721" [ref=e1200]:
+                                                            - link "JE00015721" [ref=e1201] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=1f6a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1203]
+                                                        - cell "Flecha NB" [ref=e1204]
+                                                        - cell [ref=e1207]
+                                                        - cell "0.00" [ref=e1208]
+                                                        - cell "12,856.69" [ref=e1211]
+                                                        - cell "8,944,994.87" [ref=e1214]
+                                                      - row [ref=e1217]:
+                                                        - cell [ref=e1218]
+                                                        - cell [ref=e1219]
+                                                        - cell [ref=e1220]
+                                                        - cell "10/4/2026" [ref=e1221]
+                                                        - cell "Journal Entry" [ref=e1224]
+                                                        - cell [ref=e1227]:
+                                                          - generic "JE00015722" [ref=e1228]:
+                                                            - link "JE00015722" [ref=e1229] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=206a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1231]
+                                                        - cell "Flecha HB" [ref=e1232]
+                                                        - cell [ref=e1235]
+                                                        - cell "0.00" [ref=e1236]
+                                                        - cell "23,473.20" [ref=e1239]
+                                                        - cell "8,968,468.07" [ref=e1242]
+                                                      - row [ref=e1245]:
+                                                        - cell [ref=e1246]
+                                                        - cell [ref=e1247]
+                                                        - cell [ref=e1248]
+                                                        - cell "10/4/2026" [ref=e1249]
+                                                        - cell "Journal Entry" [ref=e1252]
+                                                        - cell [ref=e1255]:
+                                                          - generic "JE00015723" [ref=e1256]:
+                                                            - link "JE00015723" [ref=e1257] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=216a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1259]
+                                                        - cell "Flecha Town Square" [ref=e1260]
+                                                        - cell [ref=e1263]
+                                                        - cell "0.00" [ref=e1264]
+                                                        - cell "11,849.45" [ref=e1267]
+                                                        - cell "8,980,317.52" [ref=e1270]
+                                                      - row [ref=e1273]:
+                                                        - cell [ref=e1274]
+                                                        - cell [ref=e1275]
+                                                        - cell [ref=e1276]
+                                                        - cell "10/4/2026" [ref=e1277]
+                                                        - cell "Journal Entry" [ref=e1280]
+                                                        - cell [ref=e1283]:
+                                                          - generic "JE00015724" [ref=e1284]:
+                                                            - link "JE00015724" [ref=e1285] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=226a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1287]
+                                                        - cell "Flecha 4S Ranch" [ref=e1288]
+                                                        - cell [ref=e1291]
+                                                        - cell "0.00" [ref=e1292]
+                                                        - cell "8,049.55" [ref=e1295]
+                                                        - cell "8,988,367.07" [ref=e1298]
+                                                      - row [ref=e1301]:
+                                                        - cell [ref=e1302]
+                                                        - cell [ref=e1303]
+                                                        - cell "Total Food Sales (Excl N/A Bev)" [ref=e1304]
+                                                        - cell [ref=e1307]
+                                                        - cell "0.00" [ref=e1308]
+                                                        - cell "258,449.88" [ref=e1311]
+                                                        - cell "8,988,367.07" [ref=e1314]
+                                                      - row [ref=e1317]:
+                                                        - cell [ref=e1318]
+                                                        - cell [ref=e1319]
+                                                        - cell [ref=e1320]
+                                                        - cell [ref=e1321]
+                                                        - cell [ref=e1322]
+                                                        - cell [ref=e1323]
+                                                        - cell [ref=e1324]
+                                                        - cell [ref=e1325]
+                                                        - cell [ref=e1326]
+                                                        - cell [ref=e1327]
+                                                        - cell [ref=e1328]
+                                                        - cell [ref=e1329]
+                                                      - row [ref=e1330]:
+                                                        - cell [ref=e1331]
+                                                        - cell [ref=e1332]
+                                                        - cell "4120 - N/A Bev Sales" [ref=e1333]
+                                                        - cell [ref=e1336]
+                                                        - cell "Beg Balance:" [ref=e1337]
+                                                        - cell "280,550.74" [ref=e1340]
+                                                      - row [ref=e1343]:
+                                                        - cell [ref=e1344]
+                                                        - cell [ref=e1345]
+                                                        - cell [ref=e1346]
+                                                        - cell "9/28/2026" [ref=e1347]
+                                                        - cell "Journal Entry" [ref=e1350]
+                                                        - cell [ref=e1353]:
+                                                          - generic "JE00015643" [ref=e1354]:
+                                                            - link "JE00015643" [ref=e1355] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2063ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1357]
+                                                        - cell "Flecha NB" [ref=e1358]
+                                                        - cell [ref=e1361]
+                                                        - cell "0.00" [ref=e1362]
+                                                        - cell "99.00" [ref=e1365]
+                                                        - cell "280,649.74" [ref=e1368]
+                                                      - row [ref=e1371]:
+                                                        - cell [ref=e1372]
+                                                        - cell [ref=e1373]
+                                                        - cell [ref=e1374]
+                                                        - cell "9/28/2026" [ref=e1375]
+                                                        - cell "Journal Entry" [ref=e1378]
+                                                        - cell [ref=e1381]:
+                                                          - generic "JE00015644" [ref=e1382]:
+                                                            - link "JE00015644" [ref=e1383] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2163ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1385]
+                                                        - cell "Flecha HB" [ref=e1386]
+                                                        - cell [ref=e1389]
+                                                        - cell "0.00" [ref=e1390]
+                                                        - cell "147.45" [ref=e1393]
+                                                        - cell "280,797.19" [ref=e1396]
+                                                      - row [ref=e1399]:
+                                                        - cell [ref=e1400]
+                                                        - cell [ref=e1401]
+                                                        - cell [ref=e1402]
+                                                        - cell "9/28/2026" [ref=e1403]
+                                                        - cell "Journal Entry" [ref=e1406]
+                                                        - cell [ref=e1409]:
+                                                          - generic "JE00015645" [ref=e1410]:
+                                                            - link "JE00015645" [ref=e1411] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2263ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1413]
+                                                        - cell "Flecha Town Square" [ref=e1414]
+                                                        - cell [ref=e1417]
+                                                        - cell "0.00" [ref=e1418]
+                                                        - cell "190.50" [ref=e1421]
+                                                        - cell "280,987.69" [ref=e1424]
+                                                      - row [ref=e1427]:
+                                                        - cell [ref=e1428]
+                                                        - cell [ref=e1429]
+                                                        - cell [ref=e1430]
+                                                        - cell "9/28/2026" [ref=e1431]
+                                                        - cell "Journal Entry" [ref=e1434]
+                                                        - cell [ref=e1437]:
+                                                          - generic "JE00015646" [ref=e1438]:
+                                                            - link "JE00015646" [ref=e1439] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=2363ac28-07bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1441]
+                                                        - cell "Flecha 4S Ranch" [ref=e1442]
+                                                        - cell [ref=e1445]
+                                                        - cell "0.00" [ref=e1446]
+                                                        - cell "234.00" [ref=e1449]
+                                                        - cell "281,221.69" [ref=e1452]
+                                                      - row [ref=e1455]:
+                                                        - cell [ref=e1456]
+                                                        - cell [ref=e1457]
+                                                        - cell [ref=e1458]
+                                                        - cell "9/29/2026" [ref=e1459]
+                                                        - cell "Journal Entry" [ref=e1462]
+                                                        - cell [ref=e1465]:
+                                                          - generic "JE00015656" [ref=e1466]:
+                                                            - link "JE00015656" [ref=e1467] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=dcf4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1469]
+                                                        - cell "Flecha NB" [ref=e1470]
+                                                        - cell [ref=e1473]
+                                                        - cell "0.00" [ref=e1474]
+                                                        - cell "428.50" [ref=e1477]
+                                                        - cell "281,650.19" [ref=e1480]
+                                                      - row [ref=e1483]:
+                                                        - cell [ref=e1484]
+                                                        - cell [ref=e1485]
+                                                        - cell [ref=e1486]
+                                                        - cell "9/29/2026" [ref=e1487]
+                                                        - cell "Journal Entry" [ref=e1490]
+                                                        - cell [ref=e1493]:
+                                                          - generic "JE00015657" [ref=e1494]:
+                                                            - link "JE00015657" [ref=e1495] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=ddf4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1497]
+                                                        - cell "Flecha HB" [ref=e1498]
+                                                        - cell [ref=e1501]
+                                                        - cell "0.00" [ref=e1502]
+                                                        - cell "147.00" [ref=e1505]
+                                                        - cell "281,797.19" [ref=e1508]
+                                                      - row [ref=e1511]:
+                                                        - cell [ref=e1512]
+                                                        - cell [ref=e1513]
+                                                        - cell [ref=e1514]
+                                                        - cell "9/29/2026" [ref=e1515]
+                                                        - cell "Journal Entry" [ref=e1518]
+                                                        - cell [ref=e1521]:
+                                                          - generic "JE00015658" [ref=e1522]:
+                                                            - link "JE00015658" [ref=e1523] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=def4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1525]
+                                                        - cell "Flecha Town Square" [ref=e1526]
+                                                        - cell [ref=e1529]
+                                                        - cell "0.00" [ref=e1530]
+                                                        - cell "317.45" [ref=e1533]
+                                                        - cell "282,114.64" [ref=e1536]
+                                                      - row [ref=e1539]:
+                                                        - cell [ref=e1540]
+                                                        - cell [ref=e1541]
+                                                        - cell [ref=e1542]
+                                                        - cell "9/29/2026" [ref=e1543]
+                                                        - cell "Journal Entry" [ref=e1546]
+                                                        - cell [ref=e1549]:
+                                                          - generic "JE00015659" [ref=e1550]:
+                                                            - link "JE00015659" [ref=e1551] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=dff4244e-d0bc-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1553]
+                                                        - cell "Flecha 4S Ranch" [ref=e1554]
+                                                        - cell [ref=e1557]
+                                                        - cell "0.00" [ref=e1558]
+                                                        - cell "214.30" [ref=e1561]
+                                                        - cell "282,328.94" [ref=e1564]
+                                                      - row [ref=e1567]:
+                                                        - cell [ref=e1568]
+                                                        - cell [ref=e1569]
+                                                        - cell [ref=e1570]
+                                                        - cell "9/30/2026" [ref=e1571]
+                                                        - cell "Journal Entry" [ref=e1574]
+                                                        - cell [ref=e1577]:
+                                                          - generic "JE00015668" [ref=e1578]:
+                                                            - link "JE00015668" [ref=e1579] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4535d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1581]
+                                                        - cell "Flecha NB" [ref=e1582]
+                                                        - cell [ref=e1585]
+                                                        - cell "0.00" [ref=e1586]
+                                                        - cell "234.50" [ref=e1589]
+                                                        - cell "282,563.44" [ref=e1592]
+                                                      - row [ref=e1595]:
+                                                        - cell [ref=e1596]
+                                                        - cell [ref=e1597]
+                                                        - cell [ref=e1598]
+                                                        - cell "9/30/2026" [ref=e1599]
+                                                        - cell "Journal Entry" [ref=e1602]
+                                                        - cell [ref=e1605]:
+                                                          - generic "JE00015669" [ref=e1606]:
+                                                            - link "JE00015669" [ref=e1607] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4635d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1609]
+                                                        - cell "Flecha HB" [ref=e1610]
+                                                        - cell [ref=e1613]
+                                                        - cell "0.00" [ref=e1614]
+                                                        - cell "261.45" [ref=e1617]
+                                                        - cell "282,824.89" [ref=e1620]
+                                                      - row [ref=e1623]:
+                                                        - cell [ref=e1624]
+                                                        - cell [ref=e1625]
+                                                        - cell [ref=e1626]
+                                                        - cell "9/30/2026" [ref=e1627]
+                                                        - cell "Journal Entry" [ref=e1630]
+                                                        - cell [ref=e1633]:
+                                                          - generic "JE00015670" [ref=e1634]:
+                                                            - link "JE00015670" [ref=e1635] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4735d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1637]
+                                                        - cell "Flecha Town Square" [ref=e1638]
+                                                        - cell [ref=e1641]
+                                                        - cell "0.00" [ref=e1642]
+                                                        - cell "209.70" [ref=e1645]
+                                                        - cell "283,034.59" [ref=e1648]
+                                                      - row [ref=e1651]:
+                                                        - cell [ref=e1652]
+                                                        - cell [ref=e1653]
+                                                        - cell [ref=e1654]
+                                                        - cell "9/30/2026" [ref=e1655]
+                                                        - cell "Journal Entry" [ref=e1658]
+                                                        - cell [ref=e1661]:
+                                                          - generic "JE00015671" [ref=e1662]:
+                                                            - link "JE00015671" [ref=e1663] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=4835d98d-99bd-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1665]
+                                                        - cell "Flecha 4S Ranch" [ref=e1666]
+                                                        - cell [ref=e1669]
+                                                        - cell "0.00" [ref=e1670]
+                                                        - cell "144.00" [ref=e1673]
+                                                        - cell "283,178.59" [ref=e1676]
+                                                      - row [ref=e1679]:
+                                                        - cell [ref=e1680]
+                                                        - cell [ref=e1681]
+                                                        - cell [ref=e1682]
+                                                        - cell "10/1/2026" [ref=e1683]
+                                                        - cell "Journal Entry" [ref=e1686]
+                                                        - cell [ref=e1689]:
+                                                          - generic "JE00015684" [ref=e1690]:
+                                                            - link "JE00015684" [ref=e1691] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3fd58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1693]
+                                                        - cell "Flecha NB" [ref=e1694]
+                                                        - cell [ref=e1697]
+                                                        - cell "0.00" [ref=e1698]
+                                                        - cell "447.25" [ref=e1701]
+                                                        - cell "283,625.84" [ref=e1704]
+                                                      - row [ref=e1707]:
+                                                        - cell [ref=e1708]
+                                                        - cell [ref=e1709]
+                                                        - cell [ref=e1710]
+                                                        - cell "10/1/2026" [ref=e1711]
+                                                        - cell "Journal Entry" [ref=e1714]
+                                                        - cell [ref=e1717]:
+                                                          - generic "JE00015685" [ref=e1718]:
+                                                            - link "JE00015685" [ref=e1719] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=40d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1721]
+                                                        - cell "Flecha HB" [ref=e1722]
+                                                        - cell [ref=e1725]
+                                                        - cell "0.00" [ref=e1726]
+                                                        - cell "206.50" [ref=e1729]
+                                                        - cell "283,832.34" [ref=e1732]
+                                                      - row [ref=e1735]:
+                                                        - cell [ref=e1736]
+                                                        - cell [ref=e1737]
+                                                        - cell [ref=e1738]
+                                                        - cell "10/1/2026" [ref=e1739]
+                                                        - cell "Journal Entry" [ref=e1742]
+                                                        - cell [ref=e1745]:
+                                                          - generic "JE00015686" [ref=e1746]:
+                                                            - link "JE00015686" [ref=e1747] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=41d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1749]
+                                                        - cell "Flecha Town Square" [ref=e1750]
+                                                        - cell [ref=e1753]
+                                                        - cell "0.00" [ref=e1754]
+                                                        - cell "245.40" [ref=e1757]
+                                                        - cell "284,077.74" [ref=e1760]
+                                                      - row [ref=e1763]:
+                                                        - cell [ref=e1764]
+                                                        - cell [ref=e1765]
+                                                        - cell [ref=e1766]
+                                                        - cell "10/1/2026" [ref=e1767]
+                                                        - cell "Journal Entry" [ref=e1770]
+                                                        - cell [ref=e1773]:
+                                                          - generic "JE00015687" [ref=e1774]:
+                                                            - link "JE00015687" [ref=e1775] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=42d58fb2-62be-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1777]
+                                                        - cell "Flecha 4S Ranch" [ref=e1778]
+                                                        - cell [ref=e1781]
+                                                        - cell "0.00" [ref=e1782]
+                                                        - cell "168.00" [ref=e1785]
+                                                        - cell "284,245.74" [ref=e1788]
+                                                      - row [ref=e1791]:
+                                                        - cell [ref=e1792]
+                                                        - cell [ref=e1793]
+                                                        - cell [ref=e1794]
+                                                        - cell "10/2/2026" [ref=e1795]
+                                                        - cell "Journal Entry" [ref=e1798]
+                                                        - cell [ref=e1801]:
+                                                          - generic "JE00015696" [ref=e1802]:
+                                                            - link "JE00015696" [ref=e1803] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9f261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1805]
+                                                        - cell "Flecha NB" [ref=e1806]
+                                                        - cell [ref=e1809]
+                                                        - cell "0.00" [ref=e1810]
+                                                        - cell "472.55" [ref=e1813]
+                                                        - cell "284,718.29" [ref=e1816]
+                                                      - row [ref=e1819]:
+                                                        - cell [ref=e1820]
+                                                        - cell [ref=e1821]
+                                                        - cell [ref=e1822]
+                                                        - cell "10/2/2026" [ref=e1823]
+                                                        - cell "Journal Entry" [ref=e1826]
+                                                        - cell [ref=e1829]:
+                                                          - generic "JE00015697" [ref=e1830]:
+                                                            - link "JE00015697" [ref=e1831] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a0261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1833]
+                                                        - cell "Flecha HB" [ref=e1834]
+                                                        - cell [ref=e1837]
+                                                        - cell "0.00" [ref=e1838]
+                                                        - cell "417.75" [ref=e1841]
+                                                        - cell "285,136.04" [ref=e1844]
+                                                      - row [ref=e1847]:
+                                                        - cell [ref=e1848]
+                                                        - cell [ref=e1849]
+                                                        - cell [ref=e1850]
+                                                        - cell "10/2/2026" [ref=e1851]
+                                                        - cell "Journal Entry" [ref=e1854]
+                                                        - cell [ref=e1857]:
+                                                          - generic "JE00015698" [ref=e1858]:
+                                                            - link "JE00015698" [ref=e1859] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a1261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1861]
+                                                        - cell "Flecha Town Square" [ref=e1862]
+                                                        - cell [ref=e1865]
+                                                        - cell "0.00" [ref=e1866]
+                                                        - cell "357.40" [ref=e1869]
+                                                        - cell "285,493.44" [ref=e1872]
+                                                      - row [ref=e1875]:
+                                                        - cell [ref=e1876]
+                                                        - cell [ref=e1877]
+                                                        - cell [ref=e1878]
+                                                        - cell "10/2/2026" [ref=e1879]
+                                                        - cell "Journal Entry" [ref=e1882]
+                                                        - cell [ref=e1885]:
+                                                          - generic "JE00015699" [ref=e1886]:
+                                                            - link "JE00015699" [ref=e1887] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=a2261fc9-2bbf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1889]
+                                                        - cell "Flecha 4S Ranch" [ref=e1890]
+                                                        - cell [ref=e1893]
+                                                        - cell "0.00" [ref=e1894]
+                                                        - cell "347.45" [ref=e1897]
+                                                        - cell "285,840.89" [ref=e1900]
+                                                      - row [ref=e1903]:
+                                                        - cell [ref=e1904]
+                                                        - cell [ref=e1905]
+                                                        - cell [ref=e1906]
+                                                        - cell "10/3/2026" [ref=e1907]
+                                                        - cell "Journal Entry" [ref=e1910]
+                                                        - cell [ref=e1913]:
+                                                          - generic "JE00015709" [ref=e1914]:
+                                                            - link "JE00015709" [ref=e1915] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=01a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1917]
+                                                        - cell "Flecha HB" [ref=e1918]
+                                                        - cell [ref=e1921]
+                                                        - cell "0.00" [ref=e1922]
+                                                        - cell "682.95" [ref=e1925]
+                                                        - cell "286,523.84" [ref=e1928]
+                                                      - row [ref=e1931]:
+                                                        - cell [ref=e1932]
+                                                        - cell [ref=e1933]
+                                                        - cell [ref=e1934]
+                                                        - cell "10/3/2026" [ref=e1935]
+                                                        - cell "Journal Entry" [ref=e1938]
+                                                        - cell [ref=e1941]:
+                                                          - generic "JE00015710" [ref=e1942]:
+                                                            - link "JE00015710" [ref=e1943] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=02a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1945]
+                                                        - cell "Flecha Town Square" [ref=e1946]
+                                                        - cell [ref=e1949]
+                                                        - cell "0.00" [ref=e1950]
+                                                        - cell "302.25" [ref=e1953]
+                                                        - cell "286,826.09" [ref=e1956]
+                                                      - row [ref=e1959]:
+                                                        - cell [ref=e1960]
+                                                        - cell [ref=e1961]
+                                                        - cell [ref=e1962]
+                                                        - cell "10/3/2026" [ref=e1963]
+                                                        - cell "Journal Entry" [ref=e1966]
+                                                        - cell [ref=e1969]:
+                                                          - generic "JE00015711" [ref=e1970]:
+                                                            - link "JE00015711" [ref=e1971] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=03a222f1-f4bf-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e1973]
+                                                        - cell "Flecha 4S Ranch" [ref=e1974]
+                                                        - cell [ref=e1977]
+                                                        - cell "0.00" [ref=e1978]
+                                                        - cell "343.50" [ref=e1981]
+                                                        - cell "287,169.59" [ref=e1984]
+                                                      - row [ref=e1987]:
+                                                        - cell [ref=e1988]
+                                                        - cell [ref=e1989]
+                                                        - cell [ref=e1990]
+                                                        - cell "10/3/2026" [ref=e1991]
+                                                        - cell "Journal Entry" [ref=e1994]
+                                                        - cell [ref=e1997]:
+                                                          - generic "JE00015733" [ref=e1998]:
+                                                            - link "JE00015733" [ref=e1999] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=93194852-05c1-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e2001]
+                                                        - cell "Flecha NB" [ref=e2002]
+                                                        - cell [ref=e2005]
+                                                        - cell "0.00" [ref=e2006]
+                                                        - cell "450.45" [ref=e2009]
+                                                        - cell "287,620.04" [ref=e2012]
+                                                      - row [ref=e2015]:
+                                                        - cell [ref=e2016]
+                                                        - cell [ref=e2017]
+                                                        - cell [ref=e2018]
+                                                        - cell "10/4/2026" [ref=e2019]
+                                                        - cell "Journal Entry" [ref=e2022]
+                                                        - cell [ref=e2025]:
+                                                          - generic "JE00015721" [ref=e2026]:
+                                                            - link "JE00015721" [ref=e2027] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=1f6a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e2029]
+                                                        - cell "Flecha NB" [ref=e2030]
+                                                        - cell [ref=e2033]
+                                                        - cell "0.00" [ref=e2034]
+                                                        - cell "458.95" [ref=e2037]
+                                                        - cell "288,078.99" [ref=e2040]
+                                                      - row [ref=e2043]:
+                                                        - cell [ref=e2044]
+                                                        - cell [ref=e2045]
+                                                        - cell [ref=e2046]
+                                                        - cell "10/4/2026" [ref=e2047]
+                                                        - cell "Journal Entry" [ref=e2050]
+                                                        - cell [ref=e2053]:
+                                                          - generic "JE00015722" [ref=e2054]:
+                                                            - link "JE00015722" [ref=e2055] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=206a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e2057]
+                                                        - cell "Flecha HB" [ref=e2058]
+                                                        - cell [ref=e2061]
+                                                        - cell "0.00" [ref=e2062]
+                                                        - cell "190.45" [ref=e2065]
+                                                        - cell "288,269.44" [ref=e2068]
+                                                      - row [ref=e2071]:
+                                                        - cell [ref=e2072]
+                                                        - cell [ref=e2073]
+                                                        - cell [ref=e2074]
+                                                        - cell "10/4/2026" [ref=e2075]
+                                                        - cell "Journal Entry" [ref=e2078]
+                                                        - cell [ref=e2081]:
+                                                          - generic "JE00015723" [ref=e2082]:
+                                                            - link "JE00015723" [ref=e2083] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=216a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e2085]
+                                                        - cell "Flecha Town Square" [ref=e2086]
+                                                        - cell [ref=e2089]
+                                                        - cell "0.00" [ref=e2090]
+                                                        - cell "279.30" [ref=e2093]
+                                                        - cell "288,548.74" [ref=e2096]
+                                                      - row [ref=e2099]:
+                                                        - cell [ref=e2100]
+                                                        - cell [ref=e2101]
+                                                        - cell [ref=e2102]
+                                                        - cell "10/4/2026" [ref=e2103]
+                                                        - cell "Journal Entry" [ref=e2106]
+                                                        - cell [ref=e2109]:
+                                                          - generic "JE00015724" [ref=e2110]:
+                                                            - link "JE00015724" [ref=e2111] [cursor=pointer]:
+                                                              - /url: https://flecha.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=226a2103-c4c0-f111-b6b5-6045bd313ea9
+                                                        - cell [ref=e2113]
+                                                        - cell "Flecha 4S Ranch" [ref=e2114]
+                                                        - cell [ref=e2117]
+                                                        - cell "0.00" [ref=e2118]
+                                                        - cell "181.40" [ref=e2121]
+                                                        - cell "288,730.14" [ref=e2124]
+                                                      - row [ref=e2127]:
+                                                        - cell [ref=e2128]
+                                                        - cell [ref=e2129]
+                                                        - cell "Total N/A Bev Sales" [ref=e2130]
+                                                        - cell [ref=e2133]
+                                                        - cell "0.00" [ref=e2134]
+                                                        - cell "8,179.40" [ref=e2137]
+                                                        - cell "288,730.14" [ref=e2140]
+                                                      - row [ref=e2143]:
+                                                        - cell [ref=e2144]
+                                                        - cell [ref=e2145]
+                                                        - cell [ref=e2146]
+                                                        - cell [ref=e2147]
+                                                        - cell [ref=e2148]
+                                                        - cell [ref=e2149]
+                                                        - cell [ref=e2150]
+                                                        - cell [ref=e2151]
+                                                        - cell [ref=e2152]
+                                                        - cell [ref=e2153]
+                                                        - cell [ref=e2154]
+                                                        - cell [ref=e2155]
+                                                      - row [ref=e2156]:
+                                                        - cell [ref=e2157]
+                                                        - cell "Total Food Sales" [ref=e2158]
+                                                        - cell [ref=e2161]
+                                                        - cell "0.00" [ref=e2162]
+                                                        - cell "266,629.28" [ref=e2165]
+                                                        - cell "9,277,097.21" [ref=e2168]
+                                                      - row [ref=e2171]:
+                                                        - cell [ref=e2172]
+                                                        - cell [ref=e2173]
+                                                        - cell [ref=e2174]
+                                                        - cell [ref=e2175]
+                                                        - cell [ref=e2176]
+                                                        - cell [ref=e2177]
+                                                        - cell [ref=e2178]
+                                                        - cell [ref=e2179]
+                                                        - cell [ref=e2180]
+                                                        - cell [ref=e2181]
+                                                        - cell [ref=e2182]
+                                                        - cell [ref=e2183]
+                                                      - row [ref=e2184]:
+                                                        - cell [ref=e2185]
+                                                        - cell [ref=e2186]
+                                                        - cell [ref=e2187]
+                                                        - cell [ref=e2188]
+                                                        - cell [ref=e2189]
+                                                        - cell [ref=e2190]
+                                                        - cell [ref=e2191]
+                                                        - cell [ref=e2192]
+                                                        - cell [ref=e2193]
+                                                        - cell [ref=e2194]
+                                                        - cell [ref=e2195]
+                                                        - cell [ref=e2196]
+                                                      - row [ref=e2197]:
+                                                        - cell [ref=e2198]
+                                                        - cell "Grand Total" [ref=e2199]
+                                                        - cell [ref=e2202]
+                                                        - cell "0.00" [ref=e2203]
+                                                        - cell "266,629.28" [ref=e2206]
+                                                        - cell "9,277,097.21" [ref=e2209]
+                              - row [ref=e2212]:
+                                - cell "Powered by Restaurant365 Page 1 10/6/2026 10:50:28 AM PDT" [ref=e2213]:
+                                  - generic [ref=e2214]:
+                                    - generic [ref=e2215]: Powered by Restaurant365
+                                    - generic [ref=e2217]: Page 1
+                                    - generic [ref=e2219]: 10/6/2026 10:50:28 AM PDT
+```

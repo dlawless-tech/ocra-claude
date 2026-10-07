@@ -1,0 +1,1158 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://flecha.restaurant365.com/react/reports-management/legacy/MyReports
+- Page Title: My Reports
+- Console: 178 errors, 1 warnings
+### Snapshot
+```yaml
+- generic:
+  - generic:
+    - banner [ref=f11e1]:
+      - generic [ref=f11e3]:
+        - button [ref=f11e4] [cursor=pointer]
+        - button [ref=f11e7] [cursor=pointer]
+        - button [ref=f11e10] [cursor=pointer]
+        - button [ref=f11e13] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - iframe [active] [ref=f11e30]:
+      - generic [ref=f13e1]:
+        - generic [ref=f13e2]:
+          - generic [ref=f13e4]:
+            - generic [ref=f13e5]: Theme Builder
+            - button [ref=f13e8] [cursor=pointer]:
+              - generic [ref=f13e9]: 
+            - generic [ref=f13e10]:
+              - generic [ref=f13e11]:
+                - heading "Ribbon" [level=4] [ref=f13e12]
+                - generic [ref=f13e13]:
+                  - generic [ref=f13e14]: BG
+                  - generic [ref=f13e15]: Font
+                  - generic [ref=f13e16]: Hover BG
+                  - generic [ref=f13e17]: Hover Font
+                - generic "Menu" [ref=f13e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f13e22]':
+                    - generic [ref=f13e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f13e28]':
+                    - generic [ref=f13e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f13e34]':
+                    - generic [ref=f13e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f13e40]':
+                    - generic [ref=f13e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f13e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f13e49]':
+                    - generic [ref=f13e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f13e55]':
+                    - generic [ref=f13e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f13e61]':
+                    - generic [ref=f13e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f13e67]':
+                    - generic [ref=f13e71] [cursor=pointer]
+              - generic [ref=f13e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f13e73]
+                - button "Upload Ribbon Logo" [ref=f13e78] [cursor=pointer]
+              - generic [ref=f13e79]:
+                - heading "Left Panel" [level=4] [ref=f13e80]
+                - generic [ref=f13e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f13e84]':
+                    - generic [ref=f13e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f13e90]':
+                    - generic [ref=f13e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f13e96]':
+                    - generic [ref=f13e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f13e102]':
+                    - generic [ref=f13e106] [cursor=pointer]
+              - generic [ref=f13e107]:
+                - heading "Components" [level=4] [ref=f13e108]
+                - generic "Normal" [ref=f13e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f13e113]':
+                    - generic [ref=f13e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f13e119]':
+                    - generic [ref=f13e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f13e125]':
+                    - generic [ref=f13e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f13e131]':
+                    - generic [ref=f13e135] [cursor=pointer]
+                - generic "Selected" [ref=f13e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f13e140]':
+                    - generic [ref=f13e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f13e146]':
+                    - generic [ref=f13e150] [cursor=pointer]
+            - generic [ref=f13e151]:
+              - generic [ref=f13e152]:
+                - generic [ref=f13e155]:
+                  - combobox "Select Theme" [ref=f13e156]: Default R365 Theme
+                  - button "select" [ref=f13e158] [cursor=pointer]
+                - generic [ref=f13e159]:
+                  - button "Set As Default" [ref=f13e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f13e161]
+                  - button "Delete" [disabled] [ref=f13e162]
+              - generic [ref=f13e163]:
+                - textbox "Add New Theme" [ref=f13e165]
+                - button "New" [ref=f13e167] [cursor=pointer]
+          - generic [ref=f13e175]:
+            - generic [ref=f13e176]:
+              - textbox "Find a report" [ref=f13e179]
+              - generic [ref=f13e181] [cursor=pointer]: Report Subscriptions
+            - navigation [ref=f13e185]:
+              - listbox "navigation links" [ref=f13e186]:
+                - option "My Reports" [ref=f13e187]
+                - option "Accounting" [selected] [ref=f13e190]:
+                  - generic [active] [ref=f13e191] [cursor=pointer]: Accounting
+                - option "Inventory" [ref=f13e193]
+                - option "Operations" [ref=f13e196]
+                - option "Payroll" [ref=f13e199]
+                - option "Training" [ref=f13e202]
+                - option "Workforce" [ref=f13e205]
+            - generic [ref=f13e210]:
+              - generic [ref=f13e485]:
+                - generic [ref=f13e486]:
+                  - heading "Accounts Payable" [level=4] [ref=f13e487]
+                  - button [ref=f13e488] [cursor=pointer]
+                - generic [ref=f13e490]:
+                  - generic [ref=f13e491]:
+                    - generic [ref=f13e492]:
+                      - button "1096 Prep Report Button" [ref=f13e493] [cursor=pointer]
+                      - heading "1096 Prep" [level=3] [ref=f13e496]
+                    - generic [ref=f13e497]:
+                      - generic [ref=f13e499]:
+                        - button "View ▼" [ref=f13e502] [cursor=pointer]:
+                          - generic [ref=f13e503]:
+                            - generic [ref=f13e504]: View
+                            - generic [ref=f13e505]: ▼
+                        - combobox "Select a view" [ref=f13e508]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e511]
+                      - button "Run" [ref=f13e513] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e515] [cursor=pointer]
+                      - button "reportParams" [ref=f13e518] [cursor=pointer]: Customize
+                  - generic [ref=f13e519]:
+                    - generic [ref=f13e520]:
+                      - button "1096 Printable Form Report Button" [ref=f13e521] [cursor=pointer]
+                      - heading "1096 Printable Form" [level=3] [ref=f13e524]
+                    - generic [ref=f13e525]:
+                      - generic [ref=f13e527]:
+                        - button "View ▼" [ref=f13e530] [cursor=pointer]:
+                          - generic [ref=f13e531]:
+                            - generic [ref=f13e532]: View
+                            - generic [ref=f13e533]: ▼
+                        - combobox "Select a view" [ref=f13e536]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e539]
+                      - button "PDF" [ref=f13e541] [cursor=pointer]
+                      - button "reportParams" [ref=f13e544] [cursor=pointer]: Customize
+                  - generic [ref=f13e545]:
+                    - generic [ref=f13e546]:
+                      - button "1099 Export Report Button" [ref=f13e547] [cursor=pointer]
+                      - heading "1099 Export" [level=3] [ref=f13e550]
+                    - generic [ref=f13e551]:
+                      - generic [ref=f13e553]:
+                        - button "View ▼" [ref=f13e556] [cursor=pointer]:
+                          - generic [ref=f13e557]:
+                            - generic [ref=f13e558]: View
+                            - generic [ref=f13e559]: ▼
+                        - combobox "Select a view" [ref=f13e562]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e565]
+                      - button "CSV" [ref=f13e567] [cursor=pointer]
+                      - button "reportParams" [ref=f13e570] [cursor=pointer]: Customize
+                  - generic [ref=f13e571]:
+                    - generic [ref=f13e572]:
+                      - button "1099 Review Report Button" [ref=f13e573] [cursor=pointer]
+                      - heading "1099 Review" [level=3] [ref=f13e576]
+                    - generic [ref=f13e577]:
+                      - generic [ref=f13e579]:
+                        - button "View ▼" [ref=f13e582] [cursor=pointer]:
+                          - generic [ref=f13e583]:
+                            - generic [ref=f13e584]: View
+                            - generic [ref=f13e585]: ▼
+                        - combobox "Select a view" [ref=f13e588]: System View
+                      - button "Quick Parameters" [ref=f13e591] [cursor=pointer]
+                      - button "Run" [ref=f13e593] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e595] [cursor=pointer]
+                      - button "reportParams" [ref=f13e598] [cursor=pointer]: Customize
+                  - generic [ref=f13e599]:
+                    - generic [ref=f13e600]:
+                      - button "1099-INT Printable Form Report Button" [ref=f13e601] [cursor=pointer]
+                      - heading "1099-INT Printable Form" [level=3] [ref=f13e604]
+                    - generic [ref=f13e605]:
+                      - generic [ref=f13e607]:
+                        - button "View ▼" [ref=f13e610] [cursor=pointer]:
+                          - generic [ref=f13e611]:
+                            - generic [ref=f13e612]: View
+                            - generic [ref=f13e613]: ▼
+                        - combobox "Select a view" [ref=f13e616]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e619]
+                      - button "PDF" [ref=f13e621] [cursor=pointer]
+                      - button "reportParams" [ref=f13e624] [cursor=pointer]: Customize
+                  - generic [ref=f13e625]:
+                    - generic [ref=f13e626]:
+                      - button "1099-MISC Printable Form Report Button" [ref=f13e627] [cursor=pointer]
+                      - heading "1099-MISC Printable Form" [level=3] [ref=f13e630]
+                    - generic [ref=f13e631]:
+                      - generic [ref=f13e633]:
+                        - button "View ▼" [ref=f13e636] [cursor=pointer]:
+                          - generic [ref=f13e637]:
+                            - generic [ref=f13e638]: View
+                            - generic [ref=f13e639]: ▼
+                        - combobox "Select a view" [ref=f13e642]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e645]
+                      - button "PDF" [ref=f13e647] [cursor=pointer]
+                      - button "reportParams" [ref=f13e650] [cursor=pointer]: Customize
+                  - generic [ref=f13e651]:
+                    - generic [ref=f13e652]:
+                      - button "1099-NEC Printable Form Report Button" [ref=f13e653] [cursor=pointer]
+                      - heading "1099-NEC Printable Form" [level=3] [ref=f13e656]
+                    - generic [ref=f13e657]:
+                      - generic [ref=f13e659]:
+                        - button "View ▼" [ref=f13e662] [cursor=pointer]:
+                          - generic [ref=f13e663]:
+                            - generic [ref=f13e664]: View
+                            - generic [ref=f13e665]: ▼
+                        - combobox "Select a view" [ref=f13e668]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e671]
+                      - button "PDF" [ref=f13e673] [cursor=pointer]
+                      - button "reportParams" [ref=f13e676] [cursor=pointer]: Customize
+                  - generic [ref=f13e677]:
+                    - generic [ref=f13e678]:
+                      - button "AP Aging Report Button" [ref=f13e679] [cursor=pointer]:
+                        - generic "Favorite" [ref=f13e681]
+                      - heading "AP Aging" [level=3] [ref=f13e683]
+                    - generic [ref=f13e684]:
+                      - generic [ref=f13e686]:
+                        - button "View ▼" [ref=f13e689] [cursor=pointer]:
+                          - generic [ref=f13e690]:
+                            - generic [ref=f13e691]: View
+                            - generic [ref=f13e692]: ▼
+                        - combobox "Select a view" [ref=f13e695]: AP Aging
+                      - button "Quick Parameters" [ref=f13e698] [cursor=pointer]
+                      - button "Run" [ref=f13e700] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e702] [cursor=pointer]
+                      - button "reportParams" [ref=f13e705] [cursor=pointer]: Customize
+                  - generic [ref=f13e706]:
+                    - generic [ref=f13e707]:
+                      - button "Capture Pro Transactions Report Button" [ref=f13e708] [cursor=pointer]
+                      - heading "Capture Pro Transactions" [level=3] [ref=f13e711]
+                    - generic [ref=f13e712]:
+                      - generic [ref=f13e714]:
+                        - button "View ▼" [ref=f13e717] [cursor=pointer]:
+                          - generic [ref=f13e718]:
+                            - generic [ref=f13e719]: View
+                            - generic [ref=f13e720]: ▼
+                        - combobox "Select a view" [ref=f13e723]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e726]
+                      - button "Run" [ref=f13e728] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e730] [cursor=pointer]
+                      - button "reportParams" [ref=f13e733] [cursor=pointer]: Customize
+                  - generic [ref=f13e734]:
+                    - generic [ref=f13e735]:
+                      - button "ComData Export Report Button" [ref=f13e736] [cursor=pointer]
+                      - heading "ComData Export" [level=3] [ref=f13e739]
+                    - generic [ref=f13e740]:
+                      - generic [ref=f13e742]:
+                        - button "View ▼" [ref=f13e745] [cursor=pointer]:
+                          - generic [ref=f13e746]:
+                            - generic [ref=f13e747]: View
+                            - generic [ref=f13e748]: ▼
+                        - combobox "Select a view" [ref=f13e751]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e754]
+                      - button "CSV" [ref=f13e756] [cursor=pointer]
+                      - button "reportParams" [ref=f13e759] [cursor=pointer]: Customize
+                  - generic [ref=f13e760]:
+                    - generic [ref=f13e761]:
+                      - button "Mineral Tree Export Report Button" [ref=f13e762] [cursor=pointer]
+                      - heading "Mineral Tree Export" [level=3] [ref=f13e765]
+                    - generic [ref=f13e766]:
+                      - generic [ref=f13e768]:
+                        - button "View ▼" [ref=f13e771] [cursor=pointer]:
+                          - generic [ref=f13e772]:
+                            - generic [ref=f13e773]: View
+                            - generic [ref=f13e774]: ▼
+                        - combobox "Select a view" [ref=f13e777]: System View
+                      - button "Quick Parameters" [ref=f13e780] [cursor=pointer]
+                      - button "XML" [ref=f13e782] [cursor=pointer]
+                      - button "reportParams" [ref=f13e785] [cursor=pointer]: Customize
+                  - generic [ref=f13e786]:
+                    - generic [ref=f13e787]:
+                      - button "Vendor Activity Report Button" [ref=f13e788] [cursor=pointer]
+                      - heading "Vendor Activity" [level=3] [ref=f13e791]
+                    - generic [ref=f13e792]:
+                      - generic [ref=f13e794]:
+                        - button "View ▼" [ref=f13e797] [cursor=pointer]:
+                          - generic [ref=f13e798]:
+                            - generic [ref=f13e799]: View
+                            - generic [ref=f13e800]: ▼
+                        - combobox "Select a view" [ref=f13e803]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e806]
+                      - button "Run" [ref=f13e808] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e810] [cursor=pointer]
+                      - button "reportParams" [ref=f13e813] [cursor=pointer]: Customize
+                  - generic [ref=f13e814]:
+                    - generic [ref=f13e815]:
+                      - button "Vendor Reconciliation Detail Report Button" [ref=f13e816] [cursor=pointer]
+                      - heading "Vendor Reconciliation Detail" [level=3] [ref=f13e819]
+                    - generic [ref=f13e820]:
+                      - generic [ref=f13e822]:
+                        - button "View ▼" [ref=f13e825] [cursor=pointer]:
+                          - generic [ref=f13e826]:
+                            - generic [ref=f13e827]: View
+                            - generic [ref=f13e828]: ▼
+                        - combobox "Select a view" [ref=f13e831]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e834]
+                      - button "Run" [ref=f13e836] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e838] [cursor=pointer]
+                      - button "reportParams" [ref=f13e841] [cursor=pointer]: Customize
+                  - generic [ref=f13e842]:
+                    - generic [ref=f13e843]:
+                      - button "Vendor Reconciliation Summary Report Button" [ref=f13e844] [cursor=pointer]
+                      - heading "Vendor Reconciliation Summary" [level=3] [ref=f13e847]
+                    - generic [ref=f13e848]:
+                      - generic [ref=f13e850]:
+                        - button "View ▼" [ref=f13e853] [cursor=pointer]:
+                          - generic [ref=f13e854]:
+                            - generic [ref=f13e855]: View
+                            - generic [ref=f13e856]: ▼
+                        - combobox "Select a view" [ref=f13e859]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e862]
+                      - button "Run" [ref=f13e864] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e866] [cursor=pointer]
+                      - button "reportParams" [ref=f13e869] [cursor=pointer]: Customize
+              - generic [ref=f13e870]:
+                - generic [ref=f13e871]:
+                  - heading "Accounts Receivable" [level=4] [ref=f13e872]
+                  - button [ref=f13e873] [cursor=pointer]
+                - generic [ref=f13e875]:
+                  - generic [ref=f13e876]:
+                    - generic [ref=f13e877]:
+                      - button "AR Aging Report Button" [ref=f13e878] [cursor=pointer]
+                      - heading "AR Aging" [level=3] [ref=f13e881]
+                    - generic [ref=f13e882]:
+                      - generic [ref=f13e884]:
+                        - button "View ▼" [ref=f13e887] [cursor=pointer]:
+                          - generic [ref=f13e888]:
+                            - generic [ref=f13e889]: View
+                            - generic [ref=f13e890]: ▼
+                        - combobox "Select a view" [ref=f13e893]: System View
+                      - button "Quick Parameters" [ref=f13e896] [cursor=pointer]
+                      - button "Run" [ref=f13e898] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e900] [cursor=pointer]
+                      - button "reportParams" [ref=f13e903] [cursor=pointer]: Customize
+                  - generic [ref=f13e904]:
+                    - generic [ref=f13e905]:
+                      - button "AR Paid Invoice Report Button" [ref=f13e906] [cursor=pointer]
+                      - heading "AR Paid Invoice" [level=3] [ref=f13e909]
+                    - generic [ref=f13e910]:
+                      - generic [ref=f13e912]:
+                        - button "View ▼" [ref=f13e915] [cursor=pointer]:
+                          - generic [ref=f13e916]:
+                            - generic [ref=f13e917]: View
+                            - generic [ref=f13e918]: ▼
+                        - combobox "Select a view" [ref=f13e921]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e924]
+                      - button "Run" [ref=f13e926] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e928] [cursor=pointer]
+                      - button "reportParams" [ref=f13e931] [cursor=pointer]: Customize
+                  - generic [ref=f13e932]:
+                    - generic [ref=f13e933]:
+                      - button "Customer Statement Report Button" [ref=f13e934] [cursor=pointer]
+                      - heading "Customer Statement" [level=3] [ref=f13e937]
+                    - generic [ref=f13e938]:
+                      - generic [ref=f13e940]:
+                        - button "View ▼" [ref=f13e943] [cursor=pointer]:
+                          - generic [ref=f13e944]:
+                            - generic [ref=f13e945]: View
+                            - generic [ref=f13e946]: ▼
+                        - combobox "Select a view" [ref=f13e949]: System View
+                      - button "Quick Parameters" [ref=f13e952] [cursor=pointer]
+                      - button "Run" [ref=f13e954] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e956] [cursor=pointer]
+                      - button "reportParams" [ref=f13e959] [cursor=pointer]: Customize
+              - generic [ref=f13e960]:
+                - generic [ref=f13e961]:
+                  - heading "Banking" [level=4] [ref=f13e962]
+                  - button [ref=f13e963] [cursor=pointer]
+                - generic [ref=f13e965]:
+                  - generic [ref=f13e966]:
+                    - generic [ref=f13e967]:
+                      - button "ACH Export Report Button" [ref=f13e968] [cursor=pointer]
+                      - heading "ACH Export" [level=3] [ref=f13e971]
+                    - generic [ref=f13e972]:
+                      - generic [ref=f13e974]:
+                        - button "View ▼" [ref=f13e977] [cursor=pointer]:
+                          - generic [ref=f13e978]:
+                            - generic [ref=f13e979]: View
+                            - generic [ref=f13e980]: ▼
+                        - combobox "Select a view" [ref=f13e983]: System View
+                      - button "Quick Parameters" [ref=f13e986] [cursor=pointer]
+                      - button "TXT" [ref=f13e988] [cursor=pointer]
+                      - button "reportParams" [ref=f13e991] [cursor=pointer]: Customize
+                  - generic [ref=f13e992]:
+                    - generic [ref=f13e993]:
+                      - button "Adjusted Cash Balances Report Button" [ref=f13e994] [cursor=pointer]
+                      - heading "Adjusted Cash Balances" [level=3] [ref=f13e997]
+                    - generic [ref=f13e998]:
+                      - generic [ref=f13e1000]:
+                        - button "View ▼" [ref=f13e1003] [cursor=pointer]:
+                          - generic [ref=f13e1004]:
+                            - generic [ref=f13e1005]: View
+                            - generic [ref=f13e1006]: ▼
+                        - combobox "Select a view" [ref=f13e1009]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1012]
+                      - button "Run" [ref=f13e1014] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1016] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1019] [cursor=pointer]: Customize
+                  - generic [ref=f13e1020]:
+                    - generic [ref=f13e1021]:
+                      - button "AMT Direct Payment Export Report Button" [ref=f13e1022] [cursor=pointer]
+                      - heading "AMT Direct Payment Export" [level=3] [ref=f13e1025]
+                    - generic [ref=f13e1026]:
+                      - generic [ref=f13e1028]:
+                        - button "View ▼" [ref=f13e1031] [cursor=pointer]:
+                          - generic [ref=f13e1032]:
+                            - generic [ref=f13e1033]: View
+                            - generic [ref=f13e1034]: ▼
+                        - combobox "Select a view" [ref=f13e1037]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1040]
+                      - button "TXT" [ref=f13e1042] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1045] [cursor=pointer]: Customize
+                  - generic [ref=f13e1046]:
+                    - generic [ref=f13e1047]:
+                      - button "Bank Reconciliation Report Report Button" [ref=f13e1048] [cursor=pointer]
+                      - heading "Bank Reconciliation Report" [level=3] [ref=f13e1051]
+                    - generic [ref=f13e1052]:
+                      - generic [ref=f13e1054]:
+                        - button "View ▼" [ref=f13e1057] [cursor=pointer]:
+                          - generic [ref=f13e1058]:
+                            - generic [ref=f13e1059]: View
+                            - generic [ref=f13e1060]: ▼
+                        - combobox "Select a view" [ref=f13e1063]: System View
+                      - button "Quick Parameters" [ref=f13e1066] [cursor=pointer]
+                      - button "Run" [ref=f13e1068] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1070] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1073] [cursor=pointer]: Customize
+                  - generic [ref=f13e1074]:
+                    - generic [ref=f13e1075]:
+                      - button "Bank to GL Reconciliation Report Button" [ref=f13e1076] [cursor=pointer]
+                      - heading "Bank to GL Reconciliation" [level=3] [ref=f13e1079]
+                    - generic [ref=f13e1080]:
+                      - generic [ref=f13e1082]:
+                        - button "View ▼" [ref=f13e1085] [cursor=pointer]:
+                          - generic [ref=f13e1086]:
+                            - generic [ref=f13e1087]: View
+                            - generic [ref=f13e1088]: ▼
+                        - combobox "Select a view" [ref=f13e1091]: System View
+                      - button "Quick Parameters" [ref=f13e1094] [cursor=pointer]
+                      - button "Run" [ref=f13e1096] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1098] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1101] [cursor=pointer]: Customize
+                  - generic [ref=f13e1102]:
+                    - generic [ref=f13e1103]:
+                      - button "Check Report Button" [ref=f13e1104] [cursor=pointer]
+                      - heading "Check" [level=3] [ref=f13e1107]
+                    - generic [ref=f13e1108]:
+                      - generic [ref=f13e1110]:
+                        - button "View ▼" [ref=f13e1113] [cursor=pointer]:
+                          - generic [ref=f13e1114]:
+                            - generic [ref=f13e1115]: View
+                            - generic [ref=f13e1116]: ▼
+                        - combobox "Select a view" [ref=f13e1119]: System View
+                      - button "Quick Parameters" [ref=f13e1122] [cursor=pointer]
+                      - button "PDF" [ref=f13e1124] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1127] [cursor=pointer]: Customize
+                  - generic [ref=f13e1128]:
+                    - generic [ref=f13e1129]:
+                      - button "Check Register Report Button" [ref=f13e1130] [cursor=pointer]
+                      - heading "Check Register" [level=3] [ref=f13e1133]
+                    - generic [ref=f13e1134]:
+                      - generic [ref=f13e1136]:
+                        - button "View ▼" [ref=f13e1139] [cursor=pointer]:
+                          - generic [ref=f13e1140]:
+                            - generic [ref=f13e1141]: View
+                            - generic [ref=f13e1142]: ▼
+                        - combobox "Select a view" [ref=f13e1145]: System View
+                      - button "Quick Parameters" [ref=f13e1148] [cursor=pointer]
+                      - button "Run" [ref=f13e1150] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1152] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1155] [cursor=pointer]: Customize
+                  - generic [ref=f13e1156]:
+                    - generic [ref=f13e1157]:
+                      - button "Deposit Ticket Report Button" [ref=f13e1158] [cursor=pointer]
+                      - heading "Deposit Ticket" [level=3] [ref=f13e1161]
+                    - generic [ref=f13e1162]:
+                      - generic [ref=f13e1164]:
+                        - button "View ▼" [ref=f13e1167] [cursor=pointer]:
+                          - generic [ref=f13e1168]:
+                            - generic [ref=f13e1169]: View
+                            - generic [ref=f13e1170]: ▼
+                        - combobox "Select a view" [ref=f13e1173]: System View
+                      - button "Quick Parameters" [ref=f13e1176] [cursor=pointer]
+                      - button "PDF" [ref=f13e1178] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1181] [cursor=pointer]: Customize
+                  - generic [ref=f13e1182]:
+                    - generic [ref=f13e1183]:
+                      - button "Payment Disbursements Export Report Button" [ref=f13e1184] [cursor=pointer]
+                      - heading "Payment Disbursements Export" [level=3] [ref=f13e1187]
+                    - generic [ref=f13e1188]:
+                      - generic [ref=f13e1190]:
+                        - button "View ▼" [ref=f13e1193] [cursor=pointer]:
+                          - generic [ref=f13e1194]:
+                            - generic [ref=f13e1195]: View
+                            - generic [ref=f13e1196]: ▼
+                        - combobox "Select a view" [ref=f13e1199]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1202]
+                      - button "CSV" [ref=f13e1204] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1207] [cursor=pointer]: Customize
+                  - generic [ref=f13e1208]:
+                    - generic [ref=f13e1209]:
+                      - button "Payments Created Report Button" [ref=f13e1210] [cursor=pointer]
+                      - heading "Payments Created" [level=3] [ref=f13e1213]
+                    - generic [ref=f13e1214]:
+                      - generic [ref=f13e1216]:
+                        - button "View ▼" [ref=f13e1219] [cursor=pointer]:
+                          - generic [ref=f13e1220]:
+                            - generic [ref=f13e1221]: View
+                            - generic [ref=f13e1222]: ▼
+                        - combobox "Select a view" [ref=f13e1225]: System View
+                      - button "Quick Parameters" [ref=f13e1228] [cursor=pointer]
+                      - button "Run" [ref=f13e1230] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1232] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1235] [cursor=pointer]: Customize
+                  - generic [ref=f13e1236]:
+                    - generic [ref=f13e1237]:
+                      - button "Positive Pay Export Report Button" [ref=f13e1238] [cursor=pointer]
+                      - heading "Positive Pay Export" [level=3] [ref=f13e1241]
+                    - generic [ref=f13e1242]:
+                      - generic [ref=f13e1244]:
+                        - button "View ▼" [ref=f13e1247] [cursor=pointer]:
+                          - generic [ref=f13e1248]:
+                            - generic [ref=f13e1249]: View
+                            - generic [ref=f13e1250]: ▼
+                        - combobox "Select a view" [ref=f13e1253]: System View
+                      - button "Quick Parameters" [ref=f13e1256] [cursor=pointer]
+                      - button "CSV" [ref=f13e1258] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1261] [cursor=pointer]: Customize
+                  - generic [ref=f13e1262]:
+                    - generic [ref=f13e1263]:
+                      - button "Positive Pay Export - Citizens Report Button" [ref=f13e1264] [cursor=pointer]
+                      - heading "Positive Pay Export - Citizens" [level=3] [ref=f13e1267]
+                    - generic [ref=f13e1268]:
+                      - generic [ref=f13e1270]:
+                        - button "View ▼" [ref=f13e1273] [cursor=pointer]:
+                          - generic [ref=f13e1274]:
+                            - generic [ref=f13e1275]: View
+                            - generic [ref=f13e1276]: ▼
+                        - combobox "Select a view" [ref=f13e1279]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1282]
+                      - button "CSV" [ref=f13e1284] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1287] [cursor=pointer]: Customize
+                  - generic [ref=f13e1288]:
+                    - generic [ref=f13e1289]:
+                      - button "Positive Pay Export - Wells Fargo Report Button" [ref=f13e1290] [cursor=pointer]
+                      - heading "Positive Pay Export - Wells Fargo" [level=3] [ref=f13e1293]
+                    - generic [ref=f13e1294]:
+                      - generic [ref=f13e1296]:
+                        - button "View ▼" [ref=f13e1299] [cursor=pointer]:
+                          - generic [ref=f13e1300]:
+                            - generic [ref=f13e1301]: View
+                            - generic [ref=f13e1302]: ▼
+                        - combobox "Select a view" [ref=f13e1305]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1308]
+                      - button "CSV" [ref=f13e1310] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1313] [cursor=pointer]: Customize
+                  - generic [ref=f13e1314]:
+                    - generic [ref=f13e1315]:
+                      - button "R365 AP Payments Billing Report Report Button" [ref=f13e1316] [cursor=pointer]
+                      - heading "R365 AP Payments Billing Report" [level=3] [ref=f13e1319]
+                    - generic [ref=f13e1320]:
+                      - generic [ref=f13e1322]:
+                        - button "View ▼" [ref=f13e1325] [cursor=pointer]:
+                          - generic [ref=f13e1326]:
+                            - generic [ref=f13e1327]: View
+                            - generic [ref=f13e1328]: ▼
+                        - combobox "Select a view" [ref=f13e1331]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1334]
+                      - button "Run" [ref=f13e1336] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1338] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1341] [cursor=pointer]: Customize
+                  - generic [ref=f13e1342]:
+                    - generic [ref=f13e1343]:
+                      - button "Uncleared R365 Payments Report Report Button" [ref=f13e1344] [cursor=pointer]
+                      - heading "Uncleared R365 Payments Report" [level=3] [ref=f13e1347]
+                    - generic [ref=f13e1348]:
+                      - generic [ref=f13e1350]:
+                        - button "View ▼" [ref=f13e1353] [cursor=pointer]:
+                          - generic [ref=f13e1354]:
+                            - generic [ref=f13e1355]: View
+                            - generic [ref=f13e1356]: ▼
+                        - combobox "Select a view" [ref=f13e1359]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1362]
+                      - button "Run" [ref=f13e1364] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1366] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1369] [cursor=pointer]: Customize
+                  - generic [ref=f13e1370]:
+                    - generic [ref=f13e1371]:
+                      - button "Undeposited Funds Report Button" [ref=f13e1372] [cursor=pointer]
+                      - heading "Undeposited Funds" [level=3] [ref=f13e1375]
+                    - generic [ref=f13e1376]:
+                      - generic [ref=f13e1378]:
+                        - button "View ▼" [ref=f13e1381] [cursor=pointer]:
+                          - generic [ref=f13e1382]:
+                            - generic [ref=f13e1383]: View
+                            - generic [ref=f13e1384]: ▼
+                        - combobox "Select a view" [ref=f13e1387]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1390]
+                      - button "Run" [ref=f13e1392] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1394] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1397] [cursor=pointer]: Customize
+              - generic [ref=f13e1398]:
+                - generic [ref=f13e1399]:
+                  - heading "Fixed Assets" [level=4] [ref=f13e1400]
+                  - button [ref=f13e1401] [cursor=pointer]
+                - generic [ref=f13e1403]:
+                  - generic [ref=f13e1404]:
+                    - generic [ref=f13e1405]:
+                      - button "Asset Tag Printout Report Button" [ref=f13e1406] [cursor=pointer]
+                      - heading "Asset Tag Printout" [level=3] [ref=f13e1409]
+                    - generic [ref=f13e1410]:
+                      - generic [ref=f13e1412]:
+                        - button "View ▼" [ref=f13e1415] [cursor=pointer]:
+                          - generic [ref=f13e1416]:
+                            - generic [ref=f13e1417]: View
+                            - generic [ref=f13e1418]: ▼
+                        - combobox "Select a view" [ref=f13e1421]: System View
+                      - button "Quick Parameters" [ref=f13e1424] [cursor=pointer]
+                      - button "Run" [ref=f13e1426] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1428] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1431] [cursor=pointer]: Customize
+                  - generic [ref=f13e1432]:
+                    - generic [ref=f13e1433]:
+                      - button "Asset Value Report Report Button" [ref=f13e1434] [cursor=pointer]
+                      - heading "Asset Value Report" [level=3] [ref=f13e1437]
+                    - generic [ref=f13e1438]:
+                      - generic [ref=f13e1440]:
+                        - button "View ▼" [ref=f13e1443] [cursor=pointer]:
+                          - generic [ref=f13e1444]:
+                            - generic [ref=f13e1445]: View
+                            - generic [ref=f13e1446]: ▼
+                        - combobox "Select a view" [ref=f13e1449]: System View
+                      - button "Quick Parameters" [ref=f13e1452] [cursor=pointer]
+                      - button "Run" [ref=f13e1454] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1456] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1459] [cursor=pointer]: Customize
+                  - generic [ref=f13e1460]:
+                    - generic [ref=f13e1461]:
+                      - button "Fixed Asset Activity - Depreciation Report Button" [ref=f13e1462] [cursor=pointer]
+                      - heading "Fixed Asset Activity - Depreciation" [level=3] [ref=f13e1465]
+                    - generic [ref=f13e1466]:
+                      - generic [ref=f13e1468]:
+                        - button "View ▼" [ref=f13e1471] [cursor=pointer]:
+                          - generic [ref=f13e1472]:
+                            - generic [ref=f13e1473]: View
+                            - generic [ref=f13e1474]: ▼
+                        - combobox "Select a view" [ref=f13e1477]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1480]
+                      - button "Run" [ref=f13e1482] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1484] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1487] [cursor=pointer]: Customize
+                  - generic [ref=f13e1488]:
+                    - generic [ref=f13e1489]:
+                      - button "Fixed Asset Activity - Disposal and Retirement Report Button" [ref=f13e1490] [cursor=pointer]
+                      - heading "Fixed Asset Activity - Disposal and Retirement" [level=3] [ref=f13e1493]
+                    - generic [ref=f13e1494]:
+                      - generic [ref=f13e1496]:
+                        - button "View ▼" [ref=f13e1499] [cursor=pointer]:
+                          - generic [ref=f13e1500]:
+                            - generic [ref=f13e1501]: View
+                            - generic [ref=f13e1502]: ▼
+                        - combobox "Select a view" [ref=f13e1505]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1508]
+                      - button "Run" [ref=f13e1510] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1512] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1515] [cursor=pointer]: Customize
+                  - generic [ref=f13e1516]:
+                    - generic [ref=f13e1517]:
+                      - button "Fixed Asset Activity - Place In Service Report Button" [ref=f13e1518] [cursor=pointer]
+                      - heading "Fixed Asset Activity - Place In Service" [level=3] [ref=f13e1521]
+                    - generic [ref=f13e1522]:
+                      - generic [ref=f13e1524]:
+                        - button "View ▼" [ref=f13e1527] [cursor=pointer]:
+                          - generic [ref=f13e1528]:
+                            - generic [ref=f13e1529]: View
+                            - generic [ref=f13e1530]: ▼
+                        - combobox "Select a view" [ref=f13e1533]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1536]
+                      - button "Run" [ref=f13e1538] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1540] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1543] [cursor=pointer]: Customize
+              - generic [ref=f13e1544]:
+                - generic [ref=f13e1545]:
+                  - heading "General" [level=4] [ref=f13e1546]
+                  - button [ref=f13e1547] [cursor=pointer]
+                - generic [ref=f13e1549]:
+                  - generic [ref=f13e1550]:
+                    - generic [ref=f13e1551]:
+                      - button "AP Accrual Report Button" [ref=f13e1552] [cursor=pointer]
+                      - heading "AP Accrual" [level=3] [ref=f13e1555]
+                    - generic [ref=f13e1556]:
+                      - generic [ref=f13e1558]:
+                        - button "View ▼" [ref=f13e1561] [cursor=pointer]:
+                          - generic [ref=f13e1562]:
+                            - generic [ref=f13e1563]: View
+                            - generic [ref=f13e1564]: ▼
+                        - combobox "Select a view" [ref=f13e1567]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1570]
+                      - button "Run" [ref=f13e1572] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1574] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1577] [cursor=pointer]: Customize
+                  - generic [ref=f13e1578]:
+                    - generic [ref=f13e1579]:
+                      - button "Blackline Export Report Button" [ref=f13e1580] [cursor=pointer]
+                      - heading "Blackline Export" [level=3] [ref=f13e1583]
+                    - generic [ref=f13e1584]:
+                      - generic [ref=f13e1586]:
+                        - button "View ▼" [ref=f13e1589] [cursor=pointer]:
+                          - generic [ref=f13e1590]:
+                            - generic [ref=f13e1591]: View
+                            - generic [ref=f13e1592]: ▼
+                        - combobox "Select a view" [ref=f13e1595]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1598]
+                      - button "TXT" [ref=f13e1600] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1603] [cursor=pointer]: Customize
+                  - generic [ref=f13e1604]:
+                    - generic [ref=f13e1605]:
+                      - button "Fiscal Calendar Report Button" [ref=f13e1606] [cursor=pointer]
+                      - heading "Fiscal Calendar" [level=3] [ref=f13e1609]
+                    - generic [ref=f13e1610]:
+                      - generic [ref=f13e1612]:
+                        - button "View ▼" [ref=f13e1615] [cursor=pointer]:
+                          - generic [ref=f13e1616]:
+                            - generic [ref=f13e1617]: View
+                            - generic [ref=f13e1618]: ▼
+                        - combobox "Select a view" [ref=f13e1621]: System View
+                      - button "Quick Parameters" [ref=f13e1624] [cursor=pointer]
+                      - button "Run" [ref=f13e1626] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1628] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1631] [cursor=pointer]: Customize
+                  - generic [ref=f13e1632]:
+                    - generic [ref=f13e1633]:
+                      - button "Fiscal Year Error Check Report Button" [ref=f13e1634] [cursor=pointer]
+                      - heading "Fiscal Year Error Check" [level=3] [ref=f13e1637]
+                    - generic [ref=f13e1638]:
+                      - generic [ref=f13e1640]:
+                        - button "View ▼" [ref=f13e1643] [cursor=pointer]:
+                          - generic [ref=f13e1644]:
+                            - generic [ref=f13e1645]: View
+                            - generic [ref=f13e1646]: ▼
+                        - combobox "Select a view" [ref=f13e1649]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1652]
+                      - button "Run" [ref=f13e1654] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1656] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1659] [cursor=pointer]: Customize
+                  - generic [ref=f13e1660]:
+                    - generic [ref=f13e1661]:
+                      - button "Franchise Invoicing Report - Summary View Report Button" [ref=f13e1662] [cursor=pointer]
+                      - heading "Franchise Invoicing Report - Summary View" [level=3] [ref=f13e1665]
+                    - generic [ref=f13e1666]:
+                      - generic [ref=f13e1668]:
+                        - button "View ▼" [ref=f13e1671] [cursor=pointer]:
+                          - generic [ref=f13e1672]:
+                            - generic [ref=f13e1673]: View
+                            - generic [ref=f13e1674]: ▼
+                        - combobox "Select a view" [ref=f13e1677]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1680]
+                      - button "Run" [ref=f13e1682] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1684] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1687] [cursor=pointer]: Customize
+                  - generic [ref=f13e1688]:
+                    - generic [ref=f13e1689]:
+                      - button "Profitability Report Report Button" [ref=f13e1690] [cursor=pointer]
+                      - heading "Profitability Report" [level=3] [ref=f13e1693]
+                    - generic [ref=f13e1694]:
+                      - generic [ref=f13e1696]:
+                        - button "View ▼" [ref=f13e1699] [cursor=pointer]:
+                          - generic [ref=f13e1700]:
+                            - generic [ref=f13e1701]: View
+                            - generic [ref=f13e1702]: ▼
+                        - combobox "Select a view" [ref=f13e1705]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1708]
+                      - button "Run" [ref=f13e1710] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1712] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1715] [cursor=pointer]: Customize
+                  - generic [ref=f13e1716]:
+                    - generic [ref=f13e1717]:
+                      - button "Spread Memorized Transaction List Report Button" [ref=f13e1718] [cursor=pointer]
+                      - heading "Spread Memorized Transaction List" [level=3] [ref=f13e1721]
+                    - generic [ref=f13e1722]:
+                      - generic [ref=f13e1724]:
+                        - button "View ▼" [ref=f13e1727] [cursor=pointer]:
+                          - generic [ref=f13e1728]:
+                            - generic [ref=f13e1729]: View
+                            - generic [ref=f13e1730]: ▼
+                        - combobox "Select a view" [ref=f13e1733]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1736]
+                      - button "Run" [ref=f13e1738] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1740] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1743] [cursor=pointer]: Customize
+                  - generic [ref=f13e1744]:
+                    - generic [ref=f13e1745]:
+                      - button "Synexus Sales Tax Export Report Button" [ref=f13e1746] [cursor=pointer]
+                      - heading "Synexus Sales Tax Export" [level=3] [ref=f13e1749]
+                    - generic [ref=f13e1750]:
+                      - generic [ref=f13e1752]:
+                        - button "View ▼" [ref=f13e1755] [cursor=pointer]:
+                          - generic [ref=f13e1756]:
+                            - generic [ref=f13e1757]: View
+                            - generic [ref=f13e1758]: ▼
+                        - combobox "Select a view" [ref=f13e1761]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1764]
+                      - button "CSV" [ref=f13e1766] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1769] [cursor=pointer]: Customize
+              - generic [ref=f13e1770]:
+                - generic [ref=f13e1771]:
+                  - heading "Labor" [level=4] [ref=f13e1772]
+                  - button [ref=f13e1773] [cursor=pointer]
+                - generic [ref=f13e1776]:
+                  - generic [ref=f13e1777]:
+                    - button "F9 Segment Descriptions Report Button" [ref=f13e1778] [cursor=pointer]
+                    - heading "F9 Segment Descriptions" [level=3] [ref=f13e1781]
+                  - generic [ref=f13e1782]:
+                    - generic [ref=f13e1784]:
+                      - button "View ▼" [ref=f13e1787] [cursor=pointer]:
+                        - generic [ref=f13e1788]:
+                          - generic [ref=f13e1789]: View
+                          - generic [ref=f13e1790]: ▼
+                      - combobox "Select a view" [ref=f13e1793]: System View
+                    - button "Please use the customize button to filter this report." [disabled] [ref=f13e1796]
+                    - button "Run" [ref=f13e1798] [cursor=pointer]
+                    - button "exportMenu" [ref=f13e1800] [cursor=pointer]
+                    - button "reportParams" [ref=f13e1803] [cursor=pointer]: Customize
+              - generic [ref=f13e1804]:
+                - generic [ref=f13e1805]:
+                  - heading "Statements" [level=4] [ref=f13e1806]
+                  - button [ref=f13e1807] [cursor=pointer]
+                - generic [ref=f13e1809]:
+                  - generic [ref=f13e1810]:
+                    - generic [ref=f13e1811]:
+                      - button "Account Balance by Location Report Button" [ref=f13e1812] [cursor=pointer]
+                      - heading "Account Balance by Location" [level=3] [ref=f13e1815]
+                    - generic [ref=f13e1816]:
+                      - generic [ref=f13e1818]:
+                        - button "View ▼" [ref=f13e1821] [cursor=pointer]:
+                          - generic [ref=f13e1822]:
+                            - generic [ref=f13e1823]: View
+                            - generic [ref=f13e1824]: ▼
+                        - combobox "Select a view" [ref=f13e1827]: System View
+                      - button "Quick Parameters" [ref=f13e1830] [cursor=pointer]
+                      - button "Run" [ref=f13e1832] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1834] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1837] [cursor=pointer]: Customize
+                  - generic [ref=f13e1838]:
+                    - generic [ref=f13e1839]:
+                      - button "Account Balance by Location Export Report Button" [ref=f13e1840] [cursor=pointer]
+                      - heading "Account Balance by Location Export" [level=3] [ref=f13e1843]
+                    - generic [ref=f13e1844]:
+                      - generic [ref=f13e1846]:
+                        - button "View ▼" [ref=f13e1849] [cursor=pointer]:
+                          - generic [ref=f13e1850]:
+                            - generic [ref=f13e1851]: View
+                            - generic [ref=f13e1852]: ▼
+                        - combobox "Select a view" [ref=f13e1855]: System View
+                      - button "Quick Parameters" [ref=f13e1858] [cursor=pointer]
+                      - button "Run" [ref=f13e1860] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1862] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1865] [cursor=pointer]: Customize
+                  - generic [ref=f13e1866]:
+                    - generic [ref=f13e1867]:
+                      - button "Account Trx Summary by Location Export Report Button" [ref=f13e1868] [cursor=pointer]
+                      - heading "Account Trx Summary by Location Export" [level=3] [ref=f13e1871]
+                    - generic [ref=f13e1872]:
+                      - generic [ref=f13e1874]:
+                        - button "View ▼" [ref=f13e1877] [cursor=pointer]:
+                          - generic [ref=f13e1878]:
+                            - generic [ref=f13e1879]: View
+                            - generic [ref=f13e1880]: ▼
+                        - combobox "Select a view" [ref=f13e1883]: System View
+                      - button "Quick Parameters" [ref=f13e1886] [cursor=pointer]
+                      - button "Run" [ref=f13e1888] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1890] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1893] [cursor=pointer]: Customize
+                  - generic [ref=f13e1894]:
+                    - generic [ref=f13e1895]:
+                      - button "Balance Sheet Report Button" [ref=f13e1896] [cursor=pointer]:
+                        - generic "Favorite" [ref=f13e1898]
+                      - heading "Balance Sheet" [level=3] [ref=f13e1900]
+                    - generic [ref=f13e1901]:
+                      - generic [ref=f13e1903]:
+                        - button "View ▼" [ref=f13e1906] [cursor=pointer]:
+                          - generic [ref=f13e1907]:
+                            - generic [ref=f13e1908]: View
+                            - generic [ref=f13e1909]: ▼
+                        - combobox "Select a view" [ref=f13e1912]: System View
+                      - button "Quick Parameters" [ref=f13e1915] [cursor=pointer]
+                      - button "Run" [ref=f13e1917] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1919] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1922] [cursor=pointer]: Customize
+                  - generic [ref=f13e1923]:
+                    - generic [ref=f13e1924]:
+                      - button "Balance Sheet - Layout Format Report Button" [ref=f13e1925] [cursor=pointer]
+                      - heading "Balance Sheet - Layout Format" [level=3] [ref=f13e1928]
+                    - generic [ref=f13e1929]:
+                      - generic [ref=f13e1931]:
+                        - button "View ▼" [ref=f13e1934] [cursor=pointer]:
+                          - generic [ref=f13e1935]:
+                            - generic [ref=f13e1936]: View
+                            - generic [ref=f13e1937]: ▼
+                        - combobox "Select a view" [ref=f13e1940]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1943]
+                      - button "Run" [ref=f13e1945] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1947] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1950] [cursor=pointer]: Customize
+                  - generic [ref=f13e1951]:
+                    - generic [ref=f13e1952]:
+                      - button "Cash Flow Report Button" [ref=f13e1953] [cursor=pointer]
+                      - heading "Cash Flow" [level=3] [ref=f13e1956]
+                    - generic [ref=f13e1957]:
+                      - generic [ref=f13e1959]:
+                        - button "View ▼" [ref=f13e1962] [cursor=pointer]:
+                          - generic [ref=f13e1963]:
+                            - generic [ref=f13e1964]: View
+                            - generic [ref=f13e1965]: ▼
+                        - combobox "Select a view" [ref=f13e1968]: System View
+                      - button "Quick Parameters" [ref=f13e1971] [cursor=pointer]
+                      - button "Run" [ref=f13e1973] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e1975] [cursor=pointer]
+                      - button "reportParams" [ref=f13e1978] [cursor=pointer]: Customize
+                  - generic [ref=f13e1979]:
+                    - generic [ref=f13e1980]:
+                      - button "Cash Flow Side by Side Report Button" [ref=f13e1981] [cursor=pointer]
+                      - heading "Cash Flow Side by Side" [level=3] [ref=f13e1984]
+                    - generic [ref=f13e1985]:
+                      - generic [ref=f13e1987]:
+                        - button "View ▼" [ref=f13e1990] [cursor=pointer]:
+                          - generic [ref=f13e1991]:
+                            - generic [ref=f13e1992]: View
+                            - generic [ref=f13e1993]: ▼
+                        - combobox "Select a view" [ref=f13e1996]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e1999]
+                      - button "Run" [ref=f13e2001] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2003] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2006] [cursor=pointer]: Customize
+                  - generic [ref=f13e2007]:
+                    - generic [ref=f13e2008]:
+                      - button "GL Account Detail Report Button" [ref=f13e2009] [cursor=pointer]
+                      - heading "GL Account Detail" [level=3] [ref=f13e2012]
+                    - generic [ref=f13e2013]:
+                      - generic [ref=f13e2015]:
+                        - button "View ▼" [ref=f13e2018] [cursor=pointer]:
+                          - generic [ref=f13e2019]:
+                            - generic [ref=f13e2020]: View
+                            - generic [ref=f13e2021]: ▼
+                        - combobox "Select a view" [ref=f13e2024]: System View
+                      - button "Quick Parameters" [ref=f13e2027] [cursor=pointer]
+                      - button "Run" [ref=f13e2029] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2031] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2034] [cursor=pointer]: Customize
+                  - generic [ref=f13e2035]:
+                    - generic [ref=f13e2036]:
+                      - button "GL Account Detail Blackline Report Button" [ref=f13e2037] [cursor=pointer]
+                      - heading "GL Account Detail Blackline" [level=3] [ref=f13e2040]
+                    - generic [ref=f13e2041]:
+                      - generic [ref=f13e2043]:
+                        - button "View ▼" [ref=f13e2046] [cursor=pointer]:
+                          - generic [ref=f13e2047]:
+                            - generic [ref=f13e2048]: View
+                            - generic [ref=f13e2049]: ▼
+                        - combobox "Select a view" [ref=f13e2052]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2055]
+                      - button "CSV" [ref=f13e2057] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2060] [cursor=pointer]: Customize
+                  - generic [ref=f13e2061]:
+                    - generic [ref=f13e2062]:
+                      - button "GL Account Detail Export Report Button" [ref=f13e2063] [cursor=pointer]
+                      - heading "GL Account Detail Export" [level=3] [ref=f13e2066]
+                    - generic [ref=f13e2067]:
+                      - generic [ref=f13e2069]:
+                        - button "View ▼" [ref=f13e2072] [cursor=pointer]:
+                          - generic [ref=f13e2073]:
+                            - generic [ref=f13e2074]: View
+                            - generic [ref=f13e2075]: ▼
+                        - combobox "Select a view" [ref=f13e2078]: System View
+                      - button "Quick Parameters" [ref=f13e2081] [cursor=pointer]
+                      - button "Run" [ref=f13e2083] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2085] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2088] [cursor=pointer]: Customize
+                  - generic [ref=f13e2089]:
+                    - generic [ref=f13e2090]:
+                      - button "GL Account Detail with Legal Entity Report Button" [ref=f13e2091] [cursor=pointer]
+                      - heading "GL Account Detail with Legal Entity" [level=3] [ref=f13e2094]
+                    - generic [ref=f13e2095]:
+                      - generic [ref=f13e2097]:
+                        - button "View ▼" [ref=f13e2100] [cursor=pointer]:
+                          - generic [ref=f13e2101]:
+                            - generic [ref=f13e2102]: View
+                            - generic [ref=f13e2103]: ▼
+                        - combobox "Select a view" [ref=f13e2106]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2109]
+                      - button "Run" [ref=f13e2111] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2113] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2116] [cursor=pointer]: Customize
+                  - generic [ref=f13e2117]:
+                    - generic [ref=f13e2118]:
+                      - button "GL Account Detail with Legal Entity - Portrait Report Button" [ref=f13e2119] [cursor=pointer]
+                      - heading "GL Account Detail with Legal Entity - Portrait" [level=3] [ref=f13e2122]
+                    - generic [ref=f13e2123]:
+                      - generic [ref=f13e2125]:
+                        - button "View ▼" [ref=f13e2128] [cursor=pointer]:
+                          - generic [ref=f13e2129]:
+                            - generic [ref=f13e2130]: View
+                            - generic [ref=f13e2131]: ▼
+                        - combobox "Select a view" [ref=f13e2134]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2137]
+                      - button "Run" [ref=f13e2139] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2141] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2144] [cursor=pointer]: Customize
+                  - generic [ref=f13e2145]:
+                    - generic [ref=f13e2146]:
+                      - button "GL Account Detail with Legal Entity Export Report Button" [ref=f13e2147] [cursor=pointer]
+                      - heading "GL Account Detail with Legal Entity Export" [level=3] [ref=f13e2150]
+                    - generic [ref=f13e2151]:
+                      - generic [ref=f13e2153]:
+                        - button "View ▼" [ref=f13e2156] [cursor=pointer]:
+                          - generic [ref=f13e2157]:
+                            - generic [ref=f13e2158]: View
+                            - generic [ref=f13e2159]: ▼
+                        - combobox "Select a view" [ref=f13e2162]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2165]
+                      - button "CSV" [ref=f13e2167] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2170] [cursor=pointer]: Customize
+                  - generic [ref=f13e2171]:
+                    - generic [ref=f13e2172]:
+                      - button "Profit and Loss Report Button" [ref=f13e2173] [cursor=pointer]:
+                        - generic "Favorite" [ref=f13e2175]
+                      - heading "Profit and Loss" [level=3] [ref=f13e2177]
+                    - generic [ref=f13e2178]:
+                      - generic [ref=f13e2180]:
+                        - button "View ▼" [ref=f13e2183] [cursor=pointer]:
+                          - generic [ref=f13e2184]:
+                            - generic [ref=f13e2185]: View
+                            - generic [ref=f13e2186]: ▼
+                        - combobox "Select a view" [ref=f13e2189]: System View
+                      - button "Quick Parameters" [ref=f13e2192] [cursor=pointer]
+                      - button "Run" [ref=f13e2194] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2196] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2199] [cursor=pointer]: Customize
+                  - generic [ref=f13e2200]:
+                    - generic [ref=f13e2201]:
+                      - button "Profit and Loss - Custom Date Report Button" [ref=f13e2202] [cursor=pointer]:
+                        - generic "Favorite" [ref=f13e2204]
+                      - heading "Profit and Loss - Custom Date" [level=3] [ref=f13e2206]
+                    - generic [ref=f13e2207]:
+                      - generic [ref=f13e2209]:
+                        - button "View ▼" [ref=f13e2212] [cursor=pointer]:
+                          - generic [ref=f13e2213]:
+                            - generic [ref=f13e2214]: View
+                            - generic [ref=f13e2215]: ▼
+                        - combobox "Select a view" [ref=f13e2218]: DSS Review
+                      - button "Quick Parameters" [ref=f13e2221] [cursor=pointer]
+                      - button "Run" [ref=f13e2223] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2225] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2228] [cursor=pointer]: Customize
+                  - generic [ref=f13e2229]:
+                    - generic [ref=f13e2230]:
+                      - button "Profit and Loss - Layout Format Report Button" [ref=f13e2231] [cursor=pointer]
+                      - heading "Profit and Loss - Layout Format" [level=3] [ref=f13e2234]
+                    - generic [ref=f13e2235]:
+                      - generic [ref=f13e2237]:
+                        - button "View ▼" [ref=f13e2240] [cursor=pointer]:
+                          - generic [ref=f13e2241]:
+                            - generic [ref=f13e2242]: View
+                            - generic [ref=f13e2243]: ▼
+                        - combobox "Select a view" [ref=f13e2246]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2249]
+                      - button "Run" [ref=f13e2251] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2253] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2256] [cursor=pointer]: Customize
+                  - generic [ref=f13e2257]:
+                    - generic [ref=f13e2258]:
+                      - button "Profit and Loss Details Report Button" [ref=f13e2259] [cursor=pointer]
+                      - heading "Profit and Loss Details" [level=3] [ref=f13e2262]
+                    - generic [ref=f13e2263]:
+                      - generic [ref=f13e2265]:
+                        - button "View ▼" [ref=f13e2268] [cursor=pointer]:
+                          - generic [ref=f13e2269]:
+                            - generic [ref=f13e2270]: View
+                            - generic [ref=f13e2271]: ▼
+                        - combobox "Select a view" [ref=f13e2274]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2277]
+                      - button "Run" [ref=f13e2279] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2281] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2284] [cursor=pointer]: Customize
+                  - generic [ref=f13e2285]:
+                    - generic [ref=f13e2286]:
+                      - button "Transaction Detail Export Report Button" [ref=f13e2287] [cursor=pointer]
+                      - heading "Transaction Detail Export" [level=3] [ref=f13e2290]
+                    - generic [ref=f13e2291]:
+                      - generic [ref=f13e2293]:
+                        - button "View ▼" [ref=f13e2296] [cursor=pointer]:
+                          - generic [ref=f13e2297]:
+                            - generic [ref=f13e2298]: View
+                            - generic [ref=f13e2299]: ▼
+                        - combobox "Select a view" [ref=f13e2302]: System View
+                      - button "Quick Parameters" [ref=f13e2305] [cursor=pointer]
+                      - button "Run" [ref=f13e2307] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2309] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2312] [cursor=pointer]: Customize
+                  - generic [ref=f13e2313]:
+                    - generic [ref=f13e2314]:
+                      - button "Transaction Detail Export - Ctuit Report Button" [ref=f13e2315] [cursor=pointer]
+                      - heading "Transaction Detail Export - Ctuit" [level=3] [ref=f13e2318]
+                    - generic [ref=f13e2319]:
+                      - generic [ref=f13e2321]:
+                        - button "View ▼" [ref=f13e2324] [cursor=pointer]:
+                          - generic [ref=f13e2325]:
+                            - generic [ref=f13e2326]: View
+                            - generic [ref=f13e2327]: ▼
+                        - combobox "Select a view" [ref=f13e2330]: System View
+                      - button "Quick Parameters" [ref=f13e2333] [cursor=pointer]
+                      - button "Run" [ref=f13e2335] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2337] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2340] [cursor=pointer]: Customize
+                  - generic [ref=f13e2341]:
+                    - generic [ref=f13e2342]:
+                      - button "Trial Balance Report Button" [ref=f13e2343] [cursor=pointer]
+                      - heading "Trial Balance" [level=3] [ref=f13e2346]
+                    - generic [ref=f13e2347]:
+                      - generic [ref=f13e2349]:
+                        - button "View ▼" [ref=f13e2352] [cursor=pointer]:
+                          - generic [ref=f13e2353]:
+                            - generic [ref=f13e2354]: View
+                            - generic [ref=f13e2355]: ▼
+                        - combobox "Select a view" [ref=f13e2358]: System View
+                      - button "Quick Parameters" [ref=f13e2361] [cursor=pointer]
+                      - button "Run" [ref=f13e2363] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2365] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2368] [cursor=pointer]: Customize
+                  - generic [ref=f13e2369]:
+                    - generic [ref=f13e2370]:
+                      - button "Working Trial Balance Report Button" [ref=f13e2371] [cursor=pointer]
+                      - heading "Working Trial Balance" [level=3] [ref=f13e2374]
+                    - generic [ref=f13e2375]:
+                      - generic [ref=f13e2377]:
+                        - button "View ▼" [ref=f13e2380] [cursor=pointer]:
+                          - generic [ref=f13e2381]:
+                            - generic [ref=f13e2382]: View
+                            - generic [ref=f13e2383]: ▼
+                        - combobox "Select a view" [ref=f13e2386]: System View
+                      - button "Please use the customize button to filter this report." [disabled] [ref=f13e2389]
+                      - button "Run" [ref=f13e2391] [cursor=pointer]
+                      - button "exportMenu" [ref=f13e2393] [cursor=pointer]
+                      - button "reportParams" [ref=f13e2396] [cursor=pointer]: Customize
+        - status [ref=f13e484]
+  - iframe
+  - img:
+    - generic [ref=f11e31]: $1,609.16
+```

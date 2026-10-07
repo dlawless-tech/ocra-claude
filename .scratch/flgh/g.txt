@@ -1,0 +1,379 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://flecha.restaurant365.com/react/reports-management/legacy/MyReports
+- Page Title: My Reports
+- Console: 135 errors, 15 warnings
+### Snapshot
+```yaml
+- generic:
+  - generic:
+    - banner [ref=f11e1]:
+      - generic [ref=f11e3]:
+        - button [ref=f11e4] [cursor=pointer]
+        - button [ref=f11e7] [cursor=pointer]
+        - button [ref=f11e10] [cursor=pointer]
+        - button [ref=f11e13] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - iframe [active] [ref=f11e24]:
+      - generic [ref=f13e1]:
+        - generic [ref=f13e2]:
+          - generic [ref=f13e4]:
+            - generic [ref=f13e5]: Theme Builder
+            - button [ref=f13e8] [cursor=pointer]:
+              - generic [ref=f13e9]: 
+            - generic [ref=f13e10]:
+              - generic [ref=f13e11]:
+                - heading [level=4] [ref=f13e702]: Ribbon
+                - generic [ref=f13e13]:
+                  - generic [ref=f13e14]: BG
+                  - generic [ref=f13e15]: Font
+                  - generic [ref=f13e16]: Hover BG
+                  - generic [ref=f13e17]: Hover Font
+                - generic [ref=f13e703]:
+                  - generic [ref=f13e19]: Menu
+                  - textbox [ref=f13e704]:
+                    - generic [ref=f13e26] [cursor=pointer]
+                  - textbox [ref=f13e705]:
+                    - generic [ref=f13e32] [cursor=pointer]
+                  - textbox [ref=f13e706]:
+                    - generic [ref=f13e38] [cursor=pointer]
+                  - textbox [ref=f13e707]:
+                    - generic [ref=f13e44] [cursor=pointer]
+                - generic [ref=f13e708]:
+                  - generic [ref=f13e46]: SubMenu
+                  - textbox [ref=f13e709]:
+                    - generic [ref=f13e53] [cursor=pointer]
+                  - textbox [ref=f13e710]:
+                    - generic [ref=f13e59] [cursor=pointer]
+                  - textbox [ref=f13e711]:
+                    - generic [ref=f13e65] [cursor=pointer]
+                  - textbox [ref=f13e712]:
+                    - generic [ref=f13e71] [cursor=pointer]
+              - generic [ref=f13e72]:
+                - heading [level=4] [ref=f13e713]: Ribbon Logo
+                - button [ref=f13e714] [cursor=pointer]: Upload Ribbon Logo
+              - generic [ref=f13e79]:
+                - heading [level=4] [ref=f13e715]: Left Panel
+                - generic [ref=f13e81]:
+                  - textbox [ref=f13e716]:
+                    - generic [ref=f13e88] [cursor=pointer]
+                  - textbox [ref=f13e717]:
+                    - generic [ref=f13e94] [cursor=pointer]
+                  - textbox [ref=f13e718]:
+                    - generic [ref=f13e100] [cursor=pointer]
+                  - textbox [ref=f13e719]:
+                    - generic [ref=f13e106] [cursor=pointer]
+              - generic [ref=f13e107]:
+                - heading [level=4] [ref=f13e720]: Components
+                - generic [ref=f13e721]:
+                  - generic [ref=f13e110]: Normal
+                  - textbox [ref=f13e722]:
+                    - generic [ref=f13e117] [cursor=pointer]
+                  - textbox [ref=f13e723]:
+                    - generic [ref=f13e123] [cursor=pointer]
+                  - textbox [ref=f13e724]:
+                    - generic [ref=f13e129] [cursor=pointer]
+                  - textbox [ref=f13e725]:
+                    - generic [ref=f13e135] [cursor=pointer]
+                - generic [ref=f13e726]:
+                  - generic [ref=f13e137]: Selected
+                  - textbox [ref=f13e727]:
+                    - generic [ref=f13e144] [cursor=pointer]
+                  - textbox [ref=f13e728]:
+                    - generic [ref=f13e150] [cursor=pointer]
+            - generic [ref=f13e151]:
+              - generic [ref=f13e152]:
+                - generic [ref=f13e155]:
+                  - combobox [ref=f13e729]: Default R365 Theme
+                  - button [ref=f13e730] [cursor=pointer]: select
+                - generic [ref=f13e159]:
+                  - button [ref=f13e731] [cursor=pointer]: Set As Default
+                  - button [disabled] [ref=f13e732]: Save
+                  - button [disabled] [ref=f13e733]: Delete
+              - generic [ref=f13e163]:
+                - textbox [ref=f13e734]:
+                  - /placeholder: Add New Theme
+                - button [ref=f13e735] [cursor=pointer]: New
+          - generic [ref=f13e175]:
+            - generic [ref=f13e176]:
+              - textbox [ref=f13e736]:
+                - /placeholder: Find a report
+              - generic [ref=f13e181] [cursor=pointer]: Report Subscriptions
+            - navigation [ref=f13e185]:
+              - listbox [ref=f13e737]:
+                - option [selected] [ref=f13e738]:
+                  - generic [ref=f13e188] [cursor=pointer]: My Reports
+                - option [ref=f13e739]:
+                  - generic [ref=f13e191] [cursor=pointer]: Accounting
+                - option [ref=f13e740]:
+                  - generic [ref=f13e194] [cursor=pointer]: Inventory
+                - option [ref=f13e741]:
+                  - generic [ref=f13e197] [cursor=pointer]: Operations
+                - option [ref=f13e742]:
+                  - generic [ref=f13e200] [cursor=pointer]: Payroll
+                - option [ref=f13e743]:
+                  - generic [ref=f13e203] [cursor=pointer]: Training
+                - option [ref=f13e744]:
+                  - generic [ref=f13e206] [cursor=pointer]: Workforce
+            - generic [ref=f13e210]:
+              - generic [ref=f13e211]:
+                - generic [ref=f13e212]:
+                  - heading [level=4] [ref=f13e745]: Recent
+                  - button [ref=f13e214] [cursor=pointer]
+                - generic [ref=f13e216]:
+                  - generic [ref=f13e217]:
+                    - generic [ref=f13e218]:
+                      - button [ref=f13e746] [cursor=pointer]
+                      - heading [level=3] [ref=f13e748]: Balance Sheet
+                    - generic [ref=f13e224]:
+                      - generic [ref=f13e226]:
+                        - button [ref=f13e749] [cursor=pointer]:
+                          - generic [ref=f13e230]:
+                            - generic [ref=f13e231]: View
+                            - generic [ref=f13e232]: ▼
+                        - combobox [ref=f13e750]: System View
+                      - button [ref=f13e751] [cursor=pointer]
+                      - button [ref=f13e752] [cursor=pointer]: Run
+                      - button [ref=f13e753] [cursor=pointer]
+                      - button [ref=f13e754] [cursor=pointer]: Customize
+                  - generic [ref=f13e246]:
+                    - generic [ref=f13e247]:
+                      - button [ref=f13e755] [cursor=pointer]
+                      - heading [level=3] [ref=f13e757]: Profit and Loss - Custom Date
+                    - generic [ref=f13e253]:
+                      - generic [ref=f13e255]:
+                        - button [ref=f13e758] [cursor=pointer]:
+                          - generic [ref=f13e259]:
+                            - generic [ref=f13e260]: View
+                            - generic [ref=f13e261]: ▼
+                        - combobox [ref=f13e759]: DSS Review
+                      - button [ref=f13e760] [cursor=pointer]
+                      - button [ref=f13e761] [cursor=pointer]: Run
+                      - button [ref=f13e762] [cursor=pointer]
+                      - button [ref=f13e763] [cursor=pointer]: Customize
+                  - generic [ref=f13e275]:
+                    - generic [ref=f13e276]:
+                      - button [ref=f13e764] [cursor=pointer]
+                      - heading [level=3] [ref=f13e766]: AP Aging
+                    - generic [ref=f13e282]:
+                      - generic [ref=f13e284]:
+                        - button [ref=f13e767] [cursor=pointer]:
+                          - generic [ref=f13e288]:
+                            - generic [ref=f13e289]: View
+                            - generic [ref=f13e290]: ▼
+                        - combobox [ref=f13e768]: AP Aging
+                      - button [ref=f13e769] [cursor=pointer]
+                      - button [ref=f13e770] [cursor=pointer]: Run
+                      - button [ref=f13e771] [cursor=pointer]
+                      - button [ref=f13e772] [cursor=pointer]: Customize
+                  - generic [ref=f13e304]:
+                    - generic [ref=f13e305]:
+                      - button [ref=f13e773] [cursor=pointer]
+                      - heading [level=3] [ref=f13e775]: Profit and Loss
+                    - generic [ref=f13e311]:
+                      - generic [ref=f13e313]:
+                        - button [ref=f13e776] [cursor=pointer]:
+                          - generic [ref=f13e317]:
+                            - generic [ref=f13e318]: View
+                            - generic [ref=f13e319]: ▼
+                        - combobox [ref=f13e777]: System View
+                      - button [ref=f13e778] [cursor=pointer]
+                      - button [ref=f13e779] [cursor=pointer]: Run
+                      - button [ref=f13e780] [cursor=pointer]
+                      - button [ref=f13e781] [cursor=pointer]: Customize
+                  - generic [ref=f13e333]:
+                    - generic [ref=f13e334]:
+                      - button [ref=f13e782] [cursor=pointer]
+                      - heading [level=3] [ref=f13e783]: Payments Created
+                    - generic [ref=f13e339]:
+                      - generic [ref=f13e341]:
+                        - button [ref=f13e784] [cursor=pointer]:
+                          - generic [ref=f13e345]:
+                            - generic [ref=f13e346]: View
+                            - generic [ref=f13e347]: ▼
+                        - combobox [ref=f13e785]: System View
+                      - button [ref=f13e786] [cursor=pointer]
+                      - button [ref=f13e787] [cursor=pointer]: Run
+                      - button [ref=f13e788] [cursor=pointer]
+                      - button [ref=f13e789] [cursor=pointer]: Customize
+              - generic [ref=f13e361]:
+                - generic [ref=f13e362]:
+                  - heading [level=4] [ref=f13e790]: Favorites
+                  - button [ref=f13e364] [cursor=pointer]
+                - generic [ref=f13e367]:
+                  - generic [ref=f13e368]:
+                    - generic [ref=f13e369]:
+                      - button [ref=f13e791] [cursor=pointer]
+                      - heading [level=3] [ref=f13e793]: AP Aging
+                    - generic [ref=f13e375]:
+                      - generic [ref=f13e377]:
+                        - button [ref=f13e794] [cursor=pointer]:
+                          - generic [ref=f13e381]:
+                            - generic [ref=f13e382]: View
+                            - generic [ref=f13e383]: ▼
+                        - combobox [ref=f13e795]: AP Aging
+                      - button [ref=f13e796] [cursor=pointer]
+                      - button [ref=f13e797] [cursor=pointer]: Run
+                      - button [ref=f13e798] [cursor=pointer]
+                      - button [ref=f13e799] [cursor=pointer]: Customize
+                  - generic [ref=f13e397]:
+                    - generic [ref=f13e398]:
+                      - button [ref=f13e800] [cursor=pointer]
+                      - heading [level=3] [ref=f13e802]: Balance Sheet
+                    - generic [ref=f13e404]:
+                      - generic [ref=f13e406]:
+                        - button [ref=f13e803] [cursor=pointer]:
+                          - generic [ref=f13e410]:
+                            - generic [ref=f13e411]: View
+                            - generic [ref=f13e412]: ▼
+                        - combobox [ref=f13e804]: System View
+                      - button [ref=f13e805] [cursor=pointer]
+                      - button [ref=f13e806] [cursor=pointer]: Run
+                      - button [ref=f13e807] [cursor=pointer]
+                      - button [ref=f13e808] [cursor=pointer]: Customize
+                  - generic [ref=f13e426]:
+                    - generic [ref=f13e427]:
+                      - button [ref=f13e809] [cursor=pointer]
+                      - heading [level=3] [ref=f13e811]: Profit and Loss
+                    - generic [ref=f13e433]:
+                      - generic [ref=f13e435]:
+                        - button [ref=f13e812] [cursor=pointer]:
+                          - generic [ref=f13e439]:
+                            - generic [ref=f13e440]: View
+                            - generic [ref=f13e441]: ▼
+                        - combobox [ref=f13e813]: System View
+                      - button [ref=f13e814] [cursor=pointer]
+                      - button [ref=f13e815] [cursor=pointer]: Run
+                      - button [ref=f13e816] [cursor=pointer]
+                      - button [ref=f13e817] [cursor=pointer]: Customize
+                  - generic [ref=f13e455]:
+                    - generic [ref=f13e456]:
+                      - button [ref=f13e818] [cursor=pointer]
+                      - heading [level=3] [ref=f13e820]: Profit and Loss - Custom Date
+                    - generic [ref=f13e462]:
+                      - generic [ref=f13e464]:
+                        - button [ref=f13e821] [cursor=pointer]:
+                          - generic [ref=f13e468]:
+                            - generic [ref=f13e469]: View
+                            - generic [ref=f13e470]: ▼
+                        - combobox [ref=f13e822]: DSS Review
+                      - button [ref=f13e823] [cursor=pointer]
+                      - button [ref=f13e824] [cursor=pointer]: Run
+                      - button [ref=f13e825] [cursor=pointer]
+                      - button [ref=f13e826] [cursor=pointer]: Customize
+        - status [ref=f13e484]
+        - dialog "Report Type ..." [active] [ref=f13e488]:
+          - generic [ref=f13e489]:
+            - generic [ref=f13e491]:
+              - heading "Balance Sheet" [level=2] [ref=f13e492]
+              - button [ref=f13e493] [cursor=pointer]
+            - generic [ref=f13e497]:
+              - generic [ref=f13e499]:
+                - listitem [ref=f13e503]:
+                  - button "Report Type Report Type ▼ YTD" [ref=f13e505] [cursor=pointer]:
+                    - generic [ref=f13e506]: Report Type
+                    - button [ref=f13e510]:
+                      - generic [ref=f13e511]:
+                        - button "Report Type ▼" [ref=f13e514]:
+                          - generic [ref=f13e515]:
+                            - generic [ref=f13e516]: Report Type
+                            - generic [ref=f13e517]: ▼
+                        - combobox [ref=f13e520]: YTD
+                - listitem [ref=f13e524]:
+                  - button "Filter By Filter By ▼ Legal Entity" [ref=f13e526] [cursor=pointer]:
+                    - generic [ref=f13e527]: Filter By
+                    - button [ref=f13e531]:
+                      - generic [ref=f13e532]:
+                        - button "Filter By ▼" [ref=f13e535]:
+                          - generic [ref=f13e536]:
+                            - generic [ref=f13e537]: Filter By
+                            - generic [ref=f13e538]: ▼
+                        - combobox [ref=f13e541]: Legal Entity
+                - listitem [ref=f13e545]:
+                  - button "Filter Filter ▼ All Selected" [ref=f13e547] [cursor=pointer]:
+                    - generic [ref=f13e548]: Filter
+                    - button [ref=f13e552]:
+                      - generic [ref=f13e553]:
+                        - button "Filter ▼" [ref=f13e556]:
+                          - generic [ref=f13e557]:
+                            - generic [ref=f13e558]: Filter
+                            - generic [ref=f13e559]: ▼
+                        - combobox [ref=f13e562]: All Selected
+                - listitem [ref=f13e566]:
+                  - button "As Of Today Yest. 10/6/2026" [ref=f13e568] [cursor=pointer]:
+                    - generic [ref=f13e569]: As Of
+                    - button [ref=f13e573]:
+                      - generic [ref=f13e576]:
+                        - generic [ref=f13e577]:
+                          - button "Today" [ref=f13e578]
+                          - button "Yest." [ref=f13e579]
+                        - generic [ref=f13e582]:
+                          - button [ref=f13e583]
+                          - textbox "AsOf" [ref=f13e586]: 10/6/2026
+                - listitem [ref=f13e590]:
+                  - button "Detail Level Detail Summary" [ref=f13e592] [cursor=pointer]:
+                    - generic [ref=f13e593]: Detail Level
+                    - generic [ref=f13e596]:
+                      - button "Detail" [ref=f13e598]
+                      - button "Summary" [ref=f13e600]
+                - listitem [ref=f13e604]:
+                  - button "Account View Name Number then Name" [ref=f13e606] [cursor=pointer]:
+                    - generic [ref=f13e607]: Account View
+                    - generic [ref=f13e610]:
+                      - button "Name" [ref=f13e612]
+                      - button "Number then Name" [ref=f13e614]
+                - listitem [ref=f13e618]:
+                  - button "Hide $0 Balances No Yes YES-SHOW $0 PARENTS" [ref=f13e620] [cursor=pointer]:
+                    - generic [ref=f13e621]: Hide $0 Balances
+                    - generic [ref=f13e624]:
+                      - button "No" [ref=f13e626]
+                      - button "Yes" [ref=f13e628]
+                      - button "YES-SHOW $0 PARENTS" [ref=f13e630]
+                - listitem [ref=f13e634]:
+                  - button "Rounding Whole Numbers No Rounding" [ref=f13e636] [cursor=pointer]:
+                    - generic [ref=f13e637]: Rounding
+                    - generic [ref=f13e640]:
+                      - button "Whole Numbers" [ref=f13e642]
+                      - button "No Rounding" [ref=f13e644]
+                - listitem [ref=f13e648]:
+                  - button "Show Unapproved No Yes" [ref=f13e650] [cursor=pointer]:
+                    - generic [ref=f13e651]: Show Unapproved
+                    - generic [ref=f13e654]:
+                      - button "No" [ref=f13e656]
+                      - button "Yes" [ref=f13e658]
+              - generic [ref=f13e660]:
+                - generic [ref=f13e664]:
+                  - button "View ▼" [ref=f13e667] [cursor=pointer]:
+                    - generic [ref=f13e668]:
+                      - generic [ref=f13e669]: View
+                      - generic [ref=f13e670]: ▼
+                  - combobox "Select a view" [ref=f13e673]: System View
+                - generic [ref=f13e674]:
+                  - generic [ref=f13e675]:
+                    - button [ref=f13e676] [cursor=pointer]:
+                      - generic [ref=f13e677]: 
+                    - button [ref=f13e678] [cursor=pointer]:
+                      - generic [ref=f13e679]: 
+                    - text: 
+                  - generic [ref=f13e681]:
+                    - checkbox "Default" [ref=f13e682] [cursor=pointer]
+                    - checkbox "Public" [checked] [disabled] [ref=f13e686]
+                    - generic [ref=f13e690]:
+                      - button "No" [ref=f13e691] [cursor=pointer]
+                      - button "Yes" [ref=f13e692] [cursor=pointer]
+                      - generic [ref=f13e694]: Default for All Users
+                  - generic [ref=f13e696]:
+                    - button "exportMenu" [ref=f13e697] [cursor=pointer]: Run
+                    - button [ref=f13e699] [cursor=pointer]
+  - iframe
+  - img:
+    - generic [ref=f11e25]: $1,609.16
+```

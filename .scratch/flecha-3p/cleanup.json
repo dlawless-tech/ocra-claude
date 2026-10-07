@@ -1,0 +1,180 @@
+{
+ "date": "8/24/2026",
+ "number": "3rd Party Cleanup",
+ "comment": "3rd Party cleanup: 10/4/2026 receivable balances to open sales net of fee",
+ "total": 34227.15,
+ "stores": [
+  {
+   "loc": "101 - Flecha HB",
+   "total": -2014.33,
+   "days": [
+    "Uber Eats 661.43",
+    "EZ Cater 576.26",
+    "Foodja -3252.02"
+   ]
+  },
+  {
+   "loc": "102 - Flecha Town Square",
+   "total": 9471.87,
+   "days": [
+    "Uber Eats 408.78",
+    "EZ Cater 9063.09"
+   ]
+  },
+  {
+   "loc": "103 - Flecha 4S Ranch",
+   "total": 14148.49,
+   "days": [
+    "Uber Eats 103.80",
+    "EZ Cater 344.43",
+    "Foodja 13700.26"
+   ]
+  },
+  {
+   "loc": "104 - Flecha NB",
+   "total": 7354.77,
+   "days": [
+    "Uber Eats 1424.34",
+    "EZ Cater 2176.83",
+    "Foodja 3753.60"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 661.43,
+   "comment": "Uber Eats cleanup: 10/4/2026 balance 947.95 less open sales 9/28-10/4 net of fee 286.52"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 576.26,
+   "comment": "EZ Cater cleanup: 10/4/2026 balance 2,273.33 less open sales 9/28-10/4 net of fee 1,697.07"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "debit",
+   "amount": 3252.02,
+   "comment": "Foodja cleanup: 10/4/2026 balance -1,329.41 less open sales 9/21-10/4 net of fee 1,922.61"
+  },
+  {
+   "gl": "1210 - Accounts Receivable",
+   "glId": "47491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 2014.33,
+   "comment": "3rd Party cleanup to 10/4/2026 open sales, reclass to A/R"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "credit",
+   "amount": 408.78,
+   "comment": "Uber Eats cleanup: 10/4/2026 balance 863.12 less open sales 9/28-10/4 net of fee 454.34"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "credit",
+   "amount": 9063.09,
+   "comment": "EZ Cater cleanup: 10/4/2026 balance 10,154.75 less open sales 9/28-10/4 net of fee 1,091.66"
+  },
+  {
+   "gl": "1210 - Accounts Receivable",
+   "glId": "47491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "debit",
+   "amount": 9471.87,
+   "comment": "3rd Party cleanup to 10/4/2026 open sales, reclass to A/R"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 103.8,
+   "comment": "Uber Eats cleanup: 10/4/2026 balance 904.84 less open sales 9/28-10/4 net of fee 801.04"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 344.43,
+   "comment": "EZ Cater cleanup: 10/4/2026 balance 344.43 less open sales 9/28-10/4 net of fee 0.00"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 13700.26,
+   "comment": "Foodja cleanup: 10/4/2026 balance 14,107.56 less open sales 9/21-10/4 net of fee 407.30"
+  },
+  {
+   "gl": "1210 - Accounts Receivable",
+   "glId": "47491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "debit",
+   "amount": 14148.49,
+   "comment": "3rd Party cleanup to 10/4/2026 open sales, reclass to A/R"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 1424.34,
+   "comment": "Uber Eats cleanup: 10/4/2026 balance 1,602.27 less open sales 9/28-10/4 net of fee 177.93"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 2176.83,
+   "comment": "EZ Cater cleanup: 10/4/2026 balance 3,287.48 less open sales 9/28-10/4 net of fee 1,110.65"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 3753.6,
+   "comment": "Foodja cleanup: 10/4/2026 balance 5,118.05 less open sales 9/21-10/4 net of fee 1,364.45"
+  },
+  {
+   "gl": "1210 - Accounts Receivable",
+   "glId": "47491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "debit",
+   "amount": 7354.77,
+   "comment": "3rd Party cleanup to 10/4/2026 open sales, reclass to A/R"
+  }
+ ]
+}

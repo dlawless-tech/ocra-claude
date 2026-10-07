@@ -1,0 +1,3 @@
+() => { const seen=[]; const walk=(d)=>{ seen.push(d); for(const f of d.querySelectorAll('iframe')){ try{ if(f.contentDocument) walk(f.contentDocument); }catch(e){} } }; walk(document);
+const out={}; for(const d of seen){ const jq=d.defaultView.jQuery; if(!jq) continue; jq('[data-role=grid]').each((i,el)=>{ const g=jq(el).data('kendoGrid'); if(g) out[el.id]=g.dataSource.data().map(x=>{const D=new Date(x.date);return [x.cleared,(D.getMonth()+1)+'/'+D.getDate(),x.debit||x.credit,x.transaction,x.transactionType,x.comment,x.BankActivityId||'',x.transactionDetailId].join('\t')}); }); }
+return JSON.stringify(out); }

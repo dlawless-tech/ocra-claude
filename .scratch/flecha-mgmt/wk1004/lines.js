@@ -1,0 +1,2 @@
+async () => { let g; for(let i=0;i<30;i++){ const el=document.querySelector('[data-role=grid]'); g=el && window.jQuery(el).data('kendoGrid'); if(g && g.dataSource.data().length) break; await new Promise(r=>setTimeout(r,1000)); }
+if(!g) return 'no grid'; return JSON.stringify({date:document.querySelector('#journalEntryDate')?.value, num:document.querySelector('#journalEntryNumber')?.value, lines:g.dataSource.data().map(m=>[m.account||m.accountName||m.glAccount, m.location, m.debit, m.credit, m.comment])}); }

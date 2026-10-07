@@ -1,0 +1,180 @@
+{
+ "date": "9/20/2026",
+ "number": "3rd Party",
+ "comment": "3rd Party fees estimate: 30% of sales 9/14-9/20",
+ "total": 6363.76,
+ "stores": [
+  {
+   "loc": "101 - Flecha HB",
+   "total": 1567.35,
+   "days": [
+    "Uber Eats 31.26",
+    "EZ Cater 1177.28",
+    "Foodja 358.81"
+   ]
+  },
+  {
+   "loc": "102 - Flecha Town Square",
+   "total": 3085.09,
+   "days": [
+    "Uber Eats 309.48",
+    "EZ Cater 2775.61"
+   ]
+  },
+  {
+   "loc": "103 - Flecha 4S Ranch",
+   "total": 1407.55,
+   "days": [
+    "Uber Eats 259.67",
+    "EZ Cater 381.44",
+    "Foodja 766.44"
+   ]
+  },
+  {
+   "loc": "104 - Flecha NB",
+   "total": 303.77,
+   "days": [
+    "Uber Eats 103.36",
+    "EZ Cater 119.60",
+    "Foodja 80.81"
+   ]
+  }
+ ],
+ "lines": [
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 31.26,
+   "comment": "Uber Eats fees estimate: sales 9/14-9/20 104.20 x 30%"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 1177.28,
+   "comment": "EZ Cater fees estimate: sales 9/14-9/20 3,924.28 x 30%"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "credit",
+   "amount": 358.81,
+   "comment": "Foodja fees estimate: sales 9/14-9/20 1,196.02 x 30%"
+  },
+  {
+   "gl": "7161 - Delivery Fees",
+   "glId": "cf491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "101 - Flecha HB",
+   "locId": "3169ee7c-8cd6-4286-80a4-75be7357f0b0",
+   "side": "debit",
+   "amount": 1567.35,
+   "comment": "3rd Party fees estimate: 30% of sales 9/14-9/20"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "credit",
+   "amount": 309.48,
+   "comment": "Uber Eats fees estimate: sales 9/14-9/20 1,031.59 x 30%"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "credit",
+   "amount": 2775.61,
+   "comment": "EZ Cater fees estimate: sales 9/14-9/20 9,252.02 x 30%"
+  },
+  {
+   "gl": "7161 - Delivery Fees",
+   "glId": "cf491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "102 - Flecha Town Square",
+   "locId": "75104f62-86c0-471a-a538-82d9be7ef848",
+   "side": "debit",
+   "amount": 3085.09,
+   "comment": "3rd Party fees estimate: 30% of sales 9/14-9/20"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 259.67,
+   "comment": "Uber Eats fees estimate: sales 9/14-9/20 865.57 x 30%"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 381.44,
+   "comment": "EZ Cater fees estimate: sales 9/14-9/20 1,271.46 x 30%"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "credit",
+   "amount": 766.44,
+   "comment": "Foodja fees estimate: sales 9/14-9/20 2,554.80 x 30%"
+  },
+  {
+   "gl": "7161 - Delivery Fees",
+   "glId": "cf491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "103 - Flecha 4S Ranch",
+   "locId": "30f3a091-bc04-4c38-abe4-f3345d5156d6",
+   "side": "debit",
+   "amount": 1407.55,
+   "comment": "3rd Party fees estimate: 30% of sales 9/14-9/20"
+  },
+  {
+   "gl": "1235 - A/R - 3rd Party Delivery",
+   "glId": "293b5f76-0674-4b91-b016-b99cd4577e44",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 103.36,
+   "comment": "Uber Eats fees estimate: sales 9/14-9/20 344.52 x 30%"
+  },
+  {
+   "gl": "1237 - AR - EZ Cater",
+   "glId": "2096b46a-794b-4509-8a08-493b809dc81a",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 119.6,
+   "comment": "EZ Cater fees estimate: sales 9/14-9/20 398.67 x 30%"
+  },
+  {
+   "gl": "1238 - AR - Foodja",
+   "glId": "c1184338-29d9-4158-be50-1f9d01fa6a0f",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "credit",
+   "amount": 80.81,
+   "comment": "Foodja fees estimate: sales 9/14-9/20 269.38 x 30%"
+  },
+  {
+   "gl": "7161 - Delivery Fees",
+   "glId": "cf491bd4-2ce6-ee11-b68d-6045bd313ea9",
+   "loc": "104 - Flecha NB",
+   "locId": "acc4804f-cc80-456a-b6e7-10b25da3317e",
+   "side": "debit",
+   "amount": 303.77,
+   "comment": "3rd Party fees estimate: 30% of sales 9/14-9/20"
+  }
+ ]
+}
