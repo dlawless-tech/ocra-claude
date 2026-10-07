@@ -73,8 +73,8 @@ Report the plan's lines and total, the final status and amount from All Transact
 
 Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Danny & Coops Payroll - File Drop**, every 10 minutes. It looks for a `*payroll-journal*.csv` in Downloads or a `we *` folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
-- **Danny & Coops Payroll - Wednesday**, 2:00 PM. The same run, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
+- **Danny & Coops Payroll - Wednesday Watch**, Wednesdays every 10 minutes from 2:00 to 6:50 PM. It looks for a `*payroll-journal*.csv` in Downloads or a `we *` folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Danny & Coops Payroll - Wednesday**, 7:00 PM. The last check, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
 
 The wrapper reads the week from the CSV's Period End, copies the file to `.scratch/danny-coops-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, journal copy, and original file, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-File <csv>` names the file.
 
