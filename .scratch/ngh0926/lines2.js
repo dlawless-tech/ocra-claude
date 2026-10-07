@@ -1,0 +1,1 @@
+() => { const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); return JSON.stringify(rows.filter(r => r.length === 9 && /^[0-9]{4} - /.test(r[1] || '')).map(r=>[r[1].slice(0,4),r[3],r[4],r[5],r[6]])); }

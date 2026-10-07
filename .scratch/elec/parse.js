@@ -1,0 +1,14 @@
+const fs=require('fs');
+const n=s=>Number(String(s).replace(/,/g,'').replace(/^\((.*)\)$/,'-$1'));
+const stores=new Set(fs.readFileSync('stores.txt','utf8').split(/\r?\n/).filter(Boolean));
+const c=fs.readFileSync(process.argv[2],'utf8').split(/\r?\n/).filter(Boolean);
+const b=c.indexOf('Beg Balance:'); const t=c.findIndex((x,i)=>i>b&&/^Total /.test(x));
+const mid=c.slice(b+2,t);
+const isD=x=>/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(x); const TY=/^(AP Invoice|AP Credit Memo|Journal Entry|Bank Expense|Bank Deposit|Credit Card Credit|Credit Card Charge|Check|Payment|AR Invoice|Stock Count|Item Transfer|Budget|Waste Log)/;
+const starts=[]; for(let i=0;i<mid.length-1;i++) if(isD(mid[i])&&TY.test(mid[i+1])) starts.push(i);
+const rows=starts.map((s,k)=>{const r=mid.slice(s,k+1<starts.length?starts[k+1]:mid.length); const [dr,cr]=r.slice(-3);
+ const loc=r.slice(3,-3).find(x=>stores.has(x))||'??'; const rest=r.slice(3,-3).filter(x=>x!==loc);
+ return {date:r[0],type:r[1],ref:r[2],loc,info:rest.join(' / '),dr:n(dr),cr:n(cr)};});
+fs.writeFileSync(process.argv[3],JSON.stringify(rows));
+const tot=rows.reduce((a,r)=>a+r.dr-r.cr,0);
+console.log('rows',rows.length,'net',tot.toFixed(2),'report',(n(c[t+1])-n(c[t+2])).toFixed(2),'unknown loc',rows.filter(r=>r.loc==='??').length);
