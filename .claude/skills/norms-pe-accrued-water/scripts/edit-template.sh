@@ -1,0 +1,17 @@
+#!/bin/bash
+# edit-template.sh <session> <store> <template id> <new>
+# Set a memorized "Template: ...:Accrued Water" amount. It stays a template; never delete one.
+set -u
+S=$1; LOC=$2; ID=$3; NEW=$4
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; SK="$HERE/../.."
+res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n'; }
+READ="() => { const g=jQuery('[data-role=grid]').data('kendoGrid'); if(!g) return 'nogrid'; return JSON.stringify({num:document.querySelector('[name=journalEntryNumber]').value, loc:document.querySelector('[name=journalEntryLocation_input]').value, title:document.title, lines:g.dataSource.data().map(m=>[String(m.glAccount).slice(0,4),+m.debit||0,+m.credit||0,m.location].join(':')).join(';')}); }"
+playwright-cli -s=$S goto "https://norms.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 14
+B=$(playwright-cli -s=$S eval "$READ" 2>&1 | res); echo "before $B"
+case "$B" in *"Accrued Water"*"- $LOC"*) ;; *) echo "$LOC | FAIL wrong entry"; exit 1;; esac
+SET="() => { const g=jQuery('[data-role=grid]').data('kendoGrid'); const ds=g.dataSource.data(); if(ds.length!==2) return 'STOP'; ds.forEach(m=>{const a=String(m.glAccount); if(/^2285 /.test(a)){m.set('credit',$NEW);m.set('debit',0);} else if(/^5635 /.test(a)){m.set('debit',$NEW);m.set('credit',0);}}); return 'set'; }"
+playwright-cli -s=$S eval "$SET" 2>&1 | res | grep -q set || { echo "$LOC | FAIL set"; exit 1; }
+OUT=$(bash "$SK/danny-coops-payroll/scripts/save.sh" $S); echo "save $OUT"
+playwright-cli -s=$S reload >/dev/null 2>&1; sleep 14
+A=$(playwright-cli -s=$S eval "$READ" 2>&1 | res); echo "after $A"
+case "$A" in *"5635:$NEW:0:"*"2285:0:$NEW:"*|*"2285:0:$NEW:"*"5635:$NEW:0:"*) echo "$LOC | template -> $NEW | OK";; *) echo "$LOC | FAIL after";; esac
