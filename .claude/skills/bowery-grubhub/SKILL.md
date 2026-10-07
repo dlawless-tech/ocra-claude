@@ -146,17 +146,17 @@ Bowery carries one Grubhub entry per period, dated the Sunday inside it, so the 
 
 Accounting > Transactions > All transactions, reached through the home dashboard's collapsed side menu (`R365-AUTOMATION.md` has the clicks). Filter Number (`Contains`) to `Grub`, which catches both `GrubHub` and `Grub Hub`, then harvest every entry and its id from the grid's data source in one call rather than clicking through rows. `R365-AUTOMATION.md` carries the call and the direct entry URL it feeds.
 
-Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text. Templates get reshaped between periods, so an entry from an earlier period is worth checking rather than trusting.
+Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. Templates arrive already Approved, since the 10/4/2026 period. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text. Templates get reshaped between periods, so an entry from an earlier period is worth checking rather than trusting.
 
 ## Posting
 
-Fill the five lines, save, reload, then Approve and Close. Three checks decide whether an entry is right, and skipping any of them is how empty and unbalanced entries reach Approved:
+Unapprove the template first through the ribbon's Unapprove > Unapprove, then fill the five lines, save, reload, and Approve and Close. An Approved entry that already carries amounts is a posted entry: leave it alone. Three checks decide whether an entry is right, and skipping any of them is how empty and unbalanced entries reach Approved:
 
 1. **Read back every amount** from its cell after typing it. Compare numerically, since R365 renders `4` as `4.00`.
 2. **Sum the lines before saving** and match both sides against the expected total. Sum the named rows only, because the footer row would double the count.
 3. **Reload after saving**, and confirm the values survived. A save that never reached the server leaves every line at 0.00, and approving then commits an empty entry.
 
-`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
+`scripts/post-entry.sh` does all of this for one store: it unapproves an Approved template whose lines are all 0.00, skips an Approved entry with amounts unless `FORCE=1`, and refuses to approve anything that fails a check:
 
 ```bash
 ENTRY_DATE=9/6/2026 scripts/post-entry.sh bj Cookshop work.json
@@ -184,3 +184,26 @@ Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, where st
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved**, the amount matches the planned total for that store, and the `Attachment` field shows the backup. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, deposit IDs, amounts, totals, and backup attached, and report any store that failed just as plainly.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 22:30 (`scripts/register-task.ps1` sets it up). It takes the period that ended eight days earlier, since the period that ended the day before settles only on Wednesday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask. Use session names `bghu`, `bju` and `bbu`, all from the repo root, so an interactive run's `bgh`, `bj` and `bb` are left alone.
+- A Grubhub mailed-code challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- Per store, an Approved template at 0.00 is unapproved and filled, and an entry that already carries amounts is `skipped`. For a part marked new entry, look on the All Transactions grid for a GrubHub entry at that date and location first; one there means the part is done. Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- A store with sales and no deposit is `no-deposit`, posted nothing, with the sales amount in `warnings`. A store with neither is left out.
+- A difference in dollars, a missing prior-period Bank Deposit, or a backup that does not tie or did not attach goes in `warnings`, naming the cause when **The arithmetic** finds one. Post the store per the rules above.
+- Never correct an approved prior entry; report it.
+
+Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "period": "9/29/2026 - 10/5/2026", "note": "",
+  "entries": [ { "date": "10/4/2026", "window": "10/1-10/5",
+      "stores": [ { "store": "Cookshop", "status": "approved", "amount": 184.16, "deposits": ["26100730bgfiIl4"], "transactionId": "...", "warnings": [] } ] } ] }
+```
+
+`status` is `approved`, `skipped`, `no-deposit`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/bowery-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure, an unposted store, or a warning.
