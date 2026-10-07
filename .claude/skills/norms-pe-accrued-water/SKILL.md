@@ -102,6 +102,10 @@ A store with no weekly entries gets them from a copy of another store's approved
 bash scripts/new-weekly.sh r365 <source entry id> "269 - Hollywood" 10/10/2026 1131
 ```
 
+## Step 5: close the browser
+
+Close every session this run opened, by name, from the scratch folder: `playwright-cli -s=r365 close`, plus any second session started alongside it. Leave every other session open; other runs share this machine's browser sessions, so close each by name and skip `close-all` and `kill-all`. **Done when** `playwright-cli list` shows none of this run's sessions.
+
 ## R365 behavior
 
 - **JE grid edits.** Changing an existing row through `model.set`, including its account and location, saves. Rows added with `dataSource.add` or dropped with `dataSource.remove` are silently lost on save. Add a row through the new-row form (`newRowForm.addRowToGrid()`) and drop one with its trash icon (`.k-grid-delete`); `je-lines.js` does both.
