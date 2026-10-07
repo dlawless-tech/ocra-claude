@@ -57,7 +57,7 @@ Driscoll Foods delivers most weekdays, so a week reads four or five invoices. A 
 bash <skill>/scripts/meat-entries.sh mc        # optional row count, default 8
 ```
 
-It lists the newest Meat Credit Adj entries with date, status, amount, and id. The first entry is 5/31/2026. Pair each of the five Sundays with its entry. 7/26 and 8/2/2026 carry no entry.
+It lists the newest Meat Credit Adj entries with date, status, amount, and id. The first entry is 5/31/2026. Pair each of the five Sundays with its entry.
 
 ## Step 3: correct the four prior weeks
 
@@ -106,4 +106,4 @@ List all five weeks. `status` is `approved` (already matched), `corrected`, `cre
 
 ## Rate change
 
-The rate went from 1.5% to 2.1% on 10/7/2026, back to the first entry. Every entry from 5/31 through 10/4/2026 was unapproved, reset to 2.1% of its week's AP invoices with the new comment, and approved again.
+The rate went from 1.5% to 2.1% on 10/7/2026, back to the first entry. Every entry from 5/31 through 10/4/2026 was unapproved, reset to 2.1% of its week's AP invoices with the new comment, and approved again. 7/26 and 8/2/2026 had no entry and were created at 345.35 and 435.44, so every Sunday from 5/31 on carries one.
