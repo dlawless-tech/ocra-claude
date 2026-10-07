@@ -1,0 +1,413 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://dashboard.stripe.com/acct_1R6e5CRrbOF3zRps/payouts/po_1ULum2RrbOF3zRpsK24F63O3
+- Page Title: Transactions – Norms In Kind Tips – Stripe
+- Console: 3 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f93e4]:
+  - generic [ref=f93e6]:
+    - main [ref=f93e12]:
+      - generic:
+        - button "Skip to content"
+      - generic [ref=f93e15]:
+        - generic "Header" [ref=f93e18]:
+          - generic [ref=f93e19]:
+            - navigation "Breadcrumbs" [ref=f93e20]:
+              - list [ref=f93e21]:
+                - listitem [ref=f93e22]:
+                  - link "Payouts" [ref=f93e23] [cursor=pointer]:
+                    - /url: /acct_1R6e5CRrbOF3zRps/payouts
+            - generic [ref=f93e25]:
+              - heading "$145.17 usd Paid" [level=1] [ref=f93e26]:
+                - generic [ref=f93e27]:
+                  - generic [ref=f93e29]:
+                    - generic [ref=f93e30]: $145.17
+                    - generic [ref=f93e31]: usd
+                  - generic [ref=f93e32]: Paid
+              - generic "Header description" [ref=f93e34]:
+                - generic [ref=f93e36]:
+                  - text: Completed
+                  - generic [ref=f93e37]: Friday, October 2
+        - main [ref=f93e38]:
+          - generic [ref=f93e40]:
+            - generic [ref=f93e41]:
+              - generic [ref=f93e42]:
+                - generic [ref=f93e43]: Timeline
+                - generic [ref=f93e49]:
+                  - generic [ref=f93e55]:
+                    - generic [ref=f93e56]:
+                      - generic [ref=f93e57]: Payout completed
+                      - time [ref=f93e58]:
+                        - generic [ref=f93e59]: Oct 2
+                    - note [ref=f93e62]:
+                      - generic [ref=f93e63]: Can’t find your payout?Banks can take up to 5 business days to process payouts. Wait until Oct 9 and then contact your bank.
+                  - generic [ref=f93e73]:
+                    - generic [ref=f93e74]: Payout in transit
+                    - time [ref=f93e75]:
+                      - generic [ref=f93e76]: Oct 2
+                  - generic [ref=f93e82]:
+                    - generic [ref=f93e83]: Payout initiated automatically
+                    - time [ref=f93e84]:
+                      - button "Oct 2, 12:56 AM" [ref=f93e86] [cursor=pointer]
+              - generic [ref=f93e87]:
+                - generic [ref=f93e88]: Payout destination
+                - generic [ref=f93e94]:
+                  - button [ref=f93e95] [cursor=pointer]:
+                    - heading "Wells Fargo Bank •••• 0829 USD" [level=3] [ref=f93e100]:
+                      - generic [ref=f93e106]:
+                        - text: Wells Fargo Bank
+                        - generic [ref=f93e107]: •••• 0829
+                        - generic [ref=f93e108]: USD
+                  - region "Wells Fargo Bank •••• 0829 USD":
+                    - generic [ref=f93e122]:
+                      - generic [ref=f93e123]:
+                        - generic [ref=f93e124]: Type
+                        - generic [ref=f93e125]: Bank account
+                      - generic [ref=f93e126]:
+                        - generic [ref=f93e127]: Created
+                        - button "Mar 25, 2025, 8:28 PM" [ref=f93e129] [cursor=pointer]
+                      - generic [ref=f93e130]:
+                        - generic [ref=f93e131]: Origin
+                        - generic [ref=f93e132]: United States
+                      - generic [ref=f93e145]:
+                        - generic [ref=f93e146]: Fingerprint
+                        - generic [ref=f93e147]: 8005MFenAdsK32eS
+                      - generic [ref=f93e154]:
+                        - generic [ref=f93e155]: Routing number
+                        - generic [ref=f93e156]: "121000248"
+                      - generic [ref=f93e157]:
+                        - generic [ref=f93e158]: ID
+                        - generic [ref=f93e159]: ba_1R6e5VRrbOF3zRpsHGsooD2s
+              - generic [ref=f93e160]:
+                - generic [ref=f93e161]: Summary
+                - table [ref=f93e170]:
+                  - rowgroup [ref=f93e171]:
+                    - row [ref=f93e172]:
+                      - columnheader [ref=f93e173]:
+                        - button [ref=f93e175]
+                      - columnheader [ref=f93e176]:
+                        - button "Count" [ref=f93e178]
+                      - columnheader [ref=f93e181]:
+                        - button "Gross" [ref=f93e183]
+                      - columnheader [ref=f93e186]:
+                        - button "Fees" [ref=f93e188]
+                      - columnheader [ref=f93e191]:
+                        - button "Total" [ref=f93e193]
+                  - rowgroup [ref=f93e196]:
+                    - row [ref=f93e197]:
+                      - cell "Charges" [ref=f93e198]
+                      - cell "21" [ref=f93e202]
+                      - cell "$156.02" [ref=f93e206]
+                      - cell "-$10.85" [ref=f93e210]
+                      - cell "$145.17" [ref=f93e214]
+                    - row [ref=f93e218]:
+                      - cell "Refunds" [ref=f93e219]
+                      - cell "0" [ref=f93e223]
+                      - cell "$0.00" [ref=f93e227]
+                      - cell "$0.00" [ref=f93e231]
+                      - cell "$0.00" [ref=f93e235]
+                    - row [ref=f93e239]:
+                      - cell "Adjustments" [ref=f93e240]
+                      - cell "0" [ref=f93e244]
+                      - cell "$0.00" [ref=f93e248]
+                      - cell "$0.00" [ref=f93e252]
+                      - cell "$0.00" [ref=f93e256]
+                    - row [ref=f93e260]:
+                      - cell [ref=f93e261]
+                      - cell "Payouts" [ref=f93e262]
+                      - cell "$145.17" [ref=f93e265]
+              - generic [ref=f93e268]:
+                - generic [ref=f93e269]:
+                  - generic [ref=f93e270]: Transactions
+                  - button "Export" [ref=f93e276] [cursor=pointer]
+                - generic [ref=f93e282]:
+                  - table [ref=f93e285]:
+                    - rowgroup [ref=f93e286]:
+                      - row [ref=f93e287]:
+                        - columnheader [ref=f93e288]:
+                          - button "Type" [ref=f93e290]
+                        - columnheader [ref=f93e293]:
+                          - button "Gross" [ref=f93e295]
+                        - columnheader [ref=f93e298]:
+                          - button "Fee" [ref=f93e300]
+                        - columnheader [ref=f93e303]:
+                          - button "Total" [ref=f93e305]
+                        - columnheader [ref=f93e308]:
+                          - button "Description" [ref=f93e310]
+                        - columnheader [ref=f93e313]:
+                          - button "Date" [ref=f93e315]
+                    - rowgroup [ref=f93e318]:
+                      - row [ref=f93e319]:
+                        - cell [ref=f93e320]:
+                          - link "Charge" [ref=f93e323] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                        - cell [ref=f93e327]:
+                          - link "$3.42 USD" [ref=f93e330] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                        - cell [ref=f93e333]:
+                          - link "-$0.40 USD" [ref=f93e336] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                        - cell [ref=f93e340]:
+                          - link "$3.02 USD" [ref=f93e343] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                        - cell [ref=f93e346]:
+                          - link "INKD Gratuity NORMS Restaurant (245) - James Williams" [ref=f93e349] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                        - cell [ref=f93e352]:
+                          - link "Sep 30" [ref=f93e355] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULXH6RrbOF3zRps0hwVbHw8
+                      - row [ref=f93e358]:
+                        - cell [ref=f93e359]:
+                          - link "Charge" [ref=f93e362] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                        - cell [ref=f93e366]:
+                          - link "$3.13 USD" [ref=f93e369] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                        - cell [ref=f93e372]:
+                          - link "-$0.39 USD" [ref=f93e375] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                        - cell [ref=f93e379]:
+                          - link "$2.74 USD" [ref=f93e382] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                        - cell [ref=f93e385]:
+                          - link "INKD Gratuity NORMS Restaurant (224)" [ref=f93e388] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                        - cell [ref=f93e391]:
+                          - link "Sep 30" [ref=f93e394] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULVUCRrbOF3zRps14j8uN21
+                      - row [ref=f93e397]:
+                        - cell [ref=f93e398]:
+                          - link "Charge" [ref=f93e401] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                        - cell [ref=f93e405]:
+                          - link "$8.47 USD" [ref=f93e408] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                        - cell [ref=f93e411]:
+                          - link "-$0.55 USD" [ref=f93e414] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                        - cell [ref=f93e418]:
+                          - link "$7.92 USD" [ref=f93e421] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                        - cell [ref=f93e424]:
+                          - link "INKD Gratuity NORMS Restaurant (217)" [ref=f93e427] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                        - cell [ref=f93e430]:
+                          - link "Sep 30" [ref=f93e433] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULV27RrbOF3zRps1HveI2w5
+                      - row [ref=f93e436]:
+                        - cell [ref=f93e437]:
+                          - link "Charge" [ref=f93e440] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                        - cell [ref=f93e444]:
+                          - link "$6.80 USD" [ref=f93e447] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                        - cell [ref=f93e450]:
+                          - link "-$0.50 USD" [ref=f93e453] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                        - cell [ref=f93e457]:
+                          - link "$6.30 USD" [ref=f93e460] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                        - cell [ref=f93e463]:
+                          - link "INKD Gratuity NORMS Restaurant (218) - Tracey L. Curtis" [ref=f93e466] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                        - cell [ref=f93e469]:
+                          - link "Sep 30" [ref=f93e472] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUzwRrbOF3zRps14TCFKHK
+                      - row [ref=f93e475]:
+                        - cell [ref=f93e476]:
+                          - link "Charge" [ref=f93e479] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                        - cell [ref=f93e483]:
+                          - link "$16.96 USD" [ref=f93e486] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                        - cell [ref=f93e489]:
+                          - link "-$0.79 USD" [ref=f93e492] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                        - cell [ref=f93e496]:
+                          - link "$16.17 USD" [ref=f93e499] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                        - cell [ref=f93e502]:
+                          - link "INKD Gratuity NORMS Restaurant (272) - Hanna Rosel Santos" [ref=f93e505] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                        - cell [ref=f93e508]:
+                          - link "Sep 30" [ref=f93e511] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUMxRrbOF3zRps0wyndYVL
+                      - row [ref=f93e514]:
+                        - cell [ref=f93e515]:
+                          - link "Charge" [ref=f93e518] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                        - cell [ref=f93e522]:
+                          - link "$5.00 USD" [ref=f93e525] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                        - cell [ref=f93e528]:
+                          - link "-$0.45 USD" [ref=f93e531] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                        - cell [ref=f93e535]:
+                          - link "$4.55 USD" [ref=f93e538] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                        - cell [ref=f93e541]:
+                          - link "INKD Gratuity NORMS Restaurant (263) - Josue Martinez" [ref=f93e544] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                        - cell [ref=f93e547]:
+                          - link "Sep 30" [ref=f93e550] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULUKbRrbOF3zRps1dgGBhae
+                      - row [ref=f93e553]:
+                        - cell [ref=f93e554]:
+                          - link "Charge" [ref=f93e557] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                        - cell [ref=f93e561]:
+                          - link "$9.15 USD" [ref=f93e564] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                        - cell [ref=f93e567]:
+                          - link "-$0.57 USD" [ref=f93e570] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                        - cell [ref=f93e574]:
+                          - link "$8.58 USD" [ref=f93e577] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                        - cell [ref=f93e580]:
+                          - link "INKD Gratuity NORMS Restaurant (222) - Joyce Ushijima" [ref=f93e583] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                        - cell [ref=f93e586]:
+                          - link "Sep 30" [ref=f93e589] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULTSqRrbOF3zRps1PyVo7ZV
+                      - row [ref=f93e592]:
+                        - cell [ref=f93e593]:
+                          - link "Charge" [ref=f93e596] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                        - cell [ref=f93e600]:
+                          - link "$9.99 USD" [ref=f93e603] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                        - cell [ref=f93e606]:
+                          - link "-$0.59 USD" [ref=f93e609] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                        - cell [ref=f93e613]:
+                          - link "$9.40 USD" [ref=f93e616] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                        - cell [ref=f93e619]:
+                          - link "INKD Gratuity NORMS Restaurant (270)" [ref=f93e622] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                        - cell [ref=f93e625]:
+                          - link "Sep 30" [ref=f93e628] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULSTmRrbOF3zRps0OsLZGCv
+                      - row [ref=f93e631]:
+                        - cell [ref=f93e632]:
+                          - link "Charge" [ref=f93e635] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                        - cell [ref=f93e639]:
+                          - link "$5.00 USD" [ref=f93e642] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                        - cell [ref=f93e645]:
+                          - link "-$0.45 USD" [ref=f93e648] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                        - cell [ref=f93e652]:
+                          - link "$4.55 USD" [ref=f93e655] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                        - cell [ref=f93e658]:
+                          - link "INKD Gratuity NORMS Restaurant (224)" [ref=f93e661] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                        - cell [ref=f93e664]:
+                          - link "Sep 30" [ref=f93e667] [cursor=pointer]:
+                            - /url: /acct_1R6e5CRrbOF3zRps/payments/ch_3ULRuKRrbOF3zRps0Shry75W
+                  - button "Load more" [ref=f93e672] [cursor=pointer]
+              - generic [ref=f93e675]:
+                - generic [ref=f93e676]: Logs
+                - generic [ref=f93e680]: No logs
+              - generic [ref=f93e689]:
+                - generic [ref=f93e690]: Events
+                - table "Events" [ref=f93e699]:
+                  - rowgroup [ref=f93e700]:
+                    - row [ref=f93e701]:
+                      - cell [ref=f93e702]:
+                        - button "Your payout for Oct 2 changed" [ref=f93e705] [cursor=pointer]
+                      - cell [ref=f93e709]:
+                        - button [ref=f93e712] [cursor=pointer]
+                      - cell [ref=f93e714]:
+                        - button "10/2/26, 7:43:00 AM" [ref=f93e717] [cursor=pointer]
+                    - row [ref=f93e720]:
+                      - cell [ref=f93e721]:
+                        - button "A payout of $145.17 was completed" [ref=f93e724] [cursor=pointer]
+                      - cell [ref=f93e727]:
+                        - button [ref=f93e730] [cursor=pointer]
+                      - cell [ref=f93e732]:
+                        - button "10/2/26, 1:57:46 AM" [ref=f93e735] [cursor=pointer]
+                    - row [ref=f93e738]:
+                      - cell [ref=f93e739]:
+                        - button "A payout of $145.17 has its reconciliation report ready" [ref=f93e742] [cursor=pointer]
+                      - cell [ref=f93e745]:
+                        - button [ref=f93e748] [cursor=pointer]
+                      - cell [ref=f93e750]:
+                        - button "10/2/26, 12:56:31 AM" [ref=f93e753] [cursor=pointer]
+                    - row [ref=f93e756]:
+                      - cell [ref=f93e757]:
+                        - button "A payout for $145.17 was initiated and will be completed on Oct 2" [ref=f93e760] [cursor=pointer]
+                      - cell [ref=f93e764]:
+                        - button [ref=f93e767] [cursor=pointer]
+                      - cell [ref=f93e769]:
+                        - button "10/2/26, 12:56:31 AM" [ref=f93e772] [cursor=pointer]
+            - generic [ref=f93e776]:
+              - generic [ref=f93e778]:
+                - generic [ref=f93e779]:
+                  - generic [ref=f93e780]: Details
+                  - button "View receipt" [ref=f93e785] [cursor=pointer]
+                - generic [ref=f93e787]:
+                  - generic [ref=f93e788]:
+                    - generic [ref=f93e789]: Payout completed
+                    - generic [ref=f93e790]: Oct 2
+                  - generic [ref=f93e796]:
+                    - generic [ref=f93e797]: Payout ID
+                    - button "Copy to clipboard, po_1ULum2RrbOF3zRpsK24F63O3" [ref=f93e799] [cursor=pointer]:
+                      - generic [ref=f93e800]: po_1ULum2RrbOF3zRpsK24F63O3
+                  - generic [ref=f93e804]:
+                    - generic [ref=f93e805]: Internal note
+                    - generic [ref=f93e806]: STRIPE PAYOUT
+                  - generic [ref=f93e807]:
+                    - generic [ref=f93e808]: Delivery method
+                    - generic [ref=f93e809]: Standard
+                  - generic [ref=f93e810]:
+                    - generic [ref=f93e811]: Payout trace ID
+                    - generic [ref=f93e817]: "111000022334490"
+                  - generic [ref=f93e818]:
+                    - generic [ref=f93e819]: Fee
+                    - generic [ref=f93e820]: $0.00
+                  - generic [ref=f93e821]:
+                    - generic [ref=f93e822]: Amount
+                    - generic [ref=f93e823]: $145.17
+              - generic [ref=f93e824]:
+                - generic [ref=f93e825]: Metadata
+                - generic [ref=f93e829]: No metadata
+    - paragraph [ref=f93e832]
+  - generic:
+    - generic:
+      - iframe
+    - generic [ref=f93e837]:
+      - button "Norms In Kind Tips" [ref=f93e838] [cursor=pointer]
+      - search [ref=f93e844]:
+        - generic [ref=f93e846]:
+          - generic: Search
+          - generic [ref=f93e847]:
+            - combobox "Search" [ref=f93e848]
+            - generic [ref=f93e849]: /
+      - generic [ref=f93e852]:
+        - button "Apps" [ref=f93e854] [cursor=pointer]
+        - button "Notifications" [ref=f93e859] [cursor=pointer]
+        - link "Settings" [ref=f93e862] [cursor=pointer]:
+          - /url: /acct_1R6e5CRrbOF3zRps/settings
+    - button "Show Workbench" [ref=f93e869] [cursor=pointer]:
+      - button "Developers" [ref=f93e872]
+      - generic [ref=f93e879]:
+        - generic [ref=f93e880]:
+          - button "Inspect" [ref=f93e883]:
+            - generic [ref=f93e884]: po_1ULum2RrbOF3zRpsK...
+          - button "Health" [ref=f93e890]
+          - button "API activity" [ref=f93e896]
+        - button "Open Workbench" [ref=f93e902]
+  - generic:
+    - iframe
+```
