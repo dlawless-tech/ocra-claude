@@ -1,6 +1,6 @@
 ---
 name: norms-grubhub
-description: Reconcile Grubhub deposits into the matching NORMS Restaurant365 journal entries, for one store or for the whole estate in a batch. Use when asked to post or balance a NORMS Grubhub deposit in R365, to pull a store's Grubhub period figures, or to check the A/R Grubhub balance against a deposit.
+description: Reconcile Grubhub deposits into the matching NORMS Restaurant365 journal entries, for one store or for the whole estate in a batch, with a separate entry for the part of a period before month end. Use when asked to post or balance a NORMS Grubhub deposit in R365, to pull a store's Grubhub period figures, or to check the A/R Grubhub balance against a deposit.
 ---
 
 # Grubhub deposit into a NORMS journal entry
@@ -26,6 +26,21 @@ The Grubhub period runs **Tuesday to Monday**, so September's first period is 9/
 The period settles the following Wednesday: 9/1 through 9/7 paid out on 9/9.
 
 The Uber Eats period is Monday to Sunday and its entry is dated the Sunday that ends it. Carrying that habit here reads a window one day off.
+
+### Month end splits the period
+
+Grubhub cuts a deposit at month end, so a period whose month ends before its Monday posts as two **parts**, each with its own entry and its own GL window:
+
+| Part | Sales window | Entry |
+|---|---|---|
+| Before month end | period start to the last day of the month | the Saturday template when the Saturday falls on or before month end; otherwise a new entry dated the last day of the month |
+| After month end | the 1st to the period's Monday | the Saturday template when the Saturday falls after month end; otherwise a new entry dated the period's Monday |
+
+R365 pre-creates only the Saturday template, so the other part's entry is made with `scripts/duplicate-post.sh`. A month that ends on the period's Monday needs no split.
+
+Period 9/29 to 10/5 2026: 16 entries dated 9/30 for 9/29 to 9/30 (deposits `26100201...`), then the 10/3 templates for 10/1 to 10/5 only. Orange, Costa Mesa, Downey, El Monte, Las Vegas, Riverside, Slauson and West Covina had no month-end sales or deposit and got no 9/30 entry.
+
+A deposit belongs to the part holding its **latest sales day**. One that settles a day from a part already posted (Santa Ana's `26100201alZN37K`, 9/28 sales only, after the 9/26 entry was approved) is a reach-back: count it in the next part, where the plug absorbs it.
 
 ## Logins
 
@@ -79,21 +94,14 @@ Four of these carry a city the store name never mentions: Bellflower is Lakewood
 
 The range filters on the date each deposit was **paid**, so it has to cover the days after the period closes. Run it from a week before the period to today.
 
-Clicking each deposit ID to read its fee breakdown costs 24 rounds of click, read, and Back. **Read the figures from the API the page itself calls**, which returns the same breakdown the detail panel renders:
+Clicking each deposit ID to read its fee breakdown costs 24 rounds of click, read, and Back. **Read the figures from the API the page itself calls**, which returns the same breakdown the detail panel renders. `scripts/deposits.js` pulls every deposit for the estate with its totals and its sales by Los Angeles day, from the Grubhub session once logged in:
 
-```js
-const tok   = sessionStorage.getItem('authToken');
-const rests = JSON.parse(localStorage.getItem('associatedRestaurants'));   // id, name, streetAddress, city
-const H = {authorization: 'Bearer ' + tok, accept: 'application/json', 'content-type': 'application/json'};
-const base = 'https://api-order-processing-gtm.grubhub.com/merchant/accounting/customers/';
-
-// deposits per store, ten stores per call
-await fetch(base + ids.join(',') + '/deposits/summary?startTime=...&endTime=...', {headers: H});
-// one deposit in full
-await fetch(base + restId + '/deposits/' + dep.restaurant_distribution_id, {headers: H});
+```bash
+sed -e 's/__START__/2026-09-29/' -e 's/__END__/2026-10-06/' .claude/skills/norms-grubhub/scripts/deposits.js > $W/dep.js
+playwright-cli -s=ngh eval "$(cat $W/dep.js)" | sed -n '/### Result/,/### Ran/p' | sed '1d;$d' > $W/deps.json
 ```
 
-The summary call returns each deposit with an empty `totals`, so the per deposit call is what carries the figures. Its `totals` block is what the journal lines need, in cents and signed as Grubhub shows them:
+The window is paid dates: start it the Tuesday after the period's Monday, so the prior period's deposits stay out, and end it today. The summary call returns each deposit with an empty `totals`, so the script makes the per deposit call that carries the figures. Its `totals` block is what the journal lines need, in cents and signed as Grubhub shows them:
 
 | `totals` field | Journal line |
 |---|---|
@@ -115,6 +123,15 @@ If a single period settles as more than one deposit for a store, sum the net dep
 The daily journal entries debit `1113 - A/R Grubhub` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
 
 Reports > My reports in `r365b`. Run **GL Account Detail** through Customize with account `1113 - A/R Grubhub`, Start 9/1 and End 9/7, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R Grubhub` **Debit** figure, which is that store's D.
+
+`scripts/gl-params.js`, evaluated with the Customize dialog open, sets the account and Subtotal By and returns every parameter for the check; it is safe to re-run. Fill Start and End against fresh snapshot refs, click the dialog's Run, then on the report tab:
+
+```bash
+grep -oE 'cell "[^"]*"' $W/gl.txt | sed 's/^cell "//; s/"$//' > $W/gl.cells
+node .claude/skills/norms-grubhub/scripts/glparse.js $W/gl.cells $W/gl.json
+```
+
+A location with no activity in the window is absent from the report. Orange went quiet from 9/22/2026.
 
 The window is the period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
@@ -159,6 +176,14 @@ A store whose beginning balance was larger than its prior deposit fails that equ
 
 **Verify the formula against the previous period before posting a batch.** Open one store's prior approved GrubHub entry and confirm its five amounts reproduce from that period's D and deposit. This catches a changed process in one store's worth of work rather than the whole estate's.
 
+`scripts/build-work.js` applies all of this for one part and writes the work file. It takes the part's sales window, counts each deposit whose latest sales day falls inside it, keys the plug on the template's own comment, adds the Las Vegas tax line, and refuses an entry that does not balance or whose plug is not `D - gross`:
+
+```bash
+node scripts/build-work.js $W/deps.json $W/gl.json $W/templates.json 2026-09-29 2026-09-30 $W/work-0930.json [reach-back sids]
+```
+
+Its `NOTE` lines name each store it left out and each deposit created after the window whose sales fall before it. Pass such a deposit as a reach-back sid when no posted entry counted it.
+
 ## Finding the entries
 
 R365 carries one Grubhub entry per period, dated the Saturday inside it, so the period Sep 1 - Sep 7 posts to the entry dated Sep 5.
@@ -171,17 +196,11 @@ Filtering through the grid's own data source works, and it skips the header inpu
 g.dataSource.filter({logic: 'and', filters: [{field: 'Number', operator: 'contains', value: 'Grub'}]});
 ```
 
-`Grub` catches both `GrubHub` and `Grub Hub`. Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00, six for Las Vegas.
+`Grub` catches both `GrubHub` and `Grub Hub`. Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00, six for Las Vegas. From the 10/3/2026 period the templates arrive **Approved** at 0.00, so read `ApprovalStatus` at harvest: it picks the posting script.
 
-Read the lines off each entry with the account and comment together, and match the line rows on shape rather than on account number:
+`scripts/read-entries.sh <session> <loc TAB id file> <out.json>` opens each entry by its direct URL and reads every line with its account, amounts, comment and location, plus the entry's date and status; one pass covers all 24. Its output is the `templates.json` that `build-work.js` takes. It matches line rows on shape, never on account number, since filtering on `5514` drops the plug lines on `5915` and Las Vegas's tax line.
 
-```js
-rows.filter(r => r.length === 9 && /^[0-9]{4} - /.test(r[1] || '') && (r[5] || '').trim())
-```
-
-Filtering on `5514` instead drops every plug line booked to `5915` and Las Vegas's tax line, and a template that reads four lines long is the symptom.
-
-Opening each entry by its direct URL (`playwright-cli goto`) works and keeps the session logged in, so a loop over the harvested ids reads all 24 templates in one pass.
+A preparer sometimes splits the plug across two `5915` lines, one carrying no comment, as on five of the 9/26/2026 entries. Sum both when checking a posted entry.
 
 ## Posting
 
@@ -191,13 +210,19 @@ Fill the five lines, save, reload, then Approve and Close. Three checks decide w
 2. **Sum the lines before saving** and match both sides against the expected total. Sum the named rows only, because the footer row would double the count.
 3. **Reload after saving**, and confirm the values survived. A save that never reached the server leaves every line at 0.00, and approving then commits an empty entry.
 
-`scripts/post-entry.sh` does all of this for one store and refuses to approve anything that fails a check:
+Three scripts do all of this for one store and refuse to approve anything that fails a check. Pick by the entry's state:
+
+| Entry | Script | Work record `id` |
+|---|---|---|
+| Unapproved template | `post-entry.sh` | the template |
+| Approved template at 0.00 | `edit-entry.sh`, through Edit and Edit Complete, staying Approved | the template |
+| Month-end part, no template | `duplicate-post.sh`, through Action > Duplicate | the store's Saturday template, copied |
 
 ```bash
-ENTRY_DATE=9/5/2026 scripts/post-entry.sh r365 Anaheim work.json
+ENTRY_DATE=10/3/2026 scripts/edit-entry.sh r365 Anaheim work.json
 ```
 
-It also refuses to start on a store whose template is missing any comment the work file names, which is what catches the fifth line before an amount is typed. Run stores in parallel by giving each worker its own session name; four sessions of six stores each covers the estate. See `scripts/work.example.json` for the work file's shape, which carries each line's comment text alongside its amount.
+Each refuses a store whose template is missing a comment the work file names, and `edit-entry.sh` skips an entry that already carries amounts. Run stores in parallel by giving each worker its own session name; two sessions of eight stores each posted the 9/30/2026 month-end entries. See `scripts/work.example.json` for the work file's shape, which carries each line's comment text alongside its amount.
 
 If the automated save will not land after a retry, re-enter the amounts, tell the human, and let them click Save, Approve, and Close.
 
@@ -217,3 +242,26 @@ Fix a prior period's entry only on the human's say-so. Open it by direct URL, th
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store. The grid's `Amount` is the balanced total, so it equals the debit side of the work file. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, deposit IDs, amounts, and totals, and report any store that failed just as plainly.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 23:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask. Use session names `nghu`, `ngru` and `ngrbu`, all from the repo root.
+- A Grubhub mailed-code challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- Per store, an entry that already carries amounts is `skipped`. For a part marked new entry, look on the All Transactions grid for a GrubHub entry at that date and location first; one there means the part is done (the 9/30/2026 entries were made by hand on 10/6). Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- A store with sales and no deposit is `no-deposit`, posted nothing, with the sales amount in `warnings`. A store with neither is left out.
+- A beginning balance that differs from the prior deposit, or a reach-back `NOTE` from `build-work.js`, goes in `warnings`; post the store per the rules above.
+- Never correct an approved prior entry; report it.
+
+Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "period": "9/29/2026 - 10/5/2026", "note": "",
+  "entries": [ { "date": "10/3/2026", "window": "10/1-10/5",
+      "stores": [ { "store": "Anaheim", "status": "approved", "amount": 38.08, "deposits": ["26100730ZdgRoqu"], "transactionId": "...", "warnings": [] } ] } ] }
+```
+
+`status` is `approved`, `skipped`, `no-deposit`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/norms-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure, an unposted store, or a warning.

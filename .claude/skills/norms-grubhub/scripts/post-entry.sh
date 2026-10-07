@@ -110,6 +110,6 @@ echo "$LOC after-save: $VER"
 case "$VER" in *'?'*) die "line vanished after reload: $VER";; esac
 case "$VER" in *[1-9]*) : ;; *) die "save did not land";; esac
 
-bash "$HERE/ribbon-menu.sh" $S Approve "Approve and Close" >/dev/null 2>&1
-sleep 14
+. "$HERE/lib.sh"
+approve $S "$ID" || die "approve"
 echo "$LOC DONE"
