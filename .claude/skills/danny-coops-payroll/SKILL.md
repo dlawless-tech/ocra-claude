@@ -1,11 +1,11 @@
 ---
 name: danny-coops-payroll
-description: Post the weekly payroll journal entry into Danny & Coop's Restaurant365 from the payroll journal export, attaching the file. Use when asked to build, balance, or approve a Danny & Coops Payroll entry in R365, or to reconcile a Danny & Coops pay week against its payroll files.
+description: Post the weekly payroll journal entry into Danny & Coop's Restaurant365 from the payroll journal export, attaching the file and filing it to Completed. Use when asked to build, balance, or approve a Danny & Coops Payroll entry in R365, to reconcile a Danny & Coops pay week against its payroll files, or when the file-drop or Wednesday scheduled run starts it.
 ---
 
 # Danny & Coops payroll week into the R365 journal entry
 
-Files land in `c:\Users\trici\OCRA\TML's Files - General\Downloads`, sometimes prefixed with the week, so list the folder and match on the name's tail. From the 9/27 week on, the user sends one file:
+Files land in `c:\Users\trici\OCRA\TML's Files - General\Downloads` or its live `we <M.D>` week folder, sometimes prefixed with the week, so list both and match on the name's tail. Finished files sit in `Downloads\Completed\we <M.D>`. From the 9/27 week on, the user sends one file:
 
 ```
 payroll-journal_<date>.csv        one row per employee plus a totals row: period, pay day, payment method, every earnings, tax and deduction column, net pay
@@ -65,7 +65,36 @@ Any difference is a changed export, or a prior entry keyed by hand, so stop and 
 6. `scripts/attach.sh <session> <file>` attaches the week's file and prints `attached <name>`. `save.sh`, reload through `dump-lines.sh` with the id, and confirm the file is still listed and the entry still matches the plan.
 7. Approve through **Approve and Close**, then rerun `all-transactions.sh`: the week reads Approved at the planned total.
 
+8. `scripts/file-week.sh <original file> <period end>` moves the week's file from Downloads into `Completed\we <M.D>`, creating the folder, and prints `filed <path>`. It refuses to overwrite a file already there.
+
 Report the plan's lines and total, the final status and amount from All Transactions, and, for a journal week, that direct deposit is derived and awaits the bank tie.
+
+## Unattended run
+
+Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
+
+- **Danny & Coops Payroll - File Drop**, every 10 minutes. It looks for a `*payroll-journal*.csv` in Downloads or a `we *` folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Danny & Coops Payroll - Wednesday**, 2:00 PM. The same run, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
+
+The wrapper reads the week from the CSV's Period End, copies the file to `.scratch/danny-coops-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, journal copy, and original file, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-File <csv>` names the file.
+
+No human answers during the run, so:
+
+- Never ask. Use session `dcpu`, and run every command as `cd <work directory> && ...`.
+- Build from the journal copy, attach the copy (same name), and file the original.
+- An Approved entry already dated the period end means the week was posted by hand: post nothing, and still attach and file if they are missing.
+- Any builder stop, a prior-week `--entry` check that does not print `entry matches plan`, or a rejected login fails the run before Duplicate: write `result.json` with `status` `failed` and the reason in `note`, and leave the file in place.
+- Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
+- File only after the entry reads Approved with the file attached.
+
+Close `dcpu`, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/4/2026", "status": "approved", "total": 21125.03, "directDeposit": 14571.68, "paperChecks": 2,
+  "number": "NJ000xxxxx", "transactionId": "...", "attached": true, "filed": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved` or `failed`. The webhook lives in `~/.claude/danny-coops-payroll.json`, outside the repo, in the meat credit's shape: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. With `attention` the mention fires only when the entry is not approved, the file is not attached or filed, or a warning is set.
 
 ## Danny & Coops R365 quirks
 
