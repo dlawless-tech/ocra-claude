@@ -117,3 +117,24 @@ The ribbon's Save and Approve mechanics are in the automation notes.
 Refilter the All Transactions grid after `dataSource.read()`. The Saturday's `Chainwide Advertising` row is done when it reads Approved and its `Amount` equals the offset.
 
 Report a table of store, Total Net Sales, accrual, and posted amount, with the estate total, and list any store you held back for missing sales.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 6:30, 8:30 and 10:30 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending, the prior week ending, whether this is the last try, and the work directory. It writes `done.txt` once the week posts or the last try passes, so later triggers do nothing; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today and counts as the last try.
+
+No human answers during the run, so:
+
+- Never ask. Use the session name `cwau`, from the repo root.
+- A rejected login, or a report header reading any week but the one named, fails the run: post nothing.
+- The short-sales check compares each store's net sales to the prior week's 5410 line divided by 0.028. A store more than 10% below is **held**. When any store is held and it is not the last try, post nothing and finish with status `held`. On the last try, post every computed figure and list the held stores in `held`.
+- An entry whose lines already equal the computed figures is `skipped`. An entry carrying other nonzero amounts is `failed`, left unchanged, with the difference in `note`.
+- Approve only when every check in **Posting** passes; otherwise the status is `posted-unapproved` or `failed`, with the failing step in `warnings`.
+
+Finish with **Verifying the run**, close the `cwau` session, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1` and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/3/2026", "status": "approved", "amount": 54587.11, "netSales": 1949540.06, "stores": 24,
+  "transactionId": "...", "held": [ { "store": "Ontario", "netSales": 45759.59, "dropPct": 12.4 } ], "warnings": [], "note": "" }
+```
+
+`status` is `approved`, `skipped`, `held`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/norms-chainwide-advertising.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. With `always` the mention tags every week; `attention` tags only a hold, failure, or warning.
