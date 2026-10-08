@@ -1,0 +1,1 @@
+() => Array.from(document.querySelectorAll('input')).filter(i => /date/i.test(i.name + i.id + i.placeholder + i.className)).map(i => [i.name, i.id, i.type, i.className, i.placeholder, i.value].join('|')).join('\n')

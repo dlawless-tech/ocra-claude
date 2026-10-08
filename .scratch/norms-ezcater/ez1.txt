@@ -1,0 +1,47 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://www.ezcater.com/caterer_portal/sign_in
+- Page Title: Catering Services Near You - Order Online from ezCater
+- Console: 1 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - img:
+    - generic:
+      - generic "arrow-right"
+      - generic "calendar"
+      - generic "chevron"
+      - generic "circle-account"
+      - generic "list"
+      - generic "printer"
+  - generic [ref=e2]:
+    - list:
+      - listitem:
+        - link "Jump to main content" [ref=e3] [cursor=pointer]:
+          - /url: "#main-body-section"
+    - navigation [ref=e4]:
+      - list [ref=e6]:
+        - listitem [ref=e7]:
+          - link "Contact us" [ref=e8] [cursor=pointer]:
+            - /url: "#"
+    - generic [ref=e14]:
+      - img "Partner Portal" [ref=e15]
+      - generic [ref=e16]:
+        - heading "Sign in to Partner Portal" [level=1] [ref=e17]
+        - generic [ref=e18]:
+          - generic [ref=e19]:
+            - generic [ref=e20] [cursor=pointer]: Email
+            - textbox "Email" [ref=e21]
+          - button "Continue" [ref=e22] [cursor=pointer]
+  - iframe [ref=e24]:
+    - button "Open live customer support chat" [ref=f3e1] [cursor=pointer]:
+      - generic [ref=f3e2]: Live chat
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-08T21-37-43-282Z.log#L1-L2

@@ -1,0 +1,1 @@
+() => Array.from(document.querySelectorAll('form input, form select')).filter(i => i.type !== 'hidden' || /date/i.test(i.name)).map(i => i.name + '=' + (i.multiple ? Array.from(i.selectedOptions).length + ' opts' : i.value)).join('\n')

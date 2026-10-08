@@ -1,0 +1,32 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://account.ezcater.com/u/mfa-email-challenge?state=hKFo2SAxR2pGQnFtc3ZRemd6aFExWHQyWnlnOFV3LUlNU0MyLaFusG1mYS1hdXRoZW50aWNhdGWjdGlk2SBtczFfYi1xVE5abEZxRUM5anBEYXhxVTBXdWlHa3AxeaNjaWTZIEZIUldNWFlLWTNrR0dXVU9vMVRDeHV4aXRtRmpwbnpo
+- Page Title: Enter your email code to log in | ezmanage | Partner Portal
+### Snapshot
+```yaml
+- main [ref=f18e2]:
+  - generic [ref=f18e5]:
+    - generic [ref=f18e6]:
+      - img "ezCater" [ref=f18e7]
+      - heading "Verify Your Identity" [level=1] [ref=f18e8]
+      - paragraph [ref=f18e10]: We've sent an email with your code to
+    - generic [ref=f18e13]:
+      - button "****@ocra*******" [ref=f18e17] [cursor=pointer]
+      - generic [ref=f18e20]:
+        - generic [ref=f18e25]:
+          - generic [ref=f18e26]: Enter the code *
+          - textbox "Enter the code" [active] [ref=f18e27]
+        - generic [ref=f18e28]:
+          - checkbox "Remember this device for 30 days" [ref=f18e29]
+          - generic [ref=f18e30] [cursor=pointer]: Remember this device for 30 days
+        - button "Continue" [ref=f18e32] [cursor=pointer]
+      - generic [ref=f18e33]:
+        - text: Didn't receive an email?
+        - button "Resend" [ref=f18e35] [cursor=pointer]
+```

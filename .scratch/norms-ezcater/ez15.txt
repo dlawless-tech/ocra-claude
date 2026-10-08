@@ -1,0 +1,91 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Open tabs
+- 0: [Orders - Partner Portal](https://partnerportal.ezcater.com/completed)
+- 1: (current) [Reports - Partner Portal](https://www.ezcater.com/ez_manage/reports)
+### Page
+- Page URL: https://www.ezcater.com/ez_manage/reports
+- Page Title: Reports - Partner Portal
+- Console: 3 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f5e1]:
+  - img:
+    - generic:
+      - generic "arrow-right"
+      - generic "calendar"
+      - generic "chevron"
+      - generic "circle-account"
+      - generic "list"
+      - generic "printer"
+  - generic [ref=f5e2]:
+    - generic [ref=f5e3]:
+      - heading "Reports" [level=1] [ref=f5e4]
+      - generic [ref=f5e5]:
+        - link " Back to store details" [ref=f5e6] [cursor=pointer]:
+          - /url: https://partnerportal.ezcater.com/orders
+          - generic [ref=f5e7]: 
+          - text: Back to store details
+        - link "Create new report" [ref=f5e8] [cursor=pointer]:
+          - /url: /ez_manage/reports/new
+    - table [ref=f5e10]:
+      - rowgroup [ref=f5e11]:
+        - row [ref=f5e12]:
+          - columnheader "Report Name " [ref=f5e13] [cursor=pointer]:
+            - text: Report Name
+            - generic [ref=f5e14]: 
+          - columnheader "Report Type" [ref=f5e15]
+          - columnheader "Start Date " [ref=f5e16] [cursor=pointer]:
+            - text: Start Date
+            - generic [ref=f5e17]: 
+          - columnheader "End Date " [ref=f5e18] [cursor=pointer]:
+            - text: End Date
+            - generic [ref=f5e19]: 
+          - columnheader "Row Count" [ref=f5e20]
+          - columnheader "Date Created " [ref=f5e21] [cursor=pointer]:
+            - text: Date Created
+            - generic [ref=f5e22]: 
+          - columnheader "Actions" [ref=f5e23]
+      - rowgroup [ref=f5e24]:
+        - row [ref=f5e25]:
+          - cell "NORMS EZ Cater 9.6-10.3.26" [ref=f5e26]
+          - cell "Completed Orders" [ref=f5e28]
+          - cell "09/06/26" [ref=f5e29]
+          - cell "10/03/26" [ref=f5e30]
+          - cell "29" [ref=f5e31]
+          - cell "Thu 10/08/26 at 5:55 PM" [ref=f5e32]
+          - cell [ref=f5e33]:
+            - generic [ref=f5e34]:
+              - link "" [ref=f5e35] [cursor=pointer]:
+                - /url: https://ezcater-ezrails-production.s3.amazonaws.com/ez_manage_reports/contacts/736747/1289647.xlsx?response-content-disposition=attachment%3B%20filename%3Dnorms-ez-cater-9-6-10-3-26_2026-09-06_2026-10-03_2026-10-08.xlsx&x-amz-checksum-mode=ENABLED&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2B2NXSEPTLGWABNJ%2F20261008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261008T215557Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Signature=8f7bd4753718630c80d7248c70bd4870fad4eae81bffff69135813982ea49479
+              - link "" [ref=f5e37] [cursor=pointer]:
+                - /url: "#"
+        - row [ref=f5e39]:
+          - cell "Norms EZCater" [ref=f5e40]
+          - cell "Completed Orders" [ref=f5e42]
+          - cell "09/14/26" [ref=f5e43]
+          - cell "10/08/26" [ref=f5e44]
+          - cell "32" [ref=f5e45]
+          - cell "Thu 10/08/26 at 5:05 PM" [ref=f5e46]
+          - cell [ref=f5e47]:
+            - generic [ref=f5e48]:
+              - link "" [ref=f5e49] [cursor=pointer]:
+                - /url: https://ezcater-ezrails-production.s3.amazonaws.com/ez_manage_reports/contacts/736747/1289599.xlsx?response-content-disposition=attachment%3B%20filename%3Dnorms-ezcater_2026-09-14_2026-10-08_2026-10-08.xlsx&x-amz-checksum-mode=ENABLED&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2B2NXSEPTLGWABNJ%2F20261008%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20261008T215557Z&X-Amz-Expires=1800&X-Amz-SignedHeaders=host&X-Amz-Signature=e62516205cebf02ad759cd9928656bdd5c32a87645ba3804446198a7ed2a3b87
+              - link "" [ref=f5e51] [cursor=pointer]:
+                - /url: "#"
+      - text:    
+    - text: 
+  - generic: 
+  - iframe [ref=f5e54]:
+    - button "Open live customer support chat" [ref=f6e1] [cursor=pointer]:
+      - generic [ref=f6e2]: Live chat
+  - iframe [ref=f5e55]:
+    
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-08T21-54-16-068Z.log#L4-L6

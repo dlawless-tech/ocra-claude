@@ -1,0 +1,471 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Open tabs
+- 0: (current) [Orders - Partner Portal](https://partnerportal.ezcater.com/completed)
+- 1: [Create new report - Partner Portal](https://www.ezcater.com/ez_manage/reports/new)
+### Page
+- Page URL: https://partnerportal.ezcater.com/completed
+- Page Title: Orders - Partner Portal
+### Snapshot
+```yaml
+- generic [ref=f19e1]:
+  - generic [ref=f19e5]:
+    - generic [ref=f19e6]:
+      - link "ezCater" [ref=f19e8] [cursor=pointer]:
+        - /url: /orders
+        - img "ezCater" [ref=f19e9]
+      - generic [ref=f19e14]:
+        - list [ref=f19e17]:
+          - generic [ref=f19e18]: Daily operations
+          - generic [ref=f19e19]:
+            - listitem [ref=f19e20]:
+              - generic [ref=f19e21] [cursor=pointer]: ezCater orders
+              - list [ref=f19e30]:
+                - listitem [ref=f19e31]:
+                  - link "Upcoming" [ref=f19e32] [cursor=pointer]:
+                    - /url: /orders
+                - listitem [ref=f19e34]:
+                  - link "Completed" [ref=f19e35] [cursor=pointer]:
+                    - /url: /completed
+                - listitem [ref=f19e37]:
+                  - link "Rejected" [ref=f19e38] [cursor=pointer]:
+                    - /url: /rejected
+                - listitem [ref=f19e40]:
+                  - link "Canceled" [ref=f19e41] [cursor=pointer]:
+                    - /url: /canceled
+            - listitem [ref=f19e43]:
+              - link "Meal Program" [ref=f19e44] [cursor=pointer]:
+                - /url: /mealprogram
+            - listitem [ref=f19e48]:
+              - generic [ref=f19e49] [cursor=pointer]: Delivery
+          - generic [ref=f19e57]: Business insights
+          - generic [ref=f19e58]:
+            - listitem [ref=f19e59]:
+              - generic [ref=f19e60] [cursor=pointer]: Operational metrics
+            - listitem [ref=f19e68]:
+              - link "Reliability Rockstar" [ref=f19e69] [cursor=pointer]:
+                - /url: /reliability_rockstar
+            - listitem [ref=f19e73]:
+              - link "Reviews" [ref=f19e74] [cursor=pointer]:
+                - /url: /reviews
+          - generic [ref=f19e78]: Engage customers
+          - listitem [ref=f19e80]:
+            - link "Promotions" [ref=f19e81] [cursor=pointer]:
+              - /url: /promotions
+          - generic [ref=f19e83]: Manage account
+          - generic [ref=f19e84]:
+            - listitem [ref=f19e85]:
+              - link "Menus" [ref=f19e86] [cursor=pointer]:
+                - /url: /menus
+            - listitem [ref=f19e90]:
+              - generic [ref=f19e91] [cursor=pointer]: Settings
+          - generic [ref=f19e99]: Support resources
+          - generic [ref=f19e100]:
+            - listitem [ref=f19e101]:
+              - link "Training resources" [ref=f19e102] [cursor=pointer]:
+                - /url: https://catering.ezcater.io/en/
+            - listitem [ref=f19e106]:
+              - button "Live chat" [ref=f19e107] [cursor=pointer]
+            - listitem [ref=f19e111]:
+              - button "24/7 support" [ref=f19e112] [cursor=pointer]
+        - generic [ref=f19e122] [cursor=pointer]:
+          - generic [ref=f19e123]: Mark Rubenstein
+          - generic [ref=f19e124]: mark@ocra-us.com
+    - generic [ref=f19e132]:
+      - generic [ref=f19e139]:
+        - heading "Completed orders" [level=1] [ref=f19e379]
+        - generic [ref=f19e148]:
+          - text: Change store
+          - combobox [ref=f19e149] [cursor=pointer]:
+            - textbox [ref=f19e150]
+            - alert [ref=f19e151]: All stores
+            - generic [ref=f19e152]: 
+      - generic [ref=f19e380]:
+        - generic [ref=f19e382]:
+          - generic [ref=f19e384]:
+            - generic [ref=f19e388]:
+              - generic [ref=f19e390]:
+                - generic [ref=f19e391]: See orders from
+                - combobox "See orders from" [ref=f19e398]: Last 90 Days
+              - generic [ref=f19e400]:
+                - generic [ref=f19e401]: Search by order number
+                - searchbox "Search by order number" [ref=f19e402]
+            - generic [ref=f19e406]:
+              - generic [ref=f19e407]: Sources
+              - combobox "open select" [ref=f19e408] [cursor=pointer]:
+                - generic [ref=f19e409]: All Sources
+              - textbox [ref=f19e412]: "[\"MARKETPLACE\",\"EZ_ORDERING\",\"DIRECT_ENTRY\",\"CLUB_SODA\"]"
+          - link [ref=f19e414] [cursor=pointer]:
+            - /url: https://www.ezcater.com/ez_manage/reports/new
+            - button "Generate report" [active] [ref=f19e415]
+        - table [ref=f19e418]:
+          - rowgroup [ref=f19e419]:
+            - row [ref=f19e420]:
+              - 'columnheader "Order #" [ref=f19e421]'
+              - columnheader "Date & time" [ref=f19e422]
+              - columnheader "Customer" [ref=f19e423]
+              - columnheader "Setup required" [ref=f19e424]
+              - columnheader "Store" [ref=f19e425]
+              - columnheader "Source" [ref=f19e426]
+              - columnheader "Issues" [ref=f19e427]
+              - columnheader "Rating" [ref=f19e428]
+              - columnheader "Order value" [ref=f19e429]
+          - rowgroup [ref=f19e431]:
+            - row [ref=f19e432] [cursor=pointer]:
+              - cell [ref=f19e433]:
+                - link "8Y6-C6W" [ref=f19e434]:
+                  - /url: /orders/297036838
+              - cell "Thu, Oct. 8, 11 AM (10:27 AM pickup)" [ref=f19e435]:
+                - generic [ref=f19e436]: Thu, Oct. 8, 11 AM
+                - generic [ref=f19e437]: (10:27 AM pickup)
+              - cell "DOLLAR TREE" [ref=f19e439]
+              - cell "No response" [ref=f19e442]
+              - cell "Rialto" [ref=f19e444]
+              - cell "Marketplace" [ref=f19e446]:
+                - generic "Marketplace" [ref=f19e448]
+              - cell "--" [ref=f19e449]
+              - cell "No review" [ref=f19e450]
+              - cell "$503.40" [ref=f19e452]
+            - row [ref=f19e454] [cursor=pointer]:
+              - cell [ref=f19e455]:
+                - link "UCZ-413" [ref=f19e456]:
+                  - /url: /orders/296914493
+              - cell "Thu, Oct. 8, 11:30 AM Deliver 11:15-11:30 AM" [ref=f19e457]:
+                - generic [ref=f19e458]: Thu, Oct. 8, 11:30 AM
+                - generic [ref=f19e459]: Deliver 11:15-11:30 AM
+              - cell "NYU Geri/Pall" [ref=f19e462]
+              - cell "No" [ref=f19e465]
+              - cell "Isle of Us" [ref=f19e467]
+              - cell "Marketplace" [ref=f19e469]:
+                - generic "Marketplace" [ref=f19e471]
+              - cell "1" [ref=f19e472]
+              - cell [ref=f19e473]:
+                - img "5 stars" [ref=f19e474]
+              - cell "$249.31" [ref=f19e490]
+            - row [ref=f19e492] [cursor=pointer]:
+              - cell [ref=f19e493]:
+                - link "TCW-A5Y" [ref=f19e494]:
+                  - /url: /orders/297044036
+              - cell "Thu, Oct. 8, 8:30 AM (7:59 AM pickup)" [ref=f19e495]:
+                - generic [ref=f19e496]: Thu, Oct. 8, 8:30 AM
+                - generic [ref=f19e497]: (7:59 AM pickup)
+              - cell "Yee, Polonsky, Lam, Yeung, He" [ref=f19e499]
+              - cell "Yes" [ref=f19e502]
+              - cell "El Monte" [ref=f19e504]
+              - cell "Marketplace" [ref=f19e506]:
+                - generic "Marketplace" [ref=f19e508]
+              - cell "--" [ref=f19e509]
+              - cell "No review" [ref=f19e510]
+              - cell "$273.08" [ref=f19e512]
+            - row [ref=f19e514] [cursor=pointer]:
+              - cell [ref=f19e515]:
+                - link "G1K-YQ7" [ref=f19e516]:
+                  - /url: /orders/296550138
+              - cell "Wed, Oct. 7, 11:30 AM (10:50 AM pickup)" [ref=f19e517]:
+                - generic [ref=f19e518]: Wed, Oct. 7, 11:30 AM
+                - generic [ref=f19e519]: (10:50 AM pickup)
+              - cell "Doris Duke Foundation" [ref=f19e521]
+              - cell "No response" [ref=f19e524]
+              - cell "Isle of Us" [ref=f19e526]
+              - cell "Meal Program" [ref=f19e528]:
+                - generic "Meal Program" [ref=f19e530]
+              - cell "--" [ref=f19e531]
+              - cell "No review" [ref=f19e532]
+              - cell "$405.74" [ref=f19e534]
+            - row [ref=f19e536] [cursor=pointer]:
+              - cell [ref=f19e537]:
+                - link "5K6-8Q6" [ref=f19e538]:
+                  - /url: /orders/296712005
+              - cell "Wed, Oct. 7, 8:30 AM (7:50 AM pickup)" [ref=f19e539]:
+                - generic [ref=f19e540]: Wed, Oct. 7, 8:30 AM
+                - generic [ref=f19e541]: (7:50 AM pickup)
+              - cell "Community Coalition" [ref=f19e543]
+              - cell "Yes" [ref=f19e546]
+              - cell "Slauson" [ref=f19e548]
+              - cell "Marketplace" [ref=f19e550]:
+                - generic "Marketplace" [ref=f19e552]
+              - cell "--" [ref=f19e553]
+              - cell "No review" [ref=f19e554]
+              - cell "$268.14" [ref=f19e556]
+            - row [ref=f19e558] [cursor=pointer]:
+              - cell [ref=f19e559]:
+                - link "77F-ZJE" [ref=f19e560]:
+                  - /url: /orders/296959427
+              - cell "Wed, Oct. 7, 8:30 AM (7:55 AM pickup)" [ref=f19e561]:
+                - generic [ref=f19e562]: Wed, Oct. 7, 8:30 AM
+                - generic [ref=f19e563]: (7:55 AM pickup)
+              - cell "Mark Thomas" [ref=f19e565]
+              - cell "Yes" [ref=f19e568]
+              - cell "Lakewood" [ref=f19e570]
+              - cell "Marketplace" [ref=f19e572]:
+                - generic "Marketplace" [ref=f19e574]
+              - cell "--" [ref=f19e575]
+              - cell "No review" [ref=f19e576]
+              - cell "$164.53" [ref=f19e578]
+            - row [ref=f19e580] [cursor=pointer]:
+              - cell [ref=f19e581]:
+                - link "K9F-Z1Z" [ref=f19e582]:
+                  - /url: /orders/296927865
+              - cell "Tue, Oct. 6, 8 AM (7:40 AM pickup)" [ref=f19e583]:
+                - generic [ref=f19e584]: Tue, Oct. 6, 8 AM
+                - generic [ref=f19e585]: (7:40 AM pickup)
+              - cell "Cancer & Blood Specialty Clinic | Dr. Eric Cheung" [ref=f19e587]
+              - cell "Yes" [ref=f19e590]
+              - cell "Lakewood" [ref=f19e592]
+              - cell "Marketplace" [ref=f19e594]:
+                - generic "Marketplace" [ref=f19e596]
+              - cell "--" [ref=f19e597]
+              - cell "No review" [ref=f19e598]
+              - cell "$127.40" [ref=f19e600]
+            - row [ref=f19e602] [cursor=pointer]:
+              - cell [ref=f19e603]:
+                - link "9UK-FTW" [ref=f19e604]:
+                  - /url: /orders/296818433
+              - cell "Mon, Oct. 5, 12:30 PM Deliver 12:15-12:30 PM" [ref=f19e605]:
+                - generic [ref=f19e606]: Mon, Oct. 5, 12:30 PM
+                - generic [ref=f19e607]: Deliver 12:15-12:30 PM
+              - cell "SOL DE JANEIRO" [ref=f19e610]
+              - cell "No response" [ref=f19e613]
+              - cell "Isle of Us" [ref=f19e615]
+              - cell "Marketplace" [ref=f19e617]:
+                - generic "Marketplace" [ref=f19e619]
+              - cell "--" [ref=f19e620]
+              - cell "No review" [ref=f19e621]
+              - cell "$369.14" [ref=f19e623]
+            - row [ref=f19e625] [cursor=pointer]:
+              - cell [ref=f19e626]:
+                - link "80X-VT4" [ref=f19e627]:
+                  - /url: /orders/296854675
+              - cell "Mon, Oct. 5, 8 AM (7:27 AM pickup)" [ref=f19e628]:
+                - generic [ref=f19e629]: Mon, Oct. 5, 8 AM
+                - generic [ref=f19e630]: (7:27 AM pickup)
+              - cell "Clayco, Inc." [ref=f19e632]
+              - cell "No response" [ref=f19e635]
+              - cell "La Cienega" [ref=f19e637]
+              - cell "Marketplace" [ref=f19e639]:
+                - generic "Marketplace" [ref=f19e641]
+              - cell "--" [ref=f19e642]
+              - cell "No review" [ref=f19e643]
+              - cell "$191.72" [ref=f19e645]
+            - row [ref=f19e647] [cursor=pointer]:
+              - cell [ref=f19e648]:
+                - link "K04-WY7" [ref=f19e649]:
+                  - /url: /orders/296768026
+              - cell "Mon, Oct. 5, 7:45 AM (7:18 AM pickup)" [ref=f19e650]:
+                - generic [ref=f19e651]: Mon, Oct. 5, 7:45 AM
+                - generic [ref=f19e652]: (7:18 AM pickup)
+              - cell "Southern California Edison" [ref=f19e654]
+              - cell "Yes" [ref=f19e657]
+              - cell "Pico Rivera" [ref=f19e659]
+              - cell "Marketplace" [ref=f19e661]:
+                - generic "Marketplace" [ref=f19e663]
+              - cell "--" [ref=f19e664]
+              - cell "No review" [ref=f19e665]
+              - cell "$250.50" [ref=f19e667]
+            - row [ref=f19e669] [cursor=pointer]:
+              - cell [ref=f19e670]:
+                - link "AXM-F67" [ref=f19e671]:
+                  - /url: /orders/296858544
+              - cell "Sun, Oct. 4, 7:30 AM" [ref=f19e672]
+              - cell "--" [ref=f19e675]
+              - cell "N/A" [ref=f19e678]
+              - cell "Hollywood" [ref=f19e680]
+              - cell "Marketplace" [ref=f19e682]:
+                - generic "Marketplace" [ref=f19e684]
+              - cell "--" [ref=f19e685]
+              - cell [ref=f19e686]:
+                - img "5 stars" [ref=f19e687]
+              - cell "$309.68" [ref=f19e703]
+            - row [ref=f19e705] [cursor=pointer]:
+              - cell [ref=f19e706]:
+                - link "TAR-J9K" [ref=f19e707]:
+                  - /url: /orders/296588785
+              - cell "Fri, Oct. 2, 10:45 AM (10:14 AM pickup)" [ref=f19e708]:
+                - generic [ref=f19e709]: Fri, Oct. 2, 10:45 AM
+                - generic [ref=f19e710]: (10:14 AM pickup)
+              - cell "ROADS Community Care Clinic" [ref=f19e712]
+              - cell "No response" [ref=f19e715]
+              - cell "Lakewood" [ref=f19e717]
+              - cell "Marketplace" [ref=f19e719]:
+                - generic "Marketplace" [ref=f19e721]
+              - cell "--" [ref=f19e722]
+              - cell "No review" [ref=f19e723]
+              - cell "$189.31" [ref=f19e725]
+            - row [ref=f19e727] [cursor=pointer]:
+              - cell [ref=f19e728]:
+                - link "391-3M1" [ref=f19e729]:
+                  - /url: /orders/296673337
+              - cell "Thu, Oct. 1, 8:30 AM (7:51 AM pickup)" [ref=f19e730]:
+                - generic [ref=f19e731]: Thu, Oct. 1, 8:30 AM
+                - generic [ref=f19e732]: (7:51 AM pickup)
+              - cell "Shawmut Design and Construction" [ref=f19e734]
+              - cell "Yes" [ref=f19e737]
+              - cell "La Cienega" [ref=f19e739]
+              - cell "Marketplace" [ref=f19e741]:
+                - generic "Marketplace" [ref=f19e743]
+              - cell "--" [ref=f19e744]
+              - cell "No review" [ref=f19e745]
+              - cell "$210.32" [ref=f19e747]
+            - row [ref=f19e749] [cursor=pointer]:
+              - cell [ref=f19e750]:
+                - link "WEG-QKP" [ref=f19e751]:
+                  - /url: /orders/296745486
+              - cell "Thu, Oct. 1, 7:30 AM (6:53 AM pickup)" [ref=f19e752]:
+                - generic [ref=f19e753]: Thu, Oct. 1, 7:30 AM
+                - generic [ref=f19e754]: (6:53 AM pickup)
+              - cell "Olive View infusion center" [ref=f19e756]
+              - cell "Yes" [ref=f19e759]
+              - cell "Van Nuys" [ref=f19e761]
+              - cell "Marketplace" [ref=f19e763]:
+                - generic "Marketplace" [ref=f19e765]
+              - cell "--" [ref=f19e766]
+              - cell [ref=f19e767]:
+                - img "5 stars" [ref=f19e768]
+              - cell "$358.91" [ref=f19e784]
+            - row [ref=f19e786] [cursor=pointer]:
+              - cell [ref=f19e787]:
+                - link "YHH-EVG" [ref=f19e788]:
+                  - /url: /orders/296649767
+              - cell "Tue, Sep. 29, 8 PM (7:27 PM pickup)" [ref=f19e789]:
+                - generic [ref=f19e790]: Tue, Sep. 29, 8 PM
+                - generic [ref=f19e791]: (7:27 PM pickup)
+              - cell "DOLLAR TREE" [ref=f19e793]
+              - cell "No" [ref=f19e796]
+              - cell "Rialto" [ref=f19e798]
+              - cell "Marketplace" [ref=f19e800]:
+                - generic "Marketplace" [ref=f19e802]
+              - cell "--" [ref=f19e803]
+              - cell "No review" [ref=f19e804]
+              - cell "$198.95" [ref=f19e806]
+            - row [ref=f19e808] [cursor=pointer]:
+              - cell [ref=f19e809]:
+                - link "RKU-FJV" [ref=f19e810]:
+                  - /url: /orders/296609056
+              - cell "Tue, Sep. 29, 12:45 PM (12:21 PM pickup)" [ref=f19e811]:
+                - generic [ref=f19e812]: Tue, Sep. 29, 12:45 PM
+                - generic [ref=f19e813]: (12:21 PM pickup)
+              - cell "Braven" [ref=f19e815]
+              - cell "Yes" [ref=f19e818]
+              - cell "Cornbread Newark" [ref=f19e820]
+              - cell "Marketplace" [ref=f19e822]:
+                - generic "Marketplace" [ref=f19e824]
+              - cell "--" [ref=f19e825]
+              - cell "No review" [ref=f19e826]
+              - cell "$328.48" [ref=f19e828]
+            - row [ref=f19e830] [cursor=pointer]:
+              - cell [ref=f19e831]:
+                - link "CHR-EVE" [ref=f19e832]:
+                  - /url: /orders/295624152
+              - cell "Tue, Sep. 29, Noon Deliver 11:45 AM-12:00 PM" [ref=f19e833]:
+                - generic [ref=f19e834]: Tue, Sep. 29, Noon
+                - generic [ref=f19e835]: Deliver 11:45 AM-12:00 PM
+              - cell "Franklin Templeton" [ref=f19e838]
+              - cell "Yes" [ref=f19e841]
+              - cell "Isle of Us" [ref=f19e843]
+              - cell "Marketplace" [ref=f19e845]:
+                - generic "Marketplace" [ref=f19e847]
+              - cell "--" [ref=f19e848]
+              - cell [ref=f19e849]:
+                - img "5 stars" [ref=f19e850]
+              - cell "$186.08" [ref=f19e866]
+            - row [ref=f19e868] [cursor=pointer]:
+              - cell [ref=f19e869]:
+                - link "YJT-6T8" [ref=f19e870]:
+                  - /url: /orders/296619668
+              - cell "Tue, Sep. 29, Noon Deliver 11:45 AM-12:00 PM" [ref=f19e871]:
+                - generic [ref=f19e872]: Tue, Sep. 29, Noon
+                - generic [ref=f19e873]: Deliver 11:45 AM-12:00 PM
+              - cell "Munich Re" [ref=f19e876]
+              - cell "No" [ref=f19e879]
+              - cell "Isle of Us" [ref=f19e881]
+              - cell "Marketplace" [ref=f19e883]:
+                - generic "Marketplace" [ref=f19e885]
+              - cell "--" [ref=f19e886]
+              - cell "No review" [ref=f19e887]
+              - cell "$184.71" [ref=f19e889]
+            - row [ref=f19e891] [cursor=pointer]:
+              - cell [ref=f19e892]:
+                - link "PTR-KKT" [ref=f19e893]:
+                  - /url: /orders/296409981
+              - cell "Tue, Sep. 29, 11 AM Deliver 10:45-11:00 AM" [ref=f19e894]:
+                - generic [ref=f19e895]: Tue, Sep. 29, 11 AM
+                - generic [ref=f19e896]: Deliver 10:45-11:00 AM
+              - cell "Bloomberg Laura Concepcion" [ref=f19e899]
+              - cell "No response" [ref=f19e902]
+              - cell "Isle of Us" [ref=f19e904]
+              - cell "Marketplace" [ref=f19e906]:
+                - generic "Marketplace" [ref=f19e908]
+              - cell "--" [ref=f19e909]
+              - cell "No review" [ref=f19e910]
+              - cell "$658.60" [ref=f19e912]
+            - row [ref=f19e914] [cursor=pointer]:
+              - cell [ref=f19e915]:
+                - link "PQ5-38R" [ref=f19e916]:
+                  - /url: /orders/296564627
+              - cell "Tue, Sep. 29, 7 AM (6:37 AM pickup)" [ref=f19e917]:
+                - generic [ref=f19e918]: Tue, Sep. 29, 7 AM
+                - generic [ref=f19e919]: (6:37 AM pickup)
+              - cell "Riverside Regional Veterinary Group" [ref=f19e921]
+              - cell "No" [ref=f19e924]
+              - cell "Riverside" [ref=f19e926]
+              - cell "Marketplace" [ref=f19e928]:
+                - generic "Marketplace" [ref=f19e930]
+              - cell "--" [ref=f19e931]
+              - cell "No review" [ref=f19e932]
+              - cell "$332.34" [ref=f19e934]
+        - generic [ref=f19e937]:
+          - navigation "Pagination Navigation" [ref=f19e939]:
+            - generic "First item" [ref=f19e940]: «
+            - generic "Previous item" [ref=f19e941]: ⟨
+            - generic [ref=f19e942]: "1"
+            - generic [ref=f19e943]: "2"
+            - generic [ref=f19e944]: "3"
+            - generic [ref=f19e945]: "4"
+            - generic [ref=f19e946]: "5"
+            - generic [ref=f19e947]: "6"
+            - generic [ref=f19e948]: "7"
+            - generic "Next item" [ref=f19e949]: ⟩
+            - generic "Last item" [ref=f19e950]: »
+          - generic [ref=f19e951]:
+            - text: Rows per page
+            - listbox [ref=f19e952] [cursor=pointer]:
+              - alert [ref=f19e953]: "20"
+              - generic [ref=f19e954]: 
+  - iframe [ref=f19e377]:
+    
+  - iframe [ref=f19e378]:
+    - generic [ref=f23e1]:
+      - generic "Intercom":
+        - region "Intercom messenger":
+          - group "3 notifications":
+            - listbox "Notification stack":
+              - option [ref=f23e2]:
+                - 'article "message notification from ezcater, 3w. Webinar: Maximize your operations with ezCater September 23, 2026 at 2 PM ET Streamline operations, uncover growth opportunities, and get more from the ezCater platform. Join our live session to learn how." [ref=f23e4]':
+                  - generic [ref=f23e5]:
+                    - img "ezcater" [ref=f23e7]
+                    - group [ref=f23e9]:
+                      - paragraph [ref=f23e11]: "Webinar: Maximize your operations with ezCater September 23, 2026 at 2 PM ET Streamline operations, uncover growth opportunities, and get more from the ezCater platform. Join our live session to learn how."
+                      - paragraph [ref=f23e12]: ezcater • 3w
+                    - button "Dismiss notification" [ref=f23e13] [cursor=pointer]
+              - option [ref=f23e17]:
+                - article "message notification from ezcater, 1mo. New and improved issue reporting See cancellations, rejections, timeliness, order accuracy, and delivery tracking all in one place, broken down by category and tied directly to their cost, including compensation and delivery tracking fees. Use filters for time range, order type, or store to quickly pinpoint what’s driving issues. Drill into any order for the full details, or export to share with your team." [ref=f23e19]:
+                  - generic [ref=f23e20]:
+                    - img "ezcater" [ref=f23e22]
+                    - group [ref=f23e24]:
+                      - paragraph [ref=f23e26]: New and improved issue reporting See cancellations, rejections, timeliness, order accuracy, and delivery tracking all in one place, broken down by category and tied directly to their cost, including compensation and delivery tracking fees. Use filters for time range, order type, or store to quickly pinpoint what’s driving issues. Drill into any order for the full details, or export to share with your team.
+                      - paragraph [ref=f23e27]: ezcater • 1mo
+                    - button "Dismiss notification" [ref=f23e28] [cursor=pointer]
+              - option [ref=f23e32]:
+                - article "message notification from ezcater, 2mo. How satisfied are you with ezCater?" [ref=f23e34]:
+                  - generic [ref=f23e35]:
+                    - img "ezcater" [ref=f23e37]
+                    - group [ref=f23e39]:
+                      - paragraph [ref=f23e41]: How satisfied are you with ezCater?
+                      - paragraph [ref=f23e42]: ezcater • 2mo
+                    - button "Dismiss notification" [ref=f23e43] [cursor=pointer]
+```

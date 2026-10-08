@@ -1,0 +1,147 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Open tabs
+- 0: [Orders - Partner Portal](https://partnerportal.ezcater.com/completed)
+- 1: (current) [Create new report - Partner Portal](https://www.ezcater.com/ez_manage/reports/new)
+### Page
+- Page URL: https://www.ezcater.com/ez_manage/reports/new
+- Page Title: Create new report - Partner Portal
+- Console: 3 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=e1]:
+  - img:
+    - generic:
+      - generic "arrow-right"
+      - generic "calendar"
+      - generic "chevron"
+      - generic "circle-account"
+      - generic "list"
+      - generic "printer"
+  - generic [ref=e2]:
+    - heading [level=1] [ref=e4]:
+      - link " Back to Reports" [ref=e6] [cursor=pointer]:
+        - /url: /ez_manage/reports
+        - generic [ref=e7]: 
+        - text: Back to Reports
+      - text: Create New Report
+    - generic [ref=e9]:
+      - generic [ref=e10]:
+        - heading "Create New Report" [level=1] [ref=e11]
+        - paragraph [ref=e12]: Build a new report on your completed ezOrdering and Marketplace orders.
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: "Step 1:"
+          - generic [ref=e18]:
+            - paragraph [ref=e19]: Select the type of report you would like to create.
+            - generic [ref=e20]:
+              - combobox [ref=e21]
+              - combobox "Completed Orders" [ref=e24] [cursor=pointer]
+        - generic [ref=e28]:
+          - generic [ref=e29]: "Step 2:"
+          - generic [ref=e31]:
+            - paragraph [ref=e32]: Select the store(s) you wish to create the report for.
+            - generic [ref=e33]:
+              - generic [ref=e34]:
+                - listbox [ref=e35]:
+                  - option "#(973) 783-7685 - Cornbread - 372 Bloomfield Ave" [ref=e36]
+                  - option "#+1 (718) 493-7685 - Cornbread - 409 Eastern Pkwy" [ref=e37]
+                  - option "#+1 (973) 273-0091 - Cornbread - 915 Broad St" [ref=e38]
+                  - option "#211 - Norms - 2500 E Slauson Ave" [selected] [ref=e39]
+                  - option "#213 - Norms - 18705 Hawthorne Blvd" [selected] [ref=e40]
+                  - option "#215 - Norms - 17844 Lakewood Blvd" [selected] [ref=e41]
+                  - option "#217 - Norms - 1125 N Euclid St" [selected] [ref=e42]
+                  - option "#218 - Norms - 1550 E Katella Ave" [selected] [ref=e43]
+                  - option "#219 - Norms - 16572 Beach Blvd" [selected] [ref=e44]
+                  - option "#220 - Norms - 2150 Harbor Blvd" [selected] [ref=e45]
+                  - option "#222 - Norms - 14810 E Whittier Blvd" [selected] [ref=e46]
+                  - option "#223 - Norms - 2448 Pacific Coast Hwy" [selected] [ref=e47]
+                  - option "#225 - Norms - 807 S Indian Hill Blvd" [selected] [ref=e48]
+                  - option "#24 - Norms - 501 N Azusa Ave" [selected] [ref=e49]
+                  - option "#242 - Norms - 13636 Sherman Way" [selected] [ref=e50]
+                  - option "#243 - Norms - 102 17th St" [selected] [ref=e51]
+                  - option "#244 - Norms - 7955 Firestone Blvd" [selected] [ref=e52]
+                  - option "#245 - Norms - 3889 Tyler St" [selected] [ref=e53]
+                  - option "#250 - Norms - 470 N La Cienega Blvd" [selected] [ref=e54]
+                  - option "#261 - Norms - 4422 Rosemead Blvd" [selected] [ref=e55]
+                  - option "#262 - Norms - 10620 Valley Blvd" [selected] [ref=e56]
+                  - option "#264 - Norms - 2960 W Imperial Hwy" [selected] [ref=e57]
+                  - option "#265 - Norms - 1325 W Renaissance Pkwy" [selected] [ref=e58]
+                  - option "#269 - Norms - 5453 Hollywood Blvd" [selected] [ref=e59]
+                  - option "#270 - Norms - 4551 Mills Cir" [selected] [ref=e60]
+                  - option "#272 - Norms - 4605 W Charleston Blvd" [selected] [ref=e61]
+                  - option "#973-313-0328 - Cornbread - 1565 Springfield Ave" [ref=e62]
+                  - option "#carson263 - Norms - 20420 S Avalon Blvd" [selected] [ref=e63]
+                  - option "Isle of Us - 245 West 46th st" [ref=e64]
+                - generic [ref=e131]:
+                  - list [ref=e133]:
+                    - listitem [ref=e134]: "#(973) 783-7685 - Cornbread - 372 Bloomfield Ave"
+                    - listitem [ref=e135]: "#+1 (718) 493-7685 - Cornbread - 409 Eastern Pkwy"
+                    - listitem [ref=e136]: "#+1 (973) 273-0091 - Cornbread - 915 Broad St"
+                    - listitem [ref=e137]: "#973-313-0328 - Cornbread - 1565 Springfield Ave"
+                    - listitem [ref=e138]: Isle of Us - 245 West 46th st
+                  - list [ref=e140]:
+                    - listitem [ref=e141]: "#211 - Norms - 2500 E Slauson Ave"
+                    - listitem [ref=e142]: "#213 - Norms - 18705 Hawthorne Blvd"
+                    - listitem [ref=e143]: "#215 - Norms - 17844 Lakewood Blvd"
+                    - listitem [ref=e144]: "#217 - Norms - 1125 N Euclid St"
+                    - listitem [ref=e145]: "#218 - Norms - 1550 E Katella Ave"
+                    - listitem [ref=e146]: "#219 - Norms - 16572 Beach Blvd"
+                    - listitem [ref=e147]: "#220 - Norms - 2150 Harbor Blvd"
+                    - listitem [ref=e148]: "#222 - Norms - 14810 E Whittier Blvd"
+                    - listitem [ref=e149]: "#223 - Norms - 2448 Pacific Coast Hwy"
+                    - listitem [ref=e150]: "#225 - Norms - 807 S Indian Hill Blvd"
+                    - listitem [ref=e151]: "#24 - Norms - 501 N Azusa Ave"
+                    - listitem [ref=e152]: "#242 - Norms - 13636 Sherman Way"
+                    - listitem [ref=e153]: "#243 - Norms - 102 17th St"
+                    - listitem [ref=e154]: "#244 - Norms - 7955 Firestone Blvd"
+                    - listitem [ref=e155]: "#245 - Norms - 3889 Tyler St"
+                    - listitem [ref=e156]: "#250 - Norms - 470 N La Cienega Blvd"
+                    - listitem [ref=e157]: "#261 - Norms - 4422 Rosemead Blvd"
+                    - listitem [ref=e158]: "#262 - Norms - 10620 Valley Blvd"
+                    - listitem [ref=e159]: "#264 - Norms - 2960 W Imperial Hwy"
+                    - listitem [ref=e160]: "#265 - Norms - 1325 W Renaissance Pkwy"
+                    - listitem [ref=e161]: "#269 - Norms - 5453 Hollywood Blvd"
+                    - listitem [ref=e162]: "#270 - Norms - 4551 Mills Cir"
+                    - listitem [ref=e163]: "#272 - Norms - 4605 W Charleston Blvd"
+                    - listitem [ref=e164]: "#carson263 - Norms - 20420 S Avalon Blvd"
+              - generic [ref=e99]:
+                - button "Add all stores" [ref=e100] [cursor=pointer]
+                - button "Clear all stores" [ref=e101] [cursor=pointer]
+        - generic [ref=e102]:
+          - generic [ref=e103]: "Step 3:"
+          - generic [ref=e105]:
+            - paragraph [ref=e106]: Select a date range.
+            - generic [ref=e107]:
+              - generic [ref=e108]:
+                - generic [ref=e109]: Start Date
+                - textbox "Start Date" [ref=e110]:
+                  - /placeholder: Select Start Date
+              - generic [ref=e111]:
+                - generic [ref=e112]: End Date
+                - textbox "End Date" [ref=e113]:
+                  - /placeholder: Select End Date
+        - generic [ref=e114]:
+          - generic [ref=e115]: "Step 4:"
+          - generic [ref=e117]:
+            - paragraph [ref=e118]: Give your report a name.
+            - generic [ref=e119]:
+              - generic [ref=e120]: Report Name *
+              - textbox "Report Name *" [ref=e121]:
+                - /placeholder: Order Report
+        - generic [ref=e122]:
+          - generic [ref=e123]: "Step 5:"
+          - generic [ref=e125]:
+            - paragraph [ref=e126]: Select "Create Report" to begin generating your full report.
+            - button "Create Report" [ref=e127] [cursor=pointer]
+  - iframe [ref=e129]:
+    - button "Open live customer support chat" [ref=f1e1] [cursor=pointer]:
+      - generic [ref=f1e2]: Live chat
+  - iframe [ref=e130]:
+    
+```

@@ -1,0 +1,32 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://account.ezcater.com/u/login/password?state=hKFo2SB1NkZLVENiTm95VjBrMy03T1paRld0Y3l5RWk3Y2xFX6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIG1zMV9iLXFUTlpsRnFFQzlqcERheHFVMFd1aUdrcDF5o2NpZNkgRkhSV01YWUtZM2tHR1dVT28xVEN4dXhpdG1GanBuemg
+- Page Title: Sign in | Partner Portal
+### Snapshot
+```yaml
+- main [ref=f17e2]:
+  - generic [ref=f17e5]:
+    - img "ezCater" [ref=f17e7]
+    - generic [ref=f17e9]:
+      - generic [ref=f17e12]:
+        - generic [ref=f17e14]:
+          - generic [ref=f17e15]: Username or email address
+          - textbox "Username or email address" [ref=f17e16]
+          - link "Edit email address" [ref=f17e17] [cursor=pointer]:
+            - /url: /u/login/identifier?state=hKFo2SB1NkZLVENiTm95VjBrMy03T1paRld0Y3l5RWk3Y2xFX6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIG1zMV9iLXFUTlpsRnFFQzlqcERheHFVMFd1aUdrcDF5o2NpZNkgRkhSV01YWUtZM2tHR1dVT28xVEN4dXhpdG1GanBuemg
+            - text: Edit
+        - generic [ref=f17e19]:
+          - generic [ref=f17e20]: Password *
+          - textbox "Password" [active] [ref=f17e21]
+          - switch "Show password" [ref=f17e22] [cursor=pointer]
+      - paragraph [ref=f17e23]:
+        - link "Reset password" [ref=f17e24] [cursor=pointer]:
+          - /url: /u/login/password-reset-start/Supply-Users/mark%40ocra-us.com?state=hKFo2SB1NkZLVENiTm95VjBrMy03T1paRld0Y3l5RWk3Y2xFX6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIG1zMV9iLXFUTlpsRnFFQzlqcERheHFVMFd1aUdrcDF5o2NpZNkgRkhSV01YWUtZM2tHR1dVT28xVEN4dXhpdG1GanBuemg
+      - button "Sign in" [ref=f17e26] [cursor=pointer]
+```
