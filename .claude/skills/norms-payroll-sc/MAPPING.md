@@ -18,13 +18,15 @@ Everything sits at dept `299` and class `130`, so the entry carries one line per
 | 6150 | CELL PHONE | `6150 - Cellular Phone` | cell phone |
 | 6390 | MILEAGE | `6390 - Gasoline - Mileage-Corp` | mileage |
 | 5230 | QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
+| 6030 | BONUS | `6015 - Area Director Bonus` | BONUS |
 | 2267 | PTO Taken | `2267 - Accrued PTO` | PTO Taken |
 | 2264 | FSA Contribution, HSA Contribution | `2264 - Accrued FSA HSA Deductions` | HSA /FSA Contribution |
 | 2142 | 401k Loan 1 | `2142 - 401(k) Loans` | 401k Loan 1 |
 | 2140 | 401K, ROTH | `2140 - 401(k) / Roth` | 401K / Roth |
 | 2120, 2122, 2124, 2126, 2128, 2130, 2132 | | `1040 - Support Center Payroll-6839` | total taxes |
 | 1040 | CHECKINGS, SAVINGS | `1040 - Support Center Payroll-6839` | direct deposit |
-| 1040 | Net Amount | `2229 - PR Liability - Stale PR Checks` | returned |
+| 1040 | Net Amount, positive | `2229 - PR Liability - Stale PR Checks` | returned |
+| 1040 | Net Amount, negative | `1040 - Support Center Payroll-6839`, one line per paper check | the check number |
 | 9999 at dept 999 | Suspense | `2267 - Accrued PTO` | blank |
 
 Memos arrive in mixed case and mixed spelling, `Med Pre Tax` beside `Medical Pre-tax`. Map on the account, so a new spelling lands correctly on its own.
@@ -35,9 +37,9 @@ Memos arrive in mixed case and mixed spelling, `Med Pre Tax` beside `Medical Pre
 
 ## The two lines the file does not name
 
-**`Net Amount` is a returned check.** It looks like a direct deposit and is not one, so it leaves the `direct deposit` line understated by exactly its amount if it lands there. Each gets its own `2229 - PR Liability - Stale PR Checks` line commented `returned`.
+**A positive `Net Amount` is a returned check.** A negative one is paper checks issued, as with the 9/18 bonus, and `build-plan.js` stops on it so each check gets its own `1040` line from the Checks & Vouchers. It looks like a direct deposit and is not one, so it leaves the `direct deposit` line understated by exactly its amount if it lands there. It goes on the `2229 - PR Liability - Stale PR Checks` line commented `returned`.
 
-Adding the check number to the comment is optional, and the WVJ Checks & Vouchers is where it comes from when it is wanted. Periods through 8/2026 booked these to `1199 - In & Out` commented `<check number> returned`; `--verify` accepts either account against those periods. Reuse any existing returned-check lines, zero any the period does not need, and add lines for any it needs beyond them.
+Adding the check number to the comment is optional, and the WVJ Checks & Vouchers is where it comes from when it is wanted. Periods through 8/2026 booked these to `1199 - In & Out` commented `<check number> returned`; `--verify` accepts either account against those periods. `build-plan.js` puts the period's returned total on the first `2229` line and zeroes any others.
 
 **Suspense goes on the second `2267 - Accrued PTO` line**, the one whose comment is blank. Account `9999` at dept `999` carries no natural home and appears in most periods. Without that line the entry misses balance by exactly the suspense amount.
 

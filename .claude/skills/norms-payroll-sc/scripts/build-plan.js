@@ -29,13 +29,15 @@ function loadCsv(p) {
 // See MAPPING.md.
 function slot(r) {
   const a = r.acct, m = (r.memo || '').toUpperCase();
-  if (a === '1040') return /NET AMOUNT/.test(m) ? 'returned' : 'deposit';
+  // Net Amount: positive is a returned check, negative is paper checks issued
+  if (a === '1040') return /NET AMOUNT/.test(m) ? (r.amt < 0 ? 'paperchecks' : 'returned') : 'deposit';
   if (/^21(20|22|24|26|28|30|32)$/.test(a)) return 'taxes';
   if (a === '2140') return '401k';
   if (a === '2142') return 'loan';
   if (a === '2264') return 'fsahsa';
   if (a === '2267') return 'pto';
   if (a === '5230') return 'qtrba';
+  if (a === '6030') return 'bonus';
   if (a === '6020') return 'salary';
   if (a === '6025') return 'hourly';
   if (a === '6040') return 'ertax';
@@ -59,6 +61,7 @@ const FIND = {
   pto:      r => acct(r) === '2267' && /pto/i.test(r[5]),
   suspense: r => acct(r) === '2267' && !/pto/i.test(r[5]),
   qtrba:    r => acct(r) === '5230',
+  bonus:    r => /^60(15|30)$/.test(acct(r)),
   salary:   r => acct(r) === '6020',
   hourly:   r => acct(r) === '6025',
   ertax:    r => acct(r) === '6040',
@@ -121,18 +124,32 @@ for (const { j, v } of copayPlan) {
   else { plan.push([j, v > 0 ? v : 0, v < 0 ? R(-v) : 0]); if (v === 0) zeroed.push('copay  ' + rows[j][1]); }
 }
 
-// Returned checks: one 2229 line each, so they reconcile as a total rather than
-// resolving to a slot. Periods through 8/2026 booked them to 1199.
-let returned = 0;
-rows.forEach((r, j) => { if (/^(2229|1199)$/.test(acct(r))) { taken.add(j); const v = R(num(r[3]) - num(r[4])); returned += v; if (v > 0) debits += v; else credits -= v; } });
+// Returned checks: the period's total on the first 2229 line, the rest to 0.00.
+// Periods through 8/2026 booked them to 1199.
+const retRows = [];
+rows.forEach((r, j) => { if (/^(2229|1199)$/.test(acct(r))) { taken.add(j); retRows.push(j); } });
 const wantReturned = R(want.returned || 0);
-if (R(returned) !== wantReturned) unplaced.push({ slot: 'returned (2229 lines)', amt: wantReturned, line: 'lines hold ' + R(returned).toFixed(2) });
+if (!retRows.length && wantReturned !== 0) unplaced.push({ slot: 'returned (2229 line)', amt: wantReturned });
+retRows.forEach((j, k) => {
+  const v = k ? 0 : wantReturned, old = R(num(rows[j][3]) - num(rows[j][4]));
+  if (v > 0) debits += v; else credits -= v;
+  if (v === old) return;
+  if (verify) { if (!k) mismatched.push({ i: j, slot: 'returned', line: rows[j][1] + ' | ' + rows[j][5], want: v, got: old }); }
+  else { plan.push([j, v > 0 ? v : 0, v < 0 ? R(-v) : 0]); if (v === 0) zeroed.push('returned  ' + rows[j][1]); }
+});
 
 // slots with amounts and no line, and lines the mapping never claimed
 for (const s of Object.keys(want)) {
   if (!(s in FIND) && !/^(returned|copaypre|copaypost)$/.test(s) && R(want[s]) !== 0) unplaced.push({ slot: s, amt: R(want[s]) });
 }
-rows.forEach((r, j) => { if (!taken.has(j)) unplaced.push({ slot: 'UNCLAIMED LINE row ' + j, amt: R(num(r[3]) - num(r[4])), line: r[1] + ' | ' + r[5] }); });
+// lines no slot claims, like a copied period's check lines, have no file row behind them
+rows.forEach((r, j) => {
+  if (taken.has(j)) return;
+  const old = R(num(r[3]) - num(r[4]));
+  if (old === 0) return;
+  if (verify) mismatched.push({ i: j, slot: 'unclaimed', line: r[1] + ' | ' + r[5], want: 0, got: old });
+  else { plan.push([j, 0, 0]); zeroed.push('unclaimed  ' + r[1] + ' | ' + r[5]); }
+});
 
 const say = s => console.error(s);
 if (verify) {
@@ -147,4 +164,5 @@ if (unplaced.length) {
   say('NO LINE TO HOLD THESE:');
   unplaced.forEach(o => say('  ' + o.slot + '  ' + o.amt.toFixed(2) + (o.line ? '  ' + o.line : '')));
 }
+if (unplaced.length || R(debits - credits) !== 0) process.exitCode = 1;
 if (!verify) process.stdout.write(JSON.stringify(plan));
