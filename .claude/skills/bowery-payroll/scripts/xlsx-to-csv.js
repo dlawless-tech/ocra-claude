@@ -1,9 +1,9 @@
 #!/usr/bin/env node
-// Convert an ADP General Ledger xlsx export to csv.
+// Convert an Paycor General Ledger xlsx export to csv.
 //
 //   xlsx-to-csv.js <file.xlsx> > out.csv
 //
-// Sheet1 only. Handles self-closing empty cells, which the ADP GL export
+// Sheet1 only. Handles self-closing empty cells, which the Paycor GL export
 // writes for every blank debit or credit; a converter that skips them
 // shifts whole rows left and swaps debits into credits.
 const fs = require('fs'), os = require('os'), path = require('path');

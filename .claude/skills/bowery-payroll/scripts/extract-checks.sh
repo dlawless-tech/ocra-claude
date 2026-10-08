@@ -3,7 +3,7 @@
 #
 #   extract-checks.sh <folder> <out dir>
 #
-# Reads both shapes ADP arrives in: the reports zip per entity, and a loose
+# Reads both shapes Paycor arrives in: the reports zip per entity, and a loose
 # "<Store> [Hourly|Salary] Net Pay Report ....pdf" saved out of one.
 #
 # Writes <out dir>/<client id>-<hourly|salary>.txt. An entity with no Net Pay

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Build the R365 payroll import file from the ADP General Ledger: every
+// Build the R365 payroll import file from the Paycor General Ledger: every
 // location in one CSV, each one's hourly and salary payroll combined into a
 // single journal entry.
 //
@@ -37,7 +37,7 @@ const LOC = {
   '155093': { num: '600', name: 'Shukette' },
 };
 
-// ADP codes maintenance wages to 620-20; R365 carries that expense at 600-20.
+// Paycor codes maintenance wages to 620-20; R365 carries that expense at 600-20.
 const ACCOUNT_FIX = { '620-20': '600-20' };
 
 // 145-00 Net Payroll - Transit belongs to Bowery Group Corp whichever entity

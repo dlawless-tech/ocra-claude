@@ -1,4 +1,4 @@
-# The ADP General Ledger to the Bowery R365 payroll entries
+# The Paycor General Ledger to the Bowery R365 payroll entries
 
 Every rule here reproduces the approved 9/13/2026 entries: 477,368.47 across six locations, every amount-bearing line matching on account, side and amount. The only variances are the ones [`SKILL.md`](SKILL.md) lists as expected.
 
@@ -40,7 +40,7 @@ The GL is already an R365 chart of accounts. Each row becomes one line: **GL Acc
 
 Four rules override that.
 
-**The account remap.** ADP codes maintenance wages to `620-20`. R365 carries that expense at `600-20`. No other account is remapped.
+**The account remap.** Paycor codes maintenance wages to `620-20`. R365 carries that expense at `600-20`. No other account is remapped.
 
 **`145-00 - Net Payroll - Transit` always posts to location 800**, Bowery Group Corp, whichever entity the transit was withheld from. The entry header stays on the entity, so only the line's `DetailLocation` moves. R365 relocates the line itself on save, so an entry that leaves it on the entity looks right until it is read back.
 
