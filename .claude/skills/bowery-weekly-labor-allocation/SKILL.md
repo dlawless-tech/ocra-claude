@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-labor-allocation
-description: Post the weekly labor allocation journal entry into Bowery Group Restaurant365, moving employee wages from the store that paid them to the store they worked for, with payroll taxes at 7.65% of each store's net, from the Bowery Group Labor Allocation workbook. Use when asked to fill, balance, or approve the Bowery Labor Allocation entry in R365, or to check a week's allocation against that workbook.
+description: Post the weekly labor allocation journal entry into Bowery Group Restaurant365, moving employee wages from the store that paid them to the store they worked for, with payroll taxes at 7.65% of each store's net, from the Bowery Group Labor Allocation workbook. Use when asked to fill, balance, or approve the Bowery Labor Allocation entry in R365, or to check a week's allocation against that workbook, or when the Thursday file-drop run starts it.
 ---
 
 # Weekly labor allocation into the Bowery journal entry
@@ -89,7 +89,7 @@ When the week's moves or tax lines and the entry's lines differ, it changes noth
 
 - `ADD <employee> <amount>: credit <account> @ <location>, debit <account> @ <location>` for a new move. Add both lines through the new-row form under the grid, comment the employee's name, the credit line directly above the debit line.
 - `ADD tax 610-01 @ <location> debit|credit <amount>` for a store newly carrying a net. Add it with a blank comment.
-- `REMOVE wage pair ...` or `REMOVE tax line @ <store>` for lines the week lacks. Delete them with their trash icons.
+- `REMOVE wage pair ...` or `REMOVE tax line @ <store>` for lines the week lacks. Delete them with their trash icons: `playwright-cli click 'tr[data-uid="<uid>"] .k-grid-delete'`, taking each uid from the grid's `dataSource.data()`. The 10/4/2026 week dropped two pairs and two tax lines from the 9/27 copy this way.
 
 The new-row form's location is a button that defaults to Bowery Group Corp. Set it through the model, `newRowForm.model.locationId = ['<id>']` inside the scope's `$apply`, taking the id from the `journalEntryLocation` combobox's data source, and read it back before Add. Shuka carries a closed date of 8/30/2026 there, yet the 9/27/2026 entry saved and approved with Shuka lines.
 
@@ -117,20 +117,56 @@ node <skill>/scripts/check-labor.js labor.json readback.txt
 
 It prints `MATCH` only when the date is the Week Ending, the number is `Labor Allocation`, the line count is two per move plus the tax lines, debits equal credits at `total`, every move's credit and debit sit on the right account and location under the employee's name, and every tax line is in place. A third argument checks a different number, such as a test entry's.
 
-Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. Approve and Close shuts the copy's tab, and its requests go with it, so the response can be unreadable; the grid then decides. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Labor Allocation` row Approved at `total`.
+Approve through real ribbon clicks, `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and read the row back from All Transactions:
+
+```bash
+bash <skill>/scripts/approve.sh la <id> <M/D/YYYY>
+```
+
+Approve and Close shuts the copy's tab, and its requests go with it, so the grid decides. The week is done when `approve.sh` prints the Week Ending's `Labor Allocation` row Approved at `total`. `scripts/all-transactions.sh la` lists the latest rows on its own.
 
 ## Step 7: file the workbook
 
 Once the entry is approved with the workbook attached, move the workbook into `Completed`:
 
 ```bash
-L="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Labor Allocations"
-mv "$L/Bowery Group Labor Allocation W.E. <m.d.yy>.xlsx" "$L/Completed/"
+bash <skill>/scripts/file-week.sh "<original workbook>"
 ```
 
-Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its workbook in place. Close the session with `playwright-cli -s=la close`.
+It prints `filed <path>` once the workbook sits in `Completed` and no longer at the top of the folder. A week that stops before approval leaves its workbook in place. Close the session with `playwright-cli -s=la close`.
 
 Report the `check-labor.js` table, the entry's status and amount from the grid, whether the workbook is attached and filed, and any `RENAMED`, `ADD`, or `REMOVE` the run handled.
+
+## Unattended run
+
+Two Task Scheduler tasks run `scripts/labor-run.ps1` (`scripts/register-task.ps1` sets them up, only while signed in):
+
+- **Bowery Labor Allocation - Thursday Watch**, Thursdays every 10 minutes from 6:00 to 11:50 AM. It looks for one `Bowery Group Labor Allocation*.xlsx` at the top of the folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Bowery Labor Allocation - Thursday**, 12:00 PM. The last check, and when no workbook is waiting and last Sunday's is not in `Completed`, a Teams card says it is not in yet (once per day).
+
+More than one workbook waiting posts a card and runs nothing. The wrapper copies the workbook into `.scratch/bowery-labor-allocation/run-<file timestamp>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, workbook copy, original file, and today, and writes `done.txt`, so each version of the file runs once. A replaced workbook runs again. `-Force` reruns, and `-File <xlsx>` names the file.
+
+No human answers during the run, so:
+
+- Never ask. Use session `lau`, and run every command as `cd <work directory> && ...`.
+- Read the workbook copy, and take the week from its `weekEnding`. A Week Ending after today fails the run.
+- A `read-labor.js` stop fails the run before Duplicate: write `result.json` with `status` `failed` and the reason in `note`, and leave the workbook in place. That covers an unknown position and a one-cent tax gap; never pick a `--cent` store unattended.
+- An Approved entry already dated the Week Ending means the week was posted by hand: post nothing, report it as `approved` with its total, and still attach and file if they are missing.
+- Duplicate the latest Approved `Labor Allocation` entry dated before the Week Ending.
+- Handle `RENAMED`, `ADD`, and `REMOVE` as in Step 4, and list each in `warnings`. A `STOP:` fails the run.
+- Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
+- Attach the workbook copy (same name). Approve only on `MATCH` with the workbook attached, and file the original only after `approve.sh` passes.
+
+Close `lau`, then write `result.json` in the work directory. The wrapper posts it to the Bowery payroll Teams channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/4/2026", "status": "approved", "total": 549.11, "number": "Labor Allocation", "transactionId": "...",
+  "moves": [{ "name": "Amanda Ryskamp", "amount": 458.79, "from": "Vic's", "to": "Cookshop" }],
+  "tax": [{ "store": "Cookshop", "amount": 35.10 }, { "store": "Vic's", "amount": -39.02 }],
+  "attached": true, "filed": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved` or `failed`. A tax `amount` is positive for a debit and negative for a credit. The webhook lives in `~/.claude/bowery-labor-allocation.json`, outside the repo, and points at the same payroll channel as Bowery payroll: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}, "mentionWhen": "always"}`. With `always`, Brandy is tagged on every card, as the confirmation.
 
 ## Test entries
 
