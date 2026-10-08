@@ -11,7 +11,7 @@ N="$P/Completed/WE $(date -d "$WE + 7 days" +%m.%d.%y)"
 mkdir -p "$D"
 rc=0
 while IFS= read -r f; do
-  f="${f%$'\r'}"; [ -n "$f" ] || continue
+  f="${f%$'\r'}"; f="${f#$'\xef\xbb\xbf'}"; [ -n "$f" ] || continue
   f="$(cygpath -u "$f")"
   b="$(basename "$f")"
   if [ -e "$D/$b" ]; then [ -e "$f" ] && { echo "FAIL: $D/$b already exists"; rc=1; } || echo "already filed $b"; continue; fi
