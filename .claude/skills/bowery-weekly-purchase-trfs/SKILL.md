@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-purchase-trfs
-description: Post the weekly purchase transfers journal entry into Bowery Group Restaurant365, moving purchase costs between GL accounts and stores as logged in the GL Reallocation Tracker. Use when asked to fill, balance, or approve the Bowery Purchase Transfers entry in R365, or to check a week's reallocations against the tracker.
+description: Post the weekly purchase transfers journal entry into Bowery Group Restaurant365, moving purchase costs between GL accounts and stores as logged in the GL Reallocation Tracker. Use when asked to fill, balance, or approve the Bowery Purchase Transfers entry in R365, or to check a week's reallocations against the tracker, or when the file-drop or Thursday scheduled run starts it.
 ---
 
 # Weekly purchase transfers into the Bowery journal entry
@@ -48,7 +48,7 @@ It reads rows 5 down to the `Total logged:` row, maps each location to its R365 
 
 ## Step 2: the entry
 
-Filter All Transactions through the grid's data source on Number `Purchase Transfers`. Since 9/13/2026 each week carries one Journal Entry numbered exactly that, header location `600 - Shukette`, with blank line comments. The 9/13 and 9/20/2026 entries each ran one row, the weekly NA Gazoz cost at Shukette:
+`bash <skill>/scripts/all-transactions.sh pt` lists the latest entries as date, status, amount, number, and id. It filters All Transactions through the grid's data source on Number `Purchase Transfers`. Since 9/13/2026 each week carries one Journal Entry numbered exactly that, header location `600 - Shukette`, with blank line comments. The 9/13 and 9/20/2026 entries each ran one row, the weekly NA Gazoz cost at Shukette:
 
 ```
 credit  510-01 - Purchases-Beverage Liquor   amount   600 - Shukette
@@ -59,7 +59,7 @@ An Approved entry dated the Week Ending means the week is done; stop and report 
 
 ## Step 3: duplicate the prior week
 
-Open the prior week's entry at `https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>` and use **Action > Duplicate**. A dialog asks `Duplicate transaction and attachments?`; answer **No, transaction only**, so the prior week's tracker stays off the new entry. The copy is written to the server on that click, opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (the Week Ending) and `#journalEntryNumber` (`Purchase Transfers`), read both back, and save once before touching lines:
+`bash <skills>/bowery-weekly-cash-log/scripts/duplicate.sh pt <prior id> <M/D/YYYY> "Purchase Transfers"` runs this whole step and prints the new id; it ran the 10/4/2026 week. By hand: open the prior week's entry at `https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/<TransactionId>` and use **Action > Duplicate**. A dialog asks `Duplicate transaction and attachments?`; answer **No, transaction only**, so the prior week's tracker stays off the new entry. The copy is written to the server on that click, opens in a second tab (`tab-select 1`), numbered `NJ000xxxxx` and dated today. `fill` then `press Tab` on `#journalEntryDate` (the Week Ending) and `#journalEntryNumber` (`Purchase Transfers`), read both back, and save once before touching lines:
 
 ```bash
 bash <skills>/danny-coops-payroll/scripts/save.sh pt
@@ -95,7 +95,7 @@ playwright-cli -s=pt click <button "Upload File" ref>
 playwright-cli -s=pt upload "GL_Reallocation_Tracker <M.D.YY>.xlsx"
 ```
 
-Take the Upload File ref from a snapshot of a freshly reloaded entry; a snapshot taken right after a save can come back partial and without the button. The upload lands on its own, with no save. It is done when the tracker's link shows in the panel after a reload.
+`bash <skills>/danny-coops-payroll/scripts/attach.sh pt "GL_Reallocation_Tracker <M.D.YY>.xlsx"` does both on a reloaded entry and prints `attached <name>`. Take the Upload File ref from a snapshot of a freshly reloaded entry; a snapshot taken right after a save can come back partial and without the button. The upload lands on its own, with no save. It is done when the tracker's link shows in the panel after a reload.
 
 ## Step 6: verify and approve
 
@@ -108,7 +108,7 @@ node <skill>/scripts/check-lines.js lines.json readback.txt
 
 It prints `MATCH` only when the date is the Week Ending, the number is `Purchase Transfers`, the entry holds exactly the week's lines, debits equal credits at `total`, and every line sits on its side, GL, and location at its amount. A third argument checks a different number, such as a test entry's.
 
-Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The approve closes the entry's tab and its request log with it, so when the response is gone, reload the entry by id and read `Approved` in its snapshot. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Purchase Transfers` row Approved at `total`.
+Approve through a real click on `#Approve > a` then `li[data-testid="approveAndCloseMenuItem"]`, and confirm `"Successfully Approved."` in the `Transaction/Approve` response. The approve closes the entry's tab and its request log with it, so when the response is gone, reload the entry by id and read `Approved` in its snapshot. The week is done when the All Transactions grid, after `dataSource.read()`, shows the Week Ending's `Purchase Transfers` row Approved at `total`. `bash <skill>/scripts/approve.sh pt <id> <M/D/YYYY>` clicks through and reads that row, failing unless it is Approved. A `hover` on `#Approve > a` followed by the menu item click left the 10/4/2026 entry Unapproved; the real click on `#Approve > a` opens the menu.
 
 ## Step 7: file the tracker
 
@@ -119,9 +119,39 @@ P="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Purchase Tr
 mv -n "$P/<tracker>" "$P/Completed/GL_Reallocation_Tracker <M.D.YY>.xlsx"
 ```
 
-Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its tracker in place. Close the session with `playwright-cli -s=pt close`.
+`bash <skill>/scripts/file-week.sh "<tracker>" <M.D.YY>` does the same and refuses to overwrite. Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its tracker in place. Close the session with `playwright-cli -s=pt close`.
 
 Report the `check-lines.js` table, each row's Description / Reason, the `skipped` rows, the entry's status and amount from the grid, and whether the tracker is attached and filed.
+
+## Unattended run
+
+Two Task Scheduler tasks run `scripts/purchase-trfs-run.ps1` (`scripts/register-task.ps1` sets them up, only while signed in):
+
+- **Bowery Purchase Transfers - File Drop**, every 15 minutes from 6:00 AM to 10:00 PM daily. It looks for one `GL_Reallocation_Tracker*.xlsx` at the top of the folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Bowery Purchase Transfers - Thursday**, 10:00 AM. The same run, and when no tracker is waiting and last Sunday's tracker is not in `Completed`, a Teams card says it is not in yet (once per day).
+
+More than one tracker waiting posts a card and runs nothing. The wrapper copies the tracker into `.scratch/bowery-purchase-trfs/run-<file timestamp>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, tracker copy, original file, and today, and writes `done.txt`, so each version of the file runs once. A replaced tracker runs again. `-Force` reruns, and `-File <xlsx>` names the file.
+
+No human answers during the run, so:
+
+- Never ask. Use session `ptu`, and run every command as `cd <work directory> && ...`.
+- Take the week from the grid as in **The week**. A Week Ending after today fails the run.
+- Read the tracker copy. A `read-tracker.js` stop fails the run before Duplicate: write `result.json` with `status` `failed` and the reason in `note`, and leave the tracker in place.
+- A week with no rows posts nothing: `status` `no rows`, and file the tracker.
+- An Approved entry already dated the Week Ending means the week was posted by hand: post nothing, report it as `approved` with its total, and still attach and file if they are missing.
+- Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
+- Approve only on `MATCH` with the tracker attached, and file only after `approve.sh` passes.
+- Each `skipped` row should sit in an earlier Approved entry; name any that does not in `warnings`.
+
+Close `ptu`, then write `result.json` in the work directory. The wrapper posts it to the Wkly Journal Entries Teams channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/4/2026", "status": "approved", "total": 219.00, "number": "Purchase Transfers", "transactionId": "...",
+  "rows": [{ "date": "10/4/2026", "desc": "NA Gazoz", "amount": 219.00, "from": "510-01 @ 600 - Shukette", "to": "510-04 @ 600 - Shukette" }],
+  "attached": true, "filed": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved`, `no rows`, or `failed`. The webhook lives in `~/.claude/bowery-purchase-trfs.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}, "mentionWhen": "always"}`. With `always`, Brandy is tagged on every card, as the confirmation.
 
 ## Test entries
 
