@@ -102,3 +102,29 @@ Deposits with no payout behind them are worth reporting on their own. In Septemb
 ## Close
 
 Close the sessions this run opened, by name, from the run directory: `for S in ndd nr nr2 nrb; do playwright-cli -s=$S close; done`. Other skills keep their own sessions open on this machine, so leave every other session alone.
+
+## Unattended run
+
+`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 4:00 AM, with a retry at 10:00 AM (`scripts/register-task.ps1` sets up both). It takes the Monday to Sunday period that ended four days earlier, paid that Thursday, and starts this skill headless with a prompt beginning `Unattended run` that names the period, the work directory, the entry date, the payout date and the stores. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+Some payouts are not listed at 4:00. On 10/8/2026, 22 stores were paid by 2:15 AM and Anaheim and Claremont were still missing hours later. When the 4:00 attempt reports a store `no-payout`, or writes no result, the wrapper keeps its result as `result-first.json`, lists the waiting stores in `pending.json` and posts nothing to Teams. The 10:00 attempt runs only those stores, merges both attempts into `result.json` and posts one card, which tags the mention every week.
+
+No human answers during the run, so:
+
+- Work only the stores the prompt names under `Stores`, and report only those in `result.json`.
+- Never ask. `cd` into the work directory once, before opening any session, and run every command from there. Use session names `nddu` (DoorDash), `nru` (entries) and `nrbu` (GL report), so an interactive run's sessions are left alone.
+- A DoorDash code challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- A store with no payout dated the payout date is `no-payout`, posted nothing, with its D in `warnings`.
+- An Approved template at 0.00 is filled with `post-entry.sh`. An entry that already carries amounts and matches the plan is `skipped`. One that carries amounts and differs from the plan is `mismatch`, left as it is, with each differing line in `warnings`. A store whose post fails a check is `failed`, with the failing step in `warnings`, and the others carry on.
+- A difference over 100.00 either way, a beginning balance that differs from the prior Friday's `Bank Deposit`, and a deposit with no payout behind it go in `warnings`, as does plan-week's `SALES ON n OF 7 DAYS`. The entry still posts.
+- An `a/r doordash - payout` line that comes out a debit means R365 is missing a day's sales. North Torrance 10/3/2026 had no 10/4 sales and came out 14.43 short of its payout. Post nothing for that store; it is `failed`, with the missing day in `warnings`.
+- Never correct an approved entry from a prior week; report it.
+
+Finish with **Verify**, close the sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "period": "9/28/2026 - 10/4/2026", "entryDate": "10/3/2026", "note": "",
+  "stores": [ { "store": "Whittier", "status": "approved", "amount": 890.24, "payout": "618066093", "transactionId": "...", "warnings": [] } ] }
+```
+
+`store` is the R365 location exactly as `stores.json` spells it. `amount` is the entry's total, its debit side. `status` is `approved`, `skipped`, `no-payout`, `mismatch`, or `failed`. The webhook lives in `~/.claude/norms-doordash.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. It posts to the NORMS TPD channel and tags Regina Leong. `notify-teams.ps1 -DryRun` prints the card without posting.

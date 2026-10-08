@@ -21,15 +21,17 @@ for (const p of P) {
   const D = r2(rows.reduce((s, r) => s + r.debit, 0));
   const S = n(p.sales), C = -n(p.commissionAndFees), M = -n(p.marketingSpend), A = n(p.amendments), N = n(p.netPayout);
   if (Math.abs(S - C - M + A - N) > 0.005) console.error(loc, 'DOORDASH IDENTITY FAILS', p.payoutId);
-  const dif = r2(D - S);
+  const dif = r2(D - S), ar = r2(D - N);
+  const days = new Set(rows.map(r => iso(r.date))).size;
+  if (days < 7) console.error(loc, "SALES ON " + days + " OF 7 DAYS");
   const lines = {
-    'a/r doordash - payout': [0, r2(D - N)],
+    'a/r doordash - payout': ar >= 0 ? [0, ar] : [-ar, 0],
     'commission & fees': [C, 0],
     'marketing spend': [M, 0],
     'amendments': A < 0 ? [-A, 0] : [0, A],
     'difference': dif >= 0 ? [dif, 0] : [0, -dif],
   };
-  const x = { loc, payoutId: p.payoutId, sales: S, commission: C, marketing: M, amendments: A, net: N, D, lines };
+  const x = { loc, payoutId: p.payoutId, sales: S, commission: C, marketing: M, amendments: A, net: N, D, days, lines };
   const e = E[loc];
   if (e) {
     x.id = e.id; const got = {}; for (const l of e.lines) got[l[3]] = [l[1], l[2]];
