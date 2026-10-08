@@ -1,0 +1,1 @@
+() => { const g = jQuery('[data-role=grid]').data('kendoGrid'); return Array.prototype.slice.call(g.dataSource.data()).map((m,i)=>[i,m.uid,String(m.glAccount).split(' ')[0],m.location,m.debit,m.credit,m.comment].join(' ; ')).join(' | '); }

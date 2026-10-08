@@ -59,6 +59,8 @@ bash <skill>/scripts/post-store.sh fghr lines.json "Logan Square" <source Transa
 
 The source is the store's prior week `GrubHub` entry. For 9/6/2026 it was the store's 8/31 monthly. Oak Park had no prior entry: give it any store's entry and the script moves the copied lines to Oak Park. R365 asks "transaction only" when the source holds an attachment; `scripts/duplicate.sh` answers it, so the copy never takes the source's backup. The script duplicates the source (transaction only) and saves the copy with the date and number, then sets the header location, trims, adds and sets lines, saves, reloads, and prints the `check-lines.js` table. Read `MATCH` for each store. Close the extra tabs between stores, since `duplicate.sh` picks the newest copy tab.
 
+For the whole week, `scripts/post-week.sh fghr lines.json <prior ids.txt> ids.txt` runs `post-store.sh` per store from the prior week's `store|TransactionId` file, writes this week's ids for the stores that read `MATCH` or `no sales this week`, and prints `DONE` or `FAILED` per store.
+
 The copy is saved before any line is set, so a failure after the duplicate step leaves a copy holding the source's amounts. Finish it in place with `REDO=<id> post-store.sh ...` rather than duplicating again.
 
 ## Phase 3: attach the backup
@@ -87,6 +89,28 @@ Approving through each entry's ribbon (`../fare-ubereats/scripts/approve.sh`) ta
 ## Verifying the run
 
 All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved, and its `Attachment` field shows the backup. Report the store table with deposit IDs and backup attached, and every zero store.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 21:00 (`scripts/register-task.ps1` sets it up). It posts the period that ended eight days before, whose deposit was paid the Friday before: the 10/13/2026 run posts 9/29 to 10/5, dated 10/4. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the entry date, the work directory `.scratch/fare-grubhub/wk<MMDD>` and the prior week's `ids.txt`. It writes `started.txt` there first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask. Run every command from the work directory, with sessions `fghu` (Grubhub) and `fghru` (R365).
+- A Grubhub mailed-code challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- Before posting, filter All Transactions to Number `GrubHub` on the entry date. A store already holding an entry there is `skipped`; read its id into `ids.txt` so next week has a source.
+- Run phases 1 to 3 with `post-week.sh` and `backup-week.sh`. A `build-lines.js` stop fails the whole run, with its message in `note`. A store that reads `FAILED`, or does not tie in the backup, is `failed` with the failing step in `warnings`; the others carry on.
+- Approve only the stores that read `MATCH` and tie, ticking their rows in the grid instead of select-all. A store left unapproved for any other reason is `posted-unapproved`.
+- A missing prior ids file, a missing deposit for a store that had orders, or a store with no Grubhub deposits again (Lakeview, Riverside) goes in `warnings`. Never correct an approved prior entry; report it.
+
+Finish with **Verifying the run** and **Finish** (closing `fghu` and `fghru`), then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, headed `Completed` when every store is approved with no warnings and `Needs review` otherwise, and reports a failure when the file is missing:
+
+```json
+{ "period": "9/29/2026 - 10/5/2026", "date": "10/4/2026", "note": "",
+  "stores": [ { "store": "Logan Square", "status": "approved", "amount": 412.18, "deposits": ["2610..."], "transactionId": "...", "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, `posted-unapproved`, or `failed`. List all ten stores, zero stores at 0.00. The webhook lives in `~/.claude/fare-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure or a warning.
 
 ## Finish
 

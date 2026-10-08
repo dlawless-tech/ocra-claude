@@ -81,3 +81,7 @@ if (-not (Test-Path $result)) {
 }
 $r = Get-Content -Raw -Encoding utf8 $result | ConvertFrom-Json
 & $Notify -Title "Bowery Purchase Transfers, W.E. $($r.weekEnding)" -ResultFile $result
+# Thursday: Inventory waits on this week being filed; start it now
+if ((Get-Date).DayOfWeek -eq 'Thursday' -and $r.filed) {
+  try { Start-ScheduledTask -TaskName 'Bowery Inventory - Thursday' } catch { Log "inventory task not started: $_" }
+}

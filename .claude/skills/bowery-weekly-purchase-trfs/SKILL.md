@@ -143,7 +143,7 @@ No human answers during the run, so:
 - Approve only on `MATCH` with the tracker attached, and file only after `approve.sh` passes.
 - Each `skipped` row should sit in an earlier Approved entry; name any that does not in `warnings`.
 
-Close `ptu`, then write `result.json` in the work directory. The wrapper posts it to the Wkly Journal Entries Teams channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+Close `ptu`, then write `result.json` in the work directory. The wrapper posts it to the Wkly Journal Entries Teams channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing. On a Thursday, once the week is filed, it starts the **Bowery Inventory - Thursday** task, which waits on that filed tracker:
 
 ```json
 { "weekEnding": "10/4/2026", "status": "approved", "total": 219.00, "number": "Purchase Transfers", "transactionId": "...",

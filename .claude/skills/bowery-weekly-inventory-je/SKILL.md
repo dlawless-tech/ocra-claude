@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-inventory-je
-description: Post the weekly beverage inventory journal entries into Bowery Group Restaurant365, one per store, booking each GL's change in the Craftable Inventory by GL count between 190 inventory and 510 purchases, with the Craftable export attached. Use when asked to fill, balance, or approve the Bowery Inventory entries in R365, to pull the Craftable Inventory by GL report, or to correct past Inventory entries against Craftable or the balance sheet.
+description: Post the weekly beverage inventory journal entries into Bowery Group Restaurant365, one per store, booking each GL's change in the Craftable Inventory by GL count between 190 inventory and 510 purchases, with the Craftable export attached. Use when asked to fill, balance, or approve the Bowery Inventory entries in R365, to pull the Craftable Inventory by GL report, or to correct past Inventory entries against Craftable or the balance sheet, or when the Thursday scheduled run starts it.
 ---
 
 # Weekly inventory counts into the Bowery journal entries
@@ -86,6 +86,31 @@ playwright-cli list    # confirms no session is left open
 ```
 
 This ends the run, and a correction afterward logs in to both sites again. Close after a correction the same way.
+
+## Unattended run
+
+The **Bowery Inventory - Thursday** task runs `scripts/inventory-run.ps1` every 15 minutes from 6:00 AM to noon on Thursdays (`scripts/register-task.ps1` sets it up, only while signed in). Its trigger is the completed Purchase Transfers week: it posts nothing until `GL_Reallocation_Tracker <M.D.YY>.xlsx` for last Sunday sits in `Weekly Purchase Transfers\Completed`. `purchase-trfs-run.ps1` also starts the task the moment it files a week on a Thursday. When the tracker is still not filed at noon, a Teams card says the entries were not posted.
+
+The wrapper works in `.scratch/bowery-inventory/we-<yyyyMMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, week ending, and today, and writes `done.txt` so each week runs once. `-Force` reruns and skips the trigger; `-WeekEnding <yyyy-MM-dd>` names another week.
+
+No human answers during the run, so:
+
+- Never ask. Use session `invu`, and run every command as `cd <work directory> && ...`.
+- A `build-lines.js` `STOP:`, an Unassigned amount included, fails the run before any duplicate: `status` `failed`, the reason in `note`.
+- A store with an entry already dated the week ending posts nothing; report it with that entry's status and total, and name it in `warnings` unless it is Approved at the `lines.json` total.
+- Post each store with `post-store.sh` and approve it only on `MATCH`. A store that fails after duplicate leaves an `NJ000xxxxx` or unapproved entry behind: name it in `warnings` and leave it unapproved.
+- List each GL change of 1,000.00 or more in `large` as `<store> <GL> <+/-amount>`. These still approve; the card names them.
+
+Close `invu` (Step 5), then write `result.json` in the work directory. The wrapper posts it to the Inventory Teams channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/4/2026", "status": "approved",
+  "stores": [{ "store": "Cookshop", "total": 2299.67, "status": "approved", "transactionId": "...", "attached": true,
+               "changes": { "Liquor": 1369.20, "Wine": 86.75, "Beer": -251.96, "N/A": 591.76 } }],
+  "large": ["Cookshop Liquor +1,369.20"], "warnings": [], "note": "" }
+```
+
+`status` is `approved` when all five stores are Approved at their totals, otherwise `partial` or `failed`. `changes` are the 190 line amounts, positive when the count rose. The webhook lives in `~/.claude/bowery-inventory.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}, "mentionWhen": "always"}`. With `always`, Brandy is tagged on every card, as the confirmation.
 
 ## Correcting a past entry
 

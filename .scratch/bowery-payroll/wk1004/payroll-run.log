@@ -1,0 +1,32 @@
+﻿2026-10-08T10:30:02 starting claude (watch), 9 files: 10.04.26 Payroll GL.xlsx; 10.4 Cookshop Hourly Net Pay Report.pdf; 10.4 Rosie's Hourly Net Pay Report.pdf; 10.4 Rosie's Salary Net Pay Report.pdf; 10.4 Shuka Hourly Net Pay Report.pdf; 10.4 Shuka Salary Net Pay Report.pdf; 10.4 Shukette Hourly Net Pay Report.pdf; 10.4 Vic's Hourly Net Pay Report.pdf; 10.4 Vic's Salary Net Pay Report.pdf
+2026-10-08T10:42:25 claude exited -1
+2026-10-08T10:58:35 starting claude (watch), 9 files: 10.04.26 Payroll GL.xlsx; 10.4 Cookshop Hourly Net Pay Report.pdf; 10.4 Rosie's Hourly Net Pay Report.pdf; 10.4 Rosie's Salary Net Pay Report.pdf; 10.4 Shuka Hourly Net Pay Report.pdf; 10.4 Shuka Salary Net Pay Report.pdf; 10.4 Shukette Hourly Net Pay Report.pdf; 10.4 Vic's Hourly Net Pay Report.pdf; 10.4 Vic's Salary Net Pay Report.pdf
+Payroll for the week ending 10/4/2026 is posted. All six entries are approved, each has its files attached, and the week is filed. The total is 440,702.99.
+
+An earlier run at 10:30 imported the six entries and then exited with an error. So this run imported nothing; it checked the posted entries and finished the remaining steps. Exactly six Payroll entries exist for 10/4, so nothing was posted twice.
+
+| Location | Lines | Checks | Total |
+|---|---|---|---|
+| Shuka | 64 | 34 | 107,977.06 |
+| Vic's | 43 | 18 | 38,566.84 |
+| Rosie's | 59 | 32 | 51,945.78 |
+| Bowery Group | 16 | 0 | 34,107.67 |
+| Cookshop | 56 | 26 | 113,969.53 |
+| Shukette | 65 | 36 | 94,136.11 |
+
+- **Checked:** I re-read all six entries from R365 and they match the build to the cent, line counts included. The report footers say 10/04/2026, which matches the week.
+- **Mapping on 9/27:** rebuilding last week reproduced the approved 9/27 entries. The only differences were the net payroll lines that were split in two by hand after approval, and Cookshop check 1, which was moved to 110-00 at your direction.
+- **Attached:** each entry has the import CSV plus that location's own Net Pay Reports. Bowery Group has the CSV only, since it had no report this week.
+- **Approved:** there's no script for the bulk approve, so I approved one entry at a time with `approve.sh`. A second read of the grid shows all six Approved at the planned totals.
+- **Filed:** everything moved to `Completed\WE 10.04.26` with the import CSV, and `WE 10.11.26` is created. The Payroll folder is now empty apart from `Completed`.
+- **Manual checks to look at:** these single-digit checks were keyed in Paycor and posted as built:
+  - Shuka check 1: 346.35
+  - Vic's check 1: 1,391.46
+  - Cookshop check 1: 592.59
+  - Shukette check 1: 550.57
+
+  Last week you had Cookshop's check 1 moved to 110-00, so this week's may need the same.
+- **Fix, not yet committed:** the first filing attempt failed because `manifest.txt` starts with a hidden UTF-8 byte order mark, which `payroll-run.ps1` writes. That broke the path to the GL workbook. I changed `scripts/file-week.sh` to strip the mark, and the rerun filed everything.
+
+I closed `bpu`, wrote `result.json` with the four manual checks as warnings for the Teams card, and updated the progress notes.
+2026-10-08T11:23:45 claude exited 0

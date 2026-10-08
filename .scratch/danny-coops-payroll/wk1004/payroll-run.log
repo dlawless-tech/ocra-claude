@@ -1,0 +1,35 @@
+﻿2026-10-07T17:17:13 starting claude (watch) on C:\Users\trici\OCRA\Danny and Coops - General\Payroll\payroll-journal_2026-10-07.csv
+The run for the week ending 10/4/2026 failed before anything was posted to R365, so nothing in R365 needs cleanup.
+
+**Why it failed:** the plan builder (`build-plan.js`) stopped with `payroll journal has no Bonus Amt column`. The 10/7 export has no Bonus column at all, probably because nobody got a bonus this week. The builder expects that column to be there and stops when it isn't.
+
+**State:**
+- I never logged in or opened a browser session, so no copied entry was created.
+- `payroll-journal_2026-10-07.csv` is still in the Payroll folder and was not moved to Completed.
+- `result.json` in the work directory has `status: failed` and the reason. The wrapper will post it to Teams.
+
+**Fix:** have the builder read a missing `Bonus Amt` column as 0.00. The Deductions column is also missing from this export, so it should handle that the same way. I didn't change the builder because the unattended rules say to fail on any builder stop. Once it's fixed, rerun with `payroll-run.ps1 -Force`. The scheduled run won't pick the week up again on its own, because the wrapper writes `done.txt` to mark it as run.
+2026-10-07T17:17:44 claude exited 0
+2026-10-07T17:18:28 starting claude (watch) on C:\Users\trici\OCRA\Danny and Coops - General\Payroll\payroll-journal_2026-10-07.csv
+The 10/4/2026 week is posted, approved, attached and filed. All Transactions shows it Approved at 20,044.60.
+
+| Account | Dr | Cr | Comment |
+|---|---|---|---|
+| 60050 Hourly Wages | 12,227.56 | | wages, overtime, non-hourly wages |
+| 67100 Payroll Taxes | 1,497.48 | | total taxes - NY PD Fam Leave & SDI (76.28 EE PFL + SDI taken out) |
+| 25100 Employee Tips Payable | 3,627.25 | | tips |
+| 10001 Operating 1563 | | 18,841.56 | direct deposit |
+| 60100 Manager Salaries | 2,692.31 | | salaries |
+| 67600 Bonus | 0.00 | | bonus (no bonuses this week) |
+| 90760 Payroll Processing Fees | 0.00 | | |
+| 10001 Operating 1563 | | 1,203.04 | Marco Molina (paper check) |
+| **Total** | **20,044.60** | **20,044.60** | |
+
+- **Entry:** NJ00001629, copied from the 9/27 entry. Before copying, I checked the 9/27 entry against its own file and it matched. The new entry matched the plan after saving, and again after the file was attached.
+- **Direct deposit:** the 18,841.56 is calculated from the file, not taken from a bank figure. Tie it to the 1563 payroll withdrawal when it clears.
+- **Files:** `payroll-journal_2026-10-07.csv` is attached to the entry and the original is moved to `Payroll\Completed`. `result.json` is written with status `approved` and no warnings, and the wrapper sends it to Teams.
+- **Earlier failed run:** the 5:17 PM run stopped because this week's file has no Bonus column. The builder now accepts the file as is, so this run went through. That earlier run never logged in to R365, so it left nothing to clean up.
+- **New Duplicate prompt:** clicking Duplicate now asks "Duplicate transaction and attachments?". I chose "No, transaction only" because this week's own file gets attached later. I added that step to `SKILL.md`, which isn't committed yet, along with the other uncommitted changes to this skill.
+
+Next week ending is 10/11.
+2026-10-07T17:28:09 claude exited 0

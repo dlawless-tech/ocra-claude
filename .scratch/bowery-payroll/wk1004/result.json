@@ -1,0 +1,68 @@
+{
+  "weekEnding": "10/4/2026",
+  "status": "approved",
+  "total": 440702.99,
+  "folder": "WE 10.04.26",
+  "filed": true,
+  "nextFolder": "WE 10.11.26",
+  "entries": [
+    {
+      "location": "Shuka",
+      "status": "approved",
+      "amount": 107977.06,
+      "lines": 64,
+      "checks": 34,
+      "transactionId": "4f17d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    },
+    {
+      "location": "Vic's",
+      "status": "approved",
+      "amount": 38566.84,
+      "lines": 43,
+      "checks": 18,
+      "transactionId": "5017d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    },
+    {
+      "location": "Rosie's",
+      "status": "approved",
+      "amount": 51945.78,
+      "lines": 59,
+      "checks": 32,
+      "transactionId": "5317d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    },
+    {
+      "location": "Bowery Group",
+      "status": "approved",
+      "amount": 34107.67,
+      "lines": 16,
+      "checks": 0,
+      "transactionId": "5417d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    },
+    {
+      "location": "Cookshop",
+      "status": "approved",
+      "amount": 113969.53,
+      "lines": 56,
+      "checks": 26,
+      "transactionId": "5217d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    },
+    {
+      "location": "Shukette",
+      "status": "approved",
+      "amount": 94136.11,
+      "lines": 65,
+      "checks": 36,
+      "transactionId": "5117d8af-36c3-f111-aaac-000d3a41fbd2",
+      "attached": true
+    }
+  ],
+  "warnings": [
+    "Manual checks keyed in Paycor, posted as built: Shuka check 1 (346.35), Vic's check 1 (1391.46), Cookshop check 1 (592.59), Shukette check 1 (550.57)"
+  ],
+  "note": "An earlier run imported the six entries at 10:38, then exited. This run imported nothing; it verified all six against the plan to the cent, proved the mapping on 9/27, then attached, approved and filed. The manifest BOM broke the first filing pass; file-week.sh now strips it."
+}

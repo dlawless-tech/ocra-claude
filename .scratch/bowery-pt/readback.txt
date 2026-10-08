@@ -1,0 +1,6 @@
+### Result
+"{\"date\":\"10/4/2026\",\"number\":\"Purchase Transfers\",\"lines\":[{\"a\":\"510-01 - Purchases-Beverage Liquor\",\"dr\":0,\"cr\":219,\"c\":\"\",\"loc\":\"600 - Shukette\"},{\"a\":\"510-04 - Purchases-Beverage N/A\",\"dr\":219,\"cr\":0,\"c\":\"\",\"loc\":\"600 - Shukette\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```

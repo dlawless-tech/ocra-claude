@@ -1,0 +1,2 @@
+() => { const g=jQuery('#APInvoiceDetailsGrid').data('kendoGrid'); if(!g) return 'nogrid'; const t=document.body.innerText; const v=n=>(document.querySelector('[name='+n+']')||{}).value;
+ return JSON.stringify({num:v('apInvoiceNumber')||v('number'), dt:v('apInvoiceDate')||v('date'), st:(t.match(/\b(Unapproved|Approved)\b/)||[])[0], paid:/\bPaid\b/.test(t), rows:g.dataSource.data().toJSON().map(m=>[String(m.glAccount).slice(0,4),(+m.total||+m.amount||0).toFixed(2),m.location].join(':'))}); }
