@@ -5,7 +5,7 @@ description: Post the NORMS Foodja Fees journal entries into Restaurant365, one 
 
 # Foodja statements into the NORMS Foodja Fees entries
 
-Three steps: **read** the period's Foodja statements and the 1119 GL detail, **plan** each store's lines with `plan.js`, then **post** one entry per store. Only stores with a statement for the period get an entry.
+Four steps: **read** the period's Foodja statements and the 1119 GL detail, **plan** each store's lines with `plan.js`, **post** one entry per store, then **report** to Regina in Teams. Only stores with a statement for the period get an entry.
 
 Run from one directory for the whole run, `.scratch/norms-foodja-fees/p<MMdd of period end>`. `playwright-cli` binds sessions to the working directory, and a `cd` mid run strands them. `<skill>` below is this folder, written absolute.
 
@@ -78,6 +78,16 @@ One store per call: Duplicate the source, answering R365's Duplicate Confirmatio
 ## Verify
 
 Re-run the GL report through the payment Friday and check each posted store's period balance equals its Amount Due, and once the deposit lands, that it clears to zero. Report the store table: amount, Amount Due, difference, and every warning.
+
+## Report
+
+Every run, attended or not, ends with the Teams card to Regina. Write `result.json` in the work directory (shape under **Unattended run**): `fee` is the plan's `foodja fees` line, `transactionId` the id from `post-entry.sh`'s `DONE` line, and every `plan.js` warning goes in that store's `warnings`. Run `notify-teams.ps1 -ResultFile result.json -DryRun`, check the fee total equals the statements' Restaurant Total less Amount Due, then post it with this title:
+
+```powershell
+<skill>/scripts/notify-teams.ps1 -Title "NORMS Foodja Fees, period <start> - <end>" -ResultFile result.json
+```
+
+Then write `done.txt` in the work directory so the Friday task skips the period. The unattended wrapper does both itself.
 
 ## Close
 
