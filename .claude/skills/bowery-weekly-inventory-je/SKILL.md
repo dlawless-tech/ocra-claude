@@ -78,12 +78,14 @@ Report each store's four changes, entry total, status, and attachment.
 
 ## Step 5: close the windows
 
-Once the week is approved and reported, close every browser window from the run's working directory:
+Once `entries.sh` shows the week approved and it is reported, close the run's browser from its working directory. Skipping this leaves the R365 and Craftable windows open after the run:
 
 ```bash
 playwright-cli -s=inv close
-playwright-cli list    # confirms no session is left open
+playwright-cli list    # confirms inv is gone
 ```
+
+`list` also shows sessions other Claude runs are using, such as `ss` for Select sales. Leave those open and never use `close-all` or `kill-all`.
 
 This ends the run, and a correction afterward logs in to both sites again. Close after a correction the same way.
 
