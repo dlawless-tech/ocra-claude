@@ -52,7 +52,13 @@ R365 writes Rosie's and Vic's with a curly apostrophe. Match locations on an ASC
 
 **Payouts**, at `merchant-portal.doordash.com/merchant/financials`. It opens on **Last 30 days** across **All businesses and stores**, which already covers a single period's four payouts.
 
-The list carries every figure the run needs, one row per store: **Payout date**, **Payout ID**, **Status**, **Store**, **Sales**, **Commission & fees**, **Marketing spend**, **Amendments**, **Net payout**. One snapshot of the table reads all four stores, so the details are worth opening only to confirm the covered window.
+The list shows only **Payout date**, **Payout ID**, **Net payout** and **Store**, one row per store, so open each payout's detail for the rest. Its tiles read **Sales**, **Commission & fees**, **Marketing spend** and **Amendments** under the **Net total**, and `scripts/backup/capture-payout.sh` lands on that detail, so read the tiles right after each capture:
+
+```bash
+playwright-cli eval "() => (document.body.innerText.replace(/\n/g,' | ').match(/Net total \| .*?Transactions/)||['?'])[0]"
+```
+
+A first login lands on a portal tour and a video opt-in popover, which swallow clicks on the nav. Click the tour's **Skip** and the popover's **Close**, then the **Payouts** nav button.
 
 Commission & fees and Marketing spend show as negatives and enter R365 as positive debits.
 
@@ -118,7 +124,7 @@ Accounting > Transactions > All transactions, reached by clicking **Accounting**
 
 Each entry arrives as a template: five lines carrying accounts, comments, and location, every amount at 0.00. **Read the comments off the first entry you open and use them verbatim** for the rest of the run, since the posting script keys every line by its comment text.
 
-A template can arrive already **Approved** at 0.00, as the 9/27 week did. An Approved entry is read-only: the grid cells open no editor. `post-entry.sh` unapproves an Approved entry whose lines are all 0.00, prints `unapproved the empty template`, and posts it as usual. An Approved entry carrying any amount is someone's finished work: the script skips it, and changing one is the human's call.
+A template can arrive already **Approved** at 0.00, as the 9/27 and 10/4 weeks did. An Approved entry is read-only: the grid cells open no editor. `post-entry.sh` unapproves an Approved entry whose lines are all 0.00, prints `unapproved the empty template`, reloads (the grid stays out of the snapshot until it does), and posts it as usual. An Approved entry carrying any amount is someone's finished work: the script skips it, and changing one is the human's call.
 
 Entries from before September 2026 are a two line reclass between `104-05` and `104-00` and reproduce none of the arithmetic above, so an older week is worth checking rather than trusting as a model. Verify against the A/R balance instead.
 
@@ -162,3 +168,28 @@ Every entry carries one PDF named `DoorDash <store> <MM.DD> backup.pdf`, where s
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved**, the amount matches the planned total for that store, and the `Attachment` field shows the backup PDF. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, payout ids, amounts, totals, and backup attached, and report any store that failed just as plainly.
+
+## Unattended run
+
+`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 6:00 AM, with a retry at 10:00 AM (`scripts/register-task.ps1` sets up both). It takes the Monday to Sunday period that ended four days earlier, whose payouts are dated that Thursday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the entry date, the payout date and the stores to run. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+Thursday payouts can be missing from the list at 6:00. When the 6:00 attempt reports a store `no-payout`, or writes no result at all, the wrapper keeps its result as `result-first.json`, lists the waiting stores in `pending.json`, posts nothing, and the 10:00 attempt runs only those stores. It then merges both attempts into `result.json` and posts one card, tagging the mention, whatever the outcome. An attempt that starts at 10:00 or later posts its own result with no further retry.
+
+No human answers during the run, so:
+
+- Work only the stores the prompt names under `Stores`, and report only those in `result.json`.
+- Never ask. `cd` into the work directory once, before opening any session, and run every command from there. Use session names `ddu` (DoorDash), `bdu` (journal entries) and `bdbu` (GL report), so an interactive run's sessions are left alone. Pass `DDS=ddu` to `capture-payout.sh`.
+- A DoorDash two factor challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
+- A store with no payout dated the payout date is `no-payout`, posted nothing, with its GL debits in `warnings` if it has any. A store with neither payout nor debits is left out.
+- A covered window that disagrees with the store's GL days, a missing prior-period Bank Deposit, a payout that does not close to its net, or a backup that does not tie or did not attach goes in `warnings`. Post the store unless its figures fail **The arithmetic**.
+- Per store, an Approved template at 0.00 is unapproved and filled, and an entry that already carries amounts is `skipped`. Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- Never correct an approved prior entry; report it.
+
+Finish with **Verifying the run**, close the sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "period": "9/28/2026 - 10/4/2026", "entryDate": "10/4/2026", "note": "",
+  "stores": [ { "store": "Cookshop", "status": "approved", "amount": 960.33, "payout": "617964873", "transactionId": "...", "backup": true, "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, `no-payout`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/bowery-doordash.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure, an unposted store, or a warning. `notify-teams.ps1 -DryRun` prints the card without posting.

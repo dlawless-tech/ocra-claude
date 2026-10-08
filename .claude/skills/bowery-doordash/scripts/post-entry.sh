@@ -61,6 +61,9 @@ if [ "$ST" = "Approved" ]; then
   ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
   [ "$ST" = "Unapproved" ] || die "could not unapprove the empty template ($ST)"
   echo "$LOC unapproved the empty template"
+  # grid stays hidden after unapprove until reload
+  playwright-cli -s=$S reload >/dev/null 2>&1
+  sleep 14
 fi
 
 # one real click wakes the grid editor; scripted clicks alone are ignored.
