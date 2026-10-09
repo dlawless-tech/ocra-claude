@@ -8,13 +8,13 @@ description: Bring a Bowery store's Sage AP Aging beginning balance into Bowery 
 Sage's final AP Aging lists each store's open items at go-live. R365 holds the same balance as a lump: the AP Aging shows an `UNASSIGNED VENDOR` line, "Difference of AP account and open AP transactions at go-live". The Chase card items behind that lump go in as Bank Withdrawals (charges) and Bank Deposits (credits) on the store's card account, marked `From Sage`. A journal entry numbered `AP TO <last4> CC` then moves the imported net from AP to the card account.
 
 ```
-C:\Users\trici\OCRA\TML's Files - General\Downloads\
+C:\Users\trici\OCRA\TML's Files - General\Downloads\Bowery Bank Recs\
   AP Aging_09.04.26.xlsx                               Sage, one tab per store
   <Store> Bank Withdrawal - Beg Bal <label>.csv        written by this skill
   <Store> Bank Deposit - Beg Bal <label>.csv           written by this skill
 ```
 
-`scripts/stores.json` maps each Sage tab to its legal entity, card account and import Location. Only Cookshop has run (10/4/2026). For the other stores, check the Location spelling against the importer's lookup on the first run, since `Vic’s` and `Rosie’s` carry a curly apostrophe in R365.
+`scripts/stores.json` maps each Sage tab to its legal entity, card account and import Location. Cookshop ran 10/4/2026 and Shuka's Chase block 10/8/2026. For the other stores, check the Location spelling against the importer's lookup on the first run, since `Vic’s` and `Rosie’s` carry a curly apostrophe in R365.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for the login. Work in one directory for the whole run, since `playwright-cli` binds sessions to it:
 

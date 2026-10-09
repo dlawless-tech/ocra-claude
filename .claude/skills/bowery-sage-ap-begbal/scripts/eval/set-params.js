@@ -1,6 +1,6 @@
 // placeholders: __Q__ first autocomplete value prefix, __T__ JSON [[label, button], ...]
 async () => {
-  const w = window.frames[1], d = w.document, A = w.angular;
+  const w = [...Array(window.frames.length).keys()].map(i => window.frames[i]).find(f => { try { return !!f.document.querySelector('md-dialog') } catch (e) { return false } }), d = w.document, A = w.angular;
   const ac = d.querySelector('md-dialog md-autocomplete');
   const sc = A.element(ac).isolateScope(), o = sc.$parent.r365options;
   const it = (await o.querySearch('')).concat(await o.querySearch('__Q__')).find(i => i.display.startsWith('__Q__'));
