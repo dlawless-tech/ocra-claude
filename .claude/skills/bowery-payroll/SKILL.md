@@ -57,6 +57,8 @@ One file, `<date> Bowery PAYROLL IMPORT FILE.csv`, holding all six locations, pl
 
 The builder stops rather than emitting anything that fails a check: an entry out of balance, an entry whose total misses the GL total, live checks that exceed a run's net payroll, a parse missing the Net Pay Report's own stated count and total, or a client id with no location mapped.
 
+A live check numbered with a single digit, like check `1`, is a manual check already paid outside the payroll run, by hand or by Zelle. The builder posts it to **110-02 Manual Checks** with the comment `MC <check #>`, never to the net payroll cash account.
+
 It also stops when `--checks` is absent. The period posts **with** its live checks broken out, one line per check number, and a missing flag would otherwise bury them in a single line that still balances. `--no-checks` builds without them and has to be asked for.
 
 Confirm each location's total against the GL's `*TOTAL Client ID` line before posting. The six totals summed are the period's grand total. The combined GL carries no total lines, so the builder's own GL total check is the tie.
@@ -70,12 +72,13 @@ bash scripts/dump-lines.sh r365p <TransactionId> "r365-Shuka.json"
 node scripts/compare-plan.js prior/plan.json "Shuka=r365-Shuka.json" ...
 ```
 
-`compare-plan.js` matches on account, side, amount, line location and comment. Four kinds of mismatch are expected and none is an error:
+`compare-plan.js` matches on account, side, amount, line location and comment. Five kinds of mismatch are expected and none is an error:
 
 - **Comment wording on the net payroll cash line.** Four of the 9/13 locations carry `NET PAYROLL` and two carry `Direct Deposit` or `Direct Deposits`, along with casing drift like `401K PAYABLE` and `WAGES: FOH-MANAGEMENT`. The builder writes the GL's own name.
 - **Leftover zero-amount lines** on an entry built by duplicating a prior week rather than imported.
 - **Net payroll taxes split in two** on those same duplicated entries: the 9/13 Cookshop and Shukette entries carry the hourly and salary taxes as two lines that sum to the builder's one.
 - **Net payroll split in two by hand** after approval: the 9/27 entries carry each location's `NET PAYROLL` cash line as two lines that sum to the builder's one. Leave the builder's single line as is.
+- **Manual check lines from before the 110-02 rule.** Through 10/4 a single-digit check posted to the net payroll cash account, and one fixed by hand carries its own comment, like Vic's 10/4 check 1 as `zelle 10/2`.
 Anything else is a changed Paycor file, so stop and read it.
 
 The prior period's files sit in `Payroll\Completed\WE <MM.DD.YY>\`. A prior period in the other GL shape still proves the mapping, but its line count differs, since the combined GL already sums hourly and salary rows.
@@ -159,8 +162,8 @@ No human answers during the run, so:
 - Never ask. Use session `bpu`, log it in with `../bowery-doordash/scripts/r365-login.sh bpu`, and run every command from the work directory.
 - Build from the copies and attach the copies. Take the date from the reports' footer; a footer that disagrees with the prompt's week ending fails the run.
 - Six entries already dated the period ending mean the week was posted by hand: import nothing, and still attach, approve and file what is missing.
-- A builder stop, or a prior-period comparison with any mismatch outside the expected four, fails the run before import: write `result.json` with `status` `failed` and the reason in `note`, and leave the files in place.
-- A live check numbered with a single digit, like Cookshop's or Shukette's check `1`, is a manual check someone keyed in Paycor. Post it as built and name it in `warnings`.
+- A builder stop, or a prior-period comparison with any mismatch outside the expected five, fails the run before import: write `result.json` with `status` `failed` and the reason in `note`, and leave the files in place.
+- A live check numbered with a single digit is a manual check. The builder already posts it to 110-02 as `MC <check #>`; post it as built and name it in `warnings`.
 - After import, approve only when every location passes **Verify** and carries its attachments. Otherwise leave all six Unapproved, set `status` to `posted-unapproved`, and name each failing location in `warnings`.
 - File only once all six read Approved, with `file-week.sh` and the prompt's manifest.
 

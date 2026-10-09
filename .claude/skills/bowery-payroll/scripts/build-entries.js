@@ -18,6 +18,7 @@ const arg = n => { const i = process.argv.indexOf('--' + n); return i < 0 ? null
 const HOURLY = arg('hourly'), SALARY = arg('salary'), CHECKS = arg('checks'),
       DATE = arg('date'), OUT = arg('out') || '.';
 const NOCHECKS = process.argv.indexOf('--no-checks') >= 0;
+const MANUAL_CHECKS = '110-02';
 if (!HOURLY || !DATE) { console.error('usage: build-entries.js --hourly <csv> [--salary <csv>] --checks <dir> --date <M/D/YYYY> --out <dir>'); process.exit(1); }
 // silence here would post the period with its live checks buried in one line
 if (!CHECKS && !NOCHECKS) { console.error('STOP: pass --checks <dir>, or --no-checks to build without the check breakout'); process.exit(1); }
@@ -170,7 +171,10 @@ for (const id of Object.keys(LOC)) {
       lines.push({ account: x.account, debit: x.debit, credit: x.credit, comment: x.name });
     }
     if (net.length && dd > 0) lines.splice(netIndex, 0, { account: cash, debit: 0, credit: dd, comment: 'NET PAYROLL' });
-    for (const c of mine) checkLines.push({ account: cash, debit: 0, credit: c.amount, comment: c.num });
+    // single-digit check # = manual check already paid outside the run
+    for (const c of mine) checkLines.push(/^\d$/.test(c.num)
+      ? { account: MANUAL_CHECKS, debit: 0, credit: c.amount, comment: 'MC ' + c.num }
+      : { account: cash, debit: 0, credit: c.amount, comment: c.num });
     return { checks: mine.length, agency: theirs.length, dd: dd / 100, netTotal: netTotal / 100, checkTotal: checkTotal / 100 };
   };
 
