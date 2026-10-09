@@ -14,7 +14,7 @@ const norm = s => (s || '').replace(/''/g, "'").replace(/\s+/g, ' ').trim().toUp
 const aging = report(agingF), gl = report(glF);
 // each GL transaction lists twice (Dr and Cr on the card account); one entry per transaction
 const glTx = {};
-for (const r of gl) { const k = [r.TrxType, r.TrxNumber, r.TrxDate, r.TrxCompany, r.Comment].join('|'); glTx[k] = glTx[k] || { type: r.TrxType, doc: norm(r.TrxType === 'Bank Deposit' ? r.Comment : r.TrxCompany), amt: Math.max(n(r.Debit), n(r.Credit)) }; }
+for (const r of gl) { const k = [r.TrxType, r.TrxNumber, r.TrxDate, r.TrxCompany, r.Comment].join('|'); glTx[k] = glTx[k] || { type: r.TrxType, doc: norm(r.TrxType === 'Bank Deposit' ? r.Comment : r.TrxCompany).replace(/^FROM SAGE - /, ''), amt: Math.max(n(r.Debit), n(r.Credit)) }; }
 const pool = Object.values(glTx);
 const take = (type, doc, amt) => { const i = pool.findIndex(t => t.type === type && t.doc === doc && t.amt === amt); return i >= 0 ? pool.splice(i, 1)[0] : null; };
 const agingDocs = aging.filter(r => r.Number).map(r => ({ doc: norm(r.Number), amt: n(r.AmountCurrent) + n(r.Amount30) + n(r.Amount60) + n(r.Amount90) + n(r.Amount91), vendor: r.VendorName }));
@@ -36,7 +36,7 @@ const write = (kind, head, rows) => { if (!rows.length) return; const f = path.j
 write('Withdrawal', 'Number,Amount,Date,Checking Account,Check Memo,Paid To,Location',
   out.withdrawals.map(i => ['CC', i.amount.toFixed(2), i.date, store.account, 'From Sage', csvq(i.doc), store.location].join(',')));
 write('Deposit', 'Checking Account,Number,Date,Check Memo,Amount,Location',
-  out.deposits.map(i => [store.account, 'CC', i.date, csvq(i.doc), (-i.amount).toFixed(2), store.location].join(',')));
+  out.deposits.map(i => [store.account, 'CC', i.date, csvq('From Sage - ' + i.doc), (-i.amount).toFixed(2), store.location].join(',')));
 console.log(`Sage ${sage.length} items ${sum(sage)}`);
 console.log(`  card, already on ${store.card}: ${out.onCard.length} ${sum(out.onCard)}`);
 console.log(`  card, to withdraw: ${out.withdrawals.length} ${sum(out.withdrawals)}`);

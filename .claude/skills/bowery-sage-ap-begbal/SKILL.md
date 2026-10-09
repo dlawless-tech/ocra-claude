@@ -14,7 +14,7 @@ C:\Users\trici\OCRA\TML's Files - General\Downloads\Bowery Bank Recs\
   <Store> Bank Deposit - Beg Bal <label>.csv           written by this skill
 ```
 
-`scripts/stores.json` maps each Sage tab to its legal entity, card account and import Location. Cookshop ran 10/4/2026 and Shuka's Chase block 10/8/2026. For the other stores, check the Location spelling against the importer's lookup on the first run, since `Vic’s` and `Rosie’s` carry a curly apostrophe in R365.
+`scripts/stores.json` maps each Sage tab to its legal entity, card account and import Location. Cookshop ran 10/4/2026, then the Chase blocks of Shuka and Rosie's 10/8/2026 and Shukette and Vics 10/9/2026; the curly-apostrophe Locations imported as written. Every row carries `From Sage`: withdrawals in Check Memo, deposits as `From Sage - <doc>` since their template has no Paid To. For the other stores, check the Location spelling against the importer's lookup on the first run, since `Vic’s` and `Rosie’s` carry a curly apostrophe in R365.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for the login. Work in one directory for the whole run, since `playwright-cli` binds sessions to it:
 
