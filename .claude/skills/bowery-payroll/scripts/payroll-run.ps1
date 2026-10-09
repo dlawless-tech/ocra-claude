@@ -78,3 +78,7 @@ if (-not (Test-Path $result)) {
   exit 1
 }
 & $Notify -Title $title -ResultFile $result
+# period-end tips recon; it exits on its own unless this week closed a period
+if ((Get-Content -Raw -Encoding utf8 $result | ConvertFrom-Json).filed) {
+  try { Start-ScheduledTask -TaskName 'Bowery PE Tips Recon' } catch { Log "tips recon task not started: $_" }
+}
