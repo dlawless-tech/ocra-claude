@@ -1,6 +1,6 @@
 ---
 name: bowery-tripleseat-pay
-description: Split Bowery Group's Tripleseat Pay payouts in Restaurant365, one Bank Deposit per payout for Rosie's, Vic's and Cookshop, into event deposit gross, card fees and refunds, with the payout page attached as a PDF. Use when asked to run the weekly Bowery Tripleseat Pay deposits, to correct a Bowery Paysafe deposit, or to check one against its Tripleseat payout.
+description: Split Bowery Group's Tripleseat Pay payouts in Restaurant365, one Bank Deposit per payout for Rosie's, Vic's and Cookshop, into event deposit gross, card fees and refunds, with the payout page attached as a PDF. Use when asked to run the weekly Bowery Tripleseat Pay deposits, to correct a Bowery Paysafe deposit, or to check one against its Tripleseat payout, or when the Sunday bank downloads run starts it.
 ---
 
 # Tripleseat Pay payouts into Bowery Bank Deposits
@@ -50,6 +50,29 @@ Report a table per store: deposit, date, 253-00 credit, 632-00 debit, 401-27 deb
 playwright-cli -s=bts close
 playwright-cli -s=tsp close
 ```
+
+## Unattended run
+
+The **Bowery Tripleseat Pay - After Bank Downloads** task runs `scripts/tripleseat-run.ps1` (`scripts/register-task.ps1` sets it up, only while signed in). It has no schedule: the Bowery bank downloads Sunday run starts it after posting its own card. Its trigger is the completed bank download: it posts nothing until `.scratch/bowery-bank-downloads/wk<MMDD>/retrieve.log` for last Sunday ends on `END` with every retrieve at `"error":null,"result":1`. A failed download leaves the week alone; once the download is rerun and complete, start the task by hand.
+
+The wrapper works in `.scratch/bowery-tripleseat/wk<MMDD>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, week ending, and today, and writes `done.txt` so each week runs once. `-Force` reruns and skips the trigger; `-WeekEnding <yyyy-MM-dd>` names another week.
+
+No human answers during the run, so:
+
+- Never ask. Use sessions `btsu` for R365 and `tspu` for Tripleseat Pay, and run every command as `cd <work directory> && ...`.
+- A deposit with no payout posts nothing; name it in `warnings`.
+- A payout with no deposit goes in `pending`. One paid out in a month that has closed or is closing also goes in `warnings` as `month end: post ahead by hand`. Never post ahead.
+- A `FAIL` from `post-payout.sh` is retried once after logging in again; a second `FAIL` goes in `warnings` with what it says was saved.
+
+Close both sessions (Step 4), then write `result.json` in the work directory. The wrapper posts it to the Bank Activity Teams channel through `scripts/notify-teams.ps1`, with Brandy Sanders tagged on every card, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/11/2026", "status": "complete",
+  "deposits": [{ "store": "Vic's", "number": "BD000401", "date": "10/6/2026", "gross": 2000.00, "fees": 58.30, "refunds": 0.00, "net": 1941.70, "status": "matched" }],
+  "pending": ["Rosie's po_xxx 10/9/2026 194.45"], "warnings": [], "note": "" }
+```
+
+Each deposit's `status` is `matched` (split this run), `already` (`lines already right`) or `failed`. `status` is `complete` when every deposit is `matched` or `already`, `partial` when some failed, and `failed` when the run could not log in or pair. A week with no Paysafe deposits is `complete` with an empty `deposits`. The webhook lives in `~/.claude/bowery-tripleseat.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}}`, the same channel as the bank downloads card.
 
 ## Month end: post a payout ahead
 
