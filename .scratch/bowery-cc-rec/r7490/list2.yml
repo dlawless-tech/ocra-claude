@@ -1,0 +1,891 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://bowerygroup.restaurant365.com/react/accounting/legacy/BankReconciliations
+- Page Title: Bank Reconciliations | Banking
+- Console: 74 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [active]:
+  - generic:
+    - banner [ref=f8e1]:
+      - generic [ref=f8e3]:
+        - button [ref=f8e4] [cursor=pointer]
+        - button [ref=f8e7] [cursor=pointer]
+        - button [ref=f8e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f8e23]:
+      - generic [ref=f8e24]:
+        - heading "Bank Reconciliations" [level=5] [ref=f8e26]
+        - button [ref=f8e28] [cursor=pointer]
+      - iframe [ref=f8e35]:
+        - generic [ref=f9e2]:
+          - generic [ref=f9e4]:
+            - generic [ref=f9e5]: Theme Builder
+            - button [ref=f9e8] [cursor=pointer]:
+              - generic [ref=f9e9]: 
+            - generic [ref=f9e10]:
+              - generic [ref=f9e11]:
+                - heading "Ribbon" [level=4] [ref=f9e12]
+                - generic [ref=f9e13]:
+                  - generic [ref=f9e14]: BG
+                  - generic [ref=f9e15]: Font
+                  - generic [ref=f9e16]: Hover BG
+                  - generic [ref=f9e17]: Hover Font
+                - generic "Menu" [ref=f9e18]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f9e22]':
+                    - generic [ref=f9e26] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f9e28]':
+                    - generic [ref=f9e32] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f9e34]':
+                    - generic [ref=f9e38] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f9e40]':
+                    - generic [ref=f9e44] [cursor=pointer]
+                - generic "SubMenu" [ref=f9e45]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f9e49]':
+                    - generic [ref=f9e53] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f9e55]':
+                    - generic [ref=f9e59] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f9e61]':
+                    - generic [ref=f9e65] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f9e67]':
+                    - generic [ref=f9e71] [cursor=pointer]
+              - generic [ref=f9e72]:
+                - heading "Ribbon Logo" [level=4] [ref=f9e73]
+                - button "Upload Ribbon Logo" [ref=f9e78] [cursor=pointer]
+              - generic [ref=f9e79]:
+                - heading "Left Panel" [level=4] [ref=f9e80]
+                - generic [ref=f9e81]:
+                  - 'textbox "Current selected color is #ffffff" [ref=f9e84]':
+                    - generic [ref=f9e88] [cursor=pointer]
+                  - 'textbox "Current selected color is #546e7a" [ref=f9e90]':
+                    - generic [ref=f9e94] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f9e96]':
+                    - generic [ref=f9e100] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f9e102]':
+                    - generic [ref=f9e106] [cursor=pointer]
+              - generic [ref=f9e107]:
+                - heading "Components" [level=4] [ref=f9e108]
+                - generic "Normal" [ref=f9e109]:
+                  - 'textbox "Current selected color is #c3c3c3" [ref=f9e113]':
+                    - generic [ref=f9e117] [cursor=pointer]
+                  - 'textbox "Current selected color is #777777" [ref=f9e119]':
+                    - generic [ref=f9e123] [cursor=pointer]
+                  - 'textbox "Current selected color is #f5f5f5" [ref=f9e125]':
+                    - generic [ref=f9e129] [cursor=pointer]
+                  - 'textbox "Current selected color is #0d0d0d" [ref=f9e131]':
+                    - generic [ref=f9e135] [cursor=pointer]
+                - generic "Selected" [ref=f9e136]:
+                  - 'textbox "Current selected color is #5ea3cb" [ref=f9e140]':
+                    - generic [ref=f9e144] [cursor=pointer]
+                  - 'textbox "Current selected color is #ffffff" [ref=f9e146]':
+                    - generic [ref=f9e150] [cursor=pointer]
+            - generic [ref=f9e151]:
+              - generic [ref=f9e152]:
+                - generic [ref=f9e155]:
+                  - combobox "Select Theme" [ref=f9e156]: Default R365 Theme
+                  - button "select" [ref=f9e158] [cursor=pointer]
+                - generic [ref=f9e159]:
+                  - button "Set As Default" [ref=f9e160] [cursor=pointer]
+                  - button "Save" [disabled] [ref=f9e161]
+                  - button "Delete" [disabled] [ref=f9e162]
+              - generic [ref=f9e163]:
+                - textbox "Add New Theme" [ref=f9e165]
+                - button "New" [ref=f9e167] [cursor=pointer]
+          - iframe [ref=f9e175]:
+            - generic [ref=f11e3]:
+              - generic [ref=f11e5]:
+                - listbox [ref=f11e6] [cursor=pointer]:
+                  - generic [ref=f11e7]:
+                    - generic [ref=f11e8]: Bank Reconciliations - R365
+                    - generic [ref=f11e9]: select
+                - listbox [ref=f11e11] [cursor=pointer]:
+                  - generic [ref=f11e12]:
+                    - generic [ref=f11e13]: Show/Hide Columns
+                    - generic [ref=f11e14]: select
+                - button "Save View" [ref=f11e16] [cursor=pointer]
+                - button "Clear Filter" [ref=f11e17] [cursor=pointer]
+                - button "Clear Sort" [ref=f11e18] [cursor=pointer]
+                - button "Set Default" [ref=f11e19] [cursor=pointer]
+                - generic [ref=f11e20]:
+                  - button [ref=f11e21] [cursor=pointer]
+                  - button [ref=f11e22] [cursor=pointer]
+              - grid [ref=f11e25]:
+                - rowgroup [ref=f11e44]:
+                  - row [ref=f11e45]:
+                    - columnheader [ref=f11e46]:
+                      - checkbox [ref=f11e47]
+                    - columnheader [ref=f11e48]:
+                      - link [ref=f11e49] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approval Status" [ref=f11e51] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e53]:
+                      - link [ref=f11e54] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Name" [ref=f11e56] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e57]:
+                      - link [ref=f11e58] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Checking Account" [ref=f11e60] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e61]:
+                      - link [ref=f11e62] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Statement End Date" [ref=f11e64] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e66]:
+                      - link [ref=f11e67] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Beginning Balance" [ref=f11e69] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e70]:
+                      - link [ref=f11e71] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Checks And Expenses" [ref=f11e73] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e74]:
+                      - link [ref=f11e75] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Deposits And Credits" [ref=f11e77] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e78]:
+                      - link [ref=f11e79] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Cleared Balance" [ref=f11e81] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e82]:
+                      - link [ref=f11e83] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Statement End Balance" [ref=f11e85] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e86]:
+                      - link [ref=f11e87] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Difference" [ref=f11e89] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e90]:
+                      - link [ref=f11e91] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Approved By" [ref=f11e93] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e94]:
+                      - link [ref=f11e95] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Date Approved" [ref=f11e97] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e98]:
+                      - link [ref=f11e99] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created By" [ref=f11e101] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e102]:
+                      - link [ref=f11e103] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Created On" [ref=f11e105] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e106]:
+                      - link [ref=f11e107] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified By" [ref=f11e109] [cursor=pointer]:
+                        - /url: "#"
+                    - columnheader [ref=f11e110]:
+                      - link [ref=f11e111] [cursor=pointer]:
+                        - /url: "#"
+                      - link "Modified On" [ref=f11e113] [cursor=pointer]:
+                        - /url: "#"
+                  - row [ref=f11e114]:
+                    - columnheader [ref=f11e115]
+                    - columnheader [ref=f11e116]:
+                      - generic [ref=f11e118]:
+                        - textbox [ref=f11e120]
+                        - listbox [ref=f11e121] [cursor=pointer]:
+                          - generic [ref=f11e122]:
+                            - generic [ref=f11e123]: Is equal to
+                            - generic [ref=f11e124]: select
+                    - columnheader [ref=f11e126]:
+                      - generic [ref=f11e128]:
+                        - textbox [ref=f11e130]
+                        - listbox [ref=f11e131] [cursor=pointer]:
+                          - generic [ref=f11e132]:
+                            - generic [ref=f11e133]: Is equal to
+                            - generic [ref=f11e134]: select
+                    - columnheader [ref=f11e136]:
+                      - generic [ref=f11e138]:
+                        - textbox [ref=f11e140]
+                        - listbox [ref=f11e141] [cursor=pointer]:
+                          - generic [ref=f11e142]:
+                            - generic [ref=f11e143]: Is equal to
+                            - generic [ref=f11e144]: select
+                    - columnheader [ref=f11e146]:
+                      - generic [ref=f11e148]:
+                        - generic [ref=f11e150]:
+                          - combobox [ref=f11e151]
+                          - button "select" [ref=f11e152]
+                        - listbox [ref=f11e154] [cursor=pointer]:
+                          - generic [ref=f11e155]:
+                            - generic [ref=f11e156]: Is equal to
+                            - generic [ref=f11e157]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e159]:
+                      - generic [ref=f11e161]:
+                        - generic [ref=f11e163]:
+                          - textbox [ref=f11e164]
+                          - generic [ref=f11e165]:
+                            - generic "Increase value" [ref=f11e167]
+                            - generic "Decrease value" [ref=f11e169]
+                        - listbox [ref=f11e170] [cursor=pointer]:
+                          - generic [ref=f11e171]:
+                            - generic [ref=f11e172]: Is equal to
+                            - generic [ref=f11e173]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e175]:
+                      - generic [ref=f11e177]:
+                        - generic [ref=f11e179]:
+                          - textbox [ref=f11e180]
+                          - generic [ref=f11e181]:
+                            - generic "Increase value" [ref=f11e183]
+                            - generic "Decrease value" [ref=f11e185]
+                        - listbox [ref=f11e186] [cursor=pointer]:
+                          - generic [ref=f11e187]:
+                            - generic [ref=f11e188]: Is equal to
+                            - generic [ref=f11e189]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e191]:
+                      - generic [ref=f11e193]:
+                        - generic [ref=f11e195]:
+                          - textbox [ref=f11e196]
+                          - generic [ref=f11e197]:
+                            - generic "Increase value" [ref=f11e199]
+                            - generic "Decrease value" [ref=f11e201]
+                        - listbox [ref=f11e202] [cursor=pointer]:
+                          - generic [ref=f11e203]:
+                            - generic [ref=f11e204]: Is equal to
+                            - generic [ref=f11e205]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e207]:
+                      - generic [ref=f11e209]:
+                        - generic [ref=f11e211]:
+                          - textbox [ref=f11e212]
+                          - generic [ref=f11e213]:
+                            - generic "Increase value" [ref=f11e215]
+                            - generic "Decrease value" [ref=f11e217]
+                        - listbox [ref=f11e218] [cursor=pointer]:
+                          - generic [ref=f11e219]:
+                            - generic [ref=f11e220]: Is equal to
+                            - generic [ref=f11e221]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e223]:
+                      - generic [ref=f11e225]:
+                        - generic [ref=f11e227]:
+                          - textbox [ref=f11e228]
+                          - generic [ref=f11e229]:
+                            - generic "Increase value" [ref=f11e231]
+                            - generic "Decrease value" [ref=f11e233]
+                        - listbox [ref=f11e234] [cursor=pointer]:
+                          - generic [ref=f11e235]:
+                            - generic [ref=f11e236]: Is equal to
+                            - generic [ref=f11e237]: select
+                    - columnheader "Increase value Decrease value" [ref=f11e239]:
+                      - generic [ref=f11e241]:
+                        - generic [ref=f11e243]:
+                          - textbox [ref=f11e244]
+                          - generic [ref=f11e245]:
+                            - generic "Increase value" [ref=f11e247]
+                            - generic "Decrease value" [ref=f11e249]
+                        - listbox [ref=f11e250] [cursor=pointer]:
+                          - generic [ref=f11e251]:
+                            - generic [ref=f11e252]: Is equal to
+                            - generic [ref=f11e253]: select
+                    - columnheader [ref=f11e255]:
+                      - generic [ref=f11e257]:
+                        - textbox [ref=f11e259]
+                        - listbox [ref=f11e260] [cursor=pointer]:
+                          - generic [ref=f11e261]:
+                            - generic [ref=f11e262]: Is equal to
+                            - generic [ref=f11e263]: select
+                    - columnheader [ref=f11e265]:
+                      - generic [ref=f11e267]:
+                        - generic [ref=f11e269]:
+                          - combobox [ref=f11e270]
+                          - button "select" [ref=f11e271]
+                        - listbox [ref=f11e273] [cursor=pointer]:
+                          - generic [ref=f11e274]:
+                            - generic [ref=f11e275]: Is equal to
+                            - generic [ref=f11e276]: select
+                    - columnheader [ref=f11e278]:
+                      - generic [ref=f11e280]:
+                        - textbox [ref=f11e282]
+                        - listbox [ref=f11e283] [cursor=pointer]:
+                          - generic [ref=f11e284]:
+                            - generic [ref=f11e285]: Is equal to
+                            - generic [ref=f11e286]: select
+                    - columnheader [ref=f11e288]:
+                      - generic [ref=f11e290]:
+                        - generic [ref=f11e292]:
+                          - combobox [ref=f11e293]
+                          - button "select" [ref=f11e294]
+                        - listbox [ref=f11e296] [cursor=pointer]:
+                          - generic [ref=f11e297]:
+                            - generic [ref=f11e298]: Is equal to
+                            - generic [ref=f11e299]: select
+                    - columnheader [ref=f11e301]:
+                      - generic [ref=f11e303]:
+                        - textbox [ref=f11e305]
+                        - listbox [ref=f11e306] [cursor=pointer]:
+                          - generic [ref=f11e307]:
+                            - generic [ref=f11e308]: Is equal to
+                            - generic [ref=f11e309]: select
+                    - columnheader [ref=f11e311]:
+                      - generic [ref=f11e313]:
+                        - generic [ref=f11e315]:
+                          - combobox [ref=f11e316]
+                          - button "select" [ref=f11e317]
+                        - listbox [ref=f11e319] [cursor=pointer]:
+                          - generic [ref=f11e320]:
+                            - generic [ref=f11e321]: Is equal to
+                            - generic [ref=f11e322]: select
+              - grid [ref=f11e326]:
+                - rowgroup [ref=f11e345]:
+                  - row [ref=f11e346]:
+                    - gridcell [ref=f11e347]:
+                      - checkbox [ref=f11e349]
+                    - gridcell "Unapproved" [ref=f11e350]
+                    - gridcell "Chase Ink Preferred card x5138 x5991 - Shukette - 09/22/2026" [ref=f11e351]
+                    - gridcell "Chase Ink Preferred card x5138 x5991 - Shukette" [ref=f11e352]
+                    - gridcell "9/22/2026" [ref=f11e353]
+                    - gridcell "($3,247.72)" [ref=f11e354]
+                    - gridcell "$24,457.47" [ref=f11e356]
+                    - gridcell "$17,255.13" [ref=f11e358]
+                    - gridcell "($10,450.06)" [ref=f11e360]
+                    - gridcell "($14,532.54)" [ref=f11e362]
+                    - gridcell "$4,082.48" [ref=f11e364]
+                    - gridcell [ref=f11e366]
+                    - gridcell "1/1/1900" [ref=f11e367]
+                    - gridcell "Tricia Laroche" [ref=f11e368]
+                    - gridcell "10/9/2026 7:54:26 PM" [ref=f11e369]
+                    - gridcell "Tricia Laroche" [ref=f11e371]
+                    - gridcell "10/9/2026 7:55:47 PM" [ref=f11e372]
+                  - row [ref=f11e374]:
+                    - gridcell [ref=f11e375]:
+                      - checkbox [ref=f11e377]
+                    - gridcell "Unapproved" [ref=f11e378]
+                    - gridcell "Chase Ink Plus card x3014 x5458 x1790 x3014 x1667 x0769 x1667 - Shuka - 09/13/2026" [ref=f11e379]
+                    - gridcell "Chase Ink Plus card x3014 x5458 x1790 x3014 x1667 x0769 x1667 - Shuka" [ref=f11e380]
+                    - gridcell "9/13/2026" [ref=f11e381]
+                    - gridcell "($13,721.63)" [ref=f11e382]
+                    - gridcell "$9,597.39" [ref=f11e384]
+                    - gridcell "$10,274.57" [ref=f11e386]
+                    - gridcell "($13,044.45)" [ref=f11e388]
+                    - gridcell "($13,044.21)" [ref=f11e390]
+                    - gridcell "($0.24)" [ref=f11e392]
+                    - gridcell [ref=f11e394]
+                    - gridcell "1/1/1900" [ref=f11e395]
+                    - gridcell "Tricia Laroche" [ref=f11e396]
+                    - gridcell "10/9/2026 9:23:49 PM" [ref=f11e397]
+                    - gridcell "Tricia Laroche" [ref=f11e399]
+                    - gridcell "10/10/2026 10:44:25 AM" [ref=f11e400]
+                  - row [ref=f11e402]:
+                    - gridcell [ref=f11e403]:
+                      - checkbox [ref=f11e405]
+                    - gridcell "Unapproved" [ref=f11e406]
+                    - gridcell "Chase Ink Plus card x8743 - Cookshop - 09/06/2026" [ref=f11e407]
+                    - gridcell [ref=f11e408]
+                    - gridcell "9/6/2026" [ref=f11e409]
+                    - gridcell "($10,862.59)" [ref=f11e410]
+                    - gridcell "$0.00" [ref=f11e412]
+                    - gridcell "$0.00" [ref=f11e414]
+                    - gridcell "($10,862.59)" [ref=f11e416]
+                    - gridcell "($9,137.34)" [ref=f11e418]
+                    - gridcell "($1,725.25)" [ref=f11e420]
+                    - gridcell [ref=f11e422]
+                    - gridcell "1/1/1900" [ref=f11e423]
+                    - gridcell "Tricia Laroche" [ref=f11e424]
+                    - gridcell "9/25/2026 2:15:32 PM" [ref=f11e425]
+                    - gridcell "Tricia Laroche" [ref=f11e427]
+                    - gridcell "9/25/2026 2:21:14 PM" [ref=f11e428]
+                  - row [ref=f11e430]:
+                    - gridcell [ref=f11e431]:
+                      - checkbox [ref=f11e433]
+                    - gridcell "Approved" [ref=f11e434]
+                    - gridcell "AMEX x1000 - Corporate (51000) - 09/13/2026" [ref=f11e435]
+                    - gridcell "AMEX x1000 - Corporate (51000)" [ref=f11e436]
+                    - gridcell "9/13/2026" [ref=f11e437]
+                    - gridcell "$0.00" [ref=f11e438]
+                    - gridcell "$10,513.15" [ref=f11e440]
+                    - gridcell "$0.00" [ref=f11e442]
+                    - gridcell "($10,513.15)" [ref=f11e444]
+                    - gridcell "($10,513.15)" [ref=f11e446]
+                    - gridcell "$0.00" [ref=f11e448]
+                    - gridcell "Tricia Laroche" [ref=f11e450]
+                    - gridcell "9/18/2026" [ref=f11e451]
+                    - gridcell "Tricia Laroche" [ref=f11e452]
+                    - gridcell "9/18/2026 4:42:22 PM" [ref=f11e453]
+                    - gridcell "Tricia Laroche" [ref=f11e455]
+                    - gridcell "9/18/2026 5:21:00 PM" [ref=f11e456]
+                  - row [ref=f11e458]:
+                    - gridcell [ref=f11e459]:
+                      - checkbox [ref=f11e461]
+                    - gridcell "Approved" [ref=f11e462]
+                    - gridcell "Cash - Cookshop Operating (4360) - 09/13/2026" [ref=f11e463]
+                    - gridcell "Cash - Cookshop Operating (4360)" [ref=f11e464]
+                    - gridcell "9/13/2026" [ref=f11e465]
+                    - gridcell "$701,964.12" [ref=f11e466]
+                    - gridcell "$356,897.97" [ref=f11e468]
+                    - gridcell "$421,342.66" [ref=f11e470]
+                    - gridcell "$766,408.81" [ref=f11e472]
+                    - gridcell "$766,408.81" [ref=f11e474]
+                    - gridcell "$0.00" [ref=f11e476]
+                    - gridcell "Tricia Laroche" [ref=f11e478]
+                    - gridcell "10/4/2026" [ref=f11e479]
+                    - gridcell "Tricia Laroche" [ref=f11e480]
+                    - gridcell "9/16/2026 8:12:00 PM" [ref=f11e481]
+                    - gridcell "Tricia Laroche" [ref=f11e483]
+                    - gridcell "10/4/2026 5:17:55 PM" [ref=f11e484]
+                  - row [ref=f11e486]:
+                    - gridcell [ref=f11e487]:
+                      - checkbox [ref=f11e489]
+                    - gridcell "Approved" [ref=f11e490]
+                    - gridcell "Cash - Rosie's (8800) - 09/13/2026" [ref=f11e491]
+                    - gridcell "Cash - Rosie's (8800)" [ref=f11e492]
+                    - gridcell "9/13/2026" [ref=f11e493]
+                    - gridcell "$5,981.30" [ref=f11e494]
+                    - gridcell "$0.00" [ref=f11e496]
+                    - gridcell "$0.00" [ref=f11e498]
+                    - gridcell "$5,981.30" [ref=f11e500]
+                    - gridcell "$5,981.30" [ref=f11e502]
+                    - gridcell "$0.00" [ref=f11e504]
+                    - gridcell "Tricia Laroche" [ref=f11e506]
+                    - gridcell "9/22/2026" [ref=f11e507]
+                    - gridcell "Tricia Laroche" [ref=f11e508]
+                    - gridcell "9/16/2026 8:16:35 PM" [ref=f11e509]
+                    - gridcell "Tricia Laroche" [ref=f11e511]
+                    - gridcell "9/22/2026 9:09:22 PM" [ref=f11e512]
+                  - row [ref=f11e514]:
+                    - gridcell [ref=f11e515]:
+                      - checkbox [ref=f11e517]
+                    - gridcell "Approved" [ref=f11e518]
+                    - gridcell "Cash - Rosie's Payroll (6921) - 09/13/2026" [ref=f11e519]
+                    - gridcell "Cash - Rosie's Payroll (6921)" [ref=f11e520]
+                    - gridcell "9/13/2026" [ref=f11e521]
+                    - gridcell "$18,938.20" [ref=f11e522]
+                    - gridcell "$102,601.81" [ref=f11e524]
+                    - gridcell "$102,036.59" [ref=f11e526]
+                    - gridcell "$18,372.98" [ref=f11e528]
+                    - gridcell "$18,372.98" [ref=f11e530]
+                    - gridcell "$0.00" [ref=f11e532]
+                    - gridcell "Tricia Laroche" [ref=f11e534]
+                    - gridcell "9/22/2026" [ref=f11e535]
+                    - gridcell "Tricia Laroche" [ref=f11e536]
+                    - gridcell "9/16/2026 8:17:16 PM" [ref=f11e537]
+                    - gridcell "Tricia Laroche" [ref=f11e539]
+                    - gridcell "9/22/2026 8:51:45 PM" [ref=f11e540]
+                  - row [ref=f11e542]:
+                    - gridcell [ref=f11e543]:
+                      - checkbox [ref=f11e545]
+                    - gridcell "Approved" [ref=f11e546]
+                    - gridcell "Cash - Bowery Op / Payroll (5381) - 09/13/2026" [ref=f11e547]
+                    - gridcell "Cash - Bowery Op / Payroll (5381)" [ref=f11e548]
+                    - gridcell "9/13/2026" [ref=f11e549]
+                    - gridcell "$30,841.84" [ref=f11e550]
+                    - gridcell "$132,514.24" [ref=f11e552]
+                    - gridcell "$143,350.51" [ref=f11e554]
+                    - gridcell "$41,678.11" [ref=f11e556]
+                    - gridcell "$41,678.11" [ref=f11e558]
+                    - gridcell "$0.00" [ref=f11e560]
+                    - gridcell "Tricia Laroche" [ref=f11e562]
+                    - gridcell "9/22/2026" [ref=f11e563]
+                    - gridcell "Tricia Laroche" [ref=f11e564]
+                    - gridcell "9/16/2026 8:33:26 PM" [ref=f11e565]
+                    - gridcell "Tricia Laroche" [ref=f11e567]
+                    - gridcell "9/22/2026 9:10:37 PM" [ref=f11e568]
+                  - row [ref=f11e570]:
+                    - gridcell [ref=f11e571]:
+                      - checkbox [ref=f11e573]
+                    - gridcell "Approved" [ref=f11e574]
+                    - gridcell "Cash - Cookshop Payroll (9533) - 09/13/2026" [ref=f11e575]
+                    - gridcell "Cash - Cookshop Payroll (9533)" [ref=f11e576]
+                    - gridcell "9/13/2026" [ref=f11e577]
+                    - gridcell "$51,651.44" [ref=f11e578]
+                    - gridcell "$211,828.93" [ref=f11e580]
+                    - gridcell "$200,000.04" [ref=f11e582]
+                    - gridcell "$39,822.55" [ref=f11e584]
+                    - gridcell "$39,822.55" [ref=f11e586]
+                    - gridcell "$0.00" [ref=f11e588]
+                    - gridcell "Tricia Laroche" [ref=f11e590]
+                    - gridcell "9/24/2026" [ref=f11e591]
+                    - gridcell "Tricia Laroche" [ref=f11e592]
+                    - gridcell "9/16/2026 8:13:15 PM" [ref=f11e593]
+                    - gridcell "Tricia Laroche" [ref=f11e595]
+                    - gridcell "9/24/2026 9:34:44 PM" [ref=f11e596]
+                  - row [ref=f11e598]:
+                    - gridcell [ref=f11e599]:
+                      - checkbox [ref=f11e601]
+                    - gridcell "Approved" [ref=f11e602]
+                    - gridcell "Cash - Rosie's Operating (8778) - 09/13/2026" [ref=f11e603]
+                    - gridcell "Cash - Rosie's Operating (8778)" [ref=f11e604]
+                    - gridcell "9/13/2026" [ref=f11e605]
+                    - gridcell "$255,616.03" [ref=f11e606]
+                    - gridcell "$148,674.44" [ref=f11e608]
+                    - gridcell "$188,084.63" [ref=f11e610]
+                    - gridcell "$295,026.22" [ref=f11e612]
+                    - gridcell "$295,026.22" [ref=f11e614]
+                    - gridcell "$0.00" [ref=f11e616]
+                    - gridcell "Tricia Laroche" [ref=f11e618]
+                    - gridcell "9/22/2026" [ref=f11e619]
+                    - gridcell "Tricia Laroche" [ref=f11e620]
+                    - gridcell "9/16/2026 8:22:24 PM" [ref=f11e621]
+                    - gridcell "Tricia Laroche" [ref=f11e623]
+                    - gridcell "9/22/2026 8:23:08 PM" [ref=f11e624]
+                  - row [ref=f11e626]:
+                    - gridcell [ref=f11e627]:
+                      - checkbox [ref=f11e629]
+                    - gridcell "Approved" [ref=f11e630]
+                    - gridcell "Cash - Vic's Settlement (2365) - 09/13/2026" [ref=f11e631]
+                    - gridcell "Cash - Vic's Settlement (2365)" [ref=f11e632]
+                    - gridcell "9/13/2026" [ref=f11e633]
+                    - gridcell "$1,199.92" [ref=f11e634]
+                    - gridcell "$0.00" [ref=f11e636]
+                    - gridcell "$0.00" [ref=f11e638]
+                    - gridcell "$1,199.92" [ref=f11e640]
+                    - gridcell "$1,199.92" [ref=f11e642]
+                    - gridcell "$0.00" [ref=f11e644]
+                    - gridcell "Tricia Laroche" [ref=f11e646]
+                    - gridcell "9/22/2026" [ref=f11e647]
+                    - gridcell "Tricia Laroche" [ref=f11e648]
+                    - gridcell "9/22/2026 9:26:38 PM" [ref=f11e649]
+                    - gridcell "Tricia Laroche" [ref=f11e651]
+                    - gridcell "9/22/2026 9:27:14 PM" [ref=f11e652]
+                  - row [ref=f11e654]:
+                    - gridcell [ref=f11e655]:
+                      - checkbox [ref=f11e657]
+                    - gridcell "Approved" [ref=f11e658]
+                    - gridcell "Cash - Shukette Op/Pay (2502) - 09/13/2026" [ref=f11e659]
+                    - gridcell "Cash - Shukette Op/Pay (2502)" [ref=f11e660]
+                    - gridcell "9/13/2026" [ref=f11e661]
+                    - gridcell "$374,551.09" [ref=f11e662]
+                    - gridcell "$340,084.48" [ref=f11e664]
+                    - gridcell "$420,567.52" [ref=f11e666]
+                    - gridcell "$455,034.13" [ref=f11e668]
+                    - gridcell "$455,034.13" [ref=f11e670]
+                    - gridcell "$0.00" [ref=f11e672]
+                    - gridcell "Brandy Sanders" [ref=f11e674]
+                    - gridcell "10/5/2026" [ref=f11e675]
+                    - gridcell "Tricia Laroche" [ref=f11e676]
+                    - gridcell "9/16/2026 8:33:01 PM" [ref=f11e677]
+                    - gridcell "Brandy Sanders" [ref=f11e679]
+                    - gridcell "10/5/2026 12:55:47 PM" [ref=f11e680]
+                  - row [ref=f11e682]:
+                    - gridcell [ref=f11e683]:
+                      - checkbox [ref=f11e685]
+                    - gridcell "Approved" [ref=f11e686]
+                    - gridcell "Cash - Vic's Op / Payroll (9807) - 09/13/2026" [ref=f11e687]
+                    - gridcell "Cash - Vic's Op / Payroll (9807)" [ref=f11e688]
+                    - gridcell "9/13/2026" [ref=f11e689]
+                    - gridcell "$19,518.92" [ref=f11e690]
+                    - gridcell "$113,808.22" [ref=f11e692]
+                    - gridcell "$147,643.29" [ref=f11e694]
+                    - gridcell "$53,353.99" [ref=f11e696]
+                    - gridcell "$53,353.99" [ref=f11e698]
+                    - gridcell "$0.00" [ref=f11e700]
+                    - gridcell "Brandy Sanders" [ref=f11e702]
+                    - gridcell "10/5/2026" [ref=f11e703]
+                    - gridcell "Tricia Laroche" [ref=f11e704]
+                    - gridcell "9/16/2026 8:08:31 PM" [ref=f11e705]
+                    - gridcell "Brandy Sanders" [ref=f11e707]
+                    - gridcell "10/5/2026 12:57:34 PM" [ref=f11e708]
+                  - row [ref=f11e710]:
+                    - gridcell [ref=f11e711]:
+                      - checkbox [ref=f11e713]
+                    - gridcell "Approved" [ref=f11e714]
+                    - gridcell "Chase Ink Plus card x8281 - Cookshop - 09/06/2026" [ref=f11e715]
+                    - gridcell "Chase Ink Plus card x8281 - Cookshop" [ref=f11e716]
+                    - gridcell "9/6/2026" [ref=f11e717]
+                    - gridcell "($17,382.83)" [ref=f11e718]
+                    - gridcell "$2,730.22" [ref=f11e720]
+                    - gridcell "$10,975.71" [ref=f11e722]
+                    - gridcell "($9,137.34)" [ref=f11e724]
+                    - gridcell "($9,137.34)" [ref=f11e726]
+                    - gridcell "$0.00" [ref=f11e728]
+                    - gridcell "Tricia Laroche" [ref=f11e730]
+                    - gridcell "10/9/2026" [ref=f11e731]
+                    - gridcell "Tricia Laroche" [ref=f11e732]
+                    - gridcell "10/9/2026 4:13:41 PM" [ref=f11e733]
+                    - gridcell "Tricia Laroche" [ref=f11e735]
+                    - gridcell "10/9/2026 5:49:11 PM" [ref=f11e736]
+                  - row [ref=f11e738]:
+                    - gridcell [ref=f11e739]:
+                      - checkbox [ref=f11e741]
+                    - gridcell "Approved" [ref=f11e742]
+                    - gridcell "Cash - Rosie's Payroll (6921) - 08/30/2026" [ref=f11e743]
+                    - gridcell "Cash - Rosie's Payroll (6921)" [ref=f11e744]
+                    - gridcell "8/30/2026" [ref=f11e745]
+                    - gridcell "$18,938.20" [ref=f11e746]
+                    - gridcell "$0.00" [ref=f11e748]
+                    - gridcell "$0.00" [ref=f11e750]
+                    - gridcell "$18,938.20" [ref=f11e752]
+                    - gridcell "$18,938.20" [ref=f11e754]
+                    - gridcell "$0.00" [ref=f11e756]
+                    - gridcell "Patty Hernandez" [ref=f11e758]
+                    - gridcell "9/9/2026" [ref=f11e759]
+                    - gridcell "Patty Hernandez" [ref=f11e760]
+                    - gridcell "9/9/2026 2:53:53 PM" [ref=f11e761]
+                    - gridcell "Patty Hernandez" [ref=f11e763]
+                    - gridcell "9/9/2026 2:54:08 PM" [ref=f11e764]
+                  - row [ref=f11e766]:
+                    - gridcell [ref=f11e767]:
+                      - checkbox [ref=f11e769]
+                    - gridcell "Approved" [ref=f11e770]
+                    - gridcell "Cash - Shukette Op / Payroll (2502) - 08/30/2026" [ref=f11e771]
+                    - gridcell "Cash - Shukette Op/Pay (2502)" [ref=f11e772]
+                    - gridcell "8/30/2026" [ref=f11e773]
+                    - gridcell "$374,551.09" [ref=f11e774]
+                    - gridcell "$0.00" [ref=f11e776]
+                    - gridcell "$0.00" [ref=f11e778]
+                    - gridcell "$374,551.09" [ref=f11e780]
+                    - gridcell "$374,551.09" [ref=f11e782]
+                    - gridcell "$0.00" [ref=f11e784]
+                    - gridcell "Patty Hernandez" [ref=f11e786]
+                    - gridcell "9/9/2026" [ref=f11e787]
+                    - gridcell "Patty Hernandez" [ref=f11e788]
+                    - gridcell "9/9/2026 5:57:17 PM" [ref=f11e789]
+                    - gridcell "Patty Hernandez" [ref=f11e791]
+                    - gridcell "9/9/2026 5:57:23 PM" [ref=f11e792]
+                  - row [ref=f11e794]:
+                    - gridcell [ref=f11e795]:
+                      - checkbox [ref=f11e797]
+                    - gridcell "Approved" [ref=f11e798]
+                    - gridcell "Cash - Cookshop Payroll (9533) - 08/30/2026" [ref=f11e799]
+                    - gridcell "Cash - Cookshop Payroll (9533)" [ref=f11e800]
+                    - gridcell "8/30/2026" [ref=f11e801]
+                    - gridcell "$51,651.44" [ref=f11e802]
+                    - gridcell "$0.00" [ref=f11e804]
+                    - gridcell "$0.00" [ref=f11e806]
+                    - gridcell "$51,651.44" [ref=f11e808]
+                    - gridcell "$51,651.44" [ref=f11e810]
+                    - gridcell "$0.00" [ref=f11e812]
+                    - gridcell "Patty Hernandez" [ref=f11e814]
+                    - gridcell "9/9/2026" [ref=f11e815]
+                    - gridcell "Patty Hernandez" [ref=f11e816]
+                    - gridcell "9/9/2026 12:30:17 PM" [ref=f11e817]
+                    - gridcell "Patty Hernandez" [ref=f11e819]
+                    - gridcell "9/9/2026 12:31:06 PM" [ref=f11e820]
+                  - row [ref=f11e822]:
+                    - gridcell [ref=f11e823]:
+                      - checkbox [ref=f11e825]
+                    - gridcell "Approved" [ref=f11e826]
+                    - gridcell "Cash - Bowery Op / Payroll (5381) - 08/30/2026" [ref=f11e827]
+                    - gridcell "Cash - Bowery Op / Payroll (5381)" [ref=f11e828]
+                    - gridcell "8/30/2026" [ref=f11e829]
+                    - gridcell "$30,841.84" [ref=f11e830]
+                    - gridcell "$0.00" [ref=f11e832]
+                    - gridcell "$0.00" [ref=f11e834]
+                    - gridcell "$30,841.84" [ref=f11e836]
+                    - gridcell "$30,841.84" [ref=f11e838]
+                    - gridcell "$0.00" [ref=f11e840]
+                    - gridcell "Patty Hernandez" [ref=f11e842]
+                    - gridcell "9/9/2026" [ref=f11e843]
+                    - gridcell "Patty Hernandez" [ref=f11e844]
+                    - gridcell "9/9/2026 12:34:45 PM" [ref=f11e845]
+                    - gridcell "Patty Hernandez" [ref=f11e847]
+                    - gridcell "9/9/2026 12:34:59 PM" [ref=f11e848]
+                  - row [ref=f11e850]:
+                    - gridcell [ref=f11e851]:
+                      - checkbox [ref=f11e853]
+                    - gridcell "Approved" [ref=f11e854]
+                    - gridcell "Cash - Cookshop Operating (4360) - 08/30/2026" [ref=f11e855]
+                    - gridcell "Cash - Cookshop Operating (4360)" [ref=f11e856]
+                    - gridcell "8/30/2026" [ref=f11e857]
+                    - gridcell "$701,964.12" [ref=f11e858]
+                    - gridcell "$0.00" [ref=f11e860]
+                    - gridcell "$0.00" [ref=f11e862]
+                    - gridcell "$701,964.12" [ref=f11e864]
+                    - gridcell "$701,964.12" [ref=f11e866]
+                    - gridcell "$0.00" [ref=f11e868]
+                    - gridcell "Patty Hernandez" [ref=f11e870]
+                    - gridcell "9/9/2026" [ref=f11e871]
+                    - gridcell "Patty Hernandez" [ref=f11e872]
+                    - gridcell "9/9/2026 12:36:46 PM" [ref=f11e873]
+                    - gridcell "Patty Hernandez" [ref=f11e875]
+                    - gridcell "9/9/2026 12:45:02 PM" [ref=f11e876]
+                  - row [ref=f11e878]:
+                    - gridcell [ref=f11e879]:
+                      - checkbox [ref=f11e881]
+                    - gridcell "Approved" [ref=f11e882]
+                    - gridcell "Cash - Rosie's Operating (8778) - 08/30/2026" [ref=f11e883]
+                    - gridcell "Cash - Rosie's Operating (8778)" [ref=f11e884]
+                    - gridcell "8/30/2026" [ref=f11e885]
+                    - gridcell "$255,616.03" [ref=f11e886]
+                    - gridcell "$0.00" [ref=f11e888]
+                    - gridcell "$0.00" [ref=f11e890]
+                    - gridcell "$255,616.03" [ref=f11e892]
+                    - gridcell "$255,616.03" [ref=f11e894]
+                    - gridcell "$0.00" [ref=f11e896]
+                    - gridcell "Patty Hernandez" [ref=f11e898]
+                    - gridcell "9/9/2026" [ref=f11e899]
+                    - gridcell "Patty Hernandez" [ref=f11e900]
+                    - gridcell "9/9/2026 1:46:35 PM" [ref=f11e901]
+                    - gridcell "Patty Hernandez" [ref=f11e903]
+                    - gridcell "9/9/2026 1:46:42 PM" [ref=f11e904]
+                  - row [ref=f11e906]:
+                    - gridcell [ref=f11e907]:
+                      - checkbox [ref=f11e909]
+                    - gridcell "Approved" [ref=f11e910]
+                    - gridcell "Cash - Shuka Op / Payroll (2636) - 08/30/2026" [ref=f11e911]
+                    - gridcell "Cash - Shuka Op / Payroll (2636)" [ref=f11e912]
+                    - gridcell "8/30/2026" [ref=f11e913]
+                    - gridcell "$402,306.94" [ref=f11e914]
+                    - gridcell "$0.00" [ref=f11e916]
+                    - gridcell "$0.00" [ref=f11e918]
+                    - gridcell "$402,306.94" [ref=f11e920]
+                    - gridcell "$402,306.94" [ref=f11e922]
+                    - gridcell "$0.00" [ref=f11e924]
+                    - gridcell "Patty Hernandez" [ref=f11e926]
+                    - gridcell "9/9/2026" [ref=f11e927]
+                    - gridcell "Patty Hernandez" [ref=f11e928]
+                    - gridcell "9/9/2026 5:08:28 PM" [ref=f11e929]
+                    - gridcell "Patty Hernandez" [ref=f11e931]
+                    - gridcell "9/9/2026 5:08:40 PM" [ref=f11e932]
+                  - row [ref=f11e934]:
+                    - gridcell [ref=f11e935]:
+                      - checkbox [ref=f11e937]
+                    - gridcell "Approved" [ref=f11e938]
+                    - gridcell "Cash - Vic's Op / Payroll (9807) - 08/30/2026" [ref=f11e939]
+                    - gridcell "Cash - Vic's Op / Payroll (9807)" [ref=f11e940]
+                    - gridcell "8/30/2026" [ref=f11e941]
+                    - gridcell "$19,518.92" [ref=f11e942]
+                    - gridcell "$0.00" [ref=f11e944]
+                    - gridcell "$0.00" [ref=f11e946]
+                    - gridcell "$19,518.92" [ref=f11e948]
+                    - gridcell "$19,518.92" [ref=f11e950]
+                    - gridcell "$0.00" [ref=f11e952]
+                    - gridcell "Patty Hernandez" [ref=f11e954]
+                    - gridcell "9/9/2026" [ref=f11e955]
+                    - gridcell "Patty Hernandez" [ref=f11e956]
+                    - gridcell "9/9/2026 5:29:01 PM" [ref=f11e957]
+                    - gridcell "Patty Hernandez" [ref=f11e959]
+                    - gridcell "9/9/2026 5:29:08 PM" [ref=f11e960]
+                  - row [ref=f11e962]:
+                    - gridcell [ref=f11e963]:
+                      - checkbox [ref=f11e965]
+                    - gridcell "Approved" [ref=f11e966]
+                    - gridcell "Cash - Rosie's (8800) - 08/30/2026" [ref=f11e967]
+                    - gridcell "Cash - Rosie's (8800)" [ref=f11e968]
+                    - gridcell "8/30/2026" [ref=f11e969]
+                    - gridcell "$5,981.30" [ref=f11e970]
+                    - gridcell "$0.00" [ref=f11e972]
+                    - gridcell "$0.00" [ref=f11e974]
+                    - gridcell "$5,981.30" [ref=f11e976]
+                    - gridcell "$5,981.30" [ref=f11e978]
+                    - gridcell "$0.00" [ref=f11e980]
+                    - gridcell "Patty Hernandez" [ref=f11e982]
+                    - gridcell "9/9/2026" [ref=f11e983]
+                    - gridcell "Patty Hernandez" [ref=f11e984]
+                    - gridcell "9/9/2026 5:33:12 PM" [ref=f11e985]
+                    - gridcell "Patty Hernandez" [ref=f11e987]
+                    - gridcell "9/9/2026 5:33:19 PM" [ref=f11e988]
+                  - row [ref=f11e990]:
+                    - gridcell [ref=f11e991]:
+                      - checkbox [ref=f11e993]
+                    - gridcell "Approved" [ref=f11e994]
+                    - gridcell "Cash - Vic's Settlement (2365) - 08/30/2026" [ref=f11e995]
+                    - gridcell "Cash - Vic's Settlement (2365)" [ref=f11e996]
+                    - gridcell "8/30/2026" [ref=f11e997]
+                    - gridcell "$1,199.92" [ref=f11e998]
+                    - gridcell "$0.00" [ref=f11e1000]
+                    - gridcell "$0.00" [ref=f11e1002]
+                    - gridcell "$1,199.92" [ref=f11e1004]
+                    - gridcell "$1,199.92" [ref=f11e1006]
+                    - gridcell "$0.00" [ref=f11e1008]
+                    - gridcell "Patty Hernandez" [ref=f11e1010]
+                    - gridcell "9/9/2026" [ref=f11e1011]
+                    - gridcell "Patty Hernandez" [ref=f11e1012]
+                    - gridcell "9/9/2026 6:30:00 PM" [ref=f11e1013]
+                    - gridcell "Patty Hernandez" [ref=f11e1015]
+                    - gridcell "9/9/2026 6:30:15 PM" [ref=f11e1016]
+                  - row [ref=f11e1018]:
+                    - gridcell [ref=f11e1019]:
+                      - checkbox [ref=f11e1021]
+                    - gridcell "Approved" [ref=f11e1022]
+                    - gridcell "Chase Ink Plus card x8281 - Cookshop - 08/30/2026" [ref=f11e1023]
+                    - gridcell "Chase Ink Plus card x8281 - Cookshop" [ref=f11e1024]
+                    - gridcell "8/30/2026" [ref=f11e1025]
+                    - gridcell "($10,862.59)" [ref=f11e1026]
+                    - gridcell "$6,580.11" [ref=f11e1028]
+                    - gridcell "$59.87" [ref=f11e1030]
+                    - gridcell "($17,382.83)" [ref=f11e1032]
+                    - gridcell "($17,382.83)" [ref=f11e1034]
+                    - gridcell "$0.00" [ref=f11e1036]
+                    - gridcell "Tricia Laroche" [ref=f11e1038]
+                    - gridcell "10/9/2026" [ref=f11e1039]
+                    - gridcell "Tricia Laroche" [ref=f11e1040]
+                    - gridcell "10/9/2026 3:09:06 PM" [ref=f11e1041]
+                    - gridcell "Tricia Laroche" [ref=f11e1043]
+                    - gridcell "10/9/2026 5:49:31 PM" [ref=f11e1044]
+                  - row [ref=f11e1046]:
+                    - gridcell [ref=f11e1047]:
+                      - checkbox [ref=f11e1049]
+                    - gridcell "Approved" [ref=f11e1050]
+                    - gridcell "Chase Ink Plus card x7490 - Rosie's - 08/30/2026" [ref=f11e1051]
+                    - gridcell "Chase Ink Plus card x7490 - Rosie's" [ref=f11e1052]
+                    - gridcell "8/30/2026" [ref=f11e1053]
+                    - gridcell "$0.00" [ref=f11e1054]
+                    - gridcell "$5,273.05" [ref=f11e1056]
+                    - gridcell "$196.26" [ref=f11e1058]
+                    - gridcell "($5,076.79)" [ref=f11e1060]
+                    - gridcell "($5,076.79)" [ref=f11e1062]
+                    - gridcell "$0.00" [ref=f11e1064]
+                    - gridcell "Tricia Laroche" [ref=f11e1066]
+                    - gridcell "10/9/2026" [ref=f11e1067]
+                    - gridcell "Tricia Laroche" [ref=f11e1068]
+                    - gridcell "10/9/2026 7:07:35 PM" [ref=f11e1069]
+                    - gridcell "Tricia Laroche" [ref=f11e1071]
+                    - gridcell "10/9/2026 7:52:54 PM" [ref=f11e1072]
+                  - row [ref=f11e1074]:
+                    - gridcell [ref=f11e1075]:
+                      - checkbox [ref=f11e1077]
+                    - gridcell "Approved" [ref=f11e1078]
+                    - gridcell "Chase Ink Preferred card x5138 x5991 - Shukette - 08/30/2026" [ref=f11e1079]
+                    - gridcell "Chase Ink Preferred card x5138 x5991 - Shukette" [ref=f11e1080]
+                    - gridcell "8/30/2026" [ref=f11e1081]
+                    - gridcell "$0.00" [ref=f11e1082]
+                    - gridcell "$3,247.72" [ref=f11e1084]
+                    - gridcell "$0.00" [ref=f11e1086]
+                    - gridcell "($3,247.72)" [ref=f11e1088]
+                    - gridcell "($3,247.72)" [ref=f11e1090]
+                    - gridcell "$0.00" [ref=f11e1092]
+                    - gridcell "Tricia Laroche" [ref=f11e1094]
+                    - gridcell "10/9/2026" [ref=f11e1095]
+                    - gridcell "Tricia Laroche" [ref=f11e1096]
+                    - gridcell "10/9/2026 7:09:20 PM" [ref=f11e1097]
+                    - gridcell "Tricia Laroche" [ref=f11e1099]
+                    - gridcell "10/9/2026 7:51:33 PM" [ref=f11e1100]
+                  - row [ref=f11e1102]:
+                    - gridcell [ref=f11e1103]:
+                      - checkbox [ref=f11e1105]
+                    - gridcell "Approved" [ref=f11e1106]
+                    - gridcell "Chase Ink Plus card x3014 x5458 x1790 x3014 x1667 x0769 x1667 - Shuka - 08/30/2026" [ref=f11e1107]
+                    - gridcell "Chase Ink Plus card x3014 x5458 x1790 x3014 x1667 x0769 x1667 - Shuka" [ref=f11e1108]
+                    - gridcell "8/30/2026" [ref=f11e1109]
+                    - gridcell "$0.00" [ref=f11e1110]
+                    - gridcell "$13,721.63" [ref=f11e1112]
+                    - gridcell "$0.00" [ref=f11e1114]
+                    - gridcell "($13,721.63)" [ref=f11e1116]
+                    - gridcell "($13,721.63)" [ref=f11e1118]
+                    - gridcell "$0.00" [ref=f11e1120]
+                    - gridcell "Tricia Laroche" [ref=f11e1122]
+                    - gridcell "10/9/2026" [ref=f11e1123]
+                    - gridcell "Tricia Laroche" [ref=f11e1124]
+                    - gridcell "10/9/2026 7:03:36 PM" [ref=f11e1125]
+                    - gridcell "Tricia Laroche" [ref=f11e1127]
+                    - gridcell "10/9/2026 7:50:51 PM" [ref=f11e1128]
+              - generic [ref=f11e1132]:
+                - generic [ref=f11e1133]: 1 - 28 of 28 items
+                - generic [ref=f11e1134]: 0 Items Selected
+  - iframe
+```
+### Events
+- New console entries: ..\..\..\.playwright-cli\console-2026-10-10T14-57-55-538Z.log#L64-L217

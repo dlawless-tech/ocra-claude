@@ -1,0 +1,1 @@
+async () => { const r=await fetch('/app/pages/grids/AllTransactionsGrid/AllTransactionsGrid.html?version=0de1a68d8'); const t=await r.text(); const out=[]; const re=/destroy\s*:|sync\(|autoSync|update\s*:\s*\{|saveChanges/g; let m; while((m=re.exec(t))&&out.length<12){ out.push(t.slice(Math.max(0,m.index-200),m.index+600).replace(/\s+/g,' ')); } return out.join('\n----\n'); }

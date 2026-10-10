@@ -1,0 +1,1 @@
+async () => { const r=await fetch('/ServiceStack/Transaction/Approve',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({transactions:[{Id:'4a1214df-bbc4-f111-aaac-000d3a41fbd2',TransactionType:7}],source:0})}); return r.status+' '+(await r.text()).slice(0,200); }

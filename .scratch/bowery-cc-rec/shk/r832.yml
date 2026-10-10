@@ -1,0 +1,427 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - generic [ref=e5]: Theme Builder
+      - button [ref=e8] [cursor=pointer]:
+        - generic [ref=e9]: 
+      - generic [ref=e10]:
+        - generic [ref=e11]:
+          - heading "Ribbon" [level=4] [ref=e12]
+          - generic [ref=e13]:
+            - generic [ref=e14]: BG
+            - generic [ref=e15]: Font
+            - generic [ref=e16]: Hover BG
+            - generic [ref=e17]: Hover Font
+          - generic "Menu" [ref=e18]:
+            - 'textbox "Current selected color is #ffffff" [ref=e22]':
+              - generic [ref=e26] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e28]':
+              - generic [ref=e32] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e34]':
+              - generic [ref=e38] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e40]':
+              - generic [ref=e44] [cursor=pointer]
+          - generic "SubMenu" [ref=e45]:
+            - 'textbox "Current selected color is #ffffff" [ref=e49]':
+              - generic [ref=e53] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e55]':
+              - generic [ref=e59] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e61]':
+              - generic [ref=e65] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e67]':
+              - generic [ref=e71] [cursor=pointer]
+        - generic [ref=e72]:
+          - heading "Ribbon Logo" [level=4] [ref=e73]
+          - button "Upload Ribbon Logo" [ref=e78] [cursor=pointer]
+        - generic [ref=e79]:
+          - heading "Left Panel" [level=4] [ref=e80]
+          - generic [ref=e81]:
+            - 'textbox "Current selected color is #ffffff" [ref=e84]':
+              - generic [ref=e88] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=e90]':
+              - generic [ref=e94] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e96]':
+              - generic [ref=e100] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e102]':
+              - generic [ref=e106] [cursor=pointer]
+        - generic [ref=e107]:
+          - heading "Components" [level=4] [ref=e108]
+          - generic "Normal" [ref=e109]:
+            - 'textbox "Current selected color is #c3c3c3" [ref=e113]':
+              - generic [ref=e117] [cursor=pointer]
+            - 'textbox "Current selected color is #777777" [ref=e119]':
+              - generic [ref=e123] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=e125]':
+              - generic [ref=e129] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=e131]':
+              - generic [ref=e135] [cursor=pointer]
+          - generic "Selected" [ref=e136]:
+            - 'textbox "Current selected color is #5ea3cb" [ref=e140]':
+              - generic [ref=e144] [cursor=pointer]
+            - 'textbox "Current selected color is #ffffff" [ref=e146]':
+              - generic [ref=e150] [cursor=pointer]
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e155]:
+            - combobox "Select Theme" [ref=e156]: Default R365 Theme
+            - button "select" [ref=e158] [cursor=pointer]
+          - generic [ref=e159]:
+            - button "Set As Default" [ref=e160] [cursor=pointer]
+            - button "Save" [disabled] [ref=e161]
+            - button "Delete" [disabled] [ref=e162]
+        - generic [ref=e163]:
+          - textbox "Add New Theme" [ref=e165]
+          - button "New" [ref=e167] [cursor=pointer]
+    - generic [ref=e639]:
+      - generic [ref=e640]:
+        - navigation [ref=e644]:
+          - generic [ref=e645]:
+            - generic: Bank Reconciliation - Chase Ink Preferred card x5138 x5991 - Shukette - 08/30/2026
+            - generic [ref=e647]:
+              - list [ref=e648]:
+                - listitem [ref=e649]:
+                  - button "Unapprove" [ref=e650] [cursor=pointer]
+                - listitem [ref=e652]:
+                  - button "Action" [ref=e653] [cursor=pointer]
+              - list [ref=e655]:
+                - listitem [ref=e656]:
+                  - button [ref=e657] [cursor=pointer]:
+                    - generic [ref=e658]: 
+                - listitem [ref=e660]:
+                  - link [ref=e661] [cursor=pointer]:
+                    - /url: ""
+                    - generic [ref=e662]: 
+        - generic [ref=e663]: Approved
+      - generic [ref=e669]:
+        - generic: "* * *"
+        - generic [ref=e672]:
+          - button [ref=e674] [cursor=pointer]:
+            - generic [ref=e675]: 
+          - generic [ref=e678]:
+            - generic [ref=e679]: Beginning Balance
+            - generic [ref=e680]:
+              - textbox "Beginning Balance": "-16,843.03"
+          - generic [ref=e683]:
+            - generic [ref=e684]: "- Checks/Withdrawals"
+            - generic [ref=e685]: 3,247.72
+          - generic [ref=e687]:
+            - generic [ref=e689]:
+              - generic [ref=e690]: + Deposits/Other Credits
+              - generic [ref=e691]: "0.00"
+            - generic [ref=e694]:
+              - generic [ref=e695]: Statement End Date
+              - generic [ref=e698]:
+                - combobox "Statement End Date": 8/30/2026
+                - button "select" [ref=e699] [cursor=pointer]
+          - generic [ref=e701]:
+            - generic [ref=e703]:
+              - generic [ref=e704]: = Cleared Balance
+              - generic [ref=e705]: "-20,090.75"
+            - generic [ref=e708]:
+              - generic [ref=e709]: Statement End Balance
+              - generic [ref=e710]:
+                - textbox "Statement End Balance": "-20,090.75"
+            - generic [ref=e712]:
+              - generic [ref=e713]: Difference
+              - generic [ref=e714]: "0.00"
+        - generic [ref=e717]:
+          - generic [ref=e719]:
+            - button "+ Size" [ref=e720] [cursor=pointer]
+            - button "- Size" [ref=e721] [cursor=pointer]
+          - tablist [ref=e723]:
+            - list [ref=e724]:
+              - tab "Checks / Withdrawals" [selected] [ref=e725]
+              - tab "Deposits / Other Credits" [ref=e728]
+            - tabpanel [ref=e731]:
+              - generic [ref=e733]:
+                - grid [ref=e736]:
+                  - rowgroup [ref=e747]:
+                    - row [ref=e748]:
+                      - columnheader [ref=e749]:
+                        - link [ref=e750] [cursor=pointer]:
+                          - /url: "#"
+                        - checkbox [disabled] [ref=e752]
+                      - columnheader [ref=e753]:
+                        - link [ref=e754] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Date" [ref=e756] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e757]:
+                        - link [ref=e758] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Credit" [ref=e760] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e761]:
+                        - link [ref=e762] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Transaction" [ref=e764] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e765]:
+                        - link [ref=e766] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Transaction Type" [ref=e768] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e769]:
+                        - link [ref=e770] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Company" [ref=e772] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e773]:
+                        - link [ref=e774] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Location" [ref=e776] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e777]:
+                        - link [ref=e778] [cursor=pointer]:
+                          - /url: "#"
+                        - link "Comment" [ref=e780] [cursor=pointer]:
+                          - /url: "#"
+                      - columnheader [ref=e781]:
+                        - link [ref=e782] [cursor=pointer]:
+                          - /url: "#"
+                - grid [ref=e785]:
+                  - rowgroup [ref=e796]:
+                    - row [ref=e797]:
+                      - gridcell [ref=e798]:
+                        - checkbox [checked] [disabled] [ref=e799]
+                      - gridcell "08/23/2026" [ref=e800]
+                      - gridcell "5.98" [ref=e802]
+                      - gridcell [ref=e804]:
+                        - link "CC" [ref=e805] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/59e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e806]
+                      - gridcell "GRISTEDES 8/21/26" [ref=e807]
+                      - gridcell "Shukette" [ref=e808]
+                      - gridcell "From Sage" [ref=e809]
+                      - gridcell [ref=e810]
+                    - row [ref=e811]:
+                      - gridcell [ref=e812]:
+                        - checkbox [checked] [disabled] [ref=e813]
+                      - gridcell "08/30/2026" [ref=e814]
+                      - gridcell "518.75" [ref=e816]
+                      - gridcell [ref=e818]:
+                        - link "CC" [ref=e819] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/72e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e820]
+                      - gridcell "HARRI 8/25/26" [ref=e821]
+                      - gridcell "Shukette" [ref=e822]
+                      - gridcell "From Sage" [ref=e823]
+                      - gridcell [ref=e824]
+                    - row [ref=e825]:
+                      - gridcell [ref=e826]:
+                        - checkbox [checked] [disabled] [ref=e827]
+                      - gridcell "08/30/2026" [ref=e828]
+                      - gridcell "423.93" [ref=e830]
+                      - gridcell [ref=e832]:
+                        - link "CC" [ref=e833] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/71e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e834]
+                      - gridcell "AMZN 8/24-27/26" [ref=e835]
+                      - gridcell "Shukette" [ref=e836]
+                      - gridcell "From Sage" [ref=e837]
+                      - gridcell [ref=e838]
+                    - row [ref=e839]:
+                      - gridcell [ref=e840]:
+                        - checkbox [checked] [disabled] [ref=e841]
+                      - gridcell "08/30/2026" [ref=e842]
+                      - gridcell "1,223.59" [ref=e844]
+                      - gridcell [ref=e846]:
+                        - link "CC" [ref=e847] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/75e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e848]
+                      - gridcell "CRATE&BRRL 8/27/26" [ref=e849]
+                      - gridcell "Shukette" [ref=e850]
+                      - gridcell "From Sage" [ref=e851]
+                      - gridcell [ref=e852]
+                    - row [ref=e853]:
+                      - gridcell [ref=e854]:
+                        - checkbox [checked] [disabled] [ref=e855]
+                      - gridcell "08/23/2026" [ref=e856]
+                      - gridcell "54.84" [ref=e858]
+                      - gridcell [ref=e860]:
+                        - link "CC" [ref=e861] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/66e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e862]
+                      - gridcell "LYFT 8/22-23/26" [ref=e863]
+                      - gridcell "Shukette" [ref=e864]
+                      - gridcell "From Sage" [ref=e865]
+                      - gridcell [ref=e866]
+                    - row [ref=e867]:
+                      - gridcell [ref=e868]:
+                        - checkbox [checked] [disabled] [ref=e869]
+                      - gridcell "08/30/2026" [ref=e870]
+                      - gridcell "38.08" [ref=e872]
+                      - gridcell [ref=e874]:
+                        - link "CC" [ref=e875] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/63e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e876]
+                      - gridcell "GRISTEDES 8/27/26" [ref=e877]
+                      - gridcell "Shukette" [ref=e878]
+                      - gridcell "From Sage" [ref=e879]
+                      - gridcell [ref=e880]
+                    - row [ref=e881]:
+                      - gridcell [ref=e882]:
+                        - checkbox [checked] [disabled] [ref=e883]
+                      - gridcell "08/23/2026" [ref=e884]
+                      - gridcell "297.02" [ref=e886]
+                      - gridcell [ref=e888]:
+                        - link "CC" [ref=e889] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/6ee0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e890]
+                      - gridcell "AMZN 8/23/26" [ref=e891]
+                      - gridcell "Shukette" [ref=e892]
+                      - gridcell "From Sage" [ref=e893]
+                      - gridcell [ref=e894]
+                    - row [ref=e895]:
+                      - gridcell [ref=e896]:
+                        - checkbox [checked] [disabled] [ref=e897]
+                      - gridcell "08/23/2026" [ref=e898]
+                      - gridcell "24.44" [ref=e900]
+                      - gridcell [ref=e902]:
+                        - link "CC" [ref=e903] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/5ee0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e904]
+                      - gridcell "GRISTEDES 8/23/26-1" [ref=e905]
+                      - gridcell "Shukette" [ref=e906]
+                      - gridcell "From Sage" [ref=e907]
+                      - gridcell [ref=e908]
+                    - row [ref=e909]:
+                      - gridcell [ref=e910]:
+                        - checkbox [checked] [disabled] [ref=e911]
+                      - gridcell "08/23/2026" [ref=e912]
+                      - gridcell "53.15" [ref=e914]
+                      - gridcell [ref=e916]:
+                        - link "CC" [ref=e917] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/65e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e918]
+                      - gridcell "GRISTEDES 8/23/26-2" [ref=e919]
+                      - gridcell "Shukette" [ref=e920]
+                      - gridcell "From Sage" [ref=e921]
+                      - gridcell [ref=e922]
+                    - row [ref=e923]:
+                      - gridcell [ref=e924]:
+                        - checkbox [checked] [disabled] [ref=e925]
+                      - gridcell "08/30/2026" [ref=e926]
+                      - gridcell "65.50" [ref=e928]
+                      - gridcell [ref=e930]:
+                        - link "CC" [ref=e931] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/67e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e932]
+                      - gridcell "WEBSTAURANT ST 8/23/26" [ref=e933]
+                      - gridcell "Shukette" [ref=e934]
+                      - gridcell "From Sage" [ref=e935]
+                      - gridcell [ref=e936]
+                    - row [ref=e937]:
+                      - gridcell [ref=e938]:
+                        - checkbox [checked] [disabled] [ref=e939]
+                      - gridcell "08/30/2026" [ref=e940]
+                      - gridcell "15.96" [ref=e942]
+                      - gridcell [ref=e944]:
+                        - link "CC" [ref=e945] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/5ce0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e946]
+                      - gridcell "GRISTEDES 8/24/26-2" [ref=e947]
+                      - gridcell "Shukette" [ref=e948]
+                      - gridcell "From Sage" [ref=e949]
+                      - gridcell [ref=e950]
+                    - row [ref=e951]:
+                      - gridcell [ref=e952]:
+                        - checkbox [checked] [disabled] [ref=e953]
+                      - gridcell "08/30/2026" [ref=e954]
+                      - gridcell "31.83" [ref=e956]
+                      - gridcell [ref=e958]:
+                        - link "CC" [ref=e959] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/61e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e960]
+                      - gridcell "GRISTEDES 8/29/26" [ref=e961]
+                      - gridcell "Shukette" [ref=e962]
+                      - gridcell "From Sage" [ref=e963]
+                      - gridcell [ref=e964]
+                    - row [ref=e965]:
+                      - gridcell [ref=e966]:
+                        - checkbox [checked] [disabled] [ref=e967]
+                      - gridcell "08/30/2026" [ref=e968]
+                      - gridcell "18.00" [ref=e970]
+                      - gridcell [ref=e972]:
+                        - link "CC" [ref=e973] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/5de0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e974]
+                      - gridcell "GRISTEDES 8/24/26-1" [ref=e975]
+                      - gridcell "Shukette" [ref=e976]
+                      - gridcell "From Sage" [ref=e977]
+                      - gridcell [ref=e978]
+                    - row [ref=e979]:
+                      - gridcell [ref=e980]:
+                        - checkbox [checked] [disabled] [ref=e981]
+                      - gridcell "08/23/2026" [ref=e982]
+                      - gridcell "70.76" [ref=e984]
+                      - gridcell [ref=e986]:
+                        - link "CC" [ref=e987] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/68e0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e988]
+                      - gridcell "APPLDIGITL 8/22/26" [ref=e989]
+                      - gridcell "Shukette" [ref=e990]
+                      - gridcell "From Sage" [ref=e991]
+                      - gridcell [ref=e992]
+                    - row [ref=e993]:
+                      - gridcell [ref=e994]:
+                        - checkbox [checked] [disabled] [ref=e995]
+                      - gridcell "08/30/2026" [ref=e996]
+                      - gridcell "200.47" [ref=e998]
+                      - gridcell [ref=e1000]:
+                        - link "CC" [ref=e1001] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/6ce0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e1002]
+                      - gridcell "LABRLAWCNRT 8/28/26" [ref=e1003]
+                      - gridcell "Shukette" [ref=e1004]
+                      - gridcell "From Sage" [ref=e1005]
+                      - gridcell [ref=e1006]
+                    - row [ref=e1007]:
+                      - gridcell [ref=e1008]:
+                        - checkbox [checked] [disabled] [ref=e1009]
+                      - gridcell "08/30/2026" [ref=e1010]
+                      - gridcell "205.42" [ref=e1012]
+                      - gridcell [ref=e1014]:
+                        - link "CC" [ref=e1015] [cursor=pointer]:
+                          - /url: "#/form/BankExpenseForm/6de0e394-57bf-f111-aaac-000d3a41fbd2"
+                      - gridcell "Bank Expense" [ref=e1016]
+                      - gridcell "TRVL 8/24-29/26" [ref=e1017]
+                      - gridcell "Shukette" [ref=e1018]
+                      - gridcell "From Sage" [ref=e1019]
+                      - gridcell [ref=e1020]
+                - table [ref=e1025]:
+                  - rowgroup [ref=e1036]:
+                    - row [ref=e1037]:
+                      - cell [ref=e1038]
+                      - cell [ref=e1039]
+                      - cell "$3,247.72" [ref=e1040]
+                      - cell [ref=e1043]
+                      - cell [ref=e1044]
+                      - cell [ref=e1045]
+                      - cell [ref=e1046]
+                      - cell [ref=e1047]
+                      - cell [ref=e1048]
+                - generic [ref=e1049]:
+                  - link "Go to the first page" [ref=e1050]:
+                    - /url: "#"
+                  - link "Go to the previous page" [ref=e1052]:
+                    - /url: "#"
+                  - link "Go to the next page" [ref=e1054]:
+                    - /url: "#"
+                  - link "Go to the last page" [ref=e1056]:
+                    - /url: "#"
+                  - generic [ref=e1058]: 16 Items Selected1 - 16 of 16 items
+        - generic [ref=e1064]:
+          - button "Upload File" [ref=e1065] [cursor=pointer]
+          - generic [ref=e1066]:
+            - generic [ref=e1067]:
+              - link "Shukette 20260922-statements-5138-.pdf" [ref=e1071] [cursor=pointer]:
+                - /url: ""
+              - button [ref=e1072] [cursor=pointer]:
+                - generic [ref=e1073]: 
+            - generic [ref=e1074]:
+              - link "Chase5138_Activity_20260925.csv" [ref=e1078] [cursor=pointer]:
+                - /url: ""
+              - button [ref=e1079] [cursor=pointer]:
+                - generic [ref=e1080]: 
+  - img [ref=e1081] [cursor=pointer]

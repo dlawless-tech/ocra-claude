@@ -7,24 +7,28 @@ description: Retrieve the prior week's bank activity into Bowery Group Restauran
 
 Bank Activity pulls each account's transactions from its bank connection into the Unmatched grid, where the `ocra-r365:r365-bank-activity` skill codes them. This skill does only the pull: every account on the dropdown, in list order, retrieved over a custom date range. An account whose connection is not `Connected` is skipped.
 
-Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for the login and the side-menu walk. Work in one directory for the whole run, since `playwright-cli` binds sessions to it:
+Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for the login and the side-menu walk. Browser sessions are shared across the whole repo, so this skill uses its own session name, `bbd`; another skill using the same name would drive the same browser:
 
 ```bash
-bash <skills>/bowery-ubereats/scripts/r365-login.sh bd
+bash <skills>/bowery-ubereats/scripts/r365-login.sh bbd
 ```
 
 ## The week
 
-Sunday to Sunday: the most recent Sunday before today back to the Sunday before it, both dates inclusive. Run on Monday 9/28/2026, that is `9/20/2026` to `9/27/2026`. The page's `Last Activity Upload Date` reads the prior run's start (9/20/2026 on that run), and the shared Sunday comes back as `duplicatesFound`, not as new rows.
+Sunday to Sunday, both dates inclusive: the most recent Sunday on or before today back to the Sunday before it. The scheduled run on Sunday 10/11/2026 pulls `10/4/2026` to `10/11/2026`; a manual run on Saturday 10/10/2026 pulls `9/27/2026` to `10/4/2026`. The shared Sunday comes back as `duplicatesFound`, not as new rows.
 
 ## Step 1: open Bank Activity
 
-From the home dashboard open the side menu (the first unlabeled `button` in the banner), then `button "Accounting"`, `button "Banking"`, and `link "Bank activity"`. It opens in a second tab; `tab-select 1`. The page is `https://bowerygroup.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000`.
+```bash
+bash <skill>/scripts/open-bank-activity.sh bbd
+```
+
+It goes straight to `https://bowerygroup.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000` in the current tab and logs in again once if that drops the session.
 
 ## Step 2: retrieve every account
 
 ```bash
-bash <skill>/scripts/retrieve-all.sh bd 9/20/2026 9/27/2026
+bash <skill>/scripts/retrieve-all.sh bbd 9/20/2026 9/27/2026
 ```
 
 For each account it opens the `Select Checking Account` dropdown, picks the next option, answers **No** to the warning, reads the connection status, and for a `Connected` account clicks the pen/paper icon beside Retrieve Activity, fills Start and End, reads both back from the date pickers, and clicks the dialog's Retrieve Activity. It appends one line per account to `retrieve.log`:
@@ -34,7 +38,7 @@ For each account it opens the `Select Checking Account` dropdown, picks the next
 - `END` after the last account.
 - `FAIL:` names the account and the step. It stops there; rerun from that account with a fourth argument, its 1-based list position.
 
-`retrieve-account.sh bd <n> <start> <end>` runs one account alone.
+`retrieve-account.sh bbd <n> <start> <end>` runs one account alone.
 
 The step is done when `retrieve.log` ends on `END` and every `RETRIEVED` line carries `"error":null` and `"result":1`.
 
@@ -44,6 +48,12 @@ The step is done when `retrieve.log` ends on `END` and every `RETRIEVED` line ca
 - **Status.** Three blocks sit under `Connection Status:`, one visible at a time: `#greenStatus` Connected, `#goldenrodStatus` Not Connected, `#redStatus` Password Needed. Read the one without `ng-hide`.
 - **Selectors.** The account input is `input[name=bankActivityBankAcounts_input]` (the misspelling is R365's), its list `#bankActivityBankAcounts_listbox li`, the pen/paper icon `[data-testid=chooseDateRangeButton]`, the dates `#start` and `#end` (Kendo date pickers), and the dialog's retrieve button carries `ng-click="handlers.retrieveActivity('startEndDate')"`. The ribbon's own Retrieve Activity (`retrieveAll`) pulls without a date range.
 - **The dropdown arrow** sometimes ignores a click; the script retries until the list shows.
+
+## Sunday scheduled run
+
+`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 7:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>` under its own browser session `bbk`, so a manual run under `bbd` is left alone. After a skipped week it starts instead from the end Sunday of the last week whose `retrieve.log` ends on `END`, up to four weeks back, so 10/18/2026 pulls `10/4/2026` to `10/18/2026`. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
+
+It then posts a card to the Bank Activity Teams channel through `scripts/notify-teams.ps1`: one line per account, with Brandy Sanders tagged and told the week is downloaded. The title says `FAILED` instead when `retrieve.log` has no `END` or a retrieve carries an error. The webhook and the person to tag live in `~/.claude/bowery-bank-downloads.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "bsanders@ocra-us.com"}}`.
 
 ## Report
 

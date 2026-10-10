@@ -27,9 +27,11 @@ playwright-cli -s=$S fill '#bankExpensePayee' "$PAYEE" >/dev/null 2>&1
 playwright-cli -s=$S fill '#bankExpenseNumber' "$NO" >/dev/null 2>&1
 playwright-cli -s=$S fill '#bankExpenseComment' "$MEMO" >/dev/null 2>&1
 playwright-cli -s=$S fill '#bankExpenseAmount' "$AMT" >/dev/null 2>&1
-playwright-cli -s=$S eval "$(sed s/AMT/$AMT/g amt.js)" >/dev/null 2>&1
+playwright-cli -s=$S eval "() => { document.querySelectorAll('[id^=pendo-base], ._pendo-step-container, ._pendo-backdrop').forEach(e=>e.remove()); }" >/dev/null 2>&1; sleep 2; playwright-cli -s=$S eval "$(sed s/AMT/$AMT/g amt.js)" >/dev/null 2>&1
 playwright-cli -s=$S fill 'input[name=newRowAmountInput] >> xpath=following::input[1]' "$CMT" >/dev/null 2>&1
 playwright-cli -s=$S click '.grid-add-row-button' >/dev/null 2>&1; sleep 2
+for TRY in 1 2 3; do N=$(ev "() => { let t=0; jQuery('#bankExpenseDetailsGrid').data('kendoGrid').dataSource.data().forEach(r=>{t+=Number(r.amount)}); return t.toFixed(2); }" | tr -d '"'); [ "$N" = "$(printf %.2f $AMT)" ] && break; echo "grid $N, retry"; sleep 2; playwright-cli -s=$S eval "$(sed s/AMT/$AMT/g amt.js)" >/dev/null 2>&1; sleep 1; playwright-cli -s=$S click '.grid-add-row-button' >/dev/null 2>&1; sleep 2; done
+[ "$N" = "$(printf %.2f $AMT)" ] || { echo "STOP: line total $N"; exit 1; }
 SAVE=$(bash "$SK/danny-coops-payroll/scripts/save.sh" $S); echo "save $SAVE"
 ID=$(echo "$SAVE" | grep -oE '^\[\["1","[0-9a-f-]{36}"' | grep -oE '[0-9a-f-]{36}')
 [ -n "$ID" ] || exit 1

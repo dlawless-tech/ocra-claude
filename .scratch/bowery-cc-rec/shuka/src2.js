@@ -1,0 +1,1 @@
+async () => { const r=await fetch('/app/pages/grids/AllTransactionsGrid/AllTransactionsGrid.html?version=0de1a68d8'); const t=await r.text(); const a=t.indexOf('operation == 2 /*Delete*/'); const b=t.indexOf('function isUnApprovable'); return t.slice(a,a+2500).replace(/\s+/g,' ')+'\n=====\n'+t.slice(b,b+1500).replace(/\s+/g,' '); }

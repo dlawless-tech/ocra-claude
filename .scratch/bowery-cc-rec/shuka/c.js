@@ -1,0 +1,1 @@
+() => { const g=jQuery('#DepositsOtherCreditsGrid').data('kendoGrid'); let n=0; g.dataSource.data().forEach(r=>{ if(r.transactionId!=='4a1214df-bbc4-f111-aaac-000d3a41fbd2') return; const cb=jQuery('#DepositsOtherCreditsGrid tr[data-uid='+r.uid+'] input[type=checkbox]')[0]; if(!cb.checked) cb.click(); n++; }); return n; }

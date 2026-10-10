@@ -1,0 +1,1 @@
+async () => { const r=await fetch('/app/pages/grids/AllTransactionsGrid/AllTransactionsGrid.html?version=0de1a68d8'); const t=await r.text(); const out=[]; let i=-1; const re=/[Dd]elete|[Uu]napprove/g; let m; while((m=re.exec(t))&&out.length<40){ if(m.index-i<300) continue; i=m.index; out.push(t.slice(Math.max(0,i-150),i+250).replace(/\s+/g,' ')); } return out.join('\n----\n'); }

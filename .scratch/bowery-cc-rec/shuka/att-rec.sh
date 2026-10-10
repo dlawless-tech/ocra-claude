@@ -24,7 +24,7 @@ case "|$(titles)|" in *"|$N|"*) echo "ATTACHED $N (already)"; exit 0 ;; esac
 
 B=
 for i in 1 2 3 4; do
-  TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP
+  TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP; playwright-cli -s=$S eval "() => document.querySelectorAll('[id^=pendo-base]').forEach(e=>e.remove())" >/dev/null 2>&1
   B=$(grep -oE 'button "Upload File".*ref=f?[0-9]*e[0-9]+' $TMP | grep -oE 'f?[0-9]*e[0-9]+$' | tail -1)
   rm -f $TMP
   [ -n "$B" ] && break; sleep 5
