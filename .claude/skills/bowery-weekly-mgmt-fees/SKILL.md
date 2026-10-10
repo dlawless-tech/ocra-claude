@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-mgmt-fees
-description: Post the weekly management fee journal entry into Bowery Group Restaurant365, charging each store its share of the fee and moving the cash to Bowery Group Corp, from the BWRY - Mgmt Fees & IC Transfers workbook. Use when asked to fill, balance, or approve the Bowery Management Fees entry in R365, or to check a week's fees against that workbook.
+description: Post the weekly management fee journal entry into Bowery Group Restaurant365, charging each store its share of the fee and moving the cash to Bowery Group Corp, from the BWRY - Mgmt Fees & IC Transfers workbook. Use when asked to fill, balance, or approve the Bowery Management Fees entry in R365, or to check a week's fees against that workbook, or when the Monday file-drop run starts it.
 ---
 
 # Weekly management fees into the Bowery journal entry
@@ -119,6 +119,30 @@ mv "<workbook>" "<workbook folder>/Completed/"
 ```
 
 Report the `check-lines.js` table, the entry's status and amount from the grid, whether the workbook is attached, and whether it moved to `Completed`.
+
+## Unattended run
+
+The **Bowery Mgmt Fees & IC Transfers - Monday** task runs `scripts/mgmt-ic-run.ps1` every 15 minutes from 6:00 AM to 10:00 PM on Mondays (`scripts/register-task.ps1` sets it up, only while signed in). It looks for one `.xlsx` at the top of the folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting. More than one waiting posts a card and runs nothing.
+
+The wrapper copies the workbook into `.scratch/bowery-mgmt-fees-ic/run-<file timestamp>`, then starts this skill headless, then `bowery-weekly-ic-transfers`, each with a prompt beginning `Unattended run` naming the work directory, workbook copy, original file, result file, and today. It writes `done.txt`, so each version of the file runs once; a replaced workbook runs again. `-Force` reruns, and `-File <xlsx>` names the file.
+
+No human answers during the run, so:
+
+- Never ask. Use session `mfu`, and run every command as `cd <work directory> && ...`.
+- Read the workbook copy. The Week Ending must be the latest Sunday on or before today. Any other date, or a `read-sheet.js` stop, fails the run before Duplicate.
+- An Approved entry already dated the Week Ending means the week was posted by hand: post nothing, report it as `approved` with its grid amount, and still attach the workbook if it is missing.
+- Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
+- Approve only on `MATCH` with the workbook attached, and report `approved` only once the grid shows it.
+- Skip Step 7. The wrapper files the workbook once both this entry and Intercompany Transfers read `approved` with the workbook attached.
+
+Close `mfu`, then write the result file the prompt names. The wrapper posts both results as one card to the Wkly Journal Entries Teams channel through `scripts/notify-teams.ps1`, and reports a failure when a result file is missing:
+
+```json
+{ "weekEnding": "10/11/2026", "status": "approved", "total": 97466.62, "number": "Management Fees", "transactionId": "...",
+  "attached": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved` or `failed`, and `total` is the grid amount (`entryAmount`). The webhook lives in `~/.claude/bowery-mgmt-fees-ic.json`, outside the repo, and points at the same channel as Bowery Purchase Transfers: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}, "mentionWhen": "always"}`. With `always`, Brandy is tagged on every card, as the confirmation.
 
 ## Test entries
 

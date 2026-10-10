@@ -1,6 +1,6 @@
 ---
 name: bowery-weekly-ic-transfers
-description: Post the weekly intercompany cash transfer journal entry into Bowery Group Restaurant365, settling each entity's intercompany balance, from the BWRY - Mgmt Fees & IC Transfers workbook. Use when asked to fill, balance, or approve the Bowery Intercompany Transfers entry in R365, or to check a week's transfers against that workbook.
+description: Post the weekly intercompany cash transfer journal entry into Bowery Group Restaurant365, settling each entity's intercompany balance, from the BWRY - Mgmt Fees & IC Transfers workbook. Use when asked to fill, balance, or approve the Bowery Intercompany Transfers entry in R365, or to check a week's transfers against that workbook, or when the Monday file-drop run starts it.
 ---
 
 # Weekly intercompany transfers into the Bowery journal entry
@@ -135,6 +135,29 @@ mv "<workbook>" "<workbook folder>/Completed/"
 ```
 
 Report the `check-transfers.js` table for each entry, each entry's status and amount from the grid, whether the workbook is attached, any transfer whose direction flipped from the prior week, and whether the workbook moved to `Completed`.
+
+## Unattended run
+
+The Monday file-drop task in `bowery-weekly-mgmt-fees` (see its **Unattended run**) starts this skill headless right after the Management Fees run, on the same workbook copy and work directory. No human answers during the run, so:
+
+- Never ask. Use session `icu`, and run every command as `cd <work directory> && ...`.
+- Read the workbook copy. The Week Ending must be the latest Sunday on or before today. Any other date, or a `read-transfers.js` stop, fails the run before Duplicate.
+- Post the Bowery entry and every `separate` store-to-store entry. Add and remove pairs as `set-transfers.js` instructs.
+- An Approved entry already dated the Week Ending means it was posted by hand: post nothing for it, report it `Approved` with its grid amount, and still attach the workbook if it is missing.
+- Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
+- Approve each entry only on `MATCH` with the workbook attached, and count it `Approved` only once the grid shows it.
+- Skip Step 7. The wrapper files the workbook once this run and Management Fees both read `approved` with the workbook attached.
+
+Close `icu`, then write the result file the prompt names:
+
+```json
+{ "weekEnding": "10/11/2026", "status": "approved",
+  "entries": [{ "number": "Intercompany Transfers", "total": 11665.69, "status": "Approved", "transactionId": "...", "attached": true }],
+  "transfers": [{ "from": "Cookshop", "to": "Bowery", "amount": 4614.46 }],
+  "flipped": ["Bowery -> Shuka (was Shuka -> Bowery)"], "attached": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved` only when every entry reads Approved on the grid, else `failed`. `attached` is true only when every entry carries the workbook. `transfers` lists every transfer, store-to-store ones included.
 
 ## Test entries
 
