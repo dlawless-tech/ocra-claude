@@ -1,4 +1,4 @@
-# Task Scheduler entry point. Retrieves every account for last Sunday through today, then posts the result to Teams.
+# Task Scheduler entry point. Retrieves every account for the prior Sunday through Saturday, then posts the result to Teams.
 # usage: sunday-run.ps1 [-Force]
 # Writes one marker per week so a second trigger does nothing.
 param([switch]$Force)
@@ -11,20 +11,12 @@ $Notify = "$PSScriptRoot\notify-teams.ps1"
 $S = 'bbk'
 
 $today = (Get-Date).Date
-$end = $today.AddDays(-[int]$today.DayOfWeek)
-$start = $end.AddDays(-7)
-# skipped weeks: start from the last finished week's Sunday, up to four weeks back
-$done = foreach ($d in Get-ChildItem -Directory (Join-Path $Repo '.scratch\bowery-bank-downloads') -Filter 'wk????' -ErrorAction SilentlyContinue) {
-  if (-not (Select-String -Quiet -Pattern '^\d+ END' -Path (Join-Path $d.FullName 'retrieve.log') -ErrorAction SilentlyContinue)) { continue }
-  $w = [datetime]::new($end.Year, [int]$d.Name.Substring(2, 2), [int]$d.Name.Substring(4, 2))
-  if ($w -gt $end) { $w = $w.AddYears(-1) }
-  if ($w -lt $end) { $w }
-}
-$lastDone = $done | Sort-Object | Select-Object -Last 1
-if ($lastDone -and $lastDone -lt $start -and $lastDone -ge $end.AddDays(-28)) { $start = $lastDone }
+# prior week, Sunday through Saturday; folder named for the run's Sunday, which Tripleseat Pay reads
+$sun = $today.AddDays(-[int]$today.DayOfWeek)
+$start = $sun.AddDays(-7); $end = $sun.AddDays(-1)
 $fmt = { param($d) '{0}/{1}/{2}' -f $d.Month, $d.Day, $d.Year }
 $startS = & $fmt $start; $endS = & $fmt $end
-$run = Join-Path $Repo (".scratch\bowery-bank-downloads\wk{0:MMdd}" -f $end)
+$run = Join-Path $Repo (".scratch\bowery-bank-downloads\wk{0:MMdd}" -f $sun)
 New-Item -ItemType Directory -Force $run | Out-Null
 $log = Join-Path $run 'sunday-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
@@ -53,3 +45,5 @@ Sh "playwright-cli -s=$S close" | Out-Null
 
 $lines = @(Get-Content -Encoding utf8 (Join-Path $run 'retrieve.log') -ErrorAction SilentlyContinue)
 & $Notify -Title "Bowery bank downloads $startS - $endS" -RetrieveLog $lines
+# Tripleseat Pay waits on a complete download; its run checks retrieve.log itself
+try { Start-ScheduledTask -TaskName 'Bowery Tripleseat Pay - After Bank Downloads' } catch { Log "tripleseat task not started: $_" }

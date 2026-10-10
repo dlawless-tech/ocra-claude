@@ -15,7 +15,7 @@ bash <skills>/bowery-ubereats/scripts/r365-login.sh bbd
 
 ## The week
 
-Sunday to Sunday, both dates inclusive: the most recent Sunday on or before today back to the Sunday before it. The scheduled run on Sunday 10/11/2026 pulls `10/4/2026` to `10/11/2026`; a manual run on Saturday 10/10/2026 pulls `9/27/2026` to `10/4/2026`. The shared Sunday comes back as `duplicatesFound`, not as new rows.
+The prior week, Sunday through Saturday, both dates inclusive. The scheduled run on Sunday 10/11/2026 pulls `10/4/2026` to `10/10/2026`. A manual run later in the week pulls the same week as that week's Sunday run.
 
 ## Step 1: open Bank Activity
 
@@ -51,9 +51,11 @@ The step is done when `retrieve.log` ends on `END` and every `RETRIEVED` line ca
 
 ## Sunday scheduled run
 
-`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 7:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>` under its own browser session `bbk`, so a manual run under `bbd` is left alone. After a skipped week it starts instead from the end Sunday of the last week whose `retrieve.log` ends on `END`, up to four weeks back, so 10/18/2026 pulls `10/4/2026` to `10/18/2026`. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
+`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 7:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>`, named for the run's Sunday, under its own browser session `bbk`, so a manual run under `bbd` is left alone. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
 
 It then posts a card to the Bank Activity Teams channel through `scripts/notify-teams.ps1`: one line per account, with Brandy Sanders tagged and told the week is downloaded. The title says `FAILED` instead when `retrieve.log` has no `END` or a retrieve carries an error. The webhook and the person to tag live in `~/.claude/bowery-bank-downloads.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "bsanders@ocra-us.com"}}`.
+
+Last, it starts the **Bowery Tripleseat Pay - After Bank Downloads** task, which splits the week's Tripleseat Pay deposits only when this download is complete (see `bowery-tripleseat-pay`).
 
 ## Report
 
