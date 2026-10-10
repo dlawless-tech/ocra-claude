@@ -23,6 +23,8 @@ NAME=$(js "() => { const li=document.querySelectorAll('$LIST')[$N-1]; return li 
 [ -n "$NAME" ] || { echo "END: no account #$N"; exit 0; }
 
 [ "$(warning)" = yes ] && answer_no
+# Pendo marketing guide overlays the page and eats clicks
+js "() => { const x=document.querySelector('#pendo-base ._pendo-close-guide'); if (x) x.click(); document.getElementById('pendo-base')?.remove(); return 'ok'; }" >/dev/null; sleep 1
 # the arrow sometimes ignores a click; retry until the list shows
 for i in 1 2 3 4; do
   [ "$(js "() => getComputedStyle(document.getElementById('bankActivityBankAcounts-list')).display")" = block ] && break
@@ -37,6 +39,12 @@ GOT=$(js "() => document.querySelector('input[name=bankActivityBankAcounts_input
 STATUS=$(js "() => [...document.querySelectorAll('.connectionStatus')].map(p=>p.parentElement).filter(d=>!d.classList.contains('ng-hide')).map(d=>d.querySelector('strong').innerText.trim()).join(',')")
 [ "$STATUS" = "Connected" ] || { echo "SKIPPED: $NAME (${STATUS:-no status})"; exit 0; }
 
+# Yodlee "Linked Accounts" iframe can open on a stale connection; close it via its in-frame Close button
+for i in 1 2 3 4 5; do
+  REF=$(playwright-cli -s=$S snapshot 2>&1 | grep -A60 'iframe' | grep -oE 'button "Close" \[ref=[a-z0-9]+\]' | head -1 | grep -oE 'ref=[a-z0-9]+' | cut -d= -f2)
+  [ -n "$REF" ] || break
+  playwright-cli -s=$S click "$REF" >/dev/null 2>&1; sleep 3
+done
 click '[data-testid=chooseDateRangeButton]'; sleep 3
 playwright-cli -s=$S fill '#start' "$START" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
 playwright-cli -s=$S fill '#end' "$END" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
