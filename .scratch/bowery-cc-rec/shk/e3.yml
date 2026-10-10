@@ -1,0 +1,226 @@
+- generic [ref=f16e1]:
+  - generic [ref=f16e2]:
+    - generic [ref=f16e4]:
+      - generic [ref=f16e5]: Theme Builder
+      - button [ref=f16e8] [cursor=pointer]:
+        - generic [ref=f16e9]: 
+      - generic [ref=f16e10]:
+        - generic [ref=f16e11]:
+          - heading "Ribbon" [level=4] [ref=f16e12]
+          - generic [ref=f16e13]:
+            - generic [ref=f16e14]: BG
+            - generic [ref=f16e15]: Font
+            - generic [ref=f16e16]: Hover BG
+            - generic [ref=f16e17]: Hover Font
+          - generic "Menu" [ref=f16e18]:
+            - 'textbox "Current selected color is #ffffff" [ref=f16e22]':
+              - generic [ref=f16e26] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f16e28]':
+              - generic [ref=f16e32] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f16e34]':
+              - generic [ref=f16e38] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f16e40]':
+              - generic [ref=f16e44] [cursor=pointer]
+          - generic "SubMenu" [ref=f16e45]:
+            - 'textbox "Current selected color is #ffffff" [ref=f16e49]':
+              - generic [ref=f16e53] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f16e55]':
+              - generic [ref=f16e59] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f16e61]':
+              - generic [ref=f16e65] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f16e67]':
+              - generic [ref=f16e71] [cursor=pointer]
+        - generic [ref=f16e72]:
+          - heading "Ribbon Logo" [level=4] [ref=f16e73]
+          - button "Upload Ribbon Logo" [ref=f16e78] [cursor=pointer]
+        - generic [ref=f16e79]:
+          - heading "Left Panel" [level=4] [ref=f16e80]
+          - generic [ref=f16e81]:
+            - 'textbox "Current selected color is #ffffff" [ref=f16e84]':
+              - generic [ref=f16e88] [cursor=pointer]
+            - 'textbox "Current selected color is #546e7a" [ref=f16e90]':
+              - generic [ref=f16e94] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f16e96]':
+              - generic [ref=f16e100] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f16e102]':
+              - generic [ref=f16e106] [cursor=pointer]
+        - generic [ref=f16e107]:
+          - heading "Components" [level=4] [ref=f16e108]
+          - generic "Normal" [ref=f16e109]:
+            - 'textbox "Current selected color is #c3c3c3" [ref=f16e113]':
+              - generic [ref=f16e117] [cursor=pointer]
+            - 'textbox "Current selected color is #777777" [ref=f16e119]':
+              - generic [ref=f16e123] [cursor=pointer]
+            - 'textbox "Current selected color is #f5f5f5" [ref=f16e125]':
+              - generic [ref=f16e129] [cursor=pointer]
+            - 'textbox "Current selected color is #0d0d0d" [ref=f16e131]':
+              - generic [ref=f16e135] [cursor=pointer]
+          - generic "Selected" [ref=f16e136]:
+            - 'textbox "Current selected color is #5ea3cb" [ref=f16e140]':
+              - generic [ref=f16e144] [cursor=pointer]
+            - 'textbox "Current selected color is #ffffff" [ref=f16e146]':
+              - generic [ref=f16e150] [cursor=pointer]
+      - generic [ref=f16e151]:
+        - generic [ref=f16e152]:
+          - generic [ref=f16e155]:
+            - combobox "Select Theme" [ref=f16e156]: Default R365 Theme
+            - button "select" [ref=f16e158] [cursor=pointer]
+          - generic [ref=f16e159]:
+            - button "Set As Default" [ref=f16e160] [cursor=pointer]
+            - button "Save" [disabled] [ref=f16e161]
+            - button "Delete" [disabled] [ref=f16e162]
+        - generic [ref=f16e163]:
+          - textbox "Add New Theme" [ref=f16e165]
+          - button "New" [ref=f16e167] [cursor=pointer]
+    - generic [ref=f16e392]:
+      - generic [ref=f16e393]:
+        - navigation [ref=f16e397]:
+          - generic [ref=f16e398]:
+            - generic: Bank Expense - CC
+            - generic [ref=f16e400]:
+              - list [ref=f16e401]:
+                - listitem [ref=f16e402]:
+                  - button "Save" [ref=f16e403] [cursor=pointer]
+                - listitem [ref=f16e405]:
+                  - button "Approve" [ref=f16e406] [cursor=pointer]
+                - listitem [ref=f16e408]:
+                  - button "Action" [ref=f16e409] [cursor=pointer]
+              - list [ref=f16e411]:
+                - listitem [ref=f16e412]:
+                  - button [ref=f16e413] [cursor=pointer]:
+                    - generic [ref=f16e414]: 
+                - listitem [ref=f16e416]:
+                  - link [ref=f16e417] [cursor=pointer]:
+                    - /url: ""
+                    - generic [ref=f16e418]: 
+        - generic [ref=f16e419]: Unapproved
+      - generic [ref=f16e425]:
+        - group [ref=f16e426]:
+          - generic [ref=f16e430]:
+            - generic [ref=f16e431]:
+              - generic [ref=f16e432]:
+                - generic [ref=f16e433]:
+                  - link "Checking Account" [ref=f16e434] [cursor=pointer]:
+                    - /url: "#/form/BankAccountForm/a799dd01-4501-49a6-9e81-6ebcd5565ad5"
+                  - text: "*"
+                - generic [ref=f16e438]:
+                  - combobox "Select Checking Account" [ref=f16e439]: 202-03 - Chase Ink Preferred card x5138 x5991 - Shukette
+                  - button "select" [ref=f16e441] [cursor=pointer]
+              - generic [ref=f16e442]:
+                - generic [ref=f16e443]: Number*
+                - textbox "Number*" [ref=f16e445]: CC
+              - generic [ref=f16e446]:
+                - generic [ref=f16e447]: Vendor
+                - generic [ref=f16e450]:
+                  - combobox "Select Vendor" [ref=f16e451]
+                  - button "select" [ref=f16e453] [cursor=pointer]
+              - generic [ref=f16e454]:
+                - generic [ref=f16e455]: Paid To
+                - textbox "Paid To" [ref=f16e457]: GOTHAM PIZZA
+              - generic [ref=f16e458]:
+                - generic [ref=f16e459]:
+                  - link "Location" [ref=f16e460] [cursor=pointer]:
+                    - /url: "#/form/LocationForm/dc1cf368-8eb0-4ca5-b8e1-7769d0b9c313"
+                  - text: "*"
+                - generic [ref=f16e463]:
+                  - combobox "Select Location" [ref=f16e464]: 600 - Shukette
+                  - button "select" [ref=f16e466] [cursor=pointer]
+              - generic [ref=f16e467]:
+                - generic [ref=f16e468]: Check Memo
+                - textbox "Check Memo" [ref=f16e470]: GOTHAM PIZZA 8/30/26 bank 353.75 vs Sage 313.75
+              - generic [ref=f16e474]:
+                - generic [ref=f16e475]: Address
+                - textbox "Address" [ref=f16e477]
+                - button "Change Address" [ref=f16e479] [cursor=pointer]
+            - generic [ref=f16e480]:
+              - generic [ref=f16e481]:
+                - generic [ref=f16e482]: Amount
+                - textbox "Amount" [ref=f16e484]: "40.00"
+              - generic [ref=f16e485]:
+                - generic [ref=f16e486]: Amount Text
+                - generic [ref=f16e487]: Forty And 0/100
+              - generic [ref=f16e489]:
+                - generic [ref=f16e490]: Date*
+                - generic [ref=f16e493]:
+                  - combobox "Date*" [ref=f16e494]: 8/31/2026
+                  - button "select" [ref=f16e495] [cursor=pointer]
+            - generic [ref=f16e498]:
+              - generic [ref=f16e499]:
+                - generic [ref=f16e500]: "Balance: -14,851.31"
+                - generic [ref=f16e501]:
+                  - button "+ Size" [ref=f16e502] [cursor=pointer]
+                  - button "- Size" [ref=f16e503] [cursor=pointer]
+              - tablist [ref=f16e505]:
+                - list [ref=f16e506]:
+                  - tab "Details" [selected] [ref=f16e507]
+                  - tab "Distribution" [ref=f16e510]
+                - tabpanel [ref=f16e513]:
+                  - generic [ref=f16e514]:
+                    - generic [ref=f16e515]:
+                      - generic:
+                        - generic:
+                          - generic [ref=f16e519]:
+                            - combobox "Select Account" [ref=f16e520]
+                            - button "select" [ref=f16e522] [cursor=pointer]
+                          - textbox [ref=f16e524]: "0.00"
+                          - textbox [ref=f16e526]
+                          - generic [ref=f16e527]:
+                            - generic [ref=f16e529]:
+                              - combobox "Select Location" [ref=f16e530]: 600 - Shukette
+                              - button "select" [ref=f16e532] [cursor=pointer]
+                            - button "Add" [ref=f16e533] [cursor=pointer]
+                          - button "Clear" [ref=f16e535] [cursor=pointer]
+                    - grid [ref=f16e538]:
+                      - rowgroup [ref=f16e545]:
+                        - row [ref=f16e546]:
+                          - columnheader [ref=f16e547]:
+                            - link "Account" [ref=f16e548] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f16e550]:
+                            - link "Amount" [ref=f16e551] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f16e552]:
+                            - link "Comment" [ref=f16e553] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f16e554]:
+                            - link "Location" [ref=f16e555] [cursor=pointer]:
+                              - /url: "#"
+                          - columnheader [ref=f16e556]
+                    - grid [ref=f16e558]:
+                      - rowgroup [ref=f16e565]:
+                        - row [ref=f16e566]:
+                          - gridcell "500-01 - Purchases-Food" [ref=f16e567]
+                          - gridcell "40.00" [ref=f16e568]
+                          - gridcell "GOTHAM PIZZA 8/30/26 diff not in Sage" [ref=f16e570]
+                          - gridcell "600 - Shukette" [ref=f16e571]
+                          - gridcell "" [ref=f16e572]
+                    - table [ref=f16e576]:
+                      - rowgroup [ref=f16e583]:
+                        - row [ref=f16e584]:
+                          - cell [ref=f16e585]
+                          - cell "40.00" [ref=f16e586]
+                          - cell [ref=f16e588]
+                          - cell [ref=f16e589]
+                          - cell [ref=f16e590]
+                    - generic [ref=f16e591]:
+                      - link "Go to the first page" [ref=f16e592]:
+                        - /url: "#"
+                      - link "Go to the previous page" [ref=f16e594]:
+                        - /url: "#"
+                      - list [ref=f16e596]:
+                        - listitem [ref=f16e597]:
+                          - generic [ref=f16e598] [cursor=pointer]: "1"
+                      - link "Go to the next page" [ref=f16e599]:
+                        - /url: "#"
+                      - link "Go to the last page" [ref=f16e601]:
+                        - /url: "#"
+                      - generic [ref=f16e603]: 1 - 1 of 1 items
+            - button "Upload File" [ref=f16e610] [cursor=pointer]
+        - group
+  - generic [ref=f16e625]:
+    - generic [ref=f16e626]: Delete Confirmation
+    - generic [ref=f16e630]:
+      - generic [ref=f16e631]: Are you sure you wish to delete?
+      - generic [ref=f16e633]:
+        - button "Yes" [ref=f16e634] [cursor=pointer]
+        - button "Cancel" [ref=f16e635] [cursor=pointer]

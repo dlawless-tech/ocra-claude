@@ -1,0 +1,17 @@
+﻿2026-10-09T05:00:01 period 9/28/2026 - 10/4/2026; first attempt for Anaheim, Claremont; starting claude
+I posted nothing on this catch-up run. DoorDash paid Anaheim and Claremont on 10/8 at about 8:45 AM, and by the time this run read R365, both 10/3 entries had already been posted and Approved by someone else. Their lines match my plan to the penny, so both are reported as `skipped` in `result.json`.
+
+| Store | Payout | Net payout | Entry total | Status |
+|---|---|---|---|---|
+| Anaheim | 618136163 | 1,672.56 | 697.14 | skipped |
+| Claremont | 618141374 | 1,898.24 | 744.95 | skipped |
+
+- **Claremont sales gap:** the difference line is a 171.10 credit, which is over the 100.00 threshold. R365 recorded 2,472.09 in sales against DoorDash's 2,643.19. I put it in the store's warnings.
+- **Opening balances tie:** each store's 9/28 opening balance on 1111 equals its 10/2 bank deposit (Anaheim 1,907.42, Claremont 2,181.84).
+- **10/9 deposits:** they aren't in R365 yet, so the receivable was checked against the net payout instead.
+- **Every week's payouts are in:** the DoorDash identity holds for both stores, and all 24 stores show a payout dated 10/8.
+
+I closed the three sessions this run opened. `result.json` is in `.scratch/norms-doordash/wk1003/`, and the wrapper will post the Teams card from it.
+
+You still need to delete the one-off "NORMS DoorDash Catch-up 10-9" scheduled task, and North Torrance's 10/3 entry is still held because R365 has no DoorDash sales for it on 10/4.
+2026-10-09T05:06:29 claude exited 0

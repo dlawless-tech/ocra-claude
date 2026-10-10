@@ -1,0 +1,1 @@
+() => JSON.stringify([...document.querySelectorAll('input')].filter(i=>/end|balance/i.test((i.name||'')+(i.id||'')+(i.getAttribute('ng-model')||'')+(i.getAttribute('aria-label')||''))).map(i=>({n:i.name,id:i.id,m:i.getAttribute('ng-model'),r:i.getAttribute('data-role'),v:i.value,t:i.type,cls:i.className.slice(0,60)})))

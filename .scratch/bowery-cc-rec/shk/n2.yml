@@ -1,0 +1,124 @@
+- generic [ref=f15e2]:
+  - generic [ref=f15e4]:
+    - generic [ref=f15e5]: Theme Builder
+    - button [ref=f15e8] [cursor=pointer]:
+      - generic [ref=f15e9]: 
+    - generic [ref=f15e10]:
+      - generic [ref=f15e11]:
+        - heading "Ribbon" [level=4] [ref=f15e12]
+        - generic [ref=f15e13]:
+          - generic [ref=f15e14]: BG
+          - generic [ref=f15e15]: Font
+          - generic [ref=f15e16]: Hover BG
+          - generic [ref=f15e17]: Hover Font
+        - generic "Menu" [ref=f15e18]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e22]':
+            - generic [ref=f15e26] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e28]':
+            - generic [ref=f15e32] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e34]':
+            - generic [ref=f15e38] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e40]':
+            - generic [ref=f15e44] [cursor=pointer]
+        - generic "SubMenu" [ref=f15e45]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e49]':
+            - generic [ref=f15e53] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e55]':
+            - generic [ref=f15e59] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e61]':
+            - generic [ref=f15e65] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e67]':
+            - generic [ref=f15e71] [cursor=pointer]
+      - generic [ref=f15e72]:
+        - heading "Ribbon Logo" [level=4] [ref=f15e73]
+        - button "Upload Ribbon Logo" [ref=f15e78] [cursor=pointer]
+      - generic [ref=f15e79]:
+        - heading "Left Panel" [level=4] [ref=f15e80]
+        - generic [ref=f15e81]:
+          - 'textbox "Current selected color is #ffffff" [ref=f15e84]':
+            - generic [ref=f15e88] [cursor=pointer]
+          - 'textbox "Current selected color is #546e7a" [ref=f15e90]':
+            - generic [ref=f15e94] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e96]':
+            - generic [ref=f15e100] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e102]':
+            - generic [ref=f15e106] [cursor=pointer]
+      - generic [ref=f15e107]:
+        - heading "Components" [level=4] [ref=f15e108]
+        - generic "Normal" [ref=f15e109]:
+          - 'textbox "Current selected color is #c3c3c3" [ref=f15e113]':
+            - generic [ref=f15e117] [cursor=pointer]
+          - 'textbox "Current selected color is #777777" [ref=f15e119]':
+            - generic [ref=f15e123] [cursor=pointer]
+          - 'textbox "Current selected color is #f5f5f5" [ref=f15e125]':
+            - generic [ref=f15e129] [cursor=pointer]
+          - 'textbox "Current selected color is #0d0d0d" [ref=f15e131]':
+            - generic [ref=f15e135] [cursor=pointer]
+        - generic "Selected" [ref=f15e136]:
+          - 'textbox "Current selected color is #5ea3cb" [ref=f15e140]':
+            - generic [ref=f15e144] [cursor=pointer]
+          - 'textbox "Current selected color is #ffffff" [ref=f15e146]':
+            - generic [ref=f15e150] [cursor=pointer]
+    - generic [ref=f15e151]:
+      - generic [ref=f15e152]:
+        - generic [ref=f15e155]:
+          - combobox "Select Theme" [ref=f15e156]: Default R365 Theme
+          - button "select" [ref=f15e158] [cursor=pointer]
+        - generic [ref=f15e159]:
+          - button "Set As Default" [ref=f15e160] [cursor=pointer]
+          - button "Save" [disabled] [ref=f15e161]
+          - button "Delete" [disabled] [ref=f15e162]
+      - generic [ref=f15e163]:
+        - textbox "Add New Theme" [ref=f15e165]
+        - button "New" [ref=f15e167] [cursor=pointer]
+  - generic [ref=f15e171]:
+    - navigation [ref=f15e176]:
+      - generic [ref=f15e177]:
+        - generic: Bank Reconciliation
+        - generic [ref=f15e179]:
+          - list
+          - list [ref=f15e180]:
+            - listitem [ref=f15e181]:
+              - button [ref=f15e182] [cursor=pointer]:
+                - generic [ref=f15e183]: 
+            - listitem [ref=f15e185]:
+              - link [ref=f15e186] [cursor=pointer]:
+                - /url: ""
+                - generic [ref=f15e187]: 
+    - generic [ref=f15e189]:
+      - generic [ref=f15e191]:
+        - generic [ref=f15e194]:
+          - generic [ref=f15e195]: Checking Account *
+          - generic [ref=f15e199]:
+            - combobox "Select Checking Account" [expanded] [active] [ref=f15e200]:
+              - listbox [ref=f15e224]:
+                - option "100-03 - Cash - Shuka Op / Payroll (2636)" [ref=f15e225]
+                - option "100-04 - Cash - Vic's Settlement (2365)" [ref=f15e226]
+                - option "100-05 - Cash - Rosie's Operating (8778)" [ref=f15e227]
+                - option "100-06 - Cash - Shukette Op/Pay (2502)" [ref=f15e228]
+                - option "100-07 - Cash - Rosie's Payroll (6921)" [ref=f15e229]
+                - option "100-08 - Cash - Vic's Op / Payroll (9807)" [ref=f15e230]
+                - option "100-10 - Cash - Cookshop Operating (4360)" [ref=f15e231]
+                - option "100-11 - Cash - Cookshop Payroll (9533)" [ref=f15e232]
+                - option "100-13 - Cash - CD Cookshop (5751)" [ref=f15e233]
+                - option "100-15 - Cash - CD Shuka (5899)" [ref=f15e234]
+                - option "100-17 - Cash - Rosie's (8800)" [ref=f15e235]
+                - option "100-18 - Cash - CD Rosie's (5823)" [ref=f15e236]
+                - option "100-20 - Cash - Bowery Op / Payroll (5381)" [ref=f15e237]
+                - option "202-01 - Chase Ink Plus card x8281 - Cookshop" [ref=f15e238]
+                - option "202-03 - Chase Ink Preferred card x5138 x5991 - Shukette" [ref=f15e239]
+                - option "202-04 - Chase Ink Plus card x5026 - Vic's" [ref=f15e240]
+                - option "202-05 - Chase Ink Plus card x3014 x5458 x1790 x3014 x1667 x0769 x1667 - Shuka" [ref=f15e241]
+                - option "202-06 - Chase Ink Plus card x7490 - Rosie's" [ref=f15e242]
+                - option "202-10 - AMEX x1000 - Corporate (51000)" [ref=f15e243]
+            - button "select" [ref=f15e202] [cursor=pointer]
+        - generic [ref=f15e205]:
+          - generic [ref=f15e206]: Statement End Date *
+          - generic [ref=f15e209]:
+            - combobox "Statement End Date *" [invalid] [ref=f15e210]
+            - button "select" [ref=f15e211] [cursor=pointer]
+        - generic [ref=f15e215]:
+          - generic [ref=f15e216]: Statement End Balance *
+          - textbox "Statement End Balance *" [ref=f15e218]: "0"
+        - button "Retrieve Transactions" [ref=f15e221] [cursor=pointer]
+      - text: 
