@@ -5,7 +5,7 @@ description: Retrieve the prior week's bank activity into Bowery Group Restauran
 
 # Weekly bank activity retrieve for Bowery
 
-Bank Activity pulls each account's transactions from its bank connection into the Unmatched grid, where the `ocra-r365:r365-bank-activity` skill codes them. This skill does only the pull: every account on the dropdown, in list order, retrieved over a custom date range. An account whose connection is not `Connected` is skipped.
+Bank Activity pulls each account's transactions from its bank connection into the Unmatched grid, where the `ocra-r365:r365-bank-activity` skill codes them. This skill does only the pull: every account on the dropdown, in list order, retrieved over a custom date range. The credit cards (`202-xx`) are always skipped, since the user enters them by hand, and so is any other account whose connection is not `Connected`.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for the login and the side-menu walk. Browser sessions are shared across the whole repo, so this skill uses its own session name, `bbd`; another skill using the same name would drive the same browser:
 
@@ -31,9 +31,10 @@ It goes straight to `https://bowerygroup.restaurant365.com/#/form/BankActivityFo
 bash <skill>/scripts/retrieve-all.sh bbd 9/20/2026 9/27/2026
 ```
 
-For each account it opens the `Select Checking Account` dropdown, picks the next option, answers **No** to the warning, reads the connection status, and for a `Connected` account clicks the pen/paper icon beside Retrieve Activity, fills Start and End, reads both back from the date pickers, and clicks the dialog's Retrieve Activity. It appends one line per account to `retrieve.log`:
+It skips a `202-xx` credit card by name without selecting it. For each other account it opens the `Select Checking Account` dropdown, picks the next option, answers **No** to the warning, reads the connection status, and for a `Connected` account clicks the pen/paper icon beside Retrieve Activity, fills Start and End, reads both back from the date pickers, and clicks the dialog's Retrieve Activity. It appends one line per account to `retrieve.log`:
 
 - `RETRIEVED: <account> {"transactionsRetrieved":N,"duplicatesFound":N,"error":null,"result":1}`, the server's answer to `RetrieveBankActivityForGlAccount`.
+- `SKIPPED: <account> (credit card, done manually)` for a `202-xx` card.
 - `SKIPPED: <account> (<status>)` for `Not Connected` or `Password Needed`.
 - `END` after the last account.
 - `FAIL:` names the account and the step. It stops there; rerun from that account with a fourth argument, its 1-based list position.
@@ -51,7 +52,7 @@ The step is done when `retrieve.log` ends on `END` and every `RETRIEVED` line ca
 
 ## Sunday scheduled run
 
-`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 7:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>`, named for the run's Sunday, under its own browser session `bbk`, so a manual run under `bbd` is left alone. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
+`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 9:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>`, named for the run's Sunday, under its own browser session `bbk`, so a manual run under `bbd` is left alone. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
 
 It then posts a card to the Bank Activity Teams channel through `scripts/notify-teams.ps1`: one line per account, with Brandy Sanders tagged and told the week is downloaded. The title says `FAILED` instead when `retrieve.log` has no `END` or a retrieve carries an error. The webhook and the person to tag live in `~/.claude/bowery-bank-downloads.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "bsanders@ocra-us.com"}}`.
 
@@ -59,7 +60,7 @@ Last, it starts the **Bowery Tripleseat Pay - After Bank Downloads** task, which
 
 ## Report
 
-A table of every account: retrieved (with `transactionsRetrieved` and `duplicatesFound`) or skipped (with its status). Name each skipped account's status, since `Password Needed` means the client must reconnect it under **Manage Bank Connections**. Flag an operating or payroll account that retrieves 0, since the CDs and savings are the accounts that usually do.
+A table of every account: retrieved (with `transactionsRetrieved` and `duplicatesFound`) or skipped (with its status). Name each skipped cash account's status, since `Password Needed` means the client must reconnect it under **Manage Bank Connections**. Flag an operating or payroll account that retrieves 0, since the CDs and savings are the accounts that usually do.
 
 ## First run
 

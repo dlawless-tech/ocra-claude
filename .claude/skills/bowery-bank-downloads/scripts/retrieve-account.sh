@@ -21,6 +21,8 @@ answer_no() {
 
 NAME=$(js "() => { const li=document.querySelectorAll('$LIST')[$N-1]; return li ? li.innerText.trim() : ''; }")
 [ -n "$NAME" ] || { echo "END: no account #$N"; exit 0; }
+# credit cards are done by hand, whatever their status
+case "$NAME" in 202-*) echo "SKIPPED: $NAME (credit card, done manually)"; exit 0;; esac
 
 [ "$(warning)" = yes ] && answer_no
 # the arrow sometimes ignores a click; retry until the list shows
