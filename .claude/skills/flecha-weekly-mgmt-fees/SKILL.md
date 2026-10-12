@@ -1,6 +1,6 @@
 ---
 name: flecha-weekly-mgmt-fees
-description: Post the weekly management fee journal entry into Flecha Restaurant365, charging each of the four stores 7% of its Total Net Sales to Corporate, from the Weekly Mgmt Fee - Previous P&L view. Use when asked to fill, balance, or approve the Flecha MGMT Fees entry in R365, or to check past weeks' fees against sales.
+description: Post the weekly management fee journal entry into Flecha Restaurant365, charging each of the four stores 7% of its Total Net Sales to Corporate, from the Weekly Mgmt Fee - Previous P&L view. Use when asked to fill, balance, or approve the Flecha MGMT Fees entry in R365, or to check past weeks' fees against sales, or when the Monday scheduled run starts it.
 ---
 
 # Weekly management fees into the Flecha journal entry
@@ -113,3 +113,24 @@ The 9/27/2026 correction ran this path in about three minutes.
 Return to the home dashboard, soft navigate to All Transactions, and refilter. Leaving the entry page takes a full load, and `goto https://flecha.restaurant365.com/` logged the session out on 10/6/2026; recover with `goto https://flecha.restaurant365.com/react/accounting`, re-run the login script, then soft navigate. The Sunday's `MGMT Fees` row reads Approved with `Amount` equal to `entryAmount`. The grid reads the server, so it is the record of what posted.
 
 Report a table of store, Total Net Sales, fee, and posted amount, with the total, and name any store you held back for missing sales.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 22:00 from 10/19/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending and the work directory, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask. Use session `flm`, and run every command as `cd <work directory> && ...`, since Bash resets its directory between calls and `playwright-cli` binds the session to it.
+- A rejected login, an unreadable report, or a `weekEnding` in `fees.json` other than the named Sunday fails the run: write `result.json` with status `failed` and the reason in `note`, and post nothing.
+- A store missing a sales day holds the whole entry: status `held`, the store and missing day in `warnings`, nothing posted or changed.
+- A store down more than 10% with all seven days in is posted, with the dip in `warnings`.
+- A step that fails partway is `failed`, with the step in `warnings`. A duplicate left behind is named there by its `NJ000xxxxx` number; leave it.
+
+Finish with **Verifying the run**, close `flm`, then write `result.json` in the work directory. The wrapper posts it to the Weekly Management Fees channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/18/2026", "status": "corrected", "prior": 20894.68, "entryAmount": 25781.18, "totalNetSales": 368302.57,
+  "transactionId": "...", "stores": [ { "store": "Flecha HB", "netSales": 111805.57, "fee": 7826.39 } ], "warnings": [], "note": "" }
+```
+
+`status` is `approved` (already Approved at `entryAmount`), `corrected`, `created`, `held`, or `failed`, and `prior` is the amount the entry carried before the run, `null` when created. `stores` and `totalNetSales` come from `fees.json`. The webhook lives in `~/.claude/flecha-mgmt-fees.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. With `attention` the card tags Layla Ebersole only when the week is held, failed, or carries a warning; a clean week posts a Completed card untagged.
