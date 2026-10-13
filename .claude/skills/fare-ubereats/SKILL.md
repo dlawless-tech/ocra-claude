@@ -88,6 +88,28 @@ bash <skill>/scripts/approve.sh fue-r365 <id>
 
 All Transactions, filter Date to the Sunday and read the grid's data source (see `R365-AUTOMATION.md`): ten `UberEats Fees` rows, one per store, each at its store with the planned amount. Every row reads Approved and lists its `Uber Eats backup` PDF. Report the store table, the withholding per store, and any zero store.
 
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 15:15 (`scripts/register-task.ps1` sets it up). It posts the Monday to Sunday week that ended two days before, from Uber's Earnings page, without waiting for the deposit to reach the bank: the 10/13/2026 run posts 10/5 to 10/11, dated 10/11. It writes `started.txt` in the work directory `.scratch/fare-ue/wk<MMDD of that Sunday>` first, so a week runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+The wrapper copies the scripts to `sk/` in the work directory and logs `fue-uber` in from there with `scripts/uber-login.sh`, on the saved profile `~/.claude/playwright-profiles/fare-ubereats`. With `NOTIFY=1` it tags the contact in Teams for the mailed code and waits 60 minutes. No code fails the run with a Teams card and posts nothing. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the week, the work directory, the scripts copy, the prior week's ids file and the out ids file.
+
+No human answers during the run, so:
+
+- Never ask. Run every command from the work directory with the scripts copy, sessions `fue-uber` (already logged in) and `fue-r365`. Never open a second Uber session, since it costs another code.
+- Before posting, filter All Transactions to Number `UberEats Fees` on the Sunday. A store already holding an entry there is `skipped`; add its `<uber store>|<id>` to the out ids file so next week has a source.
+- Run `run-week.sh` with the week, the Sunday, the prior and out ids files. A `build-lines.js` stop on a relabeled row is fixed in the copy's `breakdown.js` as **The lines** describes, then rerun with `SKIP_READ=1`; any other stop fails the whole run, with its message in `note`.
+- A store that fails a step, or does not tie in the backup, is `failed` with the failing step in `warnings`; the others carry on. Never correct an approved prior entry; report it.
+
+Finish with **Verifying the run** and **Closing the windows**, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, headed `Completed` when every store is approved with no warnings and `Needs review` otherwise, and reports a failure when the file is missing:
+
+```json
+{ "period": "10/5/2026 - 10/11/2026", "date": "10/11/2026", "note": "",
+  "stores": [ { "store": "FARE (Lakeview)", "status": "approved", "amount": 1412.18, "transactionId": "...", "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, or `failed`; `amount` is the entry's total debits. List all ten stores, zero stores at 0.00 with `no sales this week` in `warnings`. The webhook lives in `~/.claude/fare-ubereats.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name", "email"}}`. The mention is tagged on the code card and on every finished or failed run.
+
 ## Closing the windows
 
 Once every week of the run is approved and reported, close both browsers from the run's working directory:
