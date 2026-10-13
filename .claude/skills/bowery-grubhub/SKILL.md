@@ -187,7 +187,7 @@ Report the table of stores, deposit IDs, amounts, totals, and backup attached, a
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 14:00 (`scripts/register-task.ps1` sets it up). It takes the period that ended eight days earlier, since the period that ended the day before settles only on Wednesday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 14:00 (`scripts/register-task.ps1` sets it up). It takes the period that ended the day before, Tuesday through Monday, with the entry dated that Sunday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

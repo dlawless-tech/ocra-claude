@@ -1,4 +1,4 @@
-# Task Scheduler entry point, Tuesdays 14:00. Posts the Grubhub period that ended eight days ago, whose deposits have landed.
+# Task Scheduler entry point, Tuesdays 14:00. Posts the Grubhub period that ended yesterday.
 # usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
@@ -10,7 +10,7 @@ $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 
 $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else { (Get-Date).Date }
 $tue = $today.AddDays(-(([int]$today.DayOfWeek - 2 + 7) % 7))
-$p0 = $tue.AddDays(-14); $p1 = $tue.AddDays(-8); $sun = $tue.AddDays(-9)
+$p0 = $tue.AddDays(-7); $p1 = $tue.AddDays(-1); $sun = $tue.AddDays(-2)
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
