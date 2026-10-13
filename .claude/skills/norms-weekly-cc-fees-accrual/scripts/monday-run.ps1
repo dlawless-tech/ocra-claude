@@ -21,12 +21,12 @@ function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 
 
 $done = Join-Path $run 'done.txt'
 if ((Test-Path $done) -and -not $Force) { exit 0 }
-$lastTry = ($Date -ne '') -or ((Get-Date) -ge [datetime]::Parse($LastTry))
+$isLastTry = ($Date -ne '') -or ((Get-Date) -ge [datetime]::Parse($LastTry))
 $title = "NORMS CC Fee Accrual, W.E. $weFull"
 
 $result = Join-Path $run 'result.json'
 if (Test-Path $result) { Move-Item -Force $result (Join-Path $run ("result-{0:HHmm}.json" -f (Get-Date))) }
-Log "starting claude (last try: $lastTry)"
+Log "starting claude (last try: $isLastTry)"
 $prompt = @"
 /norms-weekly-cc-fees-accrual Unattended run for the week ending $weFull. Follow the skill's Unattended run section.
 Prior week ending: $('{0}/{1}/{2}' -f $prior.Month, $prior.Day, $prior.Year)
@@ -47,5 +47,5 @@ if (-not (Test-Path $result)) {
 }
 $r = Get-Content -Raw -Encoding utf8 $result | ConvertFrom-Json
 $held = @($r.stores | Where-Object { $_.status -eq 'held' })
-if (-not $held.Count -or $lastTry) { Set-Content -Encoding utf8 $done "done $(Get-Date -Format s)" }
-& $Notify -Title $title -ResultFile $result -Retrying:($held.Count -gt 0 -and -not $lastTry)
+if (-not $held.Count -or $isLastTry) { Set-Content -Encoding utf8 $done "done $(Get-Date -Format s)" }
+& $Notify -Title $title -ResultFile $result -Retrying:($held.Count -gt 0 -and -not $isLastTry)
