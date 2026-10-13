@@ -42,31 +42,26 @@ R365 writes `Rosie’s` and `Vic’s` with a curly apostrophe. Match locations o
 
 ## Phase 1: the Uber figures
 
-Payments > Payouts. The store picker's radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range to the open period, so set the period again after every switch. Each radio carries no accessible name, so reach it from the store's own paragraph ref rather than by label. An open date popup swallows the click that opens the picker, and the click retries instead of failing, so press Escape between the two.
+Uber redesigned Payments > Payouts by 10/13/2026. Read each store with the NORMS reader, which handles the new page, after a `goto https://merchants.ubereats.com/manager/payments`:
 
-The date control opens on a **Pay period** tab. Bowery's periods run Monday to Sunday. Clicking any date selects the whole period containing it, so click a midweek date and read the range back: `Selected date range is from 08/31/2026 to 09/06/2026`.
+```bash
+../norms-ubereats/scripts/uber-read.sh bue "Rosie’s Taqueria" "Oct 11"    # Cookshop, Shuka, Vic's
+```
 
-Per store, read off the Overview tab: store name, Total Payout, and the Earnings, Marketing, Uber Fees, Net Chargeback Amount and Net Taxes rows of Pay breakdown. Uber shows Marketing and Uber Fees as negatives and each enters R365 as a positive debit. Marketing appears only for a store that ran a promotion that week. Net Taxes is a positive figure for these New York stores, unlike a marketplace-facilitator estate where it is zero.
+It prints one JSON line: `payout`, `earnings` (Sales excl. tax), `marketing` (the Marketing section less its tax lines), `fees` (Net Marketplace Fee), `nc` (chargebacks excl. tax), and `other`, which for these New York stores is Net Taxes. Uber shows Marketing and Uber Fees as negatives and each enters R365 as a positive debit. Marketing appears only for a store that ran a promotion that week. The store name must match the picker exactly; Rosie's carries a curly apostrophe in Uber.
 
-Two reading traps:
-
-- Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block. The breakdown rows are the page's only `[role=treeitem]`, and the cards are `[role=group]`, so reading treeitems document wide is the scoping. Walking down from the `Pay breakdown` heading to its tree finds nothing.
-- A stray click on the payouts page opens an order drawer that covers the date control, and the drawer often loads as "Something went wrong". Screenshot when a click stops landing, and close the drawer before retrying.
-
-The date popup opens reliably only on a freshly loaded page. After one pick, the next click on the control often toggles nothing, and walking months in that state drifts the calendar to the wrong year. Reload before each pick: the page keeps the store and the last range across a reload, and the calendar opens on that range's month.
-
-Check each store before moving on: `Earnings + Marketing + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
+Uber keeps adding late orders to a closed week. On 10/13/2026 Shuka's Oct 5 - 11 payout grew from 13,625.64 to 13,858.30 between two reads an hour apart, on the same settlement. Read every store again right before capturing its backup, and correct the entry with `fix-entry.sh` when the payout moved.
 
 ### The backup
 
-Every entry carries its store-week's Uber Payouts page as an attachment. With the store and period showing, capture it:
+Every entry carries its store-week's Uber pay period page as an attachment. Right after `uber-read.sh` leaves the store's page expanded, capture it:
 
 ```bash
-scripts/capture-backup.sh <uber-session> Rosie backup
-# SAVED backup/UberEats Rosie WE 2026-09-27.png {...breakdown...}
+scripts/capture-backup.sh bue Rosie backup 2026-10-11 1004.66
+# SAVED backup/UberEats Rosie WE 2026-10-11.png
 ```
 
-It refuses to save a page whose breakdown does not add to Total payout, and it names the file from the period on the page, so the name always matches what the image shows. The full-page PNG holds the store, the period, the pay breakdown, the daily payouts, and the refunds. A PDF print of this page comes out blank, so take the screenshot.
+It refuses to save a page whose Total payout differs from the payout the entry was built on. The full-page PNG holds the store, the period, the breakdown, and the first page of orders. A PDF print of this page comes out blank, so take the screenshot.
 
 ## Phase 2: the period debits
 
@@ -159,7 +154,7 @@ Report the table of stores, amounts, and totals, and report any store that faile
 
 ## Unattended run
 
-`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 15:15 (`scripts/register-task.ps1` sets it up, with a one-off catch-up on Tue 10/13/2026 10:00). It covers the Monday to Sunday pay period that ended the Sunday before and writes `started.txt` in the work directory `.scratch/bowery-ubereats/wk<MMDD of that Sunday>` first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 15:15 (`scripts/register-task.ps1` sets it up). It covers the Monday to Sunday pay period that ended the Sunday before and writes `started.txt` in the work directory `.scratch/bowery-ubereats/wk<MMDD of that Sunday>` first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 The wrapper logs the Uber session `bue` in before starting the skill: `uber-login.sh` with `NOTIFY=1` tags the code contact in the Bowery TPD Teams channel and waits 60 minutes for the code. No code fails the run with a Teams card and posts nothing. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, and `ENTRY_DATE` (the Sunday).
 
