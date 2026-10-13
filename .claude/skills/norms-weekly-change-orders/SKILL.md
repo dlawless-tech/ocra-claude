@@ -105,6 +105,28 @@ Then move the report into the `Completed` folder inside `Wkly Change Orders`, wh
 
 Report the `check-lines.js` table, the entry's status and amount from the grid, and any store tab whose F column comments flag an error or correction for the week.
 
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays every 15 minutes from 7:00 to 12:00 (`scripts/register-task.ps1` sets it up). It waits for the week's report in `Wkly Change Orders`, matching the `M.D-M.D` week in the file name, and starts this skill headless once the file has gone 5 minutes without changing. The prompt begins `Unattended run` and names the week ending, the work directory, and the report path. A `started.txt` marker stops later triggers that week; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today. With no report by 12:00 it posts a miss to Teams and starts nothing.
+
+No human answers during the run, so:
+
+- Never ask. Use the session name `co`, with the work directory as the cwd for every `playwright-cli` command.
+- Use the report path from the prompt. A report whose name does not carry the named week fails the run: post nothing.
+- When `read-report.js` stops, including on a mixed-sign store, post nothing and finish `failed` with its message in `note`.
+- An Approved `Change Orders` entry already dated the Saturday is `skipped`. An Unapproved one dated the Saturday is reused: load the lines into it and continue from Step 4.
+- Approve only on `MATCH` with the report attached. Otherwise leave the entry Unapproved, status `posted-unapproved`, with the failing step in `warnings`. Move the report to `Completed` only after approval.
+- Each F column comment that flags an error, a correction, or a deposit missing from column C goes in `warnings` as `<store> <M.D>: <comment>`.
+
+Close the `co` session, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/10/2026", "number": "Change Orders 10-4 through 10-10-26", "status": "approved", "amount": 32021.00,
+  "lines": 58, "stores": 20, "transactionId": "...", "attached": true, "filed": true, "warnings": [], "note": "" }
+```
+
+`status` is `approved`, `skipped`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/norms-change-orders.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. With `always` the mention tags every week; `attention` tags only a failure or a warning.
+
 ## History
 
 The 9/19/2026 entry was keyed by hand. Against `read-report.js` it ties on every store and on the 22,853.00 total, with three differences in how lines were keyed: Downey's three 1,000.00 days (9.13, 9.15, 9.18) were posted as one 3,000.00 line commented `9.15`, and the Inglewood 400.00 (9.18) and Las Vegas 950.00 (9.19) lines carry no comment. The skill posts one line per day.
