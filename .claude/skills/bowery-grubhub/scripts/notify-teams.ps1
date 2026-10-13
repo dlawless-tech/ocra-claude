@@ -15,7 +15,7 @@ if ($ResultFile) {
     foreach ($s in $e.stores) {
       if ($s.status -ne 'approved') { "- $($s.store): $($s.status)$(if ($s.amount) { ', ' + ('{0:N2}' -f [double]$s.amount) })" }
       foreach ($w in @($s.warnings)) { if ($w) { "- $($s.store): $w" } }
-      if ($s.status -notin 'approved', 'skipped', 'no-deposit' -or @($s.warnings | Where-Object { $_ }).Count) { $attention = $true }
+      if ($s.status -notin 'approved', 'no-orders' -or @($s.warnings | Where-Object { $_ }).Count) { $attention = $true }
     }
   }
   if ($r.note) { $Lines += $r.note }

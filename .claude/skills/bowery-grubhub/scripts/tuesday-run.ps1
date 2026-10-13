@@ -1,4 +1,4 @@
-# Task Scheduler entry point, Tuesdays 14:00. Posts the Grubhub period that ended yesterday.
+# Task Scheduler entry point, Tuesdays 14:00. Posts the Grubhub period that ended yesterday, from Grubhub's order data.
 # usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
@@ -38,7 +38,6 @@ Log "period $(D $p0) - $(D $p1); starting claude"
 $prompt = @"
 /bowery-grubhub Unattended run for the Grubhub period $(D $p0) to $(D $p1). Follow the skill's Unattended run section.
 Work directory: $run
-Deposit pull window (paid dates): $(Iso $p0) to $(Iso $today.AddDays(1))
 Parts:
 $($parts -join "`n")
 "@

@@ -12,8 +12,10 @@
 #   {loc, id, tot, lines: [{comment, col, amount}, ...]}
 #   id is the TransactionId; see ../bowery-ubereats/R365-AUTOMATION.md.
 #   comment must match the template line's Comment cell verbatim, col is
-#   "debit" or "credit". Amounts of 0 are skipped.
+#   "debit" or "credit". Each line ends up holding only its amount; the other
+#   column is cleared, so a refill overwrites what an earlier run left.
 #
+# An Approved entry is unapproved first, whatever it holds.
 # Refuses to approve unless three checks pass: every typed amount reads back,
 # the lines sum to tot on both sides, and the values survive a reload.
 set -u
@@ -47,18 +49,14 @@ case "$CHK" in *'"miss": []'*) : ;; *) die "template missing comments: $CHK";; e
 case "$CHK" in *"$ENTRY_DATE"*) : ;; *) die "wrong date: want $ENTRY_DATE got $CHK";; esac
 case "$CHK" in *"$LOC"*) : ;; *) die "wrong location: want $LOC got $CHK";; esac
 
-# Approved template still at 0.00 -> unapprove and fill. Approved with amounts -> skip; FORCE=1 overrides
+# Approved -> unapprove, then refill with this run's figures
 ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
-if [ "$ST" = "Approved" ] && [ "${FORCE:-0}" != "1" ]; then
-  EMPTY=$(playwright-cli -s=$S eval "() => { const L=[${JSLIST%,}]; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); const named=rows.filter(t=>L.some(l=>t.includes(l))); if(!named.length) return 'none'; return named.every(t=>{ const i=t.findIndex(c=>L.includes(c)); return parseFloat(t[i-2]||'0')===0 && parseFloat(t[i-1]||'0')===0; }) ? 'empty' : 'filled'; }" 2>&1 | res | tr -d '"')
-  if [ "$EMPTY" != "empty" ]; then
-    echo "$LOC SKIP: already Approved ($EMPTY)"
-    exit 0
-  fi
+if [ "$ST" = "Approved" ]; then
+  PRIOR=$(playwright-cli -s=$S eval "() => { const L=[${JSLIST%,}]; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); return L.map(l=>{const r=rows.find(t=>t.includes(l)); return r?r[3]+'/'+r[4]:'?';}).join(' | '); }" 2>&1 | res | tr -d '"')
   bash "$HERE/ribbon-menu.sh" $S Unapprove Unapprove >/dev/null 2>&1; sleep 10
   ST=$(playwright-cli -s=$S eval "() => (document.body.innerText.match(/Unapproved|Approved/)||['?'])[0]" 2>&1 | res | tr -d '"')
-  [ "$ST" = "Unapproved" ] || die "empty Approved template, could not unapprove ($ST)"
-  echo "$LOC unapproved empty template"
+  [ "$ST" = "Unapproved" ] || die "could not unapprove ($ST)"
+  echo "$LOC unapproved, prior lines: $PRIOR"
   playwright-cli -s=$S reload >/dev/null 2>&1; sleep 14
 fi
 
@@ -84,10 +82,12 @@ sleep 2
 playwright-cli -s=$S press Escape >/dev/null 2>&1
 sleep 1
 
-fill() { # comment col amount
+setcell() { # comment col amount; leaves the cell alone when it already holds the amount
   local L C A R V
   L="$(jsq "$1")"; C="$2"; A="$3"
-  [ "$A" = "0.00" ] && return 0
+  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); return cells[i-('$C'==='debit'?2:1)].innerText.trim(); }" 2>&1 | res)
+  case "$V" in *ERR-norow*) die "no row for $1";; esac
+  [ "$(n2 "${V:-0}")" = "$(n2 "$A")" ] && return 0
   R=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); cells[i-('$C'==='debit'?2:1)].click(); return 'ok'; }" 2>&1 | res)
   case "$R" in *ok*) : ;; *) die "click $1/$C -> $R";; esac
   sleep 2
@@ -97,7 +97,11 @@ fill() { # comment col amount
   playwright-cli -s=$S press Escape >/dev/null 2>&1
   sleep 1
   V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); return cells[i-('$C'==='debit'?2:1)].innerText.trim(); }" 2>&1 | res)
-  [ "$(n2 "$V")" = "$(n2 "$A")" ] || die "$1/$C read back '$V' want '$A'"
+  [ "$(n2 "${V:-0}")" = "$(n2 "$A")" ] || die "$1/$C read back '$V' want '$A'"
+}
+fill() { # comment col amount
+  setcell "$1" "$2" "$3"
+  setcell "$1" "$([ "$2" = debit ] && echo credit || echo debit)" 0.00
 }
 
 while IFS=$'\t' read -r c col amt; do
