@@ -58,7 +58,7 @@ All at location `400 - Shuka`:
 
 The reservation date comes from each charge's description, `<guest> - 2026-10-22 20:45:00 - reservation`; several dates join as `10/22/26, 10/24/26 reservations`. `plan-lines.js` stops with `STOP:` on any other row, such as an adjustment, a dispute, or a charge that is not a reservation. Place those with the human and key the deposit by hand; nothing is created before that stop.
 
-The template is BD000477 (10/8/2026, 604.63), keyed by hand. The refunds line first went in on BD000479 (10/7/2026), and nobody had ruled on it yet.
+The template is BD000477 (10/8/2026, 604.63), keyed by hand. BD000479 (10/7/2026) set the refunds line, confirmed by the user. It also carried 9/30 charges and a 9/30 refund, and the user kept it dated the bank date. That ruling was for that one payout; still confirm a cross-month payout each time.
 
 ## Unattended run
 
