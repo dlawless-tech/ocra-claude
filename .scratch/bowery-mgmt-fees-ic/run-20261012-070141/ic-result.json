@@ -1,0 +1,19 @@
+{ "weekEnding": "10/11/2026", "status": "failed",
+  "entries": [],
+  "transfers": [
+    { "from": "Cookshop", "to": "Bowery", "amount": 3750.05 },
+    { "from": "Rosie's", "to": "Bowery", "amount": 5060.45 },
+    { "from": "Shuka", "to": "Bowery", "amount": 7737.44 },
+    { "from": "Shukette", "to": "Bowery", "amount": 7950.09 },
+    { "from": "Vic's", "to": "Bowery", "amount": 3394.48 }
+  ],
+  "flipped": [], "attached": false,
+  "warnings": [
+    "read-transfers.js stopped: Intercompany tab reads As of 10/5/2026 (a Monday); expected 10/4/2026 for week ending 10/11/2026",
+    "Cash Transfers to Make block has no From header in B16 (To in C16, Amount in D16); the reader would stop on this too",
+    "Rosie's -> Bowery is 5,060.45 but Rosie's Exchange - Bowery Group balance is 4,060.45 (1,000.00 apart); other four stores match their balances",
+    "Block has no total row; rows sum to 27,892.51",
+    "Shuka/Shukette cross balances show (Shukette 522.41 on Exchange - Shuka, Shuka -249.72 on Exchange - Shukette) with no store-to-store transfer listed",
+    "Nothing posted: no Duplicate was clicked, no R365 session opened"
+  ],
+  "note": "Failed before Duplicate on the reader's balance sheet date check. Transfers above are read by hand from the block for review only. Needs a human ruling on the As of date, the Rosie's 5,060.45 vs 4,060.45 gap, and the Shuka/Shukette balances, then a rerun." }

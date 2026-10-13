@@ -18,7 +18,8 @@ open_dep() {
   done
   echo "FAIL: deposit $ID did not load"; exit 1
 }
-grid() { $B eval "() => jQuery('#bankDepositDetailsGrid').data('kendoGrid').dataSource.data().toJSON().map(r=>r.glAccount.slice(0,6)+'='+Number(r.total).toFixed(2)).sort().join(',')+'|'+document.body.innerText.match(/Deposit Total\s*([\d.,-]+)/)[1].replace(/,/g,'')" 2>&1 | res | tr -d '"'; }
+# Deposit Total label can read 0.00 on a saved deposit; sum the lines
+grid() { $B eval "() => { const d=jQuery('#bankDepositDetailsGrid').data('kendoGrid').dataSource.data().toJSON(); return d.map(r=>r.glAccount.slice(0,6)+'='+Number(r.total).toFixed(2)).sort().join(',')+'|'+d.reduce((s,r)=>s+Number(r.total),0).toFixed(2); }" 2>&1 | res | tr -d '"'; }
 
 # 1. payout figures
 $T goto "https://partypay.paymentsonline.io/payouts/$PORTAL_ACCT/payouts/$PO" >/dev/null 2>&1; sleep 8

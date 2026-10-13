@@ -1,0 +1,46 @@
+﻿2026-10-12T07:15:02 starting bowery-weekly-mgmt-fees on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Book3.xlsx
+I posted and approved the Management Fees entry for the week ending 10/11/2026. The All Transactions grid shows it Approved at 121,044.66.
+
+| Store | Fee | Posted on all four lines |
+|---|---|---|
+| Cookshop | 14,764.36 | 14,764.36 |
+| Shuka | 17,721.15 | 17,721.15 |
+| Vic's | 5,252.12 | 5,252.12 |
+| Rosie's | 6,543.05 | 6,543.05 |
+| Shukette | 16,241.65 | 16,241.65 |
+| Total | 60,522.33 | entry 121,044.66 |
+
+- **The entry:** I copied the 10/4 entry, then set the date to 10/11/2026 and the number to `Management Fees`. Its transaction id is `6a1b4e06-14fe-4ba8-8d35-70847d70d445`. After a reload, the server copy matched the workbook on every line, with debits equal to credits.
+- **Attachment:** `Book3.xlsx` is on the entry; its link showed after a reload.
+- **Filing:** I left the workbook where it was. The wrapper moves it to `Completed` once the Intercompany Transfers run is approved too.
+- **Result file:** `mf-result.json` is written with status `approved` and no warnings, and the `mfu` session is closed.
+2026-10-12T07:23:57 bowery-weekly-mgmt-fees exited 0
+2026-10-12T07:23:57 starting bowery-weekly-ic-transfers on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Book3.xlsx
+The Intercompany Transfers run for the week ending 10/11/2026 failed, and nothing was posted. The reader script stopped on the workbook, which under the unattended rules ends the run before any entry is copied. No R365 session was opened and no `NJ000xxxxx` copy was left behind.
+
+**Why it stopped:**
+- **Balance sheet date:** The Intercompany tab reads `As of 10/5/2026`, which is a Monday. A 10/11 entry needs the balances as of the Sunday a week earlier, 10/4.
+- **Missing header:** The Cash Transfers to Make block has no `From` header in B16. `To` and `Amount` are in C16 and D16. The reader would have stopped on this too.
+
+**Other problems in the workbook:**
+- **Rosie's amount:** The transfer is 5,060.45, but Rosie's balance with Bowery on the same tab is 4,060.45, a gap of exactly 1,000.00. The other four stores' transfers match their balances.
+- **No total row:** The block has no total row to check against. The rows add up to 27,892.51.
+- **Shuka and Shukette:** Shuka and Shukette still show balances with each other, 522.41 and -249.72, but no store-to-store transfer is listed. Earlier weeks posted these as a separate entry.
+
+I read these transfers from the block by hand. None of them were posted:
+
+| From | To | Amount |
+|---|---|---|
+| Cookshop | Bowery | 3,750.05 |
+| Rosie's | Bowery | 5,060.45 |
+| Shuka | Bowery | 7,737.44 |
+| Shukette | Bowery | 7,950.09 |
+| Vic's | Bowery | 3,394.48 |
+
+The earlier Management Fees run did post: it is Approved at 121,044.66 with the workbook attached. Because Intercompany Transfers failed, the wrapper will leave `Book3.xlsx` out of `Completed`.
+
+`ic-result.json` is written with status `failed` and these problems listed as warnings. I also recorded the outcome in memory.
+
+**Decision for you:** Someone needs to rule on three things: the 10/5 balance sheet date, the Rosie's 1,000.00 gap, and whether Shuka and Shukette need their own transfer. After that, the week can be posted by hand or rerun from a corrected workbook.
+2026-10-12T07:25:21 bowery-weekly-ic-transfers exited 0
+2026-10-12T07:25:21 filed False 

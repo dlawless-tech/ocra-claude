@@ -1,10 +1,11 @@
 #!/bin/bash
 # Post one NORMS Stripe payout as a Bank Deposit from the open 1020 Bank Activity page.
-# Usage: post-payout.sh <r365 session> <stripe session> <gc|inkind> <payout id po_...> <bank amount>
+# Usage: post-payout.sh <r365 session> <stripe session> <gc|inkind> <payout id po_...> <bank amount> [bank date M/D/YYYY]
+# The bank date picks the line when two Stripe lines share an amount.
 # Needs the R365 session on Bank Activity with 1020 selected, and the Stripe session logged in.
 # Ends on MATCH, or stops with FAIL:/STOP: before or after Create Deposit (it says which).
 set -u
-R="$1"; ST="$2"; STREAM="$3"; PO="$4"; AMT="$5"
+R="$1"; ST="$2"; STREAM="$3"; PO="$4"; AMT="$5"; BD="${6:-}"
 K="$(dirname "$0")"
 case "$STREAM" in
   gc) ACCT_URL='https://dashboard.stripe.com/acct_1IVMd4Icg0NAKHmc'; LABEL=GC;;
@@ -17,7 +18,7 @@ act() { local s="$1" what="$2"; shift 2; playwright-cli -s=$s "$@" 2>&1 | grep -
 winpath() { cygpath -w "$PWD/$1"; }
 
 # bank line: date and row must exist before anything is keyed
-ROW=$(playwright-cli -s=$R eval "() => { const r=jQuery('#BankActivityUnmatchedGrid').data('kendoGrid').dataSource.data().toJSON().filter(r=>Math.round(r.Amount*100)===Math.round($AMT*100) && /STRIPE/.test(r.Name)); if(r.length!==1) return 'rows '+r.length; const d=new Date(r[0].Date); return (d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear(); }" 2>&1 | res | unq)
+ROW=$(playwright-cli -s=$R eval "() => { const r=jQuery('#BankActivityUnmatchedGrid').data('kendoGrid').dataSource.data().toJSON().map(r=>({...r,md:(d=>(d.getMonth()+1)+'/'+d.getDate()+'/'+d.getFullYear())(new Date(r.Date))})).filter(r=>Math.round(r.Amount*100)===Math.round($AMT*100) && /STRIPE/.test(r.Name) && ('$BD'==='' || r.md==='$BD')); if(r.length!==1) return 'rows '+r.length; return r[0].md; }" 2>&1 | res | unq)
 [[ "$ROW" =~ ^[0-9]+/[0-9]+/[0-9]{4}$ ]] || { echo "STOP: unmatched STRIPE lines at $AMT: $ROW"; exit 1; }
 DATE="$ROW"; ISO=$(node -e 'const [m,d,y]=process.argv[1].split("/");console.log(y+"-"+m.padStart(2,"0")+"-"+d.padStart(2,"0"))' "$DATE")
 FILE="${ISO:5:2}.${ISO:8:2} $LABEL Stripe Transfer.csv"
@@ -46,7 +47,7 @@ PLAN="plan-$ISO-$STREAM.json"
 node "$K/plan-lines.js" $STREAM "$FILE" "$DATE" "$AMT" > "$PLAN" || { cat "$PLAN"; exit 1; }
 
 # open the deposit from the bank line
-act $R 'Deposit link' click "#BankActivityUnmatchedGrid tbody tr:has-text('$(printf "%'.2f" "$AMT")') a:text-is('Deposit')"; sleep 10
+act $R 'Deposit link' click "#BankActivityUnmatchedGrid tbody tr:has-text('$(printf "%'.2f" "$AMT")'):has-text('$DATE ') a:text-is('Deposit')"; sleep 10
 HD=$(playwright-cli -s=$R eval "() => { const w=[...document.querySelectorAll('.k-window')].find(x=>/Create Deposit/.test(x.innerText)&&getComputedStyle(x).display!=='none'); return w ? w.querySelector('#bankDepositDate').value : 'no window'; }" 2>&1 | res | unq)
 [ "$HD" = "$DATE" ] || { echo "FAIL: deposit window date $HD, bank $DATE (not created)"; exit 1; }
 

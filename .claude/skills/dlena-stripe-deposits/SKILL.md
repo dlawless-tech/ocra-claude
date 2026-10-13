@@ -18,7 +18,13 @@ sed 's/bowerygroup\.restaurant365\.com/unoatfifth.restaurant365.com/g' <skills>/
 bash login.sh dl
 ```
 
-Stripe is `https://dashboard.stripe.com/login`, account `acct_1JKplFAju1EvNWw5` (Dlenadc), in a headed session `st`. Sign-in texts a 6-digit code to the phone ending 8525; ask the human for it, or to type it into the open window. On a **review your account info** prompt, choose **Skip for Now**. No Stripe password is saved for dLena, so the human signs in to the `st` window and you take over from the dashboard.
+Stripe is account `acct_1JKplFAju1EvNWw5` (Dlenadc), in a headed session `st`:
+
+```bash
+bash <skill>/scripts/stripe-login.sh st
+```
+
+It opens the session on the saved profile `~/.claude/playwright-profiles/dlena-stripe`, so a sign-in carries over to later runs, including the Monday task. It prints `authenticated` when the payouts page loads, or exits 2 when Stripe wants a sign-in. No Stripe password is saved for dLena, so the human signs in to the `st` window and you take over from the dashboard. Sign-in texts a 6-digit code to the phone ending 8525; ask the human for it, or to type it into the open window. On a **review your account info** prompt, choose **Skip for Now**.
 
 ## Step 2: the unmatched Stripe lines
 
@@ -70,6 +76,27 @@ playwright-cli list    # neither dl nor st may remain
 ```
 
 Other skills run their own sessions on the same machine, so never use `kill-all` or `close-all`.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 5:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run` that names the work directory, `.scratch/dlena-stripe-deposits/run<MMdd>`, and marks the day done with `done.txt`: `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- `cd` into the work directory once, before opening any session, and run every command from there. Use session names `dlu` (R365) and `stu` (Stripe), and log Stripe in with `stripe-login.sh stu`.
+- Never ask. When `stripe-login.sh` exits 2, leave `stu` open on the sign-in page, write `result.json` with `"payouts": []` and `"note": "Stripe wants a sign-in"`, close `dlu`, and stop. The wrapper posts a waiting card; once the human signs in to that window, running `monday-run.ps1` again picks the day up.
+- Post each unmatched Stripe line from its bank line, dated the bank date. Skip, with the reason, any payout that would need the human: one whose charges were collected in an earlier month than the bank date, an unmatched line at the amount of a deposit already posted ahead, or a `STOP:` from `post-payout.sh`. Never post ahead. A `FAIL:` before the save is retried once after closing the deposit window; a second failure is `failed`.
+- List every payout Stripe shows as paid with no bank line yet under `waiting`.
+
+Finish by closing `dlu` and `stu` by name, then write `result.json`:
+
+```json
+{ "note": "",
+  "payouts": [ { "payout": "po_...", "bankDate": "10/5/2026", "amount": 995.55, "status": "posted", "deposit": "BD000382", "reason": "" } ],
+  "waiting": [ { "payout": "po_...", "arrival": "10/6/2026", "amount": 1926.64 } ] }
+```
+
+`status` is `posted` (a `MATCH`), `skipped` or `failed`. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Tricia LaRoche", "email": "tricia@ocra-us.com"}}`. Tricia is tagged on every card, marked `NEEDS REVIEW` when any payout was skipped or failed or the note is set.
 
 ## Runs
 

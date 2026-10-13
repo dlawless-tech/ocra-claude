@@ -1,0 +1,37 @@
+﻿2026-10-12T14:00:03 starting bowery-weekly-mgmt-fees on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Book3.xlsx
+This run posted nothing because the management fee entry for the week ending 10/11/2026 was already approved by the 7am run.
+
+- **Fees match:** the workbook that came in at 1:53pm (Book3.xlsx again) has the same fees as the morning's version. I read the approved entry back and compared it to the new copy. All 20 lines match:
+
+| Store | Fee |
+|---|---|
+| Cookshop | 14,764.36 |
+| Shuka | 17,721.15 |
+| Vic's | 5,252.12 |
+| Rosie's | 6,543.05 |
+| Shukette | 16,241.65 |
+| Total | 60,522.33 (entry 121,044.66) |
+
+- **Grid:** shows `Management Fees` dated 10/11/2026 as Approved at 121,044.66.
+- **Attachment:** Book3.xlsx is attached to the entry. That is the copy uploaded by the morning run; I did not add the new one.
+- **Filing:** I left the workbook where it is. The wrapper files it once Intercompany Transfers also reads approved.
+- **Result file:** `mf-result.json` is written with status `approved`, and the `mfu` session is closed.
+
+The R365 session signed out partway through, so I signed back in before reading the entry.
+2026-10-12T14:06:55 bowery-weekly-mgmt-fees exited 0
+2026-10-12T14:06:56 starting bowery-weekly-ic-transfers on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Book3.xlsx
+The Intercompany Transfers run for the week ending 10/11/2026 failed before posting anything. No Duplicate was made, so no stray entry was left in R365.
+
+**Why it stopped:** the transfer reader rejected the replacement Book3.xlsx. The intercompany tab's balance sheet reads "As of 10/11/2026", the same date as the Week Ending. It should be As of 10/4/2026, the week before. So either the tab holds the wrong week's balances or the date was typed wrong, and the client needs to confirm which. The 7am run failed for a different date problem: that copy read As of 10/5, and Rosie's transfer was 1,000 more than its balance.
+
+**Management Fees** was already approved earlier today at 121,044.66 with the workbook attached. This run didn't change it.
+
+**Workbook:** it stays out of `Completed`, since the wrapper files it only after both entries are approved.
+
+**Result file:** `ic-result.json` is written with status `failed` and the reason in `warnings`. I never opened the `icu` browser session, so there was nothing to close.
+
+I added this rerun to the Bowery mgmt fees + IC progress memory note.
+
+**Next step:** once the client sends a workbook whose intercompany tab reads As of 10/4/2026, the Intercompany Transfers entry can be rerun or posted by hand.
+2026-10-12T14:07:31 bowery-weekly-ic-transfers exited 0
+2026-10-12T14:07:32 filed False 

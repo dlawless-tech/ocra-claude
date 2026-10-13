@@ -1,0 +1,40 @@
+﻿2026-10-12T06:00:02 starting claude (last try: False)
+Monitor is watching the posting log for any failure or for the finish line.
+
+I posted and approved 21 of the 24 CC Fee Accrual entries for the week ending 10/10/2026, totaling 29,844.46. I held the other three because their sales are more than 10% below the prior week. The All Transactions grid shows all 21 as Approved at their accruals, and `result.json` is in the work directory for the wrapper to post to Teams.
+
+The Wkly P&L header read Week Ending 10/10/2026. All 24 entries were there, Approved at 0.00, so each one was filled through Edit / Edit Complete and read back after a reload.
+
+| Store | Net sales | Accrual (posted) |
+|---|---|---|
+| Anaheim | 81,207.94 | 1,421.14 |
+| Carson | 66,314.53 | 1,160.50 |
+| Claremont | 88,680.04 | 1,551.90 |
+| Costa Mesa | 55,603.71 | 973.06 |
+| Downey | 111,774.92 | 1,956.06 |
+| El Monte | 69,246.99 | 1,211.82 |
+| Hollywood | 74,344.99 | 1,301.04 |
+| Huntington Beach | 85,307.12 | 1,492.87 |
+| Inglewood | 107,054.62 | 1,873.46 |
+| La Cienega | 109,669.32 | 1,919.21 |
+| Lakewood | 105,375.28 | 1,844.07 |
+| Las Vegas | 41,817.84 | 731.81 |
+| Orange | 46,681.29 | 816.92 |
+| Pico Rivera | 98,215.49 | 1,718.77 |
+| Rialto | 89,360.35 | 1,563.81 |
+| Riverside | 63,784.78 | 1,116.23 |
+| Santa Ana | 84,125.93 | 1,472.20 |
+| Slauson | 135,881.38 | 2,377.92 |
+| South Torrance | 45,810.77 | 801.69 |
+| West Covina | 52,805.20 | 924.09 |
+| Whittier | 92,336.39 | 1,615.89 |
+
+**Held (still at 0.00):**
+- **North Torrance:** the P&L shows 0.00 net sales, against 1,916.79 accrued last week. It is also being held on the DoorDash entries, so it may be closed or have no sales loaded at all.
+- **Ontario:** the accrual would be 705.54, 11.9% below last week's 800.79.
+- **Van Nuys:** the accrual would be 1,925.04, 16.2% below last week's 2,297.75.
+
+The 8:00 and 10:00 runs will try these three again once more sales land. The 10:00 run finishes the week whether or not they post. If North Torrance still shows no sales after that, someone needs to decide whether it should accrue anything.
+
+I updated the progress memory, and closed the `ccfu` browser session.
+2026-10-12T06:15:37 claude exited 0

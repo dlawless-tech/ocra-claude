@@ -22,14 +22,14 @@ Credentials are in `~/.claude/norms-credentials.md`, under R365 and Stripe.
 
 ```bash
 bash <skills>/norms-ubereats/scripts/r365-login.sh ns
-playwright-cli -s=st open --headed https://dashboard.stripe.com/login
+bash <skill>/scripts/stripe-login.sh st
 ```
 
-Fill the Stripe email and password and click **Sign in**. Stripe texts a 6-digit code to the phone ending 3281; ask the human for it, or to type it into the open window. The login opens on whichever account was last used. The two accounts switch under the account button at the top left (**Account options and switcher**). A payout URL carrying the account id also works directly.
+`stripe-login.sh` opens the session on the saved profile `~/.claude/playwright-profiles/norms-stripe` and fills the email and password. It prints `authenticated`, or exits 2 with `CODE:` when Stripe texts a 6-digit code to the phone ending 3281: ask the human for it, or to type it into the open window. Given a wait in seconds as a second argument, it instead posts the code card to Teams tagging Tricia and waits that long for the code. Stripe sign-ins do not last a week, so expect the code every run. The two accounts switch under the account button at the top left (**Account options and switcher**). The two accounts switch under the account button at the top left (**Account options and switcher**). A payout URL carrying the account id also works directly.
 
 ## Step 2: the unmatched Stripe lines
 
-In R365 reach Bank Activity (`goto https://norms.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000` holds the session). Select `1020 - Norms Operating - 0829`, the second entry in `#bankActivityBankAcounts_listbox li`, and answer **No** to the refresh warning. Keep Bank Activity as the session's only tab: `post-payout.sh` returns to tab 0 when it finishes. Read the Unmatched grid:
+In R365 reach Bank Activity (`goto https://norms.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000` holds the session). Select `1020 - Norms Operating - 0829`, the second entry in `#bankActivityBankAcounts_listbox li`, and answer **No** to the refresh warning if it shows. Setting the combo box from script does not load the grid; click its **select** button, then the `option "1020 - Norms Operating - 0829"` from a snapshot. Keep Bank Activity as the session's only tab: `post-payout.sh` returns to tab 0 when it finishes. Read the Unmatched grid:
 
 ```js
 () => jQuery('#BankActivityUnmatchedGrid').data('kendoGrid').dataSource.data().toJSON().filter(r => /STRIPE/.test(r.Name)).map(r => [new Date(r.Date).toLocaleDateString(), r.Amount])
@@ -46,8 +46,10 @@ A payout Stripe shows as paid that has no bank line yet is not ready; leave it f
 ## Step 3: post each payout
 
 ```bash
-bash <skill>/scripts/post-payout.sh ns st <gc|inkind> <po_id> <bank amount>
+bash <skill>/scripts/post-payout.sh ns st <gc|inkind> <po_id> <bank amount> <bank date M/D/YYYY>
 ```
+
+Always pass the bank date. Gift card payouts often repeat an amount (19.10 on both 10/7 and 10/9/2026), and without it two unmatched lines at one amount stop the script.
 
 It checks the payout amount against the bank line, clicks **Export** on the payout's Transactions table and saves the file as `MM.DD GC Stripe Transfer.csv` or `MM.DD In Kind Stripe Transfer.csv`, builds the lines with `plan-lines.js`, clicks the bank line's **Deposit** link, and keys each line through the Adjustments tab's new-row form (`add-lines.sh`). It then compares the grid to the plan, checks the Deposit Total equals the bank amount, attaches the export through **Upload File**, and clicks **Create Deposit**, which saves and approves in one step. Last, it reopens the saved deposit and runs `check-deposit.js`, which prints `MATCH Bank Deposit - BD00xxxxx <amount>` only when the date, every line with its location, the Approved status and the attachment all agree. Each failure message says whether the deposit was created. A failure that did not create one leaves the bank line unmatched: close the deposit window (`jQuery(w).find('.k-window-content').data('kendoWindow').close()`, since it has no labeled close button) and rerun.
 
@@ -78,6 +80,26 @@ The deposit takes the bank line's date, which R365 prefills. At month end, date 
 Before 8/10/2026 the In Kind tips went to 5910 Cash over Short. Older deposits also show a few one-off slips (a tips line on 2220 or 5510, a tab in a comment); follow the tables here.
 
 The new-row Amount box runs a calculator that swallows a typed minus and keeps the remaining balance, so `add-lines.sh` sets a negative amount on the form's model (`gridOptions.bankDepositDetailsGrid.newRowForm.model.amount`) and reads it back before **Add**. Location works the same way. The model holds a location id, defaulting to 299, and `add-lines.sh` looks the id up by `locationNumber` in `#newRowLocationInput`'s data and sets it on `model.location`. Read that box by id. The account box and the bank account boxes also carry a `locationNumber` field, so a search for any list with that field lands on the wrong one.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 16:00 (`scripts/register-task.ps1` sets it up), while Tricia is available for the code. In the work directory, `.scratch/norms-stripe-deposits/run<MMdd>`, it first runs `stripe-login.sh stu 1800`: the code card tags Tricia in the NORMS Bank Activity channel and the run waits 30 minutes for her to type the code. With no code it posts a waiting card and stops, leaving `stu` open. Once signed in it starts this skill headless with a prompt beginning `Unattended run` that names the work directory, and marks the day done with `done.txt`: `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- `cd` into the work directory once and run every command from there. `stu` is already signed in to Stripe; log R365 in as `nsu`.
+- Never ask. Post each unmatched Stripe line from its bank line, dated the bank date. Skip, with the reason, any payout that would need the human: one whose charges were collected in an earlier month than the bank date, or a `STOP:` from `post-payout.sh`. A `FAIL:` that did not create the deposit is retried once after closing the deposit window; a second failure is `failed`.
+- List every payout Stripe shows as paid with no bank line yet under `waiting`.
+
+Finish by closing `nsu` and `stu` by name, then write `result.json`:
+
+```json
+{ "note": "",
+  "payouts": [ { "stream": "inkind", "payout": "po_...", "bankDate": "10/6/2026", "amount": 134.29, "status": "posted", "deposit": "BD010790", "reason": "" } ],
+  "waiting": [ { "payout": "po_...", "arrival": "10/13/2026", "amount": 99.94 } ] }
+```
+
+`status` is `posted` (a `MATCH`), `skipped` or `failed`. `scripts/notify-teams.ps1` posts it to the NORMS Bank Activity channel through `~/.claude/norms-stripe-deposits.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Regina Leong", "email": "rleong@ocra-us.com"}, "codeMention": {"name": "Tricia LaRoche", "email": "tricia@ocra-us.com"}}`. Regina is tagged on every result card, marked `NEEDS REVIEW` when any payout was skipped or failed or the note is set. `-Code` tags Tricia for the sign-in code instead.
 
 ## First run
 

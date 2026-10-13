@@ -1,0 +1,13 @@
+const fs=require('fs');
+const rows=JSON.parse(JSON.parse(fs.readFileSync('rerun/grid.raw','utf8')));
+const cur=rows.filter(r=>r.d==='2026-10-10'), pri=rows.filter(r=>r.d==='2026-10-03');
+const locs=fs.readFileSync('rerun/locs.txt','utf8').trim().split(/\r?\n/), ns=fs.readFileSync('rerun/ns.txt','utf8').trim().split(/\r?\n/);
+let tot=0, bad=0; const stores=[];
+locs.forEach((l,i)=>{ if(l==='Total'||l==='Norms Support Center') return;
+  const net=+ns[i].replace(/,/g,''), acc=Math.round(net*1.75)/100, r=cur.find(x=>x.loc===l), p=pri.find(x=>x.loc===l);
+  const ok=r&&r.st==='Approved'&&Math.abs(r.amt-acc)<0.005; if(!ok) bad++; tot+=r?r.amt:0;
+  stores.push({store:l,status:ok?'approved':'failed',netSales:net,accrual:acc,amount:r?r.amt:null,prior:p?p.amt:null,transactionId:r?r.id:null,warnings:ok?[]:['grid does not read Approved at accrual']});
+  console.log([l,net.toFixed(2),acc.toFixed(2),r?r.amt.toFixed(2):'-',r?r.st:'-',ok?'':'MISMATCH'].join('|')); });
+console.log('rows',cur.length,'bad',bad,'total',tot.toFixed(2));
+fs.renameSync('result.json','result-0615.json');
+fs.writeFileSync('result.json',JSON.stringify({weekEnding:'10/10/2026',note:'Rerun 10/12: North Torrance, Ontario, Van Nuys posted; Las Vegas trued up 731.81 to 732.48 for late sales. Posted total '+tot.toFixed(2)+'.',stores},null,1));

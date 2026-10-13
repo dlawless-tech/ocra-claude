@@ -1,0 +1,398 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://dashboard.stripe.com/acct_1MgBLnIS5DK8HsZn/payouts/po_1UNidwIS5DK8HsZn47jGOtNT
+- Page Title: Transactions – Shukanewyork – Stripe
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f86e4]:
+  - generic [ref=f86e6]:
+    - main [ref=f86e12]:
+      - generic:
+        - button "Skip to content"
+      - generic [ref=f86e15]:
+        - generic "Header" [ref=f86e18]:
+          - generic [ref=f86e19]:
+            - navigation "Breadcrumbs" [ref=f86e20]:
+              - list [ref=f86e21]:
+                - listitem [ref=f86e22]:
+                  - link "Payouts" [ref=f86e23] [cursor=pointer]:
+                    - /url: /acct_1MgBLnIS5DK8HsZn/payouts
+            - generic [ref=f86e25]:
+              - heading "$12,145.55 usd Paid" [level=1] [ref=f86e26]:
+                - generic [ref=f86e27]:
+                  - generic [ref=f86e29]:
+                    - generic [ref=f86e30]: $12,145.55
+                    - generic [ref=f86e31]: usd
+                  - generic [ref=f86e32]: Paid
+              - generic "Header description" [ref=f86e34]:
+                - generic [ref=f86e36]:
+                  - text: Completed
+                  - generic [ref=f86e37]: Wednesday, October 7
+        - main [ref=f86e38]:
+          - generic [ref=f86e40]:
+            - generic [ref=f86e41]:
+              - generic [ref=f86e42]:
+                - generic [ref=f86e43]: Timeline
+                - generic [ref=f86e49]:
+                  - generic [ref=f86e55]:
+                    - generic [ref=f86e56]:
+                      - generic [ref=f86e57]: Payout completed
+                      - time [ref=f86e58]:
+                        - generic [ref=f86e59]: Oct 7
+                    - note [ref=f86e62]:
+                      - generic [ref=f86e63]: Can’t find your payout?Banks can take up to 5 business days to process payouts. Wait until Oct 14 and then contact your bank.
+                  - generic [ref=f86e73]:
+                    - generic [ref=f86e74]: Payout in transit
+                    - time [ref=f86e75]:
+                      - generic [ref=f86e76]: Oct 7
+                  - generic [ref=f86e82]:
+                    - generic [ref=f86e83]: Payout initiated automatically
+                    - time [ref=f86e84]:
+                      - button "Oct 7, 12:23 AM" [ref=f86e86] [cursor=pointer]
+              - generic [ref=f86e87]:
+                - generic [ref=f86e88]: Payout destination
+                - generic [ref=f86e94]:
+                  - button [ref=f86e95] [cursor=pointer]:
+                    - heading "CHASE Bank •••• 2636 USD" [level=3] [ref=f86e100]:
+                      - generic [ref=f86e106]:
+                        - text: CHASE Bank
+                        - generic [ref=f86e107]: •••• 2636
+                        - generic [ref=f86e108]: USD
+                  - region "CHASE Bank •••• 2636 USD":
+                    - generic [ref=f86e122]:
+                      - generic [ref=f86e123]:
+                        - generic [ref=f86e124]: Type
+                        - generic [ref=f86e125]: Bank account
+                      - generic [ref=f86e126]:
+                        - generic [ref=f86e127]: Created
+                        - button "Mar 17, 2023, 5:35 PM" [ref=f86e129] [cursor=pointer]
+                      - generic [ref=f86e130]:
+                        - generic [ref=f86e131]: Origin
+                        - generic [ref=f86e132]: United States
+                      - generic [ref=f86e145]:
+                        - generic [ref=f86e146]: Fingerprint
+                        - generic [ref=f86e147]: wQ23QganX7ZEUPOt
+                      - generic [ref=f86e154]:
+                        - generic [ref=f86e155]: Routing number
+                        - generic [ref=f86e156]: "028000121"
+                      - generic [ref=f86e157]:
+                        - generic [ref=f86e158]: ID
+                        - generic [ref=f86e159]: ba_1MmhByIS5DK8HsZn0xaM8DL9
+              - generic [ref=f86e160]:
+                - generic [ref=f86e161]: Summary
+                - table [ref=f86e170]:
+                  - rowgroup [ref=f86e171]:
+                    - row [ref=f86e172]:
+                      - columnheader [ref=f86e173]:
+                        - button [ref=f86e175]
+                      - columnheader [ref=f86e176]:
+                        - button "Count" [ref=f86e178]
+                      - columnheader [ref=f86e181]:
+                        - button "Gross" [ref=f86e183]
+                      - columnheader [ref=f86e186]:
+                        - button "Fees" [ref=f86e188]
+                      - columnheader [ref=f86e191]:
+                        - button "Total" [ref=f86e193]
+                  - rowgroup [ref=f86e196]:
+                    - row [ref=f86e197]:
+                      - cell "Charges" [ref=f86e198]
+                      - cell "40" [ref=f86e202]
+                      - cell "$13,956.68" [ref=f86e206]
+                      - cell "-$416.78" [ref=f86e210]
+                      - cell "$13,539.90" [ref=f86e214]
+                    - row [ref=f86e218]:
+                      - cell "Refunds" [ref=f86e219]
+                      - cell "4" [ref=f86e223]
+                      - cell "-$1,391.90" [ref=f86e227]
+                      - cell "$0.00" [ref=f86e231]
+                      - cell "-$1,391.90" [ref=f86e235]
+                    - row [ref=f86e239]:
+                      - cell "Adjustments" [ref=f86e240]
+                      - cell "0" [ref=f86e244]
+                      - cell "$0.00" [ref=f86e248]
+                      - cell "$0.00" [ref=f86e252]
+                      - cell "$0.00" [ref=f86e256]
+                    - row [ref=f86e260]:
+                      - cell "Stripe fees" [ref=f86e261]
+                      - cell "4" [ref=f86e265]
+                      - cell "-$2.25" [ref=f86e269]
+                      - cell "-$0.20" [ref=f86e273]
+                      - cell "-$2.45" [ref=f86e277]
+                    - row [ref=f86e281]:
+                      - cell [ref=f86e282]
+                      - cell "Payouts" [ref=f86e283]
+                      - cell "$12,145.55" [ref=f86e286]
+              - generic [ref=f86e289]:
+                - generic [ref=f86e290]:
+                  - generic [ref=f86e291]: Transactions
+                  - button "Export" [ref=f86e297] [cursor=pointer]
+                - generic [ref=f86e303]:
+                  - table [ref=f86e306]:
+                    - rowgroup [ref=f86e307]:
+                      - row [ref=f86e308]:
+                        - columnheader [ref=f86e309]:
+                          - button "Type" [ref=f86e311]
+                        - columnheader [ref=f86e314]:
+                          - button "Gross" [ref=f86e316]
+                        - columnheader [ref=f86e319]:
+                          - button "Fee" [ref=f86e321]
+                        - columnheader [ref=f86e324]:
+                          - button "Total" [ref=f86e326]
+                        - columnheader [ref=f86e329]:
+                          - button "Description" [ref=f86e331]
+                        - columnheader [ref=f86e334]:
+                          - button "Date" [ref=f86e336]
+                    - rowgroup [ref=f86e339]:
+                      - row [ref=f86e340]:
+                        - cell [ref=f86e341]:
+                          - link "Refund" [ref=f86e344] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                        - cell [ref=f86e348]:
+                          - link "-$154.66 USD" [ref=f86e351] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                        - cell [ref=f86e354]:
+                          - link "$0.00 USD" [ref=f86e357] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                        - cell [ref=f86e362]:
+                          - link "-$154.66 USD" [ref=f86e365] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                        - cell [ref=f86e368]:
+                          - link "REFUND FOR CHARGE (Shari Bayer - 2026-10-22 17:00:00 - reservation)" [ref=f86e371] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                        - cell [ref=f86e374]:
+                          - link "Oct 6" [ref=f86e377] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMDBgIS5DK8HsZn2H84TJ0f
+                      - row [ref=f86e380]:
+                        - cell "Stripe fee" [ref=f86e381]
+                        - cell "-$0.05 USD" [ref=f86e386]
+                        - cell "$0.00 USD" [ref=f86e390]
+                        - cell "-$0.05 USD" [ref=f86e396]
+                        - 'cell "Radar (2026-10-04): Standard" [ref=f86e400]'
+                        - cell "Oct 5" [ref=f86e404]
+                      - row [ref=f86e408]:
+                        - cell [ref=f86e409]:
+                          - link "Charge" [ref=f86e412] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                        - cell [ref=f86e416]:
+                          - link "$309.31 USD" [ref=f86e419] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                        - cell [ref=f86e422]:
+                          - link "-$9.27 USD" [ref=f86e425] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                        - cell [ref=f86e429]:
+                          - link "$300.04 USD" [ref=f86e432] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                        - cell [ref=f86e435]:
+                          - link "Rosalyn Fierstein - 2026-10-22 20:00:00 - reservation" [ref=f86e438] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                        - cell [ref=f86e441]:
+                          - link "Oct 4" [ref=f86e444] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMvLZIS5DK8HsZn0zHzWQzE
+                      - row [ref=f86e447]:
+                        - cell "Stripe fee" [ref=f86e448]
+                        - cell "-$0.45 USD" [ref=f86e453]
+                        - cell "-$0.04 USD" [ref=f86e457]
+                        - cell "-$0.49 USD" [ref=f86e462]
+                        - 'cell "Radar (2026-10-03): Standard" [ref=f86e466]'
+                        - cell "Oct 4" [ref=f86e470]
+                      - row [ref=f86e474]:
+                        - cell [ref=f86e475]:
+                          - link "Charge" [ref=f86e478] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                        - cell [ref=f86e482]:
+                          - link "$927.94 USD" [ref=f86e485] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                        - cell [ref=f86e488]:
+                          - link "-$27.21 USD" [ref=f86e491] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                        - cell [ref=f86e495]:
+                          - link "$900.73 USD" [ref=f86e498] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                        - cell [ref=f86e501]:
+                          - link "Jean Marie Bono - 2026-10-22 19:30:00 - reservation" [ref=f86e504] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                        - cell [ref=f86e507]:
+                          - link "Oct 3" [ref=f86e510] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWfwIS5DK8HsZn0O7L1Jfb
+                      - row [ref=f86e513]:
+                        - cell [ref=f86e514]:
+                          - link "Charge" [ref=f86e517] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                        - cell [ref=f86e521]:
+                          - link "$157.06 USD" [ref=f86e524] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                        - cell [ref=f86e527]:
+                          - link "-$4.85 USD" [ref=f86e530] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                        - cell [ref=f86e534]:
+                          - link "$152.21 USD" [ref=f86e537] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                        - cell [ref=f86e540]:
+                          - link "Brooke Miller - 2026-10-22 17:45:00 - reservation" [ref=f86e543] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                        - cell [ref=f86e546]:
+                          - link "Oct 3" [ref=f86e549] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMWeCIS5DK8HsZn023c6RoX
+                      - row [ref=f86e552]:
+                        - cell [ref=f86e553]:
+                          - link "Charge" [ref=f86e556] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                        - cell [ref=f86e560]:
+                          - link "$261.31 USD" [ref=f86e563] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                        - cell [ref=f86e566]:
+                          - link "-$7.88 USD" [ref=f86e569] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                        - cell [ref=f86e573]:
+                          - link "$253.43 USD" [ref=f86e576] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                        - cell [ref=f86e579]:
+                          - link "Joseph Gorman - 2026-10-22 17:15:00 - reservation" [ref=f86e582] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                        - cell [ref=f86e585]:
+                          - link "Oct 3" [ref=f86e588] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVy0IS5DK8HsZn1kfMQKif
+                      - row [ref=f86e591]:
+                        - cell [ref=f86e592]:
+                          - link "Charge" [ref=f86e595] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                        - cell [ref=f86e599]:
+                          - link "$309.31 USD" [ref=f86e602] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                        - cell [ref=f86e605]:
+                          - link "-$9.27 USD" [ref=f86e608] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                        - cell [ref=f86e612]:
+                          - link "$300.04 USD" [ref=f86e615] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                        - cell [ref=f86e618]:
+                          - link "Jon Ambos - 2026-10-22 19:00:00 - reservation" [ref=f86e621] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                        - cell [ref=f86e624]:
+                          - link "Oct 3" [ref=f86e627] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMVq5IS5DK8HsZn2MIPxDOq
+                      - row [ref=f86e630]:
+                        - cell [ref=f86e631]:
+                          - link "Refund" [ref=f86e634] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                        - cell [ref=f86e638]:
+                          - link "-$309.31 USD" [ref=f86e641] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                        - cell [ref=f86e644]:
+                          - link "$0.00 USD" [ref=f86e647] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                        - cell [ref=f86e652]:
+                          - link "-$309.31 USD" [ref=f86e655] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                        - cell [ref=f86e658]:
+                          - link "REFUND FOR CHARGE (Shaina Varghese - 2026-10-22 19:00:00 - reservation)" [ref=f86e661] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                        - cell [ref=f86e664]:
+                          - link "Oct 3" [ref=f86e667] [cursor=pointer]:
+                            - /url: /acct_1MgBLnIS5DK8HsZn/payments/ch_3UMViYIS5DK8HsZn0UciteVN
+                  - button "Load more" [ref=f86e672] [cursor=pointer]
+              - generic [ref=f86e675]:
+                - generic [ref=f86e676]: Logs
+                - generic [ref=f86e680]: No logs
+              - generic [ref=f86e689]:
+                - generic [ref=f86e690]: Events
+                - table "Events" [ref=f86e699]:
+                  - rowgroup [ref=f86e700]:
+                    - row [ref=f86e701]:
+                      - cell [ref=f86e702]:
+                        - button "Your payout for Oct 7 changed" [ref=f86e705] [cursor=pointer]
+                      - cell [ref=f86e709]:
+                        - button [ref=f86e712] [cursor=pointer]
+                      - cell [ref=f86e714]:
+                        - button "10/7/26, 6:59:55 AM" [ref=f86e717] [cursor=pointer]
+                    - row [ref=f86e720]:
+                      - cell [ref=f86e721]:
+                        - button "A payout of $12,145.55 was completed" [ref=f86e724] [cursor=pointer]
+                      - cell [ref=f86e727]:
+                        - button [ref=f86e730] [cursor=pointer]
+                      - cell [ref=f86e732]:
+                        - button "10/7/26, 1:53:13 AM" [ref=f86e735] [cursor=pointer]
+                    - row [ref=f86e738]:
+                      - cell [ref=f86e739]:
+                        - button "A payout of $12,145.55 has its reconciliation report ready" [ref=f86e742] [cursor=pointer]
+                      - cell [ref=f86e745]:
+                        - button [ref=f86e748] [cursor=pointer]
+                      - cell [ref=f86e750]:
+                        - button "10/7/26, 12:23:38 AM" [ref=f86e753] [cursor=pointer]
+                    - row [ref=f86e756]:
+                      - cell [ref=f86e757]:
+                        - button "A payout for $12,145.55 was initiated and will be completed on Oct 7" [ref=f86e760] [cursor=pointer]
+                      - cell [ref=f86e764]:
+                        - button [ref=f86e767] [cursor=pointer]
+                      - cell [ref=f86e769]:
+                        - button "10/7/26, 12:23:37 AM" [ref=f86e772] [cursor=pointer]
+            - generic [ref=f86e776]:
+              - generic [ref=f86e778]:
+                - generic [ref=f86e779]:
+                  - generic [ref=f86e780]: Details
+                  - button "View receipt" [ref=f86e785] [cursor=pointer]
+                - generic [ref=f86e787]:
+                  - generic [ref=f86e788]:
+                    - generic [ref=f86e789]: Payout completed
+                    - generic [ref=f86e790]: Oct 7
+                  - generic [ref=f86e796]:
+                    - generic [ref=f86e797]: Payout ID
+                    - button "Copy to clipboard, po_1UNidwIS5DK8HsZn47jGOtNT" [ref=f86e799] [cursor=pointer]:
+                      - generic [ref=f86e800]: po_1UNidwIS5DK8HsZn47jGOtNT
+                  - generic [ref=f86e804]:
+                    - generic [ref=f86e805]: Internal note
+                    - generic [ref=f86e806]: STRIPE PAYOUT
+                  - generic [ref=f86e807]:
+                    - generic [ref=f86e808]: Delivery method
+                    - generic [ref=f86e809]: Standard
+                  - generic [ref=f86e810]:
+                    - generic [ref=f86e811]: Payout trace ID
+                    - generic [ref=f86e817]: "111000020826387"
+                  - generic [ref=f86e818]:
+                    - generic [ref=f86e819]: Fee
+                    - generic [ref=f86e820]: $0.00
+                  - generic [ref=f86e821]:
+                    - generic [ref=f86e822]: Amount
+                    - generic [ref=f86e823]: $12,145.55
+              - generic [ref=f86e824]:
+                - generic [ref=f86e825]:
+                  - generic [ref=f86e826]: Metadata
+                  - button [ref=f86e831] [cursor=pointer]
+                - generic [ref=f86e834]: No metadata
+    - paragraph [ref=f86e837]
+  - generic:
+    - generic:
+      - iframe
+    - generic [ref=f86e842]:
+      - button "Shukanewyork" [ref=f86e843] [cursor=pointer]
+      - search [ref=f86e849]:
+        - generic [ref=f86e851]:
+          - generic: Search
+          - generic [ref=f86e852]:
+            - combobox "Search" [ref=f86e853]
+            - generic [ref=f86e854]: /
+      - generic [ref=f86e857]:
+        - button "Apps" [ref=f86e859] [cursor=pointer]
+        - button "Notifications" [ref=f86e864] [cursor=pointer]
+        - link "Settings" [ref=f86e867] [cursor=pointer]:
+          - /url: /acct_1MgBLnIS5DK8HsZn/settings
+    - button "Show Workbench" [ref=f86e874] [cursor=pointer]:
+      - button "Developers" [ref=f86e877]
+      - generic [ref=f86e884]:
+        - generic [ref=f86e885]:
+          - button "Inspect" [ref=f86e888]:
+            - generic [ref=f86e889]: po_1UNidwIS5DK8HsZn4...
+          - button "Health" [ref=f86e895]
+          - button "API activity" [ref=f86e901]
+          - button "Event deliveries" [ref=f86e906]
+        - button "Open Workbench" [ref=f86e912]
+  - generic:
+    - iframe
+```

@@ -1,0 +1,29 @@
+{ "weekEnding": "10/11/2026", "status": "complete",
+  "deposits": [
+    { "store": "Rosie's", "number": "BD000385", "date": "9/29/2026", "gross": 200.00, "fees": 5.55, "refunds": 0.00, "net": 194.45, "status": "already" },
+    { "store": "Rosie's", "number": "BD000387", "date": "9/29/2026", "gross": 1814.78, "fees": 51.92, "refunds": 0.00, "net": 1762.86, "status": "already" },
+    { "store": "Vic's", "number": "BD000391", "date": "9/28/2026", "gross": 4811.30, "fees": 182.32, "refunds": 0.00, "net": 4628.98, "status": "already" },
+    { "store": "Vic's", "number": "BD000389", "date": "9/29/2026", "gross": 200.00, "fees": 5.55, "refunds": 0.00, "net": 194.45, "status": "already" },
+    { "store": "Vic's", "number": "BD000397", "date": "9/29/2026", "gross": 1734.06, "fees": 47.72, "refunds": 0.00, "net": 1686.34, "status": "already" },
+    { "store": "Vic's", "number": "BD000388", "date": "9/30/2026", "gross": 200.00, "fees": 7.91, "refunds": 0.00, "net": 192.09, "status": "already" },
+    { "store": "Cookshop", "number": "BD000394", "date": "9/29/2026", "gross": 400.00, "fees": 12.05, "refunds": 0.00, "net": 387.95, "status": "already" },
+    { "store": "Cookshop", "number": "BD000396", "date": "9/29/2026", "gross": 17113.15, "fees": 616.63, "refunds": 0.00, "net": 16496.52, "status": "already" }
+  ],
+  "pending": [
+    "Rosie's po_UQkNuk16Sx3KnrVYeecX8 10/1/2026 2670.47",
+    "Rosie's po_XdLHmtgEvsbUxyXaf1QKl 10/7/2026 384.77",
+    "Vic's po_sefjsK8mT8eYMnuTtMJs8 10/1/2026 1978.47",
+    "Vic's po_F3nt1BXYDz2XhGCfAPwD1 10/2/2026 579.55",
+    "Vic's po_qRmCf9g49PdRPl7NmSAdP 10/7/2026 1927.47",
+    "Vic's po_p5FEE5JIuNjFyK0IWlPxx 10/8/2026 194.45",
+    "Vic's po_xoriHQOs1Z1ztSLDFEoO7 10/10/2026 4073.94",
+    "Cookshop po_P50IT4KGGjzZ4HC9GclTp 10/1/2026 4542.26",
+    "Cookshop po_QUBjWdrpz1wBcGG4OlGd4 10/7/2026 168.22",
+    "Cookshop po_u5ps9gFLvfGkVZ6Zfm0V4 10/8/2026 12643.09",
+    "Cookshop po_9Vn99b0EDssOwdgEBtIp1 10/11/2026 1581.53"
+  ],
+  "warnings": [
+    "No Paysafe Bank Deposits dated in October found in R365, though the 10/1 and 10/2 payouts should have reached the bank by now. The downloaded bank lines may not have been turned into deposits yet.",
+    "Rosie's BD000387 (9/29, 1,762.86): post-payout.sh failed twice because the on-screen Deposit Total read 0.00. Nothing was saved. Its lines (253-00 1,814.78 Cr, 632-00 51.92 Dr) and PDF are right, so check that the total shows 1,762.86."
+  ],
+  "note": "All 8 September Paysafe deposits were already split with their PDFs attached. Nothing changed this run." }

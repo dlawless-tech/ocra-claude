@@ -1,0 +1,13 @@
+const fs=require('fs');
+const rows=JSON.parse(JSON.parse(fs.readFileSync('grid.raw','utf8')));
+const locs=fs.readFileSync('locs.txt','utf8').trim().split('\n'), ns=fs.readFileSync('ns.txt','utf8').trim().split('\n');
+const out=[];
+locs.forEach((l,i)=>{ if(l==='Total'||l==='Norms Support Center') return;
+  const net=+ns[i].replace(/,/g,''); const acc=Math.round(net*1.75)/100;
+  const cur=rows.filter(r=>r.d==='2026-10-10'&&r.loc===l), pr=rows.filter(r=>r.d==='2026-10-03'&&r.loc===l);
+  out.push({store:l,netSales:net,accrual:acc,id:cur[0]&&cur[0].id,st:cur[0]&&cur[0].st,amt:cur[0]&&cur[0].amt,n:cur.length,prior:pr.length?pr[0].amt:null,np:pr.length});
+});
+fs.writeFileSync('plan.json',JSON.stringify(out,null,1));
+out.forEach(o=>console.log([o.store,o.netSales,o.accrual,o.st,o.amt,o.n,o.prior,o.np,o.prior?((o.accrual/o.prior-1)*100).toFixed(1)+'%':''].join('\t')));
+console.log('rows 10/10:',rows.filter(r=>r.d==='2026-10-10').length,'10/3:',rows.filter(r=>r.d==='2026-10-03').length);
+const known=new Set(locs); console.log('unmatched locs:',rows.filter(r=>!known.has(r.loc)).map(r=>r.d+' '+r.loc));

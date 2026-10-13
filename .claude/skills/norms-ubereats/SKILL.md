@@ -23,7 +23,9 @@ Read [`R365-AUTOMATION.md`](R365-AUTOMATION.md) before scripting any of this. R3
 
 Credentials live in `~/.claude/norms-credentials.md`, outside any repo. Read them from there rather than asking the human. Missing or rejected credentials are the one case worth asking about.
 
-Uber Eats mails a 4-digit code to the merchant address. Fill the email field, then hand the keyboard over for the code and say so. Never guess or wait on it. One Uber session serves the whole run, since each new session triggers another code.
+Uber Eats mails a 4-digit code to the merchant address. `scripts/uber-login.sh <session>` opens Uber on the saved profile `~/.claude/playwright-profiles/norms-ubereats`, fills the email, and waits for the human to type the code into the open window; `NOTIFY=1` also posts a Teams card tagging the code contact. Never guess the code. One Uber session serves the whole run, since each new session triggers another code.
+
+The email page's Continue button carries an icon, so `button:text-is("Continue")` matches nothing and `has-text` also hits "Continue with Google". Click `role=button[name="Continue"s]`.
 
 R365 posts a username and password form at `identity.restaurant365.com`. Log in, then reach pages through the app menu or a known route. Guessing a hash route logs the session out.
 
@@ -151,3 +153,26 @@ for S in default r365 r365b; do playwright-cli -s=$S close; done
 ```
 
 Run `playwright-cli list` first and close only the sessions this run opened, leaving any that were already open when it started. Close from the same working directory the run used, since sessions bind to it.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 17:00 (`scripts/register-task.ps1` sets it up, with a one-off catch-up on Tue 10/13/2026 09:00). It covers the Monday to Sunday pay period that ended the Sunday before and writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+The wrapper logs the Uber session `nue` in before starting the skill: `uber-login.sh` with `NOTIFY=1` tags the code contact in the TPD Teams channel and waits 60 minutes for the code. No code fails the run with a Teams card and posts nothing. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, and `ENTRY_DATE`.
+
+No human answers during the run, so:
+
+- Never ask. Use session names `nue` (Uber, already logged in), `nur` and `nurb` (R365), all from the repo root. Never open a second Uber session, since it costs another code.
+- Run the prior-week check. A store that fails it and whose prior Uber Total Payout also disagrees with `prior D - approved credit` is `held`, posted nothing, with both figures in `warnings`.
+- Per store, an entry that already carries amounts is `skipped`. Approve, or for an Approved template finish Edit Complete, only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- Late deposits go in `warnings` with their amounts; the store still posts.
+- A store whose two-week settlement leaves this week's entry at 0.00 is `skipped` with that reason.
+
+Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, tagging the confirmation contact, and tags the code contact instead when the file is missing:
+
+```json
+{ "period": "10/5/2026 - 10/11/2026", "date": "10/10/2026", "note": "",
+  "stores": [ { "store": "Anaheim", "status": "approved", "amount": 368.85, "transactionId": "...", "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, `held`, or `failed`; `amount` is the entry's total debits. The webhook lives in `~/.claude/norms-ubereats.json`, outside the repo: `{"teamsWebhook": "<url>", "codeMention": {"name", "email"}, "doneMention": {"name", "email"}}`. `codeMention` is tagged for the login code and for failures, `doneMention` on every finished run.

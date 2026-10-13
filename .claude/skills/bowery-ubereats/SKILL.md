@@ -25,7 +25,7 @@ Credentials live in `~/.claude/bowery-credentials.md`, outside any repo. Read th
 
 Bowery and NORMS share one R365 login and hold separate Uber Eats logins, so reach for the Bowery credential file here.
 
-Uber Eats mails a 4-digit code to the merchant address. Fill the email field, then hand the keyboard over for the code and say so. Never guess or wait on it. One Uber session serves the whole run, since each new session triggers another code.
+Uber Eats mails a 4-digit code to the merchant address. `scripts/uber-login.sh <session>` opens the saved profile `~/.claude/playwright-profiles/bowery-ubereats`, fills the email, and waits `WAIT` minutes (default 60) for the human to type the code; with `NOTIFY=1` it tags the code contact in Teams first. Never guess the code. One Uber session serves the whole run, since each new session triggers another code. Some days the code never arrives; stop and try again later instead of re-requesting it in a loop.
 
 R365 posts a username and password form at `identity.restaurant365.com`. `scripts/r365-login.sh <session>` logs in and is safe to re-run. Reach pages by clicking the home dashboard nav, since opening a `/react/...` URL drops the session; `R365-AUTOMATION.md` carries the detail.
 
@@ -71,6 +71,8 @@ It refuses to save a page whose breakdown does not add to Total payout, and it n
 ## Phase 2: the period debits
 
 The daily journal entries debit `104-04 - A/R - Uber Eats` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
+
+`scripts/gl-detail.sh <session> <start> <end> <out.csv>` runs the report below and saves it as CSV, checking the parameters took and the header names the account and window.
 
 Reports > My reports in `r365b`. Run **GL Account Detail** through Customize with account `104-04 - A/R - Uber Eats`, Start the period's first day, End its last day, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R - Uber Eats` **Debit** figure, which is that store's D.
 
@@ -154,6 +156,29 @@ If the automated save will not land after a retry, re-enter the amounts, tell th
 Refilter the All Transactions grid and read every row back from the grid's data source, checking status is **Approved** and the amount matches the planned total for that store, and that each entry lists its backup. Verify from the grid rather than from what the posting step reported, since a worker reports what it believes and the grid reports what R365 holds.
 
 Report the table of stores, amounts, and totals, and report any store that failed just as plainly.
+
+## Unattended run
+
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 15:15 (`scripts/register-task.ps1` sets it up, with a one-off catch-up on Tue 10/13/2026 10:00). It covers the Monday to Sunday pay period that ended the Sunday before and writes `started.txt` in the work directory `.scratch/bowery-ubereats/wk<MMDD of that Sunday>` first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+The wrapper logs the Uber session `bue` in before starting the skill: `uber-login.sh` with `NOTIFY=1` tags the code contact in the Bowery TPD Teams channel and waits 60 minutes for the code. No code fails the run with a Teams card and posts nothing. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, and `ENTRY_DATE` (the Sunday).
+
+No human answers during the run, so:
+
+- Never ask. Use session names `bue` (Uber, already logged in), `bur` and `burb` (R365), all from the repo root. Never open a second Uber session, since it costs another code.
+- Keep the work file, the GL CSV, and the backups in the work directory.
+- A store whose breakdown fails the sum check, or whose A/R excess after the credit matches no figure on the report, is `held`, posted nothing, with the figures in `warnings`.
+- Per store, an entry that already carries amounts is `skipped`. Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- A missing prior-period deposit goes in `warnings` with its amount; the store still posts.
+
+Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, tagging the confirmation contact, and tags the code contact instead when the file is missing:
+
+```json
+{ "period": "10/5/2026 - 10/11/2026", "date": "10/11/2026", "note": "",
+  "stores": [ { "store": "Cookshop", "status": "approved", "amount": 460.48, "transactionId": "...", "warnings": [] } ] }
+```
+
+`status` is `approved`, `skipped`, `held`, or `failed`; `amount` is the entry's total debits. The webhook lives in `~/.claude/bowery-ubereats.json`, outside the repo: `{"teamsWebhook": "<url>", "codeMention": {"name", "email"}, "doneMention": {"name", "email"}}`. `codeMention` is tagged for the login code and for failures, `doneMention` on every finished run.
 
 ## Closing the windows
 

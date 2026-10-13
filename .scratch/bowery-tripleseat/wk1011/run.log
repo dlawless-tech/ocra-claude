@@ -1,0 +1,26 @@
+﻿2026-10-11T13:57:08 starting claude for W.E. 10/11/2026
+2026-10-11T14:15:30 starting claude for W.E. 10/11/2026
+This week's run (W.E. 10/11) changed nothing in R365. The eight Paysafe deposits it found are all from September (9/28 to 9/30) and were already split with their PDFs attached. I wrote `result.json` with status `complete`, and both browser sessions are closed. The wrapper posts it to the Bank Activity channel with Brandy tagged.
+
+| Store | Deposit | Date | 253-00 Cr | 632-00 Dr | 401-27 Dr | Net | Change |
+|---|---|---|---|---|---|---|---|
+| Rosie's | BD000385 | 9/29 | 200.00 | 5.55 | 0.00 | 194.45 | none |
+| Rosie's | BD000387 | 9/29 | 1,814.78 | 51.92 | 0.00 | 1,762.86 | none |
+| Vic's | BD000391 | 9/28 | 4,811.30 | 182.32 | 0.00 | 4,628.98 | none |
+| Vic's | BD000389 | 9/29 | 200.00 | 5.55 | 0.00 | 194.45 | none |
+| Vic's | BD000397 | 9/29 | 1,734.06 | 47.72 | 0.00 | 1,686.34 | none |
+| Vic's | BD000388 | 9/30 | 200.00 | 7.91 | 0.00 | 192.09 | none |
+| Cookshop | BD000394 | 9/29 | 400.00 | 12.05 | 0.00 | 387.95 | none |
+| Cookshop | BD000396 | 9/29 | 17,113.15 | 616.63 | 0.00 | 16,496.52 | none |
+
+**11 October payouts are pending:**
+- **Rosie's:** 10/1 for 2,670.47 and 10/7 for 384.77.
+- **Vic's:** 10/1 for 1,978.47, 10/2 for 579.55, 10/7 for 1,927.47, 10/8 for 194.45 and 10/10 for 4,073.94.
+- **Cookshop:** 10/1 for 4,542.26, 10/7 for 168.22, 10/8 for 12,643.09 and 10/11 for 1,581.53.
+
+**Warnings on the card:**
+- **No October deposits:** R365 has no October Paysafe deposits at all. The 10/1 and 10/2 payouts should have reached the bank by now, and bank activity for 10/4 to 10/10 was downloaded. My guess is that the downloaded bank lines still need to be turned into deposits before this run can match them, but I haven't confirmed that.
+- **Rosie's BD000387 (9/29, 1,762.86):** this one failed twice, so it is on the card as a warning, but nothing was saved. The deposit total kept showing 0.00, apparently because the page hadn't finished loading. When I read the deposit without changing it, the lines and PDF were right, so I counted it as already done. Please check that its Deposit Total shows 1,762.86.
+
+The same 0.00 total also tripped BD000385 and BD000397 once each before they passed on the retry. Adding a wait or retry to the total check in `post-payout.sh` would stop these false failures; I haven't made that change. I added these notes to the Tripleseat progress memory.
+2026-10-11T14:31:10 claude exited 0
