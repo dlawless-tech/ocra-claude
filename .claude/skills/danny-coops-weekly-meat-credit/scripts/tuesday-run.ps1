@@ -1,5 +1,5 @@
 # Task Scheduler entry point. Runs the skill unattended for the week that ended last Sunday, then posts to Teams.
-# usage: wednesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
+# usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 param([string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'
 
@@ -14,7 +14,7 @@ if ($sun -eq $today) { $sun = $sun.AddDays(-7) }
 $weFull = '{0}/{1}/{2}' -f $sun.Month, $sun.Day, $sun.Year
 $run = Join-Path $Repo (".scratch\danny-coops-meat-credit\wk{0:MMdd}" -f $sun)
 New-Item -ItemType Directory -Force $run | Out-Null
-$log = Join-Path $run 'wednesday-run.log'
+$log = Join-Path $run 'tuesday-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 
 $done = Join-Path $run 'done.txt'

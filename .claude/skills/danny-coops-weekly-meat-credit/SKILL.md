@@ -1,6 +1,6 @@
 ---
 name: danny-coops-weekly-meat-credit
-description: Post the weekly Meat Credit Adj journal entry into Danny & Coop's Restaurant365 at 2.1% of the week's meat AP invoices, and correct any of the prior four weeks that no longer match. Use when asked to fill, balance, or approve the Danny & Coops Meat Credit entry in R365, to check past meat credits against the Meat Credit report, or when the Wednesday scheduled run starts it.
+description: Post the weekly Meat Credit Adj journal entry into Danny & Coop's Restaurant365 at 2.1% of the week's meat AP invoices, and correct any of the prior four weeks that no longer match. Use when asked to fill, balance, or approve the Danny & Coops Meat Credit entry in R365, to check past meat credits against the Meat Credit report, or when the Tuesday scheduled run starts it.
 ---
 
 # Weekly meat credit for Danny & Coops
@@ -86,7 +86,7 @@ Rerun `meat-entries.sh`. The run is done when all five Sundays read Approved at 
 
 ## Unattended run
 
-`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays at 3:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending and the work directory, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending and the work directory, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
