@@ -22,22 +22,35 @@ function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 
 $marker = Join-Path $run 'started.txt'
 if ((Test-Path $marker) -and -not $Force) { exit 0 }
 
-# store name + week ending; the rest of the name drifts (Shukette's "Payours")
+# store name + week ending; names drift ("Payours", "Cooshop", "W.E 10.11.26")
+$StorePattern = @{ 'Cookshop' = 'Coo?k?shop'; 'Shuka' = 'Shuka'; "Rosie's" = "Rosie['\u2019]?s"; 'Shukette' = 'Shukette'; "Vic's" = "Vic['\u2019]?s" }
 $found = @{}
+$unknown = @()
 foreach ($f in Get-ChildItem -LiteralPath $Folder -File -Filter '*.pdf') {
+  $hit = $false
   foreach ($s in $Stores) {
-    $re = '^' + [regex]::Escape($s).Replace("'", "['\u2019]") + ' Cash .* W\.E\. ' + [regex]::Escape($we) + '\.pdf$'
-    if ($f.Name -match $re) { $found[$s] = $f }
+    $re = '^' + $StorePattern[$s] + ' Cash .*W\.?\s?E\.?\s*' + [regex]::Escape($we) + '\s*\.pdf$'
+    if ($f.Name -match $re) { $found[$s] = $f; $hit = $true }
   }
+  if (-not $hit) { $unknown += $f }
 }
 $missing = @($Stores | Where-Object { -not $found.ContainsKey($_) })
 $fresh = @($found.Values | Where-Object { $_.LastWriteTime -gt (Get-Date).AddMinutes(-5) })
 
 if ($missing.Count -or $fresh.Count) {
-  Log "waiting: missing $($missing -join ', '); syncing $($fresh.Name -join ', ')"
+  Log "waiting: missing $($missing -join ', '); syncing $($fresh.Name -join ', '); unrecognized $($unknown.Name -join ', ')"
+  # filed weeks live in store subfolders, so a stray root PDF is likely a misnamed log
+  $unknownMarker = Join-Path $run 'unrecognized.txt'
+  $settled = @($unknown | Where-Object { $_.LastWriteTime -le (Get-Date).AddMinutes(-5) })
+  if ($missing.Count -and $settled.Count -and -not (Test-Path $unknownMarker)) {
+    Set-Content -Encoding utf8 $unknownMarker ($settled.Name -join "`n")
+    & $Notify -Title "Bowery cash logs W.E. $weFull waiting on file names" -Lines (@("Missing: $($missing -join ', '). These PDFs in the folder don't match a store and W.E. $we`:") + @($settled | ForEach-Object { "- $($_.Name)" }) + @("Expected: <Store> Cash Deposits & Payouts W.E. $we.pdf. Rename the file and the next 15-minute check picks it up."))
+  }
   if ((Get-Date) -ge [datetime]::Parse($Cutoff) -and $missing.Count) {
     Set-Content -Encoding utf8 $marker "gave up $(Get-Date -Format s)"
-    & $Notify -Title "Bowery cash logs W.E. $weFull not posted" -Lines @("Still missing at $Cutoff`: $($missing -join ', ').", 'Nothing was posted. Run the skill by hand once the logs are in.')
+    $lines = @("Still missing at $Cutoff`: $($missing -join ', ').", 'Nothing was posted. Run the skill by hand once the logs are in.')
+    if ($unknown.Count) { $lines += "Unrecognized PDFs in the folder: $($unknown.Name -join ', ')" }
+    & $Notify -Title "Bowery cash logs W.E. $weFull not posted" -Lines $lines
   }
   exit 0
 }

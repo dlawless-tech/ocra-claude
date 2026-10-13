@@ -50,9 +50,16 @@ echo "$OUT" | grep -q '^paid to' && playwright-cli -s=$S fill '#bankExpensePayee
 playwright-cli -s=$S fill '#bankExpenseNumber' "$NO" >/dev/null 2>&1
 playwright-cli -s=$S fill '#bankExpenseComment' "$MEMO" >/dev/null 2>&1
 playwright-cli -s=$S fill '#bankExpenseAmount' "$AMT" >/dev/null 2>&1
-playwright-cli -s=$S fill '#newRowAmountInput' "$AMT" >/dev/null 2>&1
+# line amount ignores fill; needs keystrokes then blur
+playwright-cli -s=$S click '#newRowAmountInput' >/dev/null 2>&1
+playwright-cli -s=$S press Control+a >/dev/null 2>&1
+playwright-cli -s=$S type "$AMT" >/dev/null 2>&1
+playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
 playwright-cli -s=$S fill 'input[name=newRowAmountInput] >> xpath=following::input[1]' "$CMT" >/dev/null 2>&1
 playwright-cli -s=$S click 'button:text-is("Add")' >/dev/null 2>&1; sleep 2
+LINE=$(ev "() => { const g = jQuery('[data-role=grid]').map((i,e)=>jQuery(e).data('kendoGrid')).get().find(k => k && k.dataSource.data().length);
+  const r = g ? g.dataSource.data().toJSON() : []; return r.length + ' ' + (r[0] ? (+r[0].amount).toFixed(2) : '0.00'); }" | tr -d '"')
+[ "$LINE" = "1 $(printf '%.2f' "$AMT")" ] || { echo "STOP: detail line did not land ($LINE)"; exit 1; }
 
 SAVE=$(bash "$SK/danny-coops-payroll/scripts/save.sh" $S); echo "save $SAVE"
 ID=$(echo "$SAVE" | grep -oE '^\[\["1","[0-9a-f-]{36}"' | grep -oE '[0-9a-f-]{36}')

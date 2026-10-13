@@ -26,10 +26,14 @@ if ($ResultFile) {
 $content = @{ '$schema' = 'http://adaptivecards.io/schemas/adaptive-card.json'; type = 'AdaptiveCard'; version = '1.4'
   body = @(@{ type = 'TextBlock'; text = $Title; weight = 'Bolder'; size = 'Medium'; wrap = $true }) +
     @($Lines | ForEach-Object { @{ type = 'TextBlock'; text = $_; wrap = $true; spacing = 'Small' } }) }
-if ($cfg.mention -and ($cfg.mentionWhen -eq 'always' -or $attention)) {
-  $at = "<at>$($cfg.mention.name)</at>"
-  $content.body += @{ type = 'TextBlock'; text = "$at please review."; wrap = $true }
-  $content.msteams = @{ entities = @(@{ type = 'mention'; text = $at; mentioned = @{ id = $cfg.mention.email; name = $cfg.mention.name } }) }
+# problemMention joins only on a miss or failure
+$who = @()
+if ($cfg.mention -and ($cfg.mentionWhen -eq 'always' -or $attention)) { $who += $cfg.mention }
+if ($cfg.problemMention -and $attention) { $who += $cfg.problemMention }
+if ($who.Count) {
+  $ats = $who | ForEach-Object { "<at>$($_.name)</at>" }
+  $content.body += @{ type = 'TextBlock'; text = "$($ats -join ' ') please review."; wrap = $true }
+  $content.msteams = @{ entities = @($who | ForEach-Object { @{ type = 'mention'; text = "<at>$($_.name)</at>"; mentioned = @{ id = $_.email; name = $_.name } } }) }
 }
 $body = @{ type = 'message'; attachments = @(@{ contentType = 'application/vnd.microsoft.card.adaptive'; contentUrl = $null; content = $content }) }
 $json = $body | ConvertTo-Json -Depth 20

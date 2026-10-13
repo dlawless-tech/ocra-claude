@@ -121,7 +121,9 @@ bash <skill>/scripts/post-check.sh cl "<store>" <date> <number> <amount> "<payee
 
 The script saves, attaches the store's log PDF, reloads, and prints `MATCH` once number, date, amount, account, the single line and the attachment read back. It prints whether it used a Vendor or Paid To; a Paid To check goes in the report. On `MATCH`, open the expense by id at `#/form/BankExpenseForm/<id>` and approve it with a real click on `#Approve > a`, then `li[data-testid="approveAndCloseMenuItem"]`; the reloaded expense shows `#Unapprove`.
 
-First entered 10/6/2026: Cookshop check 2956 to Big Geyser, 363.20, as `MC2956` against vendor `BIG GEYSER, INC`, approved. That one was driven by hand; `post-check.sh` is built from it and has not yet run end to end.
+The detail line's amount box ignores a plain `fill`, which leaves the line at 0.00 so R365 rejects the save. The script clicks the box, types the amount, and presses Tab, then checks that the line landed before it saves. `STOP: detail line did not land` means nothing was saved.
+
+First entered 10/6/2026: Cookshop check 2956 to Big Geyser, 363.20, as `MC2956` against vendor `BIG GEYSER, INC`, approved. On 10/13/2026 the unattended run entered `MC2957`, Cookshop's 300.00 to Parity Productions on 649-00, under Paid To. The run finished that check's line by hand, which is where the typed-amount fix comes from.
 
 ## Step 7: file the logs
 
@@ -157,7 +159,7 @@ End by writing `result.json` in the work directory; the wrapper posts it to Team
       "checks": [ { "number": "MC2956", "amount": 363.20, "paidTo": "vendor BIG GEYSER, INC", "status": "approved" } ] } ] }
 ```
 
-`status`, for an entry or a check, is `approved`, `posted-unapproved`, `skipped`, or `failed`. `warnings` holds every `WARN`, every questioned payout, and for a failed store the step that failed. The Teams webhook URL lives in `~/.claude/bowery-cash-log.json`, outside the repo, with the person to tag: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. `mentionWhen` set to `attention` tags only on a miss, a failure, an unapproved store or check, a warning, or a Paid To check.
+`status`, for an entry or a check, is `approved`, `posted-unapproved`, `skipped`, or `failed`. `warnings` holds every `WARN`, every questioned payout, and for a failed store the step that failed. The Teams webhook URL lives in `~/.claude/bowery-cash-log.json`, outside the repo, with the person to tag: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always", "problemMention": {"name": "<name>", "email": "<work email>"}}`. `mentionWhen` set to `attention` tags only on a miss, a failure, an unapproved store or check, a warning, or a Paid To check. `problemMention` is tagged alongside `mention` on those same problems only. A PDF at the folder root that matches no store and week is posted once per week while a store is missing, so a misnamed log is caught before the cutoff.
 
 ## Test entries
 
