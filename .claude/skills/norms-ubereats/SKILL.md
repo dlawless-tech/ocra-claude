@@ -31,31 +31,21 @@ R365 posts a username and password form at `identity.restaurant365.com`. Log in,
 
 ## Phase 1: the Uber figures
 
-Payments > Payouts. Store names vary in form, `NORMS - Carson` beside `NORMS (Ontario Mills)`, so type the store into the picker's search box and read back what it finds. The picker list is virtualized, so scroll it to enumerate every store. Checking the radio leaves the page on the old store until you click **Apply**, and switching stores resets the date range.
+`scripts/uber-read.sh <session> "<Uber store name>" "Oct 11"` reads one store and prints one JSON line: `payout`, `earnings`, `marketing`, `fees`, `nc`, `other`, and the store and period as Uber prints them. Loop it over every store into `uber.jsonl`, one store a minute. Go to the page with `goto https://merchants.ubereats.com/manager/payments`; the sidebar's Payouts link does not navigate, and a "Rewards Center" popup (`Ok got it`) can cover the page after login.
 
-The picker's radio labels carry no text, and the store name sits in a span inside each `List item` button, so `p:text-is(...)` matches nothing. Click that button from `eval`, matching the name exactly. One store, scripted:
+Payments > Payouts (redesigned by 10/13/2026) lists a **Payout History** table per store, one row per pay period (`Oct 05–11, 2026`, or `Sep 28–Oct 11, 2026` for a two-week store), with Earnings, Marketing, Uber fees, Amendments and Net Payout. Clicking the row opens the pay period page, whose breakdown **Expand all** opens into labeled lines. The figures the entry needs, all confirmed against the posted 10/3/2026 Anaheim entry:
 
-```bash
-playwright-cli click '#store-selector-trigger'
-playwright-cli fill 'input[placeholder*="Search"]' "NORMS - Carson"
-playwright-cli eval "() => { const e=Array.from(document.querySelectorAll('button span, button p')).find(x=>x.innerText.trim()==='NORMS - Carson' && x.closest('button').id!=='store-selector-trigger'); e.closest('button').click(); return 'ok'; }"
-playwright-cli click 'button:text-is("Apply")'
-playwright-cli click 'input[aria-label="Select a date range."]'
-playwright-cli click '[aria-label*="September 15th 2026"]'   # any day inside the period
-```
+| Entry line | Uber line |
+|---|---|
+| Earnings | Gross Sales > `Sales (excl. tax)` |
+| Marketing | Marketing section total less its `Tax On ...` lines (`Offers on items (excl. VAT)` + `Offer Redemption Fee`) |
+| Uber Fees | Uber Fees section total (`Net Marketplace Fee`) |
+| Net Chargeback | Amendments > every `... chargebacks (excl. tax)` line, `Disputed chargebacks` included |
+| Total Payout | `Total payout` |
 
-Read `#store-selector-trigger`'s text back after Apply to confirm the switch took. The URL's `settlement` parameter belongs to one store, so a hand-built URL loads the wrong store's settlement.
+Uber shows Marketing and Uber Fees as negatives and they enter R365 as positive debits. Net Chargeback carries either sign, and its sign decides its column. Taxes (`Tax on Sales`, `Marketplace Facilitator Tax`, tax on offers and chargebacks) net to about zero and are left out. `other` is whatever the five figures do not explain, `Total payout - (Earnings - Marketing - Fees + Net Chargeback)`; it lands in the difference line, so record it rather than dropping it.
 
-The date control opens on a **Pay period** tab. Period length is a store setting, one week for some stores and two for others, so the tab label (`Pay period Aug 3 - Aug 16`) names the loaded period. Clicking any date selects the whole period containing that date and writes `start` and `end` into the URL. The page states the loaded range as `Selected date range is from 09/14/2026 to 09/20/2026`, so check that sentence for every store.
-
-Per store, read off the Overview tab: store name, Total Payout, Earnings, and the Marketing, Uber Fees, and Net Chargeback Amount rows of Pay breakdown. The breakdown is a `[role=tree]` of top-level `treeitem`s, and their `innerText` truncates some labels (`Earning`, `Uber Fee`, `Net Taxe`), so match rows by prefix. Uber shows Marketing and Uber Fees as negatives and they enter R365 as positive debits. Net Chargeback carries either sign, and its sign decides its column.
-
-Two reading traps:
-
-- Pay breakdown drops a row that is 0.00. The **Net Chargeback Amount** card at the top of the page covers that case, and the card and the row share a label, so scope the row lookup to the Pay breakdown block.
-- Some stores carry rows the five journal lines do not model, **Other payments** among them. They land in the difference line, which is correct, so record them rather than dropping them.
-
-Check each store before moving on: `Earnings + Marketing + Uber Fees + Net Chargeback + Net Taxes` equals `Total Payout`. A store that fails this has an unmodeled row worth finding.
+The store picker: store names vary in form, `NORMS - Carson` beside `NORMS (Ontario Mills)`, so type the store into the picker's search box. Its radio labels carry no text and the store name sits in a span inside each `List item` button, so click that button from `eval`, matching the name exactly, then **Apply**. The pay period page heading names the store as Uber now prints it, sometimes with a city suffix (`NORMS - Van Nuys (Los Angeles)`, `NORMS (Hollywood) (Los Angeles)`). The URL's `settlement` parameter belongs to one store, so a hand-built URL loads the wrong store's settlement.
 
 ## Phase 2: the period debits
 
@@ -77,14 +67,18 @@ debit  on "marketing"              =  Marketing
 debit  on "uber fees"              =  Uber Fees
 debit  on "net chargeback amount"  =  Net Chargeback shown negative
 credit on "net chargeback amount"  =  Net Chargeback shown positive
-difference                         =  D - Earnings, debit if positive, credit if negative
+difference                         =  D - Earnings - other, debit if positive, credit if negative
 ```
+
+`node scripts/glparse.js <cells.txt> <gl.json>` turns a GL report snapshot's cells into per-location figures, once for this period and once for the prior one. `scripts/harvest.js`, with `__DATE__` replaced by the entry date, returns the entries from the All Transactions grid. `node scripts/build-work.js <uber.jsonl> <gl-cur.json> <gl-prior.json> <entries.json> <work.json>` applies this arithmetic and the prior-week check, flags any unbalanced store, and writes the work json the posting scripts take.
+
+A difference far beyond the usual few percent usually means a missing day of sales in R365. Look at the location's daily `Third Party Delivery` rows in the GL report before posting; on 10/13/2026 Van Nuys had no 10/10 or 10/11 rows and was off 652.24, so it was held.
 
 The difference line is the gap between what R365 booked as third party sales and what Uber reports as earnings. It lands at 0.00 for roughly half the stores in a typical week, which is a normal result to record and approve.
 
 **Do not use the account's beginning balance for the credit.** Beginning balance equals D only while the prior period's payout has already been deposited and booked. Deposits lag by several days and sometimes miss a week, and when one is outstanding the beginning balance carries it, pushing the whole undeposited receivable into the difference line and expensing it to Online Ordering Expense. In one 24 store run that error would have written off 23,584.09.
 
-**Verify the formula against the previous week before posting a batch.** Run the GL report a second time over the prior pay period. For each location, the `Journal Entry` debits are prior D and the `Journal Entry` credit is the approved UberEats credit. `prior D - approved credit` is the prior Total Payout, and it must equal that store's `Bank Deposit` credit in the current period's report. This checks the whole estate from two reports with no Uber reading. A store that fails has a changed process or a missed deposit; before posting it, pull its prior period Uber figures and compare them directly.
+**Verify the formula against the previous week before posting a batch.** Run the GL report a second time over the prior pay period. For each location, the `Journal Entry` debits are prior D and the `Journal Entry` credit is the approved UberEats credit. `prior D - approved credit` is the prior Total Payout, and it must equal that store's `Bank Deposit` credit in the current period's report. This checks the whole estate from two reports with no Uber reading. A store that fails has a changed process, a missed deposit, or a sales day booked after last week's entry was filled; before posting it, pull its prior period Uber figures (`uber-read.sh` with the prior period's last day) and compare them directly. When the prior Uber payout equals the deposit, the prior entry is the one that is off: post this week, and report the prior entry's correction.
 
 **A deposit that has not landed never holds an entry.** The entry needs only this period's D and this period's Uber figures, so post it the same day. A store with no `Bank Deposit` row passes the check when its prior period Uber Total Payout equals `prior D - approved credit`: the deposit is late, and the check is done. Only a mismatch there holds the store, since it means the process changed. Report late deposits with their amounts so the human can chase them.
 
@@ -166,6 +160,7 @@ No human answers during the run, so:
 - Run the prior-week check. A store that fails it and whose prior Uber Total Payout also disagrees with `prior D - approved credit` is `held`, posted nothing, with both figures in `warnings`.
 - Per store, an entry that already carries amounts is `skipped`. Approve, or for an Approved template finish Edit Complete, only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
 - Late deposits go in `warnings` with their amounts; the store still posts.
+- A store missing a day of `Third Party Delivery` sales in the period is `held`, posted nothing, with the missing dates and the D vs Earnings gap in `warnings` (user ruling, 10/13/2026). The human reruns it once the sales are booked.
 - A store whose two-week settlement leaves this week's entry at 0.00 is `skipped` with that reason.
 
 Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, tagging the confirmation contact, and tags the code contact instead when the file is missing:
