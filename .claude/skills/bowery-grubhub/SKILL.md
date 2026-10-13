@@ -104,9 +104,14 @@ Financials > Transactions, with the four stores and the window selected, shows t
 
 The daily journal entries debit `104-06 - A/R - Grub Hub` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
 
-Reports > My reports in `bb`. Run **GL Account Detail** through Customize with account `104-06 - A/R - Grub Hub`, Start 9/1 and End 9/7, the location filter on all locations, and **Subtotal By** set to **Location**. Read each location's `Total A/R - Grub Hub` **Debit** figure, which is that store's D.
+`scripts/gl/gl-detail.sh` runs **GL Account Detail** in `bb` for `104-06 - A/R - Grub Hub` over the period, all locations, Subtotal By Location, Show Unapproved Yes, and saves it as CSV. Run it from the repo root; its snapshots land beside the CSV:
 
-Save the report's cells (`grep -oE 'cell "[^"]*"' <snapshot> | sed 's/^cell "//; s/"$//' > cells.txt`). `node scripts/backup/gl-days.js cells.txt` turns them into each location's debits by day, which the backup and any difference hunt both use.
+```bash
+bash .claude/skills/bowery-grubhub/scripts/gl/gl-detail.sh bb 10/6/2026 10/12/2026 .scratch/bgh<MMDD>/gl.csv
+node .claude/skills/bowery-grubhub/scripts/gl/gl-days.js .scratch/bgh<MMDD>/gl.csv > .scratch/bgh<MMDD>/gldays.json
+```
+
+It prints `saved <file>` or a `FAIL:` line naming the step, and checks the CSV header carries the account and window. `gl-days.js` gives each location's `D`, beginning balance `beg`, and Journal Entry debits by day in `days`, which the backup and any difference hunt both use. The manual path is Reports > My reports > Accounting > GL Account Detail > Customize with the same settings, reading each location's `Total A/R - Grub Hub` Debit.
 
 The window is the period because Subtotal By groups only when the window holds detail rows. A window after the period holds none, so the report collapses to one ungrouped total.
 
@@ -170,7 +175,7 @@ If the automated save will not land after a retry, re-enter the amounts, tell th
 Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, where store is `Cookshop`, `Rosie`, `Shuka` or `Vic`. Page one is the tie-out: the entry as posted, D less the net against the posted A/R credit, the three fees, the difference, R365 against Grubhub by day, the refund and adjustment rows, and a note naming the cause of any dollar difference. The pages after it list every Grubhub order in the window with its gross, three fees and net, from the same transaction data, totalled to the figures posted.
 
 1. Restaurant ids, if a store needs checking on the Transactions page: Cookshop 2224512, Rosie's 2217880, Shuka 2221704, Vic's 2220039.
-2. **Build** one page per entry from a plan file: `{entryDate, store, location, status, window, lines, glDays, orders, note}`. `lines` are read back from the saved entry as `[account, debit, credit, comment]`, `glDays` is the location's object from `gl-days.js`, and `orders` is the store's record from `orders.json`. `node scripts/backup/build-backup.js plan.json <id>.html` prints `ties` or `DOES NOT TIE`. Stop on the second.
+2. **Build** one page per entry from a plan file: `{entryDate, store, location, status, window, lines, glDays, orders, note}`. `lines` are read back from the saved entry as `[account, debit, credit, comment]`, `glDays` is the location's `days` from `gldays.json`, and `orders` is the store's record from `orders.json`. `node scripts/backup/build-backup.js plan.json <id>.html` prints `ties` or `DOES NOT TIE`. Stop on the second.
 3. **Render**: `bash scripts/backup/render-pdf.sh <html dir> <id> <out.pdf> ...` serves the pages on localhost, since the browser blocks `file:` URLs, and prints each PDF's size. A file under 1 KB is a blank page.
 4. **Attach** after approving: put each PDF alone in a folder under the working directory and run `bash .claude/skills/bowery-payroll/scripts/attach.sh bj <TransactionId> <folder>`. It deletes any attachment not in the folder, so list the entry's attachments first and leave an entry alone if it holds someone else's file.
 
