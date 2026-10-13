@@ -1,0 +1,34 @@
+﻿2026-10-13T09:49:58 run 10/13/2026 through 10/11/2026; Toast sign-in
+2026-10-13T09:59:51 toast-login exited 0 authenticated
+2026-10-13T09:59:51 starting claude
+The 10/1 to 10/4 week and 10/5 are posted and saved. Further work is waiting on a Toast sign-in from Tricia.
+
+The run caught up the 10/1 to 10/4 week but stopped on 10/6. That day's numbers don't settle, and the unattended rules say to stop the week there. `result.json` is in `run1013` for `weekly-run.ps1` to post to Teams with a NEEDS REVIEW tag for you.
+
+| Tab | Days | Status | 2440 | 1218 |
+|---|---|---|---|---|
+| 10.4 | 10/1 to 10/4 | tied | 122,548.45 | 6,237.15 |
+| 10.11 | 10/5 to 10/11 | stopped, tied through 10/5 | 123,545.03 | 6,237.15 |
+
+**Done:**
+- **10/1:** the Daily Sales Summary (DSS) lines now carry the comment Georgetown University Law: 2,000.00 on 2440 and 3,040.00 on 1218.
+- **10/4:** same for PIR Board Dinner: 1,500.00 on 2440 and 2,650.80 on 1218.
+- **10/5:** the OpenTable deposit of 996.58 for 10/24 is added to the workbook. There was no DSS that day.
+- **Workbook:** the 10.11 tab is created and saved after each day. Rollback copies are `after-1001.xlsx`, `after-1004.xlsx`, `after-1011tab.xlsx` and `after-1005.xlsx`.
+
+**Where it stopped (10/6 to 10/11 not posted or saved):**
+- **10/6:** the DSS banquet deposit lump is 5,282.60, but that day's Toast Sales Summary shows only 500.00 of deposits applied (PWC). The 4,782.60 gap is WilmerHale's Client Dinner (#38). Staff voided its 10/6 payments and re-entered them on 10/8 as 1,750.00 + 3,022.60 = 4,772.60, which leaves 10.00 with no explanation.
+- **Proposed lines for 10/6:**
+  - 2440: 500.00 PWC's Business Dinner and 1,750.00 WilmerHale's Client Dinner.
+  - 1218: 3,714.89 PWC's Business Dinner and 3,022.60 WilmerHale's Client Dinner. Stripe paid the WilmerHale amount on 10/9.
+  - The 10.00 is unplaced.
+- **10/8 also needs a ruling:** the DSS books 4,802.60 to 2340 as the late capture, but Toast re-entered 4,772.60, so it's 30.00 off. The 5,957.87 lump equals that 4,772.60 plus OpenTable #103 at 1,185.27, which includes a 200.00 tip.
+- **10/9 and 10/10:** 10/9 has a 159.00 lump and 10/10 has a 159.00 credit to 2340. Toast has no deposit, event or OpenTable tickets on either day.
+- **2340** stands at 4,961.60 instead of zero.
+
+**Flag:** Scoot Education's Business Dinner (10/7, #35) applied a 450.00 deposit that isn't in the workbook. Stripe paid that 450.00 to 1218 on 10/8.
+
+Toast signed itself out partway through. The skill's sign-in script posted a Teams card, the window was signed back in, and the run continued. R365 (`dru`) is closed and the Toast session (`tsu`) is left open.
+
+Once you rule on 10/6 and 10/8, the rest of the week can be rerun from 10/6.
+2026-10-13T10:34:40 claude exited 0

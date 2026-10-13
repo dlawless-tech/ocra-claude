@@ -1,0 +1,23 @@
+﻿2026-10-13T09:22:35 run 10/13/2026; Stripe sign-in
+2026-10-13T09:24:40 run 10/13/2026; Stripe sign-in
+2026-10-13T09:26:51 run 10/13/2026; Stripe sign-in
+2026-10-13T09:28:17 stripe-login exited 0 authenticated
+2026-10-13T09:28:17 starting claude
+All five unmatched Stripe lines on 1123 are posted, and each one passed the deposit check (`MATCH`):
+
+| Bank date | Amount | Deposit |
+|---|---|---|
+| 10/5/2026 | 977.04 | BD000393 |
+| 10/6/2026 | 4,937.17 | BD000394 |
+| 10/7/2026 | 7,311.29 | BD000397 |
+| 10/8/2026 | 1,874.32 | BD000395 |
+| 10/9/2026 | 11,508.84 | BD000396 |
+
+- **Collection dates:** every charge in these payouts was collected between 10/1 and 10/7, so none crosses a month and none needed a date ruling.
+- **Waiting:** the 10/13 payout of 10,132.58 (`po_1UPuxTAju1EvNWw5btDtXIBo`) is paid in Stripe but its bank line hasn't arrived yet. It goes to the next run.
+- **10/2 posted-ahead deposit:** BD000381 for 13,723.34 doesn't appear among the unmatched lines, so the bank line has already matched it. Its Deposit link can't post it a second time.
+- **Edit Credentials dialog:** Atlantic Union Bank's dialog blocked the first try at the 10/5 deposit. I cancelled it and the retry posted.
+- **10/7 export:** the first try failed when the Stripe export didn't download. Nothing had been created in R365 at that point, and the retry posted.
+
+I closed both browser windows (`dlu` and `stu`). `result.json` is in `.scratch/dlena-stripe-deposits/run1013` with all five posted and nothing skipped or failed. `tuesday-run.ps1` will post it to the dLena Bank Activity channel as a clean card, so Tricia won't be tagged.
+2026-10-13T09:49:25 claude exited 0

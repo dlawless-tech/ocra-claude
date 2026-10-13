@@ -1,0 +1,50 @@
+﻿2026-10-13T07:00:02 waiting: no report yet
+2026-10-13T07:15:02 waiting: no report yet
+2026-10-13T07:30:02 waiting: no report yet
+2026-10-13T07:45:03 waiting: no report yet
+2026-10-13T08:00:02 waiting: no report yet
+2026-10-13T08:15:02 waiting: no report yet
+2026-10-13T08:30:02 waiting: no report yet
+2026-10-13T08:45:03 waiting: no report yet
+2026-10-13T09:00:02 found Copy of Change Order Deliveries and Payments 10.4-10.10.xlsx; starting claude
+The change orders entry for the week ending 10/10/2026 is posted and approved. It is `Change Orders 10-4 through 10-10-26`, 59 lines across 20 stores, 26,834.00, and the All Transactions grid shows it Approved at that amount.
+
+- **Entry:** I duplicated it from the 10/3 entry. Its id is 10fe91cf-e221-4492-8e12-803bcead7f2b.
+- **Check:** `check-lines.js` returned MATCH against the report.
+- **Report:** it's attached to the entry and moved to `Wkly Change Orders\Completed`.
+- **Wrap-up:** I closed the `co` session and wrote `result.json` with status `approved`.
+
+| Store | Total | Days |
+|---|---|---|
+| 217 Anaheim | 1,125.00 | 10.7 |
+| 225 Claremont | 860.00 | 10.8 |
+| 263 Carson | 1,760.00 | 10.6 |
+| 244 Downey | 3,000.00 | 10.4, 10.7, 10.9 (1,000 each) |
+| 262 El Monte | 1,595.00 | 10.7 |
+| 269 Hollywood | 640.00 | 10.9 |
+| 264 Inglewood | 2,100.00 | 10.7 1,000, 10.9 700, 10.10 400 |
+| 250 La Cienega | 2,170.00 | 10.8 |
+| 215 Lakewood | 1,580.00 | 10.4 700, 10.9 100, 10.10 780 |
+| 270 Ontario | 1,000.00 | 10.7 700, 10.8 300 |
+| 261 Pico Rivera | 2,000.00 | 10.4, 10.6, 10.8, 10.10 (500 each) |
+| 265 Rialto | 920.00 | 10.8 |
+| 245 Riverside | 1,220.00 | 10.8 |
+| 243 Santa Ana | 1,050.00 | 10.4 350, 10.8 300, 10.10 400 |
+| 211 Slauson | 520.00 | five days |
+| 223 South Torrance | 700.00 | 10.7 |
+| 213 North Torrance | 1,000.00 | 10.5, 10.8 (500 each) |
+| 242 Van Nuys | 2,270.00 | 10.9 |
+| 224 West Covina | 519.00 | 10.7 419, 10.10 100 |
+| 222 Whittier | 805.00 | 10.5 700, 10.8 105 |
+
+I put seven store comments into `result.json` as warnings for review:
+- **Anaheim 10.4:** over-deposited $100, "will reflect tomorrow."
+- **Costa Mesa 10.8:** miscounted $80 from the change order, "will balance tomorrow." Costa Mesa had no deposits this week.
+- **Whittier 10.5:** the chef entered a negative deposit in Aloha and emailed to get it corrected.
+- **South Torrance 10.7:** the 700 was left blank at first and entered on 10/9.
+- **South Torrance 10.8:** "under investigation, over on Sunday."
+- **Lakewood 10.9:** "Lalo forgot to put the deposit to Aloha."
+- **West Covina 10.9:** the deposit was entered late, so R365 won't match the actual $1,180.
+
+This was the first unattended run, and it went through from start to finish. The report landed at 9:00 and the run started then. You can delete the one-time catch-up task for this week now. The regular Monday task first runs 10/19.
+2026-10-13T09:07:52 claude exited 0

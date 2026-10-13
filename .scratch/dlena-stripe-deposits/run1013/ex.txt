@@ -1,0 +1,426 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://dashboard.stripe.com/acct_1JKplFAju1EvNWw5/payouts/po_1UNiaQAju1EvNWw5SP3V2eO2
+- Page Title: Transactions – Dlenadc – Stripe
+### Snapshot
+```yaml
+- generic [active] [ref=f100e4]:
+  - generic [ref=f100e6]:
+    - main [ref=f100e12]:
+      - generic:
+        - button "Skip to content"
+      - generic [ref=f100e15]:
+        - generic "Header" [ref=f100e18]:
+          - generic [ref=f100e19]:
+            - navigation "Breadcrumbs" [ref=f100e20]:
+              - list [ref=f100e21]:
+                - listitem [ref=f100e22]:
+                  - link "Payouts" [ref=f100e23] [cursor=pointer]:
+                    - /url: /acct_1JKplFAju1EvNWw5/payouts
+            - generic [ref=f100e25]:
+              - heading "$7,311.29 usd Paid" [level=1] [ref=f100e26]:
+                - generic [ref=f100e27]:
+                  - generic [ref=f100e29]:
+                    - generic [ref=f100e30]: $7,311.29
+                    - generic [ref=f100e31]: usd
+                  - generic [ref=f100e32]: Paid
+              - generic "Header description" [ref=f100e34]:
+                - generic [ref=f100e36]:
+                  - text: Completed
+                  - generic [ref=f100e37]: Wednesday, October 7
+        - main [ref=f100e38]:
+          - generic [ref=f100e39]:
+            - link [ref=f100e45] [cursor=pointer]:
+              - /url: /acct_1JKplFAju1EvNWw5/workflows/create?recipe=order_personalization&dycon_surface_group=insight_notice&dycon_stable_id=workflows_slack_notifications_insight
+              - note [ref=f100e46]:
+                - generic [ref=f100e47]:
+                  - paragraph [ref=f100e52]: Get real-time Stripe event notifications to a shared Slack channel when payments, disputes, or payouts occur.
+                  - generic [ref=f100e53]:
+                    - generic [ref=f100e55]:
+                      - generic [ref=f100e56]: Set up alerts
+                      - generic [ref=f100e57]: 1 min
+                    - button "Close" [ref=f100e60]
+            - generic [ref=f100e61]:
+              - generic [ref=f100e62]:
+                - generic [ref=f100e63]:
+                  - generic [ref=f100e64]: Timeline
+                  - generic [ref=f100e70]:
+                    - generic [ref=f100e76]:
+                      - generic [ref=f100e77]:
+                        - generic [ref=f100e78]: Payout completed
+                        - time [ref=f100e79]:
+                          - generic [ref=f100e80]: Oct 7
+                      - note [ref=f100e83]:
+                        - generic [ref=f100e84]: Can’t find your payout?Banks can take up to 5 business days to process payouts. Wait until Oct 14 and then contact your bank.
+                    - generic [ref=f100e94]:
+                      - generic [ref=f100e95]: Payout in transit
+                      - time [ref=f100e96]:
+                        - generic [ref=f100e97]: Oct 6—Oct 7
+                    - generic [ref=f100e103]:
+                      - generic [ref=f100e104]: Payout initiated automatically
+                      - time [ref=f100e105]:
+                        - button "Oct 6, 8:19 PM" [ref=f100e107] [cursor=pointer]
+                - generic [ref=f100e108]:
+                  - generic [ref=f100e109]: Payout destination
+                  - generic [ref=f100e115]:
+                    - button [ref=f100e116] [cursor=pointer]:
+                      - heading "ATLANTIC UNION BANK •••• 4001 USD" [level=3] [ref=f100e121]:
+                        - generic [ref=f100e126]:
+                          - text: ATLANTIC UNION BANK
+                          - generic [ref=f100e127]: •••• 4001
+                          - generic [ref=f100e128]: USD
+                    - region "ATLANTIC UNION BANK •••• 4001 USD":
+                      - generic [ref=f100e142]:
+                        - generic [ref=f100e143]:
+                          - generic [ref=f100e144]: Type
+                          - generic [ref=f100e145]: Bank account
+                        - generic [ref=f100e146]:
+                          - generic [ref=f100e147]: Created
+                          - button "Aug 5, 2021, 4:02 PM" [ref=f100e149] [cursor=pointer]
+                        - generic [ref=f100e150]:
+                          - generic [ref=f100e151]: Origin
+                          - generic [ref=f100e152]: United States
+                        - generic [ref=f100e165]:
+                          - generic [ref=f100e166]: Fingerprint
+                          - generic [ref=f100e167]: mrYrxkRFApF7e4K3
+                        - generic [ref=f100e174]:
+                          - generic [ref=f100e175]: Routing number
+                          - generic [ref=f100e176]: "055001096"
+                        - generic [ref=f100e177]:
+                          - generic [ref=f100e178]: ID
+                          - generic [ref=f100e179]: ba_1JLCmMAju1EvNWw5G3W172zw
+                - generic [ref=f100e180]:
+                  - generic [ref=f100e181]: Summary
+                  - table [ref=f100e190]:
+                    - rowgroup [ref=f100e191]:
+                      - row [ref=f100e192]:
+                        - columnheader [ref=f100e193]:
+                          - button [ref=f100e195]
+                        - columnheader [ref=f100e196]:
+                          - button "Count" [ref=f100e198]
+                        - columnheader [ref=f100e201]:
+                          - button "Gross" [ref=f100e203]
+                        - columnheader [ref=f100e206]:
+                          - button "Fees" [ref=f100e208]
+                        - columnheader [ref=f100e211]:
+                          - button "Total" [ref=f100e213]
+                    - rowgroup [ref=f100e216]:
+                      - row [ref=f100e217]:
+                        - cell "Charges" [ref=f100e218]
+                        - cell "13" [ref=f100e222]
+                        - cell "$7,552.80" [ref=f100e226]
+                        - cell "-$241.51" [ref=f100e230]
+                        - cell "$7,311.29" [ref=f100e234]
+                      - row [ref=f100e238]:
+                        - cell "Refunds" [ref=f100e239]
+                        - cell "0" [ref=f100e243]
+                        - cell "$0.00" [ref=f100e247]
+                        - cell "$0.00" [ref=f100e251]
+                        - cell "$0.00" [ref=f100e255]
+                      - row [ref=f100e259]:
+                        - cell "Adjustments" [ref=f100e260]
+                        - cell "0" [ref=f100e264]
+                        - cell "$0.00" [ref=f100e268]
+                        - cell "$0.00" [ref=f100e272]
+                        - cell "$0.00" [ref=f100e276]
+                      - row [ref=f100e280]:
+                        - cell [ref=f100e281]
+                        - cell "Payouts" [ref=f100e282]
+                        - cell "$7,311.29" [ref=f100e285]
+                - generic [ref=f100e288]:
+                  - generic [ref=f100e289]:
+                    - generic [ref=f100e290]: Transactions
+                    - button "Export" [ref=f100e296] [cursor=pointer]
+                  - generic [ref=f100e302]:
+                    - table [ref=f100e305]:
+                      - rowgroup [ref=f100e306]:
+                        - row [ref=f100e307]:
+                          - columnheader [ref=f100e308]:
+                            - button "Type" [ref=f100e310]
+                          - columnheader [ref=f100e313]:
+                            - button "Gross" [ref=f100e315]
+                          - columnheader [ref=f100e318]:
+                            - button "Fee" [ref=f100e320]
+                          - columnheader [ref=f100e323]:
+                            - button "Total" [ref=f100e325]
+                          - columnheader [ref=f100e328]:
+                            - button "Description" [ref=f100e330]
+                          - columnheader [ref=f100e333]:
+                            - button "Date" [ref=f100e335]
+                      - rowgroup [ref=f100e338]:
+                        - row [ref=f100e339]:
+                          - cell [ref=f100e340]:
+                            - link "Charge" [ref=f100e343] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                          - cell [ref=f100e347]:
+                            - link "$1,250.00 USD" [ref=f100e350] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                          - cell [ref=f100e353]:
+                            - link "-$37.18 USD" [ref=f100e356] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                          - cell [ref=f100e360]:
+                            - link "$1,212.82 USD" [ref=f100e363] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                          - cell [ref=f100e366]:
+                            - link "Payment for Senator Sheldon Whitehouse Fundraiser at dLeña on 11/17/2026 - Tina Stoll" [ref=f100e369] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                          - cell [ref=f100e372]:
+                            - link "Oct 5" [ref=f100e375] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UNBsJAju1EvNWw511FN6fES
+                        - row [ref=f100e378]:
+                          - cell [ref=f100e379]:
+                            - link "Charge" [ref=f100e382] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                          - cell [ref=f100e386]:
+                            - link "$51.00 USD" [ref=f100e389] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                          - cell [ref=f100e392]:
+                            - link "-$1.00 USD" [ref=f100e395] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                          - cell [ref=f100e399]:
+                            - link "$50.00 USD" [ref=f100e402] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                          - cell [ref=f100e405]:
+                            - 'link "OpenTable No-Show: Alex Evans, RID# 1176265, Reservation date 21:45 2026-Oct-02 - Alexander Evans" [ref=f100e408] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                          - cell [ref=f100e411]:
+                            - link "Oct 4" [ref=f100e414] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN2B5Aju1EvNWw50kJhizz6
+                        - row [ref=f100e417]:
+                          - cell [ref=f100e418]:
+                            - link "Charge" [ref=f100e421] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                          - cell [ref=f100e425]:
+                            - link "$51.00 USD" [ref=f100e428] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                          - cell [ref=f100e431]:
+                            - link "-$1.00 USD" [ref=f100e434] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                          - cell [ref=f100e438]:
+                            - link "$50.00 USD" [ref=f100e441] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                          - cell [ref=f100e444]:
+                            - 'link "OpenTable No-Show: Gustavo Diaz, RID# 1176265, Reservation date 19:00 2026-Oct-03 - Gustavo Diaz" [ref=f100e447] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                          - cell [ref=f100e450]:
+                            - link "Oct 4" [ref=f100e453] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN27EAju1EvNWw50KKH5BAJ
+                        - row [ref=f100e456]:
+                          - cell [ref=f100e457]:
+                            - link "Charge" [ref=f100e460] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                          - cell [ref=f100e464]:
+                            - link "$51.00 USD" [ref=f100e467] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                          - cell [ref=f100e470]:
+                            - link "-$1.00 USD" [ref=f100e473] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                          - cell [ref=f100e477]:
+                            - link "$50.00 USD" [ref=f100e480] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                          - cell [ref=f100e483]:
+                            - 'link "OpenTable No-Show: Ty Singleton, RID# 1176265, Reservation date 17:15 2026-Oct-03 - Tyvelt J Sing…" [ref=f100e486] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                          - cell [ref=f100e489]:
+                            - link "Oct 4" [ref=f100e492] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26hAju1EvNWw51fkmCvJf
+                        - row [ref=f100e495]:
+                          - cell [ref=f100e496]:
+                            - link "Charge" [ref=f100e499] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                          - cell [ref=f100e503]:
+                            - link "$51.00 USD" [ref=f100e506] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                          - cell [ref=f100e509]:
+                            - link "-$1.00 USD" [ref=f100e512] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                          - cell [ref=f100e516]:
+                            - link "$50.00 USD" [ref=f100e519] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                          - cell [ref=f100e522]:
+                            - 'link "OpenTable No-Show: Gianny Duarte, RID# 1176265, Reservation date 21:30 2026-Oct-03" [ref=f100e525] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                          - cell [ref=f100e528]:
+                            - link "Oct 4" [ref=f100e531] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN26FAju1EvNWw51Jmp3ZYC
+                        - row [ref=f100e534]:
+                          - cell [ref=f100e535]:
+                            - link "Charge" [ref=f100e538] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                          - cell [ref=f100e542]:
+                            - link "$102.00 USD" [ref=f100e545] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                          - cell [ref=f100e548]:
+                            - link "-$2.00 USD" [ref=f100e551] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                          - cell [ref=f100e555]:
+                            - link "$100.00 USD" [ref=f100e558] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                          - cell [ref=f100e561]:
+                            - 'link "OpenTable No-Show: Ashley Jay, RID# 1176265, Reservation date 21:15 2026-Oct-03 - Ashley J Crayton" [ref=f100e564] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                          - cell [ref=f100e567]:
+                            - link "Oct 4" [ref=f100e570] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25uAju1EvNWw50wPPNfWg
+                        - row [ref=f100e573]:
+                          - cell [ref=f100e574]:
+                            - link "Charge" [ref=f100e577] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                          - cell [ref=f100e581]:
+                            - link "$76.50 USD" [ref=f100e584] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                          - cell [ref=f100e587]:
+                            - link "-$1.50 USD" [ref=f100e590] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                          - cell [ref=f100e594]:
+                            - link "$75.00 USD" [ref=f100e597] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                          - cell [ref=f100e600]:
+                            - 'link "OpenTable No-Show: Brandon Hall, RID# 1176265, Reservation date 21:00 2026-Oct-03 - Brandon Hall" [ref=f100e603] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                          - cell [ref=f100e606]:
+                            - link "Oct 4" [ref=f100e609] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN25TAju1EvNWw50IdLX2Ob
+                        - row [ref=f100e612]:
+                          - cell [ref=f100e613]:
+                            - link "Charge" [ref=f100e616] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                          - cell [ref=f100e620]:
+                            - link "$51.00 USD" [ref=f100e623] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                          - cell [ref=f100e626]:
+                            - link "-$1.00 USD" [ref=f100e629] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                          - cell [ref=f100e633]:
+                            - link "$50.00 USD" [ref=f100e636] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                          - cell [ref=f100e639]:
+                            - 'link "OpenTable No-Show: Nicole Djemene , RID# 1176265, Reservation date 19:30 2026-Oct-03 - Ashley Dj…" [ref=f100e642] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                          - cell [ref=f100e645]:
+                            - link "Oct 4" [ref=f100e648] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN24zAju1EvNWw51Z1ICHX8
+                        - row [ref=f100e651]:
+                          - cell [ref=f100e652]:
+                            - link "Charge" [ref=f100e655] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                          - cell [ref=f100e659]:
+                            - link "$76.50 USD" [ref=f100e662] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                          - cell [ref=f100e665]:
+                            - link "-$1.50 USD" [ref=f100e668] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                          - cell [ref=f100e672]:
+                            - link "$75.00 USD" [ref=f100e675] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                          - cell [ref=f100e678]:
+                            - 'link "OpenTable No-Show: Lindsey Spann, RID# 1176265, Reservation date 18:00 2026-Oct-04" [ref=f100e681] [cursor=pointer]':
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                          - cell [ref=f100e684]:
+                            - link "Oct 4" [ref=f100e687] [cursor=pointer]:
+                              - /url: /acct_1JKplFAju1EvNWw5/payments/ch_3UN235Aju1EvNWw51g4vS37v
+                    - button "Load more" [ref=f100e692] [cursor=pointer]
+                - generic [ref=f100e695]:
+                  - generic [ref=f100e696]: Logs
+                  - generic [ref=f100e700]: No logs
+                - generic [ref=f100e709]:
+                  - generic [ref=f100e710]: Events
+                  - table "Events" [ref=f100e719]:
+                    - rowgroup [ref=f100e720]:
+                      - row [ref=f100e721]:
+                        - cell [ref=f100e722]:
+                          - button "Your payout for Oct 7 changed" [ref=f100e725] [cursor=pointer]
+                        - cell [ref=f100e729]:
+                          - button [ref=f100e732] [cursor=pointer]
+                        - cell [ref=f100e734]:
+                          - button "10/7/26, 3:45:09 AM" [ref=f100e737] [cursor=pointer]
+                      - row [ref=f100e740]:
+                        - cell [ref=f100e741]:
+                          - button "A payout of $7,311.29 was completed" [ref=f100e744] [cursor=pointer]
+                        - cell [ref=f100e747]:
+                          - button [ref=f100e750] [cursor=pointer]
+                        - cell [ref=f100e752]:
+                          - button "10/6/26, 10:02:31 PM" [ref=f100e755] [cursor=pointer]
+                      - row [ref=f100e758]:
+                        - cell [ref=f100e759]:
+                          - button "A payout of $7,311.29 has its reconciliation report ready" [ref=f100e762] [cursor=pointer]
+                        - cell [ref=f100e765]:
+                          - button [ref=f100e768] [cursor=pointer]
+                        - cell [ref=f100e770]:
+                          - button "10/6/26, 8:19:59 PM" [ref=f100e773] [cursor=pointer]
+                      - row [ref=f100e776]:
+                        - cell [ref=f100e777]:
+                          - button "A payout for $7,311.29 was initiated and will be completed on Oct 7" [ref=f100e780] [cursor=pointer]
+                        - cell [ref=f100e784]:
+                          - button [ref=f100e787] [cursor=pointer]
+                        - cell [ref=f100e789]:
+                          - button "10/6/26, 8:19:59 PM" [ref=f100e792] [cursor=pointer]
+              - generic [ref=f100e796]:
+                - generic [ref=f100e798]:
+                  - generic [ref=f100e799]:
+                    - generic [ref=f100e800]: Details
+                    - button "View receipt" [ref=f100e805] [cursor=pointer]
+                  - generic [ref=f100e807]:
+                    - generic [ref=f100e808]:
+                      - generic [ref=f100e809]: Payout completed
+                      - generic [ref=f100e810]: Oct 7
+                    - generic [ref=f100e816]:
+                      - generic [ref=f100e817]: Payout ID
+                      - button "Copy to clipboard, po_1UNiaQAju1EvNWw5SP3V2eO2" [ref=f100e819] [cursor=pointer]:
+                        - generic [ref=f100e820]: po_1UNiaQAju1EvNWw5SP3V2eO2
+                    - generic [ref=f100e824]:
+                      - generic [ref=f100e825]: Internal note
+                      - generic [ref=f100e826]: STRIPE PAYOUT
+                    - generic [ref=f100e827]:
+                      - generic [ref=f100e828]: Delivery method
+                      - generic [ref=f100e829]: Standard
+                    - generic [ref=f100e830]:
+                      - generic [ref=f100e831]: Payout trace ID
+                      - generic [ref=f100e837]: "111000020547418"
+                    - generic [ref=f100e838]:
+                      - generic [ref=f100e839]: Fee
+                      - generic [ref=f100e840]: $0.00
+                    - generic [ref=f100e841]:
+                      - generic [ref=f100e842]: Amount
+                      - generic [ref=f100e843]: $7,311.29
+                - generic [ref=f100e844]:
+                  - generic [ref=f100e845]:
+                    - generic [ref=f100e846]: Metadata
+                    - button [ref=f100e851] [cursor=pointer]
+                  - generic [ref=f100e854]: No metadata
+    - paragraph [ref=f100e857]
+  - generic:
+    - generic:
+      - iframe
+    - generic [ref=f100e862]:
+      - button "Dlenadc" [ref=f100e863] [cursor=pointer]
+      - search [ref=f100e869]:
+        - generic [ref=f100e871]:
+          - generic: Search
+          - generic [ref=f100e872]:
+            - combobox "Search" [ref=f100e873]
+            - generic [ref=f100e874]: /
+      - generic [ref=f100e877]:
+        - button "Apps" [ref=f100e879] [cursor=pointer]
+        - button "Notifications" [ref=f100e884] [cursor=pointer]
+        - link "Settings" [ref=f100e887] [cursor=pointer]:
+          - /url: /acct_1JKplFAju1EvNWw5/settings
+    - button "Show Workbench" [ref=f100e894] [cursor=pointer]:
+      - button "Developers" [ref=f100e897]
+      - generic [ref=f100e904]:
+        - generic [ref=f100e905]:
+          - button "Inspect" [ref=f100e908]:
+            - generic [ref=f100e909]: po_1UNiaQAju1EvNWw5S...
+          - button "Health" [ref=f100e915]
+          - button "API activity" [ref=f100e921]
+          - button "Event deliveries" [ref=f100e926]
+        - button "Open Workbench" [ref=f100e932]
+  - generic:
+    - iframe
+```

@@ -1,0 +1,31 @@
+﻿2026-10-13T07:00:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T07:15:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T07:30:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T07:45:03 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T08:00:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T08:15:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T08:30:02 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T08:45:03 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T09:00:03 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T09:15:03 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T09:30:04 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T09:45:03 waiting: missing Cookshop, Rosie's; syncing 
+2026-10-13T09:53:51 all five in; starting claude
+2026-10-13T10:18:20 all five in; starting claude
+2026-10-13T10:23:10 all five in; starting claude
+All five stores for the week ending 10/11/2026 are posted, matched, approved and filed. Manual check MC2957 is also approved, but I had to finish it by hand because the check script failed.
+
+| Store | Tips (entry amount) | Payout lines | Status |
+|---|---|---|---|
+| Cookshop | 709.42 | 644-00 Uber 26.00 | Approved |
+| Shuka | 689.82 | 644-00 Lyft 45.00 | Approved |
+| Rosie's | 471.95 | 500-01 92.00, 510-04 47.00 | Approved |
+| Shukette | 797.17 | none | Approved |
+| Vic's | 256.20 | none | Approved |
+
+- **Checks:** every entry came back `MATCH` with its PDF attached, and the All Transactions grid shows each one Approved. There were no warnings, and the payouts tie to each log's Cash Purchases total.
+- **Earlier starts:** the scheduled task had already started this week at 9:53 and 10:18. Neither left any entries or drafts in R365, so nothing was posted twice.
+- **Manual check:** MC2957 is Cookshop's 300.00 check of 10/9 to Parity Productions, coded 649-00 Promotional Expenses. It went in under Paid To because no vendor matches that name. The log writes the payee as "Parity Productions (Sponsor Donation)" and gives no invoice number, so the check memo is blank. It's approved with the log attached.
+- **`post-check.sh` bug:** this was the script's first real run. It left the detail line's amount at 0.00, so R365 rejected the save. I typed the amount into the field by hand, added the line, then saved, attached, checked and approved. The script still needs that fix before the next week with a manual check.
+- **Filing and close-out:** all five PDFs moved into their store folders, the `cl` browser session is closed, and `result.json` is written for the Teams post.
+2026-10-13T10:52:34 claude exited 0
