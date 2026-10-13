@@ -1,4 +1,4 @@
-# Task Scheduler entry point, Tuesdays 22:30. Posts the Grubhub period that ended eight days ago, whose deposits have landed.
+# Task Scheduler entry point, Tuesdays 14:00. Posts the Grubhub period that ended eight days ago, whose deposits have landed.
 # usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
