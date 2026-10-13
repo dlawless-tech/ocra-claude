@@ -24,7 +24,7 @@ Stripe is account `acct_1JKplFAju1EvNWw5` (Dlenadc), in a headed session `st`:
 bash <skill>/scripts/stripe-login.sh st
 ```
 
-It opens the session on the saved profile `~/.claude/playwright-profiles/dlena-stripe`, so a sign-in carries over to later runs, including the Monday task. It prints `authenticated` when the payouts page loads, or exits 2 when Stripe wants a sign-in. No Stripe password is saved for dLena, so the human signs in to the `st` window and you take over from the dashboard. Sign-in texts a 6-digit code to the phone ending 8525; ask the human for it, or to type it into the open window. On a **review your account info** prompt, choose **Skip for Now**.
+It opens the session on the saved profile `~/.claude/playwright-profiles/dlena-stripe`, so a sign-in carries over to later runs, including the Tuesday task. It prints `authenticated` when the payouts page loads, or exits 2 when Stripe wants a sign-in. On the sign-in page it fills the login from the `## Stripe` block of `~/.claude/dlena-credentials.md` (outside the repo). Stripe then texts a 6-digit code; ask the human for it, or to type it into the open window. A second argument, in seconds, posts the code card to Teams and waits that long for the code. On a **review your account info** prompt, choose **Skip for Now**.
 
 ## Step 2: the unmatched Stripe lines
 
@@ -67,28 +67,26 @@ The new-row Amount box runs a calculator that swallows a typed minus and keeps t
 
 ## Finish
 
-Every run ends by closing both of its windows, the R365 window and the Stripe window, after the last `MATCH` or after a stop. Run it from the run's working directory, since sessions bind to it:
+Every run ends by closing its R365 window after the last `MATCH` or after a stop. Leave the Stripe window open and signed in, for the next skill to use. Run it from the run's working directory, since sessions bind to it:
 
 ```bash
 playwright-cli -s=dl close
-playwright-cli -s=st close
-playwright-cli list    # neither dl nor st may remain
+playwright-cli list    # dl gone, st still open
 ```
 
 Other skills run their own sessions on the same machine, so never use `kill-all` or `close-all`.
 
 ## Unattended run
 
-`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 5:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run` that names the work directory, `.scratch/dlena-stripe-deposits/run<MMdd>`, and marks the day done with `done.txt`: `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 9:00 (`scripts/register-task.ps1` sets it up), while Tricia is available for the code. In the work directory, `.scratch/dlena-stripe-deposits/run<MMdd>`, it first runs `stripe-login.sh stu 1800`: the code card tags Tricia in the dLena Bank Activity channel and the run waits 30 minutes for her to type the code. With no code it posts a waiting card and stops, leaving `stu` open. Once signed in it starts this skill headless with a prompt beginning `Unattended run` that names the work directory, and marks the day done with `done.txt`: `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
-- `cd` into the work directory once, before opening any session, and run every command from there. Use session names `dlu` (R365) and `stu` (Stripe), and log Stripe in with `stripe-login.sh stu`.
-- Never ask. When `stripe-login.sh` exits 2, leave `stu` open on the sign-in page, write `result.json` with `"payouts": []` and `"note": "Stripe wants a sign-in"`, close `dlu`, and stop. The wrapper posts a waiting card; once the human signs in to that window, running `monday-run.ps1` again picks the day up.
-- Post each unmatched Stripe line from its bank line, dated the bank date. Skip, with the reason, any payout that would need the human: one whose charges were collected in an earlier month than the bank date, an unmatched line at the amount of a deposit already posted ahead, or a `STOP:` from `post-payout.sh`. Never post ahead. A `FAIL:` before the save is retried once after closing the deposit window; a second failure is `failed`.
+- `cd` into the work directory once and run every command from there. `stu` is already signed in to Stripe; log R365 in as `dlu`.
+- Never ask. Post each unmatched Stripe line from its bank line, dated the bank date. Skip, with the reason, any payout that would need the human: one whose charges were collected in an earlier month than the bank date, an unmatched line at the amount of a deposit already posted ahead, or a `STOP:` from `post-payout.sh`. Never post ahead. A `FAIL:` before the save is retried once after closing the deposit window; a second failure is `failed`.
 - List every payout Stripe shows as paid with no bank line yet under `waiting`.
 
-Finish by closing `dlu` and `stu` by name, then write `result.json`:
+Finish by closing `dlu` by name, leaving `stu` open and signed in, then write `result.json`:
 
 ```json
 { "note": "",
@@ -96,7 +94,9 @@ Finish by closing `dlu` and `stu` by name, then write `result.json`:
   "waiting": [ { "payout": "po_...", "arrival": "10/6/2026", "amount": 1926.64 } ] }
 ```
 
-`status` is `posted` (a `MATCH`), `skipped` or `failed`. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Tricia LaRoche", "email": "tricia@ocra-us.com"}}`. Tricia is tagged on every card, marked `NEEDS REVIEW` when any payout was skipped or failed or the note is set.
+`status` is `posted` (a `MATCH`), `skipped` or `failed`. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Tricia LaRoche", "email": "tricia@ocra-us.com"}}`. Tricia is tagged on the code card and on any result that needs her: `NEEDS REVIEW` when any payout was skipped or failed or the note is set, and every `FAILED` or waiting card. A clean result posts untagged.
+
+After a result is posted, `tuesday-run.ps1` hands off to the dLena weekly event deposit recon for the week through last Sunday (`../dlena-weekly-event-deposit-recon/scripts/weekly-run.ps1`, its **Unattended run** section). The handoff waits when any payout with a bank date through that Sunday was skipped or failed: it posts a `held` card tagging Tricia and stops. The recon posts its own card, tagging Tricia whether it tied or not, as the run's confirmation.
 
 ## Runs
 

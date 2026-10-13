@@ -154,6 +154,28 @@ After posting the week's DSS edits, rerun `gl-balances.sh` for the week and comp
 - Signed out, `toast-day.sh` prints `FAIL: Toast is signed out`; have the human sign in again, then rerun.
 - The legacy report forgets its date after a reload and shows 0 entries; `toast-day.sh` always enters through the Sales Summary, which sets it.
 
+## Unattended run
+
+The dLena Stripe deposits Tuesday run (`../dlena-stripe-deposits/scripts/tuesday-run.ps1`) starts `scripts/weekly-run.ps1` once every Stripe payout with a bank date through last Sunday is posted; otherwise it posts a `held` card and the recon waits for the human. `weekly-run.ps1` works in `.scratch/dlena-event-deposit-recon/run<MMdd>`. It first runs `toast-login.sh tsu 1800`, which opens Toast on the saved profile `~/.claude/playwright-profiles/dlena-toast`. When Toast is signed out it posts a card tagging Tricia and waits 30 minutes for her to sign in to the window; with no sign-in it posts a waiting card and stops. Once signed in it starts this skill headless with a prompt beginning `Unattended run` that names the work directory and the Sunday to run through, and marks the day done with `done.txt`: `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- `cd` into the work directory once and run every command from there. `tsu` is already signed in to Toast; switch it to dLeña. Log R365 in as `dru`.
+- Find where the recon stands. The newest week tab of the current month's workbook ends on the date in its name, and starts the day after the tab below it ends (the 1st for a month's first week). Run `gl-balances.sh` from that start. If the tab's totals equal the GL at its end date, it is done: start the next week with Step 0. If they equal the GL at the day before its start, it is an untouched copy: work it. Anything else stops the run.
+- Work every week in order through the Sunday in the prompt. The last week of a month ends on the month's last day. A week in a month whose workbook does not exist yet stops the run with a note, since the human builds each month's workbook.
+- Before each workbook save, check for an Excel lock file (`~$` plus the workbook name) beside the workbook. If one exists, the human has it open: stop.
+- Never ask. Where the steps say to stop for the human, stop the week instead: leave that day unposted and unsaved, keep the days before it, and run no later week. That covers an event difference of 1.00 or more, captured payments that the Sales Summary does not settle, and any other rule this skill does not cover. Book an event difference under 1.00 to 8110 as the steps describe, and list it under `flags`. List every `Unknown` ticket and `TBD` row there too.
+
+Finish by closing `dru` by name, leaving `tsu` open, then write `result.json`:
+
+```json
+{ "note": "",
+  "weeks": [ { "tab": "10.4", "from": "10/1/2026", "to": "10/4/2026", "status": "tied", "tiedThrough": "10/4/2026", "dep2440": 126712.84, "rec1218": 780.18, "reason": "" } ],
+  "flags": [ "10/3 Kyanna's Birthday 0.39 to 8110 (1,646.41 applied, 1,646.02 collected)" ] }
+```
+
+`status` is `tied` (Verify passes through the week's last day), `stopped` (the reason names the day and what needs the human, with the proposed lines) or `failed`. `tiedThrough` is the last day that ties, and the balances are the GL's on that day. `weekly-run.ps1` posts the result to the dLena Bank Activity channel through the Stripe skill's `notify-teams.ps1` and its webhook, tagging Tricia on every card: `NEEDS REVIEW` when any week did not tie or there is a flag or note.
+
 ## First run
 
 9/29/2026, days 9/1 to 9/6, from the human's August DSS entries as the pattern. 9/2 split Rep Sewell Happy Hour (1,500.00 on 2440, 2,590.80 on 1218). 9/4 split Kyanna's Birthday and OpenTable, with Rep Sewell's late-captured 4,090.80 as a 2340 debit. 9/5 split Emma's Birthday and OpenTable. 9/6 split Abby's Birthday. The OpenTable and cents differences first went to 1218, and were moved to 8110 on the human's ruling. Every day tied: 2440 closed 9/6 at 121,977.64 and 1218 at 0.00. That first partial week was worked in `Sept'26`, then copied twice: to `9.6` as the week's record and to `9.13` for the week of 9/7 to 9/13.
