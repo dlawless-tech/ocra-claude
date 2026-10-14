@@ -13,7 +13,15 @@ foreach ($m in $sent) {
 if (-not $orig) { "FAIL: no earlier sent 'dLena Weekly $Tag Payment' email"; exit 1 }
 if (-not (Test-Path -LiteralPath $Attach)) { "FAIL: no file $Attach"; exit 1 }
 $dupes = @($ns.GetDefaultFolder(16).Items | Where-Object { $_.Subject -eq $subject })
-if ($dupes.Count) { "FAIL: $($dupes.Count) draft(s) '$subject' already in Drafts"; exit 1 }
+if ($dupes.Count -gt 1) { "FAIL: $($dupes.Count) drafts '$subject' in Drafts"; exit 1 }
+if ($dupes.Count) {
+  # -Send sends the reviewed draft as is
+  if (-not $Send) { "FAIL: draft '$subject' already in Drafts"; exit 1 }
+  $d = $dupes[0]
+  "recipients: " + (($d.Recipients | ForEach-Object { "$(@('','To','Cc','Bcc')[$_.Type]):$($_.Name)" }) -join "; ")
+  "attachments: " + (($d.Attachments | Where-Object { $_.FileName -notlike 'image*' } | ForEach-Object { $_.FileName }) -join ", ")
+  $d.Send(); "SENT $subject (draft)"; exit 0
+}
 
 $greeting = if ((Get-Date).Hour -lt 12) { "Good morning," } else { "Good afternoon," }
 $new = $ol.CreateItem(0)

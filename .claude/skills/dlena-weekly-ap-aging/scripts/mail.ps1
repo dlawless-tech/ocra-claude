@@ -1,0 +1,46 @@
+param([Parameter(Mandatory)][string]$WE, [Parameter(Mandatory)][string]$Attach, [switch]$Send)
+# AP Aging email copied from the newest sent "dLena Weekly AP we ..." email:
+# same To/Cc, default signature, subject "dLena Weekly AP we <WE>", this week's file. Saves a draft unless -Send.
+$ol = New-Object -ComObject Outlook.Application
+$ns = $ol.GetNamespace("MAPI")
+$subject = "dLena Weekly AP we $WE"
+$sent = $ns.GetDefaultFolder(5).Items; $sent.Sort("[SentOn]", $true)
+$orig = $null
+foreach ($m in $sent) {
+  if ($m.Subject -eq $subject) { "FAIL: '$subject' already sent $($m.SentOn)"; exit 1 }
+  if ($m.Subject -like "dLena Weekly AP we *") { $orig = $m; break }
+}
+if (-not $orig) { "FAIL: no earlier sent 'dLena Weekly AP we' email"; exit 1 }
+if (-not (Test-Path -LiteralPath $Attach)) { "FAIL: no file $Attach"; exit 1 }
+$dupes = @($ns.GetDefaultFolder(16).Items | Where-Object { $_.Subject -eq $subject })
+if ($dupes.Count -gt 1) { "FAIL: $($dupes.Count) drafts '$subject' in Drafts"; exit 1 }
+if ($dupes.Count) {
+  # -Send sends the reviewed draft as is
+  if (-not $Send) { "FAIL: draft '$subject' already in Drafts"; exit 1 }
+  $d = $dupes[0]
+  "recipients: " + (($d.Recipients | ForEach-Object { "$(@('','To','Cc','Bcc')[$_.Type]):$($_.Name)" }) -join "; ")
+  "attachments: " + (($d.Attachments | Where-Object { $_.FileName -notlike 'image*' } | ForEach-Object { $_.FileName }) -join ", ")
+  $d.Send(); "SENT $subject (draft)"; exit 0
+}
+
+$greeting = if ((Get-Date).Hour -lt 12) { "Good morning!" } else { "Good afternoon!" }
+$new = $ol.CreateItem(0)
+$null = $new.GetInspector   # loads the default signature into HTMLBody
+$drop = @("tcampanella@dlenawashingtondc.com")   # removed per Tricia 10/14/2026
+foreach ($r in $orig.Recipients) {
+  $addr = $r.Address
+  if ($r.AddressEntry.Type -eq "EX") { $addr = $r.AddressEntry.GetExchangeUser().PrimarySmtpAddress }
+  if ($drop -contains $addr.ToLower()) { continue }
+  $nr = $new.Recipients.Add($addr); $nr.Type = $r.Type
+}
+if (-not $new.Recipients.ResolveAll()) { "FAIL: a recipient did not resolve"; exit 1 }
+$new.Subject = $subject
+$intro = "<p class=MsoNormal>$greeting</p><p class=MsoNormal>&nbsp;</p><p class=MsoNormal>Attached please find the weekly AP Aging report for your review and to make the weekly payments.</p><p class=MsoNormal>&nbsp;</p><p class=MsoNormal>Please let us know if there are any questions we can assist with.</p><p class=MsoNormal>&nbsp;</p>"
+$new.HTMLBody = $new.HTMLBody -replace '(<body[^>]*>(\s*<div[^>]*>)?)', "`$1$intro"
+$null = $new.Attachments.Add($Attach)
+
+"subject: $subject   (copied from: $($orig.Subject), $($orig.SentOn))"
+"recipients: " + (($new.Recipients | ForEach-Object { "$(@('','To','Cc','Bcc')[$_.Type]):$($_.Name)" }) -join "; ")
+"attachments: " + (($new.Attachments | Where-Object { $_.FileName -notlike 'image*' } | ForEach-Object { $_.FileName }) -join ", ")
+"body: " + ((($new.Body -split "`r?`n" | Where-Object { $_.Trim() }) | Select-Object -First 3) -join " | ")
+if ($Send) { $new.Send(); "SENT $subject" } else { $new.Save(); $new.Display(); "DRAFT $subject (open in Outlook)" }

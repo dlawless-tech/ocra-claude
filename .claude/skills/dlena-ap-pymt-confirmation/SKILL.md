@@ -62,7 +62,7 @@ cp "10.7 dLena_Halpern Payment Stub Reprint.pdf" "/c/Users/trici/OCRA/TML's File
 & <skill>\scripts\mail.ps1 -Tag HALPERN -MD 10.7 -Attach "C:\Users\trici\OCRA\TML's Files - General\Downloads\10.7 dLena_Halpern Payment Stub Reprint.pdf"
 ```
 
-The script copies the newest sent `dLena Weekly <Tag> Payment ...` email: the same To and Cc (Jessica Flores, Collin Heyerdahl, Tricia), the subject `dLena Weekly <Tag> Payment <M.D>`, and the body "Good morning," (or "Good afternoon," after noon) followed by "Attached please find the weekly payment detail for dLena to be applied to the listed invoices." with the default signature. It saves the email as a draft and opens it in Outlook. Show the human the printed recipients and attachment. Once they say send, rerun with `-Send`. Auto mode's classifier blocks a send it was not asked for. The script refuses a week whose email was already sent or drafted.
+The script copies the newest sent `dLena Weekly <Tag> Payment ...` email: the same To and Cc (Jessica Flores, Collin Heyerdahl, Tricia), the subject `dLena Weekly <Tag> Payment <M.D>`, and the body "Good morning," (or "Good afternoon," after noon) followed by "Attached please find the weekly payment detail for dLena to be applied to the listed invoices." with the default signature. It saves the email as a draft and opens it in Outlook. Show the human the printed recipients and attachment. Once they say send, rerun with `-Send`, which sends the reviewed draft as is. Auto mode's classifier blocks a send it was not asked for. The script refuses a week whose email was already sent.
 
 ## Finish
 
@@ -74,4 +74,6 @@ playwright-cli -s=dl close
 
 ## Runs
 
-10/7/2026, built live. Halperns ACH 9,411.23 (9 invoices) and Julius Silvert ACH 4,082.15 (5 invoices) were approved, stubs attached, and emails sent. Five Halperns invoices and three Julius invoices were unapproved and left open. `attach.sh` and `new-payment.sh approve` came after the run and have not yet run live.
+10/7/2026, built live. Halperns ACH 9,411.23 (9 invoices) and Julius Silvert ACH 4,082.15 (5 invoices) were approved, stubs attached, and emails sent. Five Halperns invoices and three Julius invoices were unapproved and left open.
+
+10/14/2026, first full scripted run, after the AP Aging email. Halperns ACH 14,075.55 (10 invoices) and Julius Silvert ACH 10,111.66 (9 invoices) were approved by `new-payment.sh approve`, stubs attached by `attach.sh`, and emails sent. Two Halperns invoices were unapproved and left open.
