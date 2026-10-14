@@ -1,0 +1,22 @@
+﻿2026-10-13T13:58:25 period 10/6/2026 - 10/12/2026; starting claude
+Nothing was posted for 10/6-10/12. The run came a day early: Grubhub hasn't issued this period's deposits yet. The last period's deposits were created on Wednesday 10/7, so this period's should arrive Wednesday 10/14. A pull of paid dates from 10/8 through 10/25 came back empty.
+
+| Store | 10/6-10/12 sales in A/R Grub Hub | Deposit | 10/11 entry |
+|---|---|---|---|
+| Cookshop | 1,631.40 | none yet | Approved at 0.00, untouched |
+| Rosie's | 420.93 | none yet | Approved at 0.00, untouched |
+| Shuka | 3,527.57 | none yet | Approved at 0.00, untouched |
+| Vic's | 131.96 | none yet | Approved at 0.00, untouched |
+
+- **Last period's deposits:** all four cleared A/R on 10/9 at the 10/4 net amounts.
+- **Teams report:** `result.json` is written in `.scratch/bowery-grubhub/wk1011` with all four stores marked `no-deposit`, so the Teams post will say nothing was posted. All three browser sessions are closed.
+
+**What needs to change:** the schedule we set today has this problem every week. A Tuesday 2pm run always comes before Wednesday's deposits for the period that ended Monday. I'd move the task to Wednesday afternoon, or Thursday morning for some margin. The other option is to have `tuesday-run.ps1` post the period before last instead, but that adds a week of lag. I didn't change the code during an unattended run.
+
+To finish this week's run once the deposits land, run this on Wednesday afternoon or later:
+```
+tuesday-run.ps1 -Date 2026-10-13 -Force
+```
+
+I've updated the Bowery Grubhub progress memory with this.
+2026-10-13T14:04:59 claude exited 0

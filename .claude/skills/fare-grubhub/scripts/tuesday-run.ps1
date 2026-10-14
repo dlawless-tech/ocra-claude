@@ -1,4 +1,4 @@
-# Task Scheduler entry point, Tuesdays 21:00. Posts the Grubhub period that ended eight days ago; its deposit paid the Friday after.
+# Task Scheduler entry point, Tuesdays 15:30. Posts the Grubhub period that ended the day before, from its order transactions.
 # usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
@@ -10,14 +10,15 @@ $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 
 $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else { (Get-Date).Date }
 $tue = $today.AddDays(-(([int]$today.DayOfWeek - 2 + 7) % 7))
-$p0 = $tue.AddDays(-14); $p1 = $tue.AddDays(-8); $sun = $tue.AddDays(-9); $prev = $sun.AddDays(-7)
+$p0 = $tue.AddDays(-7); $p1 = $tue.AddDays(-1); $sun = $tue.AddDays(-2)
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
 $base = Join-Path $Repo '.scratch\fare-grubhub'
 $run = Join-Path $base ("wk{0:MMdd}" -f $sun)
-$prevIds = Join-Path $base ("wk{0:MMdd}\ids.txt" -f $prev)
 New-Item -ItemType Directory -Force $run | Out-Null
+# newest other week that wrote ids, so a skipped week still leaves a source
+$prevIds = Get-ChildItem -Path $base -Filter ids.txt -Recurse -Depth 1 | Where-Object { $_.DirectoryName -ne $run } | Sort-Object LastWriteTime | Select-Object -Last 1 -ExpandProperty FullName
 $log = Join-Path $run 'tuesday-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 

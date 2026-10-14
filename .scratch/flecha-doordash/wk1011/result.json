@@ -1,0 +1,12 @@
+{ "weekEnding": "10/11/2026", "priorWeekEnding": "10/4/2026", "status": "held",
+  "stores": [
+    { "store": "Flecha 4S Ranch", "priorEstimate": 216.33, "priorActual": 246.44, "sales": 594.01, "days": 7, "rate": 0.3446, "estimate": 204.70 },
+    { "store": "Flecha HB", "priorEstimate": 340.75, "priorActual": 297.49, "sales": 615.21, "days": 7, "rate": 0.3330, "estimate": 204.86 },
+    { "store": "Flecha NB", "priorEstimate": 368.34, "priorActual": 375.56, "sales": 1320.98, "days": 6, "rate": 0.3368, "estimate": 444.91 },
+    { "store": "Flecha Town Square", "priorEstimate": 115.47, "priorActual": 112.55, "sales": 679.53, "days": 6, "rate": 0.4035, "estimate": 274.19 }
+  ],
+  "warnings": [
+    "Flecha Town Square 10/11/2026 estimate 274.19 not posted: its row was removed from lines.json during the run (full set kept in lines-full.json), read as a hold. Post with post-entry.sh from c8c46676-5b53-4ce8-8536-522aa3aacf81 once confirmed, and add it to ids.txt.",
+    "A rerun's read-back of 4S Ranch 10/4 returned Town Square's form; nothing changed (unapprove refused, GL confirms 246.44). All Transactions approval view not checked; approvals rest on approve.sh output."
+  ],
+  "note": "7 of 8 store-weeks approved. 10/4 true-ups tie to 0.00 in 1239 for all four stores. No 3rd Party entry carries 1239." }

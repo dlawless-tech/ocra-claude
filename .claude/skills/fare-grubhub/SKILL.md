@@ -1,6 +1,6 @@
 ---
 name: fare-grubhub
-description: Post the weekly Grubhub fee journal entries into FARE Restaurant365, one per store, clearing 1103 Grubhub Deposit Clearing against delivery and processing fees, marketing and ad spend, promotions, refunds and withheld sales tax from each store's Grubhub deposits, with a backup PDF tying the entry to those deposits attached. Use when asked to post, balance, or approve the FARE GrubHub entries in R365, or to pull a FARE store's weekly Grubhub figures.
+description: Post the weekly Grubhub fee journal entries into FARE Restaurant365, one per store, clearing 1103 Grubhub Deposit Clearing against delivery and processing fees, marketing and ad spend, promotions, refunds and withheld sales tax from each store's Grubhub order transactions for the period, with a backup PDF tying the entry to those transactions attached. Use when asked to post, balance, or approve the FARE GrubHub entries in R365, or to pull a FARE store's weekly Grubhub figures.
 ---
 
 # FARE Grubhub fees, weekly by store
@@ -24,15 +24,19 @@ Credentials live in `~/.claude/fare-credentials.md`, outside any repo: R365 `tla
 
 ## Phase 1: read Grubhub
 
-Read from the API the Deposit history page calls, inside the Grubhub session:
+The fees go in the week the orders happened, so read Grubhub's order transactions, which carry each order's fees as soon as it closes. Never wait for the deposit: Grubhub pays a period the Friday after it ends.
+
+Read from the API that Financials > Transactions calls, inside the Grubhub session:
 
 ```bash
-node <skill>/scripts/read-week.js 2026-09-01 2026-09-07 > rw.js
+node <skill>/scripts/read-week.js 2026-10-06 2026-10-12 > rw.js
 playwright-cli -s=fgh eval "$(cat rw.js)" > week.raw
-node <skill>/scripts/build-lines.js week.raw 9/6/2026 > lines.json
+node <skill>/scripts/build-lines.js week.raw 10/11/2026 > lines.json
 ```
 
-`read-week.js` finds every deposit paid from the period start to 14 days past its end and pulls each in full. A period's deposit is paid the Friday after it (9/1 to 9/7 paid 9/11). `build-lines.js` keeps deposits whose orders fall in the period by New York date, and stops on a deposit that straddles the period, a transaction type outside `PCI_SINGLE_ONLINE`, `PCI_SINGLE_REFUND`, `MISC_CHARGE` and `CS_CREDIT`, or a deposit whose fields do not add to its total.
+`read-week.js` pulls every transaction for the 13 Grubhub restaurants in the window, New York days, both inclusive, and drops the `DISTRIBUTION` payout rows. `scripts/tx.js` totals each store by GL, and `build-lines.js` stops on a transaction type outside `PCI_SINGLE_ONLINE`, `PCI_SINGLE_REFUND`, `MISC_CHARGE` and `CS_CREDIT`, on a nonzero `commission_fee_tax`, or on a row whose fields do not add to its net.
+
+Checked against the 10/1 to 10/5/2026 deposits: every store's net and every GL line matched the deposit to the penny. An order Grubhub adjusts after the run settles in a later deposit and shows in 1103.
 
 `scripts/stores.json` maps the 13 Grubhub restaurants to the ten R365 locations. The three GO stores (Loop GO, Logan GO, Northwestern GO) roll into their parent store's entry.
 
@@ -45,9 +49,9 @@ node <skill>/scripts/build-lines.js week.raw 9/6/2026 > lines.json
 | Restaurant funded promotions and rewards | Dr 4905 - Third Party App Marketing Comps | `restaurant promotions` |
 | Refunds (`PCI_SINGLE_REFUND`, full prepaid amount) | Dr 7535 - Third Party Refunds | `cancellations + order adjustments` |
 | Withheld sales tax | Dr 2270 - Sales Tax Payable | `sales tax withheld` |
-| total of the above | Cr 1103 - Grubhub Deposit Clearing | `orders 9/1 - 9/7, deposit <id>` |
+| total of the above | Cr 1103 - Grubhub Deposit Clearing | `orders 10/6 - 10/12, Grubhub net <net>` |
 
-The check: the lines equal the period's order prepaid amounts less the deposit, which is what Grubhub kept from what the DSS booked to 1103. These match the line names on the monthly statement, and Logan Square's August entry ties to them to the penny.
+Refunds and account adjustments (`MISC_CHARGE` daily Ad Spend, `CS_CREDIT` credits) count in the week Grubhub records them. The check: the lines equal the period's order prepaid amounts less the net Grubhub will pay, which is what Grubhub kept from what the DSS booked to 1103. These match the line names on the monthly statement, and Logan Square's August entry ties to them to the penny.
 
 A store with no orders still gets its entry, every line at 0.00 and the header and line comments `no sales this week`. R365 keeps a stale header Amount on an all-zero entry, so read the lines.
 
@@ -65,13 +69,13 @@ The copy is saved before any line is set, so a failure after the duplicate step 
 
 ## Phase 3: attach the backup
 
-Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, zero stores included. Page one is the tie-out: the entry as posted, each deposit's Grubhub fields mapped to the entry's GLs against the posted lines, and prepaid orders less the deposit total against the 1103 credit. The pages after it are Grubhub's own deposit pages, one per deposit, captured from Financials > Deposit history, since that page has no download. A zero store's pages are its empty deposit history over the Tuesday to Monday after the period, when its deposit would have been paid, then the location picker showing that store checked.
+Every entry carries one PDF named `GrubHub <store> <MM.DD> backup.pdf`, zero stores included. Page one is the tie-out: the entry as posted, the period's Grubhub transactions mapped to the entry's GLs against the posted lines, and prepaid orders less the Grubhub net against the 1103 credit. The pages after it list every Grubhub transaction in the window with its prepaid amount, fees, withheld tax and net, totalled. A zero store's page says Grubhub shows no transactions for it in the window.
 
 ```bash
-bash <skill>/scripts/backup/backup-week.sh fgh fghr week.raw ids.txt
+bash <skill>/scripts/backup/backup-week.sh fghr week.raw ids.txt
 ```
 
-`ids.txt` holds one `store|TransactionId` line per store, from each `post-store.sh` `id` line. The script reads every entry back from R365, captures each deposit its 1103 comment names, builds each page, prints `ties` or `DOES NOT TIE` per store, renders the PDFs and attaches them. Work lands in `backup-<period start>/`. A store that does not tie gets no attachment and the script ends on `STOP`; find the cause before approving. A rerun skips captures already taken and entries already holding their file, so rerun it after fixing a store.
+`ids.txt` holds one `store|TransactionId` line per store, from each `post-store.sh` `id` line. The script reads every entry back from R365, builds each page from `week.raw`, prints `ties` or `DOES NOT TIE` per store, renders the PDFs and attaches them. Work lands in `backup-<period start>/`. A store that does not tie gets no attachment and the script ends on `STOP`; find the cause before approving. A rerun skips entries already holding their file, so rerun it after fixing a store.
 
 The attachment lands on approved entries too, so a backup missed on an approved week goes on without unapproving.
 
@@ -88,11 +92,11 @@ Approving through each entry's ribbon (`../fare-ubereats/scripts/approve.sh`) ta
 
 ## Verifying the run
 
-All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved, and its `Attachment` field shows the backup. Report the store table with deposit IDs and backup attached, and every zero store.
+All Transactions, filter Number to `Grub` and read the grid's data source (see `R365-AUTOMATION.md`): ten `GrubHub` rows on the Sunday, one per store, each at its store with the planned amount. Every row reads Approved, and its `Attachment` field shows the backup. Report the store table with Grubhub net, entry amount and backup attached, and every zero store.
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 21:00 (`scripts/register-task.ps1` sets it up). It posts the period that ended eight days before, whose deposit was paid the Friday before: the 10/13/2026 run posts 9/29 to 10/5, dated 10/4. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the entry date, the work directory `.scratch/fare-grubhub/wk<MMDD>` and the prior week's `ids.txt`. It writes `started.txt` there first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 15:30 (`scripts/register-task.ps1` sets it up). It posts the Tuesday to Monday period that ended the day before, from its order transactions: the 10/13/2026 run posts 10/6 to 10/12, dated 10/11. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the entry date, the work directory `.scratch/fare-grubhub/wk<MMDD>` and the newest earlier week's `ids.txt` as the source entries. It writes `started.txt` there first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
@@ -101,16 +105,16 @@ No human answers during the run, so:
 - Before posting, filter All Transactions to Number `GrubHub` on the entry date. A store already holding an entry there is `skipped`; read its id into `ids.txt` so next week has a source.
 - Run phases 1 to 3 with `post-week.sh` and `backup-week.sh`. A `build-lines.js` stop fails the whole run, with its message in `note`. A store that reads `FAILED`, or does not tie in the backup, is `failed` with the failing step in `warnings`; the others carry on.
 - Approve only the stores that read `MATCH` and tie, ticking their rows in the grid instead of select-all. A store left unapproved for any other reason is `posted-unapproved`.
-- A missing prior ids file, a missing deposit for a store that had orders, or a store with no Grubhub deposits again (Lakeview, Riverside) goes in `warnings`. Never correct an approved prior entry; report it.
+- A missing prior ids file, a source entry dated earlier than the week before, or a store with no Grubhub transactions goes in `warnings`. Never correct an approved prior entry; report it.
 
 Finish with **Verifying the run** and **Finish** (closing `fghu` and `fghru`), then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, headed `Completed` when every store is approved with no warnings and `Needs review` otherwise, and reports a failure when the file is missing:
 
 ```json
 { "period": "9/29/2026 - 10/5/2026", "date": "10/4/2026", "note": "",
-  "stores": [ { "store": "Logan Square", "status": "approved", "amount": 412.18, "deposits": ["2610..."], "transactionId": "...", "warnings": [] } ] }
+  "stores": [ { "store": "Logan Square", "status": "approved", "amount": 412.18, "net": 647.92, "transactionId": "...", "warnings": [] } ] }
 ```
 
-`status` is `approved`, `skipped`, `posted-unapproved`, or `failed`. List all ten stores, zero stores at 0.00. The webhook lives in `~/.claude/fare-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure or a warning.
+`status` is `approved`, `skipped`, `posted-unapproved`, or `failed`. List all ten stores, zero stores at 0.00. The webhook lives in `~/.claude/fare-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure or a warning. FARE uses `always`, tagging Tricia LaRoche on every run.
 
 ## Finish
 

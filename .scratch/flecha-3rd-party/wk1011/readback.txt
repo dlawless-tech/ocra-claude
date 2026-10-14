@@ -1,0 +1,13 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"10/11/2026\",\"number\":\"3rd Party\",\"lines\":[{\"a\":\"1237 - AR - EZ Cater\",\"dr\":0,\"cr\":366.88,\"c\":\"EZ Cater fees estimate: sales 10/5-10/11 1,222.93 x 30%\",\"loc\":\"101 - Flecha HB\"},{\"a\":\"1238 - AR - Foodja\",\"dr\":0,\"cr\":562.13,\"c\":\"Foodja fees estimate: sales 10/5-10/11 1,873.78 x 30%\",\"loc\":\"101 - Flecha HB\"},{\"a\":\"7161 - Delivery Fees\",\"dr\":929.01,\"cr\":0,\"c\":\"3rd Party fees estimate: 30% of sales 10/5-10/11\",\"loc\":\"101 - Flecha HB\"},{\"a\":\"1237 - AR - EZ Cater\",\"dr\":0,\"cr\":333.25,\"c\":\"EZ Cater fees estimate: sales 10/5-10/11 1,110.84 x 30%\",\"loc\":\"102 - Flecha Town Square\"},{\"a\":\"7161 - Delivery Fees\",\"dr\":333.25,\"cr\":0,\"c\":\"3rd Party fees estimate: 30% of sales 10/5-10/11\",\"loc\":\"102 - Flecha Town Square\"},{\"a\":\"1237 - AR - EZ Cater\",\"dr\":0,\"cr\":691.45,\"c\":\"EZ Cater fees estimate: sales 10/5-10/11 2,304.82 x 30%\",\"loc\":\"103 - Flecha 4S Ranch\"},{\"a\":\"1238 - AR - Foodja\",\"dr\":0,\"cr\":333.6,\"c\":\"Foodja fees estimate: sales 10/5-10/11 1,111.99 x 30%\",\"loc\":\"103 - Flecha 4S Ranch\"},{\"a\":\"7161 - Delivery Fees\",\"dr\":1025.05,\"cr\":0,\"c\":\"3rd Party fees estimate: 30% of sales 10/5-10/11\",\"loc\":\"103 - Flecha 4S Ranch\"},{\"a\":\"1238 - AR - Foodja\",\"dr\":0,\"cr\":226.28,\"c\":\"Foodja fees estimate: sales 10/5-10/11 754.26 x 30%\",\"loc\":\"104 - Flecha NB\"},{\"a\":\"7161 - Delivery Fees\",\"dr\":226.28,\"cr\":0,\"c\":\"3rd Party fees estimate: 30% of sales 10/5-10/11\",\"loc\":\"104 - Flecha NB\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```

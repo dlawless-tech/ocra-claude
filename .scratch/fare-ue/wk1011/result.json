@@ -1,0 +1,97 @@
+{
+ "period": "10/5/2026 - 10/11/2026",
+ "date": "10/11/2026",
+ "note": "Run stopped before posting: FARE (Lakeview) shows a new Uber row under Marketing, Ad credits (incl. tax) +92.86 (excl. tax 92.86), offsetting Ad spend -92.86 so Marketing nets 0.00. build-lines.js stop: lines 1982.41 != Gross Sales 5841.95 less Net sales 3952.40. The other nine stores build cleanly. Needs a ruling on how Ad credits books (e.g. Cr 7630 Uber Eats Marketing against the ad spend debit), then rerun with SKIP_READ=1. Nothing was posted for 10/11/2026.",
+ "stores": [
+  {
+   "store": "FARE - Franklin St.",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE - Old Post Office",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE (Lakeview)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "build-lines: unmodeled row Ad credits (incl. tax) 92.86"
+   ]
+  },
+  {
+   "store": "FARE (Lasalle)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE (Logan Square)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE (Oak Park)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE (Riverside)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE | Northwestern Hospital",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE | Sterling Food Hall (previously Revival)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  },
+  {
+   "store": "FARE Old Town (North Wells Street)",
+   "status": "failed",
+   "amount": 0,
+   "transactionId": "",
+   "warnings": [
+    "not posted: run stopped on Lakeview Ad credits row"
+   ]
+  }
+ ]
+}

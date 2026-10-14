@@ -8,9 +8,9 @@ S=$1; GL=$2; END=$3; IDS=$4; shift 4
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 LINES=$(mktemp)
 node "$HERE/build.js" "$GL" "$END" "$@" > "$LINES" || exit 1
-node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).forEach(r=>console.log([r.entry,r.location,r.basis,r.fee,r.flag||"",r.comment].join("\t")))' "$LINES" |
+node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).forEach(r=>console.log([r.entry,r.location,r.basis,r.fee,r.flag||"-",r.comment].join("\t")))' "$LINES" |
 while IFS=$'\t' read DT LOC BASIS FEE FLAG CMT; do
-  [ -n "$FLAG" ] && { echo "SKIP $DT $LOC: $FLAG"; continue; }
+  [ "$FLAG" != - ] && { echo "SKIP $DT $LOC: $FLAG"; continue; }
   ID=$(grep -F "$DT|$LOC|" "$IDS" | tail -1 | cut -d'|' -f3)
   if [ -n "$ID" ]; then
     [ "$BASIS" = actual ] || { echo "SKIP $DT $LOC: deposit not in yet, stays at its estimate"; continue; }

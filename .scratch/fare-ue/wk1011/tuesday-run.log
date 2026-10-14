@@ -1,0 +1,20 @@
+﻿2026-10-13T15:13:19 week 10/5/2026 - 10/11/2026; Uber login
+waiting up to 60 min for the code in the fue-uber window
+authenticated
+2026-10-13T15:14:33 uber-login exited 0
+The week run is going in the background. I'll pick it up as stores report.
+
+The run for 10/5 to 10/11 stopped before posting, so nothing went into R365 for 10/11.
+
+**Why it stopped:** Lakeview's Uber Earnings page has a new row under Marketing, `Ad credits (incl. tax)` for +92.86. It cancels Lakeview's Ad spend of -92.86, so Marketing totals 0.00. The skill has no mapping for it, so Lakeview's lines came to 1,982.41 when they should equal Gross Sales 5,841.95 less Net sales 3,952.40. This is a new kind of row, not an existing row under a new name. Under the unattended rules, that stops the whole run.
+
+**Other stores:** The other nine stores build cleanly from the same Uber data. Before the run I checked R365, and there were no `UberEats Fees` entries dated 10/11.
+
+**Wrap-up:** I wrote `result.json` with all ten stores marked `failed` and the reason in `note`, so the wrapper will post a "Needs review" card. I also closed both browser sessions (Uber and R365).
+
+**Decision needed:** How should Ad credits book? I'd credit 7630 Uber Eats Marketing, against the ad spend debit. Since the two cancel, Lakeview's marketing would net to zero. Once you confirm, the steps are:
+1. Add the row to `breakdown.js`.
+2. Rerun `run-week.sh` with `SKIP_READ=1` from `.scratch/fare-ue/wk1011` (the Uber data and screenshots are already saved there).
+
+The rerun needs both sites logged in again, so Uber will email a new code.
+2026-10-13T15:23:01 claude exited 0

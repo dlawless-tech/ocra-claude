@@ -1,0 +1,16 @@
+﻿2026-10-13T23:00:01 period 9/29/2026 - 10/5/2026; starting claude
+I posted nothing this run: the 9/30 and 10/3 GrubHub entries were already in R365 and approved before it started. I checked the posted 10/3 entries against Grubhub and the GL. Three stores need your attention, and `result.json` is written in `.scratch/norms-grubhub/wk1003` for the wrapper to post to Teams.
+
+**What the run found**
+- **9/30 entries (sales 9/29 to 9/30):** all 16 were posted and approved on 10/6. No deposit paid 10/6 through 10/13 belongs to that part, so none were missing.
+- **10/3 entries (sales 10/1 to 10/5):** 23 were already posted and approved with amounts. Each store has one deposit, all paid 10/7. Each store's opening balance equals its prior deposits, so the store mapping checks out.
+- **20 of those 23 match.** Their A/R balance at 10/5 equals the 10/7 deposit. Huntington Beach, Santa Ana, Inglewood and Whittier split the plug across two lines, and the two lines net to the right amount.
+
+**Needs your attention**
+- **North Torrance:** the posted entry takes 18.76 off A/R; the formula gives 168.32. The 10/4 (24.87) and 10/5 (124.69) daily sales entries look to have landed after the GrubHub entry was made. A/R now sits at 398.28 against the 248.72 deposit, 149.56 too high. Even now, R365's sales for the period run 101.99 above Grubhub's. I left the approved entry alone.
+- **Orange:** A/R is 0.50 short of the deposit (122.27 against 122.77). The preparer's Refund (47.89) and Discrepancy (47.39) lines net to that 0.50. I left it alone.
+- **Costa Mesa:** there is no 10/3 GrubHub entry in R365, so I reported it as failed and created nothing. The entry it needs is a 5.38 credit to A/R, debits of 2.05 commissions, 2.28 delivery commissions and 1.05 order processing fees, and 0.00 on the plug line. That covers deposit 26100907o4jHQUr (19.15) against 24.53 of booked sales.
+- **Santa Ana, next period:** its next template is dated 10/13 instead of 10/10.
+
+Logging in and gathering the figures worked without anyone at the keyboard, and Grubhub did not ask for a code. Posting and approving have still never run unattended, since there was nothing to post. All three browser sessions are closed, and I updated the progress memory.
+2026-10-13T23:11:57 claude exited 0

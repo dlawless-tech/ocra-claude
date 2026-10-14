@@ -1,0 +1,17 @@
+{ "period": "10/6-10/12", "status": "partial", "estimateTotal": 19.32, "trueUpTotal": 0.00,
+  "stores": [
+    { "store": "Flecha 4S Ranch", "priorEstimate": 0.00, "actual": 0.00, "sales": 86.73, "rate": 22.27, "estimate": 19.32 },
+    { "store": "Flecha HB", "priorEstimate": 24.41, "actual": null, "sales": 0.00, "rate": 26.60, "estimate": 0.00 },
+    { "store": "Flecha NB", "priorEstimate": 0.00, "actual": 0.00, "sales": 0.00, "rate": 26.62, "estimate": 0.00 },
+    { "store": "Flecha Town Square", "priorEstimate": 29.04, "actual": null, "sales": 0.00, "rate": 28.59, "estimate": 0.00 }
+  ],
+  "warnings": [
+    "Flecha HB 10/4 true-up skipped: NO DEPOSIT. The 10/9 Grubhub deposits BD004189 (55.77) and BD004190 (67.21) are coded to location Corporate, so they match no store. Entry stays at its 24.41 estimate.",
+    "Flecha Town Square 10/4 true-up skipped: NO DEPOSIT, same Corporate deposits. Entry stays at its 29.04 estimate.",
+    "run-week.sh misread every line on its first pass (bash read collapsed the empty flag field) and posted nothing; fixed in the script and rerun."
+  ],
+  "questions": [
+    "Recode BD004189 and BD004190 (10/9) from Corporate to the stores? By amount, 67.21 is HB (91.97 sales, actual fee 24.76, 26.9%) and 55.77 is Town Square (84.75 sales, actual fee 28.98, 34.2%, just above the 34% top of range). Next run trues up 10/4 once they carry a store.",
+    "The GL has no Grubhub sales for 10/9-10/12 (Monday 10/12 included) at any store, and none at all for HB and Town Square in 10/6-10/12, so their 10/11 estimates posted at 0.00. If those days' sales are still to come in, next week's true-up picks them up."
+  ],
+  "note": "Posted and Approved: 10/4 true-ups for 4S Ranch and NB at 0.00; 10/11 estimates for all four stores (4S Ranch 19.32, others 0.00). 1242 balance 67.70 ties to open sales less estimates and deposits." }

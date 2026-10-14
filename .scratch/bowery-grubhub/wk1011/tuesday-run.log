@@ -1,0 +1,17 @@
+﻿2026-10-13T14:26:32 period 10/6/2026 - 10/12/2026; starting claude
+The 10/11 Grubhub entries for the 10/6-10/12 period are posted. All four stores are Approved with their backup PDF attached, which I confirmed from the All Transactions grid.
+
+| Store | Grubhub net | Entry amount | Difference line | Backup |
+|---|---|---|---|---|
+| Cookshop | 1,376.38 | 255.02 | 0.00 | attached |
+| Rosie's | 315.12 | 105.81 | 0.00 | attached |
+| Shuka | 2,959.23 | 602.12 | 33.78 Cr | attached |
+| Vic's | 101.84 | 30.12 | 0.00 | attached |
+
+- **A/R ties:** after posting, each store's A/R - Grub Hub balance equals this period's net. Each store's deposit for the 10/4 period cleared on 10/9, so no earlier period is waiting on a deposit.
+- **Shuka's 33.78 difference:** R365 booked 56.62 more than Grubhub on 10/6. On 10/8, Grubhub's orders came in 90.39 above R365's sales, and that day includes an 8.71 refund on order 035434949850818. Following the skill, I posted the 33.78 to Delivery Fees as the balancing line, since the A/R balance ties to the net. It's also flagged as a warning in `result.json`.
+- **Vic's backup:** the first upload didn't attach, though the script didn't report a failure. The retry worked.
+- **GL report:** the skill has no script for running this report. I reused the one from today's earlier failed run, copied into the work folder. To keep it from leaving files in the repo root, I changed the copy to write its working files into the work folder.
+
+All three browser sessions are closed. `result.json` is in `.scratch/bowery-grubhub/wk1011` for the wrapper to post to Teams. The next period is 10/13-10/19 (entry dated 10/18), which runs on Tuesday 10/20.
+2026-10-13T14:46:22 claude exited 0

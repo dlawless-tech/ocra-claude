@@ -1,0 +1,20 @@
+﻿2026-10-13T18:45:02 starting claude: true up [10/4/2026], estimate [10/11/2026]
+The Flecha Grubhub run for 10/6-10/12 only partly posted. All four 10/11 estimates are Approved, but the HB and Town Square true-ups for 10/4 are still waiting on you. `result.json` is written in `wk1012`, and the wrapper will post the card to Flecha TPD.
+
+| Store | 10/4 estimate | 10/4 actual | 10/6-10/12 sales | Rate | 10/11 estimate |
+|---|---|---|---|---|---|
+| 4S Ranch | 0.00 | 0.00 | 86.73 | 22.27% | 19.32 |
+| HB | 24.41 | not trued up | 0.00 | 26.60% | 0.00 |
+| NB | 0.00 | 0.00 | 0.00 | 26.62% | 0.00 |
+| Town Square | 29.04 | not trued up | 0.00 | 28.59% | 0.00 |
+
+I pulled the GL again afterward and every posted entry shows with its comment. The 1242 balance of 67.70 matches the open sales less the estimates and deposits. I didn't run the All Transactions check. The scripts read each entry back and approve it, so I relied on that for the Approved status.
+
+**Script bug fixed:** `run-week.sh` skipped all eight lines on its first pass and posted nothing. When a line had no flag, bash `read` shifted the comment into the flag field. A blank flag is now written as `-` and the run went through on the second try. The fix is in `.claude/skills/flecha-grubhub/scripts/run-week.sh` and is not committed.
+
+**Needs your call:**
+- **10/9 deposits coded to Corporate:** BD004189 (55.77) and BD004190 (67.21) carry the location Corporate, so the script matched neither to a store. HB and Town Square stay at their estimates. By amount, 67.21 belongs to HB, an actual fee of 24.76 (26.9%). 55.77 belongs to Town Square, an actual fee of 28.98 (34.2%, just over the usual 34% top). Once they're moved to the stores, true up those two 10/4 entries. Next Tuesday's run won't do it, because it only trues up 10/11.
+- **No sales after 10/8:** the GL has no Grubhub sales at any store for 10/9-10/12, the Monday 10/12 included. HB and Town Square have none for the whole period, so their estimates are 0.00. If sales are still coming in, next week's true-up will catch them.
+
+The `flgh` browser is closed, and I updated the Flecha Grubhub memory.
+2026-10-13T18:59:47 claude exited 0

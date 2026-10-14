@@ -1,0 +1,70 @@
+### Page
+- Page URL: https://restaurant.grubhub.com/financials/transactions
+- Page Title: Financials - Grubhub for Restaurants
+- Console: 1 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [ref=e6]:
+  - generic [ref=e51]:
+    - heading "View status" [level=4] [ref=e90] [cursor=pointer]
+    - button "Toggle Menu" [ref=e55] [cursor=pointer]:
+      - img "Menu icon" [ref=e504]
+    - img "Grubhub logo" [ref=e60] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e506]:
+      - heading "Transactions" [level=1] [ref=e509]
+      - menubar [ref=e510]:
+        - generic [ref=e512]:
+          - generic [ref=e517] [cursor=pointer]:
+            - combobox "multi-location-selector" [ref=e518]: Select a location
+            - img "Caret down icon" [ref=e521]
+          - generic [ref=e529]:
+            - textbox "Select a range of dates" [ref=e531]: 10/06/2026 - 10/13/2026
+            - img "Calendar icon" [ref=e536] [cursor=pointer]
+          - generic [active] [ref=e542]:
+            - generic [ref=e543] [cursor=pointer]:
+              - combobox "multi-location-selector" [expanded] [ref=e544]: Filter by type
+              - img "Caret down icon" [ref=e547]
+            - generic [ref=e572]:
+              - listbox [ref=e573]:
+                - generic [ref=e574]:
+                  - generic [ref=e579]:
+                    - img "Magnifying glass icon" [ref=e581]
+                    - searchbox "Search" [ref=e584]
+                  - option "Select all" [ref=e586] [cursor=pointer]
+                  - generic [ref=e591]:
+                    - option "Cash Order" [ref=e592] [cursor=pointer]
+                    - option "Cash Order Refund" [ref=e597] [cursor=pointer]
+                    - option "Customer Care Credit" [ref=e602] [cursor=pointer]
+                    - option "Diner Adjustment" [ref=e607] [cursor=pointer]
+                    - option "Grubhub Delivery" [ref=e612] [cursor=pointer]
+                    - option "Grubhub On-Demand Delivery" [ref=e617] [cursor=pointer]
+                    - option "Miscellaneous Charge" [ref=e622] [cursor=pointer]
+                    - option "Nitrosite/OOL Orders" [ref=e627] [cursor=pointer]
+                    - option "Payment" [ref=e632] [cursor=pointer]
+                    - option "Pickup" [ref=e637] [cursor=pointer]
+                    - option "Prepaid Order" [ref=e642] [cursor=pointer]
+                    - option "Prepaid Order Adjustment" [ref=e647] [cursor=pointer]
+                    - option "Self Delivery" [ref=e652] [cursor=pointer]
+                    - option "Tax-exempt Orders" [ref=e657] [cursor=pointer]
+                    - option "Whitelabel Site Orders" [ref=e662] [cursor=pointer]
+                    - option "Write Off" [ref=e667] [cursor=pointer]
+              - button "Apply" [ref=e673] [cursor=pointer]
+          - group [ref=e550]:
+            - generic [ref=e551]:
+              - button "All transactions" [pressed] [ref=e552] [cursor=pointer]
+              - button "Marketplace" [ref=e555] [cursor=pointer]
+              - button "Direct" [ref=e558] [cursor=pointer]
+      - generic [ref=e563]:
+        - generic [ref=e564]: View adjusted orders (0)
+        - switch [ref=e566] [cursor=pointer]
+        - button "Learn more" [ref=e569] [cursor=pointer]
+      - paragraph [ref=e571]: Select at least one restaurant to view your transactions.
+    - contentinfo [ref=e81]:
+      - img "Grubhub for Restaurants" [ref=e82]
+      - paragraph [ref=e83]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=e84]:
+        - link "Terms of use" [ref=e85] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy
+```

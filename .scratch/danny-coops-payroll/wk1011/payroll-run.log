@@ -1,0 +1,21 @@
+﻿2026-10-13T18:10:02 starting claude (watch) on C:\Users\trici\OCRA\Danny and Coops - General\Payroll\payroll-journal_2026-10-14.csv
+The payroll entry for the week ending 10/11/2026 is approved in R365. It's NJ00001661 for 19,719.44, with the week's file attached.
+
+| Account | Dr | Cr | Comment |
+|---|---|---|---|
+| 60050 Hourly Wages | 11,775.26 | | wages, overtime, non-hourly wages |
+| 67100 Payroll Taxes | 1,488.77 | | total taxes - NY PD Fam Leave & SDI (75.53 netted out) |
+| 25100 Employee Tips Payable | 3,763.10 | | tips |
+| 10001 Operating 1563 | | 18,489.29 | direct deposit |
+| 60100 Manager Salaries | 2,692.31 | | salaries |
+| 67600 Bonus | 0.00 | | bonus |
+| 90760 Payroll Processing Fees | 0.00 | | |
+| 10001 Operating 1563 | | 1,230.15 | Marco Molina |
+
+- **Checks:** before posting, I ran this week's builder against the approved 10/4 entry and it printed `entry matches plan`. After saving and reloading, the new entry also matched the plan, and the attached file and the four header dates were still correct.
+- **Status:** All Transactions shows it as Approved at 19,719.44, and the 10/4 entry is unchanged. The original file is filed in `Payroll\Completed`.
+- **Direct deposit:** 18,489.29 is calculated from the file, not read from it. Tie it to the 1563 payroll withdrawal when that clears.
+- **Approval took two tries:** the first Duplicate click and the first Approve and Close click didn't take, so I reloaded the entry and retried. Only one copy was created, so nothing extra is left behind. I added this to the payroll memory note, since a later unattended run could hit it.
+
+`result.json` is written with status `approved` and no warnings, and the `dcpu` browser session is closed. Next is the week ending 10/18.
+2026-10-13T18:21:13 claude exited 0

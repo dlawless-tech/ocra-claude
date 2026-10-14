@@ -1,0 +1,63 @@
+﻿2026-10-13T18:45:02 starting claude
+The run is still going, so the week isn't finished yet. A monitor is watching the log, and I'll check the results when the posting step ends.
+
+So far:
+- **Setup:** There was no `wk1004/ids.txt`, so I seeded `ids.txt` and `sources.txt` from the skill's Latest entries table. The `fdd` login worked, and the 1239 GL detail from 8/24 to 10/13 gave all eight store-weeks with no STOP.
+- **10/4 true-ups:** The true-up steps (unapprove, refill, approve) worked on their first live run. 4S Ranch and HB are trued up and approved again on their original ids. NB is refilled and reads back MATCH, but its approval hasn't shown up in the log yet. Town Square is next.
+- **10/11 estimates:** These four still need to be duplicated, posted and approved.
+
+| Store | 10/4 estimate | 10/4 actual | Change | 10/11 sales | Days | Rate | 10/11 estimate |
+|---|---|---|---|---|---|---|---|
+| 4S Ranch | 216.33 | 246.44 | +30.11 | 594.01 | 7 | 34.46% | 204.70 |
+| HB | 340.75 | 297.49 | -43.26 | 615.21 | 7 | 33.30% | 204.86 |
+| NB | 368.34 | 375.56 | +7.22 | 1,320.98 | 6 | 33.68% | 444.91 |
+| Town Square | 115.47 | 112.55 | -2.92 | 679.53 | 6 | 40.35% | 274.19 |
+
+None of the checks has raised a warning:
+- Every fee falls between 25% and 45% of sales.
+- No true-up moves a fee by more than 50.00.
+- No store is short of its usual sales days. Town Square has 6, above its usual 4.
+- No `3rd Party` entry carries 1239 in either week.
+
+Still to do once posting finishes:
+1. Rerun the GL detail and check the All Transactions rows.
+2. Close the `fdd` session.
+3. Write `result.json` for the Teams card.
+
+This notification only repeats log lines I had already seen. Still waiting on the NB approval, the Town Square true-up and the four 10/11 estimates.
+
+NB's 10/4 true-up is approved at 375.56, so three of the four true-ups are done. Town Square's true-up and the four 10/11 estimates are still running.
+
+Town Square's 10/4 entry now reads back MATCH at 112.55; its approval is next. The four 10/11 estimates still have to be posted after that.
+
+All four 10/4 true-ups are now approved. The 10/11 estimates (duplicate, post, approve) are next. The background command may hit its 20-minute limit partway through them. If it does, I'll check for any copy left unapproved and finish it with `REDO=<id>` rather than duplicating again.
+
+The 4S Ranch 10/11 estimate posted as `2140f565-3373-40b0-98ba-4b4744a15461` and reads back MATCH at 204.70. Its approval is next. I'm noting the id here so I can finish the entry by hand if the background command is stopped before it reaches `ids.txt`.
+
+The 4S Ranch 10/11 estimate is approved at 204.70. HB, NB and Town Square estimates are still running.
+
+HB's 10/11 estimate posted as `c3974a32-57eb-4f6e-8666-df7d87964353` and reads back MATCH at 204.86. Approval is next, then NB and Town Square.
+
+HB's 10/11 estimate is approved at 204.86. NB and Town Square are left.
+
+The first monitor ran out. The new one is watching the rerun's log.
+
+I approved seven of the eight store-weeks. Town Square's 10/11 estimate is not posted, so `result.json` says `held` and the Teams card will tag Layla.
+
+**Why Town Square is held:** partway through the run, something outside this run removed Town Square's 10/11 row from `lines.json`. The full set had been saved to `lines-full.json` first, and nothing else changed. That looks like a deliberate hold, so I didn't post it. If it was a mistake, the estimate is 274.19: post it from the 10/4 entry `c8c46676-5b53-4ce8-8536-522aa3aacf81` and add the new id to `ids.txt`. Until then, the next run will be missing Town Square 10/11 in `ids.txt`.
+
+| Store | 10/4 estimate | 10/4 actual | Change | 10/11 sales | Days | Rate | 10/11 estimate |
+|---|---|---|---|---|---|---|---|
+| 4S Ranch | 216.33 | 246.44 | +30.11 | 594.01 | 7 | 34.46% | 204.70 |
+| HB | 340.75 | 297.49 | -43.26 | 615.21 | 7 | 33.30% | 204.86 |
+| NB | 368.34 | 375.56 | +7.22 | 1,320.98 | 6 | 33.68% | 444.91 |
+| Town Square | 115.47 | 112.55 | -2.92 | 679.53 | 6 | 40.35% | 274.19 (not posted) |
+
+- **True-ups:** The 10/4 true-ups worked on their first live run and kept their original ids. The final GL run shows 1239 at 0.00 for all four stores for 10/4, and the three posted 10/11 credits equal their estimates.
+- **Checks:** Every fee is between 25% and 45% of sales. No true-up moves more than 50.00, no store is short of its usual sales days, and no `3rd Party` entry carries 1239.
+- **Rerun glitch:** The posting script hit its time limit after HB's 10/11 estimate. My rerun then read 4S Ranch 10/4 as Town Square's entry, a stale page, and tried to refill it. R365 refused the unapprove, so nothing changed, and the GL confirms 4S still holds 246.44. Stopping the background task didn't stop the script, so I killed only this run's processes and posted NB's estimate directly.
+- **Not checked:** I didn't open the All Transactions view. The approvals rest on what `approve.sh` reported.
+- **Other session:** A Flecha Uber Eats run (session `fub`) was duplicating its 9/6 HB entry from `cb822d33ΓÇª`, which is the DoorDash HB 10/4 entry. Duplicating leaves the source unchanged, but Uber Eats may be seeded from the wrong entry.
+
+I closed the `fdd` session and left the skill file alone, as an unattended run should. The Latest entries table still shows the 10/4 ids.
+2026-10-13T19:21:49 claude exited 0

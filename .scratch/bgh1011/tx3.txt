@@ -1,0 +1,68 @@
+### Page
+- Page URL: https://restaurant.grubhub.com/financials/transactions
+- Page Title: Financials - Grubhub for Restaurants
+- Console: 1 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [ref=e6]:
+  - generic [ref=e51]:
+    - heading "View status" [level=4] [ref=e90] [cursor=pointer]
+    - button "Toggle Menu" [ref=e55] [cursor=pointer]:
+      - img "Menu icon" [ref=e504]
+    - img "Grubhub logo" [ref=e60] [cursor=pointer]
+  - generic [ref=e8]:
+    - generic [ref=e506]:
+      - heading "Transactions" [level=1] [ref=e509]
+      - menubar [ref=e510]:
+        - generic [ref=e512]:
+          - generic [active] [ref=e516]:
+            - generic [ref=e517] [cursor=pointer]:
+              - combobox "multi-location-selector" [expanded] [ref=e518]: (4) Locations selected
+              - img "Caret down icon" [ref=e521]
+            - generic [ref=e674]:
+              - listbox [ref=e675]:
+                - generic [ref=e676]:
+                  - generic [ref=e681]:
+                    - img "Magnifying glass icon" [ref=e683]
+                    - searchbox "Search" [ref=e686]
+                  - option "Select all Check icon" [selected] [ref=e716] [cursor=pointer]:
+                    - generic [ref=e689]: Select all
+                    - img "Check icon" [ref=e718]
+                  - generic [ref=e693]:
+                    - option "Cookshop - 10th Ave Check icon" [selected] [ref=e720] [cursor=pointer]:
+                      - generic [ref=e695]: Cookshop - 10th Ave
+                      - img "Check icon" [ref=e722]
+                    - option "Rosie's - E 2nd St Check icon" [selected] [ref=e724] [cursor=pointer]:
+                      - generic [ref=e700]: Rosie's - E 2nd St
+                      - img "Check icon" [ref=e726]
+                    - option "Shuka - MacDougal St Check icon" [selected] [ref=e728] [cursor=pointer]:
+                      - generic [ref=e705]: Shuka - MacDougal St
+                      - img "Check icon" [ref=e730]
+                    - option "Vic's - Great Jones St Check icon" [selected] [ref=e732] [cursor=pointer]:
+                      - generic [ref=e710]: Vic's - Great Jones St
+                      - img "Check icon" [ref=e734]
+              - button "Apply" [ref=e715] [cursor=pointer]
+          - generic [ref=e529]:
+            - textbox "Select a range of dates" [ref=e531]: 10/06/2026 - 10/13/2026
+            - img "Calendar icon" [ref=e536] [cursor=pointer]
+          - generic [ref=e543] [cursor=pointer]:
+            - combobox "multi-location-selector" [ref=e544]: Filter by type
+            - img "Caret down icon" [ref=e547]
+          - group [ref=e550]:
+            - generic [ref=e551]:
+              - button "All transactions" [pressed] [ref=e552] [cursor=pointer]
+              - button "Marketplace" [ref=e555] [cursor=pointer]
+              - button "Direct" [ref=e558] [cursor=pointer]
+      - generic [ref=e563]:
+        - generic [ref=e564]: View adjusted orders (0)
+        - switch [ref=e566] [cursor=pointer]
+        - button "Learn more" [ref=e569] [cursor=pointer]
+      - paragraph [ref=e571]: Select at least one restaurant to view your transactions.
+    - contentinfo [ref=e81]:
+      - img "Grubhub for Restaurants" [ref=e82]
+      - paragraph [ref=e83]: © 2026 Grubhub Holdings Inc. All rights reserved.
+      - navigation [ref=e84]:
+        - link "Terms of use" [ref=e85] [cursor=pointer]:
+          - /url: "#"
+        - text: Privacy policy
+```

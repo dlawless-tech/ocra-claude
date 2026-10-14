@@ -1,0 +1,1 @@
+() => { const gs=[...document.querySelectorAll('[data-role=grid]')].map(g=>({id:g.id,rows:(jQuery(g).data('kendoGrid')?.dataSource.data()||[]).map(r=>{const j=r.toJSON();return Object.fromEntries(Object.entries(j).filter(([k,v])=>v!==null&&typeof v!=='object'&&/account|amount|name|comment/i.test(k)))})})); return JSON.stringify(gs); }

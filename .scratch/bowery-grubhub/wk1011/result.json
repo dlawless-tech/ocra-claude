@@ -1,0 +1,16 @@
+{
+ "period": "10/6/2026 - 10/12/2026",
+ "note": "Read from Grubhub order transactions. All four entries approved with backup attached. Each A/R balance now equals this period's net; the 10/4 period deposits all cleared 10/9.",
+ "entries": [
+  {
+   "date": "10/11/2026",
+   "window": "10/6-10/12",
+   "stores": [
+    { "store": "Cookshop", "status": "approved", "amount": 255.02, "net": 1376.38, "transactionId": "14eeedcd-90bf-43e3-8e07-8a60fc0a0d81", "warnings": [] },
+    { "store": "Rosie", "status": "approved", "amount": 105.81, "net": 315.12, "transactionId": "034057e6-f260-4121-9da3-cf948e799a8d", "warnings": [] },
+    { "store": "Shuka", "status": "approved", "amount": 602.12, "net": 2959.23, "transactionId": "7027736c-6342-4bd3-abeb-7cad1ce055f5", "warnings": ["Difference 33.78 credit to 632-02: R365 booked 56.62 more than Grubhub on 10/6, and Grubhub's 10/8 orders run 90.39 above R365 (includes an 8.71 refund on order 035434949850818). Posted with the plug; A/R ties to the net."] },
+    { "store": "Vic", "status": "approved", "amount": 30.12, "net": 101.84, "transactionId": "e3241879-185c-4430-9101-caef79d7d6d5", "warnings": [] }
+   ]
+  }
+ ]
+}

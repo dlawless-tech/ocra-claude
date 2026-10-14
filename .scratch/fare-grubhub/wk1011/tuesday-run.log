@@ -1,0 +1,57 @@
+﻿2026-10-13T15:30:02 period 10/6/2026 - 10/12/2026; starting claude
+Posting is running; I'll report each store as it finishes.
+
+Logan Square posted and matches at 594.05. Waiting on the other nine.
+
+Northwestern done. Waiting on the rest.
+
+Loop done (3 of 10).
+
+LaSalle done (4 of 10).
+
+Four stores posted; Old Town is in progress.
+
+Old Town done (5 of 10).
+
+Oak Park done (6 of 10).
+
+Old Post Office done (7 of 10).
+
+Lakeview done (8 of 10).
+
+Sterling and Riverside are still to come.
+
+Sterling done (9 of 10).
+
+Backups are building and attaching; I'll pick up when that finishes.
+
+The post monitor timed out on its own; it's no longer needed because posting is finished. Backups are still running.
+
+Approving the ten entries one at a time (about a minute each).
+
+All ten GrubHub entries for 10/6 to 10/12 are posted on 10/11/2026, approved, and each has its backup PDF attached. They total 2,365.25. `result.json` is in the work folder for the Teams post, with status "Needs review" because of the warnings below.
+
+| Store | Grubhub net | Entry amount | Backup |
+|---|---|---|---|
+| Logan Square | 647.92 | 594.05 | attached |
+| Loop | 1,103.99 | 590.20 | attached |
+| LaSalle | 513.13 | 303.57 | attached |
+| Oak Park | 239.70 | 298.84 | attached |
+| Old Town | 604.09 | 292.19 | attached |
+| Lakeview | 395.26 | 185.49 | attached |
+| Northwestern | 58.49 | 48.55 | attached |
+| Sterling | 104.37 | 41.77 | attached |
+| Old Post Office | 33.47 | 10.59 | attached |
+| Riverside | 0.00 | 0.00 | attached |
+
+Every entry matched Grubhub's transactions and every backup ties.
+
+Things to look at:
+
+- **The weekly 9/6 to 9/27 GrubHub entries are gone from R365.** The ids saved last week no longer open, and All Transactions shows only the approved 9/30 monthly entries. So this week's entries were copied from those 9/30 entries; each store carries a warning saying so. If someone deleted the weeklies on purpose, September is now booked monthly only.
+- **Riverside had no Grubhub transactions this week.** Its entry is all 0.00 lines marked "no sales this week". The grid still shows 601.08 for it because R365 keeps the old header amount on an all-zero entry.
+- **Another session is posting a separate GrubHub week at the same time.** It is creating unapproved entries dated 10/1 from the same 9/30 entries. This run didn't touch or approve them. Approving by ribbon one entry at a time made sure only these ten were approved.
+- **I made one mistake during the run.** My first posting attempt ran with too short a time limit, so I stopped it. Stopping it didn't end its child processes, and they kept going until I killed them by hand. I checked R365 before rerunning and no stray copies had been made. The clean rerun is what posted these entries.
+
+Both browser windows for this run are closed.
+2026-10-13T16:31:43 claude exited 0

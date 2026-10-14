@@ -1,0 +1,25 @@
+﻿2026-10-13T18:45:02 starting claude
+I'll wait for the completion notice before verifying.
+
+I posted and approved the Uber Eats estimates for the week ending 10/11/2026 at all four stores. This was the first run, so there was nothing to true up.
+
+Each entry checked out when read back from R365. The ribbon showed Approved, and a fresh 1235 GL pull shows each `Uber Eats` credit at its store equal to the estimate.
+
+| Store | Sales 10/5-10/11 | Sales days | Rate | Estimate |
+|---|---|---|---|---|
+| 4S Ranch | 376.53 | 6 | 30.90% (4 wk avg) | 116.35 |
+| HB | 119.60 | 2 | 67.18% (4 wk avg) | 80.35 |
+| NB | 126.07 | 3 | 30.00% (default) | 37.82 |
+| Town Square | 108.42 | 2 | 51.52% (4 wk avg) | 55.86 |
+
+Warnings for the Teams card (Layla will be tagged):
+- **4S Ranch rate looks too low.** Its 30.90% rate is understated because the 4-week rate counts the SC FC4SR deposits as Uber payouts. Those were 1,102.61 of the 2,714.77 deposited. On the Uber deposits alone the rate would be 58.97%, an estimate of about 222.
+- **Short weeks.** HB has 2 days of Uber sales, Town Square 2 and NB 3. No store has Uber sales on 1235 dated 10/10, which suggests the 10/10 sales summaries are missing or carry no Uber line.
+- **NB is under the 35% floor.** It is at the 30% default because it still has no deposits on 1235.
+
+Notes (untagged):
+- 4S SC FC4SR deposits from 10/5 to 10/11 total 494.18.
+- No `3rd Party` entry dated 10/11 or later carries 1235, so nothing is booked twice.
+
+The `fue` session is closed and `result.json` is written in `.scratch/flecha-ubereats/wk1011`. `ids.txt` holds all four new entries for next week's true-up. I left the skill's **Latest entries** table alone, as the unattended rules require. Next week's run reads from this `ids.txt` instead.
+2026-10-13T19:03:54 claude exited 0
