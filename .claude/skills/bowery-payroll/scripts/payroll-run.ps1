@@ -1,6 +1,6 @@
 # Task Scheduler entry point. Waits for the week's files in the Payroll folder, runs the skill unattended, then posts to Teams.
 # usage: payroll-run.ps1 [-Mode watch|scheduled] [-Date yyyy-MM-dd] [-Force]
-# watch: quiet until the files are in. scheduled: Thursday evening backstop, posts once when they are missing.
+# watch: Wed 4:30 PM-Thu 5:50 PM, quiet until the files are in. scheduled: Thursday evening backstop, posts once when they are missing.
 # Ready: one GL workbook plus an hourly Net Pay Report for each store, nothing written in the last 10 minutes.
 param([ValidateSet('watch', 'scheduled')][string]$Mode = 'watch', [string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'

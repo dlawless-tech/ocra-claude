@@ -152,10 +152,10 @@ Close only the `playwright-cli` session this run opened, by name.
 
 Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Bowery Payroll - Thursday Watch**, Thursdays every 10 minutes from 8:00 AM to 5:50 PM. It exits quietly until the Payroll folder holds a complete week, as defined at the top, with nothing written in the last 10 minutes, so a trailing salary report lands before the run starts.
+- **Bowery Payroll - Watch**, every 10 minutes from Wednesday 4:30 PM to Thursday 5:50 PM. It exits quietly until the Payroll folder holds a complete week, as defined at the top, with nothing written in the last 10 minutes, so a trailing salary report lands before the run starts.
 - **Bowery Payroll - Thursday**, 6:00 PM. The last check, and a Teams card naming what is missing when the week is still incomplete.
 
-The week ending is the Sunday before the run date; `-Date yyyy-MM-dd` stands in for today. The wrapper copies the files to `.scratch/bowery-payroll/wk<MMdd>/files`, writes `manifest.txt` of the originals, writes `done.txt` so the week runs once (`-Force` reruns it), and starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, file copies, GL workbook and manifest.
+The week ending is the Sunday before the run date, the same Sunday on Wednesday and Thursday; `-Date yyyy-MM-dd` stands in for today. The wrapper copies the files to `.scratch/bowery-payroll/wk<MMdd>/files`, writes `manifest.txt` of the originals, writes `done.txt` so the week runs once (`-Force` reruns it), and starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, file copies, GL workbook and manifest.
 
 No human answers during the run, so:
 
@@ -175,4 +175,4 @@ Close `bpu`, then write `result.json` in the work directory. The wrapper posts i
   "warnings": [], "note": "" }
 ```
 
-`status` is `approved`, `posted-unapproved` or `failed`. The webhook lives in `~/.claude/bowery-payroll.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. With `always` the mention fires every week; `attention` tags only a run that is not approved, filed and attached, or that carries a warning. `notify-teams.ps1 -DryRun` prints the card without posting.
+`status` is `approved`, `posted-unapproved` or `failed`. The webhook lives in `~/.claude/bowery-payroll.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "always"}`. With `always` the mention fires every week, so Brandy Sanders is tagged on every completion card; `attention` tags only a run that is not approved, filed and attached, or that carries a warning. `notify-teams.ps1 -DryRun` prints the card without posting.
