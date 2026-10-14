@@ -1,5 +1,5 @@
-# Task Scheduler entry point, Tuesdays 23:00. Posts the Grubhub period that ended eight days ago, whose deposits have landed.
-# usage: tuesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
+# Task Scheduler entry point, Wednesdays 18:45. Posts the Grubhub period that ended Monday; its deposits are created early Wednesday.
+# usage: wednesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'
@@ -9,8 +9,8 @@ $Notify = "$PSScriptRoot\notify-teams.ps1"
 $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 
 $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else { (Get-Date).Date }
-$tue = $today.AddDays(-(([int]$today.DayOfWeek - 2 + 7) % 7))
-$p0 = $tue.AddDays(-14); $p1 = $tue.AddDays(-8); $sat = $tue.AddDays(-10)
+$wed = $today.AddDays(-(([int]$today.DayOfWeek - 3 + 7) % 7))
+$p0 = $wed.AddDays(-8); $p1 = $wed.AddDays(-2); $sat = $wed.AddDays(-4)
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
@@ -28,7 +28,7 @@ if ($p0.Month -ne $p1.Month) {
 
 $run = Join-Path $Repo (".scratch\norms-grubhub\wk{0:MMdd}" -f $sat)
 New-Item -ItemType Directory -Force $run | Out-Null
-$log = Join-Path $run 'tuesday-run.log'
+$log = Join-Path $run 'wednesday-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 
 $marker = Join-Path $run 'started.txt'
@@ -39,7 +39,7 @@ Log "period $(D $p0) - $(D $p1); starting claude"
 $prompt = @"
 /norms-grubhub Unattended run for the Grubhub period $(D $p0) to $(D $p1). Follow the skill's Unattended run section.
 Work directory: $run
-Deposit pull window (paid dates): $(Iso $p1.AddDays(1)) to $(Iso $today)
+Deposit pull window (paid dates, which fall the Friday after): $(Iso $p1.AddDays(1)) to $(Iso $today.AddDays(7))
 Parts:
 $($parts -join "`n")
 "@

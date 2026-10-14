@@ -23,7 +23,7 @@ Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.
 
 The Grubhub period runs **Tuesday to Monday**, so September's first period is 9/1 through 9/7. The journal entry is dated the **Saturday inside the period**, 9/5 for that one, and the GL report window is the period itself, 9/1 through 9/7.
 
-The period settles the following Wednesday: 9/1 through 9/7 paid out on 9/9.
+Grubhub creates the period's deposits early the following Wednesday and dates them paid that Friday: 10/6 through 10/12/2026 was created 10/14 and paid 10/16.
 
 The Uber Eats period is Monday to Sunday and its entry is dated the Sunday that ends it. Carrying that habit here reads a window one day off.
 
@@ -101,7 +101,7 @@ sed -e 's/__START__/2026-09-29/' -e 's/__END__/2026-10-06/' .claude/skills/norms
 playwright-cli -s=ngh eval "$(cat $W/dep.js)" | sed -n '/### Result/,/### Ran/p' | sed '1d;$d' > $W/deps.json
 ```
 
-The window is paid dates: start it the Tuesday after the period's Monday, so the prior period's deposits stay out, and end it today. The summary call returns each deposit with an empty `totals`, so the script makes the per deposit call that carries the figures. Its `totals` block is what the journal lines need, in cents and signed as Grubhub shows them:
+The window is paid dates: start it the Tuesday after the period's Monday, so the prior period's deposits stay out, and end it a week past today. A Wednesday pull that ends today returns nothing, since that week's deposits are paid Friday. The summary call returns each deposit with an empty `totals`, so the script makes the per deposit call that carries the figures. Its `totals` block is what the journal lines need, in cents and signed as Grubhub shows them:
 
 | `totals` field | Journal line |
 |---|---|
@@ -245,16 +245,16 @@ Report the table of stores, deposit IDs, amounts, and totals, and report any sto
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 23:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays at 18:45 (`scripts/register-task.ps1` sets it up) and posts the period that ended Monday: the 10/14/2026 run covers 10/6 to 10/12, dated 10/10. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
 - Never ask. Use session names `nghu`, `ngru` and `ngrbu`, all from the repo root.
 - A Grubhub mailed-code challenge or a rejected login fails the whole run: write `result.json` with the reason in `note` and post nothing.
-- Per store, an entry that already carries amounts is `skipped`. For a part marked new entry, look on the All Transactions grid for a GrubHub entry at that date and location first; one there means the part is done (the 9/30/2026 entries were made by hand on 10/6). Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
+- Per store, an entry that already carries amounts was entered by hand. Check it: the store's A/R at the end of the part's window equals its net deposit, and each fee line and the Las Vegas tax line equal Grubhub's. One that passes is `skipped`. Correct one that fails with `FORCE=1 edit-entry.sh` and report it `corrected`, with what changed in `warnings`. A plug that differs from `D - gross` while A/R still equals the deposit is right: it absorbs a prior entry's miss, as Orange's 10/10/2026 entry put back the 0.50 its 10/3 entry left short. For a part marked new entry, look on the All Transactions grid for a GrubHub entry at that date and location first; one there means the part is done (the 9/30/2026 entries were made by hand on 10/6). Approve only when every check in **Posting** passes; a store that fails one is `failed`, with the failing step in `warnings`, and the others carry on.
 - A store with sales and no deposit is `no-deposit`, posted nothing, with the sales amount in `warnings`. A store with neither is left out.
 - A beginning balance that differs from the prior deposit, or a reach-back `NOTE` from `build-work.js`, goes in `warnings`; post the store per the rules above.
-- Never correct an approved prior entry; report it.
+- Never correct an entry from an earlier period; report it.
 
 Finish with **Verifying the run**, close the three sessions by name, then write `result.json` in the work directory. The wrapper posts it to Teams through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
 
@@ -264,4 +264,4 @@ Finish with **Verifying the run**, close the three sessions by name, then write 
       "stores": [ { "store": "Anaheim", "status": "approved", "amount": 38.08, "deposits": ["26100730ZdgRoqu"], "transactionId": "...", "warnings": [] } ] } ] }
 ```
 
-`status` is `approved`, `skipped`, `no-deposit`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/norms-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure, an unposted store, or a warning.
+`status` is `approved`, `skipped`, `corrected`, `no-deposit`, `posted-unapproved`, or `failed`. The webhook lives in `~/.claude/norms-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. `mention` is optional; `mentionWhen` set to `always` tags every week, `attention` only on a failure, an unposted store, or a warning.
