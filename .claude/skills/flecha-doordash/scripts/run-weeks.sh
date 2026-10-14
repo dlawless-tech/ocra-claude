@@ -16,10 +16,10 @@ node -e 'require(require("path").resolve(process.argv[1])).forEach(x=>console.lo
     C=$(bash "$D/check-entry.sh" $S "$L" "$WE" "$LOC" "$HAVE" < /dev/null)
     echo "$C" | grep -q '^MATCH ' && { echo "$C (unchanged)"; continue; }
     echo "true-up: $C"
-    bash "$D/unapprove.sh" $S "$HAVE" < /dev/null || continue
+    bash "$D/unapprove.sh" $S "$HAVE" "$WE" "$LOC" < /dev/null || continue
     OUT=$(REDO="$HAVE" bash "$D/post-entry.sh" $S "$L" "$WE" "$LOC" x < /dev/null); echo "$OUT"
     echo "$OUT" | grep -q '^MATCH ' || { echo "FAIL: $WE $LOC left unapproved $HAVE"; continue; }
-    bash "$D/approve.sh" $S "$HAVE" < /dev/null
+    bash "$D/approve.sh" $S "$HAVE" "$WE" "$LOC" < /dev/null
     continue
   fi
   # latest entry for this store: this run's ids first, then sources.txt
@@ -28,5 +28,5 @@ node -e 'require(require("path").resolve(process.argv[1])).forEach(x=>console.lo
   OUT=$(bash "$D/post-entry.sh" $S "$L" "$WE" "$LOC" "$FROM" < /dev/null); echo "$OUT"
   ID=$(echo "$OUT" | sed -n 's/^id //p')
   echo "$OUT" | grep -q '^MATCH ' || { echo "FAIL: $WE $LOC left unapproved ${ID:-no copy}"; continue; }
-  bash "$D/approve.sh" $S "$ID" < /dev/null && echo "$WE|$LOC|$ID" >> "$IDS"
+  bash "$D/approve.sh" $S "$ID" "$WE" "$LOC" < /dev/null && echo "$WE|$LOC|$ID" >> "$IDS"
 done

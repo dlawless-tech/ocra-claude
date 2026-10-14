@@ -1,10 +1,12 @@
 #!/bin/bash
 # Approve and close one entry by real ribbon clicks; confirm the ribbon flips to Unapprove.
-# usage: approve.sh <session> <TransactionId>
+# usage: approve.sh <session> <TransactionId> [<Sunday M/D/YYYY> <location>]
+# With Sunday and location, refuses to click unless the open form shows that entry.
 set -u
-S="$1"; ID="$2"
+S="$1"; ID="$2"; WE="${3:-}"; LOC="${4:-}"
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '"'; }
 playwright-cli -s=$S goto "https://flecha.restaurant365.com/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+[ -z "$WE" ] || bash "$(dirname "$0")/page-is.sh" $S "$WE" "$LOC" || exit 1
 playwright-cli -s=$S click '#Approve > a' >/dev/null 2>&1; sleep 2
 playwright-cli -s=$S click 'li[data-testid="approveAndCloseMenuItem"]' >/dev/null 2>&1; sleep 12
 # same-hash goto does not reload; leave the page first, then poll for the ribbon

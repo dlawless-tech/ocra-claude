@@ -9,7 +9,10 @@ res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d'; }
 ev() { playwright-cli -s=$S eval "$(cat "$1")" 2>&1 | res; }
 ROW=$(node -e 'const x=require(require("path").resolve(process.argv[1])).find(v=>v.weekEnding===process.argv[2]&&v.loc===process.argv[3]);if(!x)process.exit(1);process.stdout.write(JSON.stringify(x))' "$L" "$WE" "$LOC") || { echo "FAIL: no line for $LOC $WE"; exit 1; }
 
-if [ -n "${REDO:-}" ]; then ID="$REDO"; playwright-cli -s=$S goto "$HOST/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+if [ -n "${REDO:-}" ]; then ID="$REDO"; playwright-cli -s=$S goto about:blank >/dev/null 2>&1
+  playwright-cli -s=$S goto "$HOST/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+  # a refill writes into whatever form is open
+  bash "$D/page-is.sh" $S "$WE" "$LOC" || exit 1
 else ID=$(bash "$D/duplicate.sh" $S "$SRC" "$WE" DoorDash) || { echo "$ID"; exit 1; }; fi
 echo "id $ID"
 

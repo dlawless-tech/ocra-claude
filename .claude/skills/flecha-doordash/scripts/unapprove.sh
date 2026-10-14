@@ -1,12 +1,14 @@
 #!/bin/bash
 # Unapprove one entry by real ribbon clicks; confirm the ribbon flips back to Approve.
-# usage: unapprove.sh <session> <TransactionId>
+# usage: unapprove.sh <session> <TransactionId> [<Sunday M/D/YYYY> <location>]
+# With Sunday and location, refuses to click unless the open form shows that entry.
 set -u
-S="$1"; ID="$2"; HOST=https://flecha.restaurant365.com
+S="$1"; ID="$2"; WE="${3:-}"; LOC="${4:-}"; HOST=https://flecha.restaurant365.com
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '"'; }
 ribbon() { playwright-cli -s=$S eval "() => (document.getElementById('Unapprove') ? 'approved' : document.getElementById('Approve') ? 'unapproved' : 'wait')" 2>&1 | res; }
 playwright-cli -s=$S goto about:blank >/dev/null 2>&1
 playwright-cli -s=$S goto "$HOST/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+[ -z "$WE" ] || bash "$(dirname "$0")/page-is.sh" $S "$WE" "$LOC" || exit 1
 [ "$(ribbon)" = unapproved ] && { echo "unapproved $ID"; exit 0; }
 playwright-cli -s=$S click '#Unapprove > a' >/dev/null 2>&1; sleep 2
 playwright-cli -s=$S click 'li[data-testid="unapproveMenuItem"]' >/dev/null 2>&1; sleep 10

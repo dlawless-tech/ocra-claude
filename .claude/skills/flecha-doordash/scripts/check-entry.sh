@@ -7,15 +7,19 @@ S="$1"; L="$2"; WE="$3"; LOC="$4"; ID="$5"
 HOST=https://flecha.restaurant365.com
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d'; }
 ROW=$(node -e 'const x=require(require("path").resolve(process.argv[1])).find(v=>v.weekEnding===process.argv[2]&&v.loc===process.argv[3]);if(!x)process.exit(1);process.stdout.write(JSON.stringify(x))' "$L" "$WE" "$LOC") || { echo "FAIL: no line for $LOC $WE"; exit 1; }
-# same-hash goto does not reload
-playwright-cli -s=$S goto about:blank >/dev/null 2>&1
-playwright-cli -s=$S goto "$HOST/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
 cat > fdd-read.js <<'JS'
 () => { const g=jQuery('[data-role=grid]').data('kendoGrid'); if(!g) return 'nogrid';
 return JSON.stringify({ date:jQuery('#journalEntryDate').val(), num:jQuery('#journalEntryNumber').val(), loc:jQuery('#journalEntryLocation').data('kendoComboBox').text(), cmt:jQuery('#journalEntryComment').val(),
   lines:g.dataSource.data().map(m=>({a:m.glAccount, dr:+m.debit||0, cr:+m.credit||0, loc:m.location})) }); }
 JS
-playwright-cli -s=$S eval "$(cat fdd-read.js)" 2>&1 | res > fdd-readback.txt
+# a page still showing the last entry reads as this one; reload until date and store match
+for i in 1 2 3; do
+  # same-hash goto does not reload
+  playwright-cli -s=$S goto about:blank >/dev/null 2>&1
+  playwright-cli -s=$S goto "$HOST/#/form/JournalEntryForm/$ID" >/dev/null 2>&1; sleep 20
+  playwright-cli -s=$S eval "$(cat fdd-read.js)" 2>&1 | res > fdd-readback.txt
+  node -e 'try{const r=JSON.parse(JSON.parse(require("fs").readFileSync("fdd-readback.txt","utf8").trim()));process.exit(r.date===process.argv[1]&&r.loc===process.argv[2]?0:1)}catch(e){process.exit(1)}' "$WE" "$LOC" && break
+done
 node -e '
 const x=JSON.parse(process.argv[1]); let r;
 try { r=JSON.parse(JSON.parse(require("fs").readFileSync(process.argv[2],"utf8").trim())); } catch(e) { console.log("FAIL "+x.loc+" "+x.weekEnding+" unreadable entry"); process.exit(1); }
