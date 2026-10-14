@@ -10,13 +10,12 @@ There is no portal access for EZ Cater or Foodja at Flecha, so the fee is an **e
 Each week is one Journal Entry numbered `3rd Party`, dated the **Sunday**, header at `100 - Corporate`, lines at the stores. Per store:
 
 ```
-credit  1235 - A/R - 3rd Party Delivery   Uber Eats sales x 30% (weeks through 10/4/2026 only)
 credit  1237 - AR - EZ Cater              EZ Cater sales x 30%
 credit  1238 - AR - Foodja                Foodja sales x 30%
 debit   7161 - Delivery Fees              sum of the store's credits
 ```
 
-A store or account with no sales that week gets no line. Negative sales flip the line's side. DoorDash (1239) and Grubhub (1242) left this entry on 8/30/2026, and Uber Eats (1235) on 10/11/2026, for `flecha-doordash`, `flecha-grubhub` and `flecha-ubereats`; a 3rd Party entry carrying 1239 or 1242, or 1235 from 10/11 on, books that fee twice. `estimate.js` drops 1235 from weeks ending 10/11/2026 or later.
+A store or account with no sales that week gets no line. Negative sales flip the line's side. DoorDash (1239) and Grubhub (1242) left this entry on 8/30/2026, and Uber Eats (1235) on 8/30/2026 (taken out of the 8/30 to 10/4 entries on 10/13/2026), for `flecha-doordash`, `flecha-grubhub` and `flecha-ubereats`; a 3rd Party entry carrying 1239 or 1242, or 1235 from 8/30 on, books that fee twice. `estimate.js` drops 1235 from weeks ending 8/30/2026 or later.
 
 | GL store | Location |
 |---|---|
@@ -62,20 +61,44 @@ Update after every run. The next run duplicates from the newest.
 
 | Sunday | TransactionId | Total | Status |
 |---|---|---|---|
-| 9/20/2026 | `1653a85c-d9b1-44e7-8204-05742fac9ea4` | 6,363.76 | Approved |
-| 9/27/2026 | `4e359567-8796-4055-b439-23d33c5daabe` | 5,542.91 | Approved |
-| 10/4/2026 | `5fdc5a8c-6a6b-4b59-b687-8996a0dde41e` | 3,130.72 | Approved |
+| 9/20/2026 | `1653a85c-d9b1-44e7-8204-05742fac9ea4` | 5,659.99 | Approved |
+| 9/27/2026 | `4e359567-8796-4055-b439-23d33c5daabe` | 4,203.02 | Approved |
+| 10/4/2026 | `5fdc5a8c-6a6b-4b59-b687-8996a0dde41e` | 2,393.65 | Approved |
+| 10/11/2026 | `94bcac39-1dda-45e9-8b34-c45bc1fa33c1` | 2,513.59 | Approved |
 
 ## The cleanup entry
 
-The 30% estimate runs below what the deposits imply (deposits came to about 46% to 61% of sales over August and September 2026), and the old entries copied weeks forward, so 1235, 1237 and 1238 grew from 28.3K on 8/1 to 38.3K on 10/4/2026. `cleanup.js` sized a one-time reclass per store and account to `1210 - Accounts Receivable` (the user chose 1210 over 7161), dated 8/24/2026 and numbered `3rd Party Cleanup`, that leaves each balance at the sales still awaiting payout net of the 30% fee: the last week for Uber Eats and EZ Cater (weekly payouts) and the last two weeks for Foodja (biweekly).
+The 30% estimate runs below what the deposits imply (deposits came to about 46% to 61% of sales over August and September 2026), and the old entries copied weeks forward, so 1235, 1237 and 1238 grew from 28.3K on 8/1 to 38.3K on 10/4/2026. `cleanup.js` sized a one-time reclass per store and account, dated 8/24/2026 and numbered `3rd Party Cleanup`, that leaves each balance at the sales still awaiting payout net of the 30% fee: the last week for Uber Eats and EZ Cater (weekly payouts) and the last two weeks for Foodja (biweekly).
 
 ```bash
 for a in 1235 1237 1238; do BYLOC=1 bash <skill>/scripts/gl.sh f3p $a 8/24/2026 <Sunday> > loc$a.txt; done
 node <skill>/scripts/cleanup.js <Sunday> 8/24/2026
 ```
 
-Run it after the Sunday's estimate is posted, since the pull counts unapproved entries. It writes `cleanup.json` in the weekly format for `post-week.sh`. Posted and approved 10/6/2026 as `38cd459b-b855-47ec-a85b-49650755e11c`, 28,960.80 net to 1210, sized against 10/4/2026; the 10/4 balances then read 1,719.83 (1235), 3,899.38 (1237) and 3,694.36 (1238). Rerun it only if the user asks for another cleanup. Every Foodja deposit is coded to HB, so HB's Foodja line runs the other way (a 3,252.02 debit) and HB's 1210 line is a 2,014.33 credit.
+Run it after the Sunday's estimate is posted, since the pull counts unapproved entries. It writes `cleanup.json` in the weekly format for `post-week.sh`. Posted 10/6/2026 as `38cd459b-b855-47ec-a85b-49650755e11c`, 28,960.80 net to 1210, sized against 10/4/2026. On 10/13/2026 the user moved the offset to `7161 - Delivery Fees`, and the 1235 lines were resized to what 1235 holds from before 8/30 once Uber Eats is booked at actual from 8/30 (4S 489.97, HB 1,372.18, TS 773.38, NB 2,050.30), 31,048.28 net to 7161. `cleanup.js` still writes 1210 lines; rerun it only if the user asks for another cleanup. Every Foodja deposit is coded to HB, so HB's Foodja line runs the other way (a 3,252.02 debit) and HB's 7161 line is a 1,303.58 credit.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/20/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the Sunday, the work directory `.scratch/flecha-3rd-party/wk<MMdd>`, and the prior week's `id.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask, and leave this file alone. Use session `f3p`, and run every command as `cd <work directory> && ...`, since Bash resets its directory between calls and `playwright-cli` binds the session to it.
+- Pull 1237 and 1238 from the Monday 12 weeks back, so each account's run of weeks is there to judge the days against. Duplicate from the id in the prior week's `id.txt` when it exists, else the newest row in **Latest entries**.
+- If All Transactions already shows a `3rd Party` row on the Sunday, post nothing: status `held`, with its id in `note`.
+- A rejected login, an unreadable report, or a `post-week.sh` `FAIL` is `failed`, with any id left unapproved in `warnings`.
+- On `MATCH`, approve with `approve.sh` and write the id to `id.txt` in the work directory. The user approves by hand only when working with the skill directly.
+- Post the week, and add a warning, for a store and account with no sales after 3 weeks running with sales, a fee more than double its 12-week average, negative sales, or any `3rd Party` entry from 8/30 on carrying 1235, 1239 or 1242.
+
+Finish with **Verifying the run**, close `f3p`, then write `result.json` in the work directory. The wrapper posts it to the Flecha TPD channel through `scripts/notify-teams.ps1` (`-DryRun` prints the card), and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/18/2026", "status": "done", "id": "<TransactionId>", "total": 2393.65,
+  "stores": [ { "store": "Flecha HB", "total": 1275.24, "ezCater": 727.32, "foodja": 547.92 } ],
+  "warnings": [], "questions": [], "notes": [], "note": "" }
+```
+
+`status` is `done` (approved and read back), `held`, or `failed`. The webhook lives in `~/.claude/flecha-3rd-party.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Layla Ebersole", "email": "layla@ocra-us.com"}, "mentionWhen": "attention"}`. With `attention` the card tags Layla only when the run is held, failed, or carries a warning or question; a clean week posts a Completed card untagged.
 
 ## Verifying the run
 
