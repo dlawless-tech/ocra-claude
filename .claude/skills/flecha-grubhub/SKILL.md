@@ -63,7 +63,7 @@ Compare each actual with its estimate. Fees ran 17% to 34% of sales in September
 
 ## Latest entries
 
-Update this table at the end of every run with the entry dates just estimated. The next run trues these up and duplicates from them.
+`.scratch/flecha-grubhub/ids.txt` is the running `ids.txt` from 10/13/2026 on: `run-week.sh` appends each new entry to it, the next run trues those up and duplicates from them. The table below seeded it and is not updated; read the file for current ids.
 
 | Location | 10/4/2026 TransactionId (estimate) |
 |---|---|
@@ -81,3 +81,25 @@ A separate weekly Journal Entry numbered `3rd Party`, location Corporate, books 
 Rerun `gl-1242.sh`: each trued-up period's sales less its deposit less its `GrubHub` credit is 0.00 per store, and 1242's balance equals the estimated periods' sales less their estimates. All Transactions, Number contains `grub` (set through the grid's data source and give it about 15 seconds), shows four `GrubHub` rows per entry date, each Approved at its store with the fee as its Amount and the basis as its comment.
 
 Report a table per store: last week's estimate, its actual and the change, then this week's sales, rate and estimate. Close the session by name: `playwright-cli -s=flgh close`. Never use `kill-all` or `close-all`.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the report end (the Monday), the entry dates to true up and to estimate, the ids file and the work directory, and writes `done.txt` after, so the period runs once. `-Force` reruns a period, and `-Date yyyy-MM-dd` stands in for today. The true-up dates are last period's entry dates that are in the ids file, so a month-end stub posted by hand as an actual is left alone.
+
+No human answers during the run, so:
+
+- Never ask. Use session `flgh`, and run every command as `cd <work directory> && ...`, since Bash resets its directory between calls and `playwright-cli` binds the session to it. Write `gl.txt` there, and pass the named ids file to `run-week.sh` as is.
+- Run Steps 1 and 2 with the named dates: `run-week.sh flgh gl.txt <report end> <ids file> <true-up dates> <estimate dates>`.
+- A rejected login or an unreadable GL report fails the run: status `failed`, the reason in `note`, nothing posted.
+- Every `SKIP` and `FAIL` line goes in `warnings` with the store and reason. A copy left by a `FAIL` after `copy <id>` is named there by its id; leave it.
+- These go in `questions` and are left for the human: an actual outside 17% to 34% of sales, a `3rd Party` entry with a nonzero 1242 line, a `CHECK DEPOSIT MATCH`, and the period's Monday missing from the GL.
+
+Finish with **Verifying the run**, close `flgh`, then write `result.json` in the work directory. The wrapper posts it to the Flecha TPD channel through `scripts/notify-teams.ps1`, and reports a failure when the file is missing:
+
+```json
+{ "period": "10/6-10/12", "status": "completed", "estimateTotal": 53.45, "trueUpTotal": 51.20,
+  "stores": [ { "store": "Flecha HB", "priorEstimate": 24.41, "actual": 22.90, "sales": 91.97, "rate": 26.55, "estimate": 24.42 } ],
+  "warnings": [], "questions": [], "note": "" }
+```
+
+`status` is `completed` when every estimate and true-up posted Approved, `partial` when some did, `failed` when none did. `priorEstimate` and `actual` are `null` for a store with nothing trued up, and `trueUpTotal` is `null` when no dates were trued up. The webhook lives in `~/.claude/flecha-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. With `attention` the card tags Layla Ebersole only on a failure, a warning or a question; a clean period posts a Completed card untagged.
