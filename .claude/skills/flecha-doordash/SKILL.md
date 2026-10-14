@@ -57,7 +57,7 @@ Compare `days` with the store's usual week before posting an estimate: Town Squa
 bash <skill>/scripts/run-weeks.sh fdd lines.json sources.txt ids.txt
 ```
 
-Seed both files from the **Latest entries** table below: `ids.txt` gets one `<Sunday>|<location>|<id>` per store for the prior Sunday, and `sources.txt` one `<location>|<id>` per store.
+Seed both files from the prior week's `ids.txt` when one exists (`.scratch/flecha-doordash/wk<MMdd of prior Sunday>/ids.txt`), else from the **Latest entries** table below: `ids.txt` gets one `<Sunday>|<location>|<id>` per store for the prior Sunday, and `sources.txt` one `<location>|<id>` per store.
 
 For a store-week already in `ids.txt` (the prior Sunday), `run-weeks.sh` reads the entry back with `check-entry.sh`. `MATCH` means it already holds the actual. Otherwise it unapproves with `unapprove.sh`, refills the same entry in place with `REDO=<id> post-entry.sh`, and approves it again, so the true-up keeps the entry's id and its Sunday date. For a new store-week (the Sunday just ended) it duplicates the store's latest entry with `post-entry.sh`, which sets date, number, header location, both lines and comments, saves, and checks; then `approve.sh` approves it and the id goes to `ids.txt`.
 
@@ -79,6 +79,28 @@ Update this table at the end of every run with the Sunday just estimated. The ne
 ## The 3rd Party entries
 
 A separate weekly Journal Entry numbered `3rd Party`, location Corporate, posted by [`../flecha-3rd-party`](../flecha-3rd-party/SKILL.md), clears the other delivery receivables (1235, 1237 EZ Cater, 1238 Foodja) to 7161. Through 8/23/2026 it also cleared 1239; from 8/30/2026 on, DoorDash belongs to this skill alone and those entries carry no 1239 lines. A `3rd Party` entry dated in a posted week with a nonzero 1239 line books that store's DoorDash fee twice: report it and leave it for the human.
+
+## Unattended run
+
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the prior Sunday to true up, the Sunday to estimate, the work directory `.scratch/flecha-doordash/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- Never ask, and leave this file alone. Use session `fdd`, and run every command as `cd <work directory> && ...`, since Bash resets its directory between calls and `playwright-cli` binds the session to it.
+- Seed `ids.txt` and `sources.txt` from the prior week's `ids.txt` when it exists, else from **Latest entries**. This run's `ids.txt` must end holding all four stores for both Sundays, since the next run seeds from it.
+- A rejected login, an unreadable report, or a `build-lines.js` STOP posts nothing: status `held` for a missing deposit, `failed` otherwise, with the reason in `note`.
+- A `FAIL` from `run-weeks.sh` is `failed`, with the store, week and any id left unapproved in `warnings`. Leave it.
+- Post the week, and add a warning, for a store short of its usual DSS days, a fee outside 25% to 45% of sales, a `3rd Party` entry carrying 1239 in either week, or a true-up that moves a store's fee more than 50.00.
+
+Finish with **Verifying the run**, close `fdd`, then write `result.json` in the work directory. The wrapper posts it to the Flecha TPD channel through `scripts/notify-teams.ps1` (`-DryRun` prints the card), and reports a failure when the file is missing:
+
+```json
+{ "weekEnding": "10/11/2026", "priorWeekEnding": "10/4/2026", "status": "done",
+  "stores": [ { "store": "Flecha HB", "priorEstimate": 340.75, "priorActual": 352.10, "sales": 1012.40, "days": 6, "rate": 0.3488, "estimate": 353.13 } ],
+  "warnings": [], "note": "" }
+```
+
+`status` is `done` (all eight store-weeks approved and verified), `held`, or `failed`. The webhook lives in `~/.claude/flecha-doordash.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Layla Ebersole", "email": "layla@ocra-us.com"}, "mentionWhen": "attention"}`. With `attention` the card tags Layla only when the run is held, failed, or carries a warning; a clean week posts a Completed card untagged.
 
 ## Verifying the run
 
