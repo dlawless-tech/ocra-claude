@@ -1,6 +1,6 @@
 ---
 name: danny-coops-payroll
-description: Post the weekly payroll journal entry into Danny & Coop's Restaurant365 from the payroll journal export, attaching the file and filing it to Completed. Use when asked to build, balance, or approve a Danny & Coops Payroll entry in R365, to reconcile a Danny & Coops pay week against its payroll files, or when the file-drop or Wednesday scheduled run starts it.
+description: Post the weekly payroll journal entry into Danny & Coop's Restaurant365 from the payroll journal export, attaching the file and filing it to Completed. Use when asked to build, balance, or approve a Danny & Coops Payroll entry in R365, to reconcile a Danny & Coops pay week against its payroll files, or when the file-drop or Tuesday scheduled run starts it.
 ---
 
 # Danny & Coops payroll week into the R365 journal entry
@@ -73,7 +73,7 @@ Report the plan's lines and total, the final status and amount from All Transact
 
 Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Danny & Coops Payroll - Wednesday Watch**, Wednesdays every 10 minutes from 2:00 to 6:50 PM. It looks for a `*payroll-journal*.csv` in the Payroll folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Danny & Coops Payroll - Watch**, every 10 minutes from Tuesday 6:00 PM to Wednesday 6:50 PM. It looks for a `*payroll-journal*.csv` in the Payroll folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
 - **Danny & Coops Payroll - Wednesday**, 7:00 PM. The last check, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
 
 The wrapper reads the week from the CSV's Period End, copies the file to `.scratch/danny-coops-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, journal copy, and original file, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-File <csv>` names the file.
@@ -94,7 +94,7 @@ Close `dcpu`, then write `result.json` in the work directory. The wrapper posts 
   "number": "NJ000xxxxx", "transactionId": "...", "attached": true, "filed": true, "warnings": [], "note": "" }
 ```
 
-`status` is `approved` or `failed`. The webhook lives in `~/.claude/danny-coops-payroll.json`, outside the repo, in the meat credit's shape: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. With `attention` the mention fires only when the entry is not approved, the file is not attached or filed, or a warning is set.
+`status` is `approved` or `failed`. The webhook lives in `~/.claude/danny-coops-payroll.json`, outside the repo, in the meat credit's shape: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. Every run posts its card to the Danny & Coops payroll channel. With `attention` the mention fires only when the entry is not approved, the file is not attached or filed, or a warning is set.
 
 ## Danny & Coops R365 quirks
 
