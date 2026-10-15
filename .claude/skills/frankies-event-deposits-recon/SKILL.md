@@ -120,6 +120,7 @@ Report the week's GL balances against the tab, every recode made, every `ISSUE`,
 - `BlackBird Pizza Series` payments go with the BlackBird Pizza deposits, as `TBD` deposit rows (2026-10-04).
 - The human authorized editing approved event entries and bank deposits to apply the coding rule (2026-10-04).
 - Payments after a fully paid event are tips (2026-10-14).
+- A cash tip on an event entry's 1242 Tip line stays: the cash is deposited later and clears it (2026-10-15).
 - Unpaid tips more than 30 days past the event are removed (2026-10-14).
 - Blackbird Labs does not invoice. Its Bill.com payments against monthly invoice numbers (`Inv 07.2026.1`, `Inv 08.2026`) are BlackBird Pizza Series deposits: 2015, commented `TBD: BlackBird Pizza Series` (2026-10-14).
 - A deposit and a receivable of the same amount for one event mean the event entry booked a paid deposit to 1242. Recode that event entry line to 2015 (2026-10-14).
