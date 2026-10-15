@@ -17,7 +17,7 @@ Session and conventions:
 
 Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) before scripting. Run the scripts from a scratch folder (`.scratch/water/`); they drop working files in the current directory. Every script below lives in `scripts/` here.
 
-These scripts also run the electricity accrual ([`../norms-pe-accrued-electricity/SKILL.md`](../norms-pe-accrued-electricity/SKILL.md)). The env var `UTIL` picks the accounts from `scripts/profiles.json`; unset means water. Account guids sit in `scripts/ids.json`. Keep the scripts free of account numbers so both utilities stay in step.
+These scripts also serve the electricity accrual ([`../norms-pe-accrued-electricity/SKILL.md`](../norms-pe-accrued-electricity/SKILL.md)), which reviews against history rather than bills. The env var `UTIL` picks the accounts from `scripts/profiles.json`; unset means water. Account guids sit in `scripts/ids.json`. Keep the scripts free of account numbers so both utilities stay in step.
 
 ## The accounts and entries
 
