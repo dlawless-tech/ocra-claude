@@ -33,6 +33,8 @@ UTIL=electric bash $W/trueup-entry.sh r365 <source JE id> <first day> "Reclass E
 
 The plan moves 2281 between locations, and the gap between what Support Center releases and what the stores need goes to store 5630 pro rata to each store's move. Show the human the table before posting. Once this entry exists, later runs skip this step: check All Transactions for `Reclass Electric Accrual` before starting.
 
+It ran on 10/15/2026, dated 9/6/2026 and built from the water reclass as source: 49 lines, 272,133.87. Support Center released 130,032.93. Stores needed 142,100.94 more than that, because P8 and P9 were never accrued, and that gap went to 5630. Leave Unapproved entries out of the balances (drop their rows from the rows file); the Support Center 9/5 entry of 936.96 was dropped this way.
+
 ## Where electricity differs
 
 - **Locations.** 25 carry 2281: the 23 water stores plus Carson and Las Vegas. Support Center has no weekly template; its weekly entries were posted by hand.
