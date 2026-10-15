@@ -1,11 +1,12 @@
 // One-time reclass: move a lump parked on one location (Support Center) out to the stores, so each
 // location's accrual balance at <date> equals its target (unbilled usage through the prior PE).
-// Usage: [UTIL=electric] node reclass-plan.js <rowsAccrual.json> <date M/D/YYYY> <targets.json> [from location] > lines.json
+// Usage: [UTIL=electric] node reclass-plan.js <rowsAccrual.json> <date M/D/YYYY> <targets.json> [from location] [spread] > lines.json
 //   balances include every row dated on or before <date>; targets.json as for trueup-plan.js, every location listed.
 // Accrual lines alone rarely balance: the gap goes to store expense pro rata to each store's move.
+// spread: no expense lines; the release from <from> is shared out pro rata to each store's move instead.
 const fs = require("fs");
 const P = require("./profile.js");
-const [fA, dt, ft, from = "299 - Norms Support Center"] = process.argv.slice(2);
+const [fA, dt, ft, from = "299 - Norms Support Center", mode = ""] = process.argv.slice(2);
 const r2 = x => Math.round(x * 100) / 100;
 const dv = s => { const [m, d, y] = s.split("/").map(Number); return y * 10000 + m * 100 + d; };
 const R = JSON.parse(fs.readFileSync(fA)), T = JSON.parse(fs.readFileSync(ft));
@@ -14,7 +15,14 @@ const missing = [...new Set(R.map(r => r.loc))].filter(l => !Object.keys(T).some
 if (missing.length) { console.error("no target for", missing.join(", ")); process.exit(1); }
 const mv = {};
 for (const s of Object.keys(T)) mv[s] = r2(T[s].tgt - bal(s));
-const gap = r2(Object.values(mv).reduce((t, x) => t + x, 0));
+let gap = r2(Object.values(mv).reduce((t, x) => t + x, 0));
+if (mode === "spread") {
+  const ss = Object.keys(T).filter(s => s !== from && mv[s] > 0), need = ss.reduce((t, s) => t + mv[s], 0), rel = -mv[from];
+  let left = rel;
+  for (const s of Object.keys(T)) if (s !== from && !ss.includes(s)) mv[s] = 0;
+  ss.forEach((s, i) => { mv[s] = i === ss.length - 1 ? r2(left) : r2(rel * mv[s] / need); left = r2(left - mv[s]); });
+  gap = 0;
+}
 const stores = Object.keys(T).filter(s => s !== from && mv[s] > 0), base = stores.reduce((t, s) => t + mv[s], 0);
 const exp = {}; let left = gap;
 stores.forEach((s, i) => { exp[s] = i === stores.length - 1 ? r2(left) : r2(gap * mv[s] / base); left = r2(left - exp[s]); });

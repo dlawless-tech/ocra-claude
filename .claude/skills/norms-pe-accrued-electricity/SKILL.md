@@ -31,9 +31,9 @@ UTIL=electric node $W/reclass-plan.js r2281.json <first day> targets0.json > rec
 UTIL=electric bash $W/trueup-entry.sh r365 <source JE id> <first day> "Reclass Electric Accrual to Stores" reclass.json "Move Support Center accrual to stores, unbilled thru <prior PE>"
 ```
 
-The plan moves 2281 between locations, and the gap between what Support Center releases and what the stores need goes to store 5630 pro rata to each store's move. Show the human the table before posting. Once this entry exists, later runs skip this step: check All Transactions for `Reclass Electric Accrual` before starting.
+The plan moves 2281 between locations, and the gap between what Support Center releases and what the stores need goes to store 5630 pro rata to each store's move. Add `"299 - Norms Support Center" spread` to share only what Support Center releases, pro rata to each store's need, with no expense lines; the human chose that for the 9/6/2026 entry. Show the human the table before posting. Once this entry exists, later runs skip this step: check All Transactions for `Reclass Electric Accrual` before starting.
 
-It ran on 10/15/2026, dated 9/6/2026 and built from the water reclass as source: 49 lines, 272,133.87. Support Center released 130,032.93. Stores needed 142,100.94 more than that, because P8 and P9 were never accrued, and that gap went to 5630. Leave Unapproved entries out of the balances (drop their rows from the rows file); the Support Center 9/5 entry of 936.96 was dropped this way.
+It ran on 10/15/2026, dated 9/6/2026, in spread mode and approved: 25 lines, 130,032.93, all 2281. The stores needed 142,100.94 more than Support Center released (P8 and P9 were never accrued); the human kept prior periods as booked, so that gap was not expensed. Leave Unapproved entries out of the balances (drop their rows from the rows file); the Support Center 9/5 entry of 936.96 was dropped this way.
 
 ## Where electricity differs
 
