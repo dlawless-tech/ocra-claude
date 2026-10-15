@@ -1,0 +1,20 @@
+﻿2026-10-15T09:15:05 starting claude (watch) on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Weekly Purchase Transfers\GL_Reallocation_Tracker WE 10.11.26.xlsx
+The Bowery Purchase Transfers entry for the week ending 10/11/2026 is posted and approved at 175.00, with the tracker attached and filed.
+
+**Readback check (MATCH):**
+```
+credit  510-01 - Purchases-Beverage Liquor   600 - Shukette   175.00  ok
+debit   510-04 - Purchases-Beverage N/A      600 - Shukette   175.00  ok
+Total                                                         175.00  entry 175.00
+```
+
+- **Rows:** one, dated 10/11/2026, "NA Gazoz", 175.00. No earlier rows were skipped.
+- **Entry:** the 10/4 entry was duplicated, dated 10/11/2026 and numbered "Purchase Transfers" (id f2eb3d65-11f0-40f3-a557-50e0e48425f8). The All Transactions list shows it Approved at 175.00.
+- **Attached:** yes, as `GL_Reallocation_Tracker 10.11.26.xlsx`. It showed in the attachment panel after a reload.
+- **Filed:** yes, in `Completed\GL_Reallocation_Tracker 10.11.26.xlsx`. The top of the folder is now empty apart from `Completed`.
+- **Result file:** `result.json` is written with status `approved`, total 175.00 and no warnings, for the Teams card that tags Brandy.
+
+**One problem during the run:** I gave the filing script the tracker's file name without its folder. It found the run folder's copy and moved that into Completed, which left the client's original sitting at the top of the share. The two files were identical byte for byte, so I moved the original over the filed copy myself.
+
+To stop this happening again, `file-week.sh` now refuses any file that isn't in the share folder. I tested that it rejects one. The skill now also says to pass the original file's full path on unattended runs. Both changes are uncommitted.
+2026-10-15T09:23:19 claude exited 0

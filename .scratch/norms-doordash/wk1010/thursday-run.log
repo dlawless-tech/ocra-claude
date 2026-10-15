@@ -1,0 +1,83 @@
+﻿2026-10-15T04:00:02 period 10/5/2026 - 10/11/2026; first attempt for Anaheim, Carson, Claremont, Costa Mesa, Downey, El Monte, Hollywood, Huntington Beach, Inglewood, La Cienega, Lakewood, Las Vegas, North Torrance, Ontario, Orange, Pico Rivera, Rialto, Riverside, Santa Ana, Slauson, South Torrance, Van Nuys, West Covina, Whittier; starting claude
+Nothing was posted on the 4:00 AM run. DoorDash had no payouts dated 10/15/2026 at 3:06 AM Pacific; I checked twice. All 24 stores are `no-payout` in `result.json`. The wrapper will list them as pending for the 10:00 retry and won't post to Teams until then.
+
+The 10/10 entries for all 24 stores are still Approved at 0.00 and untouched. Each store's starting balance on 1111 matches the 10/9 deposit that cleared it.
+
+Things the retry, or Regina, should know:
+- **Ontario:** R365 has no DoorDash sales for 10/8 (6 of 7 days).
+- **Van Nuys:** R365 has no DoorDash sales for 10/11. This is the same missing day that held its Uber Eats entry. If that day is still missing at 10:00, the retry will probably mark the store `failed` and post nothing for it.
+- **Anaheim:** a second deposit on 10/9 for 171.86 (reference `DOORDASH - ST-H6U3Z0G0L4G3`) doesn't match any Anaheim payout. It sits as an extra credit on 1111.
+
+Each store's week of DoorDash sales from R365 is saved in `result.json`; across the 24 stores they run from 601.03 (El Monte) to 5,140.09 (Inglewood). The three sessions this run opened are closed. `result.json` is in `.scratch/norms-doordash/wk1010`, and a dry run of the Teams card reads it correctly.
+2026-10-15T04:06:39 claude exited 0
+2026-10-15T04:06:42 no payout yet for Anaheim, Carson, Claremont, Costa Mesa, Downey, El Monte, Hollywood, Huntington Beach, Inglewood, La Cienega, Lakewood, Las Vegas, North Torrance, Ontario, Orange, Pico Rivera, Rialto, Riverside, Santa Ana, Slauson, South Torrance, Van Nuys, West Covina, Whittier; retrying at 10:00
+2026-10-15T10:00:05 period 10/5/2026 - 10/11/2026; retry attempt for Anaheim, Carson, Claremont, Costa Mesa, Downey, El Monte, Hollywood, Huntington Beach, Inglewood, La Cienega, Lakewood, Las Vegas, North Torrance, Ontario, Orange, Pico Rivera, Rialto, Riverside, Santa Ana, Slauson, South Torrance, Van Nuys, West Covina, Whittier; starting claude
+Posting is underway in both sessions. I'll wait for the stores to finish.
+
+North Torrance is done. Waiting on the rest.
+
+Carson is done.
+
+Ontario is done.
+
+Claremont is done.
+
+Costa Mesa is done.
+
+Orange is done.
+
+Downey is done.
+
+Pico Rivera is done.
+
+El Monte is done.
+
+Rialto is done.
+
+Hollywood is done.
+
+Riverside is done.
+
+Huntington Beach is done.
+
+Santa Ana is done.
+
+Inglewood is done.
+
+Slauson is done.
+
+La Cienega is done.
+
+South Torrance is done.
+
+Lakewood is done.
+
+Van Nuys is done.
+
+Waiting on the last three stores.
+
+Las Vegas is done. West Covina and Whittier are still posting in the second session.
+
+West Covina is done. Whittier is the last one left.
+
+The read-back is running. I'll check the results when both halves finish.
+
+The 10:00 AM retry posted and approved all 24 NORMS DoorDash entries for the week of 10/5 to 10/11, totaling 14,528.54. I read every entry back from R365 afterward: all 24 match DoorDash and all are Approved. The run's sessions are closed and `result.json` is written. The scheduled task posts the Teams card to Regina; I only dry-ran it, and it reads correctly.
+
+**Why 4:00 AM found nothing:** DoorDash had listed all 24 payouts by 2:10 AM. The payout script asked for payouts starting on 10/15 itself, and DoorDash leaves out early-morning payouts unless the window starts the day before. I fixed `payouts.sh` to start a day early and keep only payouts dated in the requested range. I also added a short note to the skill's instructions. Both changes are uncommitted.
+
+**Warnings for Regina (all posted anyway, per the skill):**
+- **Differences over 100.00:**
+  - Anaheim 178.73
+  - Claremont 194.88
+  - La Cienega 157.61
+  - Pico Rivera 155.66
+  - Santa Ana -113.29 (DoorDash counted more sales than R365)
+  - In the other four, R365 shows more sales than DoorDash.
+- **Missing days of sales in R365:** Ontario has none for 10/8 and Van Nuys has none for 10/11. Both entries still came out with the A/R line as a credit, so they posted, with differences of 4.11 and -96.67.
+- **Extra deposit:** Anaheim's 10/9 deposit of 171.86 (`DOORDASH - ST-H6U3Z0G0L4G3`) matches no payout. It sits as an extra credit on 1111.
+
+Every store's starting balance on 1111 matches its 10/9 deposit. The next run is Thursday 10/22, for the entry dated 10/17.
+
+The monitor timed out after the last stores had already posted, so the run is complete.
+2026-10-15T10:30:22 claude exited 0

@@ -1,0 +1,89 @@
+- generic [ref=e1]:
+  - link [ref=e2] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=e5]:
+    - generic [ref=e11]:
+      - combobox "Select Language" [ref=e25]:
+        - option "English (US)" [selected]
+        - option "Français (CA)"
+        - option "Español"
+        - option "English (CA)"
+        - option "English (AU)"
+        - option "English (NZ)"
+      - generic [ref=e26]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: DoorDash
+            - generic [ref=e36]: Welcome back
+            - generic [ref=e37]:
+              - generic [ref=e38]: Log in to your
+              - generic [ref=e39]: DoorDash Merchant Portal
+          - generic [ref=e40]:
+            - generic [ref=e43]:
+              - generic [ref=e44]: Email
+              - generic [ref=e47]:
+                - textbox "Email" [ref=e49]:
+                  - /placeholder: Required
+                  - text: mark+04@ocra-us.com
+                - button "Clear email" [ref=e52] [cursor=pointer]
+            - generic [ref=e57]:
+              - generic [ref=e58]: Password
+              - generic [ref=e61]:
+                - textbox "Password" [ref=e63]:
+                  - /placeholder: Required
+                  - text: Ready42024!
+                - button "Show" [ref=e65] [cursor=pointer]
+              - button "Reset Password" [ref=e69] [cursor=pointer]
+            - generic [ref=e145]:
+              - generic [ref=e146]: This action requires two-factor authentication
+              - generic [ref=e154]: "Trace ID: R-8df408b4-27cf-459c-afa0-6e5712a6bd8e."
+            - button "Log In" [ref=e212] [cursor=pointer]
+            - generic [ref=e81]: or
+            - generic [ref=e84]:
+              - generic [ref=e85]: "Log in with:"
+              - generic [ref=e86]:
+                - button "Google" [ref=e87] [cursor=pointer]
+                - button "Facebook" [ref=e100] [cursor=pointer]
+                - button "Apple" [ref=e109] [cursor=pointer]
+          - separator [ref=e119]
+          - generic [ref=e213]:
+            - generic [ref=e214]:
+              - generic [ref=e215]: New to DoorDash?
+              - generic [ref=e216]: Partner with us today!
+            - button "Get started" [ref=e217] [cursor=pointer]
+        - generic [ref=e131]:
+          - text: By logging in, you agree to DoorDash's Merchant
+          - link "Security Terms" [ref=e132] [cursor=pointer]:
+            - /url: https://help.doordash.com/legal/document?type=mx-security-terms&region=US
+          - text: .
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - generic [ref=e135]:
+            - generic [ref=e136]: run your store
+            - generic [ref=e137]: on the go
+          - generic [ref=e138]: Accept new orders, contact customers, and get real-time alerts all on your phone with the Business Manager app.
+        - generic [ref=e140]:
+          - img "qr code" [ref=e141]
+          - generic [ref=e142]:
+            - generic [ref=e143]: Get it on iOS and Android
+            - generic [ref=e144]: 1.8K+ 5-star ratings
+    - dialog "2-Step Verification" [ref=e176]:
+      - generic [active] [ref=e177]: 2-Step Verification
+      - generic [ref=e178]:
+        - generic [ref=e222]: 2-Step Verification
+        - generic [ref=e234]:
+          - generic [ref=e235]:
+            - generic [ref=e236]: For your security, we want to make sure it’s really you.
+            - generic [ref=e237]: We sent a code to mark+04@ocra-us.com.
+          - generic [ref=e239]:
+            - generic [ref=e240]: Enter your 6-digit code
+            - spinbutton "Enter your 6-digit code" [ref=e245]
+          - generic [ref=e246]: Can't find it? Search for an email from no-reply@doordash.com
+          - generic [ref=e247]:
+            - button "Resend Code" [ref=e249] [cursor=pointer]
+            - link "Get Help" [ref=e255] [cursor=pointer]:
+              - /url: https://help.doordash.com/merchants/s/article/How-do-I-verify-my-account-when-accessing-the-Merchant-Portal
+      - generic [ref=e262]:
+        - button "Cancel" [ref=e263] [cursor=pointer]
+        - button "Submit" [disabled] [ref=e268] [cursor=pointer]

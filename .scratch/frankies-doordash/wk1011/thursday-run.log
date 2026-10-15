@@ -1,0 +1,23 @@
+﻿2026-10-15T10:00:02 week 10/5/2026 - 10/11/2026; Thursday attempt; starting claude
+The DoorDash week of 10/5 to 10/11/2026 is posted and approved for both stores, with a backup PDF attached to each. I wrote `result.json` to the work directory, and the wrapper will post it to the Frankie Spuntino TPD channel and tag Collin.
+
+| Store | Status | Amount | Payouts | Discrepancy to 4105 |
+|---|---|---|---|---|
+| Frankies 457 | Approved | 5,171.98 | 5 | 1,633.39 Cr |
+| F&F Pizzeria | Approved | 4,930.04 | 5 | 1,485.96 Cr |
+
+- Every DoorDash sales day in the week had a payout covering it.
+- Every payout closed to its net.
+- Both discrepancies are inside the normal range.
+- Each backup ties to its entry.
+- After attaching, I checked again and both entries were still Approved at the planned totals.
+- There were no warnings, so the Teams card lists none.
+
+The run finished, but three things went wrong along the way. They need fixing before next Thursday's run, which would otherwise fail on the first two:
+
+1. **DoorDash login check:** `dd-login.sh` reported a failure as if a code was needed. The saved profile was actually signed in; the script just landed on the consumer site, and going straight to the merchant portal worked. Unfixed, a future run would stop here with nothing posted.
+2. **GL report dates:** `gl-detail.sh` needs dates as M/D/YYYY, but the skill's step 2 shows YYYY-MM-DD. With the wrong format, R365 shifted the report window back a day and the script stopped. I reran it with the right format.
+3. **R365 logouts:** R365 logged the session out twice, once during approval and once during the final check. Both times, reopening the app home page and logging in again recovered it, and nothing was lost.
+
+None of this is fixed in the scripts or the skill yet, and the skill is still uncommitted. I noted these in memory. Next week to post is 10/18.
+2026-10-15T10:27:15 claude exited 0

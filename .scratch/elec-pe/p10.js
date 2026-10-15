@@ -1,0 +1,8 @@
+// P10 (28 days) usage at each store's latest bill daily rate, vs booked P10 expense and P7-9 avg
+const D=s=>{const[m,d]=s.split("/").map(Number);return Date.UTC(2026,m-1,d)/864e5};
+const B={"Anaheim":[[11083.15,"8/20","9/21"]],"Carson":[[15838.75,"9/1","10/1"]],"Claremont":[[15076.27,"9/2","10/4"]],"Costa Mesa":[[11214.31,"8/24","9/23"]],"Downey":[[14801.54,"9/4","10/5"]],"El Monte":[[14684.20,"8/10","9/9"]],"Hollywood":[[14522.90,"8/3","9/2"]],"Huntington Beach":[[12885.55,"9/1","10/1"]],"Inglewood":[[14334.98,"8/18","9/17"]],"La Cienega":[[12386.42,"9/4","10/7"]],"Lakewood":[[13661.33,"8/11","9/10"]],"Las Vegas":[[6357.94,"8/7","9/8"]],"Norms Support Center":[[5527.80,"8/11","9/10"]],"North Torrance":[[11135.41,"8/25","9/24"]],"Ontario":[[16970.59,"8/30","9/29"]],"Orange":[[9476.70,"9/7","10/6"]],"Pico Rivera":[[17786.91,"8/13","9/14"]],"Rialto":[[22145.60,"8/25","9/24"]],"Riverside":[[10347.61,"8/18","9/17"]],"Santa Ana":[[11419.90,"9/7","10/6"],[46.61,"8/31","9/30"]],"Slauson":[[12150.92,"8/18","9/17"]],"South Torrance":[[13988.39,"8/16","9/15"]],"Van Nuys":[[12741.33,"8/28","9/24"]],"West Covina":[[10745.17,"9/1","10/1"]],"Whittier":[[13096.31,"8/30","9/29"]]};
+const H=require("./hist.json");let t=[0,0,0];
+console.log("store".padEnd(21),"P10 booked".padStart(11),"P7-9 avg".padStart(10),"bill-rate P10".padStart(14),"gap".padStart(8));
+for(const l in B){const est=B[l].reduce((s,[a,p,e])=>s+a/(D(e)-D(p))*28,0),bk=H[l].v[3];t[0]+=bk;t[1]+=H[l].avg;t[2]+=est;
+console.log(l.padEnd(21),bk.toFixed(0).padStart(11),H[l].avg.toFixed(0).padStart(10),est.toFixed(0).padStart(14),(est-bk).toFixed(0).padStart(8));}
+console.log("TOTAL".padEnd(21),...t.map((x,i)=>x.toFixed(0).padStart(i?(i==1?10:14):11)),(t[2]-t[0]).toFixed(0).padStart(8));

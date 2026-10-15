@@ -1,0 +1,294 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://merchant-portal.doordash.com/merchant/financials/payouts?business_group_id=10015048
+- Page Title: DoorDash Food Delivery | Merchant
+- Console: 0 errors, 52 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f10e1]:
+  - link [ref=f10e6] [cursor=pointer]:
+    - /url: "#"
+    - text: ___
+  - generic [ref=f10e489]:
+    - banner "Merchant portal navigation" [ref=f10e493]:
+      - generic [ref=f10e494]:
+        - button "Go to Home" [ref=f10e495] [cursor=pointer]:
+          - generic [ref=f10e496]: DoorDash
+        - generic [ref=f10e502]:
+          - button "Mark Ocra-us The Bowery Group" [ref=f10e505] [cursor=pointer]:
+            - generic [ref=f10e507]:
+              - generic [ref=f10e508]: Mark Ocra-us
+              - generic [ref=f10e509]: The Bowery Group
+          - button "The Bowery Group All businesses" [ref=f10e514] [cursor=pointer]:
+            - generic [ref=f10e516]:
+              - generic [ref=f10e517]: The Bowery Group
+              - generic [ref=f10e518]: All businesses
+        - generic [ref=f10e523]:
+          - combobox "Search for page" [ref=f10e537]
+          - button "Manage stores" [ref=f10e539] [cursor=pointer]
+    - generic [ref=f10e546]:
+      - navigation "Primary navigation" [ref=f10e553]:
+        - list [ref=f10e556]:
+          - listitem [ref=f10e557]:
+            - button "Home" [ref=f10e561] [cursor=pointer]
+          - listitem [ref=f10e566]:
+            - button "Payouts" [ref=f10e570] [cursor=pointer]
+          - listitem [ref=f10e576]:
+            - button "Performance" [ref=f10e580] [cursor=pointer]
+          - listitem [ref=f10e586]:
+            - button "Manage users" [ref=f10e590] [cursor=pointer]
+        - button "Help" [ref=f10e599] [cursor=pointer]
+      - generic [ref=f10e607]:
+        - navigation [ref=f10e4475]:
+          - generic [ref=f10e4480]:
+            - generic [ref=f10e4481]: Payouts
+            - generic [ref=f10e4483]:
+              - text: Here is where you will find a summary of your Transactions and Payouts.
+              - link "Learn more" [ref=f10e4484] [cursor=pointer]:
+                - /url: https://get.doordash.com/en-us/learning-center/payout-and-monthly-statement?utm_source=DoorDash&utm_medium=Direct&utm_campaign=MX_US_IPN_WEB_OTH_MPL_MTP_MOF_EXA_ENG_5_CUSXXX___MX_Portal_Internal_Link
+          - separator [ref=f10e4486]
+        - generic [ref=f10e4492]:
+          - status [ref=f10e4494]:
+            - img "Important information icon" [ref=f10e4496]
+            - generic [ref=f10e4500]:
+              - generic [ref=f10e4501]: Accelerate your business growth with up to $375,000 from DoorDash Capital
+              - generic [ref=f10e4502]: Get up to $375,000 in as little as 1-2 days if approved. Use it for inventory, rent, hiring, or cash flow—you'll pay it back automatically through your DoorDash sales.
+            - button "View offer" [ref=f10e4505] [cursor=pointer]
+            - button "Close" [ref=f10e4511] [cursor=pointer]
+          - generic [ref=f10e4515]:
+            - generic [ref=f10e4516]:
+              - button "Last 30 days" [ref=f10e4518] [cursor=pointer]
+              - button "All businesses and stores" [ref=f10e4525] [cursor=pointer]
+            - button "Create report" [ref=f10e4530] [cursor=pointer]
+          - generic [ref=f10e4536]:
+            - table [ref=f10e4539]:
+              - rowgroup [ref=f10e4540]:
+                - row [ref=f10e4541]:
+                  - columnheader "Payout date" [ref=f10e4542]
+                  - columnheader "Payout ID" [ref=f10e4547]
+                  - columnheader "Status" [ref=f10e4550]
+                  - columnheader "Store" [ref=f10e4553]
+                  - columnheader "Sales" [ref=f10e4556]
+                  - columnheader "Commission & fees" [ref=f10e4561]
+                  - columnheader "Marketing spend" [ref=f10e4566]
+                  - columnheader "Amendments" [ref=f10e4571]
+                  - columnheader "Net payout" [ref=f10e4576]
+              - rowgroup [ref=f10e4581]:
+                - row [ref=f10e4582]:
+                  - cell "10/15/2026" [ref=f10e4583]
+                  - cell "619961349" [ref=f10e4585]
+                  - cell "Pending" [ref=f10e4587]
+                  - cell "Cookshop" [ref=f10e4592]
+                  - cell "$7,597.43" [ref=f10e4594]
+                  - cell "-$822.33" [ref=f10e4596]
+                  - cell "-$102.05" [ref=f10e4598]
+                  - cell "-$3.60" [ref=f10e4600]
+                  - cell "$6,669.45" [ref=f10e4602]
+                - row [ref=f10e4604]:
+                  - cell "10/15/2026" [ref=f10e4605]
+                  - cell "619857147" [ref=f10e4607]
+                  - cell "Pending" [ref=f10e4609]
+                  - cell "Vic's (Great Jones St)" [ref=f10e4614]
+                  - cell "$2,346.29" [ref=f10e4616]
+                  - cell "-$249.93" [ref=f10e4618]
+                  - cell "-$10.00" [ref=f10e4620]
+                  - cell "$0.00" [ref=f10e4622]
+                  - cell "$2,086.36" [ref=f10e4624]
+                - row [ref=f10e4626]:
+                  - cell "10/15/2026" [ref=f10e4627]
+                  - cell "619731988" [ref=f10e4629]
+                  - cell "Pending" [ref=f10e4631]
+                  - cell "Shuka (Macdougal St)" [ref=f10e4636]
+                  - cell "$17,834.09" [ref=f10e4638]
+                  - cell "-$2,082.32" [ref=f10e4640]
+                  - cell "-$93.93" [ref=f10e4642]
+                  - cell "$119.58" [ref=f10e4644]
+                  - cell "$15,777.42" [ref=f10e4646]
+                - row [ref=f10e4648]:
+                  - cell "10/15/2026" [ref=f10e4649]
+                  - cell "619629241" [ref=f10e4651]
+                  - cell "Pending" [ref=f10e4653]
+                  - cell "Rosie's (2nd St)" [ref=f10e4658]
+                  - cell "$1,746.20" [ref=f10e4660]
+                  - cell "-$184.65" [ref=f10e4662]
+                  - cell "-$94.48" [ref=f10e4664]
+                  - cell "$0.00" [ref=f10e4666]
+                  - cell "$1,467.07" [ref=f10e4668]
+                - row [ref=f10e4670]:
+                  - cell "10/8/2026" [ref=f10e4671]
+                  - cell "617964873" [ref=f10e4673]
+                  - cell "Paid" [ref=f10e4675]
+                  - cell "Cookshop" [ref=f10e4680]
+                  - cell "$7,801.83" [ref=f10e4682]
+                  - cell "-$797.19" [ref=f10e4684]
+                  - cell "-$139.51" [ref=f10e4686]
+                  - cell "-$23.63" [ref=f10e4688]
+                  - cell "$6,841.50" [ref=f10e4690]
+                - row [ref=f10e4692]:
+                  - cell "10/8/2026" [ref=f10e4693]
+                  - cell "617733312" [ref=f10e4695]
+                  - cell "Paid" [ref=f10e4697]
+                  - cell "Shuka (Macdougal St)" [ref=f10e4702]
+                  - cell "$17,851.16" [ref=f10e4704]
+                  - cell "-$2,135.93" [ref=f10e4706]
+                  - cell "-$99.95" [ref=f10e4708]
+                  - cell "-$77.96" [ref=f10e4710]
+                  - cell "$15,537.32" [ref=f10e4712]
+                - row [ref=f10e4714]:
+                  - cell "10/8/2026" [ref=f10e4715]
+                  - cell "617823042" [ref=f10e4717]
+                  - cell "Paid" [ref=f10e4719]
+                  - cell "Vic's (Great Jones St)" [ref=f10e4724]
+                  - cell "$1,514.65" [ref=f10e4726]
+                  - cell "-$168.16" [ref=f10e4728]
+                  - cell "-$11.99" [ref=f10e4730]
+                  - cell "$0.00" [ref=f10e4732]
+                  - cell "$1,334.50" [ref=f10e4734]
+                - row [ref=f10e4736]:
+                  - cell "10/8/2026" [ref=f10e4737]
+                  - cell "617984659" [ref=f10e4739]
+                  - cell "Paid" [ref=f10e4741]
+                  - cell "Rosie's (2nd St)" [ref=f10e4746]
+                  - cell "$2,119.97" [ref=f10e4748]
+                  - cell "-$202.26" [ref=f10e4750]
+                  - cell "-$138.76" [ref=f10e4752]
+                  - cell "-$25.92" [ref=f10e4754]
+                  - cell "$1,753.03" [ref=f10e4756]
+                - row [ref=f10e4758]:
+                  - cell "10/1/2026" [ref=f10e4759]
+                  - cell "615919262" [ref=f10e4761]
+                  - cell "Paid" [ref=f10e4763]
+                  - cell "Shuka (Macdougal St)" [ref=f10e4768]
+                  - cell "$15,547.89" [ref=f10e4770]
+                  - cell "-$1,821.40" [ref=f10e4772]
+                  - cell "-$119.95" [ref=f10e4774]
+                  - cell "-$67.39" [ref=f10e4776]
+                  - cell "$13,539.15" [ref=f10e4778]
+                - row [ref=f10e4780]:
+                  - cell "10/1/2026" [ref=f10e4781]
+                  - cell "616140582" [ref=f10e4783]
+                  - cell "Paid" [ref=f10e4785]
+                  - cell "Rosie's (2nd St)" [ref=f10e4790]
+                  - cell "$1,103.51" [ref=f10e4792]
+                  - cell "-$128.82" [ref=f10e4794]
+                  - cell "-$98.24" [ref=f10e4796]
+                  - cell "$0.00" [ref=f10e4798]
+                  - cell "$876.45" [ref=f10e4800]
+                - row [ref=f10e4802]:
+                  - cell "10/1/2026" [ref=f10e4803]
+                  - cell "615993619" [ref=f10e4805]
+                  - cell "Paid" [ref=f10e4807]
+                  - cell "Cookshop" [ref=f10e4812]
+                  - cell "$7,856.10" [ref=f10e4814]
+                  - cell "-$834.37" [ref=f10e4816]
+                  - cell "-$140.43" [ref=f10e4818]
+                  - cell "$0.00" [ref=f10e4820]
+                  - cell "$6,881.30" [ref=f10e4822]
+                - row [ref=f10e4824]:
+                  - cell "10/1/2026" [ref=f10e4825]
+                  - cell "616048892" [ref=f10e4827]
+                  - cell "Paid" [ref=f10e4829]
+                  - cell "Vic's (Great Jones St)" [ref=f10e4834]
+                  - cell "$2,756.50" [ref=f10e4836]
+                  - cell "-$314.86" [ref=f10e4838]
+                  - cell "-$64.63" [ref=f10e4840]
+                  - cell "$0.00" [ref=f10e4842]
+                  - cell "$2,377.01" [ref=f10e4844]
+                - row [ref=f10e4846]:
+                  - cell "9/24/2026" [ref=f10e4847]
+                  - cell "613859958" [ref=f10e4849]
+                  - cell "Paid" [ref=f10e4851]
+                  - cell "Shuka (Macdougal St)" [ref=f10e4856]
+                  - cell "$19,683.91" [ref=f10e4858]
+                  - cell "-$2,396.15" [ref=f10e4860]
+                  - cell "-$123.93" [ref=f10e4862]
+                  - cell "-$2.75" [ref=f10e4864]
+                  - cell "$17,161.08" [ref=f10e4866]
+                - row [ref=f10e4868]:
+                  - cell "9/24/2026" [ref=f10e4869]
+                  - cell "613947232" [ref=f10e4871]
+                  - cell "Paid" [ref=f10e4873]
+                  - cell "Rosie's (2nd St)" [ref=f10e4878]
+                  - cell "$1,697.34" [ref=f10e4880]
+                  - cell "-$177.99" [ref=f10e4882]
+                  - cell "-$108.65" [ref=f10e4884]
+                  - cell "-$3.27" [ref=f10e4886]
+                  - cell "$1,407.43" [ref=f10e4888]
+                - row [ref=f10e4890]:
+                  - cell "9/24/2026" [ref=f10e4891]
+                  - cell "614010905" [ref=f10e4893]
+                  - cell "Paid" [ref=f10e4895]
+                  - cell "Vic's (Great Jones St)" [ref=f10e4900]
+                  - cell "$2,444.60" [ref=f10e4902]
+                  - cell "-$255.62" [ref=f10e4904]
+                  - cell "-$265.06" [ref=f10e4906]
+                  - cell "$0.00" [ref=f10e4908]
+                  - cell "$1,923.92" [ref=f10e4910]
+                - row [ref=f10e4912]:
+                  - cell "9/24/2026" [ref=f10e4913]
+                  - cell "614236100" [ref=f10e4915]
+                  - cell "Paid" [ref=f10e4917]
+                  - cell "Cookshop" [ref=f10e4922]
+                  - cell "$7,778.54" [ref=f10e4924]
+                  - cell "-$823.67" [ref=f10e4926]
+                  - cell "-$138.17" [ref=f10e4928]
+                  - cell "-$20.00" [ref=f10e4930]
+                  - cell "$6,796.70" [ref=f10e4932]
+                - row [ref=f10e4934]:
+                  - cell "9/17/2026" [ref=f10e4935]
+                  - cell "612382491" [ref=f10e4937]
+                  - cell "Paid" [ref=f10e4939]
+                  - cell "Vic's (Great Jones St)" [ref=f10e4944]
+                  - cell "$1,754.33" [ref=f10e4946]
+                  - cell "-$194.69" [ref=f10e4948]
+                  - cell "-$222.18" [ref=f10e4950]
+                  - cell "$0.00" [ref=f10e4952]
+                  - cell "$1,337.46" [ref=f10e4954]
+                - row [ref=f10e4956]:
+                  - cell "9/17/2026" [ref=f10e4957]
+                  - cell "612153246" [ref=f10e4959]
+                  - cell "Paid" [ref=f10e4961]
+                  - cell "Shuka (Macdougal St)" [ref=f10e4966]
+                  - cell "$19,705.52" [ref=f10e4968]
+                  - cell "-$2,324.45" [ref=f10e4970]
+                  - cell "-$197.91" [ref=f10e4972]
+                  - cell "-$57.97" [ref=f10e4974]
+                  - cell "$17,125.19" [ref=f10e4976]
+                - row [ref=f10e4978]:
+                  - cell "9/17/2026" [ref=f10e4979]
+                  - cell "612140144" [ref=f10e4981]
+                  - cell "Paid" [ref=f10e4983]
+                  - cell "Rosie's (2nd St)" [ref=f10e4988]
+                  - cell "$2,174.25" [ref=f10e4990]
+                  - cell "-$218.77" [ref=f10e4992]
+                  - cell "-$189.68" [ref=f10e4994]
+                  - cell "$0.00" [ref=f10e4996]
+                  - cell "$1,765.80" [ref=f10e4998]
+                - row [ref=f10e5000]:
+                  - cell "9/17/2026" [ref=f10e5001]
+                  - cell "612417492" [ref=f10e5003]
+                  - cell "Paid" [ref=f10e5005]
+                  - cell "Cookshop" [ref=f10e5010]
+                  - cell "$9,425.17" [ref=f10e5012]
+                  - cell "-$972.69" [ref=f10e5014]
+                  - cell "-$182.07" [ref=f10e5016]
+                  - cell "$0.00" [ref=f10e5018]
+                  - cell "$8,270.41" [ref=f10e5020]
+            - navigation "Table Pagination" [ref=f10e5023]:
+              - list [ref=f10e5024]:
+                - listitem [ref=f10e5025]:
+                  - button "go to previous page" [disabled] [ref=f10e5026]
+                - listitem [ref=f10e5029]:
+                  - button "you are currently on page 1" [ref=f10e5030] [cursor=pointer]:
+                    - generic [ref=f10e5031]: "1"
+                - listitem [ref=f10e5032]:
+                  - button "go to next page" [disabled] [ref=f10e5033]
+  - iframe [ref=f10e5]:
+    
+```

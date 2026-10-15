@@ -1,0 +1,34 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://identity.restaurant365.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fsnarfsstl.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEe2NluSTgSaebo9b3FVouA16-YqG1E5ZCYmtMi9OQ8s%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639277022092145867.YWY1Mjk1MjgtYjU1Yi00N2I1LTlkMDctOGQ4N2ZlNDAzNDg1YWUwNjM3MWQtYmU1Ni00YjliLTgyN2QtOGFkYTIxNDE1YzEw%26acr_values%3Dtenant%253Asnarfsstl%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5HfXV8wMSH9bN0iUXsAcCdIxJm8hSSH9S8jm0etcsATPMYvnwcf-ke9OSO3AZ0oIots6HMsyVKaTpBmL5ajQbTLW_B6lzu67a9EZCHoAM3IyUQPdPY2bpj6H1EaiRkQe6Vj36DekXuaGee0zn4zgi010xqHlKTRJqNOiG9UIcWPJcEomY4cNhY6itb0VAX9lFZ432McLRkibdGDzk5LPppMVjQrQf96kbfHsjmXINZVtihmD9KaauzYaKdRs6uPWYmDUeque5o846ExgnXGxbMYvytEHKU1GX1dwvI17ZkxtMr0BwmgL4sfkdGgk4U3KAflQXdZ1Vehsx7AMFsNljqgEmmdDd7Xd7b9QZN69rVsOgfAoU0J_inaBaq6eFZsOVaFONy7a2nU6iA7cJj0cqGE26eYGciya0fKvEg7VQeszgpknHgALkQVXqbOCEm_I3Ad9u7I3E-cOWjXeVgS9qgudAAvf3zZiaRp2h0mo6unbiWIiqmYzGBTw-3WTRtV9HzDllAoArbvhcqtEONBTh7603nKLA4fJq0kROqwHLOvVUVz-aIgzuuWIg7iAn-t6zX2JgJekarBrCA9I154P74MHAMhEdJfi2onYkdvZA3QeYLGMtxHm4QLUGjBT-Foe9d-GBtuyXnbIeK92fLlRL6cg_13vbjk5IwqGjdylfoZtu7d0YB08Q7OFtpiMYjuaBXIL029mihCiyFitveFJM-oVk3t5_6Xu_gh092sc-7rgJXeZtj4PMOQu-CFR6AE7XHDScF5LE8CFeQBgtYQ7sh2aB8DIi257GplZG_3eeKWJwqZymbOeM6TD4eqKxuQ2xg%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0
+- Page Title: Restaurant365
+- Console: 5 errors, 1 warnings
+### Snapshot
+```yaml
+- generic [ref=f13e2]:
+  - generic [ref=f13e4]:
+    - heading "Log in to Snarfsstl" [level=3] [ref=f13e5]
+    - generic [ref=f13e7]:
+      - textbox "Enter username" [ref=f13e9]: H
+      - generic [ref=f13e10]:
+        - generic [ref=f13e11]:
+          - textbox "Enter password" [ref=f13e12]: H
+          - generic [ref=f13e13] [cursor=pointer]
+        - generic [ref=f13e16]:
+          - generic [ref=f13e17]:
+            - checkbox "Remember me ✓" [ref=f13e18]
+            - generic [ref=f13e19] [cursor=pointer]: Remember me ✓
+          - link "Forgot password?" [ref=f13e21] [cursor=pointer]:
+            - /url: /Account/ForgotPassword?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dnetcore-signin-opaque%26redirect_uri%3Dhttps%253A%252F%252Fsnarfsstl.restaurant365.com%252FNetCore%252Fsignin-oidc%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520offline_access%26code_challenge%3DEe2NluSTgSaebo9b3FVouA16-YqG1E5ZCYmtMi9OQ8s%26code_challenge_method%3DS256%26response_mode%3Dform_post%26nonce%3D639277022092145867.YWY1Mjk1MjgtYjU1Yi00N2I1LTlkMDctOGQ4N2ZlNDAzNDg1YWUwNjM3MWQtYmU1Ni00YjliLTgyN2QtOGFkYTIxNDE1YzEw%26acr_values%3Dtenant%253Asnarfsstl%2520sso%253AFalse%2520unified%253Atrue%2520loginSso%253AFalse%2520authentication_flow%253Astandard%26state%3DCfDJ8PTDCdyUYbpDhGZSrJsgF5HfXV8wMSH9bN0iUXsAcCdIxJm8hSSH9S8jm0etcsATPMYvnwcf-ke9OSO3AZ0oIots6HMsyVKaTpBmL5ajQbTLW_B6lzu67a9EZCHoAM3IyUQPdPY2bpj6H1EaiRkQe6Vj36DekXuaGee0zn4zgi010xqHlKTRJqNOiG9UIcWPJcEomY4cNhY6itb0VAX9lFZ432McLRkibdGDzk5LPppMVjQrQf96kbfHsjmXINZVtihmD9KaauzYaKdRs6uPWYmDUeque5o846ExgnXGxbMYvytEHKU1GX1dwvI17ZkxtMr0BwmgL4sfkdGgk4U3KAflQXdZ1Vehsx7AMFsNljqgEmmdDd7Xd7b9QZN69rVsOgfAoU0J_inaBaq6eFZsOVaFONy7a2nU6iA7cJj0cqGE26eYGciya0fKvEg7VQeszgpknHgALkQVXqbOCEm_I3Ad9u7I3E-cOWjXeVgS9qgudAAvf3zZiaRp2h0mo6unbiWIiqmYzGBTw-3WTRtV9HzDllAoArbvhcqtEONBTh7603nKLA4fJq0kROqwHLOvVUVz-aIgzuuWIg7iAn-t6zX2JgJekarBrCA9I154P74MHAMhEdJfi2onYkdvZA3QeYLGMtxHm4QLUGjBT-Foe9d-GBtuyXnbIeK92fLlRL6cg_13vbjk5IwqGjdylfoZtu7d0YB08Q7OFtpiMYjuaBXIL029mihCiyFitveFJM-oVk3t5_6Xu_gh092sc-7rgJXeZtj4PMOQu-CFR6AE7XHDScF5LE8CFeQBgtYQ7sh2aB8DIi257GplZG_3eeKWJwqZymbOeM6TD4eqKxuQ2xg%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.7.1.0
+        - button "Log in" [ref=f13e22] [cursor=pointer]
+  - paragraph [ref=f13e24]:
+    - text: By clicking Log In, you have read andagree to our
+    - link "Terms & Conditions." [ref=f13e25] [cursor=pointer]:
+      - /url: https://www.restaurant365.com/legal
+```

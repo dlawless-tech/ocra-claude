@@ -1,0 +1,4 @@
+{ "weekEnding": "10/11/2026", "status": "failed", "total": null, "folder": "WE 10.11.26", "filed": false, "nextFolder": null,
+  "entries": [],
+  "warnings": ["Bowery Group Corp (client 155050, location 800) is missing from both GL workbooks. On 10/4 it had 17 GL rows."],
+  "note": "Builder stopped before import: no GL rows for Bowery Group (client 155050). Both 10.11 GL workbooks (Hourly and Salary) carry only Shuka, Vic's, Rosie's, Cookshop and Shukette. Nothing was imported to R365 and the files were left in the Payroll folder. Drop the Bowery Group GL (or confirm it had no payroll this week) and rerun with -Force." }

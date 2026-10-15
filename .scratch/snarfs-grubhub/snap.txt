@@ -1,0 +1,230 @@
+- generic:
+  - banner [ref=f7e1]:
+    - generic [ref=f7e3]:
+      - button [ref=f7e4] [cursor=pointer]
+      - button [ref=f7e7] [cursor=pointer]
+      - button [ref=f7e10] [cursor=pointer]
+  - generic [ref=f7e22]:
+    - generic [ref=f7e25]:
+      - combobox [ref=f7e430]: Operations overview
+      - button [ref=f7e431] [cursor=pointer]
+      - group
+    - generic [ref=f7e33]:
+      - generic [ref=f7e34]:
+        - generic [ref=f7e37]:
+          - generic [ref=f7e38]: Location
+          - generic [ref=f7e39]:
+            - textbox [ref=f7e432]: Snarf's Sandwiches 1 - MX
+            - generic [ref=f7e41] [cursor=pointer]
+        - paragraph [ref=f7e45]: "High: 84° | Low: 67°"
+      - heading [level=5] [ref=f7e433]: Today is Thursday, October 15th. Let's get Started!
+      - generic [ref=f7e67] [cursor=pointer]:
+        - button [ref=f7e68]
+        - link [ref=f7e434]:
+          - /url: /react/inventory/invoices?src=Home&
+          - paragraph [ref=f7e77]: Invoices
+      - generic [ref=f7e79]:
+        - generic:
+          - link:
+            - /url: /react/workforce/scheduler?src=Home&locationId=898afd00-446c-4853-9fb0-36abe90d284b
+            - generic:
+              - paragraph: Schedule
+      - generic [ref=f7e82] [cursor=pointer]:
+        - button [ref=f7e83]
+        - link [ref=f7e435]:
+          - /url: /react/inventory/inventory?src=Home&
+          - paragraph [ref=f7e92]: Inventory
+      - generic [ref=f7e94]:
+        - generic:
+          - link:
+            - /url: /react/inventory/orders?src=Home&
+            - generic:
+              - paragraph: Orders
+      - generic [ref=f7e97] [cursor=pointer]:
+        - button [ref=f7e98]
+        - link [ref=f7e436]:
+          - /url: /react/inventory/transfers?src=Home&
+          - paragraph [ref=f7e107]: Transfers
+      - generic [ref=f7e110] [cursor=pointer]:
+        - button [ref=f7e111]
+        - link [ref=f7e437]:
+          - /url: /react/inventory/prepSheets
+          - paragraph [ref=f7e120]: Prep
+      - link [ref=f7e438] [cursor=pointer]:
+        - /url: /react/reports-management/legacy/MyReports
+        - paragraph [ref=f7e130]: Reports
+      - generic [ref=f7e133] [cursor=pointer]:
+        - button [ref=f7e134]
+        - link [ref=f7e439]:
+          - /url: /react/inventory/waste-logs?src=Home&
+          - paragraph [ref=f7e143]: Waste Log
+      - paragraph [ref=f7e155] [cursor=pointer]: Upload Documents
+      - generic [ref=f7e158]:
+        - button [ref=f7e159] [cursor=pointer]
+        - generic [ref=f7e162]:
+          - generic [ref=f7e163]:
+            - heading [level=6] [ref=f7e440]: A Look at Yesterday
+            - button [ref=f7e441] [cursor=pointer]:
+              - paragraph [ref=f7e172]: View DSS
+          - generic [ref=f7e173]:
+            - generic [ref=f7e174]:
+              - generic [ref=f7e179]:
+                - generic [ref=f7e180]: Total Sales
+                - heading [level=6] [ref=f7e442]: $2,797.73
+              - generic [ref=f7e187]:
+                - generic [ref=f7e188]: Labor
+                - heading [level=6] [ref=f7e443]: 29.00%
+            - generic [ref=f7e191]:
+              - generic [ref=f7e196]:
+                - generic [ref=f7e197]: Over / Short
+                - heading [level=6] [ref=f7e444]: $0.00
+              - generic [ref=f7e204]:
+                - generic [ref=f7e205]: SPLH
+                - heading [level=6] [ref=f7e445]: $60.56
+        - generic [ref=f7e208]:
+          - generic [ref=f7e209]:
+            - heading [level=6] [ref=f7e446]: Week to Date
+            - generic [ref=f7e214]:
+              - generic [ref=f7e215]: Total Sales
+              - heading [level=6] [ref=f7e447]: $10,120.56
+            - generic [ref=f7e221]:
+              - generic [ref=f7e222]: Labor
+              - heading [level=6] [ref=f7e448]: 25.69%
+          - generic [ref=f7e231]:
+            - generic [ref=f7e233]:
+              - generic [ref=f7e234]: Over / Short
+              - heading [level=6] [ref=f7e449]: "-$0.00"
+            - link [ref=f7e450] [cursor=pointer]:
+              - /url: /react/home?dashboard=operationsDashboard&locationId=898afd00-446c-4853-9fb0-36abe90d284b
+              - button [ref=f7e451]:
+                - paragraph [ref=f7e243]: Operations
+      - generic [ref=f7e245]:
+        - generic [ref=f7e247]:
+          - tablist [ref=f7e250]:
+            - tab [selected] [ref=f7e452] [cursor=pointer]: Logbook
+          - generic [ref=f7e253]:
+            - generic [ref=f7e257]:
+              - generic [ref=f7e258]:
+                - generic [ref=f7e259]:
+                  - img [ref=f7e260]:
+                    - generic [ref=f7e262]: "-"
+                  - paragraph [ref=f7e263]: All Entries
+                - generic [ref=f7e264]:
+                  - img [ref=f7e265]:
+                    - generic [ref=f7e267]: "-"
+                  - paragraph [ref=f7e268]: My Entries
+                - generic [ref=f7e269]:
+                  - img [ref=f7e270]:
+                    - generic [ref=f7e272]: "-"
+                  - paragraph [ref=f7e273]: Must Read
+                - generic [ref=f7e274]:
+                  - img [ref=f7e275]:
+                    - generic [ref=f7e277]: "-"
+                  - paragraph [ref=f7e278]: Important
+              - button [ref=f7e453] [cursor=pointer]: Tell us something we should know...
+            - generic [ref=f7e282]:
+              - separator [ref=f7e283]
+              - heading [level=6] [ref=f7e454]: No Entries yet!
+        - generic [ref=f7e291]:
+          - generic [ref=f7e292]:
+            - heading [level=6] [ref=f7e455]: Labor Lineup
+            - generic [ref=f7e296]:
+              - button [disabled]
+          - separator [ref=f7e297]
+          - generic [ref=f7e300]:
+            - generic [ref=f7e301]:
+              - paragraph [ref=f7e304]: View today’s labor lineup
+              - button [ref=f7e305] [cursor=pointer]: Get started with scheduling
+            - generic [ref=f7e306]:
+              - generic [ref=f7e308]:
+                - generic [ref=f7e310]:
+                  - generic [ref=f7e311]: 7:00 am
+                  - generic [ref=f7e312]: 9:00 pm
+                - generic [ref=f7e313]:
+                  - generic [ref=f7e456]: Breakfast
+                  - generic [ref=f7e457]: Launch
+                  - generic [ref=f7e458]: Dinner
+              - generic [ref=f7e322]:
+                - generic [ref=f7e459] [cursor=pointer]
+                - generic [ref=f7e353] [cursor=pointer]
+                - generic [ref=f7e356] [cursor=pointer]
+                - generic [ref=f7e460] [cursor=pointer]
+                - generic [ref=f7e362] [cursor=pointer]
+                - generic [ref=f7e365] [cursor=pointer]
+                - generic [ref=f7e368] [cursor=pointer]
+                - generic [ref=f7e371] [cursor=pointer]
+                - generic [ref=f7e374] [cursor=pointer]
+                - generic [ref=f7e377] [cursor=pointer]
+                - generic [ref=f7e380] [cursor=pointer]
+                - generic [ref=f7e383] [cursor=pointer]
+                - generic [ref=f7e386] [cursor=pointer]
+                - generic [ref=f7e389] [cursor=pointer]
+                - generic [ref=f7e392] [cursor=pointer]
+                - generic [ref=f7e395] [cursor=pointer]
+                - generic [ref=f7e398] [cursor=pointer]
+                - generic [ref=f7e401] [cursor=pointer]
+                - generic [ref=f7e404] [cursor=pointer]
+                - generic [ref=f7e407] [cursor=pointer]
+                - generic [ref=f7e410] [cursor=pointer]
+                - generic [ref=f7e413] [cursor=pointer]
+                - generic [ref=f7e416] [cursor=pointer]
+                - generic [ref=f7e419] [cursor=pointer]
+                - generic [ref=f7e423] [cursor=pointer]
+                - generic [ref=f7e424] [cursor=pointer]
+                - generic [ref=f7e425] [cursor=pointer]
+                - generic [ref=f7e426] [cursor=pointer]
+                - generic [ref=f7e427] [cursor=pointer]
+                - generic [ref=f7e428] [cursor=pointer]
+  - generic [ref=f7e462]:
+    - paragraph [ref=f7e464]: Your Apps
+    - list [ref=f7e465]:
+      - button [ref=f7e577] [cursor=pointer]:
+        - generic [ref=f7e578]: Dashboards
+      - button [ref=f7e579] [cursor=pointer]:
+        - generic [ref=f7e580]: Reports
+      - button [ref=f7e581] [cursor=pointer]:
+        - generic [ref=f7e582]: Accounting
+      - button [ref=f7e583] [cursor=pointer]:
+        - generic [ref=f7e584]: Inventory
+      - button [ref=f7e585] [cursor=pointer]:
+        - generic [ref=f7e586]: Sales & forecasting
+      - button [ref=f7e587] [cursor=pointer]:
+        - generic [ref=f7e588]: Workforce
+      - button [ref=f7e589] [cursor=pointer]:
+        - generic [ref=f7e590]: Manager log
+      - button [ref=f7e591] [cursor=pointer]:
+        - generic [ref=f7e592]: More
+    - list [ref=f7e542]:
+      - button [ref=f7e593] [cursor=pointer]:
+        - generic [ref=f7e594]: Admin
+      - button [ref=f7e595] [cursor=pointer]:
+        - generic [ref=f7e596]: Help
+      - button [ref=f7e597] [cursor=pointer]:
+        - generic [ref=f7e598]: Account
+      - button [ref=f7e599] [cursor=pointer]:
+        - generic [ref=f7e600]: Marketplace
+  - generic [ref=f7e602]:
+    - generic [ref=f7e603]:
+      - button [ref=f7e604] [cursor=pointer]
+      - paragraph [ref=f7e607]: Accounting
+    - list [ref=f7e608]:
+      - button "Accounts payable" [ref=f7e609] [cursor=pointer]:
+        - button [ref=f7e612]
+      - button "Accounts receivable" [ref=f7e615] [cursor=pointer]:
+        - button [ref=f7e618]
+      - button "Banking" [ref=f7e621] [cursor=pointer]:
+        - button [ref=f7e624]
+      - button "Fixed assets" [ref=f7e627] [cursor=pointer]:
+        - button [ref=f7e630]
+      - button "General ledger" [ref=f7e633] [cursor=pointer]:
+        - button [ref=f7e636]
+      - button "Transactions" [active] [ref=f7e639] [cursor=pointer]:
+        - button [ref=f7e642]
+      - list [ref=f7e647]:
+        - link "All transactions" [ref=f7e648] [cursor=pointer]:
+          - /url: /react/accounting/legacy/AllTransactions
+        - link "Memorized transactions" [ref=f7e651] [cursor=pointer]:
+          - /url: /react/accounting/legacy/MemorizedTransactions
+        - link "Transaction details" [ref=f7e654] [cursor=pointer]:
+          - /url: /react/accounting/legacy/TransactionDetails
+  - tooltip "Transactions"

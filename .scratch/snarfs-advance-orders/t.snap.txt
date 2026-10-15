@@ -1,0 +1,752 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://www.toasttab.com/restaurants/admin/home
+- Page Title: Toast Home
+- Console: 4 errors, 23 warnings
+### Snapshot
+```yaml
+- generic [active] [ref=f9e1]:
+  - status [ref=f9e2]
+  - generic [ref=f9e7]:
+    - generic:
+      - button "Open Toast IQ" [ref=f9e8] [cursor=pointer]:
+        - img "Open Toast IQ" [ref=f9e9]
+      - button "Skip to main content" [ref=f9e12] [cursor=pointer]
+      - generic [ref=f9e15]:
+        - generic [ref=f9e16]:
+          - link "Home" [ref=f9e18] [cursor=pointer]:
+            - /url: /restaurants/admin/home
+          - generic [ref=f9e22]:
+            - button "Toggle left rail display" [ref=f9e23] [cursor=pointer]:
+              - img "Open" [ref=f9e24]
+            - generic [ref=f9e27]:
+              - navigation "Left rail navigation":
+                - list
+                - list:
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Home":
+                          - /url: /restaurants/admin/home?utm_content=left_rail
+                          - generic [ref=f9e28] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e32]:
+                    - generic [ref=f9e33]:
+                      - generic [ref=f9e34]: TIP
+                      - button "Got it" [ref=f9e35] [cursor=pointer]
+                  - listitem:
+                    - button "Toast IQ":
+                      - img "Toast IQ":
+                        - generic [ref=f9e36] [cursor=pointer]
+                        - generic [ref=f9e37] [cursor=pointer]
+                        - generic [ref=f9e38] [cursor=pointer]
+                        - generic [ref=f9e39] [cursor=pointer]
+                        - generic [ref=f9e40] [cursor=pointer]
+                        - generic [ref=f9e41] [cursor=pointer]
+                        - generic [ref=f9e42] [cursor=pointer]
+                        - generic [ref=f9e43] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Inbox":
+                          - /url: /restaurants/admin/notification-log?utm_content=left_rail
+                          - generic [ref=f9e44] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e48]:
+                    - generic [ref=f9e49]:
+                      - generic [ref=f9e50]: TIP
+                      - button "Got it" [ref=f9e51] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Reports":
+                          - /url: /restaurants/admin/reports/homepage?utm_content=left_rail
+                          - generic [ref=f9e52] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e56]:
+                    - generic [ref=f9e57]:
+                      - generic [ref=f9e58]: TIP
+                      - button "Got it" [ref=f9e59] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Discover products":
+                          - /url: /restaurants/admin/discovery/homepage?utm_medium=ipm&utm_source=toastweb-native&utm_campaign=customer-tproducts-marketing-2025-05-shop-discohub-walk-plg-homepage-left-nav&utm_term=na&utm_content=left_rail
+                          - generic [ref=f9e60] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e64]:
+                    - generic [ref=f9e65]:
+                      - generic [ref=f9e66]: TIP
+                      - button "Got it" [ref=f9e67] [cursor=pointer]
+                - list:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - listitem:
+                          - link "Team":
+                            - /url: /restaurants/admin/team?utm_source=team-nav-rollout&utm_content=left_rail
+                            - generic [ref=f9e68] [cursor=pointer]
+                    - tooltip "TIP Got it" [ref=f9e72]:
+                      - generic [ref=f9e73]:
+                        - generic [ref=f9e74]: TIP
+                        - button "Got it" [ref=f9e75] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - generic:
+                        - listitem:
+                          - link "Finance":
+                            - /url: /restaurants/admin/financial-products?utm_source=rd-capital&utm_medium=toastweb-native&utm_campaign=finance-left-nav&utm_content=left_rail
+                            - generic [ref=f9e76] [cursor=pointer]
+                    - tooltip "TIP Got it" [ref=f9e82]:
+                      - generic [ref=f9e83]:
+                        - generic [ref=f9e84]: TIP
+                        - button "Got it" [ref=f9e85] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e86]:
+                    - generic [ref=f9e87]:
+                      - generic [ref=f9e88]: TIP
+                      - button "Got it" [ref=f9e89] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Payroll":
+                          - /url: /customers/shop/product/01tC0000004h3GPIAY?utm_source=rd-plg&utm_medium=toastweb-native&utm_campaign=customer-ec-payroll-left-nav&utm_content=left_rail
+                          - generic [ref=f9e90] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e94]:
+                    - generic [ref=f9e95]:
+                      - generic [ref=f9e96]: TIP
+                      - button "Got it" [ref=f9e97] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Menus":
+                          - /url: /restaurants/admin/menus/homepage?utm_content=left_rail
+                          - generic [ref=f9e98] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e102]:
+                    - generic [ref=f9e103]:
+                      - generic [ref=f9e104]: TIP
+                      - button "Got it" [ref=f9e105] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Takeout & delivery":
+                          - /url: /restaurants/admin/takeout-delivery/homepage?utm_content=left_rail
+                          - generic [ref=f9e106] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e110]:
+                    - generic [ref=f9e111]:
+                      - generic [ref=f9e112]: TIP
+                      - button "Got it" [ref=f9e113] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Catering & events":
+                          - /url: /customers/shop/software-services/01t4W00000Hh2k7QAB-base?tier=Essentials&utm_medium=ipm&utm_source=toastweb-native&utm_campaign=customer-cande-marketing-2025-06-r-mm-ent-leftnav-plg&utm_term=na&utm_content=left_rail
+                          - generic [ref=f9e114] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e118]:
+                    - generic [ref=f9e119]:
+                      - generic [ref=f9e120]: TIP
+                      - button "Got it" [ref=f9e121] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Guests":
+                          - /url: /restaurants/admin/crm?utm_content=left_rail
+                          - generic [ref=f9e122] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e126]:
+                    - generic [ref=f9e127]:
+                      - generic [ref=f9e128]: TIP
+                      - button "Got it" [ref=f9e129] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Advertising":
+                          - /url: /restaurants/admin/ads?utm_content=left_rail
+                          - generic [ref=f9e130] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e134]:
+                    - generic [ref=f9e135]:
+                      - generic [ref=f9e136]: TIP
+                      - button "Got it" [ref=f9e137] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Marketing":
+                          - /url: /restaurants/admin/marketing/assistant?utm_content=left_rail
+                          - generic [ref=f9e138] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e142]:
+                    - generic [ref=f9e143]:
+                      - generic [ref=f9e144]: TIP
+                      - button "Got it" [ref=f9e145] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Front of house":
+                          - /url: /restaurants/admin/FoH/homepage?utm_content=left_rail
+                          - generic [ref=f9e146] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e150]:
+                    - generic [ref=f9e151]:
+                      - generic [ref=f9e152]: TIP
+                      - button "Got it" [ref=f9e153] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Kitchen":
+                          - /url: /restaurants/admin/kitchen/homepage?utm_content=left_rail
+                          - generic [ref=f9e154] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e158]:
+                    - generic [ref=f9e159]:
+                      - generic [ref=f9e160]: TIP
+                      - button "Got it" [ref=f9e161] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "xtraCHEF":
+                          - /url: /restaurants/admin/discover/xtrachef?utm_content=left_rail
+                          - generic [ref=f9e162] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e166]:
+                    - generic [ref=f9e167]:
+                      - generic [ref=f9e168]: TIP
+                      - button "Got it" [ref=f9e169] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Waitlist & Reservations":
+                          - /url: /customers/shop/software-services/01t4W00000B3a0vQAB-base?tier=Waitlist+%2B+Unlimited+Reservations&utm_medium=ipm&utm_source=toastweb-native&utm_campaign=customer-tables-marketing-2025-06-r-mm-ent-leftnav-plg&utm_term=na&utm_content=left_rail
+                          - generic [ref=f9e170] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e174]:
+                    - generic [ref=f9e175]:
+                      - generic [ref=f9e176]: TIP
+                      - button "Got it" [ref=f9e177] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Retail":
+                          - /url: /restaurants/admin/discover/retail?utm_content=left_rail
+                          - generic [ref=f9e178] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e182]:
+                    - generic [ref=f9e183]:
+                      - generic [ref=f9e184]: TIP
+                      - button "Got it" [ref=f9e185] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Scheduling":
+                          - /url: /restaurants/admin/scheduling/redirect?utm_content=left_rail
+                          - generic [ref=f9e186] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e190]:
+                    - generic [ref=f9e191]:
+                      - generic [ref=f9e192]: TIP
+                      - button "Got it" [ref=f9e193] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Websites":
+                          - /url: /restaurants/admin/sites?utm_content=left_rail
+                          - generic [ref=f9e194] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e198]:
+                    - generic [ref=f9e199]:
+                      - generic [ref=f9e200]: TIP
+                      - button "Got it" [ref=f9e201] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Manager Log":
+                          - /url: /restaurants/admin/manager-log?utm_content=left_rail
+                          - generic [ref=f9e202] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e206]:
+                    - generic [ref=f9e207]:
+                      - generic [ref=f9e208]: TIP
+                      - button "Got it" [ref=f9e209] [cursor=pointer]
+                - list:
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Integrations":
+                          - /url: /restaurants/admin/integrations/homepage?utm_content=left_rail
+                          - generic [ref=f9e210] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e214]:
+                    - generic [ref=f9e215]:
+                      - generic [ref=f9e216]: TIP
+                      - button "Got it" [ref=f9e217] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Shop":
+                          - /url: /customers/shop?utm_medium=ipm&utm_source=toastweb-native&utm_campaign=customer-tproducts-marketing-2026-04-shop-leftnav&utm_term=na&utm_content=left_rail
+                          - generic [ref=f9e218] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e223]:
+                    - generic [ref=f9e224]:
+                      - generic [ref=f9e225]: TIP
+                      - button "Got it" [ref=f9e226] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Toast account":
+                          - /url: /restaurants/admin/toast-account/homepage?utm_content=left_rail
+                          - generic [ref=f9e227] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e232]:
+                    - generic [ref=f9e233]:
+                      - generic [ref=f9e234]: TIP
+                      - button "Got it" [ref=f9e235] [cursor=pointer]
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Support Center":
+                          - /url: /restaurants/admin/support?utm_content=left_rail
+                          - generic [ref=f9e236] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e241]:
+                    - generic [ref=f9e242]:
+                      - generic [ref=f9e243]: TIP
+                      - button "Got it" [ref=f9e244] [cursor=pointer]
+                - list:
+                  - generic:
+                    - generic:
+                      - listitem:
+                        - link "Device hub":
+                          - /url: /restaurants/admin/devices?utm_content=left_rail
+                          - generic [ref=f9e245] [cursor=pointer]
+                  - tooltip "TIP Got it" [ref=f9e249]:
+                    - generic [ref=f9e250]:
+                      - generic [ref=f9e251]: TIP
+                      - button "Got it" [ref=f9e252] [cursor=pointer]
+          - combobox "Toggle restaurant picker" [ref=f9e254] [cursor=pointer]:
+            - generic [ref=f9e255]:
+              - generic [ref=f9e261]:
+                - generic [ref=f9e262]: Melbourne
+                - generic [ref=f9e263]: 3Natives
+              - img "Show more locations" [ref=f9e264]
+        - generic [ref=f9e267]:
+          - button "Search Toast Web" [ref=f9e269] [cursor=pointer]
+          - tooltip "Search Toast Web" [ref=f9e273]
+          - generic [ref=f9e274]:
+            - link "Shop" [ref=f9e276] [cursor=pointer]:
+              - /url: /customers/shop?utm_source=rd-plg&utm_medium=toastweb-native&utm_campaign=customer-shop-top-nav-mar-23
+            - tooltip "Toast Shop" [ref=f9e281]
+            - button "My account" [ref=f9e284] [cursor=pointer]
+            - tooltip "Account" [ref=f9e288]
+            - button [ref=f9e290] [cursor=pointer]:
+              - img "Setup checklist" [ref=f9e291]
+            - tooltip "Set up your Toast Products" [ref=f9e294]
+            - button [ref=f9e296] [cursor=pointer]:
+              - img "Unread Notifications" [ref=f9e298]
+            - tooltip "Notifications" [ref=f9e302]
+            - link "Support Center" [ref=f9e304] [cursor=pointer]:
+              - /url: /restaurants/admin/support?utm_content=global_header
+            - tooltip "Support Center" [ref=f9e310]
+            - button "Ask Toast IQ" [ref=f9e312] [cursor=pointer]
+            - tooltip "Ask Toast IQ" [ref=f9e323]
+    - generic [ref=f9e328]:
+      - generic [ref=f9e330]:
+        - heading "Welcome, Mark. Let's explore what's happening in your business." [level=4] [ref=f9e331]
+        - generic [ref=f9e333]:
+          - generic [ref=f9e337]:
+            - combobox "Ask Toast IQ" [ref=f9e338]
+            - generic [ref=f9e339] [cursor=pointer]: Did nearby events or weather affect my traffic last week?|
+            - button "Send" [disabled] [ref=f9e340]
+          - region:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic: Trending prompts
+                    - button
+                  - list:
+                    - listitem: What are my top moving menu items this month?
+                    - listitem: Show me my labor percent of sales trend for the last 3 weeks
+                    - listitem: Did nearby events or weather affect my traffic last week?
+        - generic [ref=f9e345]:
+          - generic [ref=f9e346]:
+            - generic [ref=f9e347]:
+              - generic [ref=f9e348]: Select day
+              - combobox "Select day" [ref=f9e352] [cursor=pointer]:
+                - generic [ref=f9e358]:
+                  - generic [ref=f9e359]: Today
+                  - generic [ref=f9e360]: Oct 14, 2026
+              - generic:
+                - alert
+            - generic [ref=f9e364]:
+              - generic [ref=f9e365]: Compare
+              - combobox "Compare" [ref=f9e369] [cursor=pointer]:
+                - generic [ref=f9e375]:
+                  - generic [ref=f9e376]: Compare
+                  - generic [ref=f9e377]: Yesterday
+              - generic:
+                - alert
+          - generic [ref=f9e381]: Real-Time
+      - generic [ref=f9e385]:
+        - heading "Quick actions" [level=2] [ref=f9e389]
+        - generic [ref=f9e392]:
+          - list [ref=f9e393]:
+            - listitem [ref=f9e394]:
+              - link "Sales summary" [ref=f9e395] [cursor=pointer]:
+                - /url: /restaurants/admin/reports/sales/sales-summary
+            - listitem [ref=f9e401]:
+              - link "Labor summary" [ref=f9e402] [cursor=pointer]:
+                - /url: /restaurants/admin/legacyReports/labor#labor-summary
+            - listitem [ref=f9e408]:
+              - button "Edit menus" [disabled] [ref=f9e409]
+            - listitem [ref=f9e418]:
+              - button "Menu manager" [disabled] [ref=f9e419]
+            - listitem [ref=f9e428]:
+              - link "Refund check" [ref=f9e429] [cursor=pointer]:
+                - /url: /restaurants/admin/checksearch
+            - listitem [ref=f9e435]:
+              - link "Employees" [ref=f9e436] [cursor=pointer]:
+                - /url: /restaurants/admin/employees/summary
+            - listitem [ref=f9e442]:
+              - link "Time entry management" [ref=f9e443] [cursor=pointer]:
+                - /url: /restaurants/admin/labor
+          - generic [ref=f9e449]:
+            - text: New from Toast
+            - list [ref=f9e450]:
+              - listitem [ref=f9e451]:
+                - button "Toast IQ icon Daily brief" [ref=f9e452] [cursor=pointer]:
+                  - img "Toast IQ icon" [ref=f9e454]
+                  - generic [ref=f9e463]: Daily brief
+              - listitem [ref=f9e464]:
+                - link "Benchmarking" [ref=f9e465] [cursor=pointer]:
+                  - /url: /restaurants/admin/insights
+              - listitem [ref=f9e471]:
+                - link "Instant deposit" [ref=f9e472] [cursor=pointer]:
+                  - /url: /restaurants/admin/instant-deposit?utm_source=financial-products&utm_medium=subnav&utm_campaign=payments-instant-deposit
+              - listitem [ref=f9e478]:
+                - link "Advertising" [ref=f9e479] [cursor=pointer]:
+                  - /url: /restaurants/admin/ads
+              - listitem [ref=f9e485]:
+                - link "Toast Checking" [ref=f9e486] [cursor=pointer]:
+                  - /url: /restaurants/admin/toast-checking?utm_source=financial-products&utm_medium=subnav&utm_campaign=finance-checking-account
+              - listitem [ref=f9e492]:
+                - link "Device hub" [ref=f9e493] [cursor=pointer]:
+                  - /url: /restaurants/admin/devices
+      - generic [ref=f9e500]:
+        - generic [ref=f9e502]:
+          - generic "Net sales" [ref=f9e503]
+          - link [ref=f9e504] [cursor=pointer]:
+            - /url: /restaurants/admin/reports/sales/sales-summary
+        - generic [ref=f9e509]:
+          - generic [ref=f9e510]:
+            - generic [ref=f9e511]:
+              - generic "Current day" [ref=f9e512]: Today
+              - generic "Current day amount" [ref=f9e513]: $891.73
+            - generic [ref=f9e514]:
+              - generic "Previous day" [ref=f9e515]: Yesterday
+              - generic [ref=f9e516]:
+                - img "decrease" [ref=f9e518]
+                - text: "-15%"
+          - text: Real time
+      - generic [ref=f9e522]:
+        - generic [ref=f9e524]:
+          - generic "Labor cost % of net sales" [ref=f9e525]
+          - link [ref=f9e526] [cursor=pointer]:
+            - /url: reports/labor/labor-cost-breakdown
+        - generic [ref=f9e531]:
+          - generic [ref=f9e532]:
+            - generic [ref=f9e533]:
+              - generic "Current day" [ref=f9e534]: Today
+              - generic "Current day amount" [ref=f9e535]: 9.97%
+            - generic [ref=f9e536]:
+              - generic "Previous day" [ref=f9e537]: Yesterday
+              - generic [ref=f9e538]:
+                - img "increase" [ref=f9e540]
+                - text: 14%
+          - text: Real time
+      - generic [ref=f9e544]:
+        - generic [ref=f9e546]:
+          - generic "Discounts" [ref=f9e547]
+          - link [ref=f9e548] [cursor=pointer]:
+            - /url: legacyReports/exceptions#discounts
+        - generic [ref=f9e553]:
+          - generic [ref=f9e554]:
+            - generic [ref=f9e555]:
+              - generic "Current day" [ref=f9e556]: Today
+              - generic "Current day amount" [ref=f9e557]: $24.66
+            - generic [ref=f9e558]:
+              - generic "Previous day" [ref=f9e559]: Yesterday
+              - generic [ref=f9e560]:
+                - img "decrease" [ref=f9e562]
+                - text: "-28%"
+          - text: Real time
+      - generic [ref=f9e570]:
+        - generic [ref=f9e573]:
+          - img "QR code to download Toast Now mobile app in the App store" [ref=f9e575]
+          - generic [ref=f9e576]:
+            - generic [ref=f9e577]:
+              - generic [ref=f9e578]: Toast Now
+              - paragraph [ref=f9e581]: Access toast on the go with our free mobile application
+            - link [ref=f9e582] [cursor=pointer]:
+              - /url: https://www.toasttab.com/customers/shop/product/toast-now?utm_source=marketing&utm_medium=toast-recommends&utm_campaign=customer-commerce-plg-homepage-card-nov-23
+              - generic [ref=f9e584]:
+                - text: Learn more
+                - img "Open in new tab" [ref=f9e585]
+        - separator [ref=f9e588]
+        - navigation [ref=f9e590]:
+          - button [ref=f9e591] [cursor=pointer]:
+            - img "Previous" [ref=f9e592]
+          - list [ref=f9e595]:
+            - listitem [ref=f9e596]
+            - listitem [ref=f9e597]
+            - listitem [ref=f9e598]
+            - listitem [ref=f9e599]
+          - button [ref=f9e600] [cursor=pointer]:
+            - img "Next" [ref=f9e601]
+      - generic [ref=f9e605]:
+        - generic [ref=f9e607]:
+          - generic "Net sales by item" [ref=f9e608]
+          - link [ref=f9e609] [cursor=pointer]:
+            - /url: analytics/home/menu/breakdown
+        - generic [ref=f9e615]:
+          - generic [ref=f9e616]:
+            - table [ref=f9e617]:
+              - rowgroup [ref=f9e618]:
+                - row [ref=f9e619]:
+                  - columnheader "Item" [ref=f9e620]
+                  - columnheader "Net sales" [ref=f9e621]
+              - rowgroup [ref=f9e622]:
+                - row [ref=f9e623]:
+                  - cell "Nutella Crunch" [ref=f9e624]
+                  - cell "$91.21" [ref=f9e625]
+                - row [ref=f9e626]:
+                  - cell "Coco Breeze" [ref=f9e627]
+                  - cell "$53.55" [ref=f9e628]
+                - row [ref=f9e629]:
+                  - cell "The Local" [ref=f9e630]
+                  - cell "$49.71" [ref=f9e631]
+                - row [ref=f9e632]:
+                  - cell "The Callie Special" [ref=f9e633]
+                  - cell "$48.73" [ref=f9e634]
+            - text: Real time
+          - navigation [ref=f9e636]:
+            - button [ref=f9e637] [cursor=pointer]:
+              - img "Previous" [ref=f9e638]
+            - list [ref=f9e641]:
+              - listitem [ref=f9e642]
+              - listitem [ref=f9e643]
+              - listitem [ref=f9e644]
+              - listitem [ref=f9e645]
+              - listitem [ref=f9e646]
+            - button [ref=f9e647] [cursor=pointer]:
+              - img "Next" [ref=f9e648]
+      - generic [ref=f9e652]:
+        - generic "Breakdown" [ref=f9e655]
+        - generic [ref=f9e658]:
+          - generic [ref=f9e659]:
+            - table [ref=f9e660]:
+              - rowgroup [ref=f9e661]:
+                - row [ref=f9e662]:
+                  - columnheader "Time" [ref=f9e663]
+                  - columnheader "Net sales" [ref=f9e664]
+                  - columnheader "Labor cost" [ref=f9e665]
+                  - columnheader "Labor %" [ref=f9e666]
+              - rowgroup [ref=f9e667]:
+                - row [ref=f9e668]:
+                  - cell "8 AM" [ref=f9e669]
+                  - cell "$103" [ref=f9e670]
+                  - cell "$2" [ref=f9e671]
+                  - cell "1.93%" [ref=f9e672]
+                - row [ref=f9e673]:
+                  - cell "9 AM" [ref=f9e674]
+                  - cell "$21" [ref=f9e675]
+                  - cell "$0" [ref=f9e676]
+                  - cell "0%" [ref=f9e677]
+                - row [ref=f9e678]:
+                  - cell "10 AM" [ref=f9e679]
+                  - cell "$66" [ref=f9e680]
+                  - cell "$0" [ref=f9e681]
+                  - cell "0%" [ref=f9e682]
+                - row [ref=f9e683]:
+                  - cell "11 AM" [ref=f9e684]
+                  - cell "$105" [ref=f9e685]
+                  - cell "$9" [ref=f9e686]
+                  - cell "8.44%" [ref=f9e687]
+            - text: Real time
+          - navigation [ref=f9e689]:
+            - button [ref=f9e690] [cursor=pointer]:
+              - img "Previous" [ref=f9e691]
+            - list [ref=f9e694]:
+              - listitem [ref=f9e695]
+              - listitem [ref=f9e696]
+              - listitem [ref=f9e697]
+              - listitem [ref=f9e698]
+              - listitem [ref=f9e699]
+              - listitem [ref=f9e700]
+            - button [ref=f9e701] [cursor=pointer]:
+              - img "Next" [ref=f9e702]
+      - generic [ref=f9e706]:
+        - generic [ref=f9e708]:
+          - generic "Financial products" [ref=f9e709]
+          - link [ref=f9e710] [cursor=pointer]:
+            - /url: /restaurants/admin/financial-products?utm_campaign=customer-capital-homepage-card&utm_medium=toastweb-native&utm_source=rd-capital
+        - generic [ref=f9e718]:
+          - generic [ref=f9e722]:
+            - paragraph [ref=f9e737]:
+              - text: You're pre-qualified
+              - button "*"
+              - text: for up to $18,900
+            - paragraph [ref=f9e739]: The application takes a few minutes; if approved, funding is disbursed 1-2 business days after signing your credit agreement.
+            - link "Check out Toast Capital" [ref=f9e740] [cursor=pointer]:
+              - /url: /restaurants/admin/capital/landing?utm_campaign=customer-capital-homepage-card&utm_medium=toastweb-native&utm_source=rd-capital&utm_source_card_variant=pre-qualified
+          - generic [ref=f9e744]:
+            - heading "Put budgeting on autopilot" [level=3] [ref=f9e768]
+            - generic [ref=f9e769]:
+              - text: With Toast Checking
+              - button "*"
+              - text: ", automatically set aside money for taxes, payroll, and bills as sales come in, so your money is there when you need it."
+            - link "Explore Toast Checking" [ref=f9e771] [cursor=pointer]:
+              - /url: /restaurants/admin/toast-checking?utm_campaign=customer-capital-homepage-card-tba-budget-better&utm_medium=toastweb-native&utm_source=rd-capital
+          - navigation [ref=f9e778]:
+            - button [ref=f9e779] [cursor=pointer]:
+              - img "Previous" [ref=f9e780]
+            - list [ref=f9e783]:
+              - listitem [ref=f9e784]
+              - listitem [ref=f9e785]
+              - listitem [ref=f9e786]
+              - listitem [ref=f9e787]
+            - button [ref=f9e788] [cursor=pointer]:
+              - img "Next" [ref=f9e789]
+      - generic [ref=f9e793]:
+        - generic "Impact" [ref=f9e796]
+        - generic [ref=f9e800]:
+          - generic [ref=f9e802]:
+            - heading "Fundraise for a charity" [level=3] [ref=f9e809]
+            - paragraph [ref=f9e810]: Support local organizations in your community by allowing your guests to round up their check.
+            - link "Start fundraising now" [ref=f9e812] [cursor=pointer]:
+              - /url: /restaurants/admin/fundraising
+          - navigation [ref=f9e819]:
+            - button [ref=f9e820] [cursor=pointer]:
+              - img "Previous" [ref=f9e821]
+            - list [ref=f9e824]:
+              - listitem [ref=f9e825]
+              - listitem [ref=f9e826]
+              - listitem [ref=f9e827]
+            - button [ref=f9e828] [cursor=pointer]:
+              - img "Next" [ref=f9e829]
+      - generic [ref=f9e833]:
+        - generic "Toast Online Ordering" [ref=f9e836]
+        - generic [ref=f9e839]:
+          - heading "Toast Online Ordering" [level=5] [ref=f9e851]
+          - paragraph [ref=f9e852]: Restaurants can save up to $36K a year in commissions* by switching to Toast Online Ordering. Own your guest relationship and maintain your margins by allowing guests to easily order pickup or delivery directly from you – commission-free.
+          - paragraph [ref=f9e853]: "*Based on average monthly Online Ordering volume, assuming that customers pay 30% commission on third party ordering channels and switch all digital ordering volume to Toast."
+          - link "Upgrade now" [ref=f9e855] [cursor=pointer]:
+            - /url: /customers/shop/software-services/digital-storefront-suite?tier=Essentials&utm_medium=website&utm_source=toastweb-native&utm_campaign=customer-toordering-marketing-2024-11-oo-homepage-plg-td-promo-card&utm_term=na&utm_content=na
+      - generic [ref=f9e858]:
+        - generic [ref=f9e860]:
+          - generic "Marketing recommendations" [ref=f9e861]
+          - link [ref=f9e862] [cursor=pointer]:
+            - /url: /restaurants/admin/marketing/assistant
+        - generic [ref=f9e869]:
+          - generic [ref=f9e870]:
+            - paragraph [ref=f9e871]: Set up your brand once. Use it in Marketing and more soon.
+            - paragraph [ref=f9e872]: Manage your restaurant’s branding in one place for a consistent look across Toast products.
+            - button "Set up" [ref=f9e874] [cursor=pointer]
+          - img "Brand Hub graphic" [ref=f9e881]
+      - generic [ref=f9e884]:
+        - generic "Toast recommends" [ref=f9e887]
+        - generic [ref=f9e893]:
+          - heading "Save time and money with faster and simpler employee scheduling." [level=3] [ref=f9e894]
+          - paragraph [ref=f9e895]: Build employees' schedules in minutes, and manage time off, availability, and shift trade requests. Optimize your labor spending, and ensure long-term success for your restaurant.
+          - link "Try now" [ref=f9e896] [cursor=pointer]:
+            - /url: /restaurants/admin/scheduling/sling/connect?utm_source=rd-ec&utm_medium=toast-recommends&utm_campaign=customer-ec-tw-home-card
+      - button "Show me all links Open" [ref=f9e902] [cursor=pointer]:
+        - generic [ref=f9e903]: Show me all links
+        - img "Open" [ref=f9e905]
+  - generic [ref=f9e910]:
+    - generic [ref=f9e911]:
+      - generic [ref=f9e912]:
+        - generic [ref=f9e913]:
+          - text: Required app version for
+          - generic [ref=f9e914]: "3Natives - Melbourne:"
+        - generic [ref=f9e915]: "2.118"
+        - tooltip "Copy" [ref=f9e917]
+      - generic [ref=f9e919]:
+        - generic [ref=f9e920]: "Restaurant ID:"
+        - generic [ref=f9e922]: "245008"
+        - tooltip "Copy" [ref=f9e924]
+    - contentinfo [ref=f9e926]:
+      - text: © Toast, Inc. 2026. All rights reserved.
+      - link "Support & training" [ref=f9e927] [cursor=pointer]:
+        - /url: /restaurants/admin/support?utm_content=footer
+      - link "Privacy policy - opens in new tab" [ref=f9e929] [cursor=pointer]:
+        - /url: //pos.toasttab.com/privacy
+        - generic [ref=f9e930]: Privacy policy
+      - link "Terms of service - opens in new tab" [ref=f9e931] [cursor=pointer]:
+        - /url: //pos.toasttab.com/terms-of-service
+        - generic [ref=f9e932]: Terms of service
+      - button "Your Privacy Choices" [ref=f9e933] [cursor=pointer]
+      - link "Merchant agreement - opens in new tab" [ref=f9e935] [cursor=pointer]:
+        - /url: //pos.toasttab.com/merchant-agreement
+        - generic [ref=f9e936]: Merchant agreement
+      - link "System status - opens in new tab" [ref=f9e937] [cursor=pointer]:
+        - /url: //status.toasttab.com
+        - generic [ref=f9e938]: System status
+      - paragraph [ref=f9e939]: Need help? Contact our support team for assistance.
+  - text: 
+  - generic [ref=f9e941]:
+    - generic [ref=f9e942]:
+      - generic [ref=f9e943]:
+        - generic [ref=f9e946]:
+          - generic [ref=f9e947]: Setup Checklist
+          - img "Close" [ref=f9e948] [cursor=pointer]
+        - paragraph [ref=f9e952]: Progress 62%
+      - button [ref=f9e957] [cursor=pointer]:
+        - generic [ref=f9e958]:
+          - paragraph [ref=f9e959]: "Next: Payment disruption settings"
+          - img "Next Item" [ref=f9e960]
+    - generic [ref=f9e965]:
+      - generic [ref=f9e966]:
+        - heading [level=3] [ref=f9e967]:
+          - button [expanded] [ref=f9e968]:
+            - generic [ref=f9e970]:
+              - generic [ref=f9e972]:
+                - img "Incomplete" [ref=f9e973]
+                - button "Outage preparedness [0/3]" [ref=f9e978] [cursor=pointer]
+              - button [ref=f9e980] [cursor=pointer]:
+                - img "Collapse" [ref=f9e981]
+        - generic [ref=f9e986]:
+          - generic [ref=f9e987]:
+            - img "Incomplete" [ref=f9e988]
+            - button "Payment disruption settings" [ref=f9e992] [cursor=pointer]
+          - generic [ref=f9e994]:
+            - img "Incomplete" [ref=f9e995]
+            - button "Complete manager training" [ref=f9e999] [cursor=pointer]
+          - generic [ref=f9e1001]:
+            - img "Incomplete" [ref=f9e1002]
+            - button "Conduct staff training" [ref=f9e1006] [cursor=pointer]
+      - heading [level=3] [ref=f9e1009]:
+        - button [ref=f9e1010]:
+          - generic [ref=f9e1014]:
+            - img "Incomplete" [ref=f9e1015]
+            - button "Set up Shift Review" [ref=f9e1019] [cursor=pointer]
+      - heading [level=3] [ref=f9e1022]:
+        - button [ref=f9e1023]:
+          - generic [ref=f9e1027]:
+            - img "Incomplete" [ref=f9e1028]
+            - button "Set up Toast Pay" [ref=f9e1032] [cursor=pointer]
+      - heading [level=3] [ref=f9e1035]:
+        - button [ref=f9e1036]:
+          - generic [ref=f9e1038]:
+            - generic [ref=f9e1040]:
+              - img "Completed" [ref=f9e1041]
+              - button "DoorDash integration [4/4]" [ref=f9e1045] [cursor=pointer]
+            - button [ref=f9e1047] [cursor=pointer]:
+              - img "Expand" [ref=f9e1048]
+      - heading [level=3] [ref=f9e1052]:
+        - button [ref=f9e1053]:
+          - generic [ref=f9e1055]:
+            - generic [ref=f9e1057]:
+              - img "Completed" [ref=f9e1058]
+              - button "Uber Eats integration [4/4]" [ref=f9e1062] [cursor=pointer]
+            - button [ref=f9e1064] [cursor=pointer]:
+              - img "Expand" [ref=f9e1065]
+  - button [ref=f9e1068] [cursor=pointer]
+  - iframe [ref=f9e1069]:
+    
+  - tooltip "TIP Employees is now Team You'll now find everything in Employees and Scheduling under Team. Learn more Got it" [ref=f9e1070]:
+    - generic [ref=f9e1073]:
+      - generic [ref=f9e1074]: TIP
+      - heading "Employees is now Team" [level=1] [ref=f9e1075]
+      - generic [ref=f9e1076]:
+        - text: You'll now find everything in Employees and Scheduling under Team.
+        - link "Learn more" [ref=f9e1077] [cursor=pointer]:
+          - /url: https://support.toasttab.com/en/article/New-Team-Navigation-Coming-to-Toast-Web
+      - button "Got it" [ref=f9e1078] [cursor=pointer]
+```

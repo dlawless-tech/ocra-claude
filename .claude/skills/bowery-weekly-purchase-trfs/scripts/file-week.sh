@@ -6,5 +6,7 @@ F="$1"; W="$2"
 D="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Purchase Transfers/Completed"
 T="$D/GL_Reallocation_Tracker $W.xlsx"
 [ -f "$F" ] || { echo "FAIL: no $F"; exit 1; }
+# only the share's copy, never a run dir copy
+[ "$(cd "$(dirname "$F")" && pwd)" = "$(cd "$D/.." && pwd)" ] || { echo "FAIL: $F is not in the share folder"; exit 1; }
 [ -e "$T" ] && { echo "FAIL: $T already exists"; exit 1; }
 mv "$F" "$T" && [ ! -e "$F" ] && echo "filed $T"

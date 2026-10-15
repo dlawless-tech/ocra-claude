@@ -119,7 +119,7 @@ P="/c/Users/trici/OCRA/Bowery Group - General/Journal Entries/Weekly Purchase Tr
 mv -n "$P/<tracker>" "$P/Completed/GL_Reallocation_Tracker <M.D.YY>.xlsx"
 ```
 
-`bash <skill>/scripts/file-week.sh "<tracker>" <M.D.YY>` does the same and refuses to overwrite. Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its tracker in place. Close the session with `playwright-cli -s=pt close`.
+`bash <skill>/scripts/file-week.sh "<tracker>" <M.D.YY>` does the same, refuses to overwrite, and refuses a tracker outside the share folder. In an unattended run, pass the original file's full path, not the tracker copy. Confirm it no longer sits at the top of the folder. A week that stops before approval leaves its tracker in place. Close the session with `playwright-cli -s=pt close`.
 
 Report the `check-lines.js` table, each row's Description / Reason, the `skipped` rows, the entry's status and amount from the grid, and whether the tracker is attached and filed.
 

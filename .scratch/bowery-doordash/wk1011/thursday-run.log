@@ -1,0 +1,45 @@
+﻿2026-10-15T06:00:02 period 10/5/2026 - 10/11/2026; first attempt for Cookshop, Rosie, Shuka, Vic; starting claude
+Nothing was posted on the 6:00 AM run for 10/5 to 10/11. DoorDash had not listed the 10/15 payouts yet; the newest in the list were still dated 10/8, and they were still missing when I checked again at 6:08. All four stores are marked `no-payout` and are left for the 10:00 retry.
+
+- **DoorDash login:** the email and password went through with no two-factor code.
+- **R365 GL debits for the week (account 104-05):** these are what each entry will clear once the payouts post.
+
+  | Store | Debits 10/5 to 10/11 |
+  |---|---|
+  | Cookshop | 7,587.43 |
+  | Rosie's | 1,721.55 |
+  | Shuka | 17,848.40 |
+  | Vic's | 2,336.29 |
+
+  Vic's had no debits on 10/5 or 10/11. That is normal for a store with fewer order days.
+- **Last week's payouts:** all four 10/8 payouts show as bank deposits on 10/9 (BD000481, 485, 490, 493), so nothing from the prior week is outstanding.
+- **Result file:** `result.json` is written in the work folder with all four stores `no-payout` and their debits as warnings. The wrapper will put them in `pending.json` for the 10:00 retry and send one Teams card after that run.
+- **Sessions:** I closed my two browser sessions. The `snf` and `snt` sessions belong to other runs, and I left them alone.
+- **GL report workaround:** the DoorDash skill has no script that runs the GL report. I copied the Grubhub skill's report scripts into the work folder (`tools/gl`) and switched them to 104-05. The 10:00 retry can reuse them. To make this permanent, the DoorDash skill should get its own GL report script.
+
+I added this run's status to the Bowery DoorDash progress memory.
+2026-10-15T06:09:34 claude exited 0
+2026-10-15T06:09:37 no payout yet for Cookshop, Rosie, Shuka, Vic; retrying at 10:00
+2026-10-15T10:00:05 period 10/5/2026 - 10/11/2026; retry attempt for Cookshop, Rosie, Shuka, Vic; starting claude
+The 10:00 retry posted all four 10/11 DoorDash entries. Each one is Approved with its backup PDF attached, and I confirmed that from the All Transactions grid.
+
+| Store | Payout | Net payout | Entry total | Difference (D minus Sales) | Backup |
+|---|---|---|---|---|---|
+| Cookshop | 619961349 | 6,669.45 | 927.98 | -10.00 | attached |
+| Rosie's | 619629241 | 1,467.07 | 279.13 | -24.65 | attached |
+| Shuka | 619731988 | 15,777.42 | 2,190.56 | 14.31 | attached |
+| Vic's | 619857147 | 2,086.36 | 259.93 | -10.00 | attached |
+
+The four entries total 3,657.60.
+
+- **Checks:** every payout's figures add up to its net payout to the penny. All four backup pages tie. Shuka's amendments were a positive 119.58, so that line posted as a credit. Vic's payout only covers 10/6 to 10/10, which matches its GL days, since the store had no DoorDash orders on 10/5 or 10/11.
+- **Templates:** all four entries were already Approved at 0.00. The posting script unapproved each one, filled it, and approved it again.
+- **Minor problems I fixed during the run:**
+  - The GL figures saved by the 6:00 run were stored in a format the backup page builder doesn't read, so I converted them.
+  - Both R365 sessions logged out once, so I logged back in.
+  - Shuka's attachment check came back empty the first time. I re-ran it, and the entry now holds one copy of the PDF.
+- **Output:** `result.json` is in the work folder. The wrapper will combine it with the 6:00 result and post one Teams card.
+- **Sessions:** I closed my sessions and left `bpu`, `snf` and `snt` open because other runs own them.
+
+The DoorDash skill still has no scripts of its own for running the GL report or finding the entries. This run used copies in `wk1011/tools`, taken from the Grubhub and Frankies skills. Adding both to the skill would keep later Thursday runs from depending on those copies. I've updated the progress memory.
+2026-10-15T10:33:03 claude exited 0

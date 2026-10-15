@@ -35,6 +35,8 @@ R365 carries one entry per store per week, numbered `DoorDash`. A week's 24 entr
 
 **DoorDash payouts.** `scripts/payouts.sh ndd <first payout date> <last payout date> payouts.json` posts to the same `payout_summaries` API the Financials page calls and saves every payout in the window: one row per store per Thursday with `sales`, `commissionAndFees`, `marketingSpend`, `amendments` and `netPayout` at DoorDash's displayed signs. It prints the count per payout date, which reads 24 for a full week. The page itself shows 20 rows a page; the script asks for 200.
 
+The API leaves out a payout made in the early hours of its own date unless the window opens the day before. On 10/15/2026, all 24 payouts were listed by 2:10 AM, but a window opening on 10/15 returned none. That made the 4:00 run report every store `no-payout`. The script now opens its window a day early and keeps only payouts dated inside the dates asked for.
+
 **R365 sales, D.** The daily journal entries debit `1111 - A/R Doordash` with each day's DoorDash sales including tax. A store's Monday to Sunday debits are **D**, what the entry clears. In `nrb`, Reports > My reports (soft navigate to `/react/reports-management/legacy/MyReports`, then wait about 30 seconds for the cards). The **Recent** row's GL Account Detail card holds its own Customize button. Set the account to `1111 - A/R Doordash` through `r365options.querySearch('1111')`, fill Start and End, Run, and save the report tab's cells:
 
 ```bash
