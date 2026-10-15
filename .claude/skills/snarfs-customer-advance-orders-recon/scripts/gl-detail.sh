@@ -1,7 +1,8 @@
 #!/bin/bash
-# Run GL Account Detail for $ACCT, all locations, subtotal by location, Show Unapproved Yes, and save it as CSV.
+# Run GL Account Detail for $ACCT, all locations, subtotal by location, and save it as CSV.
 # usage: gl-detail.sh <session> <start M/D/YYYY> <end M/D/YYYY> <out.csv>
-# UNAPPROVED=no runs approved entries only, as the balance sheet does.
+# Show Unapproved is Yes; UNAPPROVED=no runs approved entries only, as the balance sheet does.
+# KEEP=1 leaves the report tab open, so its NJ links (entityId) can be read.
 set -u
 S="$1"; START="$2"; END="$3"; OUT="$4"
 ACCT=${ACCT:?set ACCT to the full account display, e.g. "NNNNN - Customer Advance Orders"}

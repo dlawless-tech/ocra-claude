@@ -1,4 +1,4 @@
-# Write recon.json to an Excel workbook: Summary tab, then one tab per store with its open advance orders and day exceptions.
+# Write recon.json to an Excel workbook: Summary and By month tabs, then one tab per store with its open advance orders and day exceptions.
 # usage: workbook.ps1 -Recon <recon.json> -Out <xlsx>
 param([string]$Recon,[string]$Out)
 $ErrorActionPreference='Stop'
@@ -21,6 +21,13 @@ try {
  $ws.Range("B4:C$row").NumberFormat = $money; $ws.Range("E4:H$row").NumberFormat = $money
  $ws.Rows.Item(3).Font.Bold = $true; $ws.Rows.Item($row).Font.Bold = $true; $ws.Cells.Item(1,1).Font.Bold = $true
  $ws.Columns.AutoFit() | Out-Null
+ # month ends: GL vs Toast's open advance orders (the true balance), and how much the gap moved that month
+ $ws = $wb.Worksheets.Add([Type]::Missing, $wb.Worksheets.Item($wb.Worksheets.Count)); $ws.Name = 'By month'
+ Put $ws 1 @('Store','Month end','GL balance','True balance (Toast)','Difference','Change in month'); $ws.Rows.Item(1).Font.Bold = $true
+ $row = 2
+ foreach($s in $r.stores){ $prev = $s.begDiff
+  foreach($m in $s.months){ Put $ws $row @($s.store,$m.end,$m.gl,$m.toast,$m.diff,([double]$m.diff - [double]$prev)); $prev = $m.diff; $row++ } }
+ $ws.Range("C2:F$row").NumberFormat = $money; $ws.Columns.AutoFit() | Out-Null
  foreach($s in $r.stores){
   $ws = $wb.Worksheets.Add([Type]::Missing, $wb.Worksheets.Item($wb.Worksheets.Count)); $ws.Name = $s.store
   Put $ws 1 @("$($s.store): GL $($s.glEnd) vs Toast $($s.toastEnd), difference $($s.diff)"); $ws.Cells.Item(1,1).Font.Bold = $true
