@@ -32,6 +32,20 @@ bash <scripts>/move-line.sh fk bd <entry id> "2015 - Event Deposits" credit 2537
 
 It opens the entry (the Adjustments tab for a bank deposit), clicks Edit, re-accounts the one line matching account, side, amount and comment, sets the optional new comment, reads the line back, then **Edit Complete** and **Save and Close**. The entry stays Approved. It prints `SAVED <id>`, or `FAIL:` with nothing saved. Recheck with `entries.sh`.
 
+## Tips and post-event payments
+
+A payment that lands after its event, once the balance is fully paid, is a tip. Raise the event entry's 1242 Tip line and its 2200 Gratuity line by the payment, and recode the bank deposit line to 1242 if it sits on 2015. A tip receivable more than 30 days past its event with no payment comes off: both lines to zero. `set-tip.sh` sets both lines and rereads the entry, so a closed period prints `FAIL` instead of `SAVED`:
+
+```bash
+bash <scripts>/set-tip.sh fk <entry id> "Tip" 1260 1260
+```
+
+2025 is closed. A 2025 tip comes off through one journal entry in the open period: debit 2200 Tips Payable, credit 1242 one line per event, commented `M/D/YY: <event> TIP` (`Tip Write-Off - 2025 Events`, 9/30/26, is the model).
+
+## Tripleseat
+
+Look an event up in Tripleseat when R365 cannot place a payment: an uncommented deposit, a deposit with no event entry, a payment for an unknown event. `https://frankies.tripleseat.com`, login in `~/.claude/frankies-credentials.md`; after the password Tripleseat texts a 6-digit passcode that the human enters. Search from the dashboard, open the event, then its **Payments** tab: each payment shows its date, method and id. A Blackbird payment id equals the `Inv` id in the Bill.com memo of the R365 bank deposit. A postponed event keeps its deposit; comment the deposit with the new event date.
+
 ## Setup
 
 R365 is `https://frankiesspuntino.restaurant365.com`, on the same login as dLena (`~/.claude/bowery-credentials.md`). Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for playwright-cli habits. Work in one scratch directory for the whole run; the scripts write their files there. `<scripts>` is this skill's `scripts/` folder.
@@ -105,6 +119,14 @@ Report the week's GL balances against the tab, every recode made, every `ISSUE`,
 - A payment held between the event and the payout belongs on 1242 (2026-10-04).
 - `BlackBird Pizza Series` payments go with the BlackBird Pizza deposits, as `TBD` deposit rows (2026-10-04).
 - The human authorized editing approved event entries and bank deposits to apply the coding rule (2026-10-04).
+- Payments after a fully paid event are tips (2026-10-14).
+- Unpaid tips more than 30 days past the event are removed (2026-10-14).
+- Blackbird Labs does not invoice. Its Bill.com payments against monthly invoice numbers (`Inv 07.2026.1`, `Inv 08.2026`) are BlackBird Pizza Series deposits: 2015, commented `TBD: BlackBird Pizza Series` (2026-10-14).
+- A deposit and a receivable of the same amount for one event mean the event entry booked a paid deposit to 1242. Recode that event entry line to 2015 (2026-10-14).
+
+## Rebuilding tabs
+
+When fixes reach back into weeks already written, rebuild from the last tab the fixes leave untouched. Delete the later tabs in `work.xlsx`, then run Steps 1, 3 and 4 week by week. The first rebuilt week starts with `rm` ops for the rows the fixes cleared, so its opening totals equal the GL. Done 2026-10-14 from 06.30: every day 7/1 to 9/27 tied, 9/27 closing at 2015 995,651.05 and 1242 86,467.56.
 
 ## First run
 
