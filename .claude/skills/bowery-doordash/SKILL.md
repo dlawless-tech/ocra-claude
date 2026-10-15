@@ -171,9 +171,9 @@ Report the table of stores, payout ids, amounts, totals, and backup attached, an
 
 ## Unattended run
 
-`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 6:00 AM, with a retry at 10:00 AM (`scripts/register-task.ps1` sets up both). It takes the Monday to Sunday period that ended four days earlier, whose payouts are dated that Thursday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the entry date, the payout date and the stores to run. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 10:00 AM, then every two hours through 6:00 PM while stores are still waiting (`scripts/register-task.ps1` sets up all five). It takes the Monday to Sunday period that ended four days earlier, whose payouts are dated that Thursday. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the entry date, the payout date and the stores to run. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
-Thursday payouts can be missing from the list at 6:00. When the 6:00 attempt reports a store `no-payout`, or writes no result at all, the wrapper keeps its result as `result-first.json`, lists the waiting stores in `pending.json`, posts nothing, and the 10:00 attempt runs only those stores. It then merges both attempts into `result.json` and posts one card, tagging the mention, whatever the outcome. An attempt that starts at 10:00 or later posts its own result with no further retry.
+Thursday payouts can be missing from the list in the morning. When an attempt reports a store `no-payout`, or writes no result at all, the wrapper keeps the finished stores in `result-done.json`, lists the waiting stores in `pending.json`, posts no card, and the next attempt two hours later runs only those stores. Once no store waits, or after the 6:00 PM attempt, it merges every attempt into `result.json` and posts one card, tagging the mention, whatever the outcome. A store still `no-payout` after 6:00 PM is posted by hand once its payout lists.
 
 No human answers during the run, so:
 
