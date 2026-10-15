@@ -59,6 +59,28 @@ A day exception is a day when the GL differs from Toast's advance payments. `rec
 
 Unapproving or deleting an approved entry needs the human's explicit OK for that entry. `unapprove.sh` unapproves; delete is the entry's Action > Delete, then Yes.
 
+## Unattended run
+
+`<scripts>/friday-run.ps1` runs from Task Scheduler on Fridays at 11:00 (`<scripts>/register-task.ps1` sets it up). It reconciles through Thursday, in `.scratch/snarfs-advance-orders/wk<MMDD>/`, and writes `started.txt` there so a week runs once (`-Force` reruns, `-Date yyyy-MM-dd` stands in for today).
+
+The wrapper opens Toast first with `toast-login.sh sntu 3600`, on the saved profile `~/.claude/playwright-profiles/snarfs-toast`. When Toast asks for a sign-in, it posts a card to the TPD channel tagging the code contact (Tricia), and waits up to 60 minutes. No sign-in posts a "not run" card and stops. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the work directory, end date, GL start and Toast start.
+
+No human answers during the run, so:
+
+- Run every `playwright-cli` and script call from the work directory, where `sntu` is already signed in. Log R365 in as `snfu` with `r365-login.sh`. A login that keeps bouncing means someone is in R365 as the same user: fail the run with that note.
+- Run steps 1 to 5 of Run, using the dates in the prompt. Post nothing, clear nothing, and approve nothing; the run only reports.
+- Explain each store's difference with the causes in Reading day exceptions, one short line per cause with its date and amount, reading DSS entries where needed.
+- Close `snfu` and `sntu`, then write `result.json` in the work directory. The wrapper posts it to the TPD channel through `<scripts>/notify-teams.ps1`, tagging Collin Heyerdahl, and posts a failure when the file is missing.
+
+```json
+{ "end": "10/15/2026", "glTotal": 7000.00, "toastTotal": 6990.00, "diffTotal": 10.00,
+  "workbook": "C:\\Users\\trici\\OCRA\\Snarf's - General\\Reports\\Customer Advance Orders\\...xlsx", "note": "",
+  "stores": [ { "store": "6 - Kirkwood", "gl": 31.20, "toast": 24.53, "diff": 6.67,
+      "causes": ["9/30 Adj 9.30 KW 6.67 kept in 20100 per Tricia"] } ] }
+```
+
+The webhook and contacts live in `~/.claude/snarfs-advance-orders.json`, outside the repo: `{"teamsWebhook", "mention": {"name","email"}, "codeMention": {"name","email"}}`. `notify-teams.ps1 -DryRun` prints a card without posting, and `-Code` tags the code contact.
+
 ## Store map
 
 | R365 location | Number | Toast restaurant |
