@@ -1,7 +1,7 @@
 // True-up lines: move each store's 2285 balance at period end to its target (unbilled water through PE).
 // Usage: node trueup-plan.js <rows2285.json> <PE M/D/YYYY> <targets.json> > lines.json
 //   targets.json: {"217 - Anaheim": {"tgt": 720.58, "basis": "9/23 bills 8/19-9/21 prorated"}, ...}
-// Short store: Dr 5635 / Cr 2285. Over-accrued store: Dr 2285 / Cr 5635. Table goes to stderr.
+// Short store: Dr expense / Cr 2285. Over-accrued store: Dr 2285 / Cr expense. Expense is 5635, 6335 for Support Center. Table goes to stderr.
 const fs = require("fs");
 const [f85, pe, ft] = process.argv.slice(2);
 const r2 = x => Math.round(x * 100) / 100;
@@ -16,7 +16,7 @@ for (const store of Object.keys(T)) {
   console.error(name.padEnd(21), "bal " + bal.toFixed(2).padStart(10), "target " + T[store].tgt.toFixed(2).padStart(9), "adj " + adj.toFixed(2).padStart(9), " ", T[store].basis || "");
   if (!adj) continue;
   const a = Math.abs(adj);
-  lines.push({ acct: "5635", loc: store, dr: adj > 0 ? a : 0, cr: adj > 0 ? 0 : a });
+  lines.push({ acct: /Support Center/.test(store) ? "6335" : "5635", loc: store, dr: adj > 0 ? a : 0, cr: adj > 0 ? 0 : a });
   lines.push({ acct: "2285", loc: store, dr: adj > 0 ? 0 : a, cr: adj > 0 ? a : 0 });
   sdr += a; scr += a;
 }

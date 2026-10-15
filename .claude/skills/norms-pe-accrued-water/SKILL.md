@@ -21,7 +21,8 @@ Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.
 
 - **2285 Accrued Water**, by store. **5635 Utilities Water** is store expense; **6335 Water-Corp** is Support Center's.
 - **Weekly entries**, numbered `Accrued Water`, one per store, dated each Saturday: Dr 5635 / Cr 2285 at the store. They generate from memorized templates that list on All Transactions as Unapproved rows named `Template: <nnn - Store>:Accrued Water`. Those rows are the templates. Edit them, never delete them. Hollywood's is named `Template: Accrued Water`.
-- **Bills** are AP invoices coded to 2285 at the store, sometimes split with 5635. LADWP bills for Hollywood, La Cienega, Van Nuys and Riverside are combined electric and water: a 2281 line plus a 2285 line. The 2285 amount is the water, even when the vendor name says ELECTRIC.
+- **Support Center** books its water expense to 6335, on its weekly entries, its template and its true-up line. `trueup-plan.js` picks 6335 for it. Its template once carried 5635, and the 10/10/2026 entry posted there until it was corrected.
+- **Bills** are AP invoices coded to 2285 at the store, sometimes split with 5635. Only the 2285 and 5635 lines are water. Ontario's City of Ontario bill also carries a 5625 line for other utilities; the 9/6/2026 reclass counted it as water and over-accrued Ontario. LADWP bills for Hollywood, La Cienega, Van Nuys and Riverside are combined electric and water: a 2281 line plus a 2285 line. The 2285 amount is the water, even when the vendor name says ELECTRIC.
 
 ## Step 1: the GL
 
@@ -48,7 +49,7 @@ The plan walks each store from its balance at the prior PE: weekly entries build
 
 Leave these bills as they are, through the skip list or by dropping them from the plan:
 
-- **A bill for an older service period** than the days the accrual covers. Slauson's 9/10/2026 bill covered 6/23 through 8/27, while its accrual held 8/27 through 9/5; relieving it would have wiped an accrual that a later bill still needs.
+- **A bill for an older service period** than the days the accrual covers. Slauson's 9/10/2026 bill covered 6/23 through 8/27, while its accrual held 8/27 through 9/5; relieving it would have wiped an accrual that a later bill still needs. The same goes for El Monte's 9/6/2026 meter 14-03283 bill (261.38, no service period) and South Torrance's 9/6/2026 meter 35774 bill. `relieve-plan.js` zeroes the balance at every bill date, so for a store with one of these, recompute the later bill by hand with the old bill only reducing the balance.
 - **A credit**, such as a refund or a "To Be Applied" amount. Claremont's 9/5/2026 credit of 2,470.92 stayed out of both the accrual and the rate.
 - **A bill dated on or before the prior PE.** That period is closed in R365.
 
@@ -76,7 +77,9 @@ node scripts/trueup-plan.js r2285.json <PE> targets.json > trueup.json
 bash scripts/trueup-entry.sh r365 <source JE id> <PE> "P<n>'<yy> Water Accrual True Up" trueup.json "True up to unbilled water thru <PE>"
 ```
 
-The source can be any JE; the script copies it and rewrites every line. It saves the entry Unapproved and checks each line after a reload. Approve once the human has reviewed it, with `approve` from `../norms-grubhub/scripts/lib.sh`. `trueup-entry.sh` and `je-lines.js` have not run end to end; the one-off 9/6/2026 reclass that proved the grid technique was built by hand.
+The source can be any JE; the script copies it and rewrites every line. It saves the entry Unapproved and checks each line after a reload. Approve once the human has reviewed it, with `approve` from `../norms-grubhub/scripts/lib.sh`. P10'26 (10/3/2026) was built from the 9/6/2026 reclass (id 6bd1d28f-5f47-4851-a72a-b5073be25f53) as source. A failed run leaves the copy behind already dated and numbered: finish it by running `je-lines.js` on that copy and saving, rather than duplicating again.
+
+`rows.js` emits a store's nonzero beginning balance as a `Beg Balance` row dated 1/1/2000, so Support Center's 6/13 go-live balance counts in its PE balance.
 
 ## Step 4: reset the weekly rate
 
@@ -108,6 +111,7 @@ Close every session this run opened, by name, from the scratch folder: `playwrig
 
 ## R365 behavior
 
+- **Pendo guide.** A Pendo popup (`#pendo-base`) sometimes covers the page and swallows real clicks, so Edit never opens and `invoice-set.js` returns `STOP not in edit`. The scripts click its `._pendo-close-guide` after each page load.
 - **JE grid edits.** Changing an existing row through `model.set`, including its account and location, saves. Rows added with `dataSource.add` or dropped with `dataSource.remove` are silently lost on save. Add a row through the new-row form (`newRowForm.addRowToGrid()`) and drop one with its trash icon (`.k-grid-delete`); `je-lines.js` does both.
 - **Duplicate** sometimes asks about attachments ("No, transaction only") and sometimes opens the copy without asking. Either way the copy opens in tab 1, already saved with an NJ number and dated today. A run that fails after the copy leaves that NJ entry Unapproved: delete it (Action > Delete, then Yes).
 - **Closed date.** The location setup shows Hollywood and La Cienega closed as of 9/5/2026. Both stores are open, and entries post to them normally.

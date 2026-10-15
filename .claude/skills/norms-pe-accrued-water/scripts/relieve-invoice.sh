@@ -8,6 +8,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; SK="$HERE/../.."
 S=$1; ID=$2; L=$3; A=$4; B=$5; T=$6
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n'; }
 playwright-cli -s=$S goto "https://norms.restaurant365.com/#/form/APInvoiceForm/$ID" >/dev/null 2>&1; sleep 15
+playwright-cli -s=$S eval "() => { const x=document.querySelector('#pendo-base ._pendo-close-guide'); if(x) x.click(); return 1; }" >/dev/null 2>&1  # Pendo guide blocks real clicks
 ST=$(playwright-cli -s=$S eval "$(cat "$HERE/read-invoice.js")" 2>&1 | res)
 APPR=0; case "$ST" in *'\"st\":\"Approved\"'*) APPR=1;; esac
 [ $APPR = 1 ] && { playwright-cli -s=$S click 'button:text-is("Edit")' >/dev/null 2>&1; sleep 4; }

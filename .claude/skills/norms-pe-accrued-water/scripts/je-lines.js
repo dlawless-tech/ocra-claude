@@ -1,9 +1,9 @@
 async () => {
-  // Rewrite the open JE's grid to __LINES__ = [{acct:'2285',loc:'217 - Anaheim',dr,cr}], comment __C__.
+  // Rewrite the open JE's grid to WANT = [{acct:'2285',loc:'217 - Anaheim',dr,cr}], comment C on every line.
   // Only these edits persist: model.set on existing rows, newRowForm.addRowToGrid for new rows,
   // the row's .k-grid-delete trash icon for removals. dataSource.add / remove do not save.
   const WANT = __LINES__, C = __C__, IDS = __IDS__;
-  const NAMES = { '2285': '2285 - Accrued Water', '5635': '5635 - Utilities Water' };
+  const NAMES = { '2285': '2285 - Accrued Water', '5635': '5635 - Utilities Water', '6335': '6335 - Water-Corp' };
   const g = jQuery('[data-role=grid]').data('kendoGrid'), ds = g.dataSource; ds.pageSize(500);
   await new Promise(r => setTimeout(r, 800));
   const add = [...document.querySelectorAll('button')].find(x => x.innerText.trim() === 'Add' && x.offsetParent);

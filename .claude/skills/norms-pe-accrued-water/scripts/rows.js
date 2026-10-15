@@ -18,7 +18,12 @@ const flush = () => {
 };
 for (let i = 0; i < L.length; i++) {
   const s = L[i];
-  if (/^\d{4} - /.test(s) && L[i + 1] === "Beg Balance:") { flush(); loc = L[i - 1]; continue; }
+  if (/^\d{4} - /.test(s) && L[i + 1] === "Beg Balance:") {
+    flush(); loc = L[i - 1];
+    // nonzero beg bal as a row; Typical balance, so a liability reads as credit
+    const b = n(L[i + 2]); if (b) rows.push({ loc, dt: "1/1/2000", type: "Beg Balance", ref: "", text: "", dr: b < 0 ? -b : 0, cr: b > 0 ? b : 0, id: "beg" });
+    continue;
+  }
   if (/^Total /.test(s) || s === "Grand Total") { flush(); continue; }
   if (isDate(s) && /^(Journal Entry|AP Invoice|AP Credit Memo|Bank Expense|Bank Deposit)$/.test(L[i + 1] || "")) { flush(); cur = { cells: [s] }; continue; }
   if (cur) cur.cells.push(s);
@@ -36,7 +41,7 @@ for (const s of snap) {
   const m = s.match(/entityId=([0-9a-f-]+)/); if (m) blk.id = m[1];
 }
 const money = x => x.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-for (const r of rows) {
+for (const r of rows.filter(r => r.type !== "Beg Balance")) {
   const ids = [...new Set(blocks.filter(b => b.id && b.cells[0] === r.dt && b.cells.some(t => t.startsWith(r.ref.trim())) && b.cells.includes(r.loc) && b.cells.includes(money(r.dr)) && b.cells.includes(money(r.cr))).map(b => b.id))];
   r.id = ids.length === 1 ? ids[0] : null;
 }
