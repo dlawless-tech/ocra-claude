@@ -20,8 +20,8 @@ for (let i = 0; i < L.length; i++) {
   const s = L[i];
   if (/^\d{4} - /.test(s) && L[i + 1] === "Beg Balance:") {
     flush(); loc = L[i - 1];
-    // nonzero beg bal as a row; Typical balance, so a liability reads as credit
-    const b = n(L[i + 2]); if (b) rows.push({ loc, dt: "1/1/2000", type: "Beg Balance", ref: "", text: "", dr: b < 0 ? -b : 0, cr: b > 0 ? b : 0, id: "beg" });
+    // nonzero beg bal as a row; Typical balance: 2xxx-4xxx read as credit, others as debit
+    const b = n(L[i + 2]) * (/^[234]/.test(s) ? 1 : -1); if (b) rows.push({ loc, dt: "1/1/2000", type: "Beg Balance", ref: "", text: "", dr: b < 0 ? -b : 0, cr: b > 0 ? b : 0, id: "beg" });
     continue;
   }
   if (/^Total /.test(s) || s === "Grand Total") { flush(); continue; }

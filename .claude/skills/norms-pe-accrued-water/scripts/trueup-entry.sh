@@ -24,7 +24,7 @@ playwright-cli -s=$S goto "https://norms.restaurant365.com/#/form/JournalEntryFo
 playwright-cli -s=$S eval "() => { const x=document.querySelector('#pendo-base ._pendo-close-guide'); if(x) x.click(); return 1; }" >/dev/null 2>&1  # Pendo guide blocks real clicks
 playwright-cli -s=$S fill 'input[name="journalEntryDate"]' "$DT" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
 playwright-cli -s=$S fill 'input[name="journalEntryNumber"]' "$NUM" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 1
-JS=$(node -e 'const fs=require("fs");const [t,l,c,i]=process.argv.slice(1);process.stdout.write(fs.readFileSync(t,"utf8").replace("__LINES__",fs.readFileSync(l,"utf8")).replace("__C__",JSON.stringify(c)).replace("__IDS__",fs.readFileSync(i,"utf8")))' "$HERE/je-lines.js" "$LINES" "$CMT" "$HERE/ids.json")
+JS=$(node -e 'const fs=require("fs");const [t,l,c,i]=process.argv.slice(1);process.stdout.write(fs.readFileSync(t,"utf8").replace("__LINES__",fs.readFileSync(l,"utf8")).replace("__C__",JSON.stringify(c)).replace("__IDS__",fs.readFileSync(i,"utf8")).replace("__NAMES__",JSON.stringify(require(i.replace(/ids.json$/,"profile.js")).names)))' "$HERE/je-lines.js" "$LINES" "$CMT" "$HERE/ids.json")
 R=$(playwright-cli -s=$S eval "$JS" 2>&1 | res); echo "grid $R  (copy $ID)"
 bash "$SK/norms-grubhub/scripts/ribbon-menu.sh" $S Save "Save" >/dev/null 2>&1; sleep 14
 playwright-cli -s=$S reload >/dev/null 2>&1; sleep 16

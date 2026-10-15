@@ -17,6 +17,8 @@ Session and conventions:
 
 Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) before scripting. Run the scripts from a scratch folder (`.scratch/water/`); they drop working files in the current directory. Every script below lives in `scripts/` here.
 
+These scripts also run the electricity accrual ([`../norms-pe-accrued-electricity/SKILL.md`](../norms-pe-accrued-electricity/SKILL.md)). The env var `UTIL` picks the accounts from `scripts/profiles.json`; unset means water. Account guids sit in `scripts/ids.json`. Keep the scripts free of account numbers so both utilities stay in step.
+
 ## The accounts and entries
 
 - **2285 Accrued Water**, by store. **5635 Utilities Water** is store expense; **6335 Water-Corp** is Support Center's.
@@ -56,7 +58,7 @@ Leave these bills as they are, through the skip list or by dropping them from th
 Post each one:
 
 ```bash
-node -e 'for(const i of require("./relieve.json"))if(i.change)console.log([i.id,i.loc,i.new2285.toFixed(2),i.new5635.toFixed(2),i.tot.toFixed(2)].join("\t"))' > relieve.tsv
+node -e 'for(const i of require("./relieve.json"))if(i.change)console.log([i.id,i.loc,i.newAcc.toFixed(2),i.newExp.toFixed(2),i.tot.toFixed(2)].join("\t"))' > relieve.tsv
 while IFS=$'\t' read -r ID L A B T; do bash scripts/relieve-invoice.sh r365 "$ID" "$L" "$A" "$B" "$T" </dev/null; done < relieve.tsv
 ```
 
