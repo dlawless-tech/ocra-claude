@@ -101,11 +101,14 @@ Edit already-posted weekly entries only when the human asks; the true-up already
 bash scripts/edit-weekly.sh r365 <YYYY-MM-DD> "<Store>" <entry id> <old> <new>
 ```
 
-A store with no weekly entries gets them from a copy of another store's approved weekly entry, one Saturday at a time, then a template memorized from the last one (Action > Memorize, name `Accrued Water`, Auto-Recurrence **Weekly**):
+A store with no weekly entries gets them from a copy of another store's approved weekly entry, one Saturday at a time, then a Weekly template memorized from the last one, named `<nnn - Store>:Accrued Water`:
 
 ```bash
 bash scripts/new-weekly.sh r365 <source entry id> "269 - Hollywood" 10/10/2026 1131
+bash scripts/memorize-template.sh r365 <last new entry id> "269 - Hollywood"
 ```
+
+`new-weekly.sh` keeps the source's expense account, so copy a Support Center entry (6335 or 6330) for Support Center. `memorize-template.sh` first ran for Support Center electricity on 10/15/2026; confirm its `Template: ...` row on All Transactions.
 
 ## Step 5: close the browser
 

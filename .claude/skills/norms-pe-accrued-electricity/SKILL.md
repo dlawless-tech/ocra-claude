@@ -14,8 +14,8 @@ Session, conventions and R365 behavior are the water skill's: read [`../norms-pe
 ## The accounts and entries
 
 - **2281 Accrued Electricity**, by location. **5630 Utilities Electric** is store expense; **6330 Electric-corp** is Support Center's.
-- **Weekly entries**, numbered `Accrued Electricity`, one per location, dated each Saturday: Dr 5630 / Cr 2281. They generate from 24 memorized templates listed as Unapproved rows named `Template: <nnn - Store>:Accrued Electricity`. Those rows are the templates. Edit them, never delete them. The rates come from the P7 through P9 GL average (63,060 a week across the stores, set 10/7/2026).
-- **Support Center has no template.** Only its 9/12/2026 week (885) was posted, so its weeks go missing each period, and the review catches that.
+- **Weekly entries**, numbered `Accrued Electricity`, one per location, dated each Saturday: Dr 5630 / Cr 2281. They generate from 25 memorized templates listed as Unapproved rows named `Template: <nnn - Store>:Accrued Electricity`. Those rows are the templates. Edit them, never delete them. The rates come from the P7 through P9 GL average (63,060 a week across the stores, set 10/7/2026).
+- **Support Center** got its template on 10/15/2026, memorized Weekly at 885 (Dr 6330) from its 10/10 entry. Before that only its 9/12 week was posted, which is why P10 needed an accrual.
 - **Bills** debit 2281 at the store in full from P10 on. They do not touch expense, so period expense equals the weekly entries plus any accrual from this review.
 - **Locations:** 25 carry 2281, the 23 water locations plus Carson and Las Vegas.
 

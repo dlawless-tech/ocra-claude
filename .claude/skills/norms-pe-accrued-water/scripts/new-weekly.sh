@@ -33,14 +33,14 @@ playwright-cli -s=$S fill 'input[name="journalEntryNumber"]' "$NUM" >/dev/null 2
 R=$(playwright-cli -s=$S eval "() => { const H='$LID'; const c=jQuery('[name=journalEntryLocation]').data('kendoComboBox'); c.value(H); c.trigger('change');
  const d=jQuery('[data-role=grid]').data('kendoGrid').dataSource.data(); if(d.length!==2) return 'STOP lines';
  for(let i=0;i<2;i++){const m=d[i]; m.set('location','$STORE'); m.set('locationId',H);
-  if(/^$ACC /.test(m.glAccount)){m.set('credit',$AMT);m.set('debit',0);} else if(/^$EXP /.test(m.glAccount)){m.set('debit',$AMT);m.set('credit',0);} else return 'STOP acct'; }
+  if(/^$ACC /.test(m.glAccount)){m.set('credit',$AMT);m.set('debit',0);} else if(/^($EXP|$CORP) /.test(m.glAccount)){m.set('debit',$AMT);m.set('credit',0);} else return 'STOP acct'; }
  return 'set'; }" 2>&1 | res)
 case "$R" in *set*) ;; *) echo "$DT FAIL set $R $ID"; exit 1;; esac
 bash "$SK/norms-grubhub/scripts/ribbon-menu.sh" $S Save "Save" >/dev/null 2>&1; sleep 12
 playwright-cli -s=$S reload >/dev/null 2>&1; sleep 15
 B=$(playwright-cli -s=$S eval "$(cat "$HERE/read-je.js")" 2>&1 | res)
 case "$B" in *"$NUM"*"$DT"*"$STORE"*) ;; *) echo "$DT FAIL readback $B $ID"; exit 1;; esac
-N=$(echo "$B" | grep -oE "$EXP[^|]*\| $AMT \| 0 \| $STORE|$ACC[^|]*\| 0 \| $AMT \| $STORE" | wc -l)
+N=$(echo "$B" | grep -oE "($EXP|$CORP)[^|]*\| $AMT \| 0 \| $STORE|$ACC[^|]*\| 0 \| $AMT \| $STORE" | wc -l)
 [ "$N" = 2 ] || { echo "$DT FAIL lines $B $ID"; exit 1; }
 approve $S "$ID" || { echo "$DT FAIL approve $ID"; exit 1; }
 echo "$DT $STORE $AMT OK $ID"
