@@ -21,7 +21,7 @@ for (const f of ['gl-70450.csv', 'gl-42060.csv']) for (const r of rows(GL + f)) 
 const day = (s, k) => new Date(Date.parse(s + 'T12:00:00Z') + k * 864e5).toISOString().slice(0, 10);
 const dow = s => new Date(s + 'T12:00:00Z').getUTCDay();
 const KIND = [[/ar balance|deposit|payout/, 'ar'], [/^commissions?$/, 'commissions'], [/delivery/, 'delivery commissions'], [/processing/, 'order processing fees'],
-  [/reward/, 'rewards'], [/promo/, 'targeted promotions'], [/adjust/, 'account adjustments'], [/refund/, 'refunds'], [/discrepanc|difference/, 'discrepancy']];
+  [/reward/, 'rewards'], [/promo|promition/, 'targeted promotions'], [/adjust/, 'account adjustments'], [/refund/, 'refunds'], [/discrepanc|difference/, 'discrepancy']];
 const kind = (a, c) => a === '10125' ? 'ar' : ((KIND.find(([re]) => re.test(c.toLowerCase())) || [])[1] || (a === '70450' ? 'fees?' : '42060?'));
 const figCache = {};
 const fig = (a, b) => figCache[a + b] = figCache[a + b] || JSON.parse(execFileSync('node', [SK + 'figures.js', process.argv[2], a, b], { maxBuffer: 1e8 }).toString());
@@ -35,6 +35,9 @@ for (const k of keys) {
     for (let x = a; x < d; x = day(x, 1)) if (posted[s + '|' + x] && day(x, 1).slice(8) === '01') a = day(x, 1);
     if (b.slice(5, 7) !== d.slice(5, 7) && day(b, -b.slice(8)) !== d && posted[s + '|' + day(b, -b.slice(8))]) b = day(b, -b.slice(8));
   } else { b = d; a = d; while (dow(a) !== 2) a = day(a, -1); }
+  // 2026 entries cut at these month ends a day past the period, with no month-end entry
+  const OV = {'2026-03-29': ['2026-03-24', '2026-03-31'], '2026-04-05': ['2026-04-01', '2026-04-06'], '2026-06-28': ['2026-06-23', '2026-06-30'], '2026-07-05': ['2026-07-01', '2026-07-06']};
+  if (OV[d]) [a, b] = OV[d];
   const g = fig(a, b).find(x => x.store === s) || { net: 0, gross: 0, cat: {}, odd: [] };
   let D = 0; for (let x = a; x <= b; x = day(x, 1)) D += (sales[s] || {})[x] || 0; D = r2(D);
   const P = {}; for (const [acct, v, c] of posted[k].lines) { const t = kind(acct, c); P[t] = r2((P[t] || 0) + v); }

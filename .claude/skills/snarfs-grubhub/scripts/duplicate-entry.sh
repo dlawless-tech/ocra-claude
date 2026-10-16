@@ -11,6 +11,9 @@ playwright-cli -s=$S goto "https://snarfsstl.restaurant365.com/#/form/JournalEnt
 playwright-cli -s=$S hover '#Action > a' >/dev/null 2>&1; sleep 1
 R=$(playwright-cli -s=$S eval "() => { const a=Array.from(document.getElementById('Action').querySelectorAll('ul li a, ul li button')).find(x=>x.innerText.trim()==='Duplicate'); if(!a) return 'nodup'; a.click(); return 'ok'; }" 2>&1 | res)
 case "$R" in *ok*) : ;; *) die "Duplicate menu item: $R";; esac
+sleep 4
+# snarfsstl asks whether to copy attachments; take the transaction only
+playwright-cli -s=$S eval "() => { const b=Array.from(document.querySelectorAll('button')).find(x=>x.offsetParent && x.innerText.trim()==='No, transaction only'); if(b) b.click(); return !!b; }" >/dev/null 2>&1
 sleep 12
 # the copy opens in a new tab, numbered NJ..., dated today, carrying the source amounts
 N=$(playwright-cli -s=$S tab-list 2>&1 | grep -cE '^- [0-9]+:'); [ "$N" -ge 2 ] || die "no duplicate tab"
@@ -19,7 +22,7 @@ playwright-cli -s=$S fill 'input[name="journalEntryDate"]' "$DT" >/dev/null 2>&1
 playwright-cli -s=$S fill 'input[name="journalEntryNumber"]' "GrubHub" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1; sleep 2
 # wake the grid with one real click, then zero both columns of every line
 TMP=$(mktemp); bash "$HERE/snapshot.sh" $S $TMP
-LN=$(grep -n 'gridcell "commissions"' $TMP | head -1 | cut -d: -f1); [ -n "$LN" ] || die "grid not in snapshot"
+LN=$(grep -nE 'gridcell "[0-9]{5} - ' $TMP | head -1 | cut -d: -f1); [ -n "$LN" ] || die "grid not in snapshot"
 playwright-cli -s=$S click "$(sed -n "$((LN-1))p" $TMP | grep -oE 'ref=[a-zA-Z0-9]+' | head -1 | cut -d= -f2)" >/dev/null 2>&1; rm -f $TMP
 sleep 2; playwright-cli -s=$S press Escape >/dev/null 2>&1; sleep 1
 ROWS=$(playwright-cli -s=$S eval "() => Array.from(document.querySelectorAll('tr')).filter(r=>r.cells && r.cells.length>=8 && /^\d{5} - /.test(r.cells[1].innerText.trim())).length" 2>&1 | res)

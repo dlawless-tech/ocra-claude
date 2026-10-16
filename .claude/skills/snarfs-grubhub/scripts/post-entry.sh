@@ -11,7 +11,8 @@
 # The work json is an array of objects keyed by that location fragment:
 #   {loc, id, tot, lines: [{comment, col, amount}, ...]}
 #   id is the TransactionId; see ../bowery-ubereats/R365-AUTOMATION.md.
-#   comment must match the template line's Comment cell verbatim, col is
+#   comment must match the template line's Comment cell verbatim (or its full
+#   account, for a template without comments like Spirit's), col is
 #   "debit" or "credit". Each line ends up holding only its amount; the other
 #   column is cleared, so a refill overwrites what an earlier run left.
 #
@@ -85,10 +86,10 @@ sleep 1
 setcell() { # comment col amount; leaves the cell alone when it already holds the amount
   local L C A R V
   L="$(jsq "$1")"; C="$2"; A="$3"
-  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); return cells[i-('$C'==='debit'?2:1)].innerText.trim(); }" 2>&1 | res)
+  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findLastIndex(c=>c.innerText.trim()===$L); return cells[i+(/^[0-9]{5} - /.test($L)?('$C'==='debit'?1:2):('$C'==='debit'?-2:-1))].innerText.trim(); }" 2>&1 | res)
   case "$V" in *ERR-norow*) die "no row for $1";; esac
   [ "$(n2 "${V:-0}")" = "$(n2 "$A")" ] && return 0
-  R=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); cells[i-('$C'==='debit'?2:1)].click(); return 'ok'; }" 2>&1 | res)
+  R=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); if(!r) return 'ERR-norow'; const cells=Array.from(r.cells); const i=cells.findLastIndex(c=>c.innerText.trim()===$L); cells[i+(/^[0-9]{5} - /.test($L)?('$C'==='debit'?1:2):('$C'==='debit'?-2:-1))].click(); return 'ok'; }" 2>&1 | res)
   case "$R" in *ok*) : ;; *) die "click $1/$C -> $R";; esac
   sleep 2
   playwright-cli -s=$S fill "input[name=\"$C\"]" "$A" >/dev/null 2>&1
@@ -96,7 +97,7 @@ setcell() { # comment col amount; leaves the cell alone when it already holds th
   sleep 1
   playwright-cli -s=$S press Escape >/dev/null 2>&1
   sleep 1
-  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); const cells=Array.from(r.cells); const i=cells.findIndex(c=>c.innerText.trim()===$L); return cells[i-('$C'==='debit'?2:1)].innerText.trim(); }" 2>&1 | res)
+  V=$(playwright-cli -s=$S eval "() => { const rows=Array.from(document.querySelectorAll('tr')); const r=rows.find(x=>Array.from(x.cells||[]).some(c=>c.innerText.trim()===$L)); const cells=Array.from(r.cells); const i=cells.findLastIndex(c=>c.innerText.trim()===$L); return cells[i+(/^[0-9]{5} - /.test($L)?('$C'==='debit'?1:2):('$C'==='debit'?-2:-1))].innerText.trim(); }" 2>&1 | res)
   [ "$(n2 "${V:-0}")" = "$(n2 "$A")" ] || die "$1/$C read back '$V' want '$A'"
 }
 fill() { # comment col amount
@@ -120,7 +121,7 @@ sleep 14
 VER=$(playwright-cli -s=$S eval "() => { const L=[${JSLIST%,}]; const rows=Array.from(document.querySelectorAll('tr')).map(r=>Array.from(r.cells||[]).map(c=>c.innerText.trim())); return L.map(l=>{const r=rows.find(t=>t.includes(l)); return r?r[3]+'/'+r[4]:'?';}).join(' | '); }" 2>&1 | res | tr -d '"')
 echo "$LOC after-save: $VER"
 case "$VER" in *'?'*) die "line vanished after reload: $VER";; esac
-case "$VER" in *[1-9]*) : ;; *) die "save did not land";; esac
+[ "$WANT" = "0.00" ] || case "$VER" in *[1-9]*) : ;; *) die "save did not land";; esac
 
 # Approve and Close does nothing in this instance; plain Approve takes
 bash "$HERE/ribbon-menu.sh" $S Approve "Approve" >/dev/null 2>&1

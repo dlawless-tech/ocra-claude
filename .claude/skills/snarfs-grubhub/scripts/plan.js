@@ -8,7 +8,7 @@ const e = JSON.parse(fs.readFileSync(ENTRY, 'utf8'));
 const r2 = x => Math.round(x * 100) / 100;
 // template comment -> category
 const KIND = [[/ar balance|deposit|payout/, 'ar'], [/^commissions?$/, 'commissions'], [/delivery/, 'delivery commissions'], [/processing/, 'order processing fees'],
-  [/reward/, 'rewards'], [/promo/, 'targeted promotions'], [/adjust/, 'account adjustments'], [/refund/, 'refunds'], [/discrepanc|difference/, 'discrepancy']];
+  [/reward/, 'rewards'], [/promo|promition/, 'targeted promotions'], [/adjust/, 'account adjustments'], [/refund/, 'refunds'], [/discrepanc|difference/, 'discrepancy']];
 const kind = l => (KIND.find(([re]) => re.test(l.comment.toLowerCase())) || [])[1] || (/10125/.test(l.account) ? 'ar' : null);
 const warnings = [];
 const byKind = {};

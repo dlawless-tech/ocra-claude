@@ -23,7 +23,7 @@ Both live in `~/.claude/snarfs-credentials.md`: R365 under its heading (user tla
 
 ## The period
 
-Tuesday to Monday, Central time. The entry is dated the **Sunday inside the period**: 10/6-10/12/2026 posts to the 10/11 entry. A period that crosses month end splits into two entries, exactly as in `bowery-grubhub`'s **Month end splits the period**: the part through the last day of the month posts to an entry dated that day (9/30/2026 for 9/29-9/30), the rest to the Sunday entry. R365 pre-creates only the Sunday entry; `<scripts>/duplicate-entry.sh sgj <prior entry id> <M/D/YYYY>` makes the month-end one.
+Tuesday to Monday, Central time. The entry is dated the **Sunday inside the period**: 10/6-10/12/2026 posts to the 10/11 entry. A period that crosses month end splits into two entries, exactly as in `bowery-grubhub`'s **Month end splits the period**: the part through the last day of the month posts to an entry dated that day (9/30/2026 for 9/29-9/30), the rest to the Sunday entry. R365 pre-creates only the Sunday entry; `<scripts>/duplicate-entry.sh sgj <prior entry id> <M/D/YYYY>` makes the month-end one from the same store's prior entry, answering the copy-attachments prompt with "No, transaction only", and prints the new id.
 
 ## Stores
 
@@ -46,7 +46,7 @@ node <scripts>/spirit-work.js $W/spirit.json <entry date YYYY-MM-DD> $W/entry-Sp
 
 The GL runs through today so it holds the deposits. `spirit.js` matches each deposit to the unpaid parts that ended 1 to 10 days before it, closest to 85% of their D. One deposit can pay two parts, since Grubhub sometimes pays month-end days with the week before (7/3/2026 paid 6/23-6/30). Each part comes back `actual`, `estimate`, `no sales`, or `no deposit` (fees = D, the whole sale written off; report it). Pass the dates of the Spirit entries that exist, and a month-end part with no entry folds into its period's other part. Through 10/4/2026 the actuals sum to the fees posted, which is the check that the matching holds.
 
-`spirit-work.js` keys the two lines by their account, which `post-entry.sh` accepts in place of a comment, and puts negative fees (the deposit above D) on the opposite sides. Post with `post-entry.sh` and the location fragment `Spirit`.
+`spirit-work.js` keys the two lines by their account, which `post-entry.sh` accepts in place of a comment, and puts negative fees (the deposit above D) on the opposite sides. Any other line on the entry is zeroed and named in `warnings`; past entries pushed fee corrections through 41160 Sandwich Sales (10/4/2026, and 8/2/2026, which reversed the doubled 7/31 entry). Post with `post-entry.sh` and the location fragment `Spirit`.
 
 ## Phase 1: the Grubhub figures
 
@@ -56,7 +56,7 @@ playwright-cli -s=sgh eval "$(cat $W/tx.js)" | sed -n '/### Result/,/### Ran/p' 
 node <scripts>/figures.js $W/raw.json 2026-10-06 2026-10-12 > $W/figures.json
 ```
 
-`transactions.js` pulls every transaction for every store from the API behind Financials > Transactions, in Central time. `figures.js` totals each store into the entry's categories, in dollars: `net` (the deposit Grubhub pays the Wednesday after), `gross`, and `cat` holding commissions, delivery commissions, order processing fees, rewards, targeted promotions, refunds and account adjustments. `check` is 0 for every store, meaning gross less every category equals net to the cent.
+`transactions.js` pulls every transaction for every store from the API behind Financials > Transactions, in Central time. `figures.js` totals each store into the entry's categories, in dollars: `net` (the deposit Grubhub pays the Friday after), `gross`, and `cat` holding commissions, delivery commissions, order processing fees, rewards, targeted promotions, refunds and account adjustments. `check` is 0 for every store, meaning gross less every category equals net to the cent.
 
 - A **refund** books at the order's gross, and the fees Grubhub hands back on it come off the fee lines. This is the convention the entries were built on (Page 10/11/2026: refund 27.38, net 23.20).
 - `DISTRIBUTION` rows are Grubhub paying out an earlier period and are skipped.
@@ -72,6 +72,8 @@ node <scripts>/gl/gl-days.js $W/gl.csv > $W/gldays.json
 ```
 
 `gl-detail.sh` runs GL Account Detail for 10125 (set `ACCT` for another account), all locations, Subtotal By Location, Show Unapproved Yes, and prints `saved <file>` or a `FAIL:` line. `gl-days.js` gives each location's `D`, beginning balance and Journal Entry debits by day.
+
+A store-day with two NJ entries is a leftover from a DSS import, not sales: an Unapproved journal entry with debits only and no DSS link, which the report shows because Show Unapproved is Yes (Skinker 8/4/2026, NJ00047545, 549.64 here and 3,435.20 to 10130). Leave it out of D, and name it in the report.
 
 ## The entry
 
@@ -128,11 +130,11 @@ node <scripts>/review.js $W/raw.json $W 2026-01-01 > $W/review.json
 Each record gives the entry's window, the A/R credit, fee total and discrepancy posted against expected, the categories that differ (`catDiff`), and the refund rows. Read it in this order:
 
 1. **The 10125 balance.** At the last Monday each store's balance equals that week's Grubhub net, the deposit still to come. A store that does not tie names the entry to fix, an A/R credit off by the same amount.
-2. **Month-end pairs.** Entries before 7/2026 cut the fees at month end and the A/R credit at the period, so the discrepancy swings one week and reverses the next (3/29 and 4/5, 6/28 and 7/5). A pair that nets to zero is timing only.
+2. **Month-end pairs.** An entry that cuts the fees at month end and the A/R credit at the period swings the discrepancy one week and reverses it the next. A pair that nets to zero is timing only.
 3. **Classification.** A fee in `catDiff` sitting on the discrepancy line, or a refund on a fee line, moves cost between 70450 and 42060 with no effect on the receivable.
 4. **Recurring discrepancies.** A few dollars a week at Skinker and SLU is the DSS booking more than Grubhub recorded. Hundreds in one week is a DSS posted twice; compare the store's daily debits in the GL to `days`.
 
-Report the findings before correcting anything; an approved entry is changed only when the human says so.
+Report the findings before correcting anything; an approved entry is changed only when the human says so. Every 2026 entry through 10/11 was reviewed and corrected on 10/15/2026, except Skinker 1/4, which pairs with the closed 12/31/2025 entry; Skinker 8/9/2026 was corrected for the NJ00047545 leftover described in **Phase 2**.
 
 ## Unattended run
 
