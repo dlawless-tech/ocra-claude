@@ -9,7 +9,7 @@ Same logic as [`../bowery-doordash`](../bowery-doordash/SKILL.md): the week runs
 
 **The account ties when each Sunday's 10130 balance equals the DoorDash deposits booked the next Monday to Friday.** That is the human's check, so the week's payouts are the ones due to deposit that Monday to Friday: each payout deposits the next weekday after its payout date (Friday's payout lands Monday). A bank holiday that delays a deposit past Friday leaves the payout in its week (Juneteenth 2026: the 6/14 balance holds the deposit that landed 6/22). A payout that straddles Sunday and Monday is paid Friday and deposits the following Monday, so it belongs to the next week.
 
-**Read the books approved only.** An unapproved entry is outside the human's GL. `gl/gl-detail.sh` defaults to Show Unapproved No; `UNAPPROVED=yes` adds them. Skinker's unapproved NJ00047545 (8/4/2026, DoorDash 1,717.60 twice) once got plugged into a fee entry because a GL was read with unapproved items.
+**Read the books approved only.** An unapproved entry is outside the human's GL. `gl/gl-detail.sh` defaults to Show Unapproved No; `UNAPPROVED=yes` adds them. Skinker's unapproved NJ00047545 (8/4/2026, DoorDash 1,717.60 twice) once got plugged into a fee entry because a GL was read with unapproved items. It is a debit-only leftover of the 8/4 DSS import and opens read-only, with no Delete; it stays out of the approved books.
 
 Work from one fixed scratch folder, `.scratch/snarfs-doordash/wk<MMDD>`, since `playwright-cli` binds sessions to the folder. Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for R365 grid habits. `<scripts>` is this skill's `scripts/` folder, written absolute.
 
