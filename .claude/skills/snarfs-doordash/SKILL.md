@@ -5,7 +5,11 @@ description: Post the weekly DoorDash journal entries into Snarf's Sandwiches Re
 
 # Snarf's DoorDash, weekly by store
 
-Same logic as [`../bowery-doordash`](../bowery-doordash/SKILL.md): the week runs **Monday to Sunday**, the entry is dated the **Sunday**, the 10130 credit is the week's DSS DoorDash sales (**D**) less the week's net payouts, and the account **ties** when its balance at the end of each Sunday equals the net of payouts not yet deposited. Snarf's differs in two ways: DoorDash pays **daily**, so a week holds about five payouts per store, assigned by the day their covered window starts (Central time); and the figures come from DoorDash's API.
+Same logic as [`../bowery-doordash`](../bowery-doordash/SKILL.md): the week runs **Monday to Sunday**, the entry is dated the **Sunday**, and the 10130 credit is the week's DSS DoorDash sales (**D**) less the week's net payouts. DoorDash pays **daily**, and the figures come from DoorDash's API.
+
+**The account ties when each Sunday's 10130 balance equals the DoorDash deposits booked the next Monday to Friday.** That is the human's check, so the week's payouts are the ones due to deposit that Monday to Friday: each payout deposits the next weekday after its payout date (Friday's payout lands Monday). A bank holiday that delays a deposit past Friday leaves the payout in its week (Juneteenth 2026: the 6/14 balance holds the deposit that landed 6/22). A payout that straddles Sunday and Monday is paid Friday and deposits the following Monday, so it belongs to the next week.
+
+**Read the books approved only.** An unapproved entry is outside the human's GL. `gl/gl-detail.sh` defaults to Show Unapproved No; `UNAPPROVED=yes` adds them. Skinker's unapproved NJ00047545 (8/4/2026, DoorDash 1,717.60 twice) once got plugged into a fee entry because a GL was read with unapproved items.
 
 Work from one fixed scratch folder, `.scratch/snarfs-doordash/wk<MMDD>`, since `playwright-cli` binds sessions to the folder. Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) for R365 grid habits. `<scripts>` is this skill's `scripts/` folder, written absolute.
 
@@ -53,8 +57,8 @@ The discrepancy runs DoorDash Sales above D by a round 30 to 280 a week at every
 ## Steps
 
 1. **Payouts.** `bash <scripts>/dd-payouts.sh sdd <Monday YYYY-MM-DD> <Sunday+5 YYYY-MM-DD> pay.json`. Sunday's payout is dated the Thursday after. `STORE=<name>` keeps one store.
-2. **GL.** `ACCT="10130 - Door Dash Receivable" bash ../snarfs-grubhub/scripts/gl/gl-detail.sh snd <Monday M/D/YYYY> <today M/D/YYYY> gl.csv`, then `node <scripts>/gl-parse.js gl.csv gl.json`.
-3. **Plan.** `node <scripts>/plan.js pay.json gl.json <Sunday M/D/YYYY> > plan.json`. Per store it gives `D, sales, net, ar, fees, mkt, amd, diff`, the payout ids, `warnings`, and `fail` when a payout does not close to its net or the store has no payout. Read every warning before posting: uncovered sales days mean the week is not complete; a doubled DSS is the human's to fix.
+2. **GL.** `bash <scripts>/gl/gl-detail.sh snd <Monday, three weeks back, M/D/YYYY> <today M/D/YYYY> gl.csv`, then `node <scripts>/gl-parse.js gl.csv gl.json`. Starting back lets `plan.js` match payouts to their deposits.
+3. **Plan.** `node <scripts>/plan.js pay.json gl.json <Sunday M/D/YYYY> > plan.json`. Per store it gives `D, sales, net, ar, fees, mkt, amd, diff`, the payout ids with their deposit days, `warnings`, and `fail` when a payout does not close to its net or the store has no payout. Read every warning before posting: uncovered sales days mean the week is not complete; a payout that `never reached 10130` was deposited to another account and the balance carries it; a doubled DSS is the human's to fix.
 4. **Find the entries.** `bash <scripts>/find-entries.sh snd <Sunday M/D/YYYY>` prints `location|TransactionId|status|amount|attachment`.
 5. **Post** each store: `bash <scripts>/post-entry.sh snd <TransactionId> plan.json <store>`. It unapproves, prints the lines the entry held, sets every line, checks the sides balance, saves, reloads and reads back, then prints `SAVED <id> <total>` and exits 0. Approve with `bash <scripts>/approve.sh snd <id>...` only after that exit; chain them with `&&` directly, since a pipe such as `| tail` swallows the failure and approves anyway.
 6. **Backup.** One PDF per entry, `DoorDash <store> <MM.DD> backup.pdf`:
@@ -65,7 +69,7 @@ The discrepancy runs DoorDash Sales above D by a round 30 to 280 a week at every
    bash <scripts>/attach.sh snd <id> att/<store>
    ```
    Stop on DOES NOT TIE. A PDF under 1 KB is a blank page. `attach.sh` adds the PDF beside the preparer's own files and reads the titles back.
-7. **Tie-out.** Rerun step 2 from about five weeks back, then `node <scripts>/tie.js pay.json gl.json` with payouts pulled over the same span. Every store's `error` reads 0.00 at the entry's Sunday. A nonzero error that holds week after week names an entry to fix; one that reverses the next week is timing.
+7. **Tie-out.** After the week's deposits are in, `node <scripts>/tie.js pay.json gl.json` prints each Sunday's balance beside the next Monday to Friday's 10130 deposits. `diff` reads 0.00 at every Sunday except a bank holiday week. It also lists any payout with no 10130 deposit. On a Thursday run the Friday deposit is still to come, so check the prior Sunday.
 8. **Verify** with `find-entries.sh`: every row Approved at the planned total with the backup in `attachment`.
 
 Close the sessions by name at the end (`playwright-cli -s=snd close`, `-s=sdd close`).
@@ -98,10 +102,11 @@ Finish with steps 6 to 8, close `sddu` and `sndu`, then write `result.json` in t
 
 ## History
 
-Reviewed 10/15/2026 against DoorDash from May. Entries were plugged to the next week's deposits, which broke when DoorDash moved to daily payouts and when payouts arrived as real time payments. Corrected then:
+Reviewed 10/15/2026 against DoorDash and the approved GL from May. Entries were plugged to the next week's deposits, which went wrong when a deposit was missing from R365 at the time or an unapproved entry was read. Corrected then:
 
-- Spirit 6/14, 6/21, 6/28, 7/5, 9/6 rewritten to DoorDash; 10/11 posted as a 1,170.82 debit to 10130 (payout 619094347 carried a 1,868.41 adjustment, booked to 70400). Spirit ties every Sunday 5/3 to 10/11.
-- Skinker 10/4 discrepancy rewritten (over-credit 1,903.30).
-- Week ending 10/11 was the first run of this skill: all seven approved with backups, 8,828.43, and every store ties on 10130 at 10/4 and 10/11.
+- Spirit 6/14, 6/21, 6/28, 9/6 rewritten to DoorDash (9/6 had missed two 9/8 real time payment deposits, 2,394.28). 10/11 posted as a 1,170.82 debit to 10130: payout 619094347 carried a 1,868.41 adjustment, booked to 70400.
+- Spirit 7/5 stays at 251.03, 95.32 above DoorDash: deposit BD025016 (7/6, payout 591375829) credits 70400 instead of 10130, and the entry offsets it.
+- Skinker 9/6 rewritten to 1,205.85 (it had plugged the unapproved NJ00047545, 3,435.20). Skinker 10/4 discrepancy rewritten (over-credit 1,903.30).
+- Week ending 10/11 was the first run of this skill: all seven approved with backups, 8,828.43.
 
-Skinker 8/4 has an extra DSS, NJ00047545, booking its DoorDash line twice (3,435.20); the 8/23, 8/30 and 9/6 entries plugged it into fees. Left for the human. MX, SLU, Page, Fenton and Kirkwood carry only swings that reverse the next week.
+After these, every store's Sunday balance equals the next week's deposits from May through 10/4, except the Juneteenth week (6/14).
