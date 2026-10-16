@@ -5,10 +5,12 @@ description: Post the ADP Support Center payroll journal entry into NORMS Restau
 
 # ADP Support Center payroll into the NORMS journal entry
 
-ADP files the Support Center payroll under company code **WVJ**, every other Friday. From the 10/02/2026 pay on, the files are dropped into `c:\Users\trici\OCRA\NORMS - General\Payroll\To Process SC`, beside a `WE <MM.DD.YY>` folder named for the **Saturday before the pay date** (pay date less six days) that may already hold the Checks & Vouchers. Finished folders move to `Completed_SC`. Pays through 9/18 sit in `Completed_Norms` week folders.
+ADP files the Support Center payroll under company code **WVJ**, every other Friday. From the 10/02/2026 pay on, the files are dropped into `c:\Users\trici\OCRA\NORMS - General\Payroll\To Process SC`, beside a `WE <MM.DD.YY>` folder named for the **Saturday before the pay date** (pay date less six days) that may already hold the Checks & Vouchers. Finished folders move to `To Process SC\Completed_SC`. Pays through 9/18 sit in `To Process_Norms\Completed_Norms` week folders.
 
 ```
 To Process SC\
+  Completed_SC\                finished pay folders
+  WE <MM.DD.YY>\               the current pay's folder
   WVJ_<paydate>_PR&TAX.csv     every amount, DEBIT signed, all at dept 299
   WVJ Stat Summary.pdf         funding recap
   WVJ Labor Distribution.pdf   per-employee detail
@@ -88,14 +90,14 @@ Approve through **Approve and Close**: real-click `#Approve > a`, then `li[data-
 
 Attach every PR&TAX csv and the Stat Summary with `scripts/attach.sh <session> <file>`, one call each; each prints `attached <name>`. Attachments stick on an unapproved or an approved entry without a save. Reopen the entry by id and confirm all are listed.
 
-Then move every file in `To Process SC` into the `WE` folder, move that folder into `Completed_SC`, and create the next pay's `WE <MM.DD.YY>` in `To Process SC`: pay date plus eight, the Saturday before the next pay. Close the session.
+Then move every file in `To Process SC` into the `WE` folder, move that folder into `To Process SC\Completed_SC`, and create the next pay's `WE <MM.DD.YY>` in `To Process SC`: pay date plus eight, the Saturday before the next pay. Close the session.
 
 ## Unattended run
 
-Two Task Scheduler tasks run `scripts/thursday-run.ps1` every other Thursday from 10/15/2026, the day before each pay date (`scripts/register-task.ps1` sets them up):
+Two Task Scheduler tasks run `scripts/thursday-run.ps1` every other week from Thursday 10/15/2026, the day before each pay date, through the pay date itself, since ADP can drop the files on Friday (`scripts/register-task.ps1` sets them up):
 
-- **NORMS Payroll SC - Thursday Watch**, every 15 minutes from 4:00 to 11:45 AM. It waits until a `WVJ_*_PR&TAX*.csv`, the Stat Summary, and the Labor Distribution are all in `To Process SC`, each at least 2 minutes old, and exits quietly until then.
-- **NORMS Payroll SC - Thursday**, noon. The last check, and a Teams card naming the missing files when they are not all in (once per day).
+- **NORMS Payroll SC - Watch**, every 15 minutes from Thursday 4:00 AM to Friday 4:45 PM. It waits until a `WVJ_*_PR&TAX*.csv`, the Stat Summary, and the Labor Distribution are all in `To Process SC`, each at least 2 minutes old, and exits quietly until then.
+- **NORMS Payroll SC - Friday Final**, Friday 5:00 PM. The last check, and a Teams card naming the missing files when they are not all in.
 
 The wrapper reads the pay date from the csv name, copies the files (and the Checks & Vouchers, from the drop or the `WE` folder) to `.scratch/norms-payroll-sc/pd<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` that names the pay date, work directory, each file's copy, and the newest `Completed_SC` folder, and writes `done.txt` after, so the pay runs once. `-Force` reruns a pay.
 

@@ -10,7 +10,7 @@ $Notify = "$PSScriptRoot\notify-teams.ps1"
 $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 $Payroll = 'C:\Users\trici\OCRA\NORMS - General\Payroll'
 $Drop = Join-Path $Payroll 'To Process_Norms'
-$Done = Join-Path $Payroll 'Completed_Norms'
+$Done = Join-Path $Drop 'Completed_Norms'
 $Base = Join-Path $Repo '.scratch\norms-payroll'
 New-Item -ItemType Directory -Force $Base | Out-Null
 

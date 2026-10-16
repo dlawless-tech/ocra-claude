@@ -11,6 +11,7 @@ From the 10/3/2026 week on, files land in `c:\Users\trici\OCRA\NORMS - General\P
 
 ```
 To Process_Norms\
+  Completed_Norms\             finished week folders
   WVM_<paydate>_PR&TAX.csv     every amount, by account and dept, DEBIT signed
   WVM Stat Summary.pdf         funding recap, the cash split and the tie-out
   WVM Labor Distribution.pdf   the Void PP: blocks, one per adjustment
@@ -19,7 +20,7 @@ To Process_Norms\
     WVM Checks & Vouchers.pdf  per-employee vouchers, confirms void names; sometimes absent
 ```
 
-When the week is done, all files go into the week folder, the week folder moves to `Payroll\Completed_Norms`, and the next week's `WE <MM.DD.YY>` is created in `To Process_Norms`. Completed weeks are in `Completed_Norms`, with spellings that drift (`WE 09.05.26`, `WE 9.12`, `WE 10.03.26`), so list it rather than building the name.
+When the week is done, all files go into the week folder, the week folder moves to `To Process_Norms\Completed_Norms`, and the next week's `WE <MM.DD.YY>` is created in `To Process_Norms`. Completed weeks are in `Completed_Norms`, with spellings that drift (`WE 09.05.26`, `WE 9.12`, `WE 10.03.26`), so list it rather than building the name.
 
 PDFs read through `pdftotext -layout`. The week folder is named for the week ending, the CSV for the pay date (a Friday), so `WE 10.03.26` holds `WVM_10092026_PR&TAX.csv`. Convert the pay details file with `../norms-payroll-labor-breakdown/scripts/xlsx-to-csv.js`.
 
@@ -101,9 +102,8 @@ A store missing its `5241 - FOH Hourly` line, or an entry still carrying `5212 -
 
 Two Task Scheduler tasks run `scripts/thursday-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **NORMS Payroll - Thursday Watch**, Thursdays every 15 minutes from 5:00 to 11:45 AM. It waits until the PR&TAX CSV, Stat Summary, Labor Distribution, and PAY DETAILS xlsx are all in `To Process_Norms`, each at least 2 minutes old, and exits quietly until then.
-- **NORMS Payroll - Thursday**, noon. The last check, and a Teams card naming the missing files when they are not all in (once per day).
-
+- **NORMS Payroll - Thursday Watch**, every 15 minutes from Thursday 5:00 AM to Friday 4:45 PM. It waits until the PR&TAX CSV, Stat Summary, Labor Distribution, and PAY DETAILS xlsx are all in `To Process_Norms`, each at least 2 minutes old, and exits quietly until then.
+- **NORMS Payroll - Friday**, 5 PM. The last check, and a Teams card naming the missing files when they are not all in (once per day).
 The wrapper takes the week from the CSV's pay date less six days, copies the files (and the Checks & Vouchers, from the drop or the week folder) to `.scratch/norms-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` that names the week ending, work directory, each file's copy, and the prior week's folder in `Completed_Norms`, and writes `done.txt` after, so the week runs once. `-Force` reruns a week.
 
 No human answers during the run, so:
