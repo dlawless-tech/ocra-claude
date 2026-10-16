@@ -11,7 +11,9 @@ $facts = @()
 if ($ResultFile) {
   $r = Get-Content -Raw -Encoding utf8 $ResultFile | ConvertFrom-Json
   $ok = $r.status -eq 'approved'
-  $Lines = @($(if ($ok) { "Support Center payroll entry **approved** at $('{0:N2}' -f [double]$r.total), tied to the Stat Summary" } else { "**Support Center payroll entry $($r.status)**" }))
+  $Lines = @($(if ($ok) { "Support Center payroll entry **approved** at $('{0:N2}' -f [double]$r.total), tied to the Stat Summary" }
+    elseif ($r.status -eq 'awaiting-approval') { "Support Center payroll entry **built, tied and attached, not yet approved**: R365 holds it until the week's DSS journals are approved" }
+    else { "**Support Center payroll entry $($r.status)**" }))
   $Lines += "CSV and Stat Summary attached: $(if ($r.attached) { 'yes' } else { '**no**' })"
   $Lines += "Week folder moved to Completed_SC: $(if ($r.filed) { 'yes' } else { '**no**' })$(if ($r.nextFolder) { "; $($r.nextFolder) is ready in To Process SC" })"
   foreach ($x in @($r.warnings)) { if ($x) { $Lines += "- $x" } }

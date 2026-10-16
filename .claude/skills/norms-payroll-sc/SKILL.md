@@ -29,7 +29,7 @@ An accounting period holds two pay dates. The **first** file of the period carri
 
 Post the second file as **current minus prior**. Posting it whole double-counts the first pay date, roughly doubling a 130,000 dollar entry.
 
-Pays alternate: 9/18 opened P10'26 and 10/02 closed it, so 10/16 opens P11. Two fixed per-paycheck deductions confirm it in seconds: `2142 401k Loan 1` and the `2264` pair run at exactly twice the per-pay figure in a second file, and equal it in a first file. The latest approved entry with a nonzero `401k Loan 1` line carries the per-pay figure (1,071.88 on 9/17). A second file's prior is the csv in the newest `Completed_SC` folder.
+Pays alternate: 9/18 opened P10'26 and 10/02 closed it, so 10/16 opens P11. Two fixed per-paycheck deductions confirm it in seconds: `2142 401k Loan 1` and the `2264` pair run at exactly twice the per-pay figure in a second file, and equal it in a first file. The latest approved entry with a nonzero `401k Loan 1` line carries the per-pay figure (1,071.88 on 9/17, 749.16 from 10/16). The loan changes when an employee's loan does, so a figure that is neither once nor twice the last one falls back to the Stat Summary: a file whose direct deposit, taxes and 401K equal this pay's Stat Summary alone is a first file. A second file's prior is the csv in the newest `Completed_SC` folder.
 
 `scripts/build-plan.js` takes both files and does the subtraction. Pass `-` as the prior for a first-file period.
 
@@ -86,6 +86,10 @@ Then tie the entry against the Stat Summary:
 
 Approve through **Approve and Close**: real-click `#Approve > a`, then `li[data-testid="approveAndCloseMenuItem"]`. The entry's tab closes. Verify from `all-transactions.sh` rather than from what the posting step reported: the status reads Approved and the amount matches the planned total.
 
+R365 refuses the approval with "Unapproved DSS Journals exist for this Legal Entity between <Sun> and <Sat>" while the week holding the entry date has open DSS journals, which is the normal state on Thursday and Friday. Leave the entry unapproved and attach anyway; it is approved once the week's DSS journals are.
+
+The lock reads the payroll start and end dates, not the entry date. The 10/16/2026 pay was approved by hand on 10/16 with entry date 10/10/2026 and both payroll dates cleared (R365 then shows 1/1/1900). Entries before it carried pay date less five to pay date plus one (10/11 to 10/17 for 10/16). That was a one-off, not yet a rule; record how the next pay is dated before changing the default.
+
 ## Attach and file
 
 Attach every PR&TAX csv and the Stat Summary with `scripts/attach.sh <session> <file>`, one call each; each prints `attached <name>`. Attachments stick on an unapproved or an approved entry without a save. Reopen the entry by id and confirm all are listed.
@@ -94,17 +98,19 @@ Then move every file in `To Process SC` into the `WE` folder, move that folder i
 
 ## Unattended run
 
-Two Task Scheduler tasks run `scripts/thursday-run.ps1` every other week from Thursday 10/15/2026, the day before each pay date, through the pay date itself, since ADP can drop the files on Friday (`scripts/register-task.ps1` sets them up):
+Three Task Scheduler tasks run `scripts/thursday-run.ps1` every other week from Thursday 10/15/2026, the day before each pay date, through the pay date itself, since ADP can drop the files on Friday, then the Monday after (`scripts/register-task.ps1` sets them up):
 
 - **NORMS Payroll SC - Watch**, every 15 minutes from Thursday 4:00 AM to Friday 4:45 PM. It waits until a `WVJ_*_PR&TAX*.csv`, the Stat Summary, and the Labor Distribution are all in `To Process SC`, each at least 2 minutes old, and exits quietly until then.
 - **NORMS Payroll SC - Friday Final**, Friday 5:00 PM. The last check, and a Teams card naming the missing files when they are not all in.
+- **NORMS Payroll SC - Monday Approve**, every 2 hours from Monday 7:00 AM to 5:00 PM, with `-Mode approve`. It acts only on a `result.json` with `status` `awaiting-approval`, and starts this skill with a prompt beginning `Approve-only run`. It stays quiet while R365 still holds the entry, and posts the card once the entry is approved, or at the 5:00 PM try.
 
 The wrapper reads the pay date from the csv name, copies the files (and the Checks & Vouchers, from the drop or the `WE` folder) to `.scratch/norms-payroll-sc/pd<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` that names the pay date, work directory, each file's copy, and the newest `Completed_SC` folder, and writes `done.txt` after, so the pay runs once. `-Force` reruns a pay.
 
 No human answers during the run, so:
 
 - Never ask. Use session `npsc`, and run every command as `cd <work directory> && ...`.
-- Settle first file or second by the `401k Loan 1` rule. A loan figure that is neither once nor twice the per-pay figure, or a second file whose prior folder holds other than one csv, fails the run.
+- Settle first file or second by the `401k Loan 1` rule, falling back to the Stat Summary tie when the loan changed; warn when it did. A file that settles neither way, or a second file whose prior folder holds other than one csv, fails the run.
+- An approval refused for unapproved DSS journals is expected. With the entry tied, saved and attached, write `status` `awaiting-approval` and put the refusal in `note`. The Monday task approves it.
 - Prove the mapping when a prior regular csv and its approved entry are both at hand. Skip it with a warning when they are not, as for 10/16, whose prior pay was the void batch.
 - An entry already dated the day before the pay date means the pay was started by hand. Approved: post nothing, and still attach any missing file. Unapproved: fail the run and name it.
 - Two csvs where neither ties the Stat Summary, a `build-plan.js` exit of 1, a Stat Summary tie that misses by more than two cents, or a rejected login fails the run: write `result.json` with `status` `failed` and the reason in `note`.
@@ -118,7 +124,18 @@ Close `npsc`, then write `result.json` in the work directory:
   "number": "NJ000xxxxx", "transactionId": "...", "attached": true, "warnings": [], "note": "" }
 ```
 
-`status` is `approved` or `failed`. `attached` is true only when every csv and the Stat Summary read back on the reloaded entry.
+`status` is `approved`, `awaiting-approval`, or `failed`. `attached` is true only when every csv and the Stat Summary read back on the reloaded entry.
+
+### Approve-only run
+
+The prompt names the work directory, the entry's number, transaction id and planned total, and the result file. Use session `npsc` from the work directory, log in, and check the entry in `all-transactions.sh`:
+
+- Already Approved at the planned total: approve nothing.
+- Unapproved at the planned total: open it by id and approve through Approve and Close, then verify from `all-transactions.sh`.
+- Any other amount, or no such entry: set `status` `failed` and name what you found in `note`.
+- Approval refused again for DSS journals: leave `status` `awaiting-approval` and update `note`.
+
+Reopen the entry and confirm the attachments are still listed. Close `npsc`, then rewrite the result file in place, keeping its fields and warnings, with `status` `approved` when the entry reads Approved at the planned total, and `note` cleared.
 
 Only after `approved` with `attached`, the wrapper files the folder to `Completed_SC` and creates the next pay's folder, adding `filed`, `filedTo`, and `nextFolder` to the result. It then posts the result to the payroll channel through `scripts/notify-teams.ps1`, or a failure card when `result.json` is missing. The webhook is the restaurant payroll's, in `~/.claude/norms-payroll.json` outside the repo, which tags Regina Leong on every card.
 

@@ -1,8 +1,9 @@
 # Task Scheduler entry point. Waits for the Support Center ADP files in To Process SC, runs the skill unattended,
 # files the week folder to Completed_SC, opens the next pay's folder, then posts to the payroll channel.
-# usage: thursday-run.ps1 [-Mode watch|final] [-Force]
+# usage: thursday-run.ps1 [-Mode watch|final|approve] [-Force]
 # watch: quiet until the files are in. final: last check, posts once when files are missing.
-param([ValidateSet('watch', 'final')][string]$Mode = 'watch', [switch]$Force)
+# approve: Monday retry for an entry built but held by unapproved DSS journals; quiet until approved or the 5 PM try.
+param([ValidateSet('watch', 'final', 'approve')][string]$Mode = 'watch', [switch]$Force)
 $ErrorActionPreference = 'Stop'
 
 $Repo = (Resolve-Path "$PSScriptRoot\..\..\..\..").Path
@@ -25,6 +26,7 @@ if (-not $stat) { $missing += 'WVJ Stat Summary' }
 if (-not $labor) { $missing += 'WVJ Labor Distribution' }
 
 if ($missing.Count) {
+  if ($Mode -eq 'approve') { exit 0 }
   $mark = Join-Path $Base ("missing-{0:yyyyMMdd}.txt" -f (Get-Date))
   if ($Mode -eq 'final' -and -not (Test-Path $mark)) {
     Set-Content -Encoding utf8 $mark (Get-Date -Format s)
@@ -47,7 +49,13 @@ $pay = [datetime]::ParseExact($dates[0], 'MMddyyyy', $null)
 $payFull = '{0}/{1}/{2}' -f $pay.Month, $pay.Day, $pay.Year
 $run = Join-Path $Base ("pd{0:MMdd}" -f $pay)
 New-Item -ItemType Directory -Force $run | Out-Null
-if ((Test-Path (Join-Path $run 'done.txt')) -and -not $Force) { exit 0 }
+$result = Join-Path $run 'result.json'
+$held = $null
+if ($Mode -eq 'approve') {
+  if (-not (Test-Path $result)) { exit 0 }
+  $held = Get-Content -Raw -Encoding utf8 $result | ConvertFrom-Json
+  if ($held.status -ne 'awaiting-approval' -or -not $held.transactionId) { exit 0 }
+} elseif ((Test-Path (Join-Path $run 'done.txt')) -and -not $Force) { exit 0 }
 $log = Join-Path $run 'payroll-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 $title = "NORMS Payroll - Support Center, pay date $payFull"
@@ -60,11 +68,16 @@ $checks = Get-ChildItem -LiteralPath $Drop, $week.FullName -File -Filter '*Check
 # the run works from copies; the originals stay put until filed
 $copies = @($csvs) + @($stat, $labor) + @($checks | Where-Object { $_ })
 foreach ($f in $copies) { Copy-Item -LiteralPath $f.FullName (Join-Path $run $f.Name) -Force }
-$result = Join-Path $run 'result.json'
-if (Test-Path $result) { Move-Item -Force $result (Join-Path $run ("result-{0:HHmm}.json" -f (Get-Date))) }
+if (Test-Path $result) { Copy-Item -Force $result (Join-Path $run ("result-{0:MMdd-HHmm}.json" -f (Get-Date))) }
+if (-not $held) { Remove-Item -Force $result -ErrorAction SilentlyContinue }
 $prior = Get-ChildItem -LiteralPath $Done -Directory -Filter 'WE *' | Sort-Object LastWriteTime -Descending | Select-Object -First 1
 Log "starting claude ($Mode) for pay date $payFull"
-$prompt = @"
+$prompt = if ($held) { @"
+/norms-payroll-sc Approve-only run for pay date $payFull. Follow the skill's Approve-only run section.
+Work directory: $run
+Entry: $($held.number), transaction id $($held.transactionId), planned total $($held.total)
+Result file: $result
+"@ } else { @"
 /norms-payroll-sc Unattended run for pay date $payFull. Follow the skill's Unattended run section.
 Work directory: $run
 PR&TAX csv: $(($csvs | ForEach-Object { Join-Path $run $_.Name }) -join '; ')
@@ -72,7 +85,7 @@ Stat Summary: $(Join-Path $run $stat.Name)
 Labor Distribution: $(Join-Path $run $labor.Name)
 Checks & Vouchers: $(if ($checks) { Join-Path $run $checks.Name } else { 'none this pay' })
 Prior pay folder: $($prior.FullName)
-"@
+"@ }
 Set-Location $Repo
 # 5.1 turns native stderr into errors; Stop would kill the run
 $ErrorActionPreference = 'Continue'
@@ -91,6 +104,8 @@ if (-not (Test-Path $result)) {
 
 # file only an approved entry with every attachment
 $r = Get-Content -Raw -Encoding utf8 $result | ConvertFrom-Json
+# still held: quiet until the day's last try
+if ($held -and $r.status -eq 'awaiting-approval' -and (Get-Date).Hour -lt 17) { exit 0 }
 if ($r.status -eq 'approved' -and $r.attached) {
   try {
     foreach ($f in $copies) { if ($f.DirectoryName -ne $week.FullName) { Move-Item -LiteralPath $f.FullName $week.FullName } }
