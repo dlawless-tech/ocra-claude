@@ -1,0 +1,439 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://partnerportal.ezcater.com/completed
+- Page Title: Orders - Partner Portal
+### Snapshot
+```yaml
+- generic [active] [ref=f60e1]:
+  - generic [ref=f60e5]:
+    - generic [ref=f60e6]:
+      - link "ezCater" [ref=f60e8] [cursor=pointer]:
+        - /url: /orders
+        - img "ezCater" [ref=f60e9]
+      - generic [ref=f60e14]:
+        - list [ref=f60e17]:
+          - generic [ref=f60e18]: Daily operations
+          - listitem [ref=f60e20]:
+            - generic [ref=f60e21] [cursor=pointer]: ezCater orders
+            - list [ref=f60e30]:
+              - listitem [ref=f60e31]:
+                - link "Upcoming" [ref=f60e32] [cursor=pointer]:
+                  - /url: /orders
+              - listitem [ref=f60e34]:
+                - link "Completed" [ref=f60e35] [cursor=pointer]:
+                  - /url: /completed
+              - listitem [ref=f60e37]:
+                - link "Rejected" [ref=f60e38] [cursor=pointer]:
+                  - /url: /rejected
+              - listitem [ref=f60e40]:
+                - link "Canceled" [ref=f60e41] [cursor=pointer]:
+                  - /url: /canceled
+          - generic [ref=f60e43]: Business insights
+          - generic [ref=f60e44]:
+            - listitem [ref=f60e45]:
+              - generic [ref=f60e46] [cursor=pointer]: Operational metrics
+            - listitem [ref=f60e54]:
+              - link "Reliability Rockstar" [ref=f60e55] [cursor=pointer]:
+                - /url: /reliability_rockstar
+          - generic [ref=f60e59]: Manage account
+          - listitem [ref=f60e61]:
+            - link "Menus" [ref=f60e62] [cursor=pointer]:
+              - /url: /menus
+          - generic [ref=f60e66]: Support resources
+          - generic [ref=f60e67]:
+            - listitem [ref=f60e68]:
+              - link "Training resources" [ref=f60e69] [cursor=pointer]:
+                - /url: https://catering.ezcater.io/en/
+            - listitem [ref=f60e73]:
+              - button "Live chat" [ref=f60e74] [cursor=pointer]
+            - listitem [ref=f60e78]:
+              - button "24/7 support" [ref=f60e79] [cursor=pointer]
+        - generic [ref=f60e89] [cursor=pointer]:
+          - generic [ref=f60e90]: Mark OCRA
+          - generic [ref=f60e91]: mark+04@ocra-us.com
+    - generic [ref=f60e99]:
+      - generic [ref=f60e106]:
+        - heading "Completed orders" [level=1] [ref=f60e110]
+        - generic [ref=f60e206]:
+          - text: Change store
+          - combobox [ref=f60e207] [cursor=pointer]:
+            - textbox [ref=f60e208]
+            - alert [ref=f60e209]: All stores
+            - generic [ref=f60e210]: 
+      - generic [ref=f60e114]:
+        - generic [ref=f60e118]:
+          - paragraph [ref=f60e138]: Download your Online Ordering customer list now.
+          - button "Download Customers List" [ref=f60e139] [cursor=pointer]
+        - generic [ref=f60e143]:
+          - generic [ref=f60e147]:
+            - generic [ref=f60e149]:
+              - generic [ref=f60e150]: See orders from
+              - combobox "See orders from" [ref=f60e157]: Last 90 Days
+            - generic [ref=f60e159]:
+              - generic [ref=f60e160]: Search by order number
+              - searchbox "Search by order number" [ref=f60e161]
+          - generic [ref=f60e165]:
+            - generic [ref=f60e166]: Sources
+            - combobox "open select" [ref=f60e167] [cursor=pointer]:
+              - generic [ref=f60e168]: Marketplace, Online Ordering, Direct Entry, Meal Program
+            - textbox [ref=f60e171]: "[\"MARKETPLACE\"]"
+        - table [ref=f60e186]:
+          - rowgroup [ref=f60e187]:
+            - row [ref=f60e211]:
+              - 'columnheader "Order #" [ref=f60e189]'
+              - columnheader "Date & time" [ref=f60e190]
+              - columnheader "Customer" [ref=f60e191]
+              - columnheader "Setup required" [ref=f60e192]
+              - columnheader "Store" [ref=f60e212]
+              - columnheader "Source" [ref=f60e193]
+              - columnheader "Issues" [ref=f60e194]
+              - columnheader "Rating" [ref=f60e195]
+              - columnheader "Order value" [ref=f60e196]
+          - rowgroup [ref=f60e198]:
+            - row [ref=f60e213] [cursor=pointer]:
+              - cell [ref=f60e214]:
+                - link "3E8-RW2" [ref=f60e215]:
+                  - /url: /orders/297115176
+              - cell "Thu, Oct. 15, Noon (11:35 AM pickup)" [ref=f60e216]:
+                - generic [ref=f60e217]: Thu, Oct. 15, Noon
+                - generic [ref=f60e218]: (11:35 AM pickup)
+              - cell "Danforth University Center" [ref=f60e220]
+              - cell "No response" [ref=f60e223]
+              - cell "Snarf's Skinker" [ref=f60e225]
+              - cell "Marketplace" [ref=f60e227]:
+                - generic "Marketplace" [ref=f60e229]
+              - cell "--" [ref=f60e230]
+              - cell "No review" [ref=f60e231]
+              - cell "$642.55" [ref=f60e233]
+            - row [ref=f60e235] [cursor=pointer]:
+              - cell [ref=f60e236]:
+                - link "YCJ-590" [ref=f60e237]:
+                  - /url: /orders/297295830
+              - cell "Thu, Oct. 15, 11:30 AM (11:07 AM pickup)" [ref=f60e238]:
+                - generic [ref=f60e239]: Thu, Oct. 15, 11:30 AM
+                - generic [ref=f60e240]: (11:07 AM pickup)
+              - cell "Microsoft" [ref=f60e242]
+              - cell "No" [ref=f60e245]
+              - cell "Snarf's SLU" [ref=f60e247]
+              - cell "Marketplace" [ref=f60e249]:
+                - generic "Marketplace" [ref=f60e251]
+              - cell "--" [ref=f60e252]
+              - cell "No review" [ref=f60e253]
+              - cell "$227.87" [ref=f60e255]
+            - row [ref=f60e257] [cursor=pointer]:
+              - cell [ref=f60e258]:
+                - link "QZA-1VR" [ref=f60e259]:
+                  - /url: /orders/297262778
+              - cell "Wed, Oct. 14, 11:45 AM (11:20 AM pickup)" [ref=f60e260]:
+                - generic [ref=f60e261]: Wed, Oct. 14, 11:45 AM
+                - generic [ref=f60e262]: (11:20 AM pickup)
+              - cell "Jacobs Architects" [ref=f60e264]
+              - cell "Yes" [ref=f60e267]
+              - cell "Snarf's Skinker" [ref=f60e269]
+              - cell "Marketplace" [ref=f60e271]:
+                - generic "Marketplace" [ref=f60e273]
+              - cell "--" [ref=f60e274]
+              - cell "No review" [ref=f60e275]
+              - cell "$275.86" [ref=f60e277]
+            - row [ref=f60e279] [cursor=pointer]:
+              - cell [ref=f60e280]:
+                - link "J2J-KUH" [ref=f60e281]:
+                  - /url: /orders/296891437
+              - cell "Wed, Oct. 14, 11:30 AM (11:01 AM pickup)" [ref=f60e282]:
+                - generic [ref=f60e283]: Wed, Oct. 14, 11:30 AM
+                - generic [ref=f60e284]: (11:01 AM pickup)
+              - cell "Hunter Engineering Company" [ref=f60e286]
+              - cell "No" [ref=f60e289]
+              - cell "Snarf's Page" [ref=f60e291]
+              - cell "Marketplace" [ref=f60e293]:
+                - generic "Marketplace" [ref=f60e295]
+              - cell "--" [ref=f60e296]
+              - cell "No review" [ref=f60e297]
+              - cell "$327.78" [ref=f60e299]
+            - row [ref=f60e301] [cursor=pointer]:
+              - cell [ref=f60e302]:
+                - link "8XC-ATY" [ref=f60e303]:
+                  - /url: /orders/296990475
+              - cell "Tue, Oct. 13, 5:30 PM (5:08 PM pickup)" [ref=f60e304]:
+                - generic [ref=f60e305]: Tue, Oct. 13, 5:30 PM
+                - generic [ref=f60e306]: (5:08 PM pickup)
+              - cell "Washington University in St. Louis" [ref=f60e308]
+              - cell "Yes" [ref=f60e311]
+              - cell "Snarf's Skinker" [ref=f60e313]
+              - cell "Marketplace" [ref=f60e315]:
+                - generic "Marketplace" [ref=f60e317]
+              - cell "--" [ref=f60e318]
+              - cell "No review" [ref=f60e319]
+              - cell "$115.96" [ref=f60e321]
+            - row [ref=f60e323] [cursor=pointer]:
+              - cell [ref=f60e324]:
+                - link "4Q7-AEU" [ref=f60e325]:
+                  - /url: /orders/297156800
+              - cell "Tue, Oct. 13, 11:45 AM (11:19 AM pickup)" [ref=f60e326]:
+                - generic [ref=f60e327]: Tue, Oct. 13, 11:45 AM
+                - generic [ref=f60e328]: (11:19 AM pickup)
+              - cell "Raymond James" [ref=f60e330]
+              - cell "Yes" [ref=f60e333]
+              - cell "Snarf's Kirkwood" [ref=f60e335]
+              - cell "Marketplace" [ref=f60e337]:
+                - generic "Marketplace" [ref=f60e339]
+              - cell "--" [ref=f60e340]
+              - cell "No review" [ref=f60e341]
+              - cell "$191.17" [ref=f60e343]
+            - row [ref=f60e345] [cursor=pointer]:
+              - cell [ref=f60e346]:
+                - link "AU7-R5X" [ref=f60e347]:
+                  - /url: /orders/296989712
+              - cell "Mon, Oct. 12, 5:30 PM (5:06 PM pickup)" [ref=f60e348]:
+                - generic [ref=f60e349]: Mon, Oct. 12, 5:30 PM
+                - generic [ref=f60e350]: (5:06 PM pickup)
+              - cell "Washington University in St. Louis" [ref=f60e352]
+              - cell "Yes" [ref=f60e355]
+              - cell "Snarf's Skinker" [ref=f60e357]
+              - cell "Marketplace" [ref=f60e359]:
+                - generic "Marketplace" [ref=f60e361]
+              - cell "--" [ref=f60e362]
+              - cell "No review" [ref=f60e363]
+              - cell "$519.58" [ref=f60e365]
+            - row [ref=f60e367] [cursor=pointer]:
+              - cell [ref=f60e368]:
+                - link "ZAT-9AT" [ref=f60e369]:
+                  - /url: /orders/297101687
+              - cell "Mon, Oct. 12, 11 AM (10:33 AM pickup)" [ref=f60e370]:
+                - generic [ref=f60e371]: Mon, Oct. 12, 11 AM
+                - generic [ref=f60e372]: (10:33 AM pickup)
+              - cell "BJC" [ref=f60e374]
+              - cell "No" [ref=f60e377]
+              - cell "Snarf's Page" [ref=f60e379]
+              - cell "Marketplace" [ref=f60e381]:
+                - generic "Marketplace" [ref=f60e383]
+              - cell "--" [ref=f60e384]
+              - cell "No review" [ref=f60e385]
+              - cell "$225.70" [ref=f60e387]
+            - row [ref=f60e389] [cursor=pointer]:
+              - cell [ref=f60e390]:
+                - link "YE1-G6C" [ref=f60e391]:
+                  - /url: /orders/297111207
+              - cell "Mon, Oct. 12, 11 AM (10:21 AM pickup)" [ref=f60e392]:
+                - generic [ref=f60e393]: Mon, Oct. 12, 11 AM
+                - generic [ref=f60e394]: (10:21 AM pickup)
+              - cell "Saint Louis Zoo WildCare Park" [ref=f60e396]
+              - cell "No response" [ref=f60e399]
+              - cell "Snarf's MX" [ref=f60e401]
+              - cell "Marketplace" [ref=f60e403]:
+                - generic "Marketplace" [ref=f60e405]
+              - cell "--" [ref=f60e406]
+              - cell "No review" [ref=f60e407]
+              - cell "$133.72" [ref=f60e409]
+            - row [ref=f60e411] [cursor=pointer]:
+              - cell [ref=f60e412]:
+                - link "0RJ-EYR" [ref=f60e413]:
+                  - /url: /orders/296547399
+              - cell "Mon, Oct. 12, 9:30 AM (9:09 AM pickup)" [ref=f60e414]:
+                - generic [ref=f60e415]: Mon, Oct. 12, 9:30 AM
+                - generic [ref=f60e416]: (9:09 AM pickup)
+              - cell "Altus Properties LLC" [ref=f60e418]
+              - cell "No response" [ref=f60e421]
+              - cell "Snarf's Skinker" [ref=f60e423]
+              - cell "Marketplace" [ref=f60e425]:
+                - generic "Marketplace" [ref=f60e427]
+              - cell "--" [ref=f60e428]
+              - cell "No review" [ref=f60e429]
+              - cell "$179.95" [ref=f60e431]
+            - row [ref=f60e433] [cursor=pointer]:
+              - cell [ref=f60e434]:
+                - link "U5C-GQ9" [ref=f60e435]:
+                  - /url: /orders/297115381
+              - cell "Fri, Oct. 9, 8 PM (7:38 PM pickup)" [ref=f60e436]:
+                - generic [ref=f60e437]: Fri, Oct. 9, 8 PM
+                - generic [ref=f60e438]: (7:38 PM pickup)
+              - cell "St. Louis City Training Facility" [ref=f60e440]
+              - cell "No" [ref=f60e443]
+              - cell "Snarf's SLU" [ref=f60e445]
+              - cell "Marketplace" [ref=f60e447]:
+                - generic "Marketplace" [ref=f60e449]
+              - cell "--" [ref=f60e450]
+              - cell "No review" [ref=f60e451]
+              - cell "$458.39" [ref=f60e453]
+            - row [ref=f60e455] [cursor=pointer]:
+              - cell [ref=f60e456]:
+                - link "UG1-UP5" [ref=f60e457]:
+                  - /url: /orders/296893178
+              - cell "Thu, Oct. 8, 11 AM (10:33 AM pickup)" [ref=f60e458]:
+                - generic [ref=f60e459]: Thu, Oct. 8, 11 AM
+                - generic [ref=f60e460]: (10:33 AM pickup)
+              - cell "Midwest Employers Casualty" [ref=f60e462]
+              - cell "Yes" [ref=f60e465]
+              - cell "Snarf’s Spirit" [ref=f60e467]
+              - cell "Marketplace" [ref=f60e469]:
+                - generic "Marketplace" [ref=f60e471]
+              - cell "--" [ref=f60e472]
+              - cell "No review" [ref=f60e473]
+              - cell "$374.60" [ref=f60e475]
+            - row [ref=f60e477] [cursor=pointer]:
+              - cell [ref=f60e478]:
+                - link "CRH-PAU" [ref=f60e479]:
+                  - /url: /orders/297000946
+              - cell "Wed, Oct. 7, 12:30 PM (12:07 PM pickup)" [ref=f60e480]:
+                - generic [ref=f60e481]: Wed, Oct. 7, 12:30 PM
+                - generic [ref=f60e482]: (12:07 PM pickup)
+              - cell "SimplyThick" [ref=f60e484]
+              - cell "No response" [ref=f60e487]
+              - cell "Snarf's Page" [ref=f60e489]
+              - cell "Marketplace" [ref=f60e491]:
+                - generic "Marketplace" [ref=f60e493]
+              - cell "--" [ref=f60e494]
+              - cell "No review" [ref=f60e495]
+              - cell "$175.20" [ref=f60e497]
+            - row [ref=f60e499] [cursor=pointer]:
+              - cell [ref=f60e500]:
+                - link "6WG-3M5" [ref=f60e501]:
+                  - /url: /orders/296989948
+              - cell "Wed, Oct. 7, Noon (11:27 AM pickup)" [ref=f60e502]:
+                - generic [ref=f60e503]: Wed, Oct. 7, Noon
+                - generic [ref=f60e504]: (11:27 AM pickup)
+              - cell "Greentech Renewables" [ref=f60e506]
+              - cell "Yes" [ref=f60e509]
+              - cell "Snarf's Page" [ref=f60e511]
+              - cell "Marketplace" [ref=f60e513]:
+                - generic "Marketplace" [ref=f60e515]
+              - cell "--" [ref=f60e516]
+              - cell "No review" [ref=f60e517]
+              - cell "$200.81" [ref=f60e519]
+            - row [ref=f60e521] [cursor=pointer]:
+              - cell [ref=f60e522]:
+                - link "VAJ-KZ7" [ref=f60e523]:
+                  - /url: /orders/296942056
+              - cell "Wed, Oct. 7, 11 AM (10:38 AM pickup)" [ref=f60e524]:
+                - generic [ref=f60e525]: Wed, Oct. 7, 11 AM
+                - generic [ref=f60e526]: (10:38 AM pickup)
+              - cell "St. Louis Public Radio" [ref=f60e528]
+              - cell "No" [ref=f60e531]
+              - cell "Snarf's SLU" [ref=f60e533]
+              - cell "Marketplace" [ref=f60e535]:
+                - generic "Marketplace" [ref=f60e537]
+              - cell "--" [ref=f60e538]
+              - cell "No review" [ref=f60e539]
+              - cell "$201.95" [ref=f60e541]
+            - row [ref=f60e543] [cursor=pointer]:
+              - cell [ref=f60e544]:
+                - link "X5R-KR3" [ref=f60e545]:
+                  - /url: /orders/296983490
+              - cell "Wed, Oct. 7, 11 AM (10:38 AM pickup)" [ref=f60e546]:
+                - generic [ref=f60e547]: Wed, Oct. 7, 11 AM
+                - generic [ref=f60e548]: (10:38 AM pickup)
+              - cell "Deloitte LLP" [ref=f60e550]
+              - cell "No" [ref=f60e553]
+              - cell "Snarf's MX" [ref=f60e555]
+              - cell "Marketplace" [ref=f60e557]:
+                - generic "Marketplace" [ref=f60e559]
+              - cell "--" [ref=f60e560]
+              - cell "No review" [ref=f60e561]
+              - cell "$299.66" [ref=f60e563]
+            - row [ref=f60e565] [cursor=pointer]:
+              - cell [ref=f60e566]:
+                - link "U6J-P4M" [ref=f60e567]:
+                  - /url: /orders/296724809
+              - cell "Tue, Oct. 6, 11:45 AM (11:17 AM pickup)" [ref=f60e568]:
+                - generic [ref=f60e569]: Tue, Oct. 6, 11:45 AM
+                - generic [ref=f60e570]: (11:17 AM pickup)
+              - cell "Allnex USA" [ref=f60e572]
+              - cell "No" [ref=f60e575]
+              - cell "Snarf's MX" [ref=f60e577]
+              - cell "Marketplace" [ref=f60e579]:
+                - generic "Marketplace" [ref=f60e581]
+              - cell "--" [ref=f60e582]
+              - cell [ref=f60e583]:
+                - img "5 stars" [ref=f60e584]
+              - cell "$203.35" [ref=f60e600]
+            - row [ref=f60e602] [cursor=pointer]:
+              - cell [ref=f60e603]:
+                - link "J8E-RAC" [ref=f60e604]:
+                  - /url: /orders/296799956
+              - cell "Tue, Oct. 6, 11:30 AM (11:09 AM pickup)" [ref=f60e605]:
+                - generic [ref=f60e606]: Tue, Oct. 6, 11:30 AM
+                - generic [ref=f60e607]: (11:09 AM pickup)
+              - cell "Nestle IT & Digital" [ref=f60e609]
+              - cell "No" [ref=f60e612]
+              - cell "Snarf's MX" [ref=f60e614]
+              - cell "Marketplace" [ref=f60e616]:
+                - generic "Marketplace" [ref=f60e618]
+              - cell "--" [ref=f60e619]
+              - cell "No review" [ref=f60e620]
+              - cell "$254.84" [ref=f60e622]
+            - row [ref=f60e624] [cursor=pointer]:
+              - cell [ref=f60e625]:
+                - link "A3U-FVC" [ref=f60e626]:
+                  - /url: /orders/296799376
+              - cell "Tue, Oct. 6, 11 AM (10:34 AM pickup)" [ref=f60e627]:
+                - generic [ref=f60e628]: Tue, Oct. 6, 11 AM
+                - generic [ref=f60e629]: (10:34 AM pickup)
+              - cell "PI AgSciences" [ref=f60e631]
+              - cell "Yes" [ref=f60e634]
+              - cell "Snarf's Page" [ref=f60e636]
+              - cell "Marketplace" [ref=f60e638]:
+                - generic "Marketplace" [ref=f60e640]
+              - cell "--" [ref=f60e641]
+              - cell "No review" [ref=f60e642]
+              - cell "$399.58" [ref=f60e644]
+            - row [ref=f60e646] [cursor=pointer]:
+              - cell [ref=f60e647]:
+                - link "FX4-GJG" [ref=f60e648]:
+                  - /url: /orders/296863708
+              - cell "Mon, Oct. 5, 11:45 AM (11:20 AM pickup)" [ref=f60e649]:
+                - generic [ref=f60e650]: Mon, Oct. 5, 11:45 AM
+                - generic [ref=f60e651]: (11:20 AM pickup)
+              - cell "Procter & Gamble" [ref=f60e653]
+              - cell "No" [ref=f60e656]
+              - cell "Snarf's MX" [ref=f60e658]
+              - cell "Marketplace" [ref=f60e660]:
+                - generic "Marketplace" [ref=f60e662]
+              - cell "--" [ref=f60e663]
+              - cell "No review" [ref=f60e664]
+              - cell "$190.40" [ref=f60e666]
+        - generic [ref=f60e669]:
+          - navigation "Pagination Navigation" [ref=f60e671]:
+            - generic "First item" [ref=f60e672]: «
+            - generic "Previous item" [ref=f60e673]: ⟨
+            - generic [ref=f60e674]: "1"
+            - generic [ref=f60e675]: "2"
+            - generic [ref=f60e676]: "3"
+            - generic [ref=f60e677]: "4"
+            - generic "Next item" [ref=f60e678]: ⟩
+            - generic "Last item" [ref=f60e679]: »
+          - generic [ref=f60e680]:
+            - text: Rows per page
+            - listbox [ref=f60e681] [cursor=pointer]:
+              - alert [ref=f60e682]: "20"
+              - generic [ref=f60e683]: 
+  - iframe [ref=f60e684]:
+    
+  - iframe [ref=f60e685]:
+    - generic [ref=f64e1]:
+      - generic "Intercom":
+        - region "Intercom messenger":
+          - group "2 notifications":
+            - listbox "Notification stack":
+              - option [ref=f64e2]:
+                - article "message notification from ezcater, 6d. How satisfied are you with ezCater?" [ref=f64e4]:
+                  - generic [ref=f64e5]:
+                    - img "ezcater" [ref=f64e7]
+                    - group [ref=f64e9]:
+                      - paragraph [ref=f64e11]: How satisfied are you with ezCater?
+                      - paragraph [ref=f64e12]: ezcater • 6d
+                    - button "Dismiss notification" [ref=f64e13] [cursor=pointer]
+              - option [ref=f64e17]:
+                - article "message notification from ezcater, 1mo. New and improved issue reporting See cancellations, rejections, timeliness, order accuracy, and delivery tracking all in one place, broken down by category and tied directly to their cost, including compensation and delivery tracking fees. Use filters for time range, order type, or store to quickly pinpoint what’s driving issues. Drill into any order for the full details, or export to share with your team." [ref=f64e19]:
+                  - generic [ref=f64e20]:
+                    - img "ezcater" [ref=f64e22]
+                    - group [ref=f64e24]:
+                      - paragraph [ref=f64e26]: New and improved issue reporting See cancellations, rejections, timeliness, order accuracy, and delivery tracking all in one place, broken down by category and tied directly to their cost, including compensation and delivery tracking fees. Use filters for time range, order type, or store to quickly pinpoint what’s driving issues. Drill into any order for the full details, or export to share with your team.
+                      - paragraph [ref=f64e27]: ezcater • 1mo
+                    - button "Dismiss notification" [ref=f64e28] [cursor=pointer]
+```

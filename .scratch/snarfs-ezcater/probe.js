@@ -1,0 +1,3 @@
+async () => { const q = `query($s: DateTime, $e: DateTime) { me { catererAccount { orders(sourceTypes:[MARKETPLACE,EZ_ORDERING,DIRECT_ENTRY,CLUB_SODA], startDate:$s, endDate:$e, offset:0, limit:3, orderBy:{field:EVENT_AT,direction:ASC}, filter:PAST) { totalCount edges { node { orderNumber caterer { nickname } event { timestamp } catererCart { totals { catererTotalDue subTotal posTotal total } } } } } } } }`;
+const r = await fetch('https://ezmanage-api.ezcater.com/graphql', { method:'POST', credentials:'include', headers:{'content-type':'application/json'}, body: JSON.stringify({ query:q, variables:{ s:'2026-10-04T05:00:00Z', e:'2026-10-11T04:59:59Z' } }) });
+return (await r.text()).slice(0, 3000); }
