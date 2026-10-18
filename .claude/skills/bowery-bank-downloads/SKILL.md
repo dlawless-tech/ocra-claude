@@ -23,7 +23,7 @@ The prior week, Sunday through Saturday, both dates inclusive. The scheduled run
 bash <skill>/scripts/open-bank-activity.sh bbd
 ```
 
-It goes straight to `https://bowerygroup.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000` in the current tab and logs in again once if that drops the session.
+It goes straight to `https://bowerygroup.restaurant365.com/#/form/BankActivityForm/00000000-0000-0000-0000-000000000000` in the current tab and logs in again once if that drops the session. Once the page loads it answers **No** to the "already refreshed today" warning for the default account, if it shows.
 
 ## Step 2: retrieve every account
 
@@ -45,14 +45,14 @@ The step is done when `retrieve.log` ends on `END` and every `RETRIEVED` line ca
 
 ## The page's quirks
 
-- **The warning.** `This account has already been refreshed today. Would you like to query the bank again to refresh the data?` shows on selecting an account and again after its retrieve. **No** keeps the bank's last sync; **Yes** asks the bank to sync again. The popup is often missing from snapshots while its `.k-overlay` swallows every click, so the scripts detect it from the DOM (`.r365-confirmation-popup-window`) and answer through `button[data-testid=cancelText]`.
+- **The warning.** `This account has already been refreshed today. Would you like to query the bank again to refresh the data?` shows when the page opens, on selecting an account, and again after its retrieve. Always answer **No**. **No** keeps the bank's last sync; **Yes** asks the bank to sync again. The popup is often missing from snapshots while its `.k-overlay` swallows every click, so the scripts detect it from the DOM (`.r365-confirmation-popup-window`) and answer through `button[data-testid=cancelText]`.
 - **Status.** Three blocks sit under `Connection Status:`, one visible at a time: `#greenStatus` Connected, `#goldenrodStatus` Not Connected, `#redStatus` Password Needed. Read the one without `ng-hide`.
 - **Selectors.** The account input is `input[name=bankActivityBankAcounts_input]` (the misspelling is R365's), its list `#bankActivityBankAcounts_listbox li`, the pen/paper icon `[data-testid=chooseDateRangeButton]`, the dates `#start` and `#end` (Kendo date pickers), and the dialog's retrieve button carries `ng-click="handlers.retrieveActivity('startEndDate')"`. The ribbon's own Retrieve Activity (`retrieveAll`) pulls without a date range.
 - **The dropdown arrow** sometimes ignores a click; the script retries until the list shows.
 
 ## Sunday scheduled run
 
-`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 9:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>`, named for the run's Sunday, under its own browser session `bbk`, so a manual run under `bbd` is left alone. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
+`scripts/sunday-run.ps1` runs from Task Scheduler on Sundays at 14:00 (`scripts/register-task.ps1` sets it up as `Bowery Bank Downloads - Sunday`; a missed run starts at next sign-in). It needs no Claude session: it logs in, opens the page, and runs `retrieve-all.sh` in `.scratch/bowery-bank-downloads/wk<MMDD>`, named for the run's Sunday, under its own browser session `bbk`, so a manual run under `bbd` is left alone. On a `FAIL` it logs in again and resumes from that account, three tries, then closes its browser session. It writes `started.txt` first, so the week runs once; `-Force` reruns it.
 
 It then posts a card to the Bank Activity Teams channel through `scripts/notify-teams.ps1`: one line per account, with Brandy Sanders tagged and told the week is downloaded. The title says `FAILED` instead when `retrieve.log` has no `END` or a retrieve carries an error. The webhook and the person to tag live in `~/.claude/bowery-bank-downloads.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "bsanders@ocra-us.com"}}`.
 
