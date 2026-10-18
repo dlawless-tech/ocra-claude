@@ -13,10 +13,10 @@ if ($ResultFile) {
   $Lines = @()
   foreach ($d in @($r.deposits)) {
     if (-not $d) { continue }
-    $Lines += "- $($d.store) $($d.number) $($d.date): net $('{0:N2}' -f [double]$d.net), gross $('{0:N2}' -f [double]$d.gross), fees $('{0:N2}' -f [double]$d.fees), refunds $('{0:N2}' -f [double]$d.refunds), $($d.status)"
+    $Lines += "- $($d.store) $($d.number) $($d.date): net $('{0:N2}' -f [double]$d.net), gross $('{0:N2}' -f [double]$d.gross), fees $('{0:N2}' -f [double]$d.fees), refunds $('{0:N2}' -f [double]$d.refunds), $(if ($d.status -eq 'recorded') { 'recorded from its bank line and split' } else { $d.status })"
   }
-  if (-not $Lines.Count) { $Lines += 'No Paysafe deposits to split this week.' }
-  foreach ($x in @($r.pending)) { if ($x) { $Lines += "- Not in R365 yet, next week: $x" } }
+  if (-not $Lines.Count) { $Lines += 'No Tripleseat payouts reached the bank this week.' }
+  foreach ($x in @($r.pending)) { if ($x) { $Lines += "- Not on the bank yet, next week: $x" } }
   foreach ($x in @($r.warnings)) { if ($x) { $Lines += "- **$x**" } }
   if ($r.note) { $Lines += $r.note }
 }

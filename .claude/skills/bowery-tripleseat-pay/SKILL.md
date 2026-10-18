@@ -1,11 +1,16 @@
 ---
 name: bowery-tripleseat-pay
-description: Split Bowery Group's Tripleseat Pay payouts in Restaurant365, one Bank Deposit per payout for Rosie's, Vic's and Cookshop, into event deposit gross, card fees and refunds, with the payout page attached as a PDF. Use when asked to run the weekly Bowery Tripleseat Pay deposits, to correct a Bowery Paysafe deposit, or to check one against its Tripleseat payout, or when the Sunday bank downloads run starts it.
+description: Split Bowery Group's Tripleseat Pay payouts in Restaurant365, one Bank Deposit per payout for Rosie's, Vic's and Cookshop, into event deposit gross, card fees and refunds, with the payout page attached as a PDF, recording any payout still unmatched on Bank Activity as its deposit first. Use when asked to run the weekly Bowery Tripleseat Pay deposits, to correct a Bowery Paysafe deposit, or to check one against its Tripleseat payout, or when the Sunday bank downloads run starts it.
 ---
 
 # Tripleseat Pay payouts into Bowery Bank Deposits
 
-Tripleseat Pay (Paysafe) pays each store's event deposits to its operating account. Each payout reaches R365 as a Bank Deposit matched to the bank line, at location `500 - Rosie's`, `700 - Vic's` or `200 - Cookshop`, with "Paysafe" in its comment (`Refunds from Paysafe` or `Orig CO Name:Paysafe Merchant...`). It arrives booked as one net line to 253-00. This skill splits it from the payout's Transaction Summary and attaches the payout page.
+Tripleseat Pay (Paysafe) pays each store's event deposits to its operating account (`100-05` Rosie's, `100-08` Vic's, `100-10` Cookshop). A payout reaches R365 one of two ways:
+
+- **Deposit.** A Bank Deposit already matched to the bank line, at location `500 - Rosie's`, `700 - Vic's` or `200 - Cookshop`, with "Paysafe" in its comment (`Refunds from Paysafe` or `Orig CO Name:Paysafe Merchant...`), booked as one net line to 253-00.
+- **Bank line.** An unmatched `Refunds from Paysafe` credit on the Bank Activity page, with no deposit yet. Since October 2026 most payouts arrive this way.
+
+The skill records each bank line as a deposit at net to 253-00, then splits every deposit from the payout's Transaction Summary and attaches the payout page.
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting R365 beyond these scripts. Work in one scratch directory for the whole run, since `playwright-cli` binds sessions to it; payout PDFs land in its `pdf/<store>/`.
 
@@ -29,8 +34,29 @@ bash <skill>/scripts/list-payouts.sh tsp <store> <start minus 7 days>
 
 Each deposit pairs with the payout of the same net amount dated up to 7 days before it; the bank posts a payout one to five business days after its payout date. Where several payouts share an amount (194.45 is common), pair oldest payout to oldest deposit. Pairing is done when every deposit has its payout.
 
-- A payout with no deposit has not reached R365 yet. Leave it for next week's run and list it in the report, unless it was paid out in a month that is closing; then ask the human whether to post it ahead (see **Month end: post a payout ahead**).
-- A deposit with no payout: stop and show it to the human.
+A payout with no deposit goes through **Step 2b**. A deposit with no payout: stop and show it to the human.
+
+## Step 2b: record the bank lines
+
+Open Bank Activity and list each store's unmatched Paysafe lines:
+
+```bash
+bash <skills>/bowery-bank-downloads/scripts/open-bank-activity.sh bts
+bash <skill>/scripts/bank-lines.sh bts <store>
+```
+
+`bank-lines.sh` selects the store's operating account, answers **No** to the refresh warning, and prints `<date> | <amount> | <kind> | <name>` for every line whose memo names Paysafe. `CARD PROCS` is a payout credit; `REVERSAL` is Paysafe pulling one back. Pair each `CARD PROCS` credit with an unpaired payout of the same amount, oldest to oldest as in Step 2, then record it:
+
+```bash
+bash <skill>/scripts/record-deposit.sh bts <store> <bank amount> <bank date M/D/YYYY>
+```
+
+It clicks the line's **Deposit** link, keys one 253-00 line at net at the store's location, checks the total, and clicks **Create Deposit**, which saves it Approved, dated the bank date, with the `Refunds from Paysafe` comment. It prints `CREATED <TransactionId>`; pass that id straight to `post-payout.sh` in Step 3, with the PDF named from the bank date. Run `bank-lines.sh` again before each `record-deposit.sh`, since `post-payout.sh` leaves Bank Activity.
+
+A same-day Paysafe reversal of the same amount cancels one credit. When the credits and reversals on a date cancel out, `record-deposit.sh` prints `LEFT:` and creates nothing: leave those bank lines as they are and keep the payout pending, since the money has not arrived. On 10/16/2026 Rosie's 1,115.69 and Vic's 1,810.06 (the 10/14 payouts) each landed twice and were reversed twice. It records when exactly one credit remains, and stops with `STOP:` on any other count; show those to the human.
+
+- A payout with neither a deposit nor a bank line has not reached the bank yet. Leave it for next week's run and list it in the report, unless it was paid out in a month that is closing; then ask the human whether to post it ahead (see **Month end: post a payout ahead**).
+- A `CARD PROCS` credit with no payout: stop and show it to the human.
 
 ## Step 3: post each pair
 
@@ -60,8 +86,9 @@ The wrapper works in `.scratch/bowery-tripleseat/wk<MMDD>`, starts this skill he
 No human answers during the run, so:
 
 - Never ask. Use sessions `btsu` for R365 and `tspu` for Tripleseat Pay, and run every command as `cd <work directory> && ...`.
-- A deposit with no payout posts nothing; name it in `warnings`.
-- A payout with no deposit goes in `pending`. One paid out in a month that has closed or is closing also goes in `warnings` as `month end: post ahead by hand`. Never post ahead.
+- A deposit or `CARD PROCS` credit with no payout posts nothing; name it in `warnings`.
+- Record every paired bank line through Step 2b and split it. A `LEFT:` keeps the payout in `pending` with no warning. A `STOP:` from `record-deposit.sh` goes in `warnings` with the lines it names.
+- A payout with neither a deposit nor a bank line goes in `pending`. One paid out in a month that has closed or is closing also goes in `warnings` as `month end: post ahead by hand`. Never post ahead.
 - A `FAIL` from `post-payout.sh` is retried once after logging in again; a second `FAIL` goes in `warnings` with what it says was saved.
 
 Close both sessions (Step 4), then write `result.json` in the work directory. The wrapper posts it to the Bank Activity Teams channel through `scripts/notify-teams.ps1`, with Brandy Sanders tagged on every card, and reports a failure when the file is missing:
@@ -72,7 +99,7 @@ Close both sessions (Step 4), then write `result.json` in the work directory. Th
   "pending": ["Rosie's po_xxx 10/9/2026 194.45"], "warnings": [], "note": "" }
 ```
 
-Each deposit's `status` is `matched` (split this run), `already` (`lines already right`) or `failed`. `status` is `complete` when every deposit is `matched` or `already`, `partial` when some failed, and `failed` when the run could not log in or pair. A week with no Paysafe deposits is `complete` with an empty `deposits`. The webhook lives in `~/.claude/bowery-tripleseat.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}}`, the same channel as the bank downloads card.
+Each deposit's `status` is `recorded` (created from its bank line and split this run), `matched` (split this run), `already` (`lines already right`) or `failed`. `status` is `complete` when every deposit is `recorded`, `matched` or `already`, `partial` when some failed, and `failed` when the run could not log in or pair. A week with no payouts on the bank is `complete` with an empty `deposits`. The webhook lives in `~/.claude/bowery-tripleseat.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Brandy Sanders", "email": "<work email>"}}`, the same channel as the bank downloads card.
 
 ## Month end: post a payout ahead
 
