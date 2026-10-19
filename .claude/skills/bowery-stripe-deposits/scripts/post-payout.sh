@@ -41,8 +41,17 @@ cp .playwright-cli/transfers.csv "$FILE"
 PLAN="plan-$ISO.json"
 node "$K/plan-lines.js" "$FILE" "$BD" "$AMT" > "$PLAN" || { cat "$PLAN"; exit 1; }
 
-# open the deposit from the bank line
-act $R 'Deposit link' click "#BankActivityUnmatchedGrid tbody tr:has-text('$(printf "%'.2f" "$AMT")'):has-text('$BD ') a:text-is('Deposit')"; sleep 10
+# open the deposit from the bank line; grid re-renders after a prior save, so wait for the row and retry
+SHOW=$(printf "%'.2f" "$AMT")
+READY="() => !jQuery('#BankActivityUnmatchedGrid .k-loading-mask:visible').length && [...document.querySelectorAll('#BankActivityUnmatchedGrid tbody tr')].filter(t=>t.innerText.includes('$SHOW')&&t.innerText.includes('$BD')&&[...t.querySelectorAll('a')].some(a=>a.textContent.trim()==='Deposit')).length"
+OPENED=""
+for try in 1 2 3 4; do
+  for i in $(seq 1 15); do [ "$(playwright-cli -s=$R eval "$READY" 2>&1 | res | unq)" = 1 ] && break; sleep 2; done
+  playwright-cli -s=$R click "#BankActivityUnmatchedGrid tbody tr:has-text('$SHOW'):has-text('$BD ') a:text-is('Deposit')" 2>&1 | grep -q '### Error' || { OPENED=1; break; }
+  sleep 5
+done
+[ -n "$OPENED" ] || { echo "FAIL: Deposit link (not created)"; exit 1; }
+sleep 10
 HD=$(playwright-cli -s=$R eval "() => { const w=[...document.querySelectorAll('.k-window')].find(x=>/Create Deposit/.test(x.innerText)&&getComputedStyle(x).display!=='none'); return w ? w.querySelector('#bankDepositDate').value : 'no window'; }" 2>&1 | res | unq)
 [ "$HD" = "$BD" ] || { echo "FAIL: deposit window date $HD, bank $BD (not created)"; exit 1; }
 
