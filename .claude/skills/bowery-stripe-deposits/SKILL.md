@@ -46,6 +46,10 @@ It checks the payout amount against the bank line and that it paid to 2636, clic
 
 The deposit takes the bank line's date and its `Transfer from Stripe` comment, both prefilled. Stop and confirm the date with the human for any payout whose charges were collected in an earlier month than the bank date.
 
+## Step 4: close the windows
+
+Every run ends by closing its own R365 and Stripe sessions by name from the work directory, also after a failure or a stop: `playwright-cli -s=bsd close` and `playwright-cli -s=bst close`. Then run `playwright-cli list` and confirm neither is still open. Never use `close-all` or `kill-all`, and leave other sessions open: other clients' scheduled runs share this machine, such as the NORMS Stripe run (`nsu`, `stu`) at 16:00 on Mondays.
+
 ## The lines
 
 All at location `400 - Shuka`:
@@ -70,7 +74,7 @@ No human answers during the run, so:
 - Never ask. Post each unmatched Stripe line from its bank line, dated the bank date. Skip, with the reason, any payout that would need the human: one whose charges were collected in an earlier month than the bank date, or a `STOP:` from `post-payout.sh`. A `FAIL:` that did not create the deposit is retried once after closing the deposit window; a second failure is `failed`.
 - List every payout Stripe shows as paid with no bank line yet under `waiting`.
 
-Finish by closing `bsdu` and `bstu` by name, then write `result.json`:
+Finish with Step 4 on `bsdu` and `bstu`, then write `result.json`:
 
 ```json
 { "note": "",
