@@ -79,7 +79,7 @@ Run it after the Sunday's estimate is posted, since the pull counts unapproved e
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/20/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the Sunday, the work directory `.scratch/flecha-3rd-party/wk<MMdd>`, and the prior week's `id.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 16:30 from 10/20/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the Sunday, the work directory `.scratch/flecha-3rd-party/wk<MMdd>`, and the prior week's `id.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

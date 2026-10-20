@@ -64,7 +64,7 @@ Update this table at the end of every run with the Sunday just estimated. The ne
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the prior Sunday to true up (none on the first run), the Sunday to estimate, the work directory `.scratch/flecha-ubereats/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 16:00 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the prior Sunday to true up (none on the first run), the Sunday to estimate, the work directory `.scratch/flecha-ubereats/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

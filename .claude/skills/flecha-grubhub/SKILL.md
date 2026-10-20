@@ -84,7 +84,7 @@ Report a table per store: last week's estimate, its actual and the change, then 
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the report end (the Monday), the entry dates to true up and to estimate, the ids file and the work directory, and writes `done.txt` after, so the period runs once. `-Force` reruns a period, and `-Date yyyy-MM-dd` stands in for today. The true-up dates are last period's entry dates that are in the ids file, so a month-end stub posted by hand as an actual is left alone.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 16:00 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the report end (the Monday), the entry dates to true up and to estimate, the ids file and the work directory, and writes `done.txt` after, so the period runs once. `-Force` reruns a period, and `-Date yyyy-MM-dd` stands in for today. The true-up dates are last period's entry dates that are in the ids file, so a month-end stub posted by hand as an actual is left alone.
 
 No human answers during the run, so:
 

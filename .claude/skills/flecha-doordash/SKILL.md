@@ -82,7 +82,7 @@ A separate weekly Journal Entry numbered `3rd Party`, location Corporate, posted
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:45 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the prior Sunday to true up, the Sunday to estimate, the work directory `.scratch/flecha-doordash/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 16:00 from 10/13/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the prior Sunday to true up, the Sunday to estimate, the work directory `.scratch/flecha-doordash/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
