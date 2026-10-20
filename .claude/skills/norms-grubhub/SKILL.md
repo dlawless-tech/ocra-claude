@@ -245,7 +245,7 @@ Report the table of stores, deposit IDs, amounts, and totals, and report any sto
 
 ## Unattended run
 
-`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays at 18:45 (`scripts/register-task.ps1` sets it up) and posts the period that ended Monday: the 10/14/2026 run covers 10/6 to 10/12, dated 10/10. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/weekly-run.ps1` runs from Task Scheduler on Wednesdays at 19:00 and then hourly to Thursday 18:00 (`scripts/register-task.ps1` sets it up), and posts the period that ended Monday: the 10/21/2026 run covers 10/13 to 10/19, dated 10/17. Grubhub usually has the deposits out by Wednesday morning. When the pull finds none for the period, the run writes `{"notReady": true}` as its result and touches nothing; the wrapper clears the marker so the next hour tries again, and reports to Teams only when Thursday's last attempt still finds none. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

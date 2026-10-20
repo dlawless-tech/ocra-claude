@@ -1,5 +1,6 @@
-# Task Scheduler entry point, Wednesdays 18:45. Posts the Grubhub period that ended Monday; its deposits are created early Wednesday.
-# usage: wednesday-run.ps1 [-Date yyyy-MM-dd] [-Force]
+# Task Scheduler entry point, Wednesdays 19:00 then hourly to Thursday 18:00. Posts the Grubhub period that ended Monday
+# once its deposits show; until then each attempt clears its marker and exits quietly.
+# usage: weekly-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'
@@ -28,7 +29,7 @@ if ($p0.Month -ne $p1.Month) {
 
 $run = Join-Path $Repo (".scratch\norms-grubhub\wk{0:MMdd}" -f $sat)
 New-Item -ItemType Directory -Force $run | Out-Null
-$log = Join-Path $run 'wednesday-run.log'
+$log = Join-Path $run 'weekly-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 
 $marker = Join-Path $run 'started.txt'
@@ -42,6 +43,7 @@ Work directory: $run
 Deposit pull window (paid dates, which fall the Friday after): $(Iso $p1.AddDays(1)) to $(Iso $today.AddDays(7))
 Parts:
 $($parts -join "`n")
+If the pull returns no deposit with sales inside the period, the deposits are not out yet: close the sessions, write result.json as {"notReady": true}, and stop without touching R365.
 "@
 Set-Location $Repo
 # 5.1 turns native stderr into errors; Stop would kill the run
@@ -55,6 +57,14 @@ $result = Join-Path $run 'result.json'
 $title = "NORMS Grubhub, period $(D $p0) - $(D $p1)"
 if (-not (Test-Path $result)) {
   & $Notify -Title "$title FAILED" -Lines @('The run ended without a result file. Check the log:', $log)
+  exit 1
+}
+# deposits not out: retry next hour; from Thursday 17:00 give up, marker kept so later attempts stay quiet
+if ((Get-Content -Raw $result | ConvertFrom-Json).notReady) {
+  Remove-Item $result
+  Log 'deposits not out yet'
+  if ((Get-Date) -lt $wed.AddDays(1).AddHours(16.5)) { Remove-Item $marker; exit 0 }
+  & $Notify -Title "$title NOT POSTED" -Lines @('Grubhub had no deposits for the period by Thursday 5 PM. Rerun weekly-run.ps1 -Force once they show.')
   exit 1
 }
 & $Notify -Title $title -ResultFile $result

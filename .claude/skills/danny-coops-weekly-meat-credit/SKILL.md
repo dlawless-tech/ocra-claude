@@ -86,7 +86,7 @@ Rerun `meat-entries.sh`. The run is done when all five Sundays read Approved at 
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 18:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending and the work directory, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 9:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending and the work directory, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
