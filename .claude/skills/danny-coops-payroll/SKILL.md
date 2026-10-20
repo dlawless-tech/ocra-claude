@@ -29,6 +29,7 @@ One `Payroll` entry per week, header location `10100 - Danny & Coop's`, with the
 | 10001 - Danny & Coops Operating 1563 | Cr | Direct Deposit | `direct deposit` |
 | 60100 - Manager Salaries | Dr | Earnings: Salaries | `salaries` |
 | 67600 - Bonus | Dr | Earnings: Bonus | `bonus` |
+| 68150 - Vacation/Sick Time | Dr | Earnings: Paid Sick Time | `paid sick time` |
 | 90760 - Payroll Processing Fees | | 0.00, nothing in the files feeds it | |
 | 10001 - Danny & Coops Operating 1563 | Cr | one line per Paper Check | the employee's name |
 
@@ -97,6 +98,10 @@ Close `dcpu`, then write `result.json` in the work directory. The wrapper posts 
 `status` is `approved` or `failed`. The webhook lives in `~/.claude/danny-coops-payroll.json`, outside the repo, in the meat credit's shape: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}, "mentionWhen": "attention"}`. Every run posts its card to the Danny & Coops payroll channel. With `attention` the mention fires only when the entry is not approved, the file is not attached or filed, or a warning is set.
 
 ## Danny & Coops R365 quirks
+
+The 68150 line first appeared on the W.E. 10/18 entry, added at the end of the grid. A duplicate of an older entry lacks it, and the builder stops only when the week has sick time. To add it, use the line form above the grid: pick the account in `Select Account`, fill the debit and comment, then click `Add`.
+
+Approve fails while any DSS journal for the location in the pay period is unapproved. The click does nothing visible; the `Transaction/Approve` call returns 400 `Unapproved DSS Journals exist for this location between <start> and <end>`. Leave the entry saved unapproved and unfiled, and report it.
 
 An Approved entry's line grid is read-only until its **Edit** button above the grid is clicked (`button:text-is("Edit")`). The entry stays Approved after the save.
 
