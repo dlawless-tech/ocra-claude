@@ -118,6 +118,16 @@ Check each store before moving on: `prepaid_total` plus every signed fee equals 
 
 If a single period settles as more than one deposit for a store, sum the net deposits, sum each fee line separately, and note both IDs.
 
+### Before the deposits exist
+
+A deposit holds the orders from Tuesday 00:00 to Monday 24:00 **Chicago time**, so an order placed after 10 PM Monday Los Angeles time lands in the next deposit. That is the "reach back" a deposit shows. `scripts/transactions.js` pulls the order transactions for one period in those Chicago days and totals each store in `deposits.js`'s shape, with `sid` set to `tx<restaurant id>`, so `build-work.js` takes its output unchanged:
+
+```bash
+sed -e 's/__START__/2026-10-13/g' -e 's/__END__/2026-10-19/g' .claude/skills/norms-grubhub/scripts/transactions.js > $W/tx.js
+```
+
+For 10/6 to 10/12/2026 it reproduced all 24 deposits paid 10/16 to the penny on net, gross, each fee, and Las Vegas's withheld tax, and the 10/17/2026 entries were posted from it on 10/20, the day after the period closed. The next period's beginning balance then checks it: each store's should equal the deposit Grubhub paid.
+
 ## Phase 2: the period debits
 
 The daily journal entries debit `1113 - A/R Grubhub` with each day's third party sales including tax. The period's debits, call this **D**, are what the entry clears.
@@ -245,7 +255,7 @@ Report the table of stores, deposit IDs, amounts, and totals, and report any sto
 
 ## Unattended run
 
-`scripts/weekly-run.ps1` runs from Task Scheduler on Wednesdays at 19:00 and then hourly to Thursday 18:00 (`scripts/register-task.ps1` sets it up), and posts the period that ended Monday: the 10/21/2026 run covers 10/13 to 10/19, dated 10/17. Grubhub usually has the deposits out by Wednesday morning. When the pull finds none for the period, the run writes `{"notReady": true}` as its result and touches nothing; the wrapper clears the marker so the next hour tries again, and reports to Teams only when Thursday's last attempt still finds none. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, the deposit pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/weekly-run.ps1` runs from Task Scheduler on Tuesdays at 15:00 (`scripts/register-task.ps1` sets it up), and posts the period that ended the day before: the 10/27/2026 run covers 10/20 to 10/26, dated 10/24. Its deposits do not exist until Wednesday, so the run reads each part's figures with `transactions.js` (**Before the deposits exist**), each store's net standing in for its deposit throughout. It pulls the prior period's deposits, paid the Friday before, with `deposits.js` for the beginning balance check, which is what proves last week's transactions figures. It starts this skill headless with a prompt beginning `Unattended run`, naming the period, the work directory, that pull window, and each part with its sales window and entry date. It writes `started.txt` in the work directory first, so a period runs once; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

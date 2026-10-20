@@ -1,5 +1,5 @@
-# Task Scheduler entry point, Wednesdays 19:00 then hourly to Thursday 18:00. Posts the Grubhub period that ended Monday
-# once its deposits show; until then each attempt clears its marker and exits quietly.
+# Task Scheduler entry point, Tuesdays 15:00. Posts the Grubhub period that ended Monday from its order transactions,
+# a day before Grubhub creates the deposits.
 # usage: weekly-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per period, so a rerun does nothing without -Force. Posts the result to Teams.
 param([string]$Date, [switch]$Force)
@@ -10,8 +10,9 @@ $Notify = "$PSScriptRoot\notify-teams.ps1"
 $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 
 $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else { (Get-Date).Date }
-$wed = $today.AddDays(-(([int]$today.DayOfWeek - 3 + 7) % 7))
-$p0 = $wed.AddDays(-8); $p1 = $wed.AddDays(-2); $sat = $wed.AddDays(-4)
+# the latest Monday before today closes the period
+$back = ([int]$today.DayOfWeek - 1 + 7) % 7; if ($back -eq 0) { $back = 7 }
+$p1 = $today.AddDays(-$back); $p0 = $p1.AddDays(-6); $sat = $p1.AddDays(-2)
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
@@ -40,10 +41,10 @@ Log "period $(D $p0) - $(D $p1); starting claude"
 $prompt = @"
 /norms-grubhub Unattended run for the Grubhub period $(D $p0) to $(D $p1). Follow the skill's Unattended run section.
 Work directory: $run
-Deposit pull window (paid dates, which fall the Friday after): $(Iso $p1.AddDays(1)) to $(Iso $today.AddDays(7))
+Figures: scripts/transactions.js over each part's sales window (Chicago days), standing in for the deposits, which Grubhub creates Wednesday.
+Prior period's deposits, for the beginning balance check (paid dates): $(Iso $p0) to $(Iso $today.AddDays(1))
 Parts:
 $($parts -join "`n")
-If the pull returns no deposit with sales inside the period, the deposits are not out yet: close the sessions, write result.json as {"notReady": true}, and stop without touching R365.
 "@
 Set-Location $Repo
 # 5.1 turns native stderr into errors; Stop would kill the run
@@ -57,14 +58,6 @@ $result = Join-Path $run 'result.json'
 $title = "NORMS Grubhub, period $(D $p0) - $(D $p1)"
 if (-not (Test-Path $result)) {
   & $Notify -Title "$title FAILED" -Lines @('The run ended without a result file. Check the log:', $log)
-  exit 1
-}
-# deposits not out: retry next hour; from Thursday 17:00 give up, marker kept so later attempts stay quiet
-if ((Get-Content -Raw $result | ConvertFrom-Json).notReady) {
-  Remove-Item $result
-  Log 'deposits not out yet'
-  if ((Get-Date) -lt $wed.AddDays(1).AddHours(16.5)) { Remove-Item $marker; exit 0 }
-  & $Notify -Title "$title NOT POSTED" -Lines @('Grubhub had no deposits for the period by Thursday 5 PM. Rerun weekly-run.ps1 -Force once they show.')
   exit 1
 }
 & $Notify -Title $title -ResultFile $result
