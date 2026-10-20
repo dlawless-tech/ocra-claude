@@ -16,7 +16,7 @@ C:\Users\trici\OCRA\Bowery Group - General\Payroll\
     WE 10.04.26\                                 every finished week, named for the period ending
 ```
 
-A complete week is at least six files: the GL plus an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
+The GL is dropped by hand; `bowery-wkly-payroll-report` pulls the Net Pay Reports from Paycor once it lands, from Thursday 4:30 PM. A complete week is at least six files: the GL plus an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
 
 The GL carries every amount and the Net Pay Reports name the live checks. **One R365 entry per location, hourly and salary combined.**
 
