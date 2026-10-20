@@ -71,9 +71,9 @@ Report the plan's lines and total, the final status and amount from All Transact
 
 ## Unattended run
 
-Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
+The `danny-coops-7shifts-payroll-import-file` run, which starts looking for the week's journal at noon Tuesday, calls `scripts/payroll-run.ps1 -File <saved csv>` the moment it saves the file, so the entry posts right after the download. Two Task Scheduler tasks also run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Danny & Coops Payroll - Watch**, every 10 minutes from Tuesday 6:00 PM to Wednesday 6:50 PM. It looks for a `*payroll-journal*.csv` in the Payroll folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
+- **Danny & Coops Payroll - Watch**, every 10 minutes from Tuesday 1:00 PM to Wednesday 6:50 PM. The backstop for a journal dropped by hand. It looks for a `*payroll-journal*.csv` in the Payroll folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
 - **Danny & Coops Payroll - Wednesday**, 7:00 PM. The last check, and when no file is waiting and last Sunday's week is neither run nor filed, a Teams card says the file is not in yet (once per day).
 
 The wrapper reads the week from the CSV's Period End, copies the file to `.scratch/danny-coops-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, journal copy, and original file, and writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-File <csv>` names the file.

@@ -47,7 +47,7 @@ function acctFromJournal(rows) {
   const $ = c => '$' + fmt(c);
   const out = [['Category', 'Description', 'Debit', 'Credit']];
   let dr = 0;
-  const earn = { Wages: 'Hourly (Regular) Amt', Overtime: 'Overtime Amt', 'Non-Hourly Wages': 'Non-Hourly Regular Amt', Salaries: 'Salaried Amt', Bonus: 'Bonus Amt', Tips: 'Paycheck Tips Amt' };
+  const earn = { Wages: 'Hourly (Regular) Amt', Overtime: 'Overtime Amt', 'Non-Hourly Wages': 'Non-Hourly Regular Amt', Salaries: 'Salaried Amt', Bonus: 'Bonus Amt', Tips: 'Paycheck Tips Amt', 'Paid Sick Time': 'Paid Sick Time Amt' };
   // export drops an earnings column nobody earned that week
   const ve = n => h.includes(n) ? v(n) : 0;
   for (const [d, n] of Object.entries(earn)) { out.push(['Earnings', d, $(ve(n)), '-']); dr += ve(n); }
@@ -82,7 +82,7 @@ const fileDay = !journal && empPath.match(/(\d{4})-(\d{2})-(\d{2})\.csv$/i);
 if (fileDay && `${+fileDay[2]}/${+fileDay[3]}/${fileDay[1]}` !== period.payDay) fail(`payroll summary is for pay day ${fileDay[0].slice(0, 10)}, account summary for ${period.payDay}`);
 
 const known = {
-  Earnings: ['Bonus', 'Non-Hourly Wages', 'Overtime', 'Tips', 'Wages', 'Salaries'],
+  Earnings: ['Bonus', 'Non-Hourly Wages', 'Overtime', 'Tips', 'Wages', 'Salaries', 'Paid Sick Time'],
   Reimbursements: ['Reimbursements'],
 };
 for (const r of acct.slice(1)) {
@@ -110,6 +110,7 @@ const hourly = sum('Earnings', ['Wages', 'Overtime', 'Non-Hourly Wages']);
 const salaries = sum('Earnings', ['Salaries']);
 const bonus = sum('Earnings', ['Bonus']);
 const tips = sum('Earnings', ['Tips']);
+const sick = sum('Earnings', ['Paid Sick Time']);
 const taxes = sum('Taxes') - eeInsurance;
 
 // cross-check the two files
@@ -118,7 +119,8 @@ tie('hourly', hourly, ee('Hourly (Regular) Amt') + ee('Overtime Amt') + ee('Non-
 tie('salaries', salaries, ee('Salaried Amt'));
 tie('bonus', bonus, ee('Bonus Amt'));
 tie('tips', tips, ee('Paycheck Tips Amt'));
-tie('gross', hourly + salaries + bonus + tips, et('Gross Total'));
+tie('sick', sick, ee('Paid Sick Time Amt'));
+tie('gross', hourly + salaries + bonus + tips + sick, et('Gross Total'));
 
 const dd = acct.filter(r => r[CAT] === 'Direct Deposit').reduce((t, r) => t + money(r[CR]), 0);
 const checks = acct.filter(r => r[CAT] === 'Paper Check').map(r => ({ name: r[DESC].trim(), amt: money(r[CR]) }));
@@ -137,6 +139,7 @@ const lines = [
   { acct: '10001', debit: 0, credit: dd, comment: 'direct deposit' },
   { acct: '60100', debit: salaries, credit: 0, comment: 'salaries' },
   { acct: '67600', debit: bonus, credit: 0, comment: 'bonus' },
+  { acct: '68150', debit: sick, credit: 0, comment: 'paid sick time', optional: true },
   { acct: '90760', debit: 0, credit: 0, comment: '' },
   ...checks.map(k => ({ acct: '10001', debit: 0, credit: k.amt, comment: k.name, check: true })),
 ];
@@ -159,7 +162,9 @@ const used = new Set(checkRows.map(r => r.i));
 const pairs = [];
 for (const l of lines.filter(l => !l.check)) {
   const row = rows.find(r => r.acct === l.acct && !used.has(r.i));
-  if (!row) fail(`entry has no ${l.acct} line`);
+  // 68150 first arrived 10/18; earlier duplicates lack the row
+  if (!row && l.optional && !l.debit) continue;
+  if (!row) fail(`entry has no ${l.acct} line${l.optional ? '; add it in R365 once, later duplicates carry it' : ''}`);
   used.add(row.i); pairs.push([row, l]);
 }
 // checks pair by name first, then onto any spare check row

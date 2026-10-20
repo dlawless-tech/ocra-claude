@@ -1,6 +1,7 @@
 # Task Scheduler entry point. Finds the dropped payroll journal, runs the skill unattended for its week, then posts to Teams.
 # usage: payroll-run.ps1 [-Mode watch|scheduled] [-Force] [-File <csv>]
-# watch: quiet when no file is waiting. scheduled: Wednesday afternoon backstop, posts once when the file is missing.
+# watch: quiet when no file is waiting. scheduled: Wednesday evening backstop, posts once when the file is missing.
+# the 7shifts import-file run calls this with -File the moment it saves the journal
 param([ValidateSet('watch', 'scheduled')][string]$Mode = 'watch', [switch]$Force, [string]$File)
 $ErrorActionPreference = 'Stop'
 
@@ -43,6 +44,10 @@ foreach ($f in $found) {
   New-Item -ItemType Directory -Force $run | Out-Null
   $done = Join-Path $run 'done.txt'
   if ((Test-Path $done) -and -not $Force) { continue }
+  # hand-off and watch task can fire together
+  $lock = Join-Path $run 'running.txt'
+  if ((Test-Path $lock) -and (Get-Item $lock).LastWriteTime -gt (Get-Date).AddHours(-2)) { continue }
+  Set-Content -Encoding utf8 $lock "$Mode $PID $(Get-Date -Format s)"
   $log = Join-Path $run 'payroll-run.log'
   function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
   $title = "Danny & Coops Payroll, W.E. $weFull"
@@ -68,6 +73,7 @@ Original file: $($f.FullName)
   & playwright-cli -s=dcpu close 2>&1 | Out-Null
   $ErrorActionPreference = 'Stop'
   Set-Content -Encoding utf8 $done "done $(Get-Date -Format s)"
+  Remove-Item -Force $lock -ErrorAction SilentlyContinue
 
   if (-not (Test-Path $result)) {
     & $Notify -Title "$title FAILED" -Lines @('The run ended without a result file. Nothing was confirmed posted. Check the log:', $log)
