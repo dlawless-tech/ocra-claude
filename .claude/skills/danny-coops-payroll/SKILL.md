@@ -67,6 +67,7 @@ Any difference is a changed export, or a prior entry keyed by hand, so stop and 
 7. Approve through **Approve and Close**, then rerun `all-transactions.sh`: the week reads Approved at the planned total.
 
 8. `scripts/file-week.sh <original file>` moves the week's file into `Payroll\Completed` and prints `filed <path>`. It refuses to overwrite a file already there.
+9. `playwright-cli -s=<session> close`, run from the work directory, once the run ends, whether it finished or stopped. Close only this run's session; other sessions belong to other runs.
 
 Report the plan's lines and total, the final status and amount from All Transactions, and, for a journal week, that direct deposit is derived and awaits the bank tie.
 
