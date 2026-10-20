@@ -1,8 +1,8 @@
 #!/bin/bash
-# Log a playwright-cli session into the Foodja Restaurant Partner Portal from ~/.claude/norms-credentials.md.
+# Log a playwright-cli session into the Foodja Restaurant Partner Portal from ~/.claude/norms-credentials.md (CREDS=<file> for another client).
 # usage: fj-login.sh <session>
 set -u
-S="$1"; CREDS="$HOME/.claude/norms-credentials.md"
+S="$1"; CREDS="${CREDS:-$HOME/.claude/norms-credentials.md}"
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n"'; }
 path() { playwright-cli -s=$S eval "() => location.pathname" 2>&1 | res; }
 case "$(path)" in /restaurant-portal/*) echo "already authenticated"; exit 0;; esac
