@@ -6,9 +6,14 @@
 # With no bank line and a date given: a standalone deposit, which the bank line matches when it lands.
 # Ends on MATCH, or stops with FAIL:/STOP: before or after the save (it says which).
 set -u
+# printf %' needs a locale for the thousands comma
+export LC_ALL=en_US.UTF-8
 R="$1"; ST="$2"; PO="$3"; AMT="$4"; DEP="${5:-}"
 K="$(dirname "$0")"
 ACCT_URL='https://dashboard.stripe.com/acct_1JKplFAju1EvNWw5'
+# every posted payout, so one posted ahead is never posted again
+LEDGER="$K/../../../../.scratch/dlena-stripe-deposits/posted.tsv"
+grep -q "^$PO"$'\t' "$LEDGER" 2>/dev/null && { echo "STOP: $PO already posted: $(grep "^$PO"$'\t' "$LEDGER" | cut -f2- | tr '\t' ' ')"; exit 1; }
 R365='https://unoatfifth.restaurant365.com'
 res() { sed -n '/### Result/{n;p;}'; }
 unq() { node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{process.stdout.write(String(JSON.parse(s.trim())))}catch(e){process.stdout.write(s)}})'; }
@@ -94,4 +99,5 @@ playwright-cli -s=$R eval "$(cat "$K/read-deposit.js")" 2>&1 | res | unq > "back
 # close only a tab this run opened; closing the last one drops Bank Activity
 [ "$(playwright-cli -s=$R tab-list 2>&1 | grep -cE '^- [0-9]+:')" -gt 1 ] && playwright-cli -s=$R tab-close >/dev/null 2>&1
 playwright-cli -s=$R tab-select 0 >/dev/null 2>&1
-node "$K/check-deposit.js" "$PLAN" "back-$ISO-$AMT.json" "$FILE"
+OUT=$(node "$K/check-deposit.js" "$PLAN" "back-$ISO-$AMT.json" "$FILE"); echo "$OUT"
+[[ "$OUT" =~ ^MATCH\ Bank\ Deposit\ -\ (BD[0-9]+) ]] && printf '%s\t%s\t%s\t%s\n' "$PO" "$DATE" "$AMT" "${BASH_REMATCH[1]}" >> "$LEDGER"

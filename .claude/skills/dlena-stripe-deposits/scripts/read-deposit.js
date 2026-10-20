@@ -1,6 +1,6 @@
 // playwright-cli eval on a saved BankDepositForm. Returns header, adjustment lines, status and attachments.
 () => {
-  const GL = { '4bfaddb7': '2440', '76faddb7': '1218', '5cfaddb7': '4915', 'f2faddb7': '8110' };
+  const GL = { '4bfaddb7': '2440', '76faddb7': '1218', '5cfaddb7': '4915', 'f2faddb7': '8110', '9bfaddb7': '4560' };
   const lines = jQuery('#bankDepositDetailsGrid').data('kendoGrid').dataSource.data().toJSON();
   return JSON.stringify({
     title: document.title,

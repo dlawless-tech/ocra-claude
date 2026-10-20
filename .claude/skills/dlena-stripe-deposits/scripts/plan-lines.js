@@ -21,6 +21,7 @@ const parse = text => {
 const [head, ...body] = parse(fs.readFileSync(csvPath, 'utf8').replace(/^﻿/, ''));
 const col = n => { const i = head.indexOf(n); if (i < 0) stop('export has no ' + n + ' column'); return i; };
 const T = col('Type'), D = col('Description'), A = col('Amount'), F = col('Fees');
+const N = head.indexOf('Customer Name'), X = head.indexOf('Details');
 
 const mdy = s => { const [m, d, y] = s.split('/').map(Number); return new Date(y, m - 1, d); };
 const short = d => `${d.getMonth() + 1}/${d.getDate()}/${String(d.getFullYear()).slice(2)}`;
@@ -38,6 +39,11 @@ for (const r of body) {
   // fee refund (positive) and separately billed processing fees (negative) both net into the fees
   if (type === 'Adjustment' && /^Application fee refund/i.test(desc)) { fees -= amt; continue; }
   if (type === 'Stripe Fee') { fees -= amt; continue; }
+  // dispute fee rides in the Fees column, so only the charge amount goes to 4560
+  if (type === 'Adjustment' && /^Chargeback (withdrawal|reversal)/i.test(desc)) {
+    const who = (r[N] || r[X] || '').replace(/\s+/g, ' ').trim();
+    lines.push({ account: '4560', amount: amt, comment: `Chargeback ${who}`.trim() }); continue;
+  }
   // a refund carries its negative amount to the charge's own account and comment
   if (type !== 'Charge' && type !== 'Refund') stop(`${type} row "${desc}" ${amt}: place it by hand`);
   let m;
