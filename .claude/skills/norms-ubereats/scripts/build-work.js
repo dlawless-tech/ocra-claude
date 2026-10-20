@@ -10,6 +10,9 @@ const uber = fs.readFileSync(uf, 'utf8').split(/\r?\n/).filter(Boolean).map(l =>
 const cur = JSON.parse(fs.readFileSync(cf, 'utf8')), prior = JSON.parse(fs.readFileSync(pf, 'utf8'));
 const ents = JSON.parse(fs.readFileSync(ef, 'utf8'));
 const work = [], seen = new Set();
+// the period most stores settled on; any other flags a two-week or shifted settlement
+const cnt = {}; for (const u of uber) if (u.period) cnt[u.period] = (cnt[u.period] || 0) + 1;
+const usual = Object.keys(cnt).sort((a, b) => cnt[b] - cnt[a])[0];
 for (const u of uber) {
   if (u.error) { console.log('READ FAIL', u.store, u.error); continue; }
   const L = loc(u.store); seen.add(L);
@@ -21,7 +24,7 @@ for (const u of uber) {
   r.totDr = r2(r.marketing + r.fees + r.ncDr + r.diffDr);
   const cr = r2(r.arCredit + r.ncCr + r.diffCr);
   const check = Math.abs(expDep - dep) < 0.005 ? 'ok' : `MISMATCH prior D-credit ${expDep} vs deposit ${dep}`;
-  const flags = [cr !== r.totDr ? `UNBALANCED ${r.totDr}/${cr}` : '', u.other ? `other ${u.other} in difference` : '', /–/.test(u.period || '') && !/^Oct 5/.test(u.period) ? 'period ' + u.period : ''].filter(Boolean);
+  const flags = [cr !== r.totDr ? `UNBALANCED ${r.totDr}/${cr}` : '', u.other ? `other ${u.other} in difference` : '', u.period && u.period !== usual ? 'period ' + u.period : ''].filter(Boolean);
   r.prior = check; r.period = u.period; r.flags = flags;
   work.push(r);
   console.log(L.padEnd(17), 'D', D.toFixed(2).padStart(8), 'E', u.earnings.toFixed(2).padStart(8), 'P', u.payout.toFixed(2).padStart(8), 'AR', ar.toFixed(2).padStart(8), 'mk', u.marketing.toFixed(2).padStart(7), 'fee', u.fees.toFixed(2).padStart(7), 'nc', u.nc.toFixed(2).padStart(7), 'diff', diff.toFixed(2).padStart(8), 'tot', r.totDr.toFixed(2).padStart(8), check, flags.join('; '));
