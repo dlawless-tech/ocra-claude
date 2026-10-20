@@ -1,0 +1,79 @@
+﻿2026-10-19T17:00:01 period 10/12/2026 - 10/18/2026; Uber login
+authenticated
+2026-10-19T17:00:28 uber-login exited 0
+Waiting for the Uber reads to finish (about 10 minutes left), then I'll build the work file and post.
+
+Uber reads are at 18 of 24 stores. Waiting on the last six.
+
+Posting is underway in two sessions (12 stores each). I'll watch for each store's DONE or FAIL.
+
+Anaheim and Lakewood done. Continuing to watch.
+
+Four of 24 done.
+
+Six of 24 done.
+
+Seven done.
+
+Eight done.
+
+Nine done.
+
+Ten done.
+
+Eleven done.
+
+Twelve done.
+
+Thirteen done.
+
+Fourteen done.
+
+Fifteen done.
+
+Sixteen done, Van Nuys included.
+
+Seventeen done.
+
+Eighteen done.
+
+Six stores left to post.
+
+Slauson done.
+
+Inglewood done.
+
+Las Vegas done.
+
+Session nur's batch is finished. Waiting on the last stores in nurb.
+
+Ontario done; one store (Rialto) left.
+
+All 24 stores for the Uber Eats pay period 10/12 to 10/18 are approved, totaling 9,486.76. I checked every entry against the All Transactions grid: each one is Approved and matches its planned amount. The Van Nuys entry from last week is still held.
+
+| Store | Amount | Store | Amount |
+|---|---|---|---|
+| Anaheim | 418.40 | Riverside | 125.61 |
+| Lakewood | 542.67 | Santa Ana | 353.01 |
+| Carson | 273.45 | South Torrance | 181.03 |
+| Claremont | 152.53 | Van Nuys | 912.82 |
+| Costa Mesa | 175.32 | West Covina | 204.13 |
+| Downey | 446.00 | Whittier | 619.79 |
+| El Monte | 198.22 | Hollywood | 903.06 |
+| Huntington Beach | 517.86 | Slauson | 769.24 |
+| La Cienega | 721.83 | Inglewood | 639.18 |
+| North Torrance | 331.34 | Las Vegas | 180.07 |
+| Orange | 86.01 | Ontario | 32.17 |
+| Pico Rivera | 400.62 | Rialto | 302.40 |
+
+**Checks:**
+- **Last week's deposits:** last week's sales minus last week's posted entry matched this week's deposit at 23 stores. Van Nuys was off only because its 10/10 entry is still held, and its 10/14 deposit of 1,615.68 equals Uber's payout for that week, so this week posted. No deposits are late.
+- **Days with no sales in R365:** most such stores tie exactly to Uber's sales, so those days had no orders. Claremont (no 10/13) and Santa Ana (no 10/15) came up short of Uber, so I checked Uber's order lists. Each gap is exactly one early Oct 12 order that R365 booked on 10/11: 30.10 at Claremont and 18.43 at Santa Ana. Neither store is missing a day, so both posted.
+
+**Still open:**
+- **Van Nuys 10/10 entry:** still held at 0.00 because the 10/11 sales are still not booked in R365. R365 has 2,192.80 against Uber's 2,375.41. It stays on the carryover list for next week.
+- **Lakewood:** the A/R Uber Postmates account (1112) carries an extra 490.14 beyond each week's deposit, and it has done so two weeks running. This run didn't touch it; it may need a look.
+- **Fix to `build-work.js`:** it had "Oct 5" hardcoded, which would have flagged every store's period this week. It now flags only a store whose period differs from the one most stores settled on. The change is not committed.
+
+All three browser sessions are closed. `result.json` is written in `wk1017` for the Teams card, along with the updated carryover list and progress notes.
+2026-10-19T17:40:26 claude exited 0

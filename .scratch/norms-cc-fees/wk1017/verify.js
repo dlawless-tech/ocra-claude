@@ -1,0 +1,12 @@
+const fs=require('fs');
+const rows=JSON.parse(JSON.parse(fs.readFileSync('grid2.raw','utf8'))).filter(r=>r.d==='2026-10-17');
+const plan=require('./plan.json');
+let tot=0; const stores=plan.map(p=>{ const r=rows.find(x=>x.loc===p.store);
+  const status= r&&r.st==='Approved'&&Math.abs(r.amt-p.accrual)<0.005?'approved':'failed';
+  if(status==='approved') tot+=r.amt;
+  const w=[]; if(status==='failed') w.push('grid does not read Approved at accrual');
+  const ch=(p.accrual/p.prior-1)*100; if(ch>10) w.push(`accrual ${ch.toFixed(1)}% above prior ${p.prior.toFixed(2)}`);
+  return {store:p.store,status,netSales:p.netSales,accrual:p.accrual,amount:r?r.amt:null,prior:p.prior,transactionId:r?r.id:null,warnings:w}; });
+console.log('rows',rows.length); stores.forEach(s=>console.log(s.store,s.status,s.accrual,s.amount,s.warnings.join('; '))); console.log('posted total',tot.toFixed(2));
+const nf=stores.filter(s=>s.status!=='approved').map(s=>s.store);
+fs.writeFileSync('result.json',JSON.stringify({weekEnding:'10/17/2026',note:(nf.length?'Not approved: '+nf.join(', ')+'. ':'All 24 approved. ')+'Posted total '+tot.toFixed(2)+' on net sales 2,048,754.77.',stores},null,1));

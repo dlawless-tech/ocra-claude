@@ -1,0 +1,11 @@
+{ "note": "post-payout.sh needed LC_ALL=en_US.UTF-8 (printf thousands separator was empty, so the Deposit link click missed); also had to cancel the Atlantic Union Edit Credentials dialog. 10/15 failed once at attach (upload slow), rerun matched.",
+  "payouts": [
+    { "payout": "po_1UPuxTAju1EvNWw5btDtXIBo", "bankDate": "10/13/2026", "amount": 10132.58, "status": "posted", "deposit": "BD000402", "reason": "" },
+    { "payout": "po_1UQGVQAju1EvNWw5JRuxyaYu", "bankDate": "10/14/2026", "amount": 6693.98, "status": "posted", "deposit": "BD000403", "reason": "" },
+    { "payout": "po_1UQdTsAju1EvNWw5Hge0BT8I", "bankDate": "10/15/2026", "amount": 11607.77, "status": "posted", "deposit": "BD000404", "reason": "" },
+    { "payout": "po_1UQyy3Aju1EvNWw50hp7EnPD", "bankDate": "10/16/2026", "amount": 13541.90, "status": "skipped", "deposit": "", "reason": "STOP: chargeback withdrawal -1,000.00 (plus 15.00 dispute fee) for ch_3UIwiYAju1EvNWw50IJcXVpC, Patrice Parker; needs an account from Tricia, key by hand" }
+  ],
+  "waiting": [
+    { "payout": "po_1US4MsAju1EvNWw5AuaVh5gp", "arrival": "10/19/2026", "amount": 6204.74 },
+    { "payout": "po_1USRKxAju1EvNWw5u5Wz4ksN", "arrival": "10/20/2026", "amount": 13181.38 }
+  ] }

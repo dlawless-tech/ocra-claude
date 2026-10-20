@@ -1,0 +1,1798 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Open tabs
+- 0: [All Transactions | Transactions](https://cucinacolore.restaurant365.com/react/accounting/legacy/AllTransactions)
+- 1: [Profit and Loss](https://cucinacolore.restaurant365.com/#/ReportViewer)
+- 2: (current) [GL Account Detail - Report Viewer](https://cucinacolore.restaurant365.com/ReportServer/Pages/ReportViewer.aspx?/NA03/GL+Account+Detail&rs:Command=Render&rs:ParameterLanguage=en-US&rc:LinkTarget=_blank&Database=cucinacolore&User=3ad5875a-ad3d-4c32-89f7-8a59d451302a&SQLServer=pro-sqlag-582.restaurant365.com&TimeZoneCode=MDT&UtcOffset=-06&SumByTrxYes=1&ExcludeAccountsWithoutActivity=False&SubtotalBy=0&ShowUnapproved=0&FilterBy=Show%20All&Filter=00000000-0000-0000-0000-000000000000&Start=10/5/2026&End=10/11/2026&Calendar=0&AccountType=GLType:E8EAADC6-95F2-E811-93F9-0CC47A1F6E62&CustomField=0&CustomFieldOptions=-1)
+### Page
+- Page URL: https://cucinacolore.restaurant365.com/ReportServer/Pages/ReportViewer.aspx?/NA03/GL+Account+Detail&rs:Command=Render&rs:ParameterLanguage=en-US&rc:LinkTarget=_blank&Database=cucinacolore&User=3ad5875a-ad3d-4c32-89f7-8a59d451302a&SQLServer=pro-sqlag-582.restaurant365.com&TimeZoneCode=MDT&UtcOffset=-06&SumByTrxYes=1&ExcludeAccountsWithoutActivity=False&SubtotalBy=0&ShowUnapproved=0&FilterBy=Show%20All&Filter=00000000-0000-0000-0000-000000000000&Start=10/5/2026&End=10/11/2026&Calendar=0&AccountType=GLType:E8EAADC6-95F2-E811-93F9-0CC47A1F6E62&CustomField=0&CustomFieldOptions=-1
+- Page Title: GL Account Detail - Report Viewer
+- Console: 1 errors, 0 warnings
+### Snapshot
+```yaml
+- table [ref=e3]:
+  - rowgroup [ref=e4]:
+    - row [ref=e324]:
+      - cell [ref=e325]:
+        - table [ref=e24]:
+          - rowgroup [ref=e25]:
+            - row:
+              - cell
+            - row [ref=e26]:
+              - cell [ref=e27]:
+                - table [ref=e30]:
+                  - rowgroup [ref=e31]:
+                    - row [ref=e32]:
+                      - cell [ref=e33]:
+                        - table [ref=e34]:
+                          - rowgroup [ref=e35]:
+                            - row [ref=e36]:
+                              - cell "Account" [ref=e37]
+                              - cell [ref=e39]:
+                                - table [ref=e42]:
+                                  - rowgroup [ref=e43]:
+                                    - row [ref=e44]:
+                                      - cell [ref=e45]:
+                                        - textbox "Account" [ref=e46]: 40000 - Revenue,40250 - Total Food Sales,40500 - Total Beverage Sales,41000 - Food & Beverage Sales,41250 - Discounts,41260 - Other Discounts,41261 - Comps,41270 - Employee Discounts,41280 - Comps and Mistakes,42000 - Food Sales,42500 - Non Alc Bev Sales,43000 - Beer Sales,43100 - Draft Beer Sales,44000 - Wine Sales,45000 - Liquor Sales,47000 - Product Sales,47500 - Commission Revenue,48000 - Other Revenue,48005 - Room Rental Income,79750 - Customer Discounts
+                                      - cell [ref=e47]:
+                                        - button "Account" [ref=e48] [cursor=pointer]: K
+                              - cell [ref=e49]
+                              - cell "Parent" [ref=e50]
+                              - cell [ref=e52]:
+                                - combobox "Parent" [ref=e54]:
+                                  - option "Include Subaccounts" [selected]
+                                  - option "This Account Only"
+                              - cell [ref=e55]
+                              - cell [ref=e56]
+                              - cell [ref=e57]
+                              - cell [ref=e58]
+                              - cell [ref=e59]
+                              - cell [ref=e60]
+                            - row [ref=e61]:
+                              - cell "Filter By" [ref=e62]
+                              - cell [ref=e64]:
+                                - combobox "Filter By" [ref=e66]:
+                                  - option "Show All" [selected]
+                                  - option "Location"
+                                  - option "Group"
+                                  - option "Legal Entity"
+                              - cell [ref=e67]
+                              - cell "Filter" [ref=e68]
+                              - cell [ref=e70]:
+                                - table [ref=e73]:
+                                  - rowgroup [ref=e74]:
+                                    - row [ref=e75]:
+                                      - cell [ref=e76]:
+                                        - textbox "Filter" [ref=e77]: All Locations
+                                      - cell [ref=e78]:
+                                        - button "Filter" [ref=e79] [cursor=pointer]: K
+                              - cell [ref=e80]
+                              - cell [ref=e81]
+                              - cell [ref=e82]
+                              - cell [ref=e83]
+                              - cell [ref=e84]
+                              - cell [ref=e85]
+                            - row [ref=e86]:
+                              - cell "Start" [ref=e87]
+                              - cell [ref=e89]:
+                                - table [ref=e92]:
+                                  - rowgroup [ref=e93]:
+                                    - row [ref=e94]:
+                                      - cell [ref=e95]:
+                                        - textbox "Start" [ref=e96]: 10/5/2026
+                                      - cell [ref=e97]:
+                                        - button "Start" [ref=e98] [cursor=pointer]: H
+                                      - cell [ref=e99]:
+                                        - generic [ref=e100]:
+                                          - 'checkbox "Start: NULL" [ref=e101]'
+                                          - text: "NULL"
+                              - cell [ref=e102]
+                              - cell "End" [ref=e103]
+                              - cell [ref=e105]:
+                                - table [ref=e108]:
+                                  - rowgroup [ref=e109]:
+                                    - row [ref=e110]:
+                                      - cell [ref=e111]:
+                                        - textbox "End" [ref=e112]: 10/11/2026
+                                      - cell [ref=e113]:
+                                        - button "End" [ref=e114] [cursor=pointer]: H
+                                      - cell [ref=e115]:
+                                        - generic [ref=e116]:
+                                          - 'checkbox "End: NULL" [ref=e117]'
+                                          - text: "NULL"
+                              - cell [ref=e118]
+                              - cell [ref=e119]
+                              - cell [ref=e120]
+                              - cell [ref=e121]
+                              - cell [ref=e122]
+                              - cell [ref=e123]
+                            - row [ref=e124]:
+                              - cell "Show Unapproved" [ref=e125]
+                              - cell [ref=e127]:
+                                - combobox "Show Unapproved" [ref=e129]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                              - cell [ref=e130]
+                              - cell "Calendar" [ref=e131]
+                              - cell [ref=e133]:
+                                - combobox "Calendar" [ref=e135]:
+                                  - option "Fiscal"
+                                  - option "Operational" [selected]
+                              - cell [ref=e136]
+                              - cell [ref=e137]
+                              - cell [ref=e138]
+                              - cell [ref=e139]
+                              - cell [ref=e140]
+                              - cell [ref=e141]
+                            - row [ref=e142]:
+                              - cell "Sum by Transaction" [ref=e143]
+                              - cell [ref=e145]:
+                                - combobox "Sum by Transaction" [ref=e147]:
+                                  - option "Yes" [selected]
+                                  - option "No"
+                              - cell [ref=e148]
+                              - cell "Subtotal By" [ref=e149]
+                              - cell [ref=e151]:
+                                - combobox "Subtotal By" [ref=e153]:
+                                  - option "None" [selected]
+                                  - option "Location"
+                                  - option "Company"
+                              - cell [ref=e154]
+                              - cell "Show Comment/Location/#" [ref=e155]
+                              - cell [ref=e157]:
+                                - combobox "Show Comment/Location/#" [ref=e159]:
+                                  - option "Abbreviated" [selected]
+                                  - option "Full"
+                              - cell [ref=e160]
+                              - cell [ref=e161]
+                              - cell [ref=e162]
+                            - row [ref=e163]:
+                              - cell "Balance" [ref=e164]
+                              - cell [ref=e166]:
+                                - combobox "Balance" [ref=e168]:
+                                  - option "Typical" [selected]
+                                  - option "DR(+)/CR(-)"
+                              - cell [ref=e169]
+                              - cell "Include Stat Accounts" [ref=e170]
+                              - cell [ref=e172]:
+                                - combobox "Include Stat Accounts" [ref=e174]:
+                                  - option "No"
+                                  - option "Yes" [selected]
+                              - cell [ref=e175]
+                              - cell "Exclude GL w/out Activity" [ref=e176]
+                              - cell [ref=e178]:
+                                - combobox "Exclude GL w/out Activity" [ref=e180]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                              - cell [ref=e181]
+                              - cell "Hide Zero Balances" [ref=e182]
+                              - cell [ref=e184]:
+                                - combobox "Hide Zero Balances" [ref=e186]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                            - row [ref=e187]:
+                              - cell "Calculate to 4 decimals" [ref=e188]
+                              - cell [ref=e190]:
+                                - combobox "Calculate to 4 decimals" [ref=e192]:
+                                  - option "No" [selected]
+                                  - option "Yes"
+                              - cell [ref=e193]
+                              - cell "Show Comment or Item" [ref=e194]
+                              - cell [ref=e196]:
+                                - combobox "Show Comment or Item" [ref=e198]:
+                                  - option "Comment" [selected]
+                                  - option "Item"
+                              - cell [ref=e199]
+                              - cell "Custom Fields" [ref=e200]
+                              - cell [ref=e202]:
+                                - combobox "Custom Fields" [ref=e204]:
+                                  - option "None" [selected]
+                              - cell [ref=e205]
+                              - cell "Custom Field Options" [ref=e206]
+                              - cell [ref=e208]:
+                                - table [ref=e211]:
+                                  - rowgroup [ref=e212]:
+                                    - row [ref=e213]:
+                                      - cell [ref=e214]:
+                                        - textbox "Custom Field Options" [ref=e215]: None
+                                      - cell [ref=e216]:
+                                        - button "Custom Field Options" [ref=e217] [cursor=pointer]: K
+                      - cell
+                      - cell [ref=e218]:
+                        - table [ref=e219]:
+                          - rowgroup [ref=e220]:
+                            - row [ref=e221]:
+                              - cell [ref=e222]:
+                                - button "View Report" [ref=e223]
+            - row [ref=e224]:
+              - cell [ref=e225]:
+                - button "Hide Parameters" [ref=e227] [cursor=pointer]
+            - row [ref=e228]:
+              - cell [ref=e229]:
+                - navigation "Report actions" [ref=e231]:
+                  - table [ref=e233]:
+                    - rowgroup [ref=e234]:
+                      - row [ref=e326]:
+                        - cell [ref=e236]:
+                          - generic [ref=e237]:
+                            - text: A
+                            - table "First Page" [ref=e239]:
+                              - rowgroup [ref=e240]:
+                                - row [ref=e241]:
+                                  - cell "A" [ref=e242]
+                        - cell [ref=e244]
+                        - cell [ref=e245]:
+                          - generic [ref=e246]:
+                            - text: C
+                            - table "Previous Page" [ref=e248]:
+                              - rowgroup [ref=e249]:
+                                - row [ref=e250]:
+                                  - cell "C" [ref=e251]
+                        - cell [ref=e253]
+                        - cell [ref=e327]:
+                          - textbox "Current Page" [ref=e255]: "1"
+                        - cell [ref=e256]
+                        - cell "of" [ref=e257]
+                        - cell [ref=e258]
+                        - cell "1" [ref=e328]
+                        - cell [ref=e260]
+                        - cell [ref=e261]:
+                          - generic [ref=e262]:
+                            - text: D
+                            - table "Next Page" [ref=e264]:
+                              - rowgroup [ref=e265]:
+                                - row [ref=e266]:
+                                  - cell "D" [ref=e267]
+                        - cell [ref=e269]
+                        - cell [ref=e270]:
+                          - generic [ref=e271]:
+                            - text: B
+                            - table "Last Page" [ref=e273]:
+                              - rowgroup [ref=e274]:
+                                - row [ref=e275]:
+                                  - cell "B" [ref=e276]
+                  - table [ref=e279]:
+                    - rowgroup [ref=e280]:
+                      - row [ref=e281]:
+                        - cell [ref=e282]:
+                          - generic [ref=e283]:
+                            - table "Refresh" [ref=e330]:
+                              - rowgroup [ref=e331]:
+                                - row [ref=e332]:
+                                  - cell "F" [ref=e333]
+                            - text: F
+                  - table [ref=e291]:
+                    - rowgroup [ref=e292]:
+                      - row [ref=e293]:
+                        - cell "100%" [ref=e294]:
+                          - combobox "Zoom" [ref=e295]:
+                            - option "Page Width"
+                            - option "Whole Page"
+                            - option "500%"
+                            - option "200%"
+                            - option "150%"
+                            - option "100%" [selected]
+                            - option "75%"
+                            - option "50%"
+                            - option "25%"
+                            - option "10%"
+                  - table [ref=e297]:
+                    - rowgroup [ref=e298]:
+                      - row [ref=e299]:
+                        - cell [ref=e300]:
+                          - table "Export drop down menu" [ref=e302]:
+                            - rowgroup [ref=e303]:
+                              - row [ref=e304]:
+                                - cell [ref=e305]:
+                                  - link "J K" [ref=e306] [cursor=pointer]:
+                                    - /url: javascript:void(0)
+                                    - generic [ref=e307]: J
+                                    - generic [ref=e308]: K
+                  - table [ref=e310]:
+                    - rowgroup [ref=e311]:
+                      - row [ref=e312]:
+                        - cell [ref=e313]:
+                          - generic [ref=e314]:
+                            - table "Print" [ref=e336]:
+                              - rowgroup [ref=e337]:
+                                - row [ref=e338]:
+                                  - cell "I" [ref=e339]
+                            - text: I
+            - row [ref=e321]:
+              - cell [ref=e322]:
+                - main [ref=e341]:
+                  - table [ref=e343]:
+                    - rowgroup [ref=e344]:
+                      - row [ref=e345]:
+                        - cell [ref=e346]:
+                          - table [ref=e347]:
+                            - rowgroup [ref=e348]:
+                              - row [ref=e349]:
+                                - cell [ref=e350]:
+                                  - table [ref=e351]:
+                                    - rowgroup [ref=e352]:
+                                      - row [ref=e353]:
+                                        - cell [ref=e354]:
+                                          - table [ref=e355]:
+                                            - rowgroup [ref=e356]:
+                                              - row [ref=e357]:
+                                                - cell [ref=e358]:
+                                                  - navigation "Report text" [ref=e359]:
+                                                    - generic [ref=e360]: "Account Detail: Multiple Accounts"
+                                                  - navigation "Report text" [ref=e361]:
+                                                    - generic [ref=e362]: 10/5/2026 - 10/11/2026
+                                                  - navigation "Report text" [ref=e365]:
+                                                    - generic [ref=e366]: "Show All: All Locations"
+                                                  - navigation "Report text" [ref=e367]
+                                                  - navigation "Report text" [ref=e368]
+                                                  - navigation "Report text" [ref=e369]
+                                                  - navigation "Report table"
+                                                  - table [ref=e370]:
+                                                    - rowgroup [ref=e371]:
+                                                      - row:
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                        - cell
+                                                      - row [ref=e372]:
+                                                        - cell [ref=e373]
+                                                        - cell [ref=e374]
+                                                        - cell [ref=e375]
+                                                        - cell "Date Unsorted" [ref=e376]:
+                                                          - generic [ref=e378]:
+                                                            - generic [ref=e379]: Date
+                                                            - img "Unsorted" [ref=e382] [cursor=pointer]
+                                                        - cell "Type Unsorted" [ref=e383]:
+                                                          - generic [ref=e385]:
+                                                            - generic [ref=e386]: Type
+                                                            - img "Unsorted" [ref=e389] [cursor=pointer]
+                                                        - cell "Ref. Number Unsorted" [ref=e390]:
+                                                          - generic [ref=e392]:
+                                                            - generic [ref=e393]: Ref. Number
+                                                            - img "Unsorted" [ref=e396] [cursor=pointer]
+                                                        - cell "Company Unsorted" [ref=e397]:
+                                                          - generic [ref=e399]:
+                                                            - generic [ref=e400]: Company
+                                                            - img "Unsorted" [ref=e405] [cursor=pointer]
+                                                        - cell "Location Unsorted" [ref=e406]:
+                                                          - generic [ref=e408]:
+                                                            - generic [ref=e409]: Location
+                                                            - img "Unsorted" [ref=e412] [cursor=pointer]
+                                                        - cell "Comment/Item Unsorted" [ref=e413]:
+                                                          - generic [ref=e415]:
+                                                            - generic [ref=e416]: Comment/Item
+                                                            - img "Unsorted" [ref=e419] [cursor=pointer]
+                                                        - cell "Debit Unsorted" [ref=e420]:
+                                                          - generic [ref=e422]:
+                                                            - generic [ref=e423]: Debit
+                                                            - img "Unsorted" [ref=e426] [cursor=pointer]
+                                                        - cell "Credit Unsorted" [ref=e427]:
+                                                          - generic [ref=e429]:
+                                                            - generic [ref=e430]: Credit
+                                                            - img "Unsorted" [ref=e433] [cursor=pointer]
+                                                        - cell "Balance" [ref=e434]
+                                                      - row [ref=e437]:
+                                                        - cell [ref=e438]
+                                                        - cell "40000 - Revenue" [ref=e439]
+                                                        - cell [ref=e442]
+                                                        - cell "Beg Balance:" [ref=e443]
+                                                        - cell "2,549,766.12" [ref=e446]
+                                                      - row [ref=e449]:
+                                                        - cell [ref=e450]
+                                                        - cell [ref=e451]
+                                                        - cell [ref=e452]
+                                                        - cell [ref=e453]
+                                                        - cell [ref=e454]
+                                                        - cell [ref=e455]
+                                                        - cell [ref=e456]
+                                                        - cell [ref=e457]
+                                                        - cell [ref=e458]
+                                                        - cell [ref=e459]
+                                                        - cell [ref=e460]
+                                                        - cell [ref=e461]
+                                                      - row [ref=e462]:
+                                                        - cell [ref=e463]
+                                                        - cell [ref=e464]
+                                                        - cell "40000 - Revenue" [ref=e465]
+                                                        - cell [ref=e468]
+                                                        - cell "Beg Balance:" [ref=e469]
+                                                        - cell "0.00" [ref=e472]
+                                                      - row [ref=e475]:
+                                                        - cell [ref=e476]
+                                                        - cell [ref=e477]
+                                                        - cell "Total Revenue" [ref=e478]
+                                                        - cell [ref=e481]
+                                                        - cell "0.00" [ref=e482]
+                                                        - cell "0.00" [ref=e485]
+                                                        - cell "0.00" [ref=e488]
+                                                      - row [ref=e491]:
+                                                        - cell [ref=e492]
+                                                        - cell [ref=e493]
+                                                        - cell [ref=e494]
+                                                        - cell [ref=e495]
+                                                        - cell [ref=e496]
+                                                        - cell [ref=e497]
+                                                        - cell [ref=e498]
+                                                        - cell [ref=e499]
+                                                        - cell [ref=e500]
+                                                        - cell [ref=e501]
+                                                        - cell [ref=e502]
+                                                        - cell [ref=e503]
+                                                      - row [ref=e504]:
+                                                        - cell [ref=e505]
+                                                        - cell [ref=e506]
+                                                        - cell "40250 - Total Food Sales" [ref=e507]
+                                                        - cell [ref=e510]
+                                                        - cell "Beg Balance:" [ref=e511]
+                                                        - cell "0.00" [ref=e514]
+                                                      - row [ref=e517]:
+                                                        - cell [ref=e518]
+                                                        - cell [ref=e519]
+                                                        - cell "Total Total Food Sales" [ref=e520]
+                                                        - cell [ref=e523]
+                                                        - cell "0.00" [ref=e524]
+                                                        - cell "0.00" [ref=e527]
+                                                        - cell "0.00" [ref=e530]
+                                                      - row [ref=e533]:
+                                                        - cell [ref=e534]
+                                                        - cell [ref=e535]
+                                                        - cell [ref=e536]
+                                                        - cell [ref=e537]
+                                                        - cell [ref=e538]
+                                                        - cell [ref=e539]
+                                                        - cell [ref=e540]
+                                                        - cell [ref=e541]
+                                                        - cell [ref=e542]
+                                                        - cell [ref=e543]
+                                                        - cell [ref=e544]
+                                                        - cell [ref=e545]
+                                                      - row [ref=e546]:
+                                                        - cell [ref=e547]
+                                                        - cell [ref=e548]
+                                                        - cell "40500 - Total Beverage Sales" [ref=e549]
+                                                        - cell [ref=e552]
+                                                        - cell "Beg Balance:" [ref=e553]
+                                                        - cell "0.00" [ref=e556]
+                                                      - row [ref=e559]:
+                                                        - cell [ref=e560]
+                                                        - cell [ref=e561]
+                                                        - cell "Total Total Beverage Sales" [ref=e562]
+                                                        - cell [ref=e565]
+                                                        - cell "0.00" [ref=e566]
+                                                        - cell "0.00" [ref=e569]
+                                                        - cell "0.00" [ref=e572]
+                                                      - row [ref=e575]:
+                                                        - cell [ref=e576]
+                                                        - cell [ref=e577]
+                                                        - cell [ref=e578]
+                                                        - cell [ref=e579]
+                                                        - cell [ref=e580]
+                                                        - cell [ref=e581]
+                                                        - cell [ref=e582]
+                                                        - cell [ref=e583]
+                                                        - cell [ref=e584]
+                                                        - cell [ref=e585]
+                                                        - cell [ref=e586]
+                                                        - cell [ref=e587]
+                                                      - row [ref=e588]:
+                                                        - cell [ref=e589]
+                                                        - cell [ref=e590]
+                                                        - cell "41000 - Food & Beverage Sales" [ref=e591]
+                                                        - cell [ref=e594]
+                                                        - cell "Beg Balance:" [ref=e595]
+                                                        - cell "0.00" [ref=e598]
+                                                      - row [ref=e601]:
+                                                        - cell [ref=e602]
+                                                        - cell [ref=e603]
+                                                        - cell "Total Food & Beverage Sales" [ref=e604]
+                                                        - cell [ref=e607]
+                                                        - cell "0.00" [ref=e608]
+                                                        - cell "0.00" [ref=e611]
+                                                        - cell "0.00" [ref=e614]
+                                                      - row [ref=e617]:
+                                                        - cell [ref=e618]
+                                                        - cell [ref=e619]
+                                                        - cell [ref=e620]
+                                                        - cell [ref=e621]
+                                                        - cell [ref=e622]
+                                                        - cell [ref=e623]
+                                                        - cell [ref=e624]
+                                                        - cell [ref=e625]
+                                                        - cell [ref=e626]
+                                                        - cell [ref=e627]
+                                                        - cell [ref=e628]
+                                                        - cell [ref=e629]
+                                                      - row [ref=e630]:
+                                                        - cell [ref=e631]
+                                                        - cell [ref=e632]
+                                                        - cell "41250 - Discounts" [ref=e633]
+                                                        - cell [ref=e636]
+                                                        - cell "Beg Balance:" [ref=e637]
+                                                        - cell "-16.26" [ref=e640]
+                                                      - row [ref=e643]:
+                                                        - cell [ref=e644]
+                                                        - cell [ref=e645]
+                                                        - cell "Total Discounts" [ref=e646]
+                                                        - cell [ref=e649]
+                                                        - cell "0.00" [ref=e650]
+                                                        - cell "0.00" [ref=e653]
+                                                        - cell "-16.26" [ref=e656]
+                                                      - row [ref=e659]:
+                                                        - cell [ref=e660]
+                                                        - cell [ref=e661]
+                                                        - cell [ref=e662]
+                                                        - cell [ref=e663]
+                                                        - cell [ref=e664]
+                                                        - cell [ref=e665]
+                                                        - cell [ref=e666]
+                                                        - cell [ref=e667]
+                                                        - cell [ref=e668]
+                                                        - cell [ref=e669]
+                                                        - cell [ref=e670]
+                                                        - cell [ref=e671]
+                                                      - row [ref=e672]:
+                                                        - cell [ref=e673]
+                                                        - cell [ref=e674]
+                                                        - cell "41260 - Other Discounts" [ref=e675]
+                                                        - cell [ref=e678]
+                                                        - cell "Beg Balance:" [ref=e679]
+                                                        - cell "-12,607.81" [ref=e682]
+                                                      - row [ref=e685]:
+                                                        - cell [ref=e686]
+                                                        - cell [ref=e687]
+                                                        - cell [ref=e688]
+                                                        - cell "10/5/2026" [ref=e689]
+                                                        - cell "Journal Entry" [ref=e692]
+                                                        - cell [ref=e695]:
+                                                          - generic "NJ00005913" [ref=e696]:
+                                                            - link "NJ00005913" [ref=e697] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e699]
+                                                        - cell "Cucina Colore" [ref=e700]
+                                                        - cell [ref=e703]
+                                                        - cell "26.00" [ref=e704]
+                                                        - cell "0.00" [ref=e707]
+                                                        - cell "-12,633.81" [ref=e710]
+                                                      - row [ref=e713]:
+                                                        - cell [ref=e714]
+                                                        - cell [ref=e715]
+                                                        - cell [ref=e716]
+                                                        - cell "10/6/2026" [ref=e717]
+                                                        - cell "Journal Entry" [ref=e720]
+                                                        - cell [ref=e723]:
+                                                          - generic "NJ00005916" [ref=e724]:
+                                                            - link "NJ00005916" [ref=e725] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e727]
+                                                        - cell "Cucina Colore" [ref=e728]
+                                                        - cell [ref=e731]
+                                                        - cell "51.00" [ref=e732]
+                                                        - cell "0.00" [ref=e735]
+                                                        - cell "-12,684.81" [ref=e738]
+                                                      - row [ref=e741]:
+                                                        - cell [ref=e742]
+                                                        - cell [ref=e743]
+                                                        - cell [ref=e744]
+                                                        - cell "10/7/2026" [ref=e745]
+                                                        - cell "Journal Entry" [ref=e748]
+                                                        - cell [ref=e751]:
+                                                          - generic "NJ00005920" [ref=e752]:
+                                                            - link "NJ00005920" [ref=e753] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e755]
+                                                        - cell "Cucina Colore" [ref=e756]
+                                                        - cell [ref=e759]
+                                                        - cell "28.00" [ref=e760]
+                                                        - cell "0.00" [ref=e763]
+                                                        - cell "-12,712.81" [ref=e766]
+                                                      - row [ref=e769]:
+                                                        - cell [ref=e770]
+                                                        - cell [ref=e771]
+                                                        - cell [ref=e772]
+                                                        - cell "10/8/2026" [ref=e773]
+                                                        - cell "Journal Entry" [ref=e776]
+                                                        - cell [ref=e779]:
+                                                          - generic "NJ00005929" [ref=e780]:
+                                                            - link "NJ00005929" [ref=e781] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e783]
+                                                        - cell "Cucina Colore" [ref=e784]
+                                                        - cell [ref=e787]
+                                                        - cell "23.00" [ref=e788]
+                                                        - cell "0.00" [ref=e791]
+                                                        - cell "-12,735.81" [ref=e794]
+                                                      - row [ref=e797]:
+                                                        - cell [ref=e798]
+                                                        - cell [ref=e799]
+                                                        - cell [ref=e800]
+                                                        - cell "10/9/2026" [ref=e801]
+                                                        - cell "Journal Entry" [ref=e804]
+                                                        - cell [ref=e807]:
+                                                          - generic "NJ00005932" [ref=e808]:
+                                                            - link "NJ00005932" [ref=e809] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e811]
+                                                        - cell "Cucina Colore" [ref=e812]
+                                                        - cell [ref=e815]
+                                                        - cell "70.00" [ref=e816]
+                                                        - cell "0.00" [ref=e819]
+                                                        - cell "-12,805.81" [ref=e822]
+                                                      - row [ref=e825]:
+                                                        - cell [ref=e826]
+                                                        - cell [ref=e827]
+                                                        - cell [ref=e828]
+                                                        - cell "10/10/2026" [ref=e829]
+                                                        - cell "Journal Entry" [ref=e832]
+                                                        - cell [ref=e835]:
+                                                          - generic "NJ00005953" [ref=e836]:
+                                                            - link "NJ00005953" [ref=e837] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e839]
+                                                        - cell "Cucina Colore" [ref=e840]
+                                                        - cell [ref=e843]
+                                                        - cell "23.00" [ref=e844]
+                                                        - cell "0.00" [ref=e847]
+                                                        - cell "-12,828.81" [ref=e850]
+                                                      - row [ref=e853]:
+                                                        - cell [ref=e854]
+                                                        - cell [ref=e855]
+                                                        - cell [ref=e856]
+                                                        - cell "10/11/2026" [ref=e857]
+                                                        - cell "Journal Entry" [ref=e860]
+                                                        - cell [ref=e863]:
+                                                          - generic "NJ00005938" [ref=e864]:
+                                                            - link "NJ00005938" [ref=e865] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e867]
+                                                        - cell "Cucina Colore" [ref=e868]
+                                                        - cell [ref=e871]
+                                                        - cell "23.00" [ref=e872]
+                                                        - cell "0.00" [ref=e875]
+                                                        - cell "-12,851.81" [ref=e878]
+                                                      - row [ref=e881]:
+                                                        - cell [ref=e882]
+                                                        - cell [ref=e883]
+                                                        - cell "Total Other Discounts" [ref=e884]
+                                                        - cell [ref=e887]
+                                                        - cell "244.00" [ref=e888]
+                                                        - cell "0.00" [ref=e891]
+                                                        - cell "-12,851.81" [ref=e894]
+                                                      - row [ref=e897]:
+                                                        - cell [ref=e898]
+                                                        - cell [ref=e899]
+                                                        - cell [ref=e900]
+                                                        - cell [ref=e901]
+                                                        - cell [ref=e902]
+                                                        - cell [ref=e903]
+                                                        - cell [ref=e904]
+                                                        - cell [ref=e905]
+                                                        - cell [ref=e906]
+                                                        - cell [ref=e907]
+                                                        - cell [ref=e908]
+                                                        - cell [ref=e909]
+                                                      - row [ref=e910]:
+                                                        - cell [ref=e911]
+                                                        - cell [ref=e912]
+                                                        - cell "41261 - Comps" [ref=e913]
+                                                        - cell [ref=e916]
+                                                        - cell "Beg Balance:" [ref=e917]
+                                                        - cell "0.00" [ref=e920]
+                                                      - row [ref=e923]:
+                                                        - cell [ref=e924]
+                                                        - cell [ref=e925]
+                                                        - cell "Total Comps" [ref=e926]
+                                                        - cell [ref=e929]
+                                                        - cell "0.00" [ref=e930]
+                                                        - cell "0.00" [ref=e933]
+                                                        - cell "0.00" [ref=e936]
+                                                      - row [ref=e939]:
+                                                        - cell [ref=e940]
+                                                        - cell [ref=e941]
+                                                        - cell [ref=e942]
+                                                        - cell [ref=e943]
+                                                        - cell [ref=e944]
+                                                        - cell [ref=e945]
+                                                        - cell [ref=e946]
+                                                        - cell [ref=e947]
+                                                        - cell [ref=e948]
+                                                        - cell [ref=e949]
+                                                        - cell [ref=e950]
+                                                        - cell [ref=e951]
+                                                      - row [ref=e952]:
+                                                        - cell [ref=e953]
+                                                        - cell [ref=e954]
+                                                        - cell "41270 - Employee Discounts" [ref=e955]
+                                                        - cell [ref=e958]
+                                                        - cell "Beg Balance:" [ref=e959]
+                                                        - cell "-98,452.04" [ref=e962]
+                                                      - row [ref=e965]:
+                                                        - cell [ref=e966]
+                                                        - cell [ref=e967]
+                                                        - cell [ref=e968]
+                                                        - cell "10/5/2026" [ref=e969]
+                                                        - cell "Journal Entry" [ref=e972]
+                                                        - cell [ref=e975]:
+                                                          - generic "NJ00005913" [ref=e976]:
+                                                            - link "NJ00005913" [ref=e977] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e979]
+                                                        - cell "Cucina Colore" [ref=e980]
+                                                        - cell [ref=e983]
+                                                        - cell "2,030.00" [ref=e984]
+                                                        - cell "0.00" [ref=e987]
+                                                        - cell "-100,482.04" [ref=e990]
+                                                      - row [ref=e993]:
+                                                        - cell [ref=e994]
+                                                        - cell [ref=e995]
+                                                        - cell [ref=e996]
+                                                        - cell "10/6/2026" [ref=e997]
+                                                        - cell "Journal Entry" [ref=e1000]
+                                                        - cell [ref=e1003]:
+                                                          - generic "NJ00005916" [ref=e1004]:
+                                                            - link "NJ00005916" [ref=e1005] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e1007]
+                                                        - cell "Cucina Colore" [ref=e1008]
+                                                        - cell [ref=e1011]
+                                                        - cell "42.75" [ref=e1012]
+                                                        - cell "0.00" [ref=e1015]
+                                                        - cell "-100,524.79" [ref=e1018]
+                                                      - row [ref=e1021]:
+                                                        - cell [ref=e1022]
+                                                        - cell [ref=e1023]
+                                                        - cell [ref=e1024]
+                                                        - cell "10/7/2026" [ref=e1025]
+                                                        - cell "Journal Entry" [ref=e1028]
+                                                        - cell [ref=e1031]:
+                                                          - generic "NJ00005920" [ref=e1032]:
+                                                            - link "NJ00005920" [ref=e1033] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1035]
+                                                        - cell "Cucina Colore" [ref=e1036]
+                                                        - cell [ref=e1039]
+                                                        - cell "82.00" [ref=e1040]
+                                                        - cell "0.00" [ref=e1043]
+                                                        - cell "-100,606.79" [ref=e1046]
+                                                      - row [ref=e1049]:
+                                                        - cell [ref=e1050]
+                                                        - cell [ref=e1051]
+                                                        - cell [ref=e1052]
+                                                        - cell "10/8/2026" [ref=e1053]
+                                                        - cell "Journal Entry" [ref=e1056]
+                                                        - cell [ref=e1059]:
+                                                          - generic "NJ00005929" [ref=e1060]:
+                                                            - link "NJ00005929" [ref=e1061] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1063]
+                                                        - cell "Cucina Colore" [ref=e1064]
+                                                        - cell [ref=e1067]
+                                                        - cell "75.50" [ref=e1068]
+                                                        - cell "0.00" [ref=e1071]
+                                                        - cell "-100,682.29" [ref=e1074]
+                                                      - row [ref=e1077]:
+                                                        - cell [ref=e1078]
+                                                        - cell [ref=e1079]
+                                                        - cell [ref=e1080]
+                                                        - cell "10/9/2026" [ref=e1081]
+                                                        - cell "Journal Entry" [ref=e1084]
+                                                        - cell [ref=e1087]:
+                                                          - generic "NJ00005932" [ref=e1088]:
+                                                            - link "NJ00005932" [ref=e1089] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e1091]
+                                                        - cell "Cucina Colore" [ref=e1092]
+                                                        - cell [ref=e1095]
+                                                        - cell "54.50" [ref=e1096]
+                                                        - cell "0.00" [ref=e1099]
+                                                        - cell "-100,736.79" [ref=e1102]
+                                                      - row [ref=e1105]:
+                                                        - cell [ref=e1106]
+                                                        - cell [ref=e1107]
+                                                        - cell [ref=e1108]
+                                                        - cell "10/10/2026" [ref=e1109]
+                                                        - cell "Journal Entry" [ref=e1112]
+                                                        - cell [ref=e1115]:
+                                                          - generic "NJ00005953" [ref=e1116]:
+                                                            - link "NJ00005953" [ref=e1117] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e1119]
+                                                        - cell "Cucina Colore" [ref=e1120]
+                                                        - cell [ref=e1123]
+                                                        - cell "80.75" [ref=e1124]
+                                                        - cell "0.00" [ref=e1127]
+                                                        - cell "-100,817.54" [ref=e1130]
+                                                      - row [ref=e1133]:
+                                                        - cell [ref=e1134]
+                                                        - cell [ref=e1135]
+                                                        - cell [ref=e1136]
+                                                        - cell "10/11/2026" [ref=e1137]
+                                                        - cell "Journal Entry" [ref=e1140]
+                                                        - cell [ref=e1143]:
+                                                          - generic "NJ00005938" [ref=e1144]:
+                                                            - link "NJ00005938" [ref=e1145] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e1147]
+                                                        - cell "Cucina Colore" [ref=e1148]
+                                                        - cell [ref=e1151]
+                                                        - cell "35.00" [ref=e1152]
+                                                        - cell "0.00" [ref=e1155]
+                                                        - cell "-100,852.54" [ref=e1158]
+                                                      - row [ref=e1161]:
+                                                        - cell [ref=e1162]
+                                                        - cell [ref=e1163]
+                                                        - cell "Total Employee Discounts" [ref=e1164]
+                                                        - cell [ref=e1167]
+                                                        - cell "2,400.50" [ref=e1168]
+                                                        - cell "0.00" [ref=e1171]
+                                                        - cell "-100,852.54" [ref=e1174]
+                                                      - row [ref=e1177]:
+                                                        - cell [ref=e1178]
+                                                        - cell [ref=e1179]
+                                                        - cell [ref=e1180]
+                                                        - cell [ref=e1181]
+                                                        - cell [ref=e1182]
+                                                        - cell [ref=e1183]
+                                                        - cell [ref=e1184]
+                                                        - cell [ref=e1185]
+                                                        - cell [ref=e1186]
+                                                        - cell [ref=e1187]
+                                                        - cell [ref=e1188]
+                                                        - cell [ref=e1189]
+                                                      - row [ref=e1190]:
+                                                        - cell [ref=e1191]
+                                                        - cell [ref=e1192]
+                                                        - cell "41280 - Comps and Mistakes" [ref=e1193]
+                                                        - cell [ref=e1196]
+                                                        - cell "Beg Balance:" [ref=e1197]
+                                                        - cell "0.00" [ref=e1200]
+                                                      - row [ref=e1203]:
+                                                        - cell [ref=e1204]
+                                                        - cell [ref=e1205]
+                                                        - cell "Total Comps and Mistakes" [ref=e1206]
+                                                        - cell [ref=e1209]
+                                                        - cell "0.00" [ref=e1210]
+                                                        - cell "0.00" [ref=e1213]
+                                                        - cell "0.00" [ref=e1216]
+                                                      - row [ref=e1219]:
+                                                        - cell [ref=e1220]
+                                                        - cell [ref=e1221]
+                                                        - cell [ref=e1222]
+                                                        - cell [ref=e1223]
+                                                        - cell [ref=e1224]
+                                                        - cell [ref=e1225]
+                                                        - cell [ref=e1226]
+                                                        - cell [ref=e1227]
+                                                        - cell [ref=e1228]
+                                                        - cell [ref=e1229]
+                                                        - cell [ref=e1230]
+                                                        - cell [ref=e1231]
+                                                      - row [ref=e1232]:
+                                                        - cell [ref=e1233]
+                                                        - cell [ref=e1234]
+                                                        - cell "42000 - Food Sales" [ref=e1235]
+                                                        - cell [ref=e1238]
+                                                        - cell "Beg Balance:" [ref=e1239]
+                                                        - cell "1,979,171.62" [ref=e1242]
+                                                      - row [ref=e1245]:
+                                                        - cell [ref=e1246]
+                                                        - cell [ref=e1247]
+                                                        - cell [ref=e1248]
+                                                        - cell "10/5/2026" [ref=e1249]
+                                                        - cell "Journal Entry" [ref=e1252]
+                                                        - cell [ref=e1255]:
+                                                          - generic "NJ00005913" [ref=e1256]:
+                                                            - link "NJ00005913" [ref=e1257] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e1259]
+                                                        - cell "Cucina Colore" [ref=e1260]
+                                                        - cell [ref=e1263]
+                                                        - cell "0.00" [ref=e1264]
+                                                        - cell "7,957.15" [ref=e1267]
+                                                        - cell "1,987,128.77" [ref=e1270]
+                                                      - row [ref=e1273]:
+                                                        - cell [ref=e1274]
+                                                        - cell [ref=e1275]
+                                                        - cell [ref=e1276]
+                                                        - cell "10/6/2026" [ref=e1277]
+                                                        - cell "Journal Entry" [ref=e1280]
+                                                        - cell [ref=e1283]:
+                                                          - generic "NJ00005916" [ref=e1284]:
+                                                            - link "NJ00005916" [ref=e1285] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e1287]
+                                                        - cell "Cucina Colore" [ref=e1288]
+                                                        - cell [ref=e1291]
+                                                        - cell "0.00" [ref=e1292]
+                                                        - cell "4,874.68" [ref=e1295]
+                                                        - cell "1,992,003.45" [ref=e1298]
+                                                      - row [ref=e1301]:
+                                                        - cell [ref=e1302]
+                                                        - cell [ref=e1303]
+                                                        - cell [ref=e1304]
+                                                        - cell "10/7/2026" [ref=e1305]
+                                                        - cell "Journal Entry" [ref=e1308]
+                                                        - cell [ref=e1311]:
+                                                          - generic "NJ00005920" [ref=e1312]:
+                                                            - link "NJ00005920" [ref=e1313] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1315]
+                                                        - cell "Cucina Colore" [ref=e1316]
+                                                        - cell [ref=e1319]
+                                                        - cell "0.00" [ref=e1320]
+                                                        - cell "5,393.84" [ref=e1323]
+                                                        - cell "1,997,397.29" [ref=e1326]
+                                                      - row [ref=e1329]:
+                                                        - cell [ref=e1330]
+                                                        - cell [ref=e1331]
+                                                        - cell [ref=e1332]
+                                                        - cell "10/8/2026" [ref=e1333]
+                                                        - cell "Journal Entry" [ref=e1336]
+                                                        - cell [ref=e1339]:
+                                                          - generic "NJ00005929" [ref=e1340]:
+                                                            - link "NJ00005929" [ref=e1341] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1343]
+                                                        - cell "Cucina Colore" [ref=e1344]
+                                                        - cell [ref=e1347]
+                                                        - cell "0.00" [ref=e1348]
+                                                        - cell "7,508.71" [ref=e1351]
+                                                        - cell "2,004,906.00" [ref=e1354]
+                                                      - row [ref=e1357]:
+                                                        - cell [ref=e1358]
+                                                        - cell [ref=e1359]
+                                                        - cell [ref=e1360]
+                                                        - cell "10/9/2026" [ref=e1361]
+                                                        - cell "Journal Entry" [ref=e1364]
+                                                        - cell [ref=e1367]:
+                                                          - generic "NJ00005932" [ref=e1368]:
+                                                            - link "NJ00005932" [ref=e1369] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e1371]
+                                                        - cell "Cucina Colore" [ref=e1372]
+                                                        - cell [ref=e1375]
+                                                        - cell "0.00" [ref=e1376]
+                                                        - cell "9,478.45" [ref=e1379]
+                                                        - cell "2,014,384.45" [ref=e1382]
+                                                      - row [ref=e1385]:
+                                                        - cell [ref=e1386]
+                                                        - cell [ref=e1387]
+                                                        - cell [ref=e1388]
+                                                        - cell "10/10/2026" [ref=e1389]
+                                                        - cell "Journal Entry" [ref=e1392]
+                                                        - cell [ref=e1395]:
+                                                          - generic "NJ00005953" [ref=e1396]:
+                                                            - link "NJ00005953" [ref=e1397] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e1399]
+                                                        - cell "Cucina Colore" [ref=e1400]
+                                                        - cell [ref=e1403]
+                                                        - cell "0.00" [ref=e1404]
+                                                        - cell "6,673.25" [ref=e1407]
+                                                        - cell "2,021,057.70" [ref=e1410]
+                                                      - row [ref=e1413]:
+                                                        - cell [ref=e1414]
+                                                        - cell [ref=e1415]
+                                                        - cell [ref=e1416]
+                                                        - cell "10/11/2026" [ref=e1417]
+                                                        - cell "Journal Entry" [ref=e1420]
+                                                        - cell [ref=e1423]:
+                                                          - generic "NJ00005938" [ref=e1424]:
+                                                            - link "NJ00005938" [ref=e1425] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e1427]
+                                                        - cell "Cucina Colore" [ref=e1428]
+                                                        - cell [ref=e1431]
+                                                        - cell "0.00" [ref=e1432]
+                                                        - cell "4,553.04" [ref=e1435]
+                                                        - cell "2,025,610.74" [ref=e1438]
+                                                      - row [ref=e1441]:
+                                                        - cell [ref=e1442]
+                                                        - cell [ref=e1443]
+                                                        - cell "Total Food Sales" [ref=e1444]
+                                                        - cell [ref=e1447]
+                                                        - cell "0.00" [ref=e1448]
+                                                        - cell "46,439.12" [ref=e1451]
+                                                        - cell "2,025,610.74" [ref=e1454]
+                                                      - row [ref=e1457]:
+                                                        - cell [ref=e1458]
+                                                        - cell [ref=e1459]
+                                                        - cell [ref=e1460]
+                                                        - cell [ref=e1461]
+                                                        - cell [ref=e1462]
+                                                        - cell [ref=e1463]
+                                                        - cell [ref=e1464]
+                                                        - cell [ref=e1465]
+                                                        - cell [ref=e1466]
+                                                        - cell [ref=e1467]
+                                                        - cell [ref=e1468]
+                                                        - cell [ref=e1469]
+                                                      - row [ref=e1470]:
+                                                        - cell [ref=e1471]
+                                                        - cell [ref=e1472]
+                                                        - cell "42500 - Non Alc Bev Sales" [ref=e1473]
+                                                        - cell [ref=e1476]
+                                                        - cell "Beg Balance:" [ref=e1477]
+                                                        - cell "76,364.27" [ref=e1480]
+                                                      - row [ref=e1483]:
+                                                        - cell [ref=e1484]
+                                                        - cell [ref=e1485]
+                                                        - cell [ref=e1486]
+                                                        - cell "10/5/2026" [ref=e1487]
+                                                        - cell "Journal Entry" [ref=e1490]
+                                                        - cell [ref=e1493]:
+                                                          - generic "NJ00005913" [ref=e1494]:
+                                                            - link "NJ00005913" [ref=e1495] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e1497]
+                                                        - cell "Cucina Colore" [ref=e1498]
+                                                        - cell [ref=e1501]
+                                                        - cell "0.00" [ref=e1502]
+                                                        - cell "192.00" [ref=e1505]
+                                                        - cell "76,556.27" [ref=e1508]
+                                                      - row [ref=e1511]:
+                                                        - cell [ref=e1512]
+                                                        - cell [ref=e1513]
+                                                        - cell [ref=e1514]
+                                                        - cell "10/6/2026" [ref=e1515]
+                                                        - cell "Journal Entry" [ref=e1518]
+                                                        - cell [ref=e1521]:
+                                                          - generic "NJ00005916" [ref=e1522]:
+                                                            - link "NJ00005916" [ref=e1523] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e1525]
+                                                        - cell "Cucina Colore" [ref=e1526]
+                                                        - cell [ref=e1529]
+                                                        - cell "0.00" [ref=e1530]
+                                                        - cell "301.00" [ref=e1533]
+                                                        - cell "76,857.27" [ref=e1536]
+                                                      - row [ref=e1539]:
+                                                        - cell [ref=e1540]
+                                                        - cell [ref=e1541]
+                                                        - cell [ref=e1542]
+                                                        - cell "10/7/2026" [ref=e1543]
+                                                        - cell "Journal Entry" [ref=e1546]
+                                                        - cell [ref=e1549]:
+                                                          - generic "NJ00005920" [ref=e1550]:
+                                                            - link "NJ00005920" [ref=e1551] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1553]
+                                                        - cell "Cucina Colore" [ref=e1554]
+                                                        - cell [ref=e1557]
+                                                        - cell "0.00" [ref=e1558]
+                                                        - cell "260.00" [ref=e1561]
+                                                        - cell "77,117.27" [ref=e1564]
+                                                      - row [ref=e1567]:
+                                                        - cell [ref=e1568]
+                                                        - cell [ref=e1569]
+                                                        - cell [ref=e1570]
+                                                        - cell "10/8/2026" [ref=e1571]
+                                                        - cell "Journal Entry" [ref=e1574]
+                                                        - cell [ref=e1577]:
+                                                          - generic "NJ00005929" [ref=e1578]:
+                                                            - link "NJ00005929" [ref=e1579] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1581]
+                                                        - cell "Cucina Colore" [ref=e1582]
+                                                        - cell [ref=e1585]
+                                                        - cell "0.00" [ref=e1586]
+                                                        - cell "212.50" [ref=e1589]
+                                                        - cell "77,329.77" [ref=e1592]
+                                                      - row [ref=e1595]:
+                                                        - cell [ref=e1596]
+                                                        - cell [ref=e1597]
+                                                        - cell [ref=e1598]
+                                                        - cell "10/9/2026" [ref=e1599]
+                                                        - cell "Journal Entry" [ref=e1602]
+                                                        - cell [ref=e1605]:
+                                                          - generic "NJ00005932" [ref=e1606]:
+                                                            - link "NJ00005932" [ref=e1607] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e1609]
+                                                        - cell "Cucina Colore" [ref=e1610]
+                                                        - cell [ref=e1613]
+                                                        - cell "0.00" [ref=e1614]
+                                                        - cell "244.50" [ref=e1617]
+                                                        - cell "77,574.27" [ref=e1620]
+                                                      - row [ref=e1623]:
+                                                        - cell [ref=e1624]
+                                                        - cell [ref=e1625]
+                                                        - cell [ref=e1626]
+                                                        - cell "10/10/2026" [ref=e1627]
+                                                        - cell "Journal Entry" [ref=e1630]
+                                                        - cell [ref=e1633]:
+                                                          - generic "NJ00005953" [ref=e1634]:
+                                                            - link "NJ00005953" [ref=e1635] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e1637]
+                                                        - cell "Cucina Colore" [ref=e1638]
+                                                        - cell [ref=e1641]
+                                                        - cell "0.00" [ref=e1642]
+                                                        - cell "295.00" [ref=e1645]
+                                                        - cell "77,869.27" [ref=e1648]
+                                                      - row [ref=e1651]:
+                                                        - cell [ref=e1652]
+                                                        - cell [ref=e1653]
+                                                        - cell [ref=e1654]
+                                                        - cell "10/11/2026" [ref=e1655]
+                                                        - cell "Journal Entry" [ref=e1658]
+                                                        - cell [ref=e1661]:
+                                                          - generic "NJ00005938" [ref=e1662]:
+                                                            - link "NJ00005938" [ref=e1663] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e1665]
+                                                        - cell "Cucina Colore" [ref=e1666]
+                                                        - cell [ref=e1669]
+                                                        - cell "0.00" [ref=e1670]
+                                                        - cell "98.50" [ref=e1673]
+                                                        - cell "77,967.77" [ref=e1676]
+                                                      - row [ref=e1679]:
+                                                        - cell [ref=e1680]
+                                                        - cell [ref=e1681]
+                                                        - cell "Total Non Alc Bev Sales" [ref=e1682]
+                                                        - cell [ref=e1685]
+                                                        - cell "0.00" [ref=e1686]
+                                                        - cell "1,603.50" [ref=e1689]
+                                                        - cell "77,967.77" [ref=e1692]
+                                                      - row [ref=e1695]:
+                                                        - cell [ref=e1696]
+                                                        - cell [ref=e1697]
+                                                        - cell [ref=e1698]
+                                                        - cell [ref=e1699]
+                                                        - cell [ref=e1700]
+                                                        - cell [ref=e1701]
+                                                        - cell [ref=e1702]
+                                                        - cell [ref=e1703]
+                                                        - cell [ref=e1704]
+                                                        - cell [ref=e1705]
+                                                        - cell [ref=e1706]
+                                                        - cell [ref=e1707]
+                                                      - row [ref=e1708]:
+                                                        - cell [ref=e1709]
+                                                        - cell [ref=e1710]
+                                                        - cell "43000 - Beer Sales" [ref=e1711]
+                                                        - cell [ref=e1714]
+                                                        - cell "Beg Balance:" [ref=e1715]
+                                                        - cell "32,862.00" [ref=e1718]
+                                                      - row [ref=e1721]:
+                                                        - cell [ref=e1722]
+                                                        - cell [ref=e1723]
+                                                        - cell [ref=e1724]
+                                                        - cell "10/5/2026" [ref=e1725]
+                                                        - cell "Journal Entry" [ref=e1728]
+                                                        - cell [ref=e1731]:
+                                                          - generic "NJ00005913" [ref=e1732]:
+                                                            - link "NJ00005913" [ref=e1733] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e1735]
+                                                        - cell "Cucina Colore" [ref=e1736]
+                                                        - cell [ref=e1739]
+                                                        - cell "0.00" [ref=e1740]
+                                                        - cell "107.00" [ref=e1743]
+                                                        - cell "32,969.00" [ref=e1746]
+                                                      - row [ref=e1749]:
+                                                        - cell [ref=e1750]
+                                                        - cell [ref=e1751]
+                                                        - cell [ref=e1752]
+                                                        - cell "10/6/2026" [ref=e1753]
+                                                        - cell "Journal Entry" [ref=e1756]
+                                                        - cell [ref=e1759]:
+                                                          - generic "NJ00005916" [ref=e1760]:
+                                                            - link "NJ00005916" [ref=e1761] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e1763]
+                                                        - cell "Cucina Colore" [ref=e1764]
+                                                        - cell [ref=e1767]
+                                                        - cell "0.00" [ref=e1768]
+                                                        - cell "72.00" [ref=e1771]
+                                                        - cell "33,041.00" [ref=e1774]
+                                                      - row [ref=e1777]:
+                                                        - cell [ref=e1778]
+                                                        - cell [ref=e1779]
+                                                        - cell [ref=e1780]
+                                                        - cell "10/7/2026" [ref=e1781]
+                                                        - cell "Journal Entry" [ref=e1784]
+                                                        - cell [ref=e1787]:
+                                                          - generic "NJ00005920" [ref=e1788]:
+                                                            - link "NJ00005920" [ref=e1789] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1791]
+                                                        - cell "Cucina Colore" [ref=e1792]
+                                                        - cell [ref=e1795]
+                                                        - cell "0.00" [ref=e1796]
+                                                        - cell "77.00" [ref=e1799]
+                                                        - cell "33,118.00" [ref=e1802]
+                                                      - row [ref=e1805]:
+                                                        - cell [ref=e1806]
+                                                        - cell [ref=e1807]
+                                                        - cell [ref=e1808]
+                                                        - cell "10/8/2026" [ref=e1809]
+                                                        - cell "Journal Entry" [ref=e1812]
+                                                        - cell [ref=e1815]:
+                                                          - generic "NJ00005929" [ref=e1816]:
+                                                            - link "NJ00005929" [ref=e1817] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e1819]
+                                                        - cell "Cucina Colore" [ref=e1820]
+                                                        - cell [ref=e1823]
+                                                        - cell "0.00" [ref=e1824]
+                                                        - cell "189.00" [ref=e1827]
+                                                        - cell "33,307.00" [ref=e1830]
+                                                      - row [ref=e1833]:
+                                                        - cell [ref=e1834]
+                                                        - cell [ref=e1835]
+                                                        - cell [ref=e1836]
+                                                        - cell "10/9/2026" [ref=e1837]
+                                                        - cell "Journal Entry" [ref=e1840]
+                                                        - cell [ref=e1843]:
+                                                          - generic "NJ00005932" [ref=e1844]:
+                                                            - link "NJ00005932" [ref=e1845] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e1847]
+                                                        - cell "Cucina Colore" [ref=e1848]
+                                                        - cell [ref=e1851]
+                                                        - cell "0.00" [ref=e1852]
+                                                        - cell "69.00" [ref=e1855]
+                                                        - cell "33,376.00" [ref=e1858]
+                                                      - row [ref=e1861]:
+                                                        - cell [ref=e1862]
+                                                        - cell [ref=e1863]
+                                                        - cell [ref=e1864]
+                                                        - cell "10/10/2026" [ref=e1865]
+                                                        - cell "Journal Entry" [ref=e1868]
+                                                        - cell [ref=e1871]:
+                                                          - generic "NJ00005953" [ref=e1872]:
+                                                            - link "NJ00005953" [ref=e1873] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e1875]
+                                                        - cell "Cucina Colore" [ref=e1876]
+                                                        - cell [ref=e1879]
+                                                        - cell "0.00" [ref=e1880]
+                                                        - cell "154.00" [ref=e1883]
+                                                        - cell "33,530.00" [ref=e1886]
+                                                      - row [ref=e1889]:
+                                                        - cell [ref=e1890]
+                                                        - cell [ref=e1891]
+                                                        - cell [ref=e1892]
+                                                        - cell "10/11/2026" [ref=e1893]
+                                                        - cell "Journal Entry" [ref=e1896]
+                                                        - cell [ref=e1899]:
+                                                          - generic "NJ00005938" [ref=e1900]:
+                                                            - link "NJ00005938" [ref=e1901] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e1903]
+                                                        - cell "Cucina Colore" [ref=e1904]
+                                                        - cell [ref=e1907]
+                                                        - cell "0.00" [ref=e1908]
+                                                        - cell "47.00" [ref=e1911]
+                                                        - cell "33,577.00" [ref=e1914]
+                                                      - row [ref=e1917]:
+                                                        - cell [ref=e1918]
+                                                        - cell [ref=e1919]
+                                                        - cell "Total Beer Sales" [ref=e1920]
+                                                        - cell [ref=e1923]
+                                                        - cell "0.00" [ref=e1924]
+                                                        - cell "715.00" [ref=e1927]
+                                                        - cell "33,577.00" [ref=e1930]
+                                                      - row [ref=e1933]:
+                                                        - cell [ref=e1934]
+                                                        - cell [ref=e1935]
+                                                        - cell [ref=e1936]
+                                                        - cell [ref=e1937]
+                                                        - cell [ref=e1938]
+                                                        - cell [ref=e1939]
+                                                        - cell [ref=e1940]
+                                                        - cell [ref=e1941]
+                                                        - cell [ref=e1942]
+                                                        - cell [ref=e1943]
+                                                        - cell [ref=e1944]
+                                                        - cell [ref=e1945]
+                                                      - row [ref=e1946]:
+                                                        - cell [ref=e1947]
+                                                        - cell [ref=e1948]
+                                                        - cell "43100 - Draft Beer Sales" [ref=e1949]
+                                                        - cell [ref=e1952]
+                                                        - cell "Beg Balance:" [ref=e1953]
+                                                        - cell "0.00" [ref=e1956]
+                                                      - row [ref=e1959]:
+                                                        - cell [ref=e1960]
+                                                        - cell [ref=e1961]
+                                                        - cell "Total Draft Beer Sales" [ref=e1962]
+                                                        - cell [ref=e1965]
+                                                        - cell "0.00" [ref=e1966]
+                                                        - cell "0.00" [ref=e1969]
+                                                        - cell "0.00" [ref=e1972]
+                                                      - row [ref=e1975]:
+                                                        - cell [ref=e1976]
+                                                        - cell [ref=e1977]
+                                                        - cell [ref=e1978]
+                                                        - cell [ref=e1979]
+                                                        - cell [ref=e1980]
+                                                        - cell [ref=e1981]
+                                                        - cell [ref=e1982]
+                                                        - cell [ref=e1983]
+                                                        - cell [ref=e1984]
+                                                        - cell [ref=e1985]
+                                                        - cell [ref=e1986]
+                                                        - cell [ref=e1987]
+                                                      - row [ref=e1988]:
+                                                        - cell [ref=e1989]
+                                                        - cell [ref=e1990]
+                                                        - cell "44000 - Wine Sales" [ref=e1991]
+                                                        - cell [ref=e1994]
+                                                        - cell "Beg Balance:" [ref=e1995]
+                                                        - cell "338,177.29" [ref=e1998]
+                                                      - row [ref=e2001]:
+                                                        - cell [ref=e2002]
+                                                        - cell [ref=e2003]
+                                                        - cell [ref=e2004]
+                                                        - cell "10/5/2026" [ref=e2005]
+                                                        - cell "Journal Entry" [ref=e2008]
+                                                        - cell [ref=e2011]:
+                                                          - generic "NJ00005913" [ref=e2012]:
+                                                            - link "NJ00005913" [ref=e2013] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e2015]
+                                                        - cell "Cucina Colore" [ref=e2016]
+                                                        - cell [ref=e2019]
+                                                        - cell "0.00" [ref=e2020]
+                                                        - cell "759.00" [ref=e2023]
+                                                        - cell "338,936.29" [ref=e2026]
+                                                      - row [ref=e2029]:
+                                                        - cell [ref=e2030]
+                                                        - cell [ref=e2031]
+                                                        - cell [ref=e2032]
+                                                        - cell "10/6/2026" [ref=e2033]
+                                                        - cell "Journal Entry" [ref=e2036]
+                                                        - cell [ref=e2039]:
+                                                          - generic "NJ00005916" [ref=e2040]:
+                                                            - link "NJ00005916" [ref=e2041] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e2043]
+                                                        - cell "Cucina Colore" [ref=e2044]
+                                                        - cell [ref=e2047]
+                                                        - cell "0.00" [ref=e2048]
+                                                        - cell "626.00" [ref=e2051]
+                                                        - cell "339,562.29" [ref=e2054]
+                                                      - row [ref=e2057]:
+                                                        - cell [ref=e2058]
+                                                        - cell [ref=e2059]
+                                                        - cell [ref=e2060]
+                                                        - cell "10/7/2026" [ref=e2061]
+                                                        - cell "Journal Entry" [ref=e2064]
+                                                        - cell [ref=e2067]:
+                                                          - generic "NJ00005920" [ref=e2068]:
+                                                            - link "NJ00005920" [ref=e2069] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e2071]
+                                                        - cell "Cucina Colore" [ref=e2072]
+                                                        - cell [ref=e2075]
+                                                        - cell "0.00" [ref=e2076]
+                                                        - cell "1,054.00" [ref=e2079]
+                                                        - cell "340,616.29" [ref=e2082]
+                                                      - row [ref=e2085]:
+                                                        - cell [ref=e2086]
+                                                        - cell [ref=e2087]
+                                                        - cell [ref=e2088]
+                                                        - cell "10/8/2026" [ref=e2089]
+                                                        - cell "Journal Entry" [ref=e2092]
+                                                        - cell [ref=e2095]:
+                                                          - generic "NJ00005929" [ref=e2096]:
+                                                            - link "NJ00005929" [ref=e2097] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e2099]
+                                                        - cell "Cucina Colore" [ref=e2100]
+                                                        - cell [ref=e2103]
+                                                        - cell "0.00" [ref=e2104]
+                                                        - cell "1,356.00" [ref=e2107]
+                                                        - cell "341,972.29" [ref=e2110]
+                                                      - row [ref=e2113]:
+                                                        - cell [ref=e2114]
+                                                        - cell [ref=e2115]
+                                                        - cell [ref=e2116]
+                                                        - cell "10/9/2026" [ref=e2117]
+                                                        - cell "Journal Entry" [ref=e2120]
+                                                        - cell [ref=e2123]:
+                                                          - generic "NJ00005932" [ref=e2124]:
+                                                            - link "NJ00005932" [ref=e2125] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e2127]
+                                                        - cell "Cucina Colore" [ref=e2128]
+                                                        - cell [ref=e2131]
+                                                        - cell "0.00" [ref=e2132]
+                                                        - cell "1,652.00" [ref=e2135]
+                                                        - cell "343,624.29" [ref=e2138]
+                                                      - row [ref=e2141]:
+                                                        - cell [ref=e2142]
+                                                        - cell [ref=e2143]
+                                                        - cell [ref=e2144]
+                                                        - cell "10/10/2026" [ref=e2145]
+                                                        - cell "Journal Entry" [ref=e2148]
+                                                        - cell [ref=e2151]:
+                                                          - generic "NJ00005953" [ref=e2152]:
+                                                            - link "NJ00005953" [ref=e2153] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e2155]
+                                                        - cell "Cucina Colore" [ref=e2156]
+                                                        - cell [ref=e2159]
+                                                        - cell "0.00" [ref=e2160]
+                                                        - cell "1,332.00" [ref=e2163]
+                                                        - cell "344,956.29" [ref=e2166]
+                                                      - row [ref=e2169]:
+                                                        - cell [ref=e2170]
+                                                        - cell [ref=e2171]
+                                                        - cell [ref=e2172]
+                                                        - cell "10/11/2026" [ref=e2173]
+                                                        - cell "Journal Entry" [ref=e2176]
+                                                        - cell [ref=e2179]:
+                                                          - generic "NJ00005938" [ref=e2180]:
+                                                            - link "NJ00005938" [ref=e2181] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e2183]
+                                                        - cell "Cucina Colore" [ref=e2184]
+                                                        - cell [ref=e2187]
+                                                        - cell "0.00" [ref=e2188]
+                                                        - cell "563.00" [ref=e2191]
+                                                        - cell "345,519.29" [ref=e2194]
+                                                      - row [ref=e2197]:
+                                                        - cell [ref=e2198]
+                                                        - cell [ref=e2199]
+                                                        - cell "Total Wine Sales" [ref=e2200]
+                                                        - cell [ref=e2203]
+                                                        - cell "0.00" [ref=e2204]
+                                                        - cell "7,342.00" [ref=e2207]
+                                                        - cell "345,519.29" [ref=e2210]
+                                                      - row [ref=e2213]:
+                                                        - cell [ref=e2214]
+                                                        - cell [ref=e2215]
+                                                        - cell [ref=e2216]
+                                                        - cell [ref=e2217]
+                                                        - cell [ref=e2218]
+                                                        - cell [ref=e2219]
+                                                        - cell [ref=e2220]
+                                                        - cell [ref=e2221]
+                                                        - cell [ref=e2222]
+                                                        - cell [ref=e2223]
+                                                        - cell [ref=e2224]
+                                                        - cell [ref=e2225]
+                                                      - row [ref=e2226]:
+                                                        - cell [ref=e2227]
+                                                        - cell [ref=e2228]
+                                                        - cell "45000 - Liquor Sales" [ref=e2229]
+                                                        - cell [ref=e2232]
+                                                        - cell "Beg Balance:" [ref=e2233]
+                                                        - cell "230,449.46" [ref=e2236]
+                                                      - row [ref=e2239]:
+                                                        - cell [ref=e2240]
+                                                        - cell [ref=e2241]
+                                                        - cell [ref=e2242]
+                                                        - cell "10/5/2026" [ref=e2243]
+                                                        - cell "Journal Entry" [ref=e2246]
+                                                        - cell [ref=e2249]:
+                                                          - generic "NJ00005913" [ref=e2250]:
+                                                            - link "NJ00005913" [ref=e2251] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=e3b9b61c-7fc1-f111-aa47-00224849e78b
+                                                        - cell [ref=e2253]
+                                                        - cell "Cucina Colore" [ref=e2254]
+                                                        - cell [ref=e2257]
+                                                        - cell "0.00" [ref=e2258]
+                                                        - cell "924.00" [ref=e2261]
+                                                        - cell "231,373.46" [ref=e2264]
+                                                      - row [ref=e2267]:
+                                                        - cell [ref=e2268]
+                                                        - cell [ref=e2269]
+                                                        - cell [ref=e2270]
+                                                        - cell "10/6/2026" [ref=e2271]
+                                                        - cell "Journal Entry" [ref=e2274]
+                                                        - cell [ref=e2277]:
+                                                          - generic "NJ00005916" [ref=e2278]:
+                                                            - link "NJ00005916" [ref=e2279] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=cbd7cd73-47c2-f111-aa47-00224849e78b
+                                                        - cell [ref=e2281]
+                                                        - cell "Cucina Colore" [ref=e2282]
+                                                        - cell [ref=e2285]
+                                                        - cell "0.00" [ref=e2286]
+                                                        - cell "561.00" [ref=e2289]
+                                                        - cell "231,934.46" [ref=e2292]
+                                                      - row [ref=e2295]:
+                                                        - cell [ref=e2296]
+                                                        - cell [ref=e2297]
+                                                        - cell [ref=e2298]
+                                                        - cell "10/7/2026" [ref=e2299]
+                                                        - cell "Journal Entry" [ref=e2302]
+                                                        - cell [ref=e2305]:
+                                                          - generic "NJ00005920" [ref=e2306]:
+                                                            - link "NJ00005920" [ref=e2307] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=9fe6729d-10c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e2309]
+                                                        - cell "Cucina Colore" [ref=e2310]
+                                                        - cell [ref=e2313]
+                                                        - cell "0.00" [ref=e2314]
+                                                        - cell "869.00" [ref=e2317]
+                                                        - cell "232,803.46" [ref=e2320]
+                                                      - row [ref=e2323]:
+                                                        - cell [ref=e2324]
+                                                        - cell [ref=e2325]
+                                                        - cell [ref=e2326]
+                                                        - cell "10/8/2026" [ref=e2327]
+                                                        - cell "Journal Entry" [ref=e2330]
+                                                        - cell [ref=e2333]:
+                                                          - generic "NJ00005929" [ref=e2334]:
+                                                            - link "NJ00005929" [ref=e2335] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=3cddd5c7-d9c3-f111-aa47-00224849e78b
+                                                        - cell [ref=e2337]
+                                                        - cell "Cucina Colore" [ref=e2338]
+                                                        - cell [ref=e2341]
+                                                        - cell "0.00" [ref=e2342]
+                                                        - cell "877.00" [ref=e2345]
+                                                        - cell "233,680.46" [ref=e2348]
+                                                      - row [ref=e2351]:
+                                                        - cell [ref=e2352]
+                                                        - cell [ref=e2353]
+                                                        - cell [ref=e2354]
+                                                        - cell "10/9/2026" [ref=e2355]
+                                                        - cell "Journal Entry" [ref=e2358]
+                                                        - cell [ref=e2361]:
+                                                          - generic "NJ00005932" [ref=e2362]:
+                                                            - link "NJ00005932" [ref=e2363] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=737b11b0-a3c4-f111-aa47-00224849e78b
+                                                        - cell [ref=e2365]
+                                                        - cell "Cucina Colore" [ref=e2366]
+                                                        - cell [ref=e2369]
+                                                        - cell "0.00" [ref=e2370]
+                                                        - cell "1,641.00" [ref=e2373]
+                                                        - cell "235,321.46" [ref=e2376]
+                                                      - row [ref=e2379]:
+                                                        - cell [ref=e2380]
+                                                        - cell [ref=e2381]
+                                                        - cell [ref=e2382]
+                                                        - cell "10/10/2026" [ref=e2383]
+                                                        - cell "Journal Entry" [ref=e2386]
+                                                        - cell [ref=e2389]:
+                                                          - generic "NJ00005953" [ref=e2390]:
+                                                            - link "NJ00005953" [ref=e2391] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=8569da68-a2c8-f111-aa47-00224849e78b
+                                                        - cell [ref=e2393]
+                                                        - cell "Cucina Colore" [ref=e2394]
+                                                        - cell [ref=e2397]
+                                                        - cell "0.00" [ref=e2398]
+                                                        - cell "1,220.00" [ref=e2401]
+                                                        - cell "236,541.46" [ref=e2404]
+                                                      - row [ref=e2407]:
+                                                        - cell [ref=e2408]
+                                                        - cell [ref=e2409]
+                                                        - cell [ref=e2410]
+                                                        - cell "10/11/2026" [ref=e2411]
+                                                        - cell "Journal Entry" [ref=e2414]
+                                                        - cell [ref=e2417]:
+                                                          - generic "NJ00005938" [ref=e2418]:
+                                                            - link "NJ00005938" [ref=e2419] [cursor=pointer]:
+                                                              - /url: https://cucinacolore.restaurant365.com/react/goto?entityType=Journal%20Entry&entityId=116c924e-35c6-f111-aa47-00224849e78b
+                                                        - cell [ref=e2421]
+                                                        - cell "Cucina Colore" [ref=e2422]
+                                                        - cell [ref=e2425]
+                                                        - cell "0.00" [ref=e2426]
+                                                        - cell "552.00" [ref=e2429]
+                                                        - cell "237,093.46" [ref=e2432]
+                                                      - row [ref=e2435]:
+                                                        - cell [ref=e2436]
+                                                        - cell [ref=e2437]
+                                                        - cell "Total Liquor Sales" [ref=e2438]
+                                                        - cell [ref=e2441]
+                                                        - cell "0.00" [ref=e2442]
+                                                        - cell "6,644.00" [ref=e2445]
+                                                        - cell "237,093.46" [ref=e2448]
+                                                      - row [ref=e2451]:
+                                                        - cell [ref=e2452]
+                                                        - cell [ref=e2453]
+                                                        - cell [ref=e2454]
+                                                        - cell [ref=e2455]
+                                                        - cell [ref=e2456]
+                                                        - cell [ref=e2457]
+                                                        - cell [ref=e2458]
+                                                        - cell [ref=e2459]
+                                                        - cell [ref=e2460]
+                                                        - cell [ref=e2461]
+                                                        - cell [ref=e2462]
+                                                        - cell [ref=e2463]
+                                                      - row [ref=e2464]:
+                                                        - cell [ref=e2465]
+                                                        - cell [ref=e2466]
+                                                        - cell "47000 - Product Sales" [ref=e2467]
+                                                        - cell [ref=e2470]
+                                                        - cell "Beg Balance:" [ref=e2471]
+                                                        - cell "0.00" [ref=e2474]
+                                                      - row [ref=e2477]:
+                                                        - cell [ref=e2478]
+                                                        - cell [ref=e2479]
+                                                        - cell "Total Product Sales" [ref=e2480]
+                                                        - cell [ref=e2483]
+                                                        - cell "0.00" [ref=e2484]
+                                                        - cell "0.00" [ref=e2487]
+                                                        - cell "0.00" [ref=e2490]
+                                                      - row [ref=e2493]:
+                                                        - cell [ref=e2494]
+                                                        - cell [ref=e2495]
+                                                        - cell [ref=e2496]
+                                                        - cell [ref=e2497]
+                                                        - cell [ref=e2498]
+                                                        - cell [ref=e2499]
+                                                        - cell [ref=e2500]
+                                                        - cell [ref=e2501]
+                                                        - cell [ref=e2502]
+                                                        - cell [ref=e2503]
+                                                        - cell [ref=e2504]
+                                                        - cell [ref=e2505]
+                                                      - row [ref=e2506]:
+                                                        - cell [ref=e2507]
+                                                        - cell [ref=e2508]
+                                                        - cell "47500 - Commission Revenue" [ref=e2509]
+                                                        - cell [ref=e2512]
+                                                        - cell "Beg Balance:" [ref=e2513]
+                                                        - cell "0.00" [ref=e2516]
+                                                      - row [ref=e2519]:
+                                                        - cell [ref=e2520]
+                                                        - cell [ref=e2521]
+                                                        - cell "Total Commission Revenue" [ref=e2522]
+                                                        - cell [ref=e2525]
+                                                        - cell "0.00" [ref=e2526]
+                                                        - cell "0.00" [ref=e2529]
+                                                        - cell "0.00" [ref=e2532]
+                                                      - row [ref=e2535]:
+                                                        - cell [ref=e2536]
+                                                        - cell [ref=e2537]
+                                                        - cell [ref=e2538]
+                                                        - cell [ref=e2539]
+                                                        - cell [ref=e2540]
+                                                        - cell [ref=e2541]
+                                                        - cell [ref=e2542]
+                                                        - cell [ref=e2543]
+                                                        - cell [ref=e2544]
+                                                        - cell [ref=e2545]
+                                                        - cell [ref=e2546]
+                                                        - cell [ref=e2547]
+                                                      - row [ref=e2548]:
+                                                        - cell [ref=e2549]
+                                                        - cell [ref=e2550]
+                                                        - cell "48000 - Other Revenue" [ref=e2551]
+                                                        - cell [ref=e2554]
+                                                        - cell "Beg Balance:" [ref=e2555]
+                                                        - cell "1,897.59" [ref=e2558]
+                                                      - row [ref=e2561]:
+                                                        - cell [ref=e2562]
+                                                        - cell [ref=e2563]
+                                                        - cell "Total Other Revenue" [ref=e2564]
+                                                        - cell [ref=e2567]
+                                                        - cell "0.00" [ref=e2568]
+                                                        - cell "0.00" [ref=e2571]
+                                                        - cell "1,897.59" [ref=e2574]
+                                                      - row [ref=e2577]:
+                                                        - cell [ref=e2578]
+                                                        - cell [ref=e2579]
+                                                        - cell [ref=e2580]
+                                                        - cell [ref=e2581]
+                                                        - cell [ref=e2582]
+                                                        - cell [ref=e2583]
+                                                        - cell [ref=e2584]
+                                                        - cell [ref=e2585]
+                                                        - cell [ref=e2586]
+                                                        - cell [ref=e2587]
+                                                        - cell [ref=e2588]
+                                                        - cell [ref=e2589]
+                                                      - row [ref=e2590]:
+                                                        - cell [ref=e2591]
+                                                        - cell [ref=e2592]
+                                                        - cell "48005 - Room Rental Income" [ref=e2593]
+                                                        - cell [ref=e2596]
+                                                        - cell "Beg Balance:" [ref=e2597]
+                                                        - cell "1,920.00" [ref=e2600]
+                                                      - row [ref=e2603]:
+                                                        - cell [ref=e2604]
+                                                        - cell [ref=e2605]
+                                                        - cell "Total Room Rental Income" [ref=e2606]
+                                                        - cell [ref=e2609]
+                                                        - cell "0.00" [ref=e2610]
+                                                        - cell "0.00" [ref=e2613]
+                                                        - cell "1,920.00" [ref=e2616]
+                                                      - row [ref=e2619]:
+                                                        - cell [ref=e2620]
+                                                        - cell [ref=e2621]
+                                                        - cell [ref=e2622]
+                                                        - cell [ref=e2623]
+                                                        - cell [ref=e2624]
+                                                        - cell [ref=e2625]
+                                                        - cell [ref=e2626]
+                                                        - cell [ref=e2627]
+                                                        - cell [ref=e2628]
+                                                        - cell [ref=e2629]
+                                                        - cell [ref=e2630]
+                                                        - cell [ref=e2631]
+                                                      - row [ref=e2632]:
+                                                        - cell [ref=e2633]
+                                                        - cell [ref=e2634]
+                                                        - cell "79750 - Customer Discounts" [ref=e2635]
+                                                        - cell [ref=e2638]
+                                                        - cell "Beg Balance:" [ref=e2639]
+                                                        - cell "0.00" [ref=e2642]
+                                                      - row [ref=e2645]:
+                                                        - cell [ref=e2646]
+                                                        - cell [ref=e2647]
+                                                        - cell "Total Customer Discounts" [ref=e2648]
+                                                        - cell [ref=e2651]
+                                                        - cell "0.00" [ref=e2652]
+                                                        - cell "0.00" [ref=e2655]
+                                                        - cell "0.00" [ref=e2658]
+                                                      - row [ref=e2661]:
+                                                        - cell [ref=e2662]
+                                                        - cell [ref=e2663]
+                                                        - cell [ref=e2664]
+                                                        - cell [ref=e2665]
+                                                        - cell [ref=e2666]
+                                                        - cell [ref=e2667]
+                                                        - cell [ref=e2668]
+                                                        - cell [ref=e2669]
+                                                        - cell [ref=e2670]
+                                                        - cell [ref=e2671]
+                                                        - cell [ref=e2672]
+                                                        - cell [ref=e2673]
+                                                      - row [ref=e2674]:
+                                                        - cell [ref=e2675]
+                                                        - cell "Total Revenue" [ref=e2676]
+                                                        - cell [ref=e2679]
+                                                        - cell "2,644.50" [ref=e2680]
+                                                        - cell "62,743.62" [ref=e2683]
+                                                        - cell "2,609,865.24" [ref=e2686]
+                                                      - row [ref=e2689]:
+                                                        - cell [ref=e2690]
+                                                        - cell [ref=e2691]
+                                                        - cell [ref=e2692]
+                                                        - cell [ref=e2693]
+                                                        - cell [ref=e2694]
+                                                        - cell [ref=e2695]
+                                                        - cell [ref=e2696]
+                                                        - cell [ref=e2697]
+                                                        - cell [ref=e2698]
+                                                        - cell [ref=e2699]
+                                                        - cell [ref=e2700]
+                                                        - cell [ref=e2701]
+                                                      - row [ref=e2702]:
+                                                        - cell [ref=e2703]
+                                                        - cell [ref=e2704]
+                                                        - cell [ref=e2705]
+                                                        - cell [ref=e2706]
+                                                        - cell [ref=e2707]
+                                                        - cell [ref=e2708]
+                                                        - cell [ref=e2709]
+                                                        - cell [ref=e2710]
+                                                        - cell [ref=e2711]
+                                                        - cell [ref=e2712]
+                                                        - cell [ref=e2713]
+                                                        - cell [ref=e2714]
+                                                      - row [ref=e2715]:
+                                                        - cell [ref=e2716]
+                                                        - cell "Grand Total" [ref=e2717]
+                                                        - cell [ref=e2720]
+                                                        - cell "2,644.50" [ref=e2721]
+                                                        - cell "62,743.62" [ref=e2724]
+                                                        - cell "2,609,865.24" [ref=e2727]
+                              - row [ref=e2730]:
+                                - cell "Powered by Restaurant365 Page 1 10/20/2026 10:46:46 AM MDT" [ref=e2731]:
+                                  - generic [ref=e2732]:
+                                    - generic [ref=e2733]: Powered by Restaurant365
+                                    - generic [ref=e2735]: Page 1
+                                    - generic [ref=e2737]: 10/20/2026 10:46:46 AM MDT
+```
+### Events
+- New console entries: .playwright-cli\console-2026-10-20T16-46-42-337Z.log#L1

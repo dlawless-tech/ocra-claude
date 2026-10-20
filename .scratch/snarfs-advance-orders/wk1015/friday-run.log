@@ -1,0 +1,17 @@
+﻿2026-10-16T11:00:03 Toast sign-in
+2026-10-16T11:18:21 toast-login exited 0 authenticated
+2026-10-16T11:18:21 starting claude
+The recon for 10/15 did not run. The saved Toast profile (`snarfs-toast`) is signed in to a 3Natives Group account. That account can only see Melbourne and Orlando (SODO) and has no Snarf's restaurants, so Toast's Payments report sent back 3Natives payments.
+
+- **How I caught it:** each two-week chunk came back with about 1,600 payments and almost no advance payments. Prior pulls had about 15,000 per chunk. I stopped the pull, deleted the bad chunks so a rerun starts clean, and found the account through Toast's restaurant picker.
+- **R365 worked.** Approved 20100 balances at 10/15: MX 1,442.36, SLU 785.00, Skinker 4,134.00, Page 1,936.76, Fenton 358.32, Kirkwood 6.67, Spirit 582.31. Total is 9,245.42.
+- **Nothing was posted, cleared or approved,** and I didn't create the workbook. Both browser sessions are closed.
+- **Teams card:** I wrote `result.json` saying the run did not happen, with these steps and the GL balances, and the wrapper will post it tagging Collin. Two catches: the card's top line will still show Toast 0.00 and difference 0.00 because that line is fixed, and the note is addressed to you even though it tags Collin. I put the cause in `result.json` instead of the run log because the wrapper keeps the log open and I couldn't write to it.
+
+**To fix:** sign the `snarfs-toast` profile out of Toast and back in with the Snarf's login, then rerun `friday-run.ps1 -Force`.
+
+**Gap:** `toast-advance.js` doesn't check which restaurants come back, so a wrong account produces a silent bad pull instead of an error. I'd add a check that every row is one of the seven Snarf's stores. Say if you want it.
+
+I updated the recon memory with this outcome.
+2026-10-16T11:24:16 claude exited 0
+2026-10-16T11:24:19 posted to Teams

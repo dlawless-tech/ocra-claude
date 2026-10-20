@@ -1,0 +1,20 @@
+{
+  "note": "2440 and 1218 tie every day 10/12-10/18, but 2340 is not zero: it closes 10/18 at -87.98 (debit). That is a POS line on the 10/15 DSS (2340 debit 87.98, no event behind it; the 10/15 Sales Summary shows Paid in total -87.98 for an order outside the day). It was left untouched and needs a ruling.",
+  "weeks": [
+    { "tab": "10.18", "from": "10/12/2026", "to": "10/18/2026", "status": "tied", "tiedThrough": "10/18/2026", "dep2440": 110093.26, "rec1218": 15221.84, "reason": "" }
+  ],
+  "flags": [
+    "10/12 Meetings & Incentives Worldwide #109 applied deposits of 9,000.00 and 2,681.40 that were never in the workbook. Booked to 1218, and Stripe paid both to 1218 on 10/13 and 10/14.",
+    "10/13 OpenTable #85 paid 537.92 against a 664.39 deposit that Stripe had coded to 1218, so 1218 took 664.39 and 8110 a 126.47 credit.",
+    "10/13 IHG Owners Assoc #66 (1,750.00 + 3,022.60) was voided on 10/13 and recaptured on 10/16. It was booked by event on 10/13, and the 10/16 recapture went to 2340.",
+    "10/13 Columbia Southern #51: its 2,368.07 Event payment was voided and never recaptured, so only the 1,750.00 deposit came off 2440.",
+    "10/14 Internet Coalition #64: the 1,565.39 + 175.30 recaptured on 10/16 were Deposit Applied with no workbook deposit. Booked to 1218, and Stripe paid both on 10/19 and 10/20.",
+    "10/14 OpenTable #229 paid 656.00 against a 664.39 deposit Stripe coded to 1218. 8110 took an 8.39 credit.",
+    "10/16 OpenTable: 861.70 against #49 at 839.68 (8110 credit 22.02), and 430.85 against #180 at 260.00 captured (8110 credit 170.85). #180's ticket total was 419.84.",
+    "10/16 Fiyin's Birthday Dinner #168: the Event payment was voided at 4,264.86 and recaptured on 10/17 at 4,318.38. The receivable is booked at 4,318.38, and the 10/17 recapture (2,500.00 + 4,318.38) went to 2340.",
+    "10/16 lump held 163.00 of a non-event payment captured 10/17. It was booked as a 2340 debit and nets with the 10/17 2340 credit.",
+    "10/17 OpenTable #145 paid 656.00 against a 547.62 deposit. 8110 took a 108.38 debit.",
+    "10/18 Imani's 21st Birthday Dinner #140 applied a 750.00 deposit that was never in the workbook. Booked to 1218, and Stripe paid it to 1218 on 10/19.",
+    "Open receivables at 10/18: Imani's 750.00 + 1,605.32, Fiyin's 4,318.38, Equinor's 3,238.50, Internet Coalition 1,565.39 + 175.30, IHG 3,022.60, Tiffany's 546.35. Stripe's 10/19 and 10/20 payouts already clear all but Fiyin's and Tiffany's, plus Imani's 1,605.32."
+  ]
+}

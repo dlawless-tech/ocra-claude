@@ -1,0 +1,27 @@
+﻿2026-10-20T07:00:01 waiting: missing Cookshop, Shuka, Rosie's, Shukette, Vic's; syncing ; unrecognized 
+2026-10-20T07:15:01 waiting: missing Cookshop, Shuka, Rosie's, Shukette, Vic's; syncing ; unrecognized 
+2026-10-20T07:30:01 waiting: missing Cookshop, Shuka, Rosie's, Shukette, Vic's; syncing ; unrecognized 
+2026-10-20T07:45:01 waiting: missing Rosie's, Vic's; syncing ; unrecognized Rosie's Cash Deposits & Payouts W.E 10.18.26[1].pdf
+2026-10-20T08:00:01 waiting: missing Rosie's, Vic's; syncing ; unrecognized Rosie's Cash Deposits & Payouts W.E 10.18.26[1].pdf
+2026-10-20T08:15:02 waiting: missing Rosie's, Vic's; syncing ; unrecognized Rosie's Cash Deposits & Payouts W.E 10.18.26[1].pdf
+2026-10-20T08:30:02 waiting: missing Rosie's, Vic's; syncing ; unrecognized Rosie's Cash Deposits & Payouts W.E 10.18.26[1].pdf
+2026-10-20T08:45:02 waiting: missing Rosie's, Vic's; syncing ; unrecognized Rosie's Cash Deposits & Payouts W.E 10.18.26[1].pdf
+2026-10-20T09:00:01 waiting: missing ; syncing Vic's Cash Deposits and Payouts W.E. 10.18.26.pdf; unrecognized 
+2026-10-20T09:15:01 all five in; starting claude
+All five Bowery cash log entries for the week ending 10/18/2026 are posted, approved and filed. The All Transactions grid shows each one Approved at its tips amount.
+
+| Store | Tips (entry amount) | Payouts | Undeposited Funds |
+|---|---|---|---|
+| Cookshop | 798.09 | none | 798.09 |
+| Shuka | 1,027.68 | 257.00 (food 177.00, transportation 18.00, liquor 62.00) | 770.68 |
+| Rosie's | 516.88 | 164.00 (food 111.00, beverage N/A 53.00) | 352.88 |
+| Shukette | 770.67 | 89.00 transportation | 681.67 |
+| Vic's | 126.89 | 43.00 (food 19.00, transportation 24.00) | 83.89 |
+
+- **Checks:** every entry read back as `MATCH`. Each log's payouts equal its Cash Purchases total. There were no `WARN` lines and no questioned payouts.
+- **Attachments and filing:** each store's log PDF is attached to its entry and moved into the store's subfolder.
+- **Manual checks:** no log listed any this week. So the fix to `post-check.sh` that types the line amount still hasn't been run live.
+- **Shukette approval:** the first approve click didn't take, and the page check missed it because the page was still showing the previous entry. The grid showed Shukette as Unapproved, and a second click approved it. I'm confirming approvals on the grid from now on.
+- **Late start:** the scheduled task waited from 7:45 to 9:00. A duplicate file, `Rosie's ... W.E 10.18.26[1].pdf`, sat in the folder and Vic's log was still syncing. The duplicate is gone now.
+- **Wrap-up:** `result.json` is written in the work directory for the Teams post, and the `cl` browser session is closed. Next is the week ending 10/25.
+2026-10-20T09:40:12 claude exited 0

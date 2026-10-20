@@ -1,0 +1,24 @@
+﻿2026-10-20T09:00:01 run 10/20/2026; Stripe sign-in
+2026-10-20T09:00:21 stripe-login exited 0 authenticated
+2026-10-20T09:00:21 starting claude
+I posted 3 of the 4 unmatched Stripe lines on 1123 and skipped the 10/16 payout because it has a chargeback that needs your call. The result is in `.scratch/dlena-stripe-deposits/run1020/result.json`, and `tuesday-run.ps1` posts the card. It will be tagged NEEDS REVIEW. Because 10/16 falls in the recon week ending 10/18, it will also post a "held" card and the event deposit recon won't run.
+
+| Bank date | Amount | Result |
+|---|---|---|
+| 10/13 | 10,132.58 | BD000402, MATCH |
+| 10/14 | 6,693.98 | BD000403, MATCH |
+| 10/15 | 11,607.77 | BD000404, MATCH |
+| 10/16 | 13,541.90 | Skipped |
+
+**10/16 needs you:** The payout includes a chargeback of -1,000.00 plus a 15.00 dispute fee. It's for charge `ch_3UIwiYAju1EvNWw50IJcXVpC`, customer Patrice Parker. The script has no account for chargebacks, so this deposit has to be entered by hand once you pick the account. Nothing was created for it.
+
+**Waiting for bank lines:** Stripe shows two more payouts as paid with no bank line yet: 10/19 for 6,204.74 and 10/20 for 13,181.38.
+
+**Problems during the run:**
+- **Missing comma in the amount:** `post-payout.sh` writes the amount with a thousands comma to find the bank line, but the comma only appears when a locale is set. Without it the script couldn't find the row's Deposit link. I added `export LC_ALL=en_US.UTF-8` to the script. That change is not committed.
+- **Atlantic Union "Edit Credentials" dialog:** It was blocking every click on the page. Its Cancel button sits in an iframe, so the script's usual approach doesn't reach it, and I cancelled it by hand.
+- **Slow upload on 10/15:** The first try failed because the export file hadn't shown up when the script checked, so no deposit was created. I closed the deposit window and reran it, and it matched.
+
+The R365 session is closed. The Stripe session is still open and signed in. I updated the progress memory.
+2026-10-20T09:23:40 claude exited 0
+2026-10-20T09:23:42 recon held: 1 payout(s) through 10/18 unposted

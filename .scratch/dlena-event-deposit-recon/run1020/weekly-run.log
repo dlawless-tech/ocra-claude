@@ -1,0 +1,35 @@
+﻿2026-10-20T09:47:17 run 10/20/2026 through 10/18/2026; Toast sign-in
+2026-10-20T10:17:58 toast-login exited 2 SIGNIN: no Toast sign-in within 30 minutes
+2026-10-20T10:20:22 run 10/20/2026 through 10/18/2026; Toast sign-in
+2026-10-20T10:33:53 run 10/20/2026 through 10/18/2026; Toast sign-in
+2026-10-20T10:35:25 toast-login exited 0 authenticated
+2026-10-20T10:35:25 starting claude
+The week of 10/12 to 10/18 is posted in the new 10.18 tab, and 2440 and 1218 tie the GL every day. One thing needs your ruling: 2340 doesn't net to zero. It closes the week at -87.98 (a debit balance) from a line the POS put on the 10/15 DSS. No event ticket sits behind it, and the 10/15 Sales Summary shows "Paid in total" -87.98 for an order from another day. I left that line alone.
+
+| Day | 2440 | 1218 | DSS change |
+|---|---|---|---|
+| 10/12 | 126,163.45 | 19,580.23 | Meetings & Incentives Worldwide and McKinsey split; MIW's 9,000.00 and 2,681.40 to 1218 |
+| 10/13 | 110,163.45 | 27,825.59 | Oshkosh (12,500 on 2440, 15,000 on 1218), IHG, Columbia Southern, OpenTable |
+| 10/14 | 111,665.88 | 30,787.77 | Equinor, Internet Coalition, OpenTable |
+| 10/15 | 116,045.75 | 23,548.14 | No event tickets; bank deposits only |
+| 10/16 | 112,253.20 | 12,866.52 | Fiyin's, two OpenTable; 10/13-10/14 late captures and IHG's 3,022.60 moved to 2340 |
+| 10/17 | 111,705.58 | 12,866.52 | OpenTable; Fiyin's late capture to 2340 |
+| 10/18 | 110,093.26 | 15,221.84 | HU16 Brunch, Imani's 21st Birthday |
+
+Flags, all in `result.json` for the Teams card:
+
+- **Deposits applied in Toast that were never collected:** Toast applied deposits that were never in the workbook for MIW (9,000.00 + 2,681.40), Internet Coalition (1,565.39 + 175.30) and Imani's (750.00). Stripe paid each of them to 1218 afterward, so I booked them to 1218 with the event name, the same way as Scoot.
+- **IHG vs Columbia Southern:** both had 1,750.00 deposits and Toast doesn't show ticket names. Stripe's 10/20 payment of IHG's 3,022.60 showed #66 is IHG. Columbia's 2,368.07 Event payment was voided and never recaptured.
+- **OpenTable differences to 8110:**
+  - 10/13: credit 126.47 (537.92 paid against 664.39)
+  - 10/14: credit 8.39
+  - 10/16: credits 22.02 and 170.85 (only 260.00 of #180's 419.84 was captured)
+  - 10/17: debit 108.38 (656.00 paid against 547.62)
+
+  The 126.47, 170.85 and 108.38 are big for OpenTable.
+- **Fiyin's Birthday Dinner:** voided at 4,264.86 and recaptured on 10/17 at 4,318.38. The receivable is booked at 4,318.38.
+- **163.00 in the 10/16 lump:** this was not an event payment and was captured on 10/17. I booked it to 2340, where it nets against the 10/17 2340 credit, following your 159.00 ruling from 10/9.
+- **Open receivables at 10/18:** 15,221.84. The 10/19 and 10/20 Stripe payouts already clear Equinor, IHG, Internet Coalition and Imani's 750.00. That leaves Fiyin's 4,318.38, Imani's 1,605.32 and Tiffany's 546.35.
+
+I closed R365 and left Toast open. The next run is the week ending 10/25.
+2026-10-20T11:35:42 claude exited 0

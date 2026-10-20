@@ -1,0 +1,19 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Result
+"{\"date\":\"10/11/2026\",\"number\":\"Intercompany Transfers\",\"lines\":[{\"a\":\"100-10 - Cash - Cookshop Operating (4360)\",\"dr\":0,\"cr\":3750.05,\"c\":\"Cookshop -> Bowery Transfer\",\"loc\":\"200 - Cookshop\"},{\"a\":\"100-03 - Cash - Shuka Op / Payroll (2636)\",\"dr\":0,\"cr\":7737.44,\"c\":\"Shuka -> Bowery Transfer\",\"loc\":\"400 - Shuka\"},{\"a\":\"100-05 - Cash - Rosie's Operating (8778)\",\"dr\":0,\"cr\":5060.45,\"c\":\"Rosie's -> Bowery Transfer\",\"loc\":\"500 - Rosie’s\"},{\"a\":\"100-06 - Cash - Shukette Op/Pay (2502)\",\"dr\":0,\"cr\":7950.09,\"c\":\"Shukette -> Bowery Transfer\",\"loc\":\"600 - Shukette\"},{\"a\":\"100-08 - Cash - Vic's Op / Payroll (9807)\",\"dr\":0,\"cr\":3394.48,\"c\":\"Vic's -> Bowery Transfer\",\"loc\":\"700 - Vic’s\"},{\"a\":\"100-20 - Cash - Bowery Op / Payroll (5381)\",\"dr\":3750.05,\"cr\":0,\"c\":\"Cookshop -> Bowery Transfer\",\"loc\":\"800 - Bowery Group Corp\"},{\"a\":\"100-20 - Cash - Bowery Op / Payroll (5381)\",\"dr\":7737.44,\"cr\":0,\"c\":\"Shuka -> Bowery Transfer\",\"loc\":\"800 - Bowery Group Corp\"},{\"a\":\"100-20 - Cash - Bowery Op / Payroll (5381)\",\"dr\":5060.45,\"cr\":0,\"c\":\"Rosie's -> Bowery Transfer\",\"loc\":\"800 - Bowery Group Corp\"},{\"a\":\"100-20 - Cash - Bowery Op / Payroll (5381)\",\"dr\":7950.09,\"cr\":0,\"c\":\"Shukette -> Bowery Transfer\",\"loc\":\"800 - Bowery Group Corp\"},{\"a\":\"100-20 - Cash - Bowery Op / Payroll (5381)\",\"dr\":3394.48,\"cr\":0,\"c\":\"Vic's -> Bowery Transfer\",\"loc\":\"800 - Bowery Group Corp\"}]}"
+### Ran Playwright code
+```js
+await page.evaluate('() => {\nconst g = jQuery(\'[data-role=grid]\').data(\'kendoGrid\'); if (!g) return \'nogrid\';\nreturn JSON.stringify({\n  date: document.getElementById(\'journalEntryDate\').value,\n  number: document.getElementById(\'journalEntryNumber\').value,\n  lines: g.dataSource.data().map(m => ({ a: m.glAccount, dr: +m.debit || 0, cr: +m.credit || 0, c: m.comment, loc: m.location }))\n});\n}');
+```
+### Page
+- Page URL: https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/96c037a7-90f0-4171-a80e-33824c485eab
+- Page Title: Journal Entry - Intercompany Transfers
+- Console: 40 errors, 0 warnings
+### Events
+- New console entries: .playwright-cli\console-2026-10-19T12-10-05-479Z.log#L2-L97

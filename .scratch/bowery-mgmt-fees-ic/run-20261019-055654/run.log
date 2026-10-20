@@ -1,0 +1,45 @@
+﻿2026-10-19T06:00:01 starting bowery-weekly-mgmt-fees on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Mgmt Fees & IC Transfers 10.18.26.xlsx
+The Management Fees entry for the week ending 10/18/2026 is posted and approved at 79,840.82, with the workbook attached.
+
+| Store | Fee | Posted (all 4 lines) |
+|---|---|---|
+| Cookshop | 9,997.69 | 9,997.69 |
+| Shuka | 10,891.43 | 10,891.43 |
+| Vic's | 3,328.92 | 3,328.92 |
+| Rosie's | 4,328.95 | 4,328.95 |
+| Shukette | 11,373.42 | 11,373.42 |
+| Total | 39,920.41 | entry 79,840.82 |
+
+The line check returned `MATCH`.
+
+- **Entry:** I duplicated the 10/11 entry. The copy came in as NJ00002076, and I renumbered it `Management Fees` and dated it 10/18/2026. Its transaction id is `319fe93e-c746-4225-b6bc-938d80d6dbbe`.
+- **Status:** The All Transactions grid shows it Approved at 79,840.82.
+- **Attachment:** "Mgmt Fees & IC Transfers 10.18.26.xlsx" shows on the entry after a full page reload.
+- **Filing:** Following the unattended rules, I didn't move the workbook. The wrapper moves it to `Completed` once the Intercompany Transfers entry is also approved.
+- **Result file:** `mf-result.json` is written with status `approved` and no warnings. The `mfu` session is closed.
+
+I also noted this run in the progress memory.
+2026-10-19T06:07:15 bowery-weekly-mgmt-fees exited 0
+2026-10-19T06:07:16 starting bowery-weekly-ic-transfers on C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Mgmt Fees & Intercompany Transfers\Mgmt Fees & IC Transfers 10.18.26.xlsx
+I posted and approved the Intercompany Transfers entry for the week ending 10/18/2026 at 13,541.38, with the workbook attached.
+
+| Transfer | Amount | Check |
+|---|---|---|
+| Cookshop -> Bowery | 1,132.68 | ok |
+| Rosie's -> Bowery | 907.25 | ok |
+| Shuka -> Bowery | 5,477.96 | ok |
+| Shukette -> Bowery | 5,342.79 | ok |
+| Vic's -> Bowery | 680.70 | ok |
+| Total | 13,541.38 | entry 13,541.38, `MATCH` |
+
+- **Entry:** I duplicated the 10/11 entry, which someone had posted by hand at 27,892.51. The copy came in as NJ00002077. I renumbered it `Intercompany Transfers` and dated it 10/18/2026. It has 10 lines, and its transaction id is `d96fb40f-a9c9-4dc2-88ed-9a784666c78c`.
+- **Status:** The All Transactions grid shows it Approved at 13,541.38.
+- **Attachment:** "Mgmt Fees & IC Transfers 10.18.26.xlsx" shows on the entry after a reload.
+- **Direction flips:** None. All five stores paid Bowery, the same as on 10/11.
+- **Store-to-store entries:** None this week.
+- **Warning:** The transfer block in the workbook had no total row, so the five transfers were summed instead of being checked against a stated total. The warning is in the result file.
+- **Filing:** The unattended rules say to skip this step, so I didn't move the workbook. Management Fees (79,840.82) and this entry are both approved with the workbook attached, so the wrapper should move it to `Completed`.
+
+I wrote `ic-result.json` with status `approved`, closed the `icu` session, and updated the progress memory. The next week ending is 10/25.
+2026-10-19T06:15:12 bowery-weekly-ic-transfers exited 0
+2026-10-19T06:15:13 filed True 

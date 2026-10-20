@@ -1,0 +1,37 @@
+﻿2026-10-19T07:00:01 waiting: no report yet
+2026-10-19T07:15:01 waiting: no report yet
+2026-10-19T07:30:01 waiting: no report yet
+2026-10-19T07:45:01 waiting: no report yet
+2026-10-19T08:00:01 waiting: no report yet
+2026-10-19T08:15:01 waiting: no report yet
+2026-10-19T08:30:01 waiting: no report yet
+2026-10-19T08:45:01 waiting: no report yet
+2026-10-19T09:00:01 waiting: no report yet
+2026-10-19T09:15:01 waiting: no report yet
+2026-10-19T09:30:01 waiting: no report yet
+2026-10-19T09:45:01 waiting: no report yet
+2026-10-19T10:00:01 waiting: no report yet
+2026-10-19T10:15:01 waiting: no report yet
+2026-10-19T10:30:01 waiting: no report yet
+2026-10-19T10:45:01 waiting: no report yet
+2026-10-19T11:00:01 waiting: no report yet
+2026-10-19T11:15:01 waiting: no report yet
+2026-10-19T11:30:01 waiting: no report yet
+2026-10-19T11:45:01 found Copy of Change Order Deliveries and Payments 10.11-10.17.xlsx; starting claude
+The change orders entry for the week ending 10/17/2026 is approved at 30,126.00, with the report attached and filed to Completed.
+
+- **Entry:** "Change Orders 10-11 through 10-17-26", dated 10/17/2026. It has 61 lines across 21 stores. I duplicated it from the 10/10 entry and chose "transaction only", so last week's report did not carry over.
+- **Check:** the line check against the report came back MATCH. Every store ties and the total is 30,126.00. After approval, All Transactions shows the entry Approved at 30,126.00.
+- **Timing:** the report only showed up at 11:45, so the run started then.
+
+**Store comments for someone to look at.** These are in `result.json` as warnings, so they will go out with the Teams post:
+- **West Covina 10.14:** column C shows 113.00 paid, but 1,130.00 was received. It may be missing a zero. The entry posts 113.00, as the report shows.
+- **Ontario 10.16:** "$300 change order dropped... dropped $100 more for the day, total of $164." It's unclear what was dropped.
+- **Whittier 10.16 and 10.17:** two corrections. The true overage should be $67.13, and Saturday should have been $45 over, but R365 shows only $11.
+- **North Torrance 10.15:** a server missed $32.82 in tips, and the register was also $138 short.
+- **Inglewood 10.16:** the comment says $2,460 received, but column D reads 2,640. That column doesn't post.
+- **Costa Mesa 10.11:** a broken $20 is jammed in the safe deposit slot.
+- **Orange 10.17:** "Deposit was entered after 8 AM."
+
+I closed the `co` browser session. I also left a small helper script (`fcomments.js`) in the work folder that I used to pull the store comments, since the skill's script doesn't read them.
+2026-10-19T11:55:15 claude exited 0

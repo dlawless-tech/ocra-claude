@@ -1,0 +1,71 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://bowerygroup.restaurant365.com/react/accounting
+- Page Title: R365
+- Console: 44 errors, 1 warnings
+### Snapshot
+```yaml
+- generic:
+  - banner [ref=f11e1]:
+    - generic [ref=f11e3]:
+      - button [ref=f11e4] [cursor=pointer]
+      - button [ref=f11e7] [cursor=pointer]
+      - button [ref=f11e10] [cursor=pointer]
+  - generic [ref=f11e23]:
+    - paragraph [ref=f11e25]: Your Apps
+    - list [ref=f11e26]:
+      - button [ref=f11e138] [cursor=pointer]:
+        - generic [ref=f11e139]: Dashboards
+      - button [ref=f11e140] [cursor=pointer]:
+        - generic [ref=f11e141]: Reports
+      - button [ref=f11e142] [cursor=pointer]:
+        - generic [ref=f11e143]: Accounting
+      - button [ref=f11e144] [cursor=pointer]:
+        - generic [ref=f11e145]: Inventory
+      - button [ref=f11e146] [cursor=pointer]:
+        - generic [ref=f11e147]: Sales & forecasting
+      - button [ref=f11e148] [cursor=pointer]:
+        - generic [ref=f11e149]: Workforce
+      - button [ref=f11e150] [cursor=pointer]:
+        - generic [ref=f11e151]: Manager log
+      - button [ref=f11e152] [cursor=pointer]:
+        - generic [ref=f11e153]: More
+    - list [ref=f11e103]:
+      - button [ref=f11e154] [cursor=pointer]:
+        - generic [ref=f11e155]: Admin
+      - button [ref=f11e156] [cursor=pointer]:
+        - generic [ref=f11e157]: Help
+      - button [ref=f11e158] [cursor=pointer]:
+        - generic [ref=f11e159]: Account
+      - button [ref=f11e160] [cursor=pointer]:
+        - generic [ref=f11e161]: Marketplace
+  - generic [ref=f11e163]:
+    - generic [ref=f11e164]:
+      - button [ref=f11e165] [cursor=pointer]
+      - paragraph [ref=f11e168]: Accounting
+    - list [ref=f11e169]:
+      - button "Accounts payable" [ref=f11e170] [cursor=pointer]:
+        - button [ref=f11e173]
+      - button "Accounts receivable" [ref=f11e176] [cursor=pointer]:
+        - button [ref=f11e179]
+      - button "Banking" [ref=f11e182] [cursor=pointer]:
+        - button [ref=f11e185]
+      - button "General ledger" [ref=f11e188] [cursor=pointer]:
+        - button [ref=f11e191]
+      - button "Transactions" [active] [ref=f11e194] [cursor=pointer]:
+        - button [ref=f11e197]
+      - list [ref=f11e202]:
+        - link "All transactions" [ref=f11e203] [cursor=pointer]:
+          - /url: /react/accounting/legacy/AllTransactions
+        - link "Memorized transactions" [ref=f11e206] [cursor=pointer]:
+          - /url: /react/accounting/legacy/MemorizedTransactions
+        - link "Transaction details" [ref=f11e209] [cursor=pointer]:
+          - /url: /react/accounting/legacy/TransactionDetails
+  - tooltip "Transactions"
+```

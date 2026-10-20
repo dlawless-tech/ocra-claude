@@ -1,0 +1,1 @@
+() => { const el=document.getElementById('newRowAmountInput'); const s=angular.element(el).scope(); s.gridOptions.bankExpenseDetailsGrid.newRowForm.model.amount=AMT; s.$apply(); const k=jQuery(el).data('kendoNumericTextBox'); if(k){k.value(AMT);k.trigger('change');} return el.value+' | '+s.gridOptions.bankExpenseDetailsGrid.newRowForm.model.amount; }

@@ -1,0 +1,200 @@
+
+╔════════════════════════════════════════════════════════════════════╗
+║ Update available for @playwright/cli: 0.1.18 → 0.1.22              ║
+║ Run `npm install -g @playwright/cli@latest` (global) or            ║
+║ `npm install --save-dev @playwright/cli@latest` (local) to update. ║
+╚════════════════════════════════════════════════════════════════════╝
+
+### Page
+- Page URL: https://norms.restaurant365.com/react/home?dashboard=operationsHome
+- Page Title: Operations Overview | Dashboards
+- Console: 126 errors, 2 warnings
+### Snapshot
+```yaml
+- generic [active]:
+  - generic:
+    - banner [ref=f5e1]:
+      - generic [ref=f5e3]:
+        - button [ref=f5e4] [cursor=pointer]
+        - button [ref=f5e7] [cursor=pointer]
+        - button [ref=f5e10] [cursor=pointer]
+    - navigation
+    - navigation
+    - navigation
+    - generic [ref=f5e16]:
+      - generic [ref=f5e19]:
+        - combobox "Select Dashboard" [ref=f5e20]: Operations overview
+        - button "Open" [ref=f5e22] [cursor=pointer]
+        - group
+      - generic [ref=f5e27]:
+        - generic [ref=f5e28]:
+          - generic [ref=f5e31]:
+            - generic [ref=f5e32]: Location
+            - generic [ref=f5e33]:
+              - textbox "Location" [ref=f5e34]: Anaheim
+              - generic [ref=f5e35] [cursor=pointer]
+          - paragraph [ref=f5e39]: "High: 85° | Low: 66°"
+        - heading "Today is Monday, October 19th. Let's get Started!" [level=5] [ref=f5e56]
+        - generic [ref=f5e59] [cursor=pointer]:
+          - button [ref=f5e60]
+          - link [ref=f5e63]:
+            - /url: /react/inventory/invoices?src=Home&
+            - paragraph [ref=f5e69]: Invoices
+        - generic [ref=f5e71]:
+          - generic:
+            - link "Schedule":
+              - /url: /react/workforce/scheduler?src=Home&locationId=0184ee57-288c-4bd0-a40a-99617f534235
+              - generic:
+                - paragraph: Schedule
+        - generic [ref=f5e74] [cursor=pointer]:
+          - button [ref=f5e75]
+          - link [ref=f5e78]:
+            - /url: /react/inventory/inventory?src=Home&
+            - paragraph [ref=f5e84]: Inventory
+        - generic [ref=f5e86]:
+          - generic:
+            - link "Orders":
+              - /url: /react/inventory/orders?src=Home&
+              - generic:
+                - paragraph: Orders
+        - generic [ref=f5e89] [cursor=pointer]:
+          - button [ref=f5e90]
+          - link [ref=f5e93]:
+            - /url: /react/inventory/transfers?src=Home&
+            - paragraph [ref=f5e99]: Transfers
+        - generic [ref=f5e102] [cursor=pointer]:
+          - button [ref=f5e103]
+          - link [ref=f5e106]:
+            - /url: /react/inventory/prepSheets
+            - paragraph [ref=f5e112]: Prep
+        - link [ref=f5e116] [cursor=pointer]:
+          - /url: /react/reports-management/legacy/MyReports
+          - paragraph [ref=f5e122]: Reports
+        - generic [ref=f5e125] [cursor=pointer]:
+          - button [ref=f5e126]
+          - link [ref=f5e129]:
+            - /url: /react/inventory/waste-logs?src=Home&
+            - paragraph [ref=f5e135]: Waste Log
+        - paragraph [ref=f5e147] [cursor=pointer]: Upload Documents
+        - generic [ref=f5e150]:
+          - button [ref=f5e151] [cursor=pointer]
+          - generic [ref=f5e154]:
+            - generic [ref=f5e155]:
+              - heading "A Look at Yesterday" [level=6] [ref=f5e157]
+              - generic [ref=f5e158]:
+                - button "Complete DSS" [disabled]:
+                  - generic:
+                    - paragraph: Complete DSS
+            - generic [ref=f5e159]:
+              - generic [ref=f5e160]:
+                - generic [ref=f5e162]:
+                  - generic [ref=f5e163]: Total Sales
+                  - heading "-" [level=6] [ref=f5e165]
+                - generic [ref=f5e167]:
+                  - generic [ref=f5e168]: Labor
+                  - heading "-" [level=6] [ref=f5e170]
+              - generic [ref=f5e171]:
+                - generic [ref=f5e173]:
+                  - generic [ref=f5e174]: Over / Short
+                  - heading "-" [level=6] [ref=f5e176]
+                - generic [ref=f5e178]:
+                  - generic [ref=f5e179]: SPLH
+                  - heading "-" [level=6] [ref=f5e181]
+          - generic [ref=f5e182]:
+            - generic [ref=f5e183]:
+              - heading "Week to Date" [level=6] [ref=f5e184]
+              - generic [ref=f5e188]:
+                - generic [ref=f5e189]: Total Sales
+                - heading "-" [level=6] [ref=f5e191]
+              - generic [ref=f5e195]:
+                - generic [ref=f5e196]: Labor
+                - heading "-" [level=6] [ref=f5e198]
+            - generic [ref=f5e203]:
+              - generic [ref=f5e205]:
+                - generic [ref=f5e206]: Over / Short
+                - heading "-" [level=6] [ref=f5e208]
+              - link [ref=f5e210] [cursor=pointer]:
+                - /url: /react/home?dashboard=operationsDashboard&locationId=0184ee57-288c-4bd0-a40a-99617f534235
+                - button [ref=f5e211]:
+                  - paragraph [ref=f5e215]: Operations
+        - generic [ref=f5e217]:
+          - generic [ref=f5e219]:
+            - tablist [ref=f5e222]:
+              - tab "Logbook" [selected] [ref=f5e223] [cursor=pointer]
+            - generic [ref=f5e225]:
+              - generic [ref=f5e229]:
+                - generic [ref=f5e230]:
+                  - generic [ref=f5e231]:
+                    - img [ref=f5e232]:
+                      - generic [ref=f5e234]: "-"
+                    - paragraph [ref=f5e235]: All Entries
+                  - generic [ref=f5e236]:
+                    - img [ref=f5e237]:
+                      - generic [ref=f5e239]: "-"
+                    - paragraph [ref=f5e240]: My Entries
+                  - generic [ref=f5e241]:
+                    - img [ref=f5e242]:
+                      - generic [ref=f5e244]: "-"
+                    - paragraph [ref=f5e245]: Must Read
+                  - generic [ref=f5e246]:
+                    - img [ref=f5e247]:
+                      - generic [ref=f5e249]: "-"
+                    - paragraph [ref=f5e250]: Important
+                - button "Tell us something we should know..." [ref=f5e253] [cursor=pointer]
+              - generic [ref=f5e254]:
+                - separator [ref=f5e255]
+                - heading "No Entries yet!" [level=6] [ref=f5e261]
+          - generic [ref=f5e263]:
+            - generic [ref=f5e264]:
+              - 'heading "Business Day: Sunday, October 18th" [level=6] [ref=f5e267]': Labor Lineup
+              - generic [ref=f5e268]:
+                - button "print" [disabled]
+            - separator [ref=f5e269]
+            - generic [ref=f5e272]:
+              - generic [ref=f5e273]:
+                - paragraph [ref=f5e276]: View today’s labor lineup
+                - button [ref=f5e277] [cursor=pointer]: Get started with scheduling
+              - generic [ref=f5e278]:
+                - generic [ref=f5e280]:
+                  - generic [ref=f5e282]:
+                    - generic [ref=f5e283]: 7:00 am
+                    - generic [ref=f5e284]: 9:00 pm
+                  - generic [ref=f5e285]:
+                    - generic "Breakfast" [ref=f5e286]
+                    - generic "Launch" [ref=f5e288]
+                    - generic "Dinner" [ref=f5e290]
+                - generic [ref=f5e294]:
+                  - generic:
+                    - generic "John" [ref=f5e320] [cursor=pointer]
+                    - generic [ref=f5e325] [cursor=pointer]
+                    - generic [ref=f5e328] [cursor=pointer]
+                    - generic "Alexa" [ref=f5e331] [cursor=pointer]
+                    - generic [ref=f5e334] [cursor=pointer]
+                    - generic [ref=f5e337] [cursor=pointer]
+                    - generic [ref=f5e340] [cursor=pointer]
+                    - generic [ref=f5e343] [cursor=pointer]
+                    - generic [ref=f5e346] [cursor=pointer]
+                    - generic [ref=f5e349] [cursor=pointer]
+                    - generic [ref=f5e352] [cursor=pointer]
+                    - generic [ref=f5e355] [cursor=pointer]
+                    - generic [ref=f5e358] [cursor=pointer]
+                    - generic [ref=f5e361] [cursor=pointer]
+                    - generic [ref=f5e364] [cursor=pointer]
+                    - generic [ref=f5e367] [cursor=pointer]
+                    - generic [ref=f5e370] [cursor=pointer]
+                    - generic [ref=f5e373] [cursor=pointer]
+                    - generic [ref=f5e376] [cursor=pointer]
+                    - generic [ref=f5e379] [cursor=pointer]
+                    - generic [ref=f5e382] [cursor=pointer]
+                    - generic [ref=f5e385] [cursor=pointer]
+                    - generic [ref=f5e388] [cursor=pointer]
+                    - generic [ref=f5e391] [cursor=pointer]
+                  - generic:
+                    - generic [ref=f5e395] [cursor=pointer]
+                    - generic [ref=f5e396] [cursor=pointer]
+                    - generic [ref=f5e397] [cursor=pointer]
+                    - generic [ref=f5e398] [cursor=pointer]
+                    - generic [ref=f5e399] [cursor=pointer]
+                    - generic [ref=f5e400] [cursor=pointer]
+  - iframe
+```

@@ -8,3 +8,30 @@ Nothing was posted for the 9/14/2026 to 9/27/2026 period because Foodja hasn't r
 2026-10-09T07:01:24 claude exited 0
 2026-10-09T07:01:26 no statements posted yet
 2026-10-09T13:00:01 period 9/14/2026 - 9/27/2026; starting claude
+2026-10-16T13:00:02 period 9/14/2026 - 9/27/2026; starting claude
+Nothing posted for the Foodja period 9/14 to 9/27/2026. R365 says the 9/27/2026 entry date falls in a closed fiscal period.
+
+**What happened**
+- Foodja has posted the statements now. There are 9 stores, with fees of 1,338.46 in total, which matches Restaurant Total less Amount Due on the statements. None of them were posted in R365 already.
+- The first store I tried, Huntington Beach, was rejected on save with "The date of this transaction is in a fiscal period that is closed." The other 8 would hit the same error on the same date, so I didn't try them.
+- **That attempt left one entry behind that needs deleting:** NJ00023340. It's unapproved, dated 10/16/2026, and is a copy of the 9/13 Huntington Beach Foodja Fees entry (177.39). I tried to delete it, but the permission check blocked the action. It shouldn't be approved.
+- `result.json` lists all 9 stores as `failed` and includes the note about NJ00023340. I checked the Teams card with a dry run and the total ties. The wrapper will post the card to Regina and write `done.txt`. That means next Friday's run won't try this period again; rerunning it needs `-Force`.
+- I closed my sessions (`nfju`, `nfru`, `nfrbu`). The Verify step had nothing to check because nothing posted.
+
+**Sales differences to raise once this posts.** These are R365 sales minus the statement:
+
+| Store | Difference | Detail |
+|---|---|---|
+| Costa Mesa | 157.48 | R365 has 9/16 85.54 and 9/19 215.81. Foodja has 9/14 77.44 and 9/18 66.43. These look like different orders. |
+| La Cienega | 49.94 | 9/21: 561.87 in R365 vs 511.95 on the statement |
+| Santa Ana | 41.30 | All three order amounts differ from the statement |
+| South Torrance | 3.50 | |
+| Rialto | 2.50 | |
+| Lakewood | 1.20 | |
+
+Huntington Beach, Ontario and Riverside tie.
+
+**Decision for you:** either reopen the R365 fiscal period that holds 9/27, or choose another entry date. Then delete NJ00023340 and rerun with `friday-run.ps1 -Date 2026-10-16 -Force`. The 10/11 period will run into the same problem if its period also closes before the run.
+
+Also, the 10/9 13:00 retry stopped after downloading the statements and wrote no log or result. That's why this period carried over to today.
+2026-10-16T13:09:33 claude exited 0

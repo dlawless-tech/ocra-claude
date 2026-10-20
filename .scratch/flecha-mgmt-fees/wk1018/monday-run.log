@@ -1,0 +1,22 @@
+﻿2026-10-19T22:00:01 starting claude
+I corrected and approved the MGMT Fees entry for the week ending 10/18/2026. It had already been posted and approved at 19,292.73 before the week's sales were all in, the fourth week in a row this has happened. It now reads 23,729.75, and the All Transactions grid shows it Approved at that amount.
+
+| Store | Total Net Sales | Fee (7%) | Posted |
+|---|---|---|---|
+| Flecha HB | 96,160.23 | 6,731.22 | 6,731.22 |
+| Flecha Town Square | 88,377.46 | 6,186.42 | 6,186.42 |
+| Flecha 4S Ranch | 65,003.76 | 4,550.26 | 4,550.26 |
+| Flecha NB | 89,455.00 | 6,261.85 | 6,261.85 |
+| **Total** | **338,996.45** | **23,729.75** | **23,729.75** |
+
+- **Sales:** The report covered 10/12 through 10/18 and included unapproved sales. The Food Sales detail shows all seven days for all four stores, so no store was held back.
+- **Warning:** Flecha NB's fee is 11% below the week ending 10/11 (7,046.78). All its days are in, so it was posted. Since this is a warning, the Teams card will tag Layla Ebersole.
+- **Entry:** the eight lines read back correctly after saving, line comments unchanged.
+- **result.json:** written to `.scratch/flecha-mgmt-fees/wk1018` with status `corrected`. The scheduled task posts it to Teams after this run ends.
+
+Two parts of the skill's tooling didn't work as written, and I worked around both:
+- **Settings check:** last week's script for checking the report settings came back empty. I checked them a different way, and all five were right.
+- **Unapprove script:** the DoorDash skill's unapprove script needs the location given as `100 - Corporate`, not `Corporate`.
+
+Both are noted in memory. I didn't change the skill files.
+2026-10-19T22:10:05 claude exited 0

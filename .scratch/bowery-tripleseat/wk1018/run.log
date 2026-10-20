@@ -1,0 +1,28 @@
+﻿2026-10-18T15:28:35 starting claude for W.E. 10/18/2026
+The Bowery Tripleseat run for the week ending 10/18 posted nothing new. Eight October payouts are still waiting because no Paysafe deposits dated after 10/9 are in R365, even though the bank download pulled activity through 10/17.
+
+**Rechecked deposits:** The seven deposits from 10/5 to 10/9 were rerun and all match their payouts. They were split with PDFs attached on 10/11. I marked them as already done, but I only saw the end of each script's output, not the line confirming nothing changed this time.
+
+| Store | Deposit | Date | 253-00 | 632-00 | Net |
+|---|---|---|---|---|---|
+| Rosie's | BD000470 | 10/5 | 2,755.01 | 84.54 | 2,670.47 |
+| Rosie's | BD000471 | 10/9 | 400.00 | 15.23 | 384.77 |
+| Vic's | BD000472 | 10/5 | 2,043.81 | 65.34 | 1,978.47 |
+| Vic's | BD000473 | 10/6 | 600.00 | 20.45 | 579.55 |
+| Vic's | BD000474 | 10/9 | 1,983.89 | 56.42 | 1,927.47 |
+| Cookshop | BD000475 | 10/5 | 4,681.14 | 138.88 | 4,542.26 |
+| Cookshop | BD000476 | 10/9 | 200.00 | 31.78 | 168.22 |
+
+None of them have refunds, so there are no 401-27 lines.
+
+**Payouts still pending:**
+- **Rosie's:** 10/14 1,115.69 and 10/16 165.70
+- **Vic's:** 10/8 194.45, 10/10 4,073.94 and 10/14 1,810.06
+- **Cookshop:** 10/8 12,643.09, 10/11 1,581.53 and 10/16 154.60
+
+The 10/8 to 10/11 ones have now been pending for two weeks.
+
+**What needs doing:** The Paysafe bank lines after 10/9 have probably not been turned into deposits on Bank Activity. The unattended run can only split deposits that already exist, so it will keep listing these as pending. To clear them, record the lines from Bank Activity the way we did on 10/11 (Deposit button, 253-00 at the net amount), then rerun this task by hand. The alternative is to decide that the unattended run should record them itself.
+
+`result.json` is written, which includes this warning, and both browser sessions are closed. I added a note on the eight pending payouts to the Tripleseat progress memory.
+2026-10-18T15:40:41 claude exited 0

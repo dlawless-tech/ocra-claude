@@ -1,0 +1,22 @@
+{ "weekEnding": "10/18/2026", "status": "complete",
+  "deposits": [
+    { "store": "Rosie's", "number": "BD000470", "date": "10/5/2026", "gross": 2755.01, "fees": 84.54, "refunds": 0.00, "net": 2670.47, "status": "already" },
+    { "store": "Rosie's", "number": "BD000471", "date": "10/9/2026", "gross": 400.00, "fees": 15.23, "refunds": 0.00, "net": 384.77, "status": "already" },
+    { "store": "Vic's", "number": "BD000472", "date": "10/5/2026", "gross": 2043.81, "fees": 65.34, "refunds": 0.00, "net": 1978.47, "status": "already" },
+    { "store": "Vic's", "number": "BD000473", "date": "10/6/2026", "gross": 600.00, "fees": 20.45, "refunds": 0.00, "net": 579.55, "status": "already" },
+    { "store": "Vic's", "number": "BD000474", "date": "10/9/2026", "gross": 1983.89, "fees": 56.42, "refunds": 0.00, "net": 1927.47, "status": "already" },
+    { "store": "Cookshop", "number": "BD000475", "date": "10/5/2026", "gross": 4681.14, "fees": 138.88, "refunds": 0.00, "net": 4542.26, "status": "already" },
+    { "store": "Cookshop", "number": "BD000476", "date": "10/9/2026", "gross": 200.00, "fees": 31.78, "refunds": 0.00, "net": 168.22, "status": "already" }
+  ],
+  "pending": [
+    "Rosie's po_tiDxOQyqWisSfZVazWWDr 10/14/2026 1115.69",
+    "Rosie's po_M2wkb7z6mq1t1M4cafHYm 10/16/2026 165.70",
+    "Vic's po_p5FEE5JIuNjFyK0IWlPxx 10/8/2026 194.45",
+    "Vic's po_xoriHQOs1Z1ztSLDFEoO7 10/10/2026 4073.94",
+    "Vic's po_2dYH6nHYtu5hhRuN8Jj0C 10/14/2026 1810.06",
+    "Cookshop po_u5ps9gFLvfGkVZ6Zfm0V4 10/8/2026 12643.09",
+    "Cookshop po_9Vn99b0EDssOwdgEBtIp1 10/11/2026 1581.53",
+    "Cookshop po_4YUeMWrjvyhOcnRujLnzl 10/16/2026 154.60"
+  ],
+  "warnings": ["No Paysafe deposits in R365 dated after 10/9 although bank activity downloaded through 10/17. The Paysafe bank lines likely sit unmatched on Bank Activity and need recording as deposits (Deposit button, 253-00 at net) before this run can split them. Vic's 10/8 194.45, Vic's 10/10 4,073.94, Cookshop 10/8 12,643.09 and Cookshop 10/11 1,581.53 are now two weeks pending."],
+  "note": "All 7 deposits from 10/5-10/9 rechecked and already split with PDFs. Nothing new posted." }

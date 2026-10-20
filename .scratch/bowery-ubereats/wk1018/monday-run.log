@@ -1,0 +1,19 @@
+﻿2026-10-19T15:15:01 period 10/12/2026 - 10/18/2026; Uber login
+authenticated
+2026-10-19T15:15:26 uber-login exited 0
+All four Bowery Uber Eats entries for 10/12/2026 to 10/18/2026 are posted and Approved, dated 10/18/2026. Each has its Uber pay period screenshot attached. I confirmed the status, amount and attachment for each one from the All Transactions grid.
+
+| Store | A/R credit | Uber fees | Marketing | Difference | Entry total |
+|---|---|---|---|---|---|
+| Cookshop | 305.79 | 305.79 | | 0.00 | 305.79 |
+| Rosie's | 159.74 | 142.91 | 200.43 | Cr 183.60 | 343.34 |
+| Shuka | 1,855.01 | 1,672.85 | | Dr 182.16 | 1,855.01 |
+| Vic's | 92.22 | 83.31 | 130.41 | Cr 121.50 | 213.72 |
+| **Total** | | | | | **2,717.86** |
+
+- **Uber payouts:** Cookshop 2,480.33, Rosie's 896.06, Shuka 12,632.12 and Vic's 603.92. Each breakdown added up to its payout. Uber showed the same payouts when I read every store again right before taking the screenshots.
+- **Missing deposits:** No store has a bank deposit for last week's (10/5 to 10/11) payout in the A/R - Uber Eats account yet. Each store's opening balance is still sitting there: Cookshop 2,375.04, Rosie's 1,004.66, Shuka 13,858.30 and Vic's 1,201.04. The skill treats this as a warning and still posts, so each store's A/R balance is now this week's payout plus that amount. I put it in the warnings in `result.json`. Those deposits should be checked next week.
+- **Differences:** The Rosie's and Vic's credits are the same kind as last week's (172.80 and 243.00). They come from the gap between what R365 booked for the week's sales and what Uber paid out, net of the marketing line.
+
+I closed the three browser sessions and wrote `result.json` to the work directory for the Teams card. The skill has no script for finding a week's entries, so I made one in the work directory, `entries.sh`, by copying the Labor Allocation one. It should be added to the skill so future runs don't depend on that copy. I updated the progress memory, and the next run is Monday 10/26 for the week ending 10/25.
+2026-10-19T15:34:48 claude exited 0

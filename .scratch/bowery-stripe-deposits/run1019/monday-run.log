@@ -1,0 +1,17 @@
+﻿2026-10-19T15:00:01 run 10/19/2026; Stripe sign-in
+2026-10-19T15:00:19 stripe-login exited 0 authenticated
+2026-10-19T15:00:19 starting claude
+I posted one of the two Shuka Stripe payouts. The second, 2,735.96 on 10/15, failed and is still unmatched on 100-03.
+
+| Bank date | Amount | Result |
+|---|---|---|
+| 10/14/2026 | 648.16 | Posted as **BD000604**. The check reread the saved deposit and everything matched (lines, Approved status, attachment). Lines: 2,444.35 reservations, 1,721.46 refunds, 74.73 fees. |
+| 10/15/2026 | 2,735.96 | **Failed.** No deposit was created. The script stopped twice at the step that clicks the bank line's Deposit link. |
+
+- **What went wrong on 10/15:** both attempts came right after BD000604 saved. When I clicked the same link by hand a moment later, the deposit window opened normally. So the likely cause is the grid still refreshing after the first deposit, and the script needs to wait or retry before that click. The skill allows only one retry, so I closed the unsaved window and left the payout alone.
+- **What's ready for it:** the export and the split are in `run1019`: 4,051.95 reservations, 1,194.04 refunds and 121.95 fees. Running `post-payout.sh` on it again should post it, or the next Monday run will pick it up.
+- **Month check:** both payouts' charges were collected in October.
+- **Waiting:** Stripe has no paid payouts without a bank line yet.
+
+Both browser sessions are closed. `result.json` is written, and the Monday task's script will post the result card tagging Brandy, marked NEEDS REVIEW because of the failure. I also updated the run notes in memory.
+2026-10-19T15:09:28 claude exited 0

@@ -1,0 +1,4 @@
+() => { const seen=[]; const walk=(d)=>{ seen.push(d); for(const f of d.querySelectorAll('iframe')){ try{ if(f.contentDocument) walk(f.contentDocument);}catch(e){} } }; walk(document);
+ const d=seen.find(x=>x.querySelector('md-dialog')); if(!d) return 'nodlg';
+ const out={}; ['Calendar','Show Unapproved','As Of','Hide $0 Balances'].forEach(l=>{ const sp=Array.from(d.querySelectorAll('md-dialog span')).find(x=>x.textContent.trim()===l); if(!sp) return; const sec=sp.closest('section'); out[l]=Array.from(sec.querySelectorAll('button')).map(b=>{const sc=d.defaultView.angular.element(b).scope(); return (b.className.includes('activeR365')?'*':'')+((sc&&sc.valuePair&&sc.valuePair.display)||b.textContent.trim())+(sc&&sc.valuePair&&sc.valuePair.wanted?'(w)':'');}).join('|') + ' ' + Array.from(sec.querySelectorAll('input')).map(i=>i.value).join(','); });
+ return JSON.stringify(out); }

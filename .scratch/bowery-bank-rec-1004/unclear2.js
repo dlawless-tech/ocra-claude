@@ -1,0 +1,8 @@
+async () => { const ids=new Set(["17008057-99ac-f111-aaa9-000d3a41fbd2","a59df650-b4b7-f111-aaac-000d3a41fbd2","8c302379-03b3-f111-aaac-000d3a41fbd2","eddc87f5-5ca7-4762-52fb-08df199c06b4","70631a45-a6bd-f111-aaac-000d3a41fbd2","6f631a45-a6bd-f111-aaac-000d3a41fbd2","6e631a45-a6bd-f111-aaac-000d3a41fbd2","64631a45-a6bd-f111-aaac-000d3a41fbd2","63631a45-a6bd-f111-aaac-000d3a41fbd2","62631a45-a6bd-f111-aaac-000d3a41fbd2","61631a45-a6bd-f111-aaac-000d3a41fbd2","5f631a45-a6bd-f111-aaac-000d3a41fbd2","7a631a45-a6bd-f111-aaac-000d3a41fbd2"]); const sl=n=>new Promise(r=>setTimeout(r,n)); let n=0; const log=[];
+ for (const id of ['ChecksWithdrawalsGrid','DepositsOtherCreditsGrid']) { const g=jQuery('#'+id).data('kendoGrid'); const ds=g.dataSource; const pages=Math.ceil(ds.total()/ds.pageSize());
+  for (let p=1;p<=pages;p++) { if (ds.page()!==p) { const sb=g.content.find('.k-scrollbar-vertical')[0]||g.content[0]; ds.page(p); await sl(2500); }
+   ds.data().forEach(r=>{ if(!ids.has(r.transactionDetailId)) return; const cb=jQuery('#'+id+' tr[data-uid='+r.uid+'] input[type=checkbox]')[0]; if(cb && cb.checked){ cb.click(); n++; } });
+   log.push(id+' p'+p+' trs '+jQuery('#'+id+' tbody tr').length); }
+  if (ds.page()!==1) { ds.page(1); await sl(2500); } }
+ const left=[]; for (const id of ['ChecksWithdrawalsGrid','DepositsOtherCreditsGrid']) jQuery('#'+id).data('kendoGrid').dataSource.data().forEach(r=>{ if(ids.has(r.transactionDetailId)&&r.cleared) left.push(r.transactionDetailId) });
+ return n+' unchecked, still cleared '+left.length+' | '+log.join(', ')+' | '+document.body.innerText.match(/Cleared Balance[\s\S]{0,80}/)[0].replace(/\s+/g,' '); }

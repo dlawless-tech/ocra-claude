@@ -1,0 +1,41 @@
+﻿2026-10-19T06:00:01 starting claude (last try: False)
+All 24 entries are posting in the background. I'm watching the log and will be alerted if a store fails or when the batch finishes.
+
+All 24 CC Fee Accrual entries for the week ending 10/17/2026 are posted and Approved, totaling **35,853.20** on net sales of 2,048,754.77. Every entry read back correctly after reloading, and the All Transactions grid shows all 24 Approved at the expected amount. The report header confirmed Week Ending 10/17/2026.
+
+| Store | Net Sales | Accrual / Posted |
+|---|---|---|
+| Anaheim | 90,648.51 | 1,586.35 |
+| Carson | 68,481.97 | 1,198.43 |
+| Claremont | 88,234.44 | 1,544.10 |
+| Costa Mesa | 52,525.43 | 919.20 |
+| Downey | 121,569.52 | 2,127.47 |
+| El Monte | 68,503.84 | 1,198.82 |
+| Hollywood | 73,148.45 | 1,280.10 |
+| Huntington Beach | 90,521.95 | 1,584.13 |
+| Inglewood | 105,525.66 | 1,846.70 |
+| La Cienega | 110,196.09 | 1,928.43 |
+| Lakewood | 115,646.64 | 2,023.82 |
+| Las Vegas | 46,066.55 | 806.16 |
+| North Torrance | 109,008.43 | 1,907.65 |
+| Ontario | 45,413.35 | 794.73 |
+| Orange | 46,989.81 | 822.32 |
+| Pico Rivera | 102,915.62 | 1,801.02 |
+| Rialto | 94,662.55 | 1,656.59 |
+| Riverside | 67,541.12 | 1,181.97 |
+| Santa Ana | 81,485.82 | 1,426.00 |
+| Slauson | 137,936.87 | 2,413.90 |
+| South Torrance | 46,828.79 | 819.50 |
+| Van Nuys | 139,197.59 | 2,435.96 |
+| West Covina | 53,395.26 | 934.42 |
+| Whittier | 92,310.51 | 1,615.43 |
+| **Total** | **2,048,754.77** | **35,853.20** |
+
+No store was held back or missing. Four stores came in more than 10% *above* the prior week. Those are noted as warnings in the result but didn't stop posting:
+- **Van Nuys:** up 26.5%. Last week it posted short and was accepted as final, so this jump probably reflects that.
+- **Ontario:** up 12.6%. Also short last week and accepted as final.
+- **Anaheim:** up 11.6%.
+- **Las Vegas:** up 10.1%.
+
+`result.json` is written in the work directory for the wrapper to post to Teams, and the `ccfu` session is closed. Since nothing was held, the 8:00 and 10:00 retry path still hasn't been tested unattended.
+2026-10-19T06:17:44 claude exited 0
