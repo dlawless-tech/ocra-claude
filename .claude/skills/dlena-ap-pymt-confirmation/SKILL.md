@@ -72,6 +72,29 @@ Done when every paying vendor has an approved payment with its stub attached, it
 playwright-cli -s=dl close
 ```
 
+Then move `dLena AP Aging.xlsx` out of Downloads into the week folder, `Downloads\WE <M.D>`, named for the Sunday before the run day. The name changes every week: a 10/21/2026 run files to `WE 10.18`, a 10/28 run to `WE 10.25`. Create the folder when it is missing.
+
+## Unattended run
+
+`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays, hourly from 8:00 through 18:00 (`scripts/register-task.ps1` sets it up, first run 10/28/2026). Each start checks Downloads for `dLena AP Aging.xlsx` written since Monday and at least 5 minutes old. The `dlena-weekly-ap-aging` skill drops that file. Without it the start exits quietly. The 18:00 start posts a waiting card instead. Once the file is there, the wrapper marks the day started in `.scratch/dlena-ap-pymt/run<MMdd>/done.txt` and starts this skill headless with a prompt beginning `Unattended run` that names the work directory and the run's `M.D`. The day never retries on its own, since a rerun after an approve could pay a vendor twice. `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+
+No human answers during the run, so:
+
+- `cd` into the work directory once and run every command from there. Log R365 in as `dlp`, and use `dlp` wherever the steps say `dl`.
+- Never ask. Run Steps 2 to 5 for both vendors, Halperns first. Step 2 must print `ties`, or stop before any payment with the reason in `note`.
+- Run `new-payment.sh` once without `approve` and check the zero-to-zero rule, then once with `approve`. A `FAIL:` before `APPROVED` is retried once after closing the tab. Once `APPROVED` has printed, never create that vendor's payment again: a later failure is `failed` with the payment id.
+- Tricia authorized the vendor emails to go out unattended. Draft with `mail.ps1`, check the printed To and Cc match the copied email and the only attachment is this week's stub, then rerun with `-Send`. Any mismatch leaves the draft unsent and the vendor `failed`.
+
+Finish by closing `dlp` by name, then write `result.json` in the work directory:
+
+```json
+{ "note": "",
+  "vendors": [ { "vendor": "Halperns' Steak & Seafood", "status": "paid", "payment": "<payment id>", "amount": 14075.55, "invoices": 10, "attached": true, "emailed": true, "reason": "",
+      "unapproved": [ { "invoice": "12487487", "amount": 2839.72, "comment": "MISSING IN MARGIN EDGE" } ] } ] }
+```
+
+`status` is `paid`, `none` (`NONE` from `new-payment.sh`) or `failed`. List both vendors every week. The wrapper moves the AP Aging into the week folder only when both vendors are `none` or `paid` with the stub attached and the email sent, and `note` is empty. Otherwise the file stays in Downloads. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`. A clean result posts untagged. `NEEDS REVIEW`, `FAILED` and waiting cards tag Tricia. Unapproved invoices left open are listed but do not need review.
+
 ## Runs
 
 10/7/2026, built live. Halperns ACH 9,411.23 (9 invoices) and Julius Silvert ACH 4,082.15 (5 invoices) were approved, stubs attached, and emails sent. Five Halperns invoices and three Julius invoices were unapproved and left open.

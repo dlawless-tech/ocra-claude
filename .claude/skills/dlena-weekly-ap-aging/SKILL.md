@@ -43,7 +43,7 @@ Done when the email is in Sent Items with the file attached. Close only this run
 playwright-cli -s=dla close
 ```
 
-Then run the `dlena-ap-pymt-confirmation` skill for the same day.
+Then run the `dlena-ap-pymt-confirmation` skill for the same day. On Wednesdays its scheduled run starts on its own once the file is in Downloads, and moves the file into the week folder when it finishes.
 
 ## Runs
 
