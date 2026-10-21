@@ -1,6 +1,6 @@
 ---
 name: cucina-colore-wkly-tips
-description: Zero 25100 Employee Tips Payable in Cucina Colore Restaurant365 each week after payroll, setting the week's one Tips journal entry to the account's balance against 65650 Other Wages, then approving it. Use when asked to fill, balance, or approve the Cucina Colore Tips entry in R365, to check Cucina Colore Tips Payable, or when the Thursday scheduled run starts it.
+description: Zero 25100 Employee Tips Payable in Cucina Colore Restaurant365 each week after payroll, setting the week's one Tips journal entry to the account's balance against 65650 Other Wages, then approving it. Use when asked to fill, balance, or approve the Cucina Colore Tips entry in R365, to check Cucina Colore Tips Payable, or when the weekly scheduled run starts it.
 ---
 
 # Weekly Tips entry into Cucina Colore
@@ -59,7 +59,7 @@ Rerun Step 2 into `after.csv`. Done means `endBal` reads 0.00 and `find-entries.
 
 ## Unattended run
 
-`scripts/thursday-run.ps1` runs from Task Scheduler Thursdays hourly 10:00 to 18:00 and Friday 10:00, first 10/22/2026 (`scripts/register-task.ps1` sets it up, only while signed in). It starts this skill headless with a prompt beginning `Unattended run`, naming the week, the Sunday and the work directory. A `waiting` result leaves the week open for the next start; Friday's posts a waiting card. Any other result writes `done.txt` and posts the card. `-Force` reruns a week, `-Date yyyy-MM-dd` stands in for today.
+`scripts/weekly-run.ps1` runs from Task Scheduler Wednesdays hourly 12:30 to 18:30, Thursdays hourly 10:00 to 18:00 and Friday 10:00, first 10/21/2026 (`scripts/register-task.ps1` sets it up, only while signed in). It starts this skill headless with a prompt beginning `Unattended run`, naming the week, the Sunday and the work directory. A `waiting` result leaves the week open for the next start; Friday's posts a waiting card. Any other result writes `done.txt` and posts the card. `-Force` reruns a week, `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 

@@ -1,7 +1,7 @@
 # Task Scheduler entry point. Once the week's Payroll entry is approved, runs the skill unattended
 # to zero 25100 for the Monday-Sunday week that ended last Sunday, then posts to Teams.
-# usage: thursday-run.ps1 [-Date yyyy-MM-dd] [-Force]
-# Thursday hourly 10:00-18:00 plus Friday 10:00; a run that finds payroll not yet approved writes
+# usage: weekly-run.ps1 [-Date yyyy-MM-dd] [-Force]
+# Wednesday hourly 12:30-18:30, Thursday hourly 10:00-18:00, Friday 10:00; a run that finds payroll not yet approved writes
 # status waiting and the next start tries again. Friday's waiting run posts a card.
 param([string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'
@@ -19,7 +19,7 @@ $f = { param($d) '{0}/{1}/{2}' -f $d.Month, $d.Day, $d.Year }
 $weFull = & $f $sun
 $run = Join-Path $Repo (".scratch\cucina-colore-tips\wk{0:MMdd}" -f $sun)
 New-Item -ItemType Directory -Force $run | Out-Null
-$log = Join-Path $run 'thursday-run.log'
+$log = Join-Path $run 'weekly-run.log'
 function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 $log }
 
 $done = Join-Path $run 'done.txt'
