@@ -16,7 +16,7 @@ C:\Users\trici\OCRA\Bowery Group - General\Payroll\
     WE 10.04.26\                                 every finished week, named for the period ending
 ```
 
-The GL is dropped by hand; `bowery-wkly-payroll-report` pulls the Net Pay Reports from Paycor once it lands, from Thursday 4:30 PM. A complete week is at least six files: the GL plus an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
+The GL is dropped by hand; `bowery-wkly-payroll-report` pulls the Net Pay Reports from Paycor once it lands, from Wednesday 4:00 PM. A complete week is at least six files: the GL plus an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
 
 The GL carries every amount and the Net Pay Reports name the live checks. **One R365 entry per location, hourly and salary combined.**
 
@@ -152,7 +152,7 @@ Close only the `playwright-cli` session this run opened, by name.
 
 Two Task Scheduler tasks run `scripts/payroll-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **Bowery Payroll - Watch**, every 10 minutes from Wednesday 4:30 PM to Thursday 5:50 PM. It exits quietly until the Payroll folder holds a complete week, as defined at the top, with nothing written in the last 10 minutes, so a trailing salary report lands before the run starts.
+- **Bowery Payroll - Watch**, every 10 minutes from Wednesday 4:00 PM to Thursday 5:50 PM. It exits quietly until the Payroll folder holds a complete week, as defined at the top, with nothing written in the last 10 minutes, so a trailing salary report lands before the run starts.
 - **Bowery Payroll - Thursday**, 6:00 PM. The last check, and a Teams card naming what is missing when the week is still incomplete.
 
 The week ending is the Sunday before the run date, the same Sunday on Wednesday and Thursday; `-Date yyyy-MM-dd` stands in for today. The wrapper copies the files to `.scratch/bowery-payroll/wk<MMdd>/files`, writes `manifest.txt` of the originals, writes `done.txt` so the week runs once (`-Force` reruns it), and starts this skill headless with a prompt beginning `Unattended run` naming the week ending, work directory, file copies, GL workbook and manifest.

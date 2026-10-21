@@ -1,6 +1,6 @@
 ---
 name: bowery-wkly-payroll-report
-description: Pull each Bowery Group location's Paycor Net Pay Report for the week into the Bowery Payroll folder, named for bowery-payroll, hourly and salary runs both checked. Use when asked to pull, download, or check the Bowery Net Pay Reports or the weekly Paycor payroll report, or when the Thursday scheduled run starts it.
+description: Pull each Bowery Group location's Paycor Net Pay Report for the week into the Bowery Payroll folder, named for bowery-payroll, hourly and salary runs both checked. Use when asked to pull, download, or check the Bowery Net Pay Reports or the weekly Paycor payroll report, or when the Wednesday scheduled run starts it.
 ---
 
 # Paycor Net Pay Reports into the Bowery Payroll folder
@@ -52,6 +52,6 @@ Done is every report in `files` sitting in the Payroll folder. `bowery-payroll`'
 
 ## Unattended run
 
-`netpay-run.ps1` is the Task Scheduler entry, registered by `register-task.ps1` as **Bowery Wkly Payroll Report**: Thursdays 4:30 PM to 11:50 PM every 10 minutes. It stays quiet until exactly one `*Payroll GL*.xlsx` is in the folder, unchanged for 5 minutes, then takes the week from the GL's name and runs `netpay.js`. Work and logs go to `.scratch\bowery-wkly-payroll-report\wk<MMDD>\`, and `done.txt` there ends the week.
+`netpay-run.ps1` is the Task Scheduler entry, registered by `register-task.ps1` as **Bowery Wkly Payroll Report**: Wednesday 4:00 PM to Thursday 11:50 PM every 10 minutes. It stays quiet until exactly one `*Payroll GL*.xlsx` is in the folder, unchanged for 5 minutes, then takes the week from the GL's name and runs `netpay.js`. Work and logs go to `.scratch\bowery-wkly-payroll-report\wk<MMDD>\`, and `done.txt` there ends the week.
 
 A problem posts one Teams card per week tagging Tricia, then retries hourly. A clean run posts nothing. The card's webhook and mention live in `~/.claude/bowery-netpay.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "<name>", "email": "<work email>"}}`. `notify-teams.ps1 -DryRun` prints the card without posting.
