@@ -102,7 +102,7 @@ A store missing its `5241 - FOH Hourly` line, or an entry still carrying `5212 -
 
 Two Task Scheduler tasks run `scripts/thursday-run.ps1` (`scripts/register-task.ps1` sets them up):
 
-- **NORMS Payroll - Thursday Watch**, every 15 minutes from Thursday 5:00 AM to Friday 4:45 PM. It waits until the PR&TAX CSV, Stat Summary, Labor Distribution, and PAY DETAILS xlsx are all in `To Process_Norms`, each at least 2 minutes old, and exits quietly until then.
+- **NORMS Payroll - Watch**, every 15 minutes from Wednesday 4:30 PM to Friday 4:45 PM. It waits until the PR&TAX CSV, Stat Summary, Labor Distribution, and PAY DETAILS xlsx are all in `To Process_Norms`, each at least 2 minutes old, and exits quietly until then.
 - **NORMS Payroll - Friday**, 5 PM. The last check, and a Teams card naming the missing files when they are not all in (once per day).
 The wrapper takes the week from the CSV's pay date less six days, copies the files (and the Checks & Vouchers, from the drop or the week folder) to `.scratch/norms-payroll/wk<MMdd>`, starts this skill headless with a prompt beginning `Unattended run` that names the week ending, work directory, each file's copy, and the prior week's folder in `Completed_Norms`, and writes `done.txt` after, so the week runs once. `-Force` reruns a week.
 

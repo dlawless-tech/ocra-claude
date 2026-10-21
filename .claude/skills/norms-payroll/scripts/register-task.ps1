@@ -1,13 +1,14 @@
 # One-time setup, only while signed in. Two tasks share thursday-run.ps1:
-#   Thursday 5:00 AM to Friday 4:45 PM every 15 minutes: runs as soon as all four ADP files are in To Process_Norms
+#   Wednesday 4:30 PM to Friday 4:45 PM every 15 minutes: runs as soon as all four ADP files are in To Process_Norms
 #   Friday 5:00 PM: last check, and a Teams card when files are still missing
 $script = Join-Path $PSScriptRoot 'thursday-run.ps1'
 $settings = New-ScheduledTaskSettingsSet -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 2) -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 $arg = "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$script`""
 
-$watch = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Thursday -At 05:00
-$watch.Repetition = (New-ScheduledTaskTrigger -Once -At 05:00 -RepetitionInterval (New-TimeSpan -Minutes 15) -RepetitionDuration (New-TimeSpan -Hours 35 -Minutes 50)).Repetition
-Register-ScheduledTask -TaskName 'NORMS Payroll - Thursday Watch' -Action (New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "$arg -Mode watch") -Trigger $watch -Settings $settings -Description 'Thursday 5:00 AM to Friday 4:45 PM every 15 minutes: posts the NORMS Payroll entry once the ADP files are in To Process_Norms, files the week, then confirms in the payroll channel.' -Force
+Unregister-ScheduledTask -TaskName 'NORMS Payroll - Thursday Watch' -Confirm:$false -ErrorAction SilentlyContinue
+$watch = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Wednesday -At 16:30
+$watch.Repetition = (New-ScheduledTaskTrigger -Once -At 16:30 -RepetitionInterval (New-TimeSpan -Minutes 15) -RepetitionDuration (New-TimeSpan -Hours 48 -Minutes 20)).Repetition
+Register-ScheduledTask -TaskName 'NORMS Payroll - Watch' -Action (New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "$arg -Mode watch") -Trigger $watch -Settings $settings -Description 'Wednesday 4:30 PM to Friday 4:45 PM every 15 minutes: posts the NORMS Payroll entry once the ADP files are in To Process_Norms, files the week, then confirms in the payroll channel.' -Force
 
 Unregister-ScheduledTask -TaskName 'NORMS Payroll - Thursday' -Confirm:$false -ErrorAction SilentlyContinue
 $last = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Friday -At 17:00
