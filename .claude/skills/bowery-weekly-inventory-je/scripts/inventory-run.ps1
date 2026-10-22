@@ -17,9 +17,10 @@ New-Item -ItemType Directory -Force $run | Out-Null
 $done = Join-Path $run 'done.txt'
 if ((Test-Path $done) -and -not $Force) { exit 0 }
 
-# trigger: the week's Purchase Transfers tracker filed to Completed
+# trigger: the week's Purchase Transfers tracker filed to Completed, or the week marked no transfers
 $pt = Join-Path $PtDone ('GL_Reallocation_Tracker {0}.{1}.{2:yy}.xlsx' -f $sun.Month, $sun.Day, $sun)
-if (-not (Test-Path -LiteralPath $pt) -and -not $Force) {
+$noPt = Join-Path $Repo ('.scratch\bowery-purchase-trfs\no-transfers-{0:yyyyMMdd}.txt' -f $sun)
+if (-not (Test-Path -LiteralPath $pt) -and -not (Test-Path $noPt) -and -not $Force) {
   $mark = Join-Path $run 'waiting.txt'
   if ((Get-Date).Hour -ge 12 -and -not (Test-Path $mark)) {
     Set-Content -Encoding utf8 $mark (Get-Date -Format s)

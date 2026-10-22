@@ -130,6 +130,8 @@ Two Task Scheduler tasks run `scripts/purchase-trfs-run.ps1` (`scripts/register-
 - **Bowery Purchase Transfers - File Drop**, every 15 minutes from 6:00 AM to 10:00 PM daily. It looks for one `GL_Reallocation_Tracker*.xlsx` at the top of the folder, at least 2 minutes old so a syncing file is skipped, and exits quietly when none is waiting.
 - **Bowery Purchase Transfers - Thursday**, 10:00 AM. The same run, and when no tracker is waiting and last Sunday's tracker is not in `Completed`, a Teams card says it is not in yet (once per day).
 
+When the client says a week has no transfers and sends no tracker, run `purchase-trfs-run.ps1 -NoTransfers <yyyy-MM-dd>` with the Week Ending. It writes `.scratch/bowery-purchase-trfs/no-transfers-<yyyyMMdd>.txt` and posts a no-transfers card. The Thursday run then sends no not-in-yet card, and the Inventory run treats the week as filed.
+
 More than one tracker waiting posts a card and runs nothing. The wrapper copies the tracker into `.scratch/bowery-purchase-trfs/run-<file timestamp>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, tracker copy, original file, and today, and writes `done.txt`, so each version of the file runs once. A replaced tracker runs again. `-Force` reruns, and `-File <xlsx>` names the file.
 
 No human answers during the run, so:

@@ -91,7 +91,7 @@ This ends the run, and a correction afterward logs in to both sites again. Close
 
 ## Unattended run
 
-The **Bowery Inventory - Thursday** task runs `scripts/inventory-run.ps1` every 15 minutes from 6:00 AM to noon on Thursdays (`scripts/register-task.ps1` sets it up, only while signed in). Its trigger is the completed Purchase Transfers week: it posts nothing until `GL_Reallocation_Tracker <M.D.YY>.xlsx` for last Sunday sits in `Weekly Purchase Transfers\Completed`. `purchase-trfs-run.ps1` also starts the task the moment it files a week on a Thursday. When the tracker is still not filed at noon, a Teams card says the entries were not posted.
+The **Bowery Inventory - Thursday** task runs `scripts/inventory-run.ps1` every 15 minutes from 6:00 AM to noon on Thursdays (`scripts/register-task.ps1` sets it up, only while signed in). Its trigger is the completed Purchase Transfers week: it posts nothing until `GL_Reallocation_Tracker <M.D.YY>.xlsx` for last Sunday sits in `Weekly Purchase Transfers\Completed`, or the week is marked no transfers (`.scratch/bowery-purchase-trfs/no-transfers-<yyyyMMdd>.txt`, from `purchase-trfs-run.ps1 -NoTransfers`). `purchase-trfs-run.ps1` also starts the task the moment it files a week on a Thursday. When the tracker is still not filed at noon, a Teams card says the entries were not posted.
 
 The wrapper works in `.scratch/bowery-inventory/we-<yyyyMMdd>`, starts this skill headless with a prompt beginning `Unattended run` naming the work directory, week ending, and today, and writes `done.txt` so each week runs once. `-Force` reruns and skips the trigger; `-WeekEnding <yyyy-MM-dd>` names another week.
 

@@ -1,7 +1,8 @@
 # Task Scheduler entry point. Finds a dropped tracker, runs the skill unattended on it, then posts to Teams.
-# usage: purchase-trfs-run.ps1 [-Mode watch|scheduled] [-Force] [-File <xlsx>]
+# usage: purchase-trfs-run.ps1 [-Mode watch|scheduled] [-Force] [-File <xlsx>] [-NoTransfers <yyyy-MM-dd>]
 # watch: quiet when no tracker is waiting. scheduled: Thursday 10:00, also posts once when last week's tracker is missing.
-param([ValidateSet('watch', 'scheduled')][string]$Mode = 'watch', [switch]$Force, [string]$File)
+# -NoTransfers: mark a week as having no transfers, so it is not chased and Inventory does not wait on it.
+param([ValidateSet('watch', 'scheduled')][string]$Mode = 'watch', [switch]$Force, [string]$File, [string]$NoTransfers)
 $ErrorActionPreference = 'Stop'
 
 $Repo = (Resolve-Path "$PSScriptRoot\..\..\..\..").Path
@@ -10,6 +11,14 @@ $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 $Drop = 'C:\Users\trici\OCRA\Bowery Group - General\Journal Entries\Weekly Purchase Transfers'
 $Base = Join-Path $Repo '.scratch\bowery-purchase-trfs'
 New-Item -ItemType Directory -Force $Base | Out-Null
+
+if ($NoTransfers) {
+  $we = [datetime]::ParseExact($NoTransfers, 'yyyy-MM-dd', $null)
+  if ($we.DayOfWeek -ne 'Sunday') { throw "$NoTransfers is not a Sunday" }
+  Set-Content -Encoding utf8 (Join-Path $Base ('no-transfers-{0:yyyyMMdd}.txt' -f $we)) (Get-Date -Format s)
+  & $Notify -Title ('Bowery Purchase Transfers, W.E. {0}/{1}/{2}, no transfers' -f $we.Month, $we.Day, $we.Year) -Lines @('No transfers this week, so no entry was posted and no tracker is expected.')
+  exit 0
+}
 
 # skip a file still syncing and Excel lock files
 if ($File) { $found = @(Get-Item -LiteralPath $File) } else {
@@ -22,7 +31,8 @@ $weFull = '{0}/{1}/{2}' -f $sun.Month, $sun.Day, $sun.Year
 
 if (-not $found.Count) {
   if ($Mode -eq 'scheduled') {
-    $filed = Test-Path -LiteralPath (Join-Path $Drop ('Completed\GL_Reallocation_Tracker {0}.{1}.{2:yy}.xlsx' -f $sun.Month, $sun.Day, $sun))
+    $filed = (Test-Path -LiteralPath (Join-Path $Drop ('Completed\GL_Reallocation_Tracker {0}.{1}.{2:yy}.xlsx' -f $sun.Month, $sun.Day, $sun))) -or
+      (Test-Path (Join-Path $Base ('no-transfers-{0:yyyyMMdd}.txt' -f $sun)))
     $mark = Join-Path $Base ("missing-{0:yyyyMMdd}.txt" -f (Get-Date))
     if (-not $filed -and -not (Test-Path $mark)) {
       Set-Content -Encoding utf8 $mark (Get-Date -Format s)
