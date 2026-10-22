@@ -39,6 +39,7 @@ Each employee row (Employee Name, Wages Paid, Position Paid Under, Location Paid
 |-------------------------------------------|--------------------------------|
 | `250 - ...`, or a label containing FOH    | 600-01 - Wages-FOH Management  |
 | `251 - ...`, or a label containing BOH or Kitchen | 600-02 - Wages-BOH Management |
+| a label containing Prep Cook              | 600-12 - Wages-Prep Cook       |
 
 The code wins over the label: the 9/20/2026 file wrote Andy's position as `251 - MANAGEMENT`, which is BOH. The 9/13/2026 file wrote `FOH Management` and `BOH Management` with no codes. Any other position stops the reader; ask which 600- account it posts to.
 

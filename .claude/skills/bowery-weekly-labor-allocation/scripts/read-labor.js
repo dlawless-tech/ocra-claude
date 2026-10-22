@@ -38,11 +38,11 @@ const weekEnding = `${we.getUTCMonth() + 1}/${we.getUTCDate()}/${we.getUTCFullYe
 if (we.getUTCDay() !== 0) fail(`week ending ${weekEnding} is not a Sunday`);
 
 // position -> wage account; code wins, label is the fallback (9/13 wrote labels, 9/20 codes)
-const acct = { 250: '600-01', 251: '600-02' };
+const acct = { 250: '600-01', 251: '600-02', prep: '600-12' };
 const stores = ['Cookshop', 'Shuka', "Rosie's", "Vic's", 'Shukette', 'Bowery Group'];
 const store = s => stores.find(x => x.toLowerCase() === String(s).split('’').join("'").toLowerCase());
 const code = s => {
-  const c = +(String(s).match(/^(\d+)/) || [])[1] || (/FOH/i.test(s) ? 250 : /BOH|KITCHEN/i.test(s) ? 251 : 0);
+  const c = +(String(s).match(/^(\d+)/) || [])[1] || (/FOH/i.test(s) ? 250 : /BOH|KITCHEN/i.test(s) ? 251 : /PREP COOK/i.test(s) ? 'prep' : 0);
   if (!acct[c]) fail(`position "${s}" has no wage account; ask which 600- account it posts to`);
   return c;
 };
