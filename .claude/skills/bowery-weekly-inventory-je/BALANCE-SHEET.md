@@ -1,6 +1,8 @@
 # Starting a week from the balance sheet
 
-Cookshop and Shukette carried inventory on the books at 8/30/2026 that differed from Craftable's 8/30 counts, and their first weekly entries, dated 9/6/2026, had changed from the Craftable counts. They were rebuilt on 9/30/2026 as the 9/6 count less the 8/30 balance sheet balance. Shuka, Rosie's and Vic's took their 8/30 balances from Craftable through `Starting Inventory` entries, so the two starts agree for them.
+Every store carried inventory on the books at 8/30/2026 that differed from Craftable's 8/30 counts, and the first weekly entries, dated 9/6/2026, had changed from the Craftable counts. All five 9/6 entries now hold the 9/6 count less the 8/30 balance sheet balance: Cookshop and Shukette rebuilt 9/30/2026, Vic's, Shuka and Rosie's 10/22/2026.
+
+The books tie only on approved entries. Cookshop has three Unapproved journals, `NJ00001984` to `NJ00001986 INVENTORY` dated 9/13 to 9/27, booking full counts to 190; a GL Account Detail run with Show Unapproved Yes includes them.
 
 Use this when a week's changes must start from what the books hold rather than from a Craftable count.
 
