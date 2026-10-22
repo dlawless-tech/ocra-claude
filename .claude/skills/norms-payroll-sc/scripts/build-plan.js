@@ -151,7 +151,11 @@ rows.forEach((r, j) => {
   else { plan.push([j, 0, 0]); zeroed.push('unclaimed  ' + r[1] + ' | ' + r[5]); }
 });
 
+// bonus on 6015 through 10/2026, 6030 after
+const repoint = verify ? -1 : rows.findIndex(r => acct(r) === '6015');
+
 const say = s => console.error(s);
+if (repoint >= 0) say('REPOINT row ' + repoint + '  ' + rows[repoint][1] + '  ->  6030 - MIT/SC Bonus');
 if (verify) {
   say('VERIFY  lines ' + rows.length + '  mismatched ' + mismatched.length);
   mismatched.forEach(m => say('  row ' + m.i + '  ' + m.slot.padEnd(9) + '  want ' + m.want.toFixed(2).padStart(12) + '  got ' + m.got.toFixed(2).padStart(12) + '  ' + m.line));

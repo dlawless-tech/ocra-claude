@@ -69,6 +69,8 @@ Two mismatches are expected on the `6050` pair, because periods differ on whethe
 
 `scripts/build-plan.js cur.csv prior.csv lines.json` emits `[rowIndex, debit, credit]` for every line that changes, and reports on stderr anything with no line to sit on. Lines the period does not use come back as 0.00, which is how a period without mileage or a quarterly bonus is recorded, and so do lines no slot claims, like the check lines a copied bonus entry carries. It exits 1 when anything has no line or the plan is out of balance.
 
+A `REPOINT` line in the report names a bonus line still on `6015`. Repoint it to `6030 - MIT/SC Bonus` as in "Repointing a line to another account", and confirm it took before posting amounts.
+
 Post with `scripts/apply-amounts.sh` in chunks, add any line the report asked for, then run the three checks. Skipping any of them is how an empty or unbalanced entry reaches Approved:
 
 1. **Read every amount back** from its rendered cell, comparing numerically since R365 renders `4` as `4.00`.
@@ -110,6 +112,7 @@ No human answers during the run, so:
 
 - Never ask. Use session `npsc`, and run every command as `cd <work directory> && ...`.
 - Settle first file or second by the `401k Loan 1` rule, falling back to the Stat Summary tie when the loan changed; warn when it did. A file that settles neither way, or a second file whose prior folder holds other than one csv, fails the run.
+- Repoint a bonus line `build-plan.js` flags from 6015 to 6030, and add a warning naming it. A repoint that does not read back fails the run.
 - An approval refused for unapproved DSS journals is expected. With the entry tied, saved and attached, write `status` `awaiting-approval` and put the refusal in `note`. The Monday task approves it.
 - Prove the mapping when a prior regular csv and its approved entry are both at hand. Skip it with a warning when they are not, as for 10/16, whose prior pay was the void batch.
 - An entry already dated the day before the pay date means the pay was started by hand. Approved: post nothing, and still attach any missing file. Unapproved: fail the run and name it.

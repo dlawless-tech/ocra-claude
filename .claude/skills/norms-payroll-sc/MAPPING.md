@@ -18,7 +18,7 @@ Everything sits at dept `299` and class `130`, so the entry carries one line per
 | 6150 | CELL PHONE | `6150 - Cellular Phone` | cell phone |
 | 6390 | MILEAGE | `6390 - Gasoline - Mileage-Corp` | mileage |
 | 5230 | QTRBA | `5230 - Chef / Director Bonus` | QTRBA |
-| 6030 | BONUS | `6015 - Area Director Bonus` | BONUS |
+| 6030 | BONUS | `6030 - MIT/SC Bonus` | BONUS |
 | 2267 | PTO Taken | `2267 - Accrued PTO` | PTO Taken |
 | 2264 | FSA Contribution, HSA Contribution | `2264 - Accrued FSA HSA Deductions` | HSA /FSA Contribution |
 | 2142 | 401k Loan 1 | `2142 - 401(k) Loans` | 401k Loan 1 |
@@ -32,6 +32,8 @@ Everything sits at dept `299` and class `130`, so the entry carries one line per
 Memos arrive in mixed case and mixed spelling, `Med Pre Tax` beside `Medical Pre-tax`. Map on the account, so a new spelling lands correctly on its own.
 
 **The cash account is 1040, and 5210, 5212, 5300, 5320, and 1030 never appear.** Those are the restaurant payroll's accounts, and the WVM mapping does not transfer.
+
+**The bonus goes to `6030 - MIT/SC Bonus`.** Entries through 10/2026 booked it to `6015 - Area Director Bonus`, so a copied entry can arrive with its bonus line on 6015. `build-plan.js` prints `REPOINT` for that row. Move it to 6030 before posting amounts. `--verify` accepts either account against the older periods.
 
 **`build-plan.js` resolves lines by account and slot, never by comment text.** Comment wording drifts between periods, and the two `6050` lines and the two `1040` lines are told apart by a single word in theirs.
 
