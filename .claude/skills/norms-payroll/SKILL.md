@@ -96,7 +96,7 @@ The account combobox refuses `fill`. Click it, `type` the account number with re
 
 To move an existing line to another location, copy `locationId` and `location` from a line that already carries it.
 
-A store missing its `5241 - FOH Hourly` line, or an entry still carrying `5212 - Store Labor (Hourly)` lines, is a job for the labor breakdown skill's `apply-split.sh`, which adds, repoints, and deletes those lines by script.
+A store missing its `5241 - FOH Hourly` line, an entry still carrying `5212 - Store Labor (Hourly)` lines at a store other than 370, or 370's labor still on `6025`, is a job for the labor breakdown skill's `apply-split.sh`, which adds, repoints, and deletes those lines by script.
 
 ## Unattended run
 

@@ -9,7 +9,8 @@ cat > "$JS" <<'EOF'
 async () => {
   const plan = __PLAN__;
   const ACCT = { '5241': ['4ba9fd76-46a4-4225-b66e-0c74b3cdda0c', '5241 - FOH Hourly'],
-                 '5242': ['f9723d47-e05f-4901-8c14-64b460ef7615', '5242 - BOH Hourly'] };
+                 '5242': ['f9723d47-e05f-4901-8c14-64b460ef7615', '5242 - BOH Hourly'],
+                 '5212': ['b8470164-be53-f111-aa98-000d3a41fbd2', '5212 - Store Labor (Hourly)'] };
   const g = jQuery('[data-role=grid]').toArray().map(e => jQuery(e).data('kendoGrid')).filter(Boolean)[0];
   const sc = angular.element(document.querySelector('#newRowButtonsContainer')).scope();
   const f = sc.gridOptions.journalEntryDetailsGrid.newRowForm;

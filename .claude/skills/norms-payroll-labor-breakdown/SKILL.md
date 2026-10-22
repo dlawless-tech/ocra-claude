@@ -5,9 +5,9 @@ description: Split the hourly labor on a NORMS Restaurant365 payroll journal ent
 
 # FOH / BOH hourly breakout on the NORMS payroll entry
 
-Each store's hourly labor on the weekly `Payroll` entry sits on two lines, `5241 - FOH Hourly` and `5242 - BOH Hourly`, split by job GL from the pay details file. Location 370 is the exception: all its labor sits on one `6025 - Salary-Hourly` line.
+Each store's hourly labor on the weekly `Payroll` entry sits on two lines, `5241 - FOH Hourly` and `5242 - BOH Hourly`, split by job GL from the pay details file. Location 370 is the exception: all its labor sits on one `5212 - Store Labor (Hourly)` line.
 
-`norms-payroll` posts the weekly amounts straight onto those lines, reading the key from `scripts/pay-details.js` here. This skill restructures an entry: it converts one still carrying `5212 - Store Labor (Hourly)` lines, adds a missing FOH line, and folds 370's hourly into `6025`. Each store's labor total and the entry total stay unchanged.
+`norms-payroll` posts the weekly amounts straight onto those lines, reading the key from `scripts/pay-details.js` here. This skill restructures an entry: it converts one still carrying `5212 - Store Labor (Hourly)` lines outside 370, adds a missing FOH line, and folds 370's labor onto its one `5212` line. Each store's labor total and the entry total stay unchanged.
 
 The user supplies the file, named like `NORMS - PAY DETAILS LG ... .xlsx`. Column B reads `<location>.<job GL>`: the first three digits are the R365 location number, the four after the dot the job GL.
 
@@ -40,7 +40,7 @@ Leave the entry Unapproved unless the user asks for approval.
 
 The builder refuses to plan unless each store's file total (FOH + BOH) equals its hourly lines to the cent. When that holds, the split is right by construction. On the 9/12/2026 entry every store matched.
 
-- **370 Select Industries** carries only Drivers (4085), whose pay runs partly through `6025`. The builder moves the whole hourly line onto `6025` and deletes it; the file total for 370 is 6025's hourly plus salary together.
+- **370 Select Industries** carries only Drivers (4085), and all its labor, hourly and salary, sits on one `5212` line. The builder folds any FOH or BOH line there and deletes it, and repoints a `6025` line, which entries through 10/2026 used, to `5212`. The file total for 370 is hourly plus salary together.
 - **298** carries salary only, and its salary posts on the 299 line. It has no hourly line and nothing to split.
 - A store in the file with hourly money and no hourly line fails the build. Read the entry before adding one.
 

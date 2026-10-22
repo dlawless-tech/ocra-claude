@@ -6,7 +6,7 @@
 // detail.csv is the PAY DETAILS LG export, column B "<location>.<job GL>".
 // lines.json comes from dump-lines.sh. Report on stderr, plan on stdout.
 const fs = require('fs');
-const { loadPayDetails, ALL_LABOR_6025, r2 } = require('./pay-details');
+const { loadPayDetails, ALL_LABOR_5212, r2 } = require('./pay-details');
 
 const [csv, linesFile] = process.argv.slice(2);
 let by;
@@ -23,14 +23,15 @@ for (const loc of Object.keys(by).sort()) {
   const hourly = at('5212', loc), bohL = at('5242', loc), fohL = at('5241', loc);
   const any = [...hourly, ...bohL, ...fohL];
 
-  if (ALL_LABOR_6025.has(loc)) {
-    // fold any hourly line into 6025, then delete it
-    const sal = at('6025', loc);
-    if (sal.length !== 1) { report.push(`${loc}: expected one 6025 line, found ${sal.length}`); problems++; continue; }
-    const moved = net(any);
-    if (moved) plan.set.push([sal[0].i, r2(net(sal) + moved), 0]);
-    for (const l of any) plan.remove.push(l.i);
-    report.push(`${loc}: all labor on 6025, ${r2(net(sal) + moved).toFixed(2)}`);
+  if (ALL_LABOR_5212.has(loc)) {
+    // one 5212 line; entries before 10/2026 carry it on 6025, so repoint that
+    const lab = [...hourly, ...at('6025', loc)], split = [...bohL, ...fohL];
+    if (lab.length !== 1) { report.push(`${loc}: expected one 5212 or 6025 line, found ${lab.length}`); problems++; continue; }
+    if (!hourly.length) plan.repoint.push([lab[0].i, '5212']);
+    const moved = net(split);
+    if (moved) plan.set.push([lab[0].i, r2(net(lab) + moved), 0]);
+    for (const l of split) plan.remove.push(l.i);
+    report.push(`${loc}: all labor on 5212, ${r2(net(lab) + moved).toFixed(2)}`);
     continue;
   }
   if (!any.length) {

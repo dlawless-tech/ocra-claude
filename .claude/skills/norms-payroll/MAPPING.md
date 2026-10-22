@@ -29,7 +29,7 @@ One line per location that has the account. `DEPT_ID` is the R365 location numbe
 
 **A CSV 5210 `Retro` memo is missing from the pay details file**, so its store fails the tie. Find the `RET` earning in the Labor Distribution, read the employee's `Cost: <location> <job GL>`, and add a row for that cost center carrying the amount to a working copy of the pay details csv.
 
-**Location 370 - Select Industries** posts all its labor, hourly and salary, to one `6025 - Salary-Hourly` line.
+**Location 370 - Select Industries** posts all its labor, hourly and salary, to one `5212 - Store Labor (Hourly)` line. Entries through 10/2026 carried it on `6025 - Salary-Hourly`, which `build-plan.js` reports as a 6025 line going to 0.00 beside a 5212 amount with no line. Repoint that 6025 line to 5212 rather than adding one.
 
 **Dept 299 carries the Support Center's own accounts**, with `GLENTRY_CLASSID` 160 where the restaurants carry 115. Since the 9/19/2026 entry, its salary (CSV 5212 and 6065) posts to `6065 - MIT Labor` and its ER taxes to `6040 - Payroll Tax`, both at 299. 6390 and 6050 only ever arrive at 299. 6050 keeps its own `6050 - Health Care` line, listed below with the rolled-up accounts.
 

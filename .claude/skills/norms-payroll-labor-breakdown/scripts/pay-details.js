@@ -8,8 +8,8 @@ const KEY = {
   '5215': 'SAL', '5220': 'SAL', '5230': 'SAL',
 };
 const HOURLY_COLS = ['Regular Earnings Total', 'Overtime Earnings Total', 'Double Time Earnings', 'MEAL PENALTY ERNS'];
-// stores whose hourly and salary labor all sit on one 6025 line
-const ALL_LABOR_6025 = new Set(['370']);
+// stores whose hourly and salary labor all sit on one 5212 line
+const ALL_LABOR_5212 = new Set(['370']);
 const FOH = '5241', BOH = '5242';
 const r2 = x => Math.round(x * 100) / 100;
 
@@ -34,4 +34,4 @@ function loadPayDetails(csvPath) {
   return by;
 }
 
-module.exports = { loadPayDetails, ALL_LABOR_6025, FOH, BOH, r2 };
+module.exports = { loadPayDetails, ALL_LABOR_5212, FOH, BOH, r2 };

@@ -13,7 +13,7 @@
 //
 // --detail is the week's PAY DETAILS LG csv, which splits hourly labor FOH / BOH.
 const fs = require('fs');
-const { loadPayDetails, ALL_LABOR_6025, FOH, BOH } = require('../../norms-payroll-labor-breakdown/scripts/pay-details');
+const { loadPayDetails, ALL_LABOR_5212, FOH, BOH } = require('../../norms-payroll-labor-breakdown/scripts/pay-details');
 const R = x => Math.round(x * 100) / 100;
 const num = s => parseFloat(String(s || '0').replace(/,/g, '')) || 0;
 
@@ -32,9 +32,9 @@ function mapRow(r) {
   const a = r.acct, m = (r.memo || '').toUpperCase();
   if (a === '5210') return /SIGN ON BONUS/.test(m) ? { acct: '6030', cm: 'sign on bonus', loc: r.loc }
     : /REFERRAL BONUS/.test(m) ? { acct: '6030', cm: 'referral bonus', loc: r.loc }
-    : ALL_LABOR_6025.has(r.loc) ? { acct: '6025', cm: 'salary', loc: r.loc }
+    : ALL_LABOR_5212.has(r.loc) ? { acct: '5212', cm: 'salary', loc: r.loc }
     : { acct: 'HOURLY', cm: 'regular / overtime / meal penalty', loc: r.loc };
-  if (a === '5212' || a === '6065') return { acct: r.loc === '299' ? '6065' : ALL_LABOR_6025.has(r.loc) ? '6025' : '5210', cm: 'salary', loc: r.loc };
+  if (a === '5212' || a === '6065') return { acct: r.loc === '299' ? '6065' : ALL_LABOR_5212.has(r.loc) ? '5212' : '5210', cm: 'salary', loc: r.loc };
   if (a === '5320') return { acct: r.loc === '299' ? '6040' : '5320', cm: 'er taxes', loc: r.loc };
   if (a === '5300') return { acct: '5300', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: r.loc };
   if (a === '6050') return { acct: '6050', cm: 'med/den/vis/dom part/acc/crit ill/hosp ind/life/whole life', loc: '299' };
