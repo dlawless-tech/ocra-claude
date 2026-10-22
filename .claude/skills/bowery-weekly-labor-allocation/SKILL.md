@@ -82,19 +82,18 @@ node <skill>/scripts/set-labor.js labor.json > set.js
 playwright-cli -s=la eval "$(cat set.js)"
 ```
 
-It pairs the entry's wage lines (adjacent rows sharing an employee comment) and keys each pair on employee, accounts, and route; tax lines key on location. It then sets every amount and comment from the workbook and returns `set N lines, debits X credits X` with X equal to `total`.
+It pairs the entry's wage lines (adjacent rows sharing an employee comment) and keys each pair on employee, accounts, and route; tax lines key on location. It brings the copy's lines to the week's, sets every amount and comment from the workbook, and returns `set N lines, debits X credits X` with X equal to `total`, followed by each change it made:
 
-Comments take the workbook's spelling of each name. A pair whose route matches a move but whose name differs is taken as a respelling and reported as `RENAMED`. The 9/13 and 9/20/2026 entries read `Andy Meijas` until 9/25/2026, when both were corrected to the workbook's `Andy Mejias` through Edit and Edit Complete.
+- `RENAMED <old> to <new>`: a pair whose route matches a move but whose name differs, taken as a respelling. Comments take the workbook's spelling. The 9/13 and 9/20/2026 entries read `Andy Meijas` until the workbook's `Andy Mejias` replaced it.
+- `REMOVED wage pair ...` or `REMOVED tax line @ <store>`: lines the week lacks, deleted with their trash icons.
+- `ADDED <employee> <amount>: credit <account> @ <location>, debit <account> @ <location>`: a new move, added through the new-row form as a credit line directly above its debit line, commented with the employee's name.
+- `ADDED tax 610-01 @ <location> debit|credit <amount>`: a store newly carrying a net, with a blank comment.
 
-When the week's moves or tax lines and the entry's lines differ, it changes nothing and returns one instruction per difference:
+The moves change most weeks, so expect these. The 10/18/2026 week removed the 10/11 copy's one pair and Rosie's tax line and added two pairs and Cookshop's tax line.
 
-- `ADD <employee> <amount>: credit <account> @ <location>, debit <account> @ <location>` for a new move. Add both lines through the new-row form under the grid, comment the employee's name, the credit line directly above the debit line.
-- `ADD tax 610-01 @ <location> debit|credit <amount>` for a store newly carrying a net. Add it with a blank comment.
-- `REMOVE wage pair ...` or `REMOVE tax line @ <store>` for lines the week lacks. Delete them with their trash icons: `playwright-cli click 'tr[data-uid="<uid>"] .k-grid-delete'`, taking each uid from the grid's `dataSource.data()`. The 10/4/2026 week dropped two pairs and two tax lines from the 9/27 copy this way.
+New rows take their account from the form's dropdown and their location from the `journalEntryLocation` combobox, by location number. The form's location defaults to Bowery Group Corp, so the script sets and reads it back before each add. Back-to-back adds can leave the account blank on the next row, so it waits and retries the account before each one. Shuka carries a closed date of 8/30/2026 in that combobox, yet the 9/27/2026 entry saved and approved with Shuka lines.
 
-The new-row form's location is a button that defaults to Bowery Group Corp. Set it through the model, `newRowForm.model.locationId = ['<id>']` inside the scope's `$apply`, taking the id from the `journalEntryLocation` combobox's data source, and read it back before Add. Shuka carries a closed date of 8/30/2026 there, yet the 9/27/2026 entry saved and approved with Shuka lines.
-
-Then rerun `set-labor.js` until it reports `set`. A `STOP:` names a line that fits no pair; read it before going further. Save with `save.sh` and read the body.
+A `STOP:` changes nothing past the line it names: a row that fits no pair or tax line, an account or location missing from the form, or an add or delete that did not land. Lines changed before it are listed after `after`; reload the entry without saving before going further. Otherwise save with `save.sh` and read the body.
 
 ## Step 5: attach the workbook
 
@@ -136,7 +135,7 @@ bash <skill>/scripts/file-week.sh "<original workbook>"
 
 It prints `filed <path>` once the workbook sits in `Completed` and no longer at the top of the folder. A week that stops before approval leaves its workbook in place. Close the session with `playwright-cli -s=la close`.
 
-Report the `check-labor.js` table, the entry's status and amount from the grid, whether the workbook is attached and filed, and any `RENAMED`, `ADD`, or `REMOVE` the run handled.
+Report the `check-labor.js` table, the entry's status and amount from the grid, whether the workbook is attached and filed, and any `RENAMED`, `ADDED`, or `REMOVED` the run made.
 
 ## Unattended run
 
@@ -154,7 +153,7 @@ No human answers during the run, so:
 - A `read-labor.js` stop fails the run before Duplicate: write `result.json` with `status` `failed` and the reason in `note`, and leave the workbook in place. That covers an unknown position and a one-cent tax gap; never pick a `--cent` store unattended.
 - An Approved entry already dated the Week Ending means the week was posted by hand: post nothing, report it as `approved` with its total, and still attach and file if they are missing.
 - Duplicate the latest Approved `Labor Allocation` entry dated before the Week Ending.
-- Handle `RENAMED`, `ADD`, and `REMOVE` as in Step 4, and list each in `warnings`. A `STOP:` fails the run.
+- List each `RENAMED`, `ADDED`, and `REMOVED` from Step 4 in `warnings`. A `STOP:` fails the run.
 - Duplicate writes the copy the moment it is clicked. A run that fails after it leaves an `NJ000xxxxx` entry behind: name it in `warnings` and leave it unapproved.
 - Attach the workbook copy (same name). Approve only on `MATCH` with the workbook attached, and file the original only after `approve.sh` passes.
 
