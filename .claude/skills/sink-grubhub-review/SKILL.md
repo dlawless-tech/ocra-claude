@@ -50,6 +50,27 @@ Every script leaves its entry Unapproved. Approve when the user says so with `ba
 
 Close the sessions by name when finished: `playwright-cli -s sink close` and `playwright-cli -s sgh close`.
 
+## Unattended run
+
+`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 10:00 (`scripts/register-task.ps1` sets it up). It names the period that ended Monday, writes `started.txt` in the work directory so a week runs once (`-Force` reruns, `-Date yyyy-MM-dd` stands in for today), and starts this skill headless with a prompt beginning `Unattended run`, naming the work directory, the review start and the latest period end.
+
+No human answers during the run, so:
+
+- Run every `playwright-cli` command and script from the work directory, with sessions `sinku` (R365) and `sghu` (Grubhub), so an interactive run's sessions are left alone.
+- A Grubhub mailed-code challenge or a rejected login fails the run: write `result.json` with the reason in `note` and change nothing.
+- Do the **Review**, then the **Corrections** for every ended period that fails, then approve each entry the run touched and rerun the review.
+- A `WARN` line is reported in `warnings` and not posted around. A period that stays `OFF` after corrections, or a fix that does not fit one of the **Corrections** cases, is reported and left for the user.
+- A correction in a closed period goes in a `GrubHub Correction` entry per **Corrections**.
+
+Finish by closing the sessions by name, then write `result.json` in the work directory. The wrapper posts it to the Sink Teams channel through `scripts/notify-teams.ps1`, tagging Regina Leong every run, and reports a failure when the file is missing:
+
+```json
+{ "lastEnd": "10/19/2026", "balance": 136.42, "unpaid": 136.42, "note": "",
+  "periods": [ { "num": "GrubHub 10.13-10.19", "status": "ties", "action": "none", "amount": 80.88, "transactionId": "...", "warnings": [] } ] }
+```
+
+One row per ended period in the review. `status` is `ties` or `off`; `action` is `none`, `posted`, `corrected`, `duplicate deleted` or `correction entry`, and `amount` is the entry's total after the run. `balance` and `unpaid` are 13580 and the unpaid payouts at `lastEnd`. The webhook lives in `~/.claude/sink-grubhub.json`, outside the repo: `{"teamsWebhook": "<url>", "mention": {"name": "Regina Leong", "email": "rleong@ocra-us.com"}, "mentionWhen": "always"}`. `notify-teams.ps1 -DryRun` prints the card without posting.
+
 ## History
 
 Before 9/8/2026 entries were numbered for a Wednesday-to-Tuesday week and did not follow Grubhub's figures. On 10/14/2026 the entries from 9/8 on were rebuilt on Grubhub periods and the account tied through 10/12/2026. The approved `GrubHub 09.02 09.08` entry dated 9/7 (closed period) moved 3,149.00 from 13580 to 12000 Accounts Receivable: 2,679.60 for two 1,339.80 "ACH DEBIT RECEIVED - Cust ID: ST" bank expenses coded to 13580 (014551 on 7/29, 014630 on 8/31), plus 469.40 of earlier Grubhub fees never booked. `GrubHub Correction` dated 9/9/2026 moved that 469.40 to 74920. As of 10/14/2026 the user had not said what the ST debits are, so the 2,679.60 still sits in 12000.
