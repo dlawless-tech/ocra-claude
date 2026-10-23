@@ -51,6 +51,27 @@ Every script leaves its entry Unapproved. Approve when the user says so with `ba
 
 Close the sessions by name when finished: `playwright-cli -s sink close` and `playwright-cli -s sdd close`.
 
+## Unattended run
+
+`scripts/friday-run.ps1` runs from Task Scheduler on Fridays at 10:00 (`scripts/register-task.ps1` sets it up), the day after DoorDash pays the week. It names the week that ended Sunday, writes `started.txt` in the work directory so a week runs once (`-Force` reruns, `-Date yyyy-MM-dd` stands in for today), and starts this skill headless with a prompt beginning `Unattended run`, naming the work directory, the review start and the latest week end.
+
+No human answers during the run, so:
+
+- Run every `playwright-cli` command and script from the work directory, with sessions `sinkd` (R365) and `sddu` (DoorDash), so an interactive run's sessions are left alone.
+- A DoorDash verification code or a rejected login fails the run: write `result.json` with the reason in `note` and change nothing.
+- Do the **Review**, then the **Corrections** for every ended week that fails, post the latest week if it is missing, then approve each entry the run touched and rerun the review.
+- A correction in a closed period goes in a `DoorDash Correction` entry per **Corrections**.
+- A Sales Tax rate far off 9.3% is posted as built and listed in the week's `warnings`.
+
+Finish by closing the sessions by name, then write `result.json` in the work directory. The wrapper posts it to the Sink Teams channel through `scripts/notify-teams.ps1`, tagging Regina Leong every run, and reports a failure when the file is missing:
+
+```json
+{ "lastEnd": "10/18/2026", "balance": 1595.34, "unpaid": 1595.34, "note": "",
+  "weeks": [ { "num": "DoorDash 10.12-10.18", "status": "ties", "action": "corrected", "amount": 828.41, "transactionId": "...", "warnings": [] } ] }
+```
+
+One row per ended week in the review. `status` is `ties` or `off`; `action` is `none`, `posted`, `corrected`, `duplicate deleted` or `correction entry`, and `amount` is the entry's total after the run. `balance` and `unpaid` are 13562 and the unpaid payouts at `lastEnd`. The webhook lives in `~/.claude/sink-doordash.json`, outside the repo, in the same shape as the Grubhub skill's. `notify-teams.ps1 -DryRun` prints the card without posting.
+
 ## DoorDash portal
 
 - An Instagram promo popover (`[data-testid=entry-point-popover]`) intercepts clicks; both DoorDash scripts close it first.
