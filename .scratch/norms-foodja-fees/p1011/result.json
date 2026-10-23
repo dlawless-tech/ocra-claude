@@ -1,6 +1,83 @@
 {
  "period": "9/28/2026 - 10/11/2026",
  "entryDate": "10/11/2026",
- "note": "no statements posted yet",
- "stores": []
+ "note": "Each store 1119 balance at 10/11 equals its Amount Due; P21 payment not landed yet as of 10/23.",
+ "stores": [
+  {
+   "store": "217 - Anaheim",
+   "status": "approved",
+   "amount": 22.13,
+   "fee": 22.13,
+   "due": 59.82,
+   "transactionId": "39f0e7a4-fb5c-4878-8aa4-c6eed4008e81",
+   "warnings": []
+  },
+  {
+   "store": "220 - Costa Mesa",
+   "status": "approved",
+   "amount": 141.7,
+   "fee": 38.26,
+   "due": 103.44,
+   "transactionId": "64060c4d-16d9-4480-bec8-4fa91ce9bd24",
+   "warnings": [
+    "R365 sales 0.00 vs statement 141.70, difference -141.70; not in R365: order 2547308 10/6/2026 141.70"
+   ]
+  },
+  {
+   "store": "219 - Huntington Beach",
+   "status": "approved",
+   "amount": 269.08,
+   "fee": 219.79,
+   "due": 594.24,
+   "transactionId": "c3a0e43a-2a10-4f23-a248-12ecc5326e13",
+   "warnings": [
+    "R365 sales 863.32 vs statement 814.03, difference 49.29; not in R365: order 2549572 10/2/2026 636.06; R365 only: 10/2/2026 685.35"
+   ]
+  },
+  {
+   "store": "269 - Hollywood",
+   "status": "approved",
+   "amount": 266.22,
+   "fee": 195.59,
+   "due": 528.83,
+   "transactionId": "02d946af-d16d-4bfc-ad26-974108b0b1b0",
+   "warnings": [
+    "R365 sales 795.05 vs statement 724.42, difference 70.63; not in R365: order 2555919 10/9/2026 724.42; R365 only: 10/9/2026 795.05"
+   ]
+  },
+  {
+   "store": "215 - Lakewood",
+   "status": "approved",
+   "amount": 284.36,
+   "fee": 117.43,
+   "due": 317.51,
+   "transactionId": "22915315-33fd-4b4c-99c4-e1ee402c8e65",
+   "warnings": [
+    "R365 sales 601.87 vs statement 434.94, difference 166.93; not in R365: order 2548999 10/5/2026 260.84, order 2554525 10/8/2026 174.10; R365 only: 10/5/2026 266.84, 10/6/2026 154.93, 10/8/2026 180.10",
+    "approve response came back empty; entry read back approved and statement attached by hand"
+   ]
+  },
+  {
+   "store": "245 - Riverside",
+   "status": "approved",
+   "amount": 240.37,
+   "fee": 173.98,
+   "due": 470.39,
+   "transactionId": "a77d9428-6cc1-418b-9368-36baa7126cc7",
+   "warnings": [
+    "R365 sales 404.00 vs statement 644.37, difference -240.37; not in R365: order 2546293 9/29/2026 259.40, order 2550248 10/2/2026 239.98; R365 only: 9/29/2026 259.01"
+   ]
+  },
+  {
+   "store": "243 - Santa Ana",
+   "status": "approved",
+   "amount": 61.49,
+   "fee": 61.49,
+   "due": 166.25,
+   "transactionId": "528cf330-fb98-4fbf-87d2-6d0c13577f3b",
+   "warnings": [
+    "R365 sales 227.64 vs statement 227.74, difference -0.10; not in R365: order 2547281 10/8/2026 141.49; R365 only: 10/8/2026 141.39"
+   ]
+  }
+ ]
 }

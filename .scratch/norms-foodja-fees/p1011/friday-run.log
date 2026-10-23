@@ -7,3 +7,48 @@ Nothing was posted for the 9/28 to 10/11/2026 period. I logged into Foodja, but 
 The 9/14 to 9/27 period also needs your attention, and the unattended run won't go back to it. That period's folder has a `done.txt`, but nothing was posted. R365 rejected the first save because 9/27/2026 falls in a closed fiscal period, so none of the 9 stores got an entry. That attempt also left an unapproved copy, NJ00023340 (dated 10/16/2026, 177.39), which needs deleting. To post that period, either reopen it or pick an entry date in an open period, then rerun it by hand.
 2026-10-16T13:11:01 claude exited 0
 2026-10-16T13:11:04 no statements posted yet
+2026-10-23T07:00:01 period 9/28/2026 - 10/11/2026; starting claude
+Posting the remaining six stores; waiting on results.
+
+Costa Mesa copy created; waiting.
+
+Costa Mesa is posted; still waiting on the other five.
+
+Huntington Beach copy created; continuing.
+
+Huntington Beach is posted. Four stores left.
+
+Hollywood copy created.
+
+Hollywood is posted. Three left: Lakewood, Riverside, and Santa Ana.
+
+Lakewood copy created.
+
+Waiting on Riverside and Santa Ana.
+
+I posted and approved all 7 Foodja Fees entries for 9/28 to 10/11/2026, dated 10/11/2026. Each one has its store's statement attached, and fees total 828.67.
+
+I reran the 1119 report through today. At 10/11 every store's balance equals its Amount Due. This period's Foodja payment hadn't landed as of today, so I couldn't yet check that it clears to zero.
+
+| Store | Entry | Fee | Amount Due | Sales difference (R365 vs Foodja) |
+|---|---|---|---|---|
+| Anaheim | 22.13 | 22.13 | 59.82 | 0.00 |
+| Costa Mesa | 141.70 | 38.26 | 103.44 | -141.70 |
+| Huntington Beach | 269.08 | 219.79 | 594.24 | +49.29 |
+| Hollywood | 266.22 | 195.59 | 528.83 | +70.63 |
+| Lakewood | 284.36 | 117.43 | 317.51 | +166.93 |
+| Riverside | 240.37 | 173.98 | 470.39 | -240.37 |
+| Santa Ana | 61.49 | 61.49 | 166.25 | -0.10 |
+
+The 828.67 in fees equals the statements' Restaurant Total less Amount Due.
+
+**Sales gaps for someone to look into.** Each entry posted with its gap on the 5915 difference line:
+- **Costa Mesa:** the 10/6 order for 141.70 never reached R365 sales at all.
+- **Riverside:** the 10/2 order for 239.98 is missing. The 9/29 order is 259.40 at Foodja but was booked as 259.01.
+- **Lakewood:** R365 has sales on three days (10/5, 10/6, 10/8) but Foodja shows only two orders, and the amounts don't match.
+- **Hollywood, Huntington Beach, Santa Ana:** each booked one order at a different amount than Foodja's.
+
+**Lakewood needed a hand finish.** My batch of posts was stopped by a time limit partway through Lakewood. When I opened the entry it was already approved, so I attached the statement myself. The two stores after it posted normally on a rerun.
+
+`result.json` is in the work directory. I only previewed the Teams card; the scheduled wrapper sends it to Regina and marks the period done. All three browser sessions are closed. The next period, 10/12 to 10/25, is due on a later Friday run.
+2026-10-23T07:27:09 claude exited 0

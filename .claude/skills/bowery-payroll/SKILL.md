@@ -57,7 +57,7 @@ One file, `<date> Bowery PAYROLL IMPORT FILE.csv`, holding all six locations, pl
 
 The builder stops rather than emitting anything that fails a check: an entry out of balance, an entry whose total misses the GL total, live checks that exceed a run's net payroll, a parse missing the Net Pay Report's own stated count and total, or a client id with no location mapped.
 
-A live check numbered with a single digit, like check `1`, is a manual check already paid outside the payroll run, by hand or by Zelle. The builder posts it to **110-02 Manual Checks** with the comment `MC <check #>`, never to the net payroll cash account.
+A live check numbered with a single digit, like check `1`, is a manual check already paid outside the payroll run, by hand or by Zelle. The builder posts it to **110-02 Manual Checks** with the comment `MC <check #> <employee>`, never to the net payroll cash account.
 
 It also stops when `--checks` is absent. The period posts **with** its live checks broken out, one line per check number, and a missing flag would otherwise bury them in a single line that still balances. `--no-checks` builds without them and has to be asked for.
 
@@ -163,7 +163,7 @@ No human answers during the run, so:
 - Build from the copies and attach the copies. Take the date from the reports' footer; a footer that disagrees with the prompt's week ending fails the run.
 - Six entries already dated the period ending mean the week was posted by hand: import nothing, and still attach, approve and file what is missing.
 - A builder stop, or a prior-period comparison with any mismatch outside the expected five, fails the run before import: write `result.json` with `status` `failed` and the reason in `note`, and leave the files in place.
-- A live check numbered with a single digit is a manual check. The builder already posts it to 110-02 as `MC <check #>`; post it as built and name it in `warnings`.
+- A live check numbered with a single digit is a manual check. The builder already posts it to 110-02 as `MC <check #> <employee>`; post it as built and name it in `warnings`.
 - After import, approve only when every location passes **Verify** and carries its attachments. Otherwise leave all six Unapproved, set `status` to `posted-unapproved`, and name each failing location in `warnings`.
 - File only once all six read Approved, with `file-week.sh` and the prompt's manifest.
 

@@ -94,16 +94,16 @@ function readGL(file) {
   return out;
 }
 
-// Net Pay Report -> [{num, amount}]. Each printed line carries up to two
-// checks as "<date> [P] <check #> <amount>".
+// Net Pay Report -> [{num, amount, name}]. Each printed line carries up to two
+// checks as "<employee> <EE#> <date> [P] <check #> <amount>".
 function readChecks(dir, id, kind) {
   const f = path.join(dir || '.', id + '-' + kind + '.txt');
   if (!fs.existsSync(f)) return { checks: [], stated: null };
   const txt = fs.readFileSync(f, 'utf8');
   const checks = [];
   for (const line of txt.split(/\r?\n/))
-    for (const m of line.matchAll(/\b\d{2}\/\d{2}\/\d{4}\s+(?:P\s+)?(\d{1,7})\s+([\d,]+\.\d\d)/g))
-      checks.push({ num: m[1], amount: money(m[2]) });
+    for (const m of line.matchAll(/([^\d\s][^\d]*?)\s+\d+\s+\d{2}\/\d{2}\/\d{4}\s+(?:P\s+)?(\d{1,7})\s+([\d,]+\.\d\d)/g))
+      checks.push({ num: m[2], amount: money(m[3]), name: m[1].replace(/\s+/g, ' ').trim() });
   const s = txt.match(/TOTAL TRANSACTIONS[^\n]*?(\d+)\s+TOTAL\s+([\d,]+\.\d\d)/);
   return { checks, stated: s ? { count: +s[1], amount: money(s[2]) } : null };
 }
@@ -173,8 +173,8 @@ for (const id of Object.keys(LOC)) {
     if (net.length && dd > 0) lines.splice(netIndex, 0, { account: cash, debit: 0, credit: dd, comment: 'NET PAYROLL' });
     // single-digit check # = manual check already paid outside the run
     for (const c of mine) checkLines.push(/^\d$/.test(c.num)
-      ? { account: MANUAL_CHECKS, debit: 0, credit: c.amount, comment: 'MC ' + c.num }
-      : { account: cash, debit: 0, credit: c.amount, comment: c.num });
+      ? { account: MANUAL_CHECKS, debit: 0, credit: c.amount, comment: 'MC ' + c.num + ' ' + c.name }
+      : { account: cash, debit: 0, credit: c.amount, comment: c.num + ' ' + c.name });
     return { checks: mine.length, agency: theirs.length, dd: dd / 100, netTotal: netTotal / 100, checkTotal: checkTotal / 100 };
   };
 

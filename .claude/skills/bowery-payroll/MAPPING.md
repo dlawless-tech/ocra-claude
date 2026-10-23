@@ -58,7 +58,7 @@ Everything else stays as the GL wrote it, including rows that repeat an account 
 net payroll to post = NET PAYROLL + PARTIAL DIRECT DEPOSITS - the run's live checks
 ```
 
-A partial direct deposit is a direct deposit, and a live check is drawn against the pair rather than against either one, so the two GL rows combine. That one line carries the comment `NET PAYROLL`. Each live check then gets its own credit line on the same cash account, commented with the **check number alone**, matching `48537`. Bank reconciliation is what wants them separate, so an entry that lumps them balances and still fails its purpose.
+A partial direct deposit is a direct deposit, and a live check is drawn against the pair rather than against either one, so the two GL rows combine. That one line carries the comment `NET PAYROLL`. Each live check then gets its own credit line on the same cash account, commented with the **check number and the employee** as the Net Pay Report prints them, matching `48623 Choguaj, Edwin`. A manual check reads `MC 1 Mejias, Andy`. Bank reconciliation is what wants them separate, so an entry that lumps them balances and still fails its purpose.
 
 The live checks come from the **Net Pay Report** inside the entity's reports zip, read through `pdftotext -table`. `-layout` shifts the amount column down one row on these reports, silently pairing every check number with its neighbour's amount. The report's own `TOTAL TRANSACTIONS` line states the count and total, and the parse has to match both.
 
