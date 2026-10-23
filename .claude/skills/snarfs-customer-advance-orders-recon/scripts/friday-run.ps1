@@ -1,4 +1,4 @@
-# Task Scheduler entry point, Fridays 11:00. Reconciles 20100 through yesterday and posts the result to the TPD channel. Posts no entries.
+# Task Scheduler entry point, Fridays 11:00. Reconciles 20100 for the Monday-Sunday week ended last Sunday, carrying in the prior week's open orders, and posts the result to the TPD channel. Posts no entries.
 # usage: friday-run.ps1 [-Date yyyy-MM-dd] [-Force]
 # -Date stands in for today's date. One marker per week, so a rerun does nothing without -Force.
 param([string]$Date, [switch]$Force)
@@ -10,10 +10,10 @@ $Claude = "$env:USERPROFILE\.local\bin\claude.exe"
 $Bash = 'C:\Program Files\Git\bin\bash.exe'
 
 $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else { (Get-Date).Date }
-$end = $today.AddDays(-1)
-# GL from the first of last month; Toast a month earlier, for the payments behind the opening balance
-$glStart = (Get-Date -Year $end.Year -Month $end.Month -Day 1).Date.AddMonths(-1)
-$toastFrom = $glStart.AddMonths(-1)
+$end = $today.AddDays(-(([int]$today.DayOfWeek + 6) % 7 + 1))
+$glStart = $end.AddDays(-6)
+$toastFrom = $glStart
+$prior = Join-Path $Repo (".scratchsnarfs-advance-orderswk{0:MMdd}econ.json" -f $end.AddDays(-7))
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
@@ -24,6 +24,7 @@ function Log($m) { "$(Get-Date -Format s) $m" | Out-File -Append -Encoding utf8 
 $title = "Snarf's customer advance orders, 20100 through $(D $end)"
 
 $marker = Join-Path $run 'started.txt'
+if (-not (Test-Path $prior)) { & $Notify -Title "$title not run" -Lines @("No prior week recon at $prior. Run the missing week first."); exit 1 }
 if ((Test-Path $marker) -and -not $Force) { exit 0 }
 Set-Content -Encoding utf8 $marker "started $(Get-Date -Format s)"
 
@@ -48,6 +49,7 @@ Work directory: $run
 End date: $(Iso $end)
 GL start: $(D $glStart)
 Toast from: $(Iso $toastFrom)
+Prior recon: $prior
 "@
 Log "starting claude"
 Cd $Repo

@@ -1,18 +1,26 @@
 // Tie 20100 Customer Advance Orders to Toast by store, and bridge each store's GL balance to its open advance orders.
-// usage: node recon.js <gl.json> <toast.json> <end YYYY-MM-DD> <out.json>
+// usage: node recon.js <gl.json> <toast.json> <end YYYY-MM-DD> <out.json> [prior recon.json]
+// With a prior recon (ending the day before the GL starts), its open orders carry in, and only Toast payments from the GL start on are used.
 // An advance payment (paid on a day before its order's day) is a GL credit on the paid day and a debit on the order day,
 // at amount + tip + gratuity. Payments made after the order day are late: the DSS books them unevenly, so they are listed apart.
 const fs = require('fs');
-const [glF, tF, END, outF] = process.argv.slice(2);
+const [glF, tF, END, outF, priorF] = process.argv.slice(2);
 const STORE = { MX: '1 - MX', SLU: '2 - SLU', Skinker: '3 - Skinker', 'Maryland Heights': '4 - Page', Fenton: '5 - Fenton', Kirkwood: '6 - Kirkwood', Chesterfield: '7 - Spirit' };
 const iso = s => { const [m, d, y] = s.split(' ')[0].split('/'); return `${y.length == 2 ? '20' + y : y}-${m.padStart(2, '0')}-${d.padStart(2, '0')}`; };
 const r2 = n => Math.round(n * 100) / 100;
 const sum = (a, f = x => x.liab) => r2(a.reduce((s, x) => s + f(x), 0));
 const gl = JSON.parse(fs.readFileSync(glF)).map(x => ({ ...x, store: x.loc.replace(/^Snarf's Sandwiches /, ''), day: iso(x.d) }));
-const pays = JSON.parse(fs.readFileSync(tF)).filter(x => x.status != 'VOIDED' && x.status != 'DENIED')
+// business day: before 4am belongs to the prior day
+const bd = s => { const m = s.match(/(\d+)\/(\d+)\/(\d+) (\d+):(\d+) (AM|PM)/); const h = +m[4] % 12 + (m[6] == 'PM' ? 12 : 0); const d = new Date(Date.UTC(2000 + +m[3] % 100, m[1] - 1, +m[2])); if (h < 4) d.setUTCDate(d.getUTCDate() - 1); return d.toISOString().slice(0, 10); };
+let pays = JSON.parse(fs.readFileSync(tF)).filter(x => x.status != 'VOIDED' && x.status != 'DENIED')
   .map(x => ({ ...x, store: STORE[x.loc], liab: r2(x.amt + x.tip + x.grat), adv: x.paidBd < x.orderBd }));
 const unknown = [...new Set(pays.filter(x => !x.store).map(x => x.loc))]; if (unknown.length) console.log('UNMAPPED Toast stores:', unknown.join(', '));
 const START = gl.reduce((m, x) => x.day < m ? x.day : m, '9999');
+if (priorF) {
+  const prior = JSON.parse(fs.readFileSync(priorF)), next = new Date(Date.parse(prior.end) + 864e5).toISOString().slice(0, 10);
+  if (next > START) { console.log(`FAIL: prior recon ends ${prior.end}, after the GL starts ${START}`); process.exit(1); }
+  pays = pays.filter(x => x.paidBd >= next).concat(...prior.stores.map(s => s.open.map(o => ({ store: s.store, order: o.order, tab: o.name, paid: o.paid, ordered: o.ordered, other: o.type, liab: o.amt, paidBd: bd(o.paid), orderBd: bd(o.ordered), adv: true }))));
+}
 const item = x => ({ order: x.order, name: x.tab, paid: x.paid, ordered: x.ordered, type: x.other || x.type, amt: x.liab });
 const out = { start: START, end: END, stores: [] };
 for (const store of Object.values(STORE)) {

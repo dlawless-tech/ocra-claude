@@ -1,6 +1,6 @@
 ---
 name: snarfs-customer-advance-orders-recon
-description: Reconcile Snarf's 20100 Customer Advance Orders in Restaurant365 (snarfsstl) to Toast by store at month end, bridging each store's GL balance to its open advance orders, explaining every day the DSS booked differently from Toast, and clearing the residue. Use when asked to run the Snarf's customer advance orders recon, to tie out Snarf's 20100 or advance order deposits to Toast, or for Snarf's true advance order balances at a month end.
+description: Reconcile Snarf's 20100 Customer Advance Orders in Restaurant365 (snarfsstl) to Toast by store each Monday-to-Sunday week, bridging each store's GL balance to its open advance orders, explaining every day the DSS booked differently from Toast, and clearing the residue. Use when asked to run the Snarf's customer advance orders recon, to tie out Snarf's 20100 or advance order deposits to Toast, or for Snarf's true advance order balances at a week end.
 ---
 
 # Snarf's customer advance orders recon
@@ -9,7 +9,7 @@ A customer pays for a catering or scheduled order before the order's day. Each s
 
 The GL amount is the payment's amount + tip + gratuity. Voided and denied payments drop out. A business day starts at 4 AM.
 
-The recon runs at **month end**, and the clearing entry is dated the month end, so October activity stays in October. The first run, for 9/30/26, cleared everything from 6/1 on; each later month starts from a tied balance.
+The recon runs **weekly**, Monday to Sunday, and any clearing entry is dated the Sunday. Each week starts from the prior week's `recon.json`: its open orders carry in as the opening true balance, so only the new week's GL and Toast payments are pulled. Old weeks are never reviewed again. The chain: 9/30/26 tied from 6/1 on; 10/1 to 10/18 caught up in `wk1018`; weekly from 10/19. Each week lives in `.scratch/snarfs-advance-orders/wk<MMDD of the Sunday>/`.
 
 Work from one fixed scratch folder for the whole run (`.scratch/snarfs-advance-orders`), since `playwright-cli` binds sessions to the folder and the scripts write their files there. `<scripts>` is this skill's `scripts/` folder.
 
@@ -29,13 +29,15 @@ Toast runs in its own headed session. Open the sign-in page and have the human s
 playwright-cli -s=snt open --headed https://www.toasttab.com/restaurants/admin/home
 ```
 
+The Toast login spans many OCRA clients and lands on whichever restaurant was used last (often 3Natives). After every sign-in, open the top bar's restaurant picker, search `Snarf's Sandwiches - MX` and pick it. The Payments report returns the other client's data otherwise. `toast-login.sh` does this switch itself and fails when Snarf's is missing from the picker.
+
 ## Run
 
-`<end>` is the month end. Start the GL at the first of the month before it, and Toast about a month earlier still, so the payments behind the opening balance are covered.
+`<end>` is the Sunday, and `<start>` the Monday before it. The GL and Toast both run `<start>` to `<end>`, and `<prior>` is the prior week's `recon.json` (`wk<MMDD of the Sunday before>`). A missing prior week is run first, the same way.
 
 1. **GL.** `UNAPPROVED=no ACCT="20100 - Customer Advance Orders" bash <scripts>/gl-detail.sh snf <start M/D/YYYY> <end M/D/YYYY> gl.csv`, then `node <scripts>/gl-parse.js gl.csv gl.json`. Approved entries only, so the balances are the balance sheet's. It prints each store's opening balance, row count, and closing balance. Every line is a DSS journal entry with no comment, except earlier `20100 Recon` entries.
 2. **Toast.** `bash <scripts>/toast-advance.sh snt <from YYYY-MM-DD> <end YYYY-MM-DD> toast.json`. It pulls Toast's Payments report for all seven stores in two-week chunks of paid dates, and keeps each payment whose paid day differs from its order's day. A chunk takes 2 to 15 minutes, so run it in the background. A failed chunk is retried, and a rerun resumes at the first missing `toast-chunk-*.json`. Delete those files to pull fresh.
-3. **Recon.** `node <scripts>/recon.js gl.json toast.json <end YYYY-MM-DD> recon.json`. Per store, it prints the GL balance, the true balance, and the difference split three ways: carried in at the start, day exceptions, and unexplained. **Unexplained must be 0.00.** If it is not, a GL line or a Toast chunk is missing; find it before going on. `recon.json` also carries each store's `months`: GL, true balance, and difference at every month end.
+3. **Recon.** `node <scripts>/recon.js gl.json toast.json <end YYYY-MM-DD> recon.json <prior>`. Per store, it prints the GL balance, the true balance, and the difference split three ways: carried in at the start (the prior week's uncleared difference), day exceptions, and unexplained. **Unexplained must be 0.00.** If it is not, a GL line or a Toast payment is missing; find it before going on. `recon.json` also carries each store's `months`: GL, true balance, and difference at every month end.
 4. **Explain** every day exception, below.
 5. **Workbook.** `powershell -File <scripts>/workbook.ps1 -Recon recon.json -Out "C:\Users\trici\OCRA\Snarf's - General\Reports\Customer Advance Orders\Snarfs Customer Advance Orders Recon <end YYYY-MM-DD>.xlsx"`. It writes Summary and By month tabs, plus one tab per store with its open orders and day exceptions.
 6. **Report** each store's GL, true balance, and difference, with the cause of each difference, and the clearing plan from step 1 of Clearing. Clear only after the human approves it.
@@ -61,14 +63,14 @@ Unapproving or deleting an approved entry needs the human's explicit OK for that
 
 ## Unattended run
 
-`<scripts>/friday-run.ps1` runs from Task Scheduler on Fridays at 11:00 (`<scripts>/register-task.ps1` sets it up). It reconciles through Thursday, in `.scratch/snarfs-advance-orders/wk<MMDD>/`, and writes `started.txt` there so a week runs once (`-Force` reruns, `-Date yyyy-MM-dd` stands in for today).
+`<scripts>/friday-run.ps1` runs from Task Scheduler on Fridays at 11:00 (`<scripts>/register-task.ps1` sets it up). It reconciles the Monday-to-Sunday week ended the Sunday before, in `.scratch/snarfs-advance-orders/wk<MMDD of the Sunday>/`, and posts a not-run card when the prior week's `recon.json` is missing. It writes `started.txt` there so a week runs once (`-Force` reruns, `-Date yyyy-MM-dd` stands in for today).
 
-The wrapper opens Toast first with `toast-login.sh sntu 3600`, on the saved profile `~/.claude/playwright-profiles/snarfs-toast`. When Toast asks for a sign-in, it posts a card to the TPD channel tagging the code contact (Tricia), and waits up to 60 minutes. No sign-in posts a "not run" card and stops. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the work directory, end date, GL start and Toast start.
+The wrapper opens Toast first with `toast-login.sh sntu 3600`, on the saved profile `~/.claude/playwright-profiles/snarfs-toast`. When Toast asks for a sign-in, it posts a card to the TPD channel tagging the code contact (Tricia), and waits up to 60 minutes. No sign-in posts a "not run" card and stops. Then it starts this skill headless with a prompt beginning `Unattended run`, naming the work directory, end date, GL start, Toast start and prior recon.
 
 No human answers during the run, so:
 
 - Run every `playwright-cli` and script call from the work directory, where `sntu` is already signed in. Log R365 in as `snfu` with `r365-login.sh`. A login that keeps bouncing means someone is in R365 as the same user: fail the run with that note.
-- Run steps 1 to 5 of Run, using the dates in the prompt. Post nothing, clear nothing, and approve nothing; the run only reports.
+- Run steps 1 to 5 of Run, using the dates and prior recon in the prompt. Post nothing, clear nothing, and approve nothing; the run only reports.
 - Explain each store's difference with the causes in Reading day exceptions, one short line per cause with its date and amount, reading DSS entries where needed.
 - Close `snfu` and `sntu`, then write `result.json` in the work directory. The wrapper posts it to the TPD channel through `<scripts>/notify-teams.ps1`, tagging Collin Heyerdahl, and posts a failure when the file is missing.
 
