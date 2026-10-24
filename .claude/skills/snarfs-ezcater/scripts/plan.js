@@ -7,6 +7,9 @@
 const path = require('path');
 const [, , G, O, F, L] = process.argv;
 const gl = require(path.resolve(G)), orders = require(path.resolve(O));
+const advances = require('./advances.json');
+// EZ order rung in Toast at another store; the paying deposit credits its full total there and books its fee
+const moved = require('./order-stores.json');
 const stores = Object.fromEntries(Object.entries(require('./stores.json')).filter(([k]) => !k.startsWith('_')).map(([k, v]) => [k, v[0]]));
 const r2 = v => Math.round(v * 100) / 100;
 const ct = iso => { const [m, d, y] = new Date(iso).toLocaleDateString('en-US', { timeZone: 'America/Chicago' }).split('/'); return Date.UTC(+y, m - 1, +d) / 864e5; };
@@ -34,7 +37,8 @@ function pairAll(rows, os) {
     for (let k = j + 1; k < c.length; k++) if (Math.abs(sum([c[i], c[j], c[k]]) - amt) <= tol([c[i], c[j], c[k]])) return [c[i], c[j], c[k]]; } return null; };
   const near = (c, amt) => { const one = c.filter(o => Math.abs(o.total - amt) <= 0.10 * o.total).sort((p, q) => Math.abs(p.total - amt) - Math.abs(q.total - amt))[0];
     return one ? [one] : subset(c, amt, l => 0.10 * sum(l)); };
-  const adj = rows.filter(r => !sale(r) && !deposit(r) && !ours(r) && !prior(r) && r.amt < 0);
+  // a credit line inside a DSS counts too
+  const adj = rows.filter(r => !deposit(r) && !ours(r) && !prior(r) && r.amt < 0);
   for (const r of adj) {
     const o = rows.filter(x => sale(x) && !x.reversed && x.day <= r.day && Math.abs(x.amt + r.amt) <= 0.01).pop();
     if (o) { o.reversed = r.number + ' ' + r.date; r.reversed = o.number + ' ' + o.date; }
@@ -51,7 +55,7 @@ function pairAll(rows, os) {
 function store(s) {
   // a hand fee entry closes the week before its date (Page's 8/31/2026 entry is August's)
   const rows = (gl[s] || []).map(r => ({ ...r, amt: r2(r.debit - r.credit), day: md(r.date) - (prior(r) ? 1 : 0) }));
-  const os = orders.filter(o => loc(o.store) === s && o.status !== 'cancelled').map(o => ({ ...o, sub: ct(o.sub_at), ev: ct(o.at) }));
+  const os = orders.filter(o => (moved[o.order] || loc(o.store)) === s && o.status !== 'cancelled').map(o => ({ ...o, due: moved[o.order] ? o.total : o.due, sub: ct(o.sub_at), ev: ct(o.at) }));
   pairAll(rows, os);
   // each row in pieces by week: a paired sale splits over its orders by their totals and goes with each one's delivery
   // week; an unpaired sale goes with the order placed within a day of it and closest in amount; the rest stay in the week of their date
@@ -98,7 +102,10 @@ for (const s of Object.keys(stores)) {
     for (const r of act) if (r.reduced) warnings.push(`R365 sale ${r.date} ${r.number} reduced by ${r.reduced.toFixed(2)} for a cancelled order`);
     for (const r of act) if (!sale(r)) warnings.push(`${r.date} ${r.number} ${r.comment} ${r.amt.toFixed(2)} on 10150 nets with no sale, left in this week`);
     for (const o of wo) if (!o.sale) warnings.push(`EZ order ${o.order} ${fmt(o.ev)} ${o.total.toFixed(2)} has no R365 sale`);
-    out.push({ store: s, location: stores[s], date: fmt(w), A, prior: P, due, deposit: paid, fee, ar, diff,
+    // sale parked in 20100 by an earlier entry comes back to 42060 in its order's payout
+    const adv = advances.filter(a => a.store === s && wo.some(o => o.order === a.order));
+    const advance = r2(adv.reduce((t, a) => t + a.amount, 0));
+    out.push({ store: s, location: stores[s], date: fmt(w), A, prior: P, due, deposit: paid, fee, ar, diff, advance, advanceOrders: adv.map(a => a.order),
       orders: wo.map(o => ({ order: o.order, submitted: fmt(o.sub), delivered: fmt(o.ev), total: o.total, due: o.due, sale: o.sale ? o.sale.date + ' ' + o.sale.number + ' ' + o.sale.amt.toFixed(2) : null })),
       r365: act.map(r => ({ date: r.date, number: r.number, comment: r.comment, amount: r.amt, splitFrom: r.split })),
       netted: rows.filter(r => r.reversed && !sale(r) && r.week === w).map(r => r.date + ' ' + r.number + ' ' + r.amt.toFixed(2) + ' nets with ' + r.reversed),
@@ -107,7 +114,8 @@ for (const s of Object.keys(stores)) {
   // 10150 at the last Sunday, once planned entries replace this skill's entries from the first planned week on:
   // due on orders delivered by then and not paid yet, plus R365 sales already booked for orders delivered later
   const last = iso(L), first = iso(F) - 6;
-  const bal = r2(rows.filter(r => r.day <= last && (!ours(r) || r.day < first)).reduce((t, r) => t + r.amt, 0) - out.filter(p => p.store === s).reduce((t, p) => t + p.ar, 0));
+  // a recon credit that reduced a sale is already inside that sale's amount
+  const bal = r2(rows.filter(r => r.day <= last && (!ours(r) || r.day < first) && !(r.reversed || '').startsWith('part of')).reduce((t, r) => t + r.amt, 0) - out.filter(p => p.store === s).reduce((t, p) => t + p.ar, 0));
   const lastPaid = Math.max(-Infinity, ...rows.filter(r => deposit(r) && r.day <= last).map(r => r.day));
   const unpaid = r2(os.filter(o => o.ev <= last && sunday(o.ev) + 2 > lastPaid).reduce((t, o) => t + o.due, 0));
   // R365 rows dated by then that no planned week has taken: sale pieces for orders delivered later, reversals not yet netted
@@ -116,6 +124,8 @@ for (const s of Object.keys(stores)) {
     + rows.filter(r => r.reduced && r.day <= last).reduce((t, r) => t + r.reduced, 0)
     + rows.filter(r => r.reversed && r.reversed.startsWith('part of') && r.day <= last).reduce((t, r) => t + r.amt, 0)
     - rows.filter(r => r.reversed && r.reversed.startsWith('part of') && r.day <= last).reduce((t, r) => t + r.amt, 0));
-  check.push({ store: s, balAfter: bal, unpaid, ahead, off: r2(bal - unpaid - ahead) });
+  const lost = advances.filter(a => a.store === s && !os.some(o => o.order === a.order))
+    .map(a => `20100 advance ${a.amount.toFixed(2)} parked ${a.parked} for EZ order ${a.order}: order cancelled or outside orders.json`);
+  check.push({ store: s, balAfter: bal, unpaid, ahead, off: r2(bal - unpaid - ahead), ...(lost.length ? { warnings: lost } : {}) });
 }
 console.log(JSON.stringify({ entries: out, check }, null, 1));

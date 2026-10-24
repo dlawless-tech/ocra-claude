@@ -34,10 +34,10 @@ The first entries are the 8/23/2026 payout (go-live 8/19). Before them the only 
 **Orders.** The Partner Portal has no reports page; the orders come from the GraphQL API behind its order lists.
 
 ```bash
-bash <scripts>/ez-orders.sh sez <Sunday - 42 days YYYY-MM-DD> <Sunday + 30 days YYYY-MM-DD> orders.json
+bash <scripts>/ez-orders.sh sez <Sunday - 42 days YYYY-MM-DD> <Sunday + 90 days YYYY-MM-DD> orders.json
 ```
 
-Each order carries `store`, `sub_at`, `at` (event), `status`, `total` and `due` (Caterer Total Due). Cancelled orders come back with total and due 0. The span reaches back for orders submitted earlier and delivered after the week, which the check needs.
+Each order carries `store`, `sub_at`, `at` (event), `status`, `total` and `due` (Caterer Total Due). Cancelled orders come back with total and due 0. The span reaches back for orders submitted earlier and forward for orders delivered well after the week, which the check needs. An order placed weeks ahead whose delivery falls outside the span reads as a sale with no order, as Page's 7W4Y1M did in the 10/11/2026 run.
 
 **GL.** Run from go-live through today so the balance holds every deposit:
 
@@ -61,7 +61,11 @@ A weekly run passes the same Sunday twice; a catch-up passes a range. Per store 
 | `ez cater order total - caterer total due` | 70470 - EZ Cater Fees | order total - due, less the hand fee entry |
 | `r365 sales - ez cater order total` | 42060 - Customer Refund | the rest, debit if positive |
 
-**Pairing a sale with its orders**, in order: one order to within 0.10; two or three summing to it; the nearest order within 10%; two or three within 10% of their total. A sale pairs only with orders placed up to a day after it and delivered no earlier than a day before it. One sale covering orders in two payouts splits between them by order total. A recon credit (`20100 Recon`, "cancelled in Toast") cancels the earlier sale of the same amount, or reduces the sale whose remainder then pairs with its orders. A sale matching no order amount goes with the order placed within a day of it; one with no order near it stays in the payout of its date. 42060 then holds only real disagreements between R365 and EZ, and every one is named in the entry's `warnings`. Store and account ids live in `stores.json`.
+**Pairing a sale with its orders**, in order: one order to within 0.10; two or three summing to it; the nearest order within 10%; two or three within 10% of their total. A sale pairs only with orders placed up to a day after it and delivered no earlier than a day before it. One sale covering orders in two payouts splits between them by order total. A recon credit (`20100 Recon`, "cancelled in Toast") cancels the earlier sale of the same amount, or reduces the sale whose remainder then pairs with its orders. A sale matching no order amount goes with the order placed within a day of it; one with no order near it stays in the payout of its date. 42060 then holds only real disagreements between R365 and EZ, and every one is named in the entry's `warnings`.
+
+**Orders rung at another store.** When Toast rang an EZ order at a different store than EZ paid, the sale stays where Toast put it and the money follows it: in the paying store's Payoneer deposit, split the 10150 line, crediting the order's full total to 10150 at the selling store and debiting its fee to 70470 there, so the net stays the deposit. R365 makes the due to / due from entry itself (user, 10/24/2026). `plan.js` then treats the order's due as its total, so the selling store's entry books no fee for it. The order then goes in `scripts/order-stores.json` (`{"<order>": "<selling store>"}`), so `plan.js` books it with the selling store. MX's 10/20/2026 deposit BD027031 carries Skinker's YE1G6C this way: 10150 167.80 less 70470 34.08, of 369.62.
+
+**Advances.** An approved entry that already took a sale for a later delivery is fixed by moving that part of its 10150 credit to `20100 - Customer Advance Orders` (user, 10/24/2026), and the order goes in `scripts/advances.json` with its store, order, amount and the entry's date. The payout that carries the order then adds Dr 20100 / Cr 42060 for that amount, commented `advance ez order <order> delivered`. An advance whose order is cancelled or missing from `orders.json` shows in that store's `check.warnings`. Open now: Page 7W4Y1M 192.67, parked 10/11/2026, delivered 11/16/2026, so it clears in the 11/22/2026 entry. Store and account ids live in `stores.json`.
 
 **The check.** Every entry's `deposit` equals its `due`; a payout with no deposit yet, or a different one, is a warning. `plan.json` also holds `check`, one row per store at the last Sunday: 10150 after the planned entries equals the due still unpaid plus `ahead`, the R365 sales already booked for orders delivered later. `off` is 0 for every store; anything else is a misplaced deposit or an entry to fix (Kirkwood's 9/1/2026 Payoneer line sat in Spirit's deposit until 10/15/2026).
 

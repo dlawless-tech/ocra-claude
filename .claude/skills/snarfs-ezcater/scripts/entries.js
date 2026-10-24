@@ -10,6 +10,9 @@ const out = plan.map(p => {
     { account: ac.ar, comment: 'r365 ez cater sales - caterer total due', debit: ard, credit: arc },
     { account: ac.fees, comment: 'ez cater order total - caterer total due', debit: fd, credit: fc },
     { account: ac.difference, comment: 'r365 sales - ez cater order total', debit: dd, credit: dc }];
+  if (p.advance) lines.push(
+    { account: ac.advance, comment: 'advance ez order ' + p.advanceOrders.join(' ') + ' delivered', debit: p.advance, credit: 0 },
+    { account: ac.difference, comment: 'advance ez order ' + p.advanceOrders.join(' ') + ' delivered', debit: 0, credit: p.advance });
   const amount = +lines.reduce((t, l) => t + l.debit, 0).toFixed(2);
   return { key: p.store + '|' + p.date, store: p.store, date: p.date, r365loc: loc[0], locId: loc[1], source: st._source, amount, lines };
 });

@@ -45,5 +45,5 @@ playwright-cli -s=$S reload >/dev/null 2>&1; sleep 14
 V=$(playwright-cli -s=$S eval "$(cat "$HERE/read-model.js")" 2>&1 | res)
 echo "$LOC readback $V"
 # zero lines may be dropped on save, so a missing zero line passes
-node -e 'const e=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).find(x=>x.key===process.argv[2]);let v=JSON.parse(process.argv[3]);if(typeof v==="string")v=JSON.parse(v);if(v.date!==process.argv[4]||v.num!=="EZ Cater Fees")process.exit(2);for(const l of e.lines){const r=v.rows.find(r=>r[3]===l.account[0]);if(!l.debit&&!l.credit&&!r)continue;if(!r||Math.abs(r[1]-l.debit)>0.005||Math.abs(r[2]-l.credit)>0.005||r[4]!==e.r365loc)process.exit(3);}' "$EN" "$LOC" "$V" "$DT" || die "reload readback mismatch"
+node -e 'const e=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).find(x=>x.key===process.argv[2]);let v=JSON.parse(process.argv[3]);if(typeof v==="string")v=JSON.parse(v);if(v.date!==process.argv[4]||v.num!=="EZ Cater Fees")process.exit(2);for(const l of e.lines){const r=v.rows.find(r=>r[3]===l.account[0]&&r[0]===l.comment);if(!l.debit&&!l.credit&&!r)continue;if(!r||Math.abs(r[1]-l.debit)>0.005||Math.abs(r[2]-l.credit)>0.005||r[4]!==e.r365loc)process.exit(3);}' "$EN" "$LOC" "$V" "$DT" || die "reload readback mismatch"
 echo "$LOC SAVED $NEWID $TOT"
