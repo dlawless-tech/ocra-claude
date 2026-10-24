@@ -34,5 +34,8 @@ GOT=$(playwright-cli -s=$S eval "() => { const d=jQuery('#$G').data('kendoGrid')
 bash $SN $S ed.txt; playwright-cli -s=$S click $(ref 'button "Edit Complete"' ed.txt) >/dev/null 2>&1; sleep 3
 bash $SN $S ed.txt; R=$(grep 'button "Save"' ed.txt | grep -v disabled | tail -1 | grep -oE 'ref=[^]]*' | cut -d= -f2); playwright-cli -s=$S hover $R >/dev/null 2>&1; sleep 1
 X=$(playwright-cli -s=$S eval "() => { const li=Array.from(document.querySelectorAll('li')).find(l=>l.offsetParent&&/^Save/.test(l.innerText.trim())&&l.querySelector('ul')); if(!li) return 'none'; const it=Array.from(li.querySelectorAll('ul li a, ul li button, ul li')).filter(a=>a.innerText.trim()==='Save and Close'); if(!it.length) return 'none'; it[it.length-1].click(); return 'ok'; }" 2>&1 | res)
-[ "$X" = ok ] || fail "Save and Close not found"
-sleep 10; echo "SAVED $D"
+sleep 10
+# Edit Complete can save on its own and leave no Save menu; trust only the server copy
+V=$(playwright-cli -s=$S eval "async () => { const d=await fetch('/ServiceStack/GetTransactionDetails',{method:'POST',headers:{'content-type':'application/json; charset=UTF-8','accept':'application/json','x-r365-client-app':'angular'},body:JSON.stringify({transactionId:'$D',transactionType:0})}).then(r=>r.json()); return d.filter(x=>x.glAccount===$(jsq "$TO") && Math.abs(+x.$SIDE-$AMT)<0.005 && (x.comment||'').trim()===$(jsq "$NC").trim()).length; }" 2>&1 | res)
+[ "${V:-0}" -ge 1 ] || { echo "FAIL: server copy has no $TO $SIDE $AMT line (Save and Close: $X)"; exit 1; }
+echo "SAVED $D"

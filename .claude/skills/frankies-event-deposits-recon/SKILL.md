@@ -1,6 +1,6 @@
 ---
 name: frankies-event-deposits-recon
-description: Reconcile Frankies 457's event deposits and Tripleseat receivable in Frankie's Spuntino Restaurant365, week by week, keeping that week's tab of the Event Deposits & Tripleseat Receivable workbook tied to the GL and recoding Tripleseat event entries or bank deposits that book a payment to the wrong account. Use when asked to run the Frankies event deposit recon, update the Frankies 457 event deposits spreadsheet, or fix Frankies 2015 Event Deposits or 1242 Tripleseat Receivable.
+description: Reconcile Frankies 457's event deposits and Tripleseat receivable in Frankie's Spuntino Restaurant365, week by week, keeping that week's tab of the Event Deposits & Tripleseat Receivable workbook tied to the GL and recoding Tripleseat event entries or bank deposits that book a payment to the wrong account. Use when asked to run the Frankies event deposit recon, update the Frankies 457 event deposits spreadsheet, or fix Frankies 2015 Event Deposits or 1242 Tripleseat Receivable, or when the Thursday scheduled run starts it.
 ---
 
 # Frankies 457 event deposit recon
@@ -30,7 +30,7 @@ bash <scripts>/move-line.sh fk je <entry id> "2015 - Event Deposits" debit 22905
 bash <scripts>/move-line.sh fk bd <entry id> "2015 - Event Deposits" credit 25379.15 "" "1242 - Tripleseat Receivable" "8/28/26: Meredith & Paul Wedding"
 ```
 
-It opens the entry (the Adjustments tab for a bank deposit), clicks Edit, re-accounts the one line matching account, side, amount and comment, sets the optional new comment, reads the line back, then **Edit Complete** and **Save and Close**. The entry stays Approved. It prints `SAVED <id>`, or `FAIL:` with nothing saved. Recheck with `entries.sh`.
+It opens the entry (the Adjustments tab for a bank deposit), clicks Edit, re-accounts the one line matching account, side, amount and comment, sets the optional new comment, reads the line back, then **Edit Complete** and **Save and Close**. The entry stays Approved. It prints `SAVED <id>` only when the server copy carries the moved line, else `FAIL:`. Recheck with `entries.sh`. A `grid did not load` failure means R365 dropped to its login page: rerun `r365-login.sh` and retry once.
 
 ## Tips and post-event payments
 
@@ -54,7 +54,7 @@ R365 is `https://frankiesspuntino.restaurant365.com`, on the same login as dLena
 bash <scripts>/r365-login.sh fk
 ```
 
-The workbook is `c:\Users\trici\OCRA\Frankies Spuntino Group - General\Reports\2026 Frankies 457 Event Deposits & Tripleseat Receivable - Recon.xlsx`. Tabs run newest first, one per week, named for the week's Sunday (`09.27`), plus a month-end tab when the month ends midweek (`07.31`, then `08.02` for 8/1 to 8/2). A week runs Monday to Sunday.
+The workbook is `c:\Users\trici\OCRA\Frankies Spuntino Group - General\Reports\2026 Frankies 457 Event Deposits & Tripleseat Receivable - Recon.xlsx`. `Reports\Year End` holds kept copies only (see Month-end close); never write to them. The `Reports` file without `- Recon` is a stale 10/4 file. Tabs run newest first, one per week, named for the week's Sunday (`09.27`), plus a month-end tab when the month ends midweek (`07.31`, then `08.02` for 8/1 to 8/2). A week runs Monday to Sunday.
 
 A tab has two lists over rows 5 to the `Total` row:
 
@@ -62,6 +62,27 @@ A tab has two lists over rows 5 to the `Total` row:
 - the receivable in `G:I`: event date, name, amount. It starts on the row after the last deposit.
 
 A row cleared during the week keeps its place with its amount moved to `E` (deposits) or `J` (receivable), which keeps it out of the totals. The next week's tab drops it.
+
+## Every run covers two weeks
+
+Entries get backdated after a tab is written: on 10/24/2026 five bank deposits dated 10/5 to 10/9 had been added since the 10.11 tab was built. So every run first re-reconciles the prior week, then does the current week.
+
+1. **Lookback.** Run Steps 1 to 3 for the prior week against the tab before it (for current week 10.18: the 10/5 to 10/11 range against `10.04`). `glbeg.txt` must equal that older tab's totals. Build the replay into the scratch copy as `<prior tab>r` (Step 4), then compare it with the tab already there:
+
+   ```bash
+   node <scripts>/diff-tabs.js dumpw.txt 10.11 dumpw.txt 10.11r
+   ```
+
+   `SAME` means nothing changed: drop the `r` tab. Otherwise the replay replaces the tab, and each `only` row goes in the report with the entry behind it:
+
+   ```bash
+   powershell.exe -NoProfile -File "$(cygpath -w <scripts>/drop-tab.ps1)" -File "$(cygpath -w "$PWD/work.xlsx")" -Name "10.11" -Rename "10.11r"
+   ```
+
+   Recodes from Step 2 apply to the lookback week too; a recode changes the GL, so rerun Step 1 after it.
+2. **Current week.** Steps 1 to 4 from the refreshed prior tab, in the same `work.xlsx`. Move the lookback's `ops-*.json` aside first, since `plan.js` names them by day.
+
+Copy `work.xlsx` over the workbook once, at the end, only when the workbook still matches the copy taken at the start (`cmp`). A changed workbook means someone edited it during the run: stop and report.
 
 ## Step 1: the GL and its entries
 
@@ -113,6 +134,34 @@ node <scripts>/open-items.js dump.txt 09.27 9/27/2026
 ```
 
 Report the week's GL balances against the tab, every recode made, every `ISSUE`, and what `open-items.js` lists: deposits whose event has passed (an event entry is missing, or the deposit was booked twice), `TBD` and negative deposits, and open receivables. Then close the browser: `playwright-cli -s=fk close`.
+
+## Month-end close
+
+A week that crosses a month end gets its month-end tab first (through the month's last day, e.g. `10.31`), then the Sunday tab from it (`11.01` for 11/1). Once the human says the month is done, copy the workbook to `Reports\Year End\2026 Frankies 457 Event Deposits & Tripleseat Receivable - Recon - <Mon> 2026 Close.xlsx` (`Sept 2026 Close` is the model). The live workbook stays in `Reports`.
+
+## Unattended run
+
+`scripts/thursday-run.ps1` runs from Task Scheduler on Thursdays at 15:00 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the lookback week, the current week (the Monday to Sunday week that ended the Sunday before), their tabs and the work directory.
+
+No human answers during the run, so:
+
+- Never ask. `cd` into the work directory once, before opening any session, and run every command from there. Use session `fku` for R365, so an interactive run's `fk` session is left alone.
+- Tripleseat needs a texted passcode, so skip it. A payment R365 cannot place stays an `UNMATCHED` row (the tab still ties) and goes in `issues`.
+- Apply the coding rule's recodes (authorized) and list each in `recodes`. Never set or zero tips, never write off, never edit an event entry beyond the coding rule; put what needs one in `issues`.
+- A week that crosses a month end writes both tabs (Month-end close). Never make the Close copy; add `"<Mon> month-end tab written; Close copy waits for review"` to `openItems`.
+- A day that prints `OFF`, a `glbeg.txt` that differs from the tab before, or a workbook changed during the run: write no tab, set that week's `status` to `failed` with the reason in `note`.
+
+Close `fku` by name, then write `result.json` in the work directory. The wrapper posts it to the Event Sales Entry Teams channel through `scripts/notify-teams.ps1`:
+
+```json
+{ "weeks": [
+    { "weekEnding": "10/11/2026", "status": "rebuilt", "tab2015": 896324.38, "tab1242": 86078.86, "gl2015": 896324.38, "gl1242": 86078.86,
+      "changes": ["BD005076 10/7 40,000.00 Jimmy Kimmel Live Wrap paid 1242, added after the tab"] },
+    { "weekEnding": "10/18/2026", "status": "ties", "tab2015": 860364.26, "tab1242": 155397.40, "gl2015": 860364.26, "gl1242": 155397.40, "changes": [] } ],
+  "recodes": ["BD005080 19,779.87 Sophia & Alex 1242 -> 2015"], "issues": [], "openItems": ["Jose Ginarte 1,153.74 deposit, event 10/17 passed, no event entry"], "note": "" }
+```
+
+`status` is `unchanged` (lookback `SAME`), `rebuilt` (lookback replaced), `ties` (current week written) or `failed`. `openItems` holds `open-items.js` lines worth a look: passed-event deposits, short pays, receivables over 30 days. The webhook lives in `~/.claude/frankies-event-deposits.json`, outside the repo: `{"teamsWebhook", "mention": {"name","email"}, "mentionWhen": "always"|"attention"}`. It tags Collin Heyerdahl every week. `notify-teams.ps1 -DryRun` prints the card without posting. `done.txt` in the work directory marks a reported week; `-Force` reruns it and `-Date yyyy-MM-dd` stands in for today.
 
 ## Rulings
 
