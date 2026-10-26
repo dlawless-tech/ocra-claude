@@ -1,7 +1,7 @@
 # Task Scheduler entry point. Runs the skill unattended for the week that ended last Saturday, then posts to Teams.
-# usage: monday-run.ps1 [-Date yyyy-MM-dd] [-LastTry 10:30] [-Force]
+# usage: monday-run.ps1 [-Date yyyy-MM-dd] [-LastTry 11:00] [-Force]
 # A run held for short sales gets another try on the next trigger; the week is done once it posts or LastTry has passed.
-param([string]$Date, [string]$LastTry = '10:30', [switch]$Force)
+param([string]$Date, [string]$LastTry = '11:00', [switch]$Force)
 $ErrorActionPreference = 'Stop'
 
 $Repo = (Resolve-Path "$PSScriptRoot\..\..\..\..").Path

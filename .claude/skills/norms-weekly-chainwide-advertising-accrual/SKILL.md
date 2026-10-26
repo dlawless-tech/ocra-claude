@@ -78,6 +78,8 @@ If no entry carries the Saturday's date, open the prior week's and use **Action 
 
 Open the entry by its direct URL, `https://norms.restaurant365.com/#/form/JournalEntryForm/<TransactionId>`. The path depends on the entry's status; both set the lines the same way.
 
+From one entry to another, the `goto` changes only the hash and the form never loads, so `reload` after it. On 10/26/2026 the CSS-selector clicks on **Edit** and **Edit Complete** found nothing; a real click on the button's ref from a fresh snapshot worked. The ref line can carry `[active]` before `[ref=...]`.
+
 ### Setting the lines
 
 Set every line through the line grid's Kendo model. Match a debit line to its store by the location's name, the text after `<number> - `, which is how the report labels its columns:
@@ -120,7 +122,7 @@ Report a table of store, Total Net Sales, accrual, and posted amount, with the e
 
 ## Unattended run
 
-`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 6:30, 8:30 and 10:30 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending, the prior week ending, whether this is the last try, and the work directory. It writes `done.txt` once the week posts or the last try passes, so later triggers do nothing; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today and counts as the last try.
+`scripts/monday-run.ps1` runs from Task Scheduler on Mondays at 7:00, 9:00 and 11:00, starting 11/2/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the week ending, the prior week ending, whether this is the last try, and the work directory. It writes `done.txt` once the week posts or the last try passes, so later triggers do nothing; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today and counts as the last try.
 
 No human answers during the run, so:
 
