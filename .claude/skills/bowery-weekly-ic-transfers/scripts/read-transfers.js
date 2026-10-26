@@ -63,12 +63,14 @@ const hdrs = ['From', 'To', 'Amount'].map(col);
 const [cF, cT, cA] = hdrs.map(c => !filled(c) && !hdrs.includes(next(c)) && filled(next(c)) ? next(c) : c);
 
 const parties = ['Bowery', 'Cookshop', 'Shuka', "Rosie's", 'Shukette', "Vic's"];
-const norm = s => { const t = String(s).split('’').join("'"); return parties.find(p => p.toLowerCase() === t.toLowerCase()) || (/^rosies$/i.test(t) ? "Rosie's" : /^vics$/i.test(t) ? "Vic's" : null); };
+const norm = s => { const t = String(s).split('’').join("'"); return parties.find(p => p.toLowerCase() === t.toLowerCase()) || (/^rosies$/i.test(t) ? "Rosie's" : /^vics$/i.test(t) ? "Vic's" : /^bowery group( corp)?$/i.test(t) ? 'Bowery' : null); };
 const transfers = [];
 let stated;
 for (let r = row0 + 1; r < row0 + 40; r++) {
   const f = at(ic, cF, r), t = at(ic, cT, r), a = at(ic, cA, r);
   if (f === undefined && t === undefined) { if (typeof a === 'number') { stated = a; break; } continue; }
+  // free-text note under the rows ends the block (10/25/2026 B23)
+  if (t === undefined && a === undefined && !norm(f)) break;
   if (!norm(f) || !norm(t)) fail(`row ${r}: unknown party "${f}" -> "${t}"`);
   if (norm(f) === norm(t)) fail(`row ${r}: transfer from ${f} to itself`);
   if (typeof a !== 'number' || a < 0) fail(`row ${r}: amount "${a}"`);

@@ -35,7 +35,9 @@ The entry is dated the workbook's Week Ending, a Sunday, read from cell D5 of th
 node <skill>/scripts/read-transfers.js "<workbook>" > transfers.json
 ```
 
-The intercompany tab changes name and shape between weeks: `Intercompany payments` on 9/20/2026, `09.27 Intercompany Transfers` on 9/27/2026, with the entity columns reordered and renamed. The reader finds the tab by the word `Intercompany` in its name and the block by its `From` / `To` / `Amount` headers. A header can sit one column left of its data (10/4/2026: `From` in B16, the names in column C), and the reader then reads the column to its right. It stops on an unknown party, a transfer to itself, two transfers between the same parties, a balance sheet date that is not the week before, or transfers that miss the block's stated total. Zero-amount rows are dropped. The 9/27/2026 block carried no total row; the reader then warns and sums the rows.
+The intercompany tab changes name and shape between weeks: `Intercompany payments` on 9/20/2026, `09.27 Intercompany Transfers` on 9/27/2026, with the entity columns reordered and renamed. The reader finds the tab by the word `Intercompany` in its name and the block by its `From` / `To` / `Amount` headers. A header can sit one column left of its data (10/4/2026: `From` in B16, the names in column C), and the reader then reads the column to its right. It stops on an unknown party, a transfer to itself, two transfers between the same parties, a balance sheet date that is not the week before, or transfers that miss the block's stated total. Zero-amount rows are dropped. A row with free text in the From column and no To or Amount is a note and ends the block. `Bowery Group` names the corporate location and reads as Bowery. The block often carries no total row; the reader then warns and sums the rows, which is expected.
+
+**Post only the listed transfers.** The client picks what to settle each week, so balances on the balance sheet with no row in the block (10/25/2026: Shuka 207.61, Shukette 44.83, Vic's 387.80 against Bowery) stay open. Never add a transfer for them or warn about them. Store-to-store rows are routine.
 
 `transfers.json` holds the Bowery entry: every transfer with Bowery on one side, and `total`, the amount the All Transactions grid shows. A transfer between two stores posts as its own entry, listed under `separate` (see **Store-to-store transfers**).
 
@@ -65,7 +67,7 @@ An Approved entry dated the Week Ending means the week is done; stop and report 
 
 ## Store-to-store transfers
 
-A transfer between two stores, with Bowery on neither side, posts as a separate Journal Entry numbered `Intercompany Transfers - <To>/<From>`, header location the To store, holding that transfer's two lines. The 9/13 and 9/20/2026 weeks each carried `Intercompany Transfers - Shuka/Shukette` at `400 - Shuka`: credit Shukette cash @ 600 - Shukette, debit Shuka cash @ 400 - Shuka, comment `Shukette -> Shuka Transfer`.
+A transfer between two stores, with Bowery on neither side, posts as a separate Journal Entry numbered `Intercompany Transfers - <To>/<From>`, header location the To store, holding that transfer's two lines. Any store pair can transfer, in either direction; a reversed pair takes the new <To>/<From> number. The 9/13 and 9/20/2026 weeks each carried `Intercompany Transfers - Shuka/Shukette` at `400 - Shuka`: credit Shukette cash @ 600 - Shukette, debit Shuka cash @ 400 - Shuka, comment `Shukette -> Shuka Transfer`.
 
 For each entry under `separate`, write its own file and run Steps 3 to 6 against it, duplicating the prior entry for the same pair and numbering the copy with its `number`:
 
