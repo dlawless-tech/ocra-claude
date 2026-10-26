@@ -27,8 +27,18 @@ function loadCsv(p) {
   });
 }
 
+// stores whose every bonus posts to 5325 Incentive Bonus, comment kept
+const BONUS_5325 = new Set(['370']);
+const BONUS = new Set(['6030', '6010', '5230']);
+
 // see MAPPING.md
 function mapRow(r) {
+  const t = mapAcct(r);
+  if (BONUS_5325.has(t.loc) && BONUS.has(t.acct)) t.acct = '5325';
+  return t;
+}
+
+function mapAcct(r) {
   const a = r.acct, m = (r.memo || '').toUpperCase();
   if (a === '5210') return /SIGN ON BONUS/.test(m) ? { acct: '6030', cm: 'sign on bonus', loc: r.loc }
     : /REFERRAL BONUS/.test(m) ? { acct: '6030', cm: 'referral bonus', loc: r.loc }
