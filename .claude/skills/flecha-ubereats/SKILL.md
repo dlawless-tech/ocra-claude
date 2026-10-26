@@ -21,7 +21,7 @@ Header and both line comments name the basis: `Uber Eats fees estimate: sales 10
 
 ## Start date
 
-The first week is **8/30/2026**. Weeks 8/30 to 10/4 were posted at actual on 10/13/2026 and their 1235 lines taken out of the Corporate `3rd Party` entries; the 8/24 `3rd Party Cleanup` clears what 1235 held before that. `flecha-3rd-party`'s `estimate.js` leaves 1235 out from 8/30, so a `3rd Party` entry dated 8/30 or later with a 1235 line books the Uber fee twice: report it and leave it for the human.
+The first week is **10/11/2026**, an estimate. Weeks through 10/4 stay in the Corporate `3rd Party` entries at 30% of sales, and the 8/24 `3rd Party Cleanup` sizes 1235 against 10/4 open sales. Never post an Uber Eats entry dated before 10/11. `flecha-3rd-party`'s `estimate.js` leaves 1235 out from 10/11, so a `3rd Party` entry dated 10/11 or later with a 1235 line books the Uber fee twice: report it and leave it for the human.
 
 With no prior Uber Eats entry, seed `sources.txt` from `flecha-doordash`'s **Latest entries** table; `post-entry.sh` moves a DoorDash source's 1239 line to 1235.
 
@@ -72,7 +72,7 @@ No human answers during the run, so:
 - Seed `ids.txt` and `sources.txt` from the prior week's `ids.txt` when it exists, else as **Start date** says for the first run. This run's `ids.txt` must end holding every store-week posted in both Sundays, since the next run seeds from it.
 - A rejected login, an unreadable report, or a `build-lines.js` STOP posts nothing: status `failed`, with the reason in `note`.
 - A `FAIL` from `run-weeks.sh` is `failed`, with the store, week and any id left unapproved in `warnings`. Leave it.
-- Post the week, and add a warning, for a store under 5 DSS days, a fee outside 35% to 70% of sales, an HB or Town Square week with no deposit, or a `3rd Party` entry from 8/30 on carrying 1235.
+- Post the week, and add a warning, for a store under 5 DSS days, a fee outside 35% to 70% of sales, an HB or Town Square week with no deposit, or a `3rd Party` entry from 10/11 on carrying 1235.
 - The known open items go in `notes`, which post untagged: 4S's SC FC4SR deposit amount and NB's `no deposit` week. Anything else that needs a ruling goes in `questions`, which tags.
 
 Finish with **Verifying the run**, close `fue`, then write `result.json` in the work directory. The wrapper posts it to the Flecha TPD channel through `scripts/notify-teams.ps1` (`-DryRun` prints the card), and reports a failure when the file is missing:
@@ -89,4 +89,4 @@ Finish with **Verifying the run**, close `fue`, then write `result.json` in the 
 
 Rerun `gl-detail.sh` and read 1235 by store: a trued-up week's sales less its deposits less its `Uber Eats` credit is 0.00, and an estimated week's credit equals its estimate. All Transactions, Number contains `uber`, shows one `Uber Eats` row per store per Sunday, Approved, with `fee` as its Amount.
 
-Report a table per store: the prior Sunday's estimate, its actual and the change, then the new Sunday's sales, rate and estimate, with every `no deposit` week and 4S's SC FC4SR amount called out, then any `3rd Party` entry from 8/30 on still carrying 1235. Close the session by name: `playwright-cli -s=fue close`. Other skills run their own sessions on this machine, so never use `kill-all` or `close-all`.
+Report a table per store: the prior Sunday's estimate, its actual and the change, then the new Sunday's sales, rate and estimate, with every `no deposit` week and 4S's SC FC4SR amount called out, then any `3rd Party` entry from 10/11 on still carrying 1235. Close the session by name: `playwright-cli -s=fue close`. Other skills run their own sessions on this machine, so never use `kill-all` or `close-all`.

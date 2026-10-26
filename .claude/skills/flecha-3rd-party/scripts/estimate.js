@@ -8,8 +8,8 @@ const ids = require('./ids.js');
 const RATE = +(process.env.RATE || 0.30), pct = (RATE * 100).toFixed(0) + '%';
 const md = D => `${D.getMonth() + 1}/${D.getDate()}`;
 const money = n => n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-// Uber Eats (1235) belongs to flecha-ubereats from 8/30/2026, Foodja (1238) to flecha-foodja from 10/4/2026
-const OUT = { 1235: new Date(2026, 7, 30), 1238: new Date(2026, 9, 4) };
+// Uber Eats (1235) belongs to flecha-ubereats from 10/11/2026, Foodja (1238) to flecha-foodja from 10/4/2026
+const OUT = { 1235: new Date(2026, 9, 11), 1238: new Date(2026, 9, 4) };
 const accts = mon => Object.keys(ids.accounts).filter(a => !OUT[a] || mon < OUT[a] - 6 * 864e5);
 const data = Object.fromEntries(Object.keys(ids.accounts).filter(a => fs.existsSync(`gl${a}.txt`)).map(a => [a, rows(`gl${a}.txt`)]));
 for (const S of process.argv.slice(2)) {

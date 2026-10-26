@@ -14,7 +14,7 @@ credit  1237 - AR - EZ Cater              EZ Cater sales x 30%
 debit   7161 - Delivery Fees              sum of the store's credits
 ```
 
-A store or account with no sales that week gets no line. Negative sales flip the line's side. DoorDash (1239) and Grubhub (1242) left this entry on 8/30/2026, and Uber Eats (1235) on 8/30/2026 (taken out of the 8/30 to 10/4 entries on 10/13/2026), and Foodja (1238) on 10/4/2026 (taken out of the 10/4 and 10/11 entries on 10/20/2026), for `flecha-doordash`, `flecha-grubhub`, `flecha-ubereats` and `flecha-foodja`; a 3rd Party entry carrying 1239 or 1242, or 1235 from 8/30 on, or 1238 from 10/4 on, books that fee twice. `estimate.js` drops 1235 from weeks ending 8/30/2026 or later and 1238 from 10/4/2026 or later.
+A store or account with no sales that week gets no line. Negative sales flip the line's side. DoorDash (1239) and Grubhub (1242) left this entry on 8/30/2026, and Uber Eats (1235) on 10/11/2026, and Foodja (1238) on 10/4/2026 (taken out of the 10/4 and 10/11 entries on 10/20/2026), for `flecha-doordash`, `flecha-grubhub`, `flecha-ubereats` and `flecha-foodja`; a 3rd Party entry carrying 1239 or 1242, or 1235 from 10/11 on, or 1238 from 10/4 on, books that fee twice. `estimate.js` drops 1235 from weeks ending 10/11/2026 or later and 1238 from 10/4/2026 or later.
 
 | GL store | Location |
 |---|---|
@@ -74,7 +74,7 @@ for a in 1235 1237 1238; do BYLOC=1 bash <skill>/scripts/gl.sh f3p $a 8/24/2026 
 node <skill>/scripts/cleanup.js <Sunday> 8/24/2026
 ```
 
-Run it after the Sunday's estimate is posted, since the pull counts unapproved entries. It writes `cleanup.json` in the weekly format for `post-week.sh`. Posted 10/6/2026 as `38cd459b-b855-47ec-a85b-49650755e11c`, 28,960.80 net to 1210, sized against 10/4/2026. On 10/13/2026 the user moved the offset to `7161 - Delivery Fees`, and the 1235 lines were resized to what 1235 holds from before 8/30 once Uber Eats is booked at actual from 8/30 (4S 489.97, HB 1,372.18, TS 773.38, NB 2,050.30), 31,048.28 net to 7161. `cleanup.js` still writes 1210 lines; rerun it only if the user asks for another cleanup. Every Foodja deposit is coded to HB, so HB's Foodja line runs the other way (a 3,252.02 debit) and HB's 7161 line is a 1,303.58 credit.
+Run it after the Sunday's estimate is posted, since the pull counts unapproved entries. It writes `cleanup.json` in the weekly format for `post-week.sh`. Posted 10/6/2026 as `38cd459b-b855-47ec-a85b-49650755e11c`, 28,960.80 net to 1210, sized against 10/4/2026. On 10/13/2026 the user moved the offset to `7161 - Delivery Fees`. Its 1235 lines are sized against 10/4/2026 (4S 103.80, HB 661.43, TS 408.78, NB 1,424.34). `cleanup.js` still writes 1210 lines; rerun it only if the user asks for another cleanup.
 
 ## Unattended run
 
@@ -87,7 +87,7 @@ No human answers during the run, so:
 - If All Transactions already shows a `3rd Party` row on the Sunday, post nothing: status `held`, with its id in `note`.
 - A rejected login, an unreadable report, or a `post-week.sh` `FAIL` is `failed`, with any id left unapproved in `warnings`.
 - On `MATCH`, approve with `approve.sh` and write the id to `id.txt` in the work directory. The user approves by hand only when working with the skill directly.
-- Post the week, and add a warning, for a store and account with no sales after 3 weeks running with sales, a fee more than double its 12-week average, negative sales, or any `3rd Party` entry from 8/30 on carrying 1235, 1239 or 1242, or from 10/4 on carrying 1238.
+- Post the week, and add a warning, for a store and account with no sales after 3 weeks running with sales, a fee more than double its 12-week average, negative sales, or any `3rd Party` entry from 8/30 on carrying 1239 or 1242, from 10/11 on carrying 1235, or from 10/4 on carrying 1238.
 
 Finish with **Verifying the run**, close `f3p`, then write `result.json` in the work directory. The wrapper posts it to the Flecha TPD channel through `scripts/notify-teams.ps1` (`-DryRun` prints the card), and reports a failure when the file is missing:
 
