@@ -107,7 +107,7 @@ Report the `check-lines.js` table, the entry's status and amount from the grid, 
 
 ## Unattended run
 
-`scripts/monday-run.ps1` runs from Task Scheduler on Mondays every 15 minutes from 7:00 to 12:00 (`scripts/register-task.ps1` sets it up). It waits for the week's report in `Wkly Change Orders`, matching the `M.D-M.D` week in the file name, and starts this skill headless once the file has gone 5 minutes without changing. The prompt begins `Unattended run` and names the week ending, the work directory, and the report path. A `started.txt` marker stops later triggers that week; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today. With no report by 12:00 it posts a miss to Teams and starts nothing.
+`scripts/weekly-run.ps1` runs from Task Scheduler every 15 minutes, Monday and Tuesday from 7:00 to 18:00 and Wednesday from 7:00 to 8:30 (`scripts/register-task.ps1` sets it up). It waits for the week's report in `Wkly Change Orders`, matching the `M.D-M.D` week in the file name, and starts this skill headless once the file has gone 5 minutes without changing. The prompt begins `Unattended run` and names the week ending, the work directory, and the report path. A `started.txt` marker stops later triggers that week; `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today. A report that lands Tuesday night runs on Wednesday's first trigger. With no report by Wednesday 8:00 it posts a miss to Teams, which always tags Regina, and starts nothing.
 
 No human answers during the run, so:
 
