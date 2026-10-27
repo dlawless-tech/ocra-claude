@@ -1,17 +1,18 @@
 #!/bin/bash
 # Enter one store's EZ Cater Fees entry from entries.json, unapproved: duplicate the source entry, date and number it,
-# set the lines, save, check the save body, reload and read back. Approval is a separate step (approve-entry.sh).
-# usage: enter-entry.sh <session> <entries.json> <key "location|M/D/YYYY">
+# set the lines, save, check the save body, reload and read back, attach the EZ Cater report. Approval is a separate step.
+# usage: enter-entry.sh <session> <entries.json> <key "location|M/D/YYYY"> <report xlsx, relative to the cwd>
 # EDIT=<id> rewrites that unapproved entry in place instead of duplicating the source.
 # Prints "<location> SAVED <id> <amount>". A failure after Duplicate leaves an NJ-numbered copy; delete it.
 set -u
-S=$1; EN=$2; KEY=$3; LOC=$KEY; DT=${KEY#*|}
+S=$1; EN=$2; KEY=$3; RPT=$4; LOC=$KEY; DT=${KEY#*|}
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n'; }
 die() { echo "$LOC FAIL: $*"; exit 1; }
 get() { node -e 'const e=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).find(x=>x.key===process.argv[2]);if(e)console.log(e[process.argv[3]])' "$EN" "$LOC" "$1"; }
 SRC=$(get source); TOT=$(node -e 'const e=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).find(x=>x.key===process.argv[2]);if(e)console.log(e.amount.toFixed(2))' "$EN" "$LOC")
 [ -n "$TOT" ] || die "not in entries"
+[ -f "$RPT" ] || die "no report $RPT"
 
 while [ "$(playwright-cli -s=$S tab-list 2>&1 | grep -cE '^- [0-9]+:')" -gt 1 ]; do playwright-cli -s=$S tab-close 1 >/dev/null 2>&1; done
 playwright-cli -s=$S tab-select 0 >/dev/null 2>&1
@@ -46,4 +47,5 @@ V=$(playwright-cli -s=$S eval "$(cat "$HERE/read-model.js")" 2>&1 | res)
 echo "$LOC readback $V"
 # zero lines may be dropped on save, so a missing zero line passes
 node -e 'const e=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")).find(x=>x.key===process.argv[2]);let v=JSON.parse(process.argv[3]);if(typeof v==="string")v=JSON.parse(v);if(v.date!==process.argv[4]||v.num!=="EZ Cater Fees")process.exit(2);for(const l of e.lines){const r=v.rows.find(r=>r[3]===l.account[0]);if(!l.debit&&!l.credit&&!r)continue;if(!r||Math.abs(r[1]-l.debit)>0.005||Math.abs(r[2]-l.credit)>0.005||r[4]!==e.r365loc)process.exit(3);}' "$EN" "$LOC" "$V" "$DT" || die "reload readback mismatch"
+bash "$HERE/attach.sh" $S "$NEWID" "$RPT" || die "attach $NEWID"
 echo "$LOC SAVED $NEWID $TOT"

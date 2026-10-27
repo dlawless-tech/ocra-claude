@@ -1,6 +1,6 @@
 ---
 name: norms-ezcater
-description: Enter the NORMS EZ Cater Fees journal entries into Restaurant365, one per store with EZ Cater activity in the two-week window, clearing 1118 EZ Caterer Receivable against 5514 Online Ordering Expense, 5915 Delivery over Short and, for orders missing from R365, 4010 Food Taxable, from the EZ Cater Completed Orders report, then report to Regina in Teams. Use when asked to enter, post, or approve the NORMS EZ Cater entries in R365, to pull the NORMS EZ Cater orders report, or to check 1118 against EZ Cater payments, or when the Friday scheduled run starts it.
+description: Enter the NORMS EZ Cater Fees journal entries into Restaurant365, one per store with EZ Cater activity in the two-week window, clearing 1118 EZ Caterer Receivable against 5514 Online Ordering Expense, 5915 Delivery over Short and, for orders missing from R365, 4010 Food Taxable, from the EZ Cater Completed Orders report, with that report attached to each, then report to Regina in Teams. Use when asked to enter, post, or approve the NORMS EZ Cater entries in R365, to pull the NORMS EZ Cater orders report, or to check 1118 against EZ Cater payments, or when the Friday scheduled run starts it.
 ---
 
 # EZ Cater orders into the NORMS EZ Cater Fees entries
@@ -31,7 +31,7 @@ EZ Cater pays each store weekly by Payoneer, landing on 1118 as a Bank Deposit `
 
 ## Read
 
-**Orders report.** `bash <skill>/scripts/ez-report.sh nez <start> <end> ez.csv` creates a Completed Orders report named `NORMS EZ Cater <M.D>-<M.D>.<yy>` for every ` - Norms - ` store (24, leaving Cornbread and Isle of Us out), downloads it into `ez/` and converts it. The store picker is a jQuery multiSelect and the dates are jQuery UI datepickers set through `setDate`; `fill` does not take on either. EZ store names match R365 locations except `Ontario Mills` (270 - Ontario) and `S. Torrance` (223 - South Torrance).
+**Orders report.** `bash <skill>/scripts/ez-report.sh nez <start> <end> ez.csv` creates a Completed Orders report named `NORMS EZ Cater <M.D>-<M.D>.<yy>` for every ` - Norms - ` store (24, leaving Cornbread and Isle of Us out), downloads it as `ez/NORMS-EZ-Cater-<M.D>-<M.D>.<yy>.xlsx` and converts it. That xlsx is the backup attached to every entry. The store picker is a jQuery multiSelect and the dates are jQuery UI datepickers set through `setDate`; `fill` does not take on either. EZ store names match R365 locations except `Ontario Mills` (270 - Ontario) and `S. Torrance` (223 - South Torrance).
 
 **R365 sales, D.** The daily journal entries debit `1118 - EZ Caterer Receivable` with each EZ Cater order, at the POS figure, which rarely equals EZ's food plus tax. In `nezb`, Reports > My reports, GL Account Detail card, Customize; `eval "$(cat <skill>/scripts/gl-params.js)"` sets account 1118 and Subtotal By Location. Start the window's first day, End today (the balance check needs the payouts after the window), against fresh snapshot refs. Click the dialog's Run (`exportMenu`), then on the report tab:
 
@@ -68,10 +68,10 @@ Each store's 1118 must zero once its window's payouts are coded. `plan.js` warns
 ## Enter
 
 ```bash
-bash <skill>/scripts/enter-entry.sh nezr entries.json "<location>|<end>"
+bash <skill>/scripts/enter-entry.sh nezr entries.json "<location>|<end>" ez/NORMS-EZ-Cater-<M.D>-<M.D>.<yy>.xlsx
 ```
 
-One store per call: Duplicate the source (which saves an `NJ...` copy at once), answer "No, transaction only", set date and number, set every line's account, comment, amounts and the store's location, save, read the `SaveTransaction` body, reload and read back every line. It prints `<key> SAVED <id> <amount>` and leaves the entry unapproved. `EDIT=<id>` rewrites an unapproved entry in place. A failure after Duplicate leaves an `NJ` copy to delete.
+One store per call: Duplicate the source (which saves an `NJ...` copy at once), answer "No, transaction only", set date and number, set every line's account, comment, amounts and the store's location, save, read the `SaveTransaction` body, reload and read back every line, then attach the orders report with `attach.sh`, which skips a file of that name already on the entry. It prints `<key> SAVED <id> <amount>` and leaves the entry unapproved. `EDIT=<id>` rewrites an unapproved entry in place. A failure after Duplicate leaves an `NJ` copy to delete.
 
 ## Approve
 
@@ -97,6 +97,6 @@ No human answers during the run, so:
 
 - `cd` into the work directory once, before opening any session, and run every command from there. Use session names `nezu` (EZ Cater), `nezru` (entries) and `nezbu` (GL report).
 - Never ask. When `ez-login.sh` exits 2, leave `nezu` open on the code page, write `result.json` with `"stores": []` and `"note": "EZ Cater mailed a code to mark@ocra-us.com"`, close `nezru` and `nezbu`, and stop. The wrapper posts a waiting card; once the human types the code into that window, running `friday-run.ps1` again picks the window up.
-- Enter every store; leave every entry unapproved. A store whose entry fails a check is `failed`, with the failing step in `warnings`, and the others carry on. Every `plan.js` warning goes into that store's `warnings`, and every missing order into `missingSales`.
+- Enter every store with the report attached; leave every entry unapproved. A store whose entry fails a check, the attach included, is `failed`, with the failing step in `warnings`, and the others carry on. Every `plan.js` warning goes into that store's `warnings`, and every missing order into `missingSales`.
 
 Finish by closing the sessions by name, then write `result.json` with `"mode": "entered (unapproved)"` and each store `"status": "entered"`. The wrapper posts it to Teams, tagging Regina, and marks the window done.

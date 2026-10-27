@@ -36,7 +36,7 @@ for (const loc of locs) {
   const missing = os.filter(x => !x.sale).map(x => ({ order: x['Order Number'], date: x.date, food: r2(x.food), due: x.ctd, amount: r2(x.ctd + x.fee) }));
   const miss = r2(missing.reduce((t, m) => t + m.amount, 0));
   const ar = r2(D - ctd), diff = r2(ar - fee + miss);
-  const bal = r2(rows.filter(r => !(r.type === 'Journal Entry' && r.debit && new Date(r.date) > B)).reduce((t, r) => t + (r.debit || 0) - (r.credit || 0), 0));
+  const bal = r2((gl[loc] ? gl[loc].beg : 0) + rows.filter(r => !(r.type === 'Journal Entry' && r.debit && new Date(r.date) > B)).reduce((t, r) => t + (r.debit || 0) - (r.credit || 0), 0));
   const warnings = [];
   for (const s of sales) if (!s.order) warnings.push(`R365 sale ${s.date} ${s.debit.toFixed(2)} has no EZ Cater order`);
   if (Math.abs(bal - ar) > 0.005) warnings.push(`1118 sits at ${(bal - ar).toFixed(2)} after this entry (payouts not coded yet, or an earlier leftover)`);

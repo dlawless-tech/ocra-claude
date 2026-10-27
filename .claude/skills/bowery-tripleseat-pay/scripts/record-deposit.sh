@@ -21,7 +21,7 @@ cat > record-plan.json <<J
 { "lines": [ { "account": "253-00", "amount": $AMT, "location": "$LOC_NO", "comment": "" } ] }
 J
 
-act 'Deposit link' click "#BankActivityUnmatchedGrid tbody tr:has-text('$(printf "%'.2f" "$AMT")'):has-text('$BD ') a:text-is('Deposit')"; sleep 10
+act 'Deposit link' click "#BankActivityUnmatchedGrid tbody tr:has-text('$(LC_NUMERIC=en_US.UTF-8 printf "%'.2f" "$AMT")'):has-text('$BD ') a:text-is('Deposit')"; sleep 10
 HD=$($B eval "() => { const w=[...document.querySelectorAll('.k-window')].find(x=>/Create Deposit/.test(x.innerText)&&getComputedStyle(x).display!=='none'); return w ? w.querySelector('#bankDepositDate').value : 'no window'; }" 2>&1 | res | unq)
 [ "$HD" = "$BD" ] || { echo "FAIL: deposit window date $HD, bank $BD (not created)"; exit 1; }
 bash "$ADD" $S record-plan.json || { echo "(not created)"; exit 1; }

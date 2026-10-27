@@ -20,6 +20,7 @@ case "$B" in *'"st":"Approved"'*) : ;; *) die "not Approved; use post-entry.sh";
 EMPTY=$(node -e 'const v=JSON.parse(process.argv[1]);process.stdout.write(v.rows.every(r=>!r[1]&&!r[2])?"1":"0")' "$B")
 [ "$EMPTY" = 1 ] || [ "${FORCE:-0}" = 1 ] || { echo "$LOC SKIP: already carries amounts"; exit 0; }
 
+dismiss_survey $S
 playwright-cli -s=$S click 'button:text-is("Edit")' >/dev/null 2>&1 || die "no Edit button"
 sleep 3
 R=$(playwright-cli -s=$S eval "$(node "$HERE/set-lines.js" "$WORK" "$LOC")" 2>&1 | res | sed 's/\\"/"/g')

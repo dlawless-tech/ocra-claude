@@ -1,5 +1,6 @@
 #!/bin/bash
 # Create and download the EZ Cater Completed Orders report for every NORMS store, then convert it to csv.
+# The xlsx is kept as ez/<report name, spaces as dashes>.xlsx, the backup enter-entry.sh attaches.
 # usage: ez-report.sh <session> <start M/D/YYYY> <end M/D/YYYY> <out.csv>
 set -u
 S=$1; ST=$2; EN=$3; OUT=$4
@@ -22,5 +23,6 @@ mkdir -p ez; rm -f .playwright-cli/norms-ez-cater-*.xlsx
 playwright-cli -s=$S eval "() => { const r=Array.from(document.querySelectorAll('tr')).find(t=>t.cells[0]&&t.cells[0].innerText.trim()==='$NAME'); r.querySelector('a[href*=\"amazonaws\"]').click(); }" >/dev/null 2>&1; sleep 8
 F=$(ls -t .playwright-cli/norms-ez-cater-*.xlsx 2>/dev/null | head -1)
 [ -n "$F" ] || die "no download"
-mv "$F" ez/ && node "$HERE/../../bowery-payroll/scripts/xlsx-to-csv.js" "ez/$(basename "$F")" > "$OUT" || die "convert"
-echo "report $NAME $(($(grep -c . "$OUT") - 2)) orders -> $OUT"
+X="ez/${NAME// /-}.xlsx"
+mv "$F" "$X" && node "$HERE/../../bowery-payroll/scripts/xlsx-to-csv.js" "$X" > "$OUT" || die "convert"
+echo "report $NAME $(($(grep -c . "$OUT") - 2)) orders -> $OUT, $X"

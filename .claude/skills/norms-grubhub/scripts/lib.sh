@@ -18,3 +18,8 @@ approve() {
   A=$( [ -n "$N" ] && playwright-cli -s=$1 response-body $N 2>&1 | grep -o '"message":"[^"]*","transactions":\[{"id":"[^"]*"')
   case "$A" in *"Successfully Approved."*"$2"*) return 0;; *) echo "approve response: $A"; return 1;; esac
 }
+
+# survey popup reloads with each entry and swallows clicks
+dismiss_survey() {
+  playwright-cli -s=$1 eval "() => { const b=Array.from(document.querySelectorAll('button')).find(x=>x.textContent.trim()==='Not now'); if(b){b.click();return 'dismissed'} return 'none'; }" >/dev/null 2>&1; sleep 1
+}

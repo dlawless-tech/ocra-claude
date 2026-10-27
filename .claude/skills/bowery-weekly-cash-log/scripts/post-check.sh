@@ -79,7 +79,7 @@ CHK=$(ev "() => { const g = jQuery('[data-role=grid]').map((i,e)=>jQuery(e).data
   const eq = (n, got, want) => { if (String(got).trim() !== String(want).trim()) bad.push(n + ' ' + got + ' != ' + want); };
   eq('number', jQuery('#bankExpenseNumber').val(), $(q "$NO"));
   eq('date', jQuery('#bankExpenseDate').val(), $(q "$DT"));
-  eq('amount', (+jQuery('#bankExpenseAmount').val()).toFixed(2), (+$(q "$AMT")).toFixed(2));
+  eq('amount', (+jQuery('#bankExpenseAmount').val().replace(/,/g, '')).toFixed(2), (+$(q "$AMT")).toFixed(2));
   eq('account', jQuery('input[name=bankExpenseCheckingAccount_input]').val(), $(q "$BANK"));
   eq('lines', rows.length, 1);
   if (rows[0]) { eq('line account', String(rows[0].glAccount).slice(0, 7), $(q "$GL"));

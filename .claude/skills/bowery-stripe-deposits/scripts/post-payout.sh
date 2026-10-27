@@ -68,7 +68,8 @@ LAST=$(playwright-cli -s=$R requests 2>&1 | grep 'SaveDeposit' | tail -1 | grep 
 act $R 'Create Deposit' click '[data-testid=createDepositMenuItem] >> visible=true'
 IDX=""; for i in $(seq 1 20); do sleep 2; IDX=$(playwright-cli -s=$R requests 2>&1 | grep 'SaveDeposit' | tail -1 | grep -oE '^[0-9]+'); [ -n "$IDX" ] && [ "$IDX" != "${LAST:-}" ] && break; IDX=""; done
 [ -n "$IDX" ] || { echo "FAIL: Create Deposit sent no save"; exit 1; }
-ID=$(playwright-cli -s=$R response-body "$IDX" 2>&1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}' | head -1 | tr 'A-F' 'a-f')
+# body can lag the request; retry
+ID=""; for i in $(seq 1 10); do ID=$(playwright-cli -s=$R response-body "$IDX" 2>&1 | grep -oE '[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}' | head -1 | tr 'A-F' 'a-f'); [ -n "$ID" ] && break; sleep 2; done
 [ -n "$ID" ] || { echo "FAIL: save answered $(playwright-cli -s=$R response-body "$IDX" 2>&1 | grep -oE '\[.*\]' | head -1)"; exit 1; }
 sleep 5
 
