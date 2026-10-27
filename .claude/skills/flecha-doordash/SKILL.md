@@ -78,7 +78,7 @@ Update this table at the end of every run with the Sunday just estimated. The ne
 
 ## The 3rd Party entries
 
-A separate weekly Journal Entry numbered `3rd Party`, location Corporate, posted by [`../flecha-3rd-party`](../flecha-3rd-party/SKILL.md), clears the other delivery receivables (1235, 1237 EZ Cater, 1238 Foodja) to 7161. Through 8/23/2026 it also cleared 1239; from 8/30/2026 on, DoorDash belongs to this skill alone and those entries carry no 1239 lines. A `3rd Party` entry dated in a posted week with a nonzero 1239 line books that store's DoorDash fee twice: report it and leave it for the human.
+A separate weekly Journal Entry numbered `3rd Party`, location Corporate, cleared the other delivery receivables (1235, 1237 EZ Cater, 1238 Foodja) to 7161 through 10/18/2026, its last week; EZ Cater moved to [`../flecha-ezcater`](../flecha-ezcater/SKILL.md) from 10/25. Through 8/23/2026 it also cleared 1239; from 8/30/2026 on, DoorDash belongs to this skill alone and those entries carry no 1239 lines. A `3rd Party` entry dated in a posted week with a nonzero 1239 line books that store's DoorDash fee twice: report it and leave it for the human.
 
 ## Unattended run
 

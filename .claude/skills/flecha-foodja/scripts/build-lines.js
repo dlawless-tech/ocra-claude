@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// One Foodja fee entry per store per week from gl1238.txt (flecha-3rd-party gl.sh) and statements.json (parse-statements.js).
+// One Foodja fee entry per store per week from gl1238.txt (flecha-ezcater gl.sh) and statements.json (parse-statements.js).
 //
 //   build-lines.js <gl1238.txt> <statements.json> <Sunday M/D/YYYY>... > lines.json
 //
@@ -7,7 +7,7 @@
 // store-week with a posted statement in the 12 weeks before, (sales - Amount Due) / sales,
 // or DEFAULT_RATE (45.15%, 40.90% Foodja fee on sales grossed up for 7.75% tax) with fewer than 4.
 const fs = require('fs'), path = require('path');
-const { rows, day } = require('../../flecha-3rd-party/scripts/gl-rows.js');
+const { rows, day } = require('../../flecha-ezcater/scripts/gl-rows.js');
 const [glFile, stFile, ...weeks] = process.argv.slice(2);
 const stop = m => { console.error('STOP: ' + m); process.exit(1); };
 const c = v => Math.round(v * 100) / 100;

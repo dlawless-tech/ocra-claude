@@ -1,8 +1,8 @@
-# Post a card to the Flecha TPD Teams Workflows webhook in ~/.claude/flecha-3rd-party.json.
+# Post a card to the Flecha TPD Teams Workflows webhook in ~/.claude/flecha-ezcater.json.
 # usage: notify-teams.ps1 -Title <t> (-Lines <string[]> | -ResultFile <result.json>) [-DryRun]
 param([string]$Title, [string[]]$Lines = @(), [string]$ResultFile, [switch]$DryRun)
 $ErrorActionPreference = 'Stop'
-$cfg = Get-Content -Raw "$env:USERPROFILE\.claude\flecha-3rd-party.json" | ConvertFrom-Json
+$cfg = Get-Content -Raw "$env:USERPROFILE\.claude\flecha-ezcater.json" | ConvertFrom-Json
 $m = { param($v) '{0:N2}' -f [double]$v }
 
 # a plain -Lines message is always a failure
@@ -11,17 +11,19 @@ $facts = @()
 if ($ResultFile) {
   $r = Get-Content -Raw -Encoding utf8 $ResultFile | ConvertFrom-Json
   if ($r.status -eq 'done') {
-    $Lines = @("**Completed:** 3rd Party W.E. $($r.weekEnding) approved at $(& $m $r.total), EZ Cater and Foodja at 30% of sales")
+    $Lines = @($(if ($r.priorWeekEnding) { "**Completed:** EZ Cater W.E. $($r.priorWeekEnding) trued up, W.E. $($r.weekEnding) estimated, all approved" } else { "**Completed:** EZ Cater W.E. $($r.weekEnding) estimated, all approved" }))
   } else {
-    $Lines = @("**3rd Party W.E. $($r.weekEnding) $($r.status)**")
+    $Lines = @("**EZ Cater W.E. $($r.weekEnding) $($r.status)**")
     $attention = $true
   }
+  # warnings and questions tag; notes are known open items and do not
   foreach ($x in @($r.warnings) + @($r.questions)) { if ($x) { $Lines += "- $x"; $attention = $true } }
   foreach ($x in @($r.notes)) { if ($x) { $Lines += "- $x" } }
   if ($r.note) { $Lines += $r.note }
   $facts = @($r.stores | ForEach-Object {
-    $parts = @(); if ($_.ezCater) { $parts += "EZ Cater $(& $m $_.ezCater)" }; if ($_.foodja) { $parts += "Foodja $(& $m $_.foodja)" }
-    @{ title = $_.store; value = "$(& $m $_.total) ($($parts -join ', '))" } })
+    $v = "$($r.weekEnding): $(& $m $_.estimate) on $(& $m $_.sales) at $('{0:P2}' -f [double]$_.rate) ($($_.basis))"
+    if ($r.priorWeekEnding) { $v = "$($r.priorWeekEnding): est $(& $m $_.priorEstimate), actual $(& $m $_.priorActual); $v" }
+    @{ title = $_.store; value = $v } })
 }
 
 $content = @{ '$schema' = 'http://adaptivecards.io/schemas/adaptive-card.json'; type = 'AdaptiveCard'; version = '1.4'

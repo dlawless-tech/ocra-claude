@@ -20,7 +20,7 @@ Header and line comments read `Foodja fees estimate: sales 10/12-10/18 1724.00 x
 
 ## Start date
 
-The first week is **10/4/2026**. Foodja (1238) was in the Corporate `3rd Party` entry until then; on 10/20/2026 its lines were taken out of the 10/4 and 10/11 entries and these per-store entries posted for 10/4, 10/11 and 10/18. `flecha-3rd-party`'s `estimate.js` leaves 1238 out from 10/4, so a `3rd Party` entry dated 10/4 or later with a 1238 line books the Foodja fee twice: report it and leave it for the human.
+The first week is **10/4/2026**. Foodja (1238) was in the Corporate `3rd Party` entry until then; on 10/20/2026 its lines were taken out of the 10/4 and 10/11 entries and these per-store entries posted for 10/4, 10/11 and 10/18. The last `3rd Party` entry is 10/18/2026, and the 10/4 to 10/18 entries leave 1238 out; a `3rd Party` entry dated 10/4 or later with a 1238 line books the Foodja fee twice: report it and leave it for the human.
 
 ## Foodja and 1238
 
@@ -37,7 +37,7 @@ CREDS=$HOME/.claude/flecha-credentials.md bash <skills>/norms-foodja-fees/script
 bash <skills>/flecha-doordash/scripts/r365-login.sh ffjr
 for d in <each period end in the 12 weeks>; do bash <skills>/norms-foodja-fees/scripts/statements.sh ffj $d dl; done; mkdir -p statements; cp dl/statements/*.pdf statements/
 node <skill>/scripts/parse-statements.js statements > statements.json
-bash <skills>/flecha-3rd-party/scripts/gl.sh ffjr 1238 <Monday 13 weeks before the Sunday> <Sunday> > gl1238.txt
+bash <skills>/flecha-ezcater/scripts/gl.sh ffjr 1238 <Monday 13 weeks before the Sunday> <Sunday> > gl1238.txt
 node <skill>/scripts/build-lines.js gl1238.txt statements.json <Sunday> > lines.json
 bash <skill>/scripts/run-weeks.sh ffjr lines.json sources.txt ids.txt
 ```

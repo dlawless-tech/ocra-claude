@@ -21,7 +21,7 @@ Header and both line comments name the basis: `Uber Eats fees estimate: sales 10
 
 ## Start date
 
-The first week is **10/11/2026**, an estimate. Weeks through 10/4 stay in the Corporate `3rd Party` entries at 30% of sales, and the 8/24 `3rd Party Cleanup` sizes 1235 against 10/4 open sales. Never post an Uber Eats entry dated before 10/11. `flecha-3rd-party`'s `estimate.js` leaves 1235 out from 10/11, so a `3rd Party` entry dated 10/11 or later with a 1235 line books the Uber fee twice: report it and leave it for the human.
+The first week is **10/11/2026**, an estimate. Weeks through 10/4 stay in the Corporate `3rd Party` entries at 30% of sales, and the 8/24 `3rd Party Cleanup` sizes 1235 against 10/4 open sales. Never post an Uber Eats entry dated before 10/11. The last `3rd Party` entry is 10/18/2026, and it leaves 1235 out; a `3rd Party` entry dated 10/11 or later with a 1235 line books the Uber fee twice: report it and leave it for the human.
 
 With no prior Uber Eats entry, seed `sources.txt` from `flecha-doordash`'s **Latest entries** table; `post-entry.sh` moves a DoorDash source's 1239 line to 1235.
 
