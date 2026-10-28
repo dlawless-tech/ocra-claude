@@ -35,6 +35,17 @@ if (-not $f -or $f.LastWriteTime -lt $today.AddDays(-2)) {
 }
 # still being written
 if ($f.LastWriteTime -gt (Get-Date).AddMinutes(-5)) { exit 0 }
+# starts only after Tricia sends the reviewed AP Aging email
+$agingSubject = 'dLena Weekly AP we {0}.{1}' -f $sun.Month, $sun.Day
+$sentItems = (New-Object -ComObject Outlook.Application).GetNamespace('MAPI').GetDefaultFolder(5).Items
+if (-not @($sentItems.Restrict("[Subject] = '$agingSubject'")).Count) {
+  if ((Get-Date).Hour -ge 18 -and -not $Date) {
+    New-Item -ItemType Directory -Force $run | Out-Null
+    Set-Content -Encoding utf8 $done "no aging email $(Get-Date -Format s)"
+    & $Notify -Title "$title waiting on AP Aging email" -Lines @("'$agingSubject' was not in Sent Items by 6 PM, so no payments were made.", 'Send it, then run wednesday-run.ps1 -Force.')
+  }
+  exit 0
+}
 
 New-Item -ItemType Directory -Force $run | Out-Null
 $log = Join-Path $run 'wednesday-run.log'
@@ -70,7 +81,9 @@ $moved = ''
 if ($ok) {
   New-Item -ItemType Directory -Force $weDir | Out-Null
   Move-Item -Force -LiteralPath $Aging -Destination $weDir
-  $moved = "AP Aging moved to $weDir"
+  $stubs = @(Get-ChildItem -LiteralPath $Drop -Filter "$md dLena_* Payment Stub Reprint.pdf")
+  $stubs | Move-Item -Force -Destination $weDir
+  $moved = "AP Aging and $($stubs.Count) payment stubs moved to $weDir"
   Log $moved
 }
 Set-Content -Encoding utf8 $done "done $(Get-Date -Format s)"

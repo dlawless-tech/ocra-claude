@@ -1,50 +1,34 @@
 ---
 name: dlena-weekly-ap-aging
-description: Send dLena's weekly AP Aging email, running the saved AP Aging view in Restaurant365, exporting it to Excel as dLena AP Aging.xlsx and attaching it to the "dLena Weekly AP we <M.D>" email to the owners and their CPAs. Use when asked to run or send the dLena weekly AP Aging, or to pull dLena's AP Aging as Excel.
+description: Send dLena's weekly AP Aging email once Tricia drops dLena AP Aging.xlsx in Downloads, attaching it to the "dLena Weekly AP we <M.D>" email to the owners and their CPAs, from a Wednesday watcher task. Use when asked to run or send the dLena weekly AP Aging email, or to change its schedule.
 ---
 
 # dLena weekly AP Aging
 
 Every Wednesday dLena's owners get the AP Aging as of today, in Excel, so they can review it and make the week's payments. The subject names the week ending: the Sunday before the run, as `M.D`. A 10/14/2026 run sends `dLena Weekly AP we 10.11`.
 
-Work in one directory for the whole run, since `playwright-cli` binds sessions to it. Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) when a step misbehaves.
+Tricia runs the AP Aging herself and drops it in `C:\Users\trici\OCRA\TML's Files - General\Downloads` as `dLena AP Aging.xlsx`. The drop starts the email. This skill never runs the report in R365.
 
-## Step 1: log in
+## Scheduled run
 
-R365 is `https://unoatfifth.restaurant365.com`, on the same login as Bowery:
+`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays every 15 minutes from 8:00 to 18:00 (`scripts/register-task.ps1` sets it up). Each start looks for `dLena AP Aging.xlsx` written since Monday and at least 5 minutes old, in Downloads or in `Downloads\WE <M.D>`, where the `dlena-ap-pymt-confirmation` run moves it when it finishes. Without it the start exits quietly. That run posts the 6 PM waiting card for a missing drop, so this one does not.
 
-```bash
-sed 's/bowerygroup\.restaurant365\.com/unoatfifth.restaurant365.com/g' <skills>/bowery-ubereats/scripts/r365-login.sh > login.sh
-bash login.sh dla
-```
+Once the file is there, the wrapper copies it to `.scratch/dlena-ap-aging/run<MMdd>`, marks the day started in `done.txt`, and drafts the email with `mail.ps1`, which saves it and opens it in Outlook. It never sends: Tricia reviews the draft and clicks Send herself. A draft-ready card, or a FAILED card when no draft was made, goes to the dLena Teams channel tagging Tricia through the AP Pymt skill's `notify-teams.ps1`. The day never retries on its own. `-Force` reruns it, `-Date yyyy-MM-dd` stands in for today, and `-DryRun` prints what it would draft.
 
-## Step 2: saved report, exported to Excel
+The `dlena-ap-pymt-confirmation` run waits until this email is in Sent Items.
 
-```bash
-bash <skill>/scripts/run-aging.sh dla "$PWD"
-cp "dLena AP Aging.xlsx" "/c/Users/trici/OCRA/TML's Files - General/Downloads/"
-```
-
-The script opens the AP Aging card on My Reports, sets it to the saved **AP Aging** view, and runs it from the Customize dialog's Run. The view is As Of Today, Detail, Hide $0 Balances Yes, aged by Due Date, Show Unapproved **No**. In the report tab it clicks the save icon, then **Excel**, and saves the download as `dLena AP Aging.xlsx`. Done when it prints `as of <today>` and the saved size. The Downloads copy is overwritten each week.
-
-## Step 3: email
+## Email
 
 ```powershell
 & <skill>\scripts\mail.ps1 -WE 10.11 -Attach "C:\Users\trici\OCRA\TML's Files - General\Downloads\dLena AP Aging.xlsx"
 ```
 
-The script copies the newest sent `dLena Weekly AP we ...` email: the same To (May May and Carlos Horcasitas, Tom McDowell, Megan Pensack, Chef Carlos Camacho) and Cc (Jessica Flores, Collin Heyerdahl, Tricia). TCampanella stays off, even when the copied email still has them. The body is "Good morning!" (or "Good afternoon!" after noon), "Attached please find the weekly AP Aging report for your review and to make the weekly payments.", "Please let us know if there are any questions we can assist with.", then the default signature. It saves a draft and opens it in Outlook. Show the human the printed subject, recipients and attachment. Once they say send, rerun with `-Send`, which sends the reviewed draft as is. The script refuses a week already sent.
+The script copies the newest sent `dLena Weekly AP we ...` email: the same To (May May and Carlos Horcasitas, Tom McDowell, Megan Pensack, Chef Carlos Camacho) and Cc (Jessica Flores, Collin Heyerdahl, Tricia). TCampanella stays off, even when the copied email still has them. The body is "Good morning!" (or "Good afternoon!" after noon), "Attached please find the weekly AP Aging report for your review and to make the weekly payments.", "Please let us know if there are any questions we can assist with.", then the default signature. Without `-Send` it saves a draft and opens it in Outlook. With `-Send` it sends, or sends a draft already in Drafts as is. The script refuses a week already sent.
 
-## Finish
-
-Done when the email is in Sent Items with the file attached. Close only this run's session, from the run directory:
-
-```bash
-playwright-cli -s=dla close
-```
-
-Then run the `dlena-ap-pymt-confirmation` skill for the same day. On Wednesdays its scheduled run starts on its own once the file is in Downloads, and moves the file into the week folder when it finishes.
+Done when the email is in Sent Items with the file attached.
 
 ## Runs
 
-10/14/2026, built live. AP Aging as of 10/14 exported (16 KB), `dLena Weekly AP we 10.11` drafted.
+10/14/2026, built live. AP Aging as of 10/14 exported from R365 (16 KB), `dLena Weekly AP we 10.11` drafted.
+
+10/28/2026, switched to the file drop. Tricia dropped the file at 8:49, and the 9:00 start drafted `we 10.25`, but Outlook's `Send()` threw "Value does not fall within the expected range" twice while a message window was open, leaving the draft in Drafts. `mail.ps1` now reports that as `FAIL:` instead of `SENT`. Tricia wants to review every week's email before it goes, so the task now only drafts it. The task starts at 8:00 from 11/4.

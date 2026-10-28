@@ -72,11 +72,11 @@ Done when every paying vendor has an approved payment with its stub attached, it
 playwright-cli -s=dl close
 ```
 
-Then move `dLena AP Aging.xlsx` out of Downloads into the week folder, `Downloads\WE <M.D>`, named for the Sunday before the run day. The name changes every week: a 10/21/2026 run files to `WE 10.18`, a 10/28 run to `WE 10.25`. Create the folder when it is missing.
+Then move `dLena AP Aging.xlsx` and the week's `<M.D> dLena_<File stem> Payment Stub Reprint.pdf` files out of Downloads into the week folder, `Downloads\WE <M.D>`, named for the week ending, the Sunday before the run day. The name changes every week: a 10/21/2026 run files to `WE 10.18`, a 10/28 run to `WE 10.25`. Create the folder when it is missing.
 
 ## Unattended run
 
-`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays, hourly from 8:00 through 18:00 (`scripts/register-task.ps1` sets it up, first run 10/28/2026). Each start checks Downloads for `dLena AP Aging.xlsx` written since Monday and at least 5 minutes old. The `dlena-weekly-ap-aging` skill drops that file. Without it the start exits quietly. The 18:00 start posts a waiting card instead. Once the file is there, the wrapper marks the day started in `.scratch/dlena-ap-pymt/run<MMdd>/done.txt` and starts this skill headless with a prompt beginning `Unattended run` that names the work directory and the run's `M.D`. The day never retries on its own, since a rerun after an approve could pay a vendor twice. `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/wednesday-run.ps1` runs from Task Scheduler on Wednesdays, hourly from 8:00 through 18:00 (`scripts/register-task.ps1` sets it up, first run 10/28/2026). Each start checks Downloads for `dLena AP Aging.xlsx` written since Monday and at least 5 minutes old. Tricia drops that file once she approves the aging. The start also waits for her `dLena Weekly AP we <M.D>` email (the `dlena-weekly-ap-aging` skill drafts it) to be in Sent Items. Without both it exits quietly. The 18:00 start posts a waiting card instead. Once the file is there, the wrapper marks the day started in `.scratch/dlena-ap-pymt/run<MMdd>/done.txt` and starts this skill headless with a prompt beginning `Unattended run` that names the work directory and the run's `M.D`. The day never retries on its own, since a rerun after an approve could pay a vendor twice. `-Force` reruns it, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
@@ -93,7 +93,7 @@ Finish by closing `dlp` by name, then write `result.json` in the work directory:
       "unapproved": [ { "invoice": "12487487", "amount": 2839.72, "comment": "MISSING IN MARGIN EDGE" } ] } ] }
 ```
 
-`status` is `paid`, `none` (`NONE` from `new-payment.sh`) or `failed`. List both vendors every week. The wrapper moves the AP Aging into the week folder only when both vendors are `none` or `paid` with the stub attached and the email sent, and `note` is empty. Otherwise the file stays in Downloads. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`. A clean result posts untagged. `NEEDS REVIEW`, `FAILED` and waiting cards tag Tricia. Unapproved invoices left open are listed but do not need review.
+`status` is `paid`, `none` (`NONE` from `new-payment.sh`) or `failed`. List both vendors every week. The wrapper moves the AP Aging and the stubs into the week folder only when both vendors are `none` or `paid` with the stub attached and the email sent, and `note` is empty. Otherwise the files stay in Downloads. `scripts/notify-teams.ps1` posts the result to the dLena Bank Activity channel through the webhook in `~/.claude/dlena-stripe-deposits.json`. A clean result posts untagged. `NEEDS REVIEW`, `FAILED` and waiting cards tag Tricia. Unapproved invoices left open are listed but do not need review.
 
 ## Runs
 

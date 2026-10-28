@@ -20,7 +20,9 @@ if ($dupes.Count) {
   $d = $dupes[0]
   "recipients: " + (($d.Recipients | ForEach-Object { "$(@('','To','Cc','Bcc')[$_.Type]):$($_.Name)" }) -join "; ")
   "attachments: " + (($d.Attachments | Where-Object { $_.FileName -notlike 'image*' } | ForEach-Object { $_.FileName }) -join ", ")
-  $d.Send(); "SENT $subject (draft)"; exit 0
+  # Outlook modal dialog throws here; draft stays unsent
+  try { $d.Send() } catch { "FAIL: send: $($_.Exception.Message)"; exit 1 }
+  "SENT $subject (draft)"; exit 0
 }
 
 $greeting = if ((Get-Date).Hour -lt 12) { "Good morning!" } else { "Good afternoon!" }
@@ -43,4 +45,4 @@ $null = $new.Attachments.Add($Attach)
 "recipients: " + (($new.Recipients | ForEach-Object { "$(@('','To','Cc','Bcc')[$_.Type]):$($_.Name)" }) -join "; ")
 "attachments: " + (($new.Attachments | Where-Object { $_.FileName -notlike 'image*' } | ForEach-Object { $_.FileName }) -join ", ")
 "body: " + ((($new.Body -split "`r?`n" | Where-Object { $_.Trim() }) | Select-Object -First 3) -join " | ")
-if ($Send) { $new.Send(); "SENT $subject" } else { $new.Save(); $new.Display(); "DRAFT $subject (open in Outlook)" }
+if ($Send) { try { $new.Send() } catch { "FAIL: send: $($_.Exception.Message)"; exit 1 }; "SENT $subject" } else { $new.Save(); $new.Display(); "DRAFT $subject (open in Outlook)" }
