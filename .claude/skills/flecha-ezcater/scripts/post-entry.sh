@@ -34,7 +34,7 @@ playwright-cli -s=$S fill "#journalEntryNumber" "EZ Cater Fees" >/dev/null 2>&1;
 R=$(ev fez-set.js); echo "$R"; echo "$R" | grep -q '"set ' || exit 1
 playwright-cli -s=$S fill '#journalEntryComment' "$(node -e 'process.stdout.write(JSON.parse(process.argv[1]).comment)' "$ROW")" >/dev/null 2>&1
 playwright-cli -s=$S press Tab >/dev/null 2>&1
-OUT=$(bash "$SK/danny-coops-payroll/scripts/save.sh" $S)
+OUT=$(bash "$SK/flecha-doordash/scripts/save.sh" $S)
 echo "$OUT" | grep -q "\"$ID\"" || { echo "FAIL: save answered $OUT"; exit 1; }
 
 bash "$D/check-entry.sh" $S "$L" "$WE" "$LOC" "$ID"

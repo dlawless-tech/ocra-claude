@@ -2,5 +2,7 @@
 $script = Join-Path $PSScriptRoot 'tuesday-run.ps1'
 $action = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument "-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File `"$script`""
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Tuesday -At ([datetime]'2026-10-13T16:00:00')
+# no UTC offset, so the run keeps its local time across daylight saving
+$trigger.StartBoundary = '2026-10-13T16:00:00'
 $settings = New-ScheduledTaskSettingsSet -MultipleInstances IgnoreNew -ExecutionTimeLimit (New-TimeSpan -Hours 1) -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 Register-ScheduledTask -TaskName 'Flecha GrubHub Weekly' -Action $action -Trigger $trigger -Settings $settings -Description 'Trues up last period''s Flecha GrubHub fee estimates and estimates the Tue-Mon period that ended Monday, then reports to Teams.' -Force

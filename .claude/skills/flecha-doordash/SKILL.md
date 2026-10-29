@@ -32,7 +32,7 @@ Work in one directory for the whole run, since `playwright-cli` binds sessions t
 bash <skill>/scripts/r365-login.sh fdd
 ```
 
-Flecha shares the NORMS R365 login (`tlaroche`), read from `~/.claude/norms-credentials.md`. Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) before scripting anything new here; the same R365 build serves Flecha.
+The R365 login (`tlaroche`) is read from the R365 block of `~/.claude/flecha-credentials.md`. Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) before scripting anything new here; the same R365 build serves Flecha.
 
 ## The week
 

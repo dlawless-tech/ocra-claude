@@ -3,7 +3,7 @@
 # usage: gl-detail.sh <session> <start M/D/YYYY> <end M/D/YYYY> <out.csv>
 set -u
 S="$1"; START="$2"; END="$3"; OUT="$4"
-D=$(dirname "$0"); SNAP="$D/../../bowery-ubereats/scripts/snapshot.sh"; HOST=https://flecha.restaurant365.com
+D=$(dirname "$0"); SNAP="$D/snapshot.sh"; HOST=https://flecha.restaurant365.com
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d'; }
 ev() { playwright-cli -s=$S eval "$(cat "$1")" 2>&1 | res; }
 while playwright-cli -s=$S tab-list 2>&1 | grep -qE '^- 1:'; do playwright-cli -s=$S tab-close 1 >/dev/null 2>&1; done

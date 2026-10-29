@@ -1,13 +1,13 @@
 #!/bin/bash
 # Log a playwright-cli session into R365. Idempotent: an already-authenticated
-# session is left alone. Credentials come from ~/.claude/norms-credentials.md,
+# session is left alone. Credentials come from the R365 block of ~/.claude/flecha-credentials.md,
 # which lives outside any repo and is never copied into one.
 #
 # Usage: r365-login.sh <session>
 # Exits nonzero if the session does not end up authenticated.
 set -u
 S="$1"
-CREDS="$HOME/.claude/norms-credentials.md"
+CREDS="$HOME/.claude/flecha-credentials.md"
 [ -f "$CREDS" ] || { echo "FAIL: no $CREDS"; exit 1; }
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n"'; }
 
@@ -18,8 +18,8 @@ host() { playwright-cli -s=$S eval "() => location.hostname" 2>&1 | res; }
 [ "$(host)" = "flecha.restaurant365.com" ] && { echo "already authenticated"; exit 0; }
 
 # first Username/Password pair under the R365 heading
-USER=$(sed -n 's/^- *Username: *//p' "$CREDS" | head -1)
-PASS=$(sed -n 's/^- *Password: *//p' "$CREDS" | head -1)
+USER=$(sed -n '/^## R365/,/^## /s/^- *Username: *//p' "$CREDS" | head -1)
+PASS=$(sed -n '/^## R365/,/^## /s/^- *Password: *//p' "$CREDS" | head -1)
 [ -n "$USER" ] && [ -n "$PASS" ] || { echo "FAIL: could not parse credentials"; exit 1; }
 
 # only open the app root if we are not already sitting on the login form

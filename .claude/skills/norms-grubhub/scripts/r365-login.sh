@@ -10,7 +10,7 @@ CREDS="$HOME/.claude/norms-credentials.md"
 [ -f "$CREDS" ] || { echo "FAIL: no $CREDS"; exit 1; }
 
 U=$(playwright-cli -s=$S eval "() => location.href" 2>&1 | sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '\n"')
-case "$U" in *norms.restaurant365.com*) echo "already authenticated: $U"; exit 0;; esac
+case "$U" in https://norms.restaurant365.com*) echo "already authenticated: $U"; exit 0;; esac
 
 # first Username/Password pair under the R365 heading
 USER=$(sed -n 's/^- *Username: *//p' "$CREDS" | head -1)

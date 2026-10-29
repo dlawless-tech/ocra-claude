@@ -7,14 +7,19 @@ S="$1"; SRC="$2"; D="$3"; N="$4"
 SNAP="$(dirname "$0")/../../bowery-ubereats/scripts/snapshot.sh"
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d' | tr -d '"'; }
 # refs come as f12e203 on a first tab and e662 on later ones
-ref() { grep -oE "$1 .ref=f?[0-9]*e[0-9]+" snap.dup.txt | grep -oE 'f?[0-9]*e[0-9]+$' | tail -1; }
+ref() { grep -oE "$1( \[[a-z]+\])* .ref=f?[0-9]*e[0-9]+" snap.dup.txt | grep -oE 'f?[0-9]*e[0-9]+$' | tail -1; }
 # the menu row wrapping a button: the ref on the snapshot line above it
 row() { grep -B1 -E "button \"$1\" .ref=" snap.dup.txt | head -1 | grep -oE 'f?[0-9]*e[0-9]+'; }
 
 playwright-cli -s=$S goto "https://bowerygroup.restaurant365.com/#/form/JournalEntryForm/$SRC" >/dev/null 2>&1; sleep 20
 bash "$SNAP" $S snap.dup.txt; R=$(ref 'button "Action"'); [ -n "$R" ] || { echo "FAIL: no Action button"; exit 1; }
-playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 2
-bash "$SNAP" $S snap.dup.txt; R=$(row Duplicate); [ -n "$R" ] || { echo "FAIL: no Duplicate row"; exit 1; }
+# menu can miss first click on a slow page: reclick Action until Duplicate shows
+A=$R
+for i in 1 2 3 4; do
+  playwright-cli -s=$S click $A >/dev/null 2>&1; sleep 3
+  bash "$SNAP" $S snap.dup.txt; R=$(row Duplicate); [ -n "$R" ] && break
+done
+[ -n "$R" ] || { echo "FAIL: no Duplicate row"; exit 1; }
 playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 3
 bash "$SNAP" $S snap.dup.txt; R=$(ref 'button "No, transaction only"'); [ -n "$R" ] || { echo "FAIL: no duplicate dialog"; exit 1; }
 playwright-cli -s=$S click $R >/dev/null 2>&1; sleep 15

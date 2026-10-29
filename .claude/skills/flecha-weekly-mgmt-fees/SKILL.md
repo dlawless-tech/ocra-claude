@@ -13,7 +13,7 @@ Work in one directory for the whole run, since `playwright-cli` binds sessions t
 bash <skill>/scripts/r365-login.sh fl
 ```
 
-Flecha shares the NORMS R365 login, so the script reads `~/.claude/norms-credentials.md`. Ask the human only when it is missing or rejected.
+The script reads the R365 login from the R365 block of `~/.claude/flecha-credentials.md`. Ask the human only when it is missing or rejected.
 
 Read [`../norms-ubereats/R365-AUTOMATION.md`](../norms-ubereats/R365-AUTOMATION.md) before scripting any of this. It carries the frame walk, the soft navigation, the report dialog, the ribbon menus, and the save and approve checks this skill leans on; the same R365 build serves Flecha.
 

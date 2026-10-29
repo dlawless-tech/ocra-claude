@@ -31,12 +31,12 @@ The first week is **10/4/2026**. Foodja (1238) was in the Corporate `3rd Party` 
 
 ## Steps
 
-Logins: Foodja from `~/.claude/flecha-credentials.md`, R365 from `norms-credentials.md`. Work in one directory for the whole run, since `playwright-cli` binds sessions to it. `<Monday>` is the Monday 3 weeks before the week's own Monday:
+Logins: Foodja from `~/.claude/flecha-credentials.md`, R365 from the same file's R365 block. Work in one directory for the whole run, since `playwright-cli` binds sessions to it. `<Monday>` is the Monday 3 weeks before the week's own Monday:
 
 ```bash
-CREDS=$HOME/.claude/flecha-credentials.md bash <skills>/norms-foodja-fees/scripts/fj-login.sh ffj
+bash <skill>/scripts/fj-login.sh ffj
 bash <skills>/flecha-doordash/scripts/r365-login.sh ffjr
-for d in <each period end from <Monday> to 2 weeks past the Sunday>; do bash <skills>/norms-foodja-fees/scripts/statements.sh ffj $d dl; done; mkdir -p statements; cp dl/statements/*.pdf statements/ 2>/dev/null
+for d in <each period end from <Monday> to 2 weeks past the Sunday>; do bash <skill>/scripts/statements.sh ffj $d dl; done; mkdir -p statements; cp dl/statements/*.pdf statements/ 2>/dev/null
 node <skill>/scripts/parse-statements.js statements > statements.json
 bash <skill>/scripts/orders.sh ffj <Monday> <Sunday> > orders.json
 bash <skills>/flecha-ezcater/scripts/gl.sh ffjr 1238 <Monday> <Sunday> > gl1238.txt
@@ -68,13 +68,13 @@ Update this table at the end of every run with the Sunday just posted; the next 
 
 ## Unattended run
 
-`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 19:15 from 10/27/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the Sunday, the work directory `.scratch/flecha-foodja/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
+`scripts/tuesday-run.ps1` runs from Task Scheduler on Tuesdays at 16:00 from 11/3/2026 (`scripts/register-task.ps1` sets it up). It starts this skill headless with a prompt beginning `Unattended run`, naming the Sunday, the work directory `.scratch/flecha-foodja/wk<MMdd>`, and the prior week's `ids.txt`. It writes `done.txt` after, so the week runs once. `-Force` reruns a week, and `-Date yyyy-MM-dd` stands in for today.
 
 No human answers during the run, so:
 
 - Never ask, and leave this file alone. Use sessions `ffj` (Foodja) and `ffjr` (R365), and run every command as `cd <work directory> && ...`, since Bash resets its directory between calls and `playwright-cli` binds the session to it.
 - Copy the prior week's `ids.txt` into the work directory as this week's `ids.txt`. Seed `sources.txt` with each store's newest id in it, else **Latest entries**. A store with no Foodja entry yet duplicates the store's newest `Uber Eats` entry; `post-entry.sh` moves its 1235 line to 1238.
-- If All Transactions shows a `Foodja` row for a store on a Sunday that `ids.txt` lacks, add it to `ids.txt` before `run-weeks.sh`, so the run corrects it instead of posting a second one, and say so in `notes`.
+- Run `bash <skill>/scripts/find-entries.sh ffjr <Sunday M/D/YYYY>` for the Sunday and each prior week checked. Use only this skill's and `flecha-*` scripts, never another client's. If it shows a `Foodja` row for a store on a Sunday that `ids.txt` lacks, add it to `ids.txt` before `run-weeks.sh`, so the run corrects it instead of posting a second one, and say so in `notes`.
 - A rejected login, an unreadable report, or an `orders.sh`, parse or `build-lines.js` failure posts nothing: status `failed`, with the reason in `note`.
 - A `FAIL` from `run-weeks.sh` is `failed`, with the store and any id left unapproved in `warnings`. Leave it.
 - Never change a prior week. Each `DIFF` or `MISSING` from `check-weeks.sh` goes in `questions` as a decision for Layla, with the week, store, entry id, posted fee, actual fee and why they differ.

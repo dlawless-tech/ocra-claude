@@ -5,7 +5,7 @@
 set -u
 S=$1; BD=$2; LOC=$3
 APP=https://flecha.restaurant365.com; P="playwright-cli -s=$S"; G=bankDepositDetailsGrid
-SN="$(cd "$(dirname "$0")" && pwd)/../../bowery-ubereats/scripts/snapshot.sh"
+SN="$(cd "$(dirname "$0")" && pwd)/../../flecha-doordash/scripts/snapshot.sh"
 res() { sed -n '/### Result/{n;p;q;}' | sed 's/^"//;s/"$//'; }
 fail() { echo "FAIL: $BD $1"; exit 1; }
 ref() { grep -m1 "$1" ed.txt | grep -oE 'ref=[^]]*' | cut -d= -f2; }
