@@ -18,7 +18,7 @@ bash <skill>/../fare-ubereats/scripts/r365-login.sh fghr           # fare.restau
 
 Read [`../bowery-ubereats/R365-AUTOMATION.md`](../bowery-ubereats/R365-AUTOMATION.md) before scripting R365; the same build serves FARE.
 
-## Logins
+## Logins     
 
 Credentials live in `~/.claude/fare-credentials.md`, outside any repo: R365 `tlaroche`, Grubhub `mark+33@ocra-us.com` with a password. `gh-login.sh` reads the Grubhub block. If Grubhub answers with a mailed code, hand the keyboard over and say so.
 
