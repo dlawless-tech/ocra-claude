@@ -1,4 +1,4 @@
-// Pull the week's Net Pay Reports from Paycor into the Payroll folder, named the way bowery-payroll reads them.
+// Pull the week's Net Pay and Cash Requirements reports from Paycor into the Payroll folder, named the way bowery-payroll reads them.
 // usage: node netpay.js <work dir> <drop folder> <M/D/YYYY week ending>
 // prints one JSON result; exit 0 saved or already there, 1 problem
 const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
@@ -9,6 +9,10 @@ const PDFTOTEXT = 'C:\\Program Files\\Git\\mingw64\\bin\\pdftotext.exe';
 const [m, d, y] = we.split('/');
 const md = `${+m}.${+d}`;
 const weFull = `${m.padStart(2, '0')}/${d.padStart(2, '0')}/${y}`;
+const REPORTS = [
+  { key: 'netPay', name: 'Net Pay Report', end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
+  { key: 'cashReq', name: 'Cash Requirements Report', end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
+];
 
 fs.mkdirSync(work, { recursive: true });
 process.chdir(work);
@@ -49,22 +53,25 @@ try {
   for (const r of runs) {
     r.store = STORES[r.co];
     r.kind = /SALARY/i.test(r.run) ? 'Salary' : 'Hourly';
-    if (r.kind === 'Hourly' && r.co !== '155050' && !r.netPay) problems.push(`${r.store} hourly run ${r.run} has no Net Pay Report`);
-    if (r.netPay && !r.pdf) problems.push(`${r.store} ${r.run}: Net Pay Report listed but the PDF did not load`);
+    for (const rep of REPORTS) {
+      if (r.kind === 'Hourly' && r.co !== '155050' && !r[rep.key]) problems.push(`${r.store} hourly run ${r.run} has no ${rep.name}`);
+      if (r[rep.key] && !r[rep.key + 'Pdf']) problems.push(`${r.store} ${r.run}: ${rep.name} listed but the PDF did not load`);
+    }
   }
   for (const co of Object.keys(STORES)) if (!runs.some(r => r.co === co)) problems.push(`${STORES[co]}: no payroll runs found`);
-  for (const r of runs.filter(r => r.pdf)) {
-    const both = runs.filter(x => x.co === r.co && x.pdf).length > 1;
-    const name = `${md} ${r.store} ${both ? r.kind + ' ' : ''}Net Pay Report.pdf`;
+  for (const rep of REPORTS) for (const r of runs.filter(r => r[rep.key + 'Pdf'])) {
+    const both = runs.filter(x => x.co === r.co && x[rep.key + 'Pdf']).length > 1;
+    const name = `${md} ${r.store} ${both ? r.kind + ' ' : ''}${rep.name}.pdf`;
     if (files.some(f => f.name === name)) { problems.push(`two runs would both save as ${name}`); continue; }
-    const tmp = path.join(work, `np-${r.co}-${r.kind}.pdf`);
-    fs.writeFileSync(tmp, Buffer.from(r.pdf, 'base64'));
+    const tmp = path.join(work, `${rep.key}-${r.co}-${r.kind}.pdf`);
+    fs.writeFileSync(tmp, Buffer.from(r[rep.key + 'Pdf'], 'base64'));
     const text = execFileSync(PDFTOTEXT, ['-layout', tmp, '-'], { encoding: 'utf8' });
-    const end = (text.match(/Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/) || [])[1];
-    if (end !== weFull) problems.push(`${r.store} ${r.kind}: Paycor's current payroll ends ${end || '?'}, not ${weFull}`);
+    fs.writeFileSync(tmp.replace(/pdf$/, 'txt'), text);
+    const end = (text.match(rep.end) || [])[1];
+    if (end !== weFull) problems.push(`${r.store} ${r.kind} ${rep.name}: Paycor's current payroll ends ${end || '?'}, not ${weFull}`);
     files.push({ name, tmp, store: r.store, kind: r.kind, run: r.run });
   }
-  if (problems.length) return done('problem', { problems, runs: runs.map(({ pdf, ...r }) => r) });
+  if (problems.length) return done('problem', { problems, runs: runs.map(({ netPayPdf, cashReqPdf, ...r }) => r) });
 
   const saved = [], kept = [];
   for (const f of files) {
@@ -73,7 +80,7 @@ try {
     fs.copyFileSync(f.tmp, to);
     saved.push(f.name);
   }
-  done('saved', { saved, kept, files: files.map(({ tmp, ...f }) => f), noNetPay: runs.filter(r => !r.netPay).map(r => `${r.store} ${r.kind}`) });
+  done('saved', { saved, kept, files: files.map(({ tmp, ...f }) => f), noNetPay: runs.filter(r => !r.netPay).map(r => `${r.store} ${r.kind}`), noCashReq: runs.filter(r => !r.cashReq).map(r => `${r.store} ${r.kind}`) });
 } catch (e) {
   done('problem', { problems: [String(e.message || e).slice(0, 600)] });
 } finally {

@@ -1,18 +1,21 @@
 ---
 name: bowery-wkly-payroll-report
-description: Pull each Bowery Group location's Paycor Net Pay Report for the week into the Bowery Payroll folder, named for bowery-payroll, hourly and salary runs both checked. Use when asked to pull, download, or check the Bowery Net Pay Reports or the weekly Paycor payroll report, or when the Wednesday scheduled run starts it.
+description: Pull each Bowery Group location's Paycor Net Pay Report and Cash Requirements Report for the week into the Bowery Payroll folder, named for bowery-payroll, hourly and salary runs both checked. Use when asked to pull, download, or check the Bowery Net Pay Reports, Cash Requirements Reports, or the weekly Paycor payroll report, or when the Wednesday scheduled run starts it.
 ---
 
-# Paycor Net Pay Reports into the Bowery Payroll folder
+# Paycor Net Pay and Cash Requirements reports into the Bowery Payroll folder
 
-`bowery-payroll` posts the week only once the GL workbook and the Net Pay Reports sit loose in its drop folder. The GL is dropped by hand; this skill supplies the reports:
+`bowery-payroll` posts the week only once the GL workbook and the Net Pay Reports sit loose in its drop folder. The GL is dropped by hand; this skill supplies the reports. The Cash Requirements Reports ride along for the record: `bowery-payroll` files them with the week and reads nothing from them.
 
 ```
 C:\Users\trici\OCRA\Bowery Group - General\Payroll\
-  10.11.26 Payroll GL.xlsx                  dropped by hand, starts this skill
-  10.11 Cookshop Net Pay Report.pdf         one run with a report: location only
-  10.11 Rosie's Hourly Net Pay Report.pdf   two runs with a report: Hourly and Salary added
+  10.11.26 Payroll GL.xlsx                           dropped by hand, starts this skill
+  10.11 Cookshop Net Pay Report.pdf                  one run with a report: location only
+  10.11 Rosie's Hourly Net Pay Report.pdf            two runs with a report: Hourly and Salary added
   10.11 Rosie's Salary Net Pay Report.pdf
+  10.11 Cookshop Hourly Cash Requirements Report.pdf
+  10.11 Cookshop Salary Cash Requirements Report.pdf
+  10.11 Bowery Group Cash Requirements Report.pdf
 ```
 
 The prefix is the period ending as `M.D`, no leading zeros (`10.4`, `10.11`), read from the GL's own name.
@@ -34,6 +37,8 @@ Main Navigation > Reports > Payroll Reports > **Post Payroll Reports** lands on 
 
 A run lists Net Pay Report only when it paid live checks. Every store's hourly run has one. Salary runs and Bowery Group usually have none, so check every run each week: Rosie's salary carried two checks for 10/11. Bowery Group has one run, so picking it lands straight on the run page with no run list.
 
+Every run lists a **Cash Requirements** report (dropdown label starts `Cash Req`), salary runs and Bowery Group included: eleven a week. Picking the second report swaps the PDF frame for a new download URL, so `walk.js` waits for a URL it has not seen yet.
+
 ## Run it
 
 ```bash
@@ -42,9 +47,11 @@ node scripts/netpay.js <work dir> "C:\Users\trici\OCRA\Bowery Group - General\Pa
 
 `netpay.js` signs in, walks all six companies with `walk.js`, and prints one JSON line. It saves nothing unless every check passes:
 
-- each store's hourly run has a Net Pay Report
+- each store's hourly run has a Net Pay Report and a Cash Requirements Report
 - every report's footer **Period Ending** equals the week ending, which catches Paycor still showing the prior week
 - no two runs map to one file name
+
+Each report type is named on its own: Cookshop gets one Net Pay Report with no run label but two Cash Requirements Reports, Hourly and Salary.
 
 `status: saved` lists `saved` and `kept`. A file already in the folder under the same name is kept as is. `status: problem` lists `problems`, and the folder is untouched.
 

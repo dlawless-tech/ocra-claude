@@ -1,6 +1,7 @@
-// playwright-cli run-code: every company's current payroll runs, each run's Net Pay Report as base64 when it has one
+// playwright-cli run-code: every company's current payroll runs, each run's Net Pay and Cash Requirements reports as base64 when it has them
 async page => {
   const home = 'https://secure.paycor.com/onlinereports/index.html#/CurrentReports';
+  const WANT = { netPay: /^Net Pay Report$/, cashReq: /^Cash Req/ };
   const fr = () => page.frames().find(f => /onlinereports/.test(f.url())) || page.mainFrame();
   const closeNav = async () => {
     const b = fr().getByRole('button', { name: /Main Navigation.*to close/ });
@@ -26,15 +27,20 @@ async page => {
       await fr().getByText('Payroll Reports:', { exact: true }).locator('..').getByRole('link', { name: 'Open', exact: true }).click();
       await page.waitForURL(/\/r\/\d+/, { timeout: 15000 }).catch(() => {}); await page.waitForTimeout(3000);
       const opts = (await fr().locator('select option').allInnerTexts()).map(o => o.trim());
-      let pdf = null;
-      if (opts.includes('Net Pay Report')) {
-        await fr().locator('select').first().selectOption({ label: 'Net Pay Report' });
+      const r = { co, run, note, opts };
+      // each pick swaps the PDF frame; wait for a download url not seen yet
+      const seen = new Set(page.frames().map(f => f.url()));
+      for (const [key, re] of Object.entries(WANT)) {
+        const label = opts.find(o => re.test(o));
+        r[key] = label || null; r[key + 'Pdf'] = null;
+        if (!label) continue;
+        await fr().locator('select').first().selectOption({ label });
         await page.waitForURL(/\/r\/\d+/, { timeout: 15000 }).catch(() => {});
         let f;
-        for (let i = 0; i < 20 && !f; i++) { await page.waitForTimeout(1000); f = page.frames().find(f => /PayrollReportService\/download/.test(f.url())); }
-        if (f) pdf = (await (await page.context().request.get(f.url())).body()).toString('base64');
+        for (let i = 0; i < 20 && !f; i++) { await page.waitForTimeout(1000); f = page.frames().find(f => /PayrollReportService\/download/.test(f.url()) && !seen.has(f.url())); }
+        if (f) { seen.add(f.url()); r[key + 'Pdf'] = (await (await page.context().request.get(f.url())).body()).toString('base64'); }
       }
-      out.push({ co, run, note, reports: opts.length, netPay: opts.includes('Net Pay Report'), pdf });
+      out.push(r);
     }
   }
   return JSON.stringify(out);

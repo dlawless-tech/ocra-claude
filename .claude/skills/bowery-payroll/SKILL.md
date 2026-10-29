@@ -12,6 +12,7 @@ C:\Users\trici\OCRA\Bowery Group - General\Payroll\
   10.04.26 Payroll GL.xlsx                       one GL, hourly and salary combined, all six entities
   10.4 <Store> Hourly Net Pay Report.pdf         one per store, always
   10.4 <Store> Salary Net Pay Report.pdf         only for salary runs with live checks
+  10.4 <Store> Hourly Cash Requirements Report.pdf   one per run, filed with the week, never read or attached
   Completed\
     WE 10.04.26\                                 every finished week, named for the period ending
 ```
