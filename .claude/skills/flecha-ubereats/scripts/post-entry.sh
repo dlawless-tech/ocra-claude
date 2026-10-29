@@ -13,7 +13,7 @@ if [ -n "${REDO:-}" ]; then ID="$REDO"; playwright-cli -s=$S goto "$HOST/#/form/
 else ID=$(bash "$SK/flecha-doordash/scripts/duplicate.sh" $S "$SRC" "$WE" "Uber Eats") || { echo "$ID"; exit 1; }; fi
 echo "id $ID"
 
-# header location and comment, then both lines: Dr 7161 / Cr 1235 at the fee, at the store; a DoorDash source has its 1239 line moved to 1235
+# header location and comment, then both lines: Dr 7161 / Cr 1243 at the fee, at the store; a source on 1235 or 1239 has that line moved to 1243
 cat > fue-set.js <<JS
 () => { const x=$ROW;
 const cb=jQuery('#journalEntryLocation').data('kendoComboBox');
@@ -23,8 +23,8 @@ const g=jQuery('[data-role=grid]').data('kendoGrid'); const d=Array.prototype.sl
 if (d.length!==2) return 'STOP: '+d.length+' lines';
 const fee=Math.abs(x.fee), dr=x.fee>=0;
 for (const m of d) {
-  const exp=/^7161 /.test(m.glAccount), ar=/^123[59] /.test(m.glAccount); if(!exp&&!ar) return 'STOP: line '+m.glAccount;
-  if (ar) { m.set('glAccountId', '293b5f76-0674-4b91-b016-b99cd4577e44'); m.set('glAccount', '1235 - A/R - 3rd Party Delivery'); }
+  const exp=/^7161 /.test(m.glAccount), ar=/^12(35|39|43) /.test(m.glAccount); if(!exp&&!ar) return 'STOP: line '+m.glAccount;
+  if (ar) { m.set('glAccountId', '31603301-819d-4f32-9232-8fda93acf50c'); m.set('glAccount', '1243 - AR - UberEats'); }
   m.set('locationId', it.locationId); m.set('location', x.loc);
   m.set('debit', (exp===dr)?fee:0); m.set('credit', (exp===dr)?0:fee); m.set('comment', x.comment); m.dirty=true; }
 return 'set '+cb.text()+' '+fee; }

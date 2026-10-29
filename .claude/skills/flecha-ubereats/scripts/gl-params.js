@@ -1,9 +1,9 @@
-// Sets the GL Account Detail dialog: account 1235, Subtotal By Location, Full comments. Returns the dialog state.
+// Sets the GL Account Detail dialog: account __ACCT__ (gl-detail.sh fills it in), Subtotal By Location, Full comments. Returns the dialog state.
 async () => {
   const seen = []; const walk = d => { seen.push(d); for (const f of d.querySelectorAll('iframe')) { try { if (f.contentDocument) walk(f.contentDocument); } catch (e) {} } }; walk(document);
   const d = seen.find(x => x.querySelector('md-dialog')); if (!d) return 'STOP: no dialog'; const w = d.defaultView;
   const ac = d.querySelector('md-dialog md-autocomplete'); const sc = w.angular.element(ac).isolateScope().$parent; const o = sc.r365options;
-  const it = (await o.querySearch('1235'))[0]; if (!it) return 'STOP: no account 1235';
+  const it = (await o.querySearch('__ACCT__'))[0]; if (!it) return 'STOP: no account __ACCT__';
   sc.$apply(() => { o.selectedItem = it; o.searchText = it.display; o.selectedItemChange(it); });
   const group = l => [...d.querySelectorAll('md-dialog span')].find(x => x.textContent.trim() === l).closest('section');
   const pick = (l, i) => { const b = [...group(l).querySelectorAll('button')][i]; const s = w.angular.element(b).scope(); if (!s.valuePair.wanted) s.$apply(() => s.buttonSelected(s.valuePair, s.param, { stopPropagation() {}, preventDefault() {} })); };

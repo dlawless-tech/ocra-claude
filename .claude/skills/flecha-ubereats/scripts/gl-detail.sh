@@ -1,11 +1,13 @@
 #!/bin/bash
-# Run GL Account Detail for 1235 - A/R - 3rd Party Delivery, all locations, Show Unapproved Yes, and save it as CSV.
-# usage: gl-detail.sh <session> <start M/D/YYYY> <end M/D/YYYY> <out.csv>
+# Run GL Account Detail for one account (1243 - AR - UberEats, or 1235 for history before 10/5), all locations, Show Unapproved Yes, and save it as CSV.
+# usage: gl-detail.sh <session> <start M/D/YYYY> <end M/D/YYYY> <out.csv> [1243|1235]
 set -u
-S="$1"; START="$2"; END="$3"; OUT="$4"
+S="$1"; START="$2"; END="$3"; OUT="$4"; NUM="${5:-1243}"
+case "$NUM" in 1243) ACCT="1243 - AR - UberEats";; 1235) ACCT="1235 - A/R - 3rd Party Delivery";; *) echo "FAIL: account $NUM"; exit 1;; esac
 D=$(dirname "$0"); SNAP="$D/../../flecha-doordash/scripts/snapshot.sh"; HOST=https://flecha.restaurant365.com
 res() { sed -n '/### Result/,/### Ran Playwright/p' | sed '1d;$d'; }
 ev() { playwright-cli -s=$S eval "$(cat "$1")" 2>&1 | res; }
+params() { playwright-cli -s=$S eval "$(sed "s/__ACCT__/$NUM/g" "$D/gl-params.js")" 2>&1 | res; }
 while playwright-cli -s=$S tab-list 2>&1 | grep -qE '^- 1:'; do playwright-cli -s=$S tab-close 1 >/dev/null 2>&1; done
 
 playwright-cli -s=$S goto "$HOST/react/home" >/dev/null 2>&1; sleep 15
@@ -26,11 +28,11 @@ TE=$(grep -oE 'textbox "End" .ref=f?[0-9]*e[0-9]+' gl.snap.txt | grep -oE 'f?[0-
 [ -n "$Y" ] && [ -n "$TS" ] && [ -n "$TE" ] || { echo "FAIL: dialog refs Yes=$Y Start=$TS End=$TE"; exit 1; }
 playwright-cli -s=$S fill $TS "$START" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
 playwright-cli -s=$S fill $TE "$END" >/dev/null 2>&1; playwright-cli -s=$S press Tab >/dev/null 2>&1
-P=$(ev "$D/gl-params.js")
+P=$(params)
 # the scope handler leaves Show Unapproved unset; only a real click takes
-echo "$P" | grep -q 'unapproved\\":true' || { playwright-cli -s=$S click $Y >/dev/null 2>&1; sleep 1; P=$(ev "$D/gl-params.js"); }
+echo "$P" | grep -q 'unapproved\\":true' || { playwright-cli -s=$S click $Y >/dev/null 2>&1; sleep 1; P=$(params); }
 echo "$P"
-echo "$P" | grep -q '1235 - A/R - 3rd Party Delivery' && echo "$P" | grep -q 'unapproved\\":true' || { echo "FAIL: parameters did not take"; exit 1; }
+echo "$P" | grep -qF "$ACCT" && echo "$P" | grep -q 'unapproved\\":true' || { echo "FAIL: parameters did not take"; exit 1; }
 ev "$D/../../flecha-doordash/scripts/gl-run.js" | grep -q ran || { echo "FAIL: run"; exit 1; }
 sleep 30; playwright-cli -s=$S tab-select 1 >/dev/null 2>&1
 for i in $(seq 1 12); do sleep 10
@@ -38,6 +40,6 @@ for i in $(seq 1 12); do sleep 10
   node -e 'const t=require("fs").readFileSync(process.argv[1],"utf8");const m=t.match(/### Result\n([\s\S]*?)\n### Ran/);if(!m)process.exit(1);const s=JSON.parse(m[1]);if(!/^textbox1/.test(s))process.exit(1);require("fs").writeFileSync(process.argv[2],s)' gl.raw.txt "$OUT" && break
 done
 [ -s "$OUT" ] || { echo "FAIL: no CSV"; exit 1; }
-sed -n 2p "$OUT" | grep -q "1235 - A/R - 3rd Party Delivery,$START - $END" || { echo "FAIL: report header reads $(sed -n 2p "$OUT")"; exit 1; }
+sed -n 2p "$OUT" | grep -qF "$ACCT,$START - $END" || { echo "FAIL: report header reads $(sed -n 2p "$OUT")"; exit 1; }
 playwright-cli -s=$S tab-close 1 >/dev/null 2>&1
 echo "saved $OUT"

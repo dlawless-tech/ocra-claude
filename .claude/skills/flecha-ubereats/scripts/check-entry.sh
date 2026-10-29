@@ -22,7 +22,7 @@ try { r=JSON.parse(JSON.parse(require("fs").readFileSync(process.argv[2],"utf8")
 const f=Math.abs(x.fee), dr=x.fee>=0, bad=[];
 if (r.date!==x.weekEnding) bad.push("date "+r.date); if (r.num!=="Uber Eats") bad.push("number "+r.num); if (r.loc!==x.loc) bad.push("header "+r.loc);
 if (r.cmt!==x.comment) bad.push("comment");
-const e=r.lines.find(l=>/^7161 /.test(l.a)), a=r.lines.find(l=>/^1235 /.test(l.a));
+const e=r.lines.find(l=>/^7161 /.test(l.a)), a=r.lines.find(l=>/^1243 /.test(l.a));
 if (r.lines.length!==2||!e||!a) bad.push("lines "+JSON.stringify(r.lines)); else {
   if (Math.abs((dr?e.dr:e.cr)-f)>.001||Math.abs((dr?a.cr:a.dr)-f)>.001) bad.push("amounts "+(e.dr||-e.cr));
   if (r.lines.some(l=>l.loc!==x.loc)) bad.push("line location"); }

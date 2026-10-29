@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-// Turn a GL Account Detail CSV of 1235 - A/R - 3rd Party Delivery into one Uber Eats fee entry per store per week.
+// Turn a GL Account Detail CSV of 1243 - AR - UberEats into one Uber Eats fee entry per store per week.
 //
-//   build-lines.js <gl.csv> <Sunday M/D/YYYY>... > lines.json
+//   [LEGACY=gl1235.csv] build-lines.js <gl1243.csv> <Sunday M/D/YYYY>... > lines.json
 //
 // Sales: Daily Sales Summary JEs (numbered JE000xxxxx) dated Mon-Sun. Deposit: every bank deposit on
-// 1235 at the store dated the following Mon-Sun. Fee = sales - deposit (basis "actual").
+// 1243 at the store dated the following Mon-Sun. Fee = sales - deposit (basis "actual").
 // A week whose deposit week runs past the report end is an estimate: sales x the store's rate over its
 // last 4 actual weeks, total fees / total sales, or DEFAULT_RATE with fewer than 4. A covered deposit
-// week with no deposit keeps the estimate (basis "no deposit"), since some stores' payouts miss 1235.
+// week with no deposit keeps the estimate (basis "no deposit").
+// Uber moved from 1235 to 1243 on 10/5/2026: LEGACY adds 1235's sales before 10/5 and deposits before
+// 10/12 as rate history, needed until 1243 has 4 actual weeks.
 const fs = require('fs');
 const [file, ...weeks] = process.argv.slice(2);
 const stop = m => { console.error('STOP: ' + m); process.exit(1); };
@@ -18,18 +20,27 @@ const LOC = {
   'Flecha NB': '104 - Flecha NB', 'Flecha Town Square': '102 - Flecha Town Square',
 };
 
-const lines = fs.readFileSync(file, 'utf8').split(/\r?\n/);
 const parse = l => { const o = []; let s = '', q = false; for (const ch of l) { if (ch === '"') q = !q; else if (ch === ',' && !q) { o.push(s); s = ''; } else s += ch; } o.push(s); return o; };
-const hi = lines.findIndex(l => l.startsWith('LocationName1,'));
-if (hi < 0) stop('no LocationName1 header; is this a GL Account Detail CSV export?');
-if (!/1235 - A\/R - 3rd Party Delivery/.test(lines[1] || '')) stop('report is not account 1235 - A/R - 3rd Party Delivery');
-const h = parse(lines[hi]); const ix = k => { const i = h.indexOf(k); if (i < 0) stop('no column ' + k); return i; };
 const n = v => +String(v).replace(/,/g, '') || 0;
-const rows = lines.slice(hi + 1).filter(Boolean).map(parse).filter(r => r[ix('TrxDate')]).map(r => ({
-  loc: r[ix('LocationName1')], date: r[ix('TrxDate')], type: r[ix('TrxType')], num: r[ix('TrxNumber')],
-  dr: n(r[ix('Debit')]), cr: n(r[ix('Credit')]),
-}));
+const read = (f, acct) => {
+  const lines = fs.readFileSync(f, 'utf8').split(/\r?\n/);
+  const hi = lines.findIndex(l => l.startsWith('LocationName1,'));
+  if (hi < 0) stop(f + ': no LocationName1 header; is this a GL Account Detail CSV export?');
+  if (!(lines[1] || '').includes(acct)) stop(f + ': report is not account ' + acct);
+  const h = parse(lines[hi]); const ix = k => { const i = h.indexOf(k); if (i < 0) stop('no column ' + k); return i; };
+  const rows = lines.slice(hi + 1).filter(Boolean).map(parse).filter(r => r[ix('TrxDate')]).map(r => ({
+    loc: r[ix('LocationName1')], date: r[ix('TrxDate')], type: r[ix('TrxType')], num: r[ix('TrxNumber')],
+    dr: n(r[ix('Debit')]), cr: n(r[ix('Credit')]),
+  }));
+  return { lines, rows };
+};
 const D = s => { const [m, d, y] = s.split('/').map(Number); return Date.UTC(y, m - 1, d); };
+const { lines, rows } = read(file, '1243 - AR - UberEats');
+if (process.env.LEGACY) {
+  const CUT = D('10/5/2026');
+  rows.push(...read(process.env.LEGACY, '1235 - A/R - 3rd Party Delivery').rows
+    .filter(r => D(r.date) < (r.type === 'Bank Deposit' ? CUT + 7 * 864e5 : CUT)));
+}
 const md = t => { const x = new Date(t); return (x.getUTCMonth() + 1) + '/' + x.getUTCDate(); };
 const DAY = 864e5;
 const isDss = r => r.type === 'Journal Entry' && /^JE\d+$/.test(r.num);
