@@ -7,7 +7,8 @@
 # "<Store> [Hourly|Salary] Net Pay Report ....pdf" saved out of one.
 #
 # Writes <out dir>/<client id>-<hourly|salary>.txt. An entity with no Net Pay
-# Report ran no live checks, and no file is written for it.
+# Report ran no live checks, and no file is written for it. Each Cash
+# Requirements Report lands beside them as <client id>-<kind>.cashreq.txt.
 #
 # pdftotext -table is the only mode that keeps a check number beside its own
 # amount; -layout shifts the amount column down a row on these reports and
@@ -25,7 +26,7 @@ shopt -s nullglob
 # ends _01. The file name wins when it says which, since it is the one thing a
 # human set deliberately.
 place() {
-  local pdf="$1" hint="$2" txt id sub kind
+  local pdf="$1" hint="$2" ext="${3:-txt}" txt id sub kind
   txt="$TMP/out.txt"
   # pdftotext on Windows fails on an apostrophe in the path (Rosie's, Vic's)
   cp "$pdf" "$TMP/in.pdf"
@@ -37,9 +38,9 @@ place() {
     hourly|salary) kind="$hint" ;;
     *) case "$sub" in *SALARY*|*Salary*) kind=salary ;; *) kind=hourly ;; esac ;;
   esac
-  if [ -f "$OUT/$id-$kind.txt" ]; then echo "DUPLICATE $id-$kind from $(basename "$pdf")"; return; fi
-  cp "$txt" "$OUT/$id-$kind.txt"
-  echo "checks    $id-$kind  $(basename "$pdf")"
+  if [ -f "$OUT/$id-$kind.$ext" ]; then echo "DUPLICATE $id-$kind.$ext from $(basename "$pdf")"; return; fi
+  cp "$txt" "$OUT/$id-$kind.$ext"
+  echo "$ext $id-$kind  $(basename "$pdf")"
 }
 
 for z in "$SRC"/*-reports.zip; do
@@ -59,4 +60,11 @@ for p in "$SRC"/*"Net Pay Report"*.pdf; do
   place "$p" "$hint"
 done
 
-ls "$OUT" >/dev/null 2>&1 && echo "-- $(ls "$OUT" | wc -l) pay runs with live checks"
+for p in "$SRC"/*"Cash Requirement"*.pdf; do
+  b=$(basename "$p")
+  hint=none
+  case "$b" in *Salary*) hint=salary ;; *Hourly*) hint=hourly ;; esac
+  place "$p" "$hint" cashreq.txt
+done
+
+ls "$OUT" >/dev/null 2>&1 && echo "-- $(ls "$OUT" | grep -vc cashreq) pay runs with live checks, $(ls "$OUT" | grep -c cashreq) cash requirements"

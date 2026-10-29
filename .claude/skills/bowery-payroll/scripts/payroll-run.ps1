@@ -1,7 +1,7 @@
 # Task Scheduler entry point. Waits for the week's files in the Payroll folder, runs the skill unattended, then posts to Teams.
 # usage: payroll-run.ps1 [-Mode watch|scheduled] [-Date yyyy-MM-dd] [-Force]
 # watch: Wed 4:30 PM-Thu 5:50 PM, quiet until the files are in. scheduled: Thursday evening backstop, posts once when they are missing.
-# Ready: one GL workbook plus an hourly Net Pay Report for each store, nothing written in the last 10 minutes.
+# Ready: one GL workbook, an hourly Net Pay Report for each store, a Cash Requirements Report for each store + Bowery Group, nothing written in the last 10 minutes.
 param([ValidateSet('watch', 'scheduled')][string]$Mode = 'watch', [string]$Date, [switch]$Force)
 $ErrorActionPreference = 'Stop'
 
@@ -27,10 +27,12 @@ $pdf = @($files | Where-Object { $_.Name -like '*Net Pay Report*.pdf' })
 $hourly = @($pdf | Where-Object { $_.Name -notlike '*Salary*' })
 # Shuka must not match Shukette
 $missing = @($Stores | Where-Object { $s = $_; -not ($hourly | Where-Object { $_.Name -match "\b$s('?s)?\b" }) })
+$cashReq = @($files | Where-Object { $_.Name -like '*Cash Requirement*.pdf' })
+$missing += @(($Stores + 'Bowery Group') | Where-Object { $s = $_; -not ($cashReq | Where-Object { $_.Name -match "\b$s('?s)?\b" }) } | ForEach-Object { "$_ Cash Requirements" })
 if ($gl.Count -ne 1) { $missing = @('the GL workbook') + $missing }
 $fresh = $files.Count -and (($files | Measure-Object LastWriteTime -Maximum).Maximum -gt (Get-Date).AddMinutes(-10))
 
-if ($missing.Count -or $files.Count -lt 6 -or $fresh) {
+if ($missing.Count -or $files.Count -lt 12 -or $fresh) {
   if ($Mode -eq 'scheduled') {
     $mark = Join-Path $run ("missing-{0:yyyyMMdd}.txt" -f (Get-Date))
     if (-not (Test-Path $mark)) {

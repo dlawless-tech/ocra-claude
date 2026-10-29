@@ -48,6 +48,7 @@ node scripts/netpay.js <work dir> "C:\Users\trici\OCRA\Bowery Group - General\Pa
 `netpay.js` signs in, walks all six companies with `walk.js`, and prints one JSON line. It saves nothing unless every check passes:
 
 - each store's hourly run has a Net Pay Report and a Cash Requirements Report
+- every PDF prints its own title, `NET PAY REPORT` or `CASH REQUIREMENT`, which catches a stale frame: on WE 10/25 Cookshop's Net Pay was saved as the 401K Report
 - every report's footer **Period Ending** equals the week ending, which catches Paycor still showing the prior week
 - no two runs map to one file name
 

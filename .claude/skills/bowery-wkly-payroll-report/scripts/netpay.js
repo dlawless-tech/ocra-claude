@@ -10,8 +10,8 @@ const [m, d, y] = we.split('/');
 const md = `${+m}.${+d}`;
 const weFull = `${m.padStart(2, '0')}/${d.padStart(2, '0')}/${y}`;
 const REPORTS = [
-  { key: 'netPay', name: 'Net Pay Report', end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
-  { key: 'cashReq', name: 'Cash Requirements Report', end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
+  { key: 'netPay', name: 'Net Pay Report', title: /NET PAY REPORT/, end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
+  { key: 'cashReq', name: 'Cash Requirements Report', title: /CASH REQUIREMENT/, end: /Period Ending\s*:\s*(\d\d\/\d\d\/\d{4})/ },
 ];
 
 fs.mkdirSync(work, { recursive: true });
@@ -67,6 +67,8 @@ try {
     fs.writeFileSync(tmp, Buffer.from(r[rep.key + 'Pdf'], 'base64'));
     const text = execFileSync(PDFTOTEXT, ['-layout', tmp, '-'], { encoding: 'utf8' });
     fs.writeFileSync(tmp.replace(/pdf$/, 'txt'), text);
+    // a stale frame once saved the 401K Report as Cookshop's Net Pay
+    if (!rep.title.test(text)) { problems.push(`${r.store} ${r.kind} ${rep.name}: the PDF Paycor served is a different report`); continue; }
     const end = (text.match(rep.end) || [])[1];
     if (end !== weFull) problems.push(`${r.store} ${r.kind} ${rep.name}: Paycor's current payroll ends ${end || '?'}, not ${weFull}`);
     files.push({ name, tmp, store: r.store, kind: r.kind, run: r.run });

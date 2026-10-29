@@ -108,6 +108,15 @@ function readChecks(dir, id, kind) {
   return { checks, stated: s ? { count: +s[1], amount: money(s[2]) } : null };
 }
 
+// Cash Requirements Report -> the run's direct deposit draft (Partial DD + Net DD)
+function readDD(dir, id, kind) {
+  const f = path.join(dir || '.', id + '-' + kind + '.cashreq.txt');
+  if (!fs.existsSync(f)) return null;
+  const m = fs.readFileSync(f, 'utf8').match(/Direct Deposits Subtotal Drafted\s+\S+\s+([\d,]+\.\d\d)/);
+  return m ? money(m[1]) : 0;
+}
+const CASHREQ = CHECKS && fs.readdirSync(CHECKS).some(f => /\.cashreq\.txt$/.test(f));
+
 const glHourly = readGL(HOURLY), glSalary = readGL(SALARY);
 const fail = [];
 const plans = [];
@@ -129,6 +138,8 @@ for (const id of Object.keys(LOC)) {
     for (const k of kinds) {
       const r = readChecks(CHECKS, id, k);
       checks.push(...r.checks);
+      if (!r.stated && fs.existsSync(path.join(CHECKS || '.', id + '-' + k + '.txt')))
+        fail.push(loc.name + ' ' + k + ': Net Pay Report has no TOTAL TRANSACTIONS line, wrong report saved?');
       if (r.stated) {
         const parsed = r.checks.reduce((a, b) => a + b.amount, 0);
         if (r.checks.length !== r.stated.count || parsed !== r.stated.amount)
@@ -170,7 +181,16 @@ for (const id of Object.keys(LOC)) {
       }
       lines.push({ account: x.account, debit: x.debit, credit: x.credit, comment: x.name });
     }
-    if (net.length && dd > 0) lines.splice(netIndex, 0, { account: cash, debit: 0, credit: dd, comment: 'NET PAYROLL' });
+    // combined GL + Cash Requirements: one direct deposit line per run, as the bank drafts them
+    let ddLines = [{ account: cash, debit: 0, credit: dd, comment: 'NET PAYROLL' }];
+    if (CASHREQ && kinds.length > 1) {
+      const runs = kinds.map(k => ({ k, dd: readDD(CHECKS, id, k) })).filter(r => r.dd !== null);
+      const sum = runs.reduce((a, b) => a + b.dd, 0);
+      if (!runs.length) fail.push(loc.name + ': no Cash Requirements Report');
+      else if (sum !== dd) fail.push(loc.name + ': Cash Requirements direct deposits ' + fmt(sum) + ' do not match net payroll less checks ' + fmt(dd));
+      else ddLines = runs.map(r => ({ account: cash, debit: 0, credit: r.dd, comment: 'NET PAYROLL ' + r.k.toUpperCase() }));
+    }
+    if (net.length && dd > 0) lines.splice(netIndex, 0, ...ddLines.filter(l => l.credit > 0));
     // single-digit check # = manual check already paid outside the run
     for (const c of mine) checkLines.push(/^\d$/.test(c.num)
       ? { account: MANUAL_CHECKS, debit: 0, credit: c.amount, comment: 'MC ' + c.num + ' ' + c.name }

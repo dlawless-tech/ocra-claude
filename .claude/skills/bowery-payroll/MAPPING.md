@@ -58,7 +58,7 @@ Everything else stays as the GL wrote it, including rows that repeat an account 
 net payroll to post = NET PAYROLL + PARTIAL DIRECT DEPOSITS - the run's live checks
 ```
 
-A partial direct deposit is a direct deposit, and a live check is drawn against the pair rather than against either one, so the two GL rows combine. That one line carries the comment `NET PAYROLL`. Each live check then gets its own credit line on the same cash account, commented with the **check number and the employee** as the Net Pay Report prints them, matching `48623 Choguaj, Edwin`. A manual check reads `MC 1 Mejias, Andy`. Bank reconciliation is what wants them separate, so an entry that lumps them balances and still fails its purpose.
+A partial direct deposit is a direct deposit, and a live check is drawn against the pair rather than against either one, so the two GL rows combine. The combined GL sums both runs into one row, so the run split comes from the Cash Requirements Reports: `NET PAYROLL HOURLY` and `NET PAYROLL SALARY`, each at its run's `Direct Deposits Subtotal`, the amount the bank drafts that day. Without those reports the line is one `NET PAYROLL`. Each live check then gets its own credit line on the same cash account, commented with the **check number and the employee** as the Net Pay Report prints them, matching `48623 Choguaj, Edwin`. A manual check reads `MC 1 Mejias, Andy`. Bank reconciliation is what wants them separate, so an entry that lumps them balances and still fails its purpose.
 
 The live checks come from the **Net Pay Report** inside the entity's reports zip, read through `pdftotext -table`. `-layout` shifts the amount column down one row on these reports, silently pairing every check number with its neighbour's amount. The report's own `TOTAL TRANSACTIONS` line states the count and total, and the parse has to match both.
 
@@ -72,13 +72,15 @@ The builder matches an agency check to its GL row by amount. The proof it got it
 
 ### The tie-out
 
-The entity's **Cash Requirement** report states the split directly, and it is the check on the arithmetic:
+Each run's **Cash Requirements Report** states the split directly, and the builder stops when a location's direct deposit lines miss it:
 
-| Cash Requirement | Entry |
+| Cash Requirements, per run | Entry |
 |---|---|
-| Checks | the check lines, summed |
-| Partial DD + Net DD | the `NET PAYROLL` line |
-| the three summed | GL `NET PAYROLL` + `PARTIAL DIRECT DEPOSITS` |
+| Checks | the run's check lines, summed |
+| Direct Deposits Subtotal (Partial DD + Net DD) | that run's `NET PAYROLL HOURLY` or `NET PAYROLL SALARY` line |
+| Checks + subtotals, all runs | GL `NET PAYROLL` + `PARTIAL DIRECT DEPOSITS`, less agency checks |
+
+Payables like `E - Child Support` sit below the subtotal and stay on their own GL row. Taxes are one `NET PAYROLL TAXES` line for the location, the runs' `TOTAL TAX FUNDS DRAFTED` summed.
 
 ## Accounts a period does not use
 

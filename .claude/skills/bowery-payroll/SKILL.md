@@ -12,14 +12,16 @@ C:\Users\trici\OCRA\Bowery Group - General\Payroll\
   10.04.26 Payroll GL.xlsx                       one GL, hourly and salary combined, all six entities
   10.4 <Store> Hourly Net Pay Report.pdf         one per store, always
   10.4 <Store> Salary Net Pay Report.pdf         only for salary runs with live checks
-  10.4 <Store> Hourly Cash Requirements Report.pdf   one per run, filed with the week, never read or attached
+  10.4 <Store> Hourly Cash Requirements Report.pdf   one per run, splits net payroll by run, attached
+  10.4 <Store> Salary Cash Requirements Report.pdf
+  10.4 Bowery Group Cash Requirements Report.pdf
   Completed\
     WE 10.04.26\                                 every finished week, named for the period ending
 ```
 
-The GL is dropped by hand; `bowery-wkly-payroll-report` pulls the Net Pay Reports from Paycor once it lands, from Wednesday 4:00 PM. A complete week is at least six files: the GL plus an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
+The GL is dropped by hand; `bowery-wkly-payroll-report` pulls the Net Pay Reports from Paycor once it lands, from Wednesday 4:00 PM. A complete week is at least twelve files: the GL, an hourly Net Pay Report for Cookshop, Rosie's, Shuka, Shukette and Vic's, and a Cash Requirements Report for each of those five and Bowery Group. Salary reports and a Bowery Group report come some weeks and not others. Through 9/27/2026 the files arrived in a `WE <MM.DD.YY>` folder of their own instead; read them from there the same way.
 
-The GL carries every amount and the Net Pay Reports name the live checks. **One R365 entry per location, hourly and salary combined.**
+The GL carries every amount, the Net Pay Reports name the live checks, and the Cash Requirements Reports split net payroll into each run's direct deposit draft. **One R365 entry per location, hourly and salary combined**, with taxes on one line and direct deposits on one line per run.
 
 The GL has arrived in two shapes. From 9/27/2026 it is one combined workbook, hourly and salary summed into one row per account. Before that it was `General Ledger - Hourly.xlsx` and `General Ledger - Salary.xlsx`, with the Net Pay Reports inside a `<Store> [Hourly|Salary] <client id>-<stamp>-reports.zip` per pay run. `extract-checks.sh` reads zips and loose PDFs alike. A Net Pay Report whose file name says neither Hourly nor Salary is classed by its own sub-company header, where a salary run reads `SALARY`.
 
@@ -44,7 +46,7 @@ For the older two-workbook shape, convert each to `gl-hourly.csv` and `gl-salary
 
 Use this skill's `xlsx-to-csv.js` and no other. The Paycor GL writes every blank debit or credit as a self-closing cell, and a converter that drops those shifts whole rows left, landing debits in the credit column. A converted file whose GL Account Number column holds bare numbers rather than `600-10` style codes has been shifted.
 
-`extract-checks.sh` prints `no checks` for a pay run with no live checks, which is normal for most salary runs.
+`extract-checks.sh` prints `no checks` for a pay run with no live checks, which is normal for most salary runs. It also writes each Cash Requirements Report as `<client id>-<hourly|salary>.cashreq.txt` in the same folder, classed the same way; Bowery Group's has no run in its name and reads as hourly.
 
 ## Build
 
@@ -52,11 +54,13 @@ Use this skill's `xlsx-to-csv.js` and no other. The Paycor GL writes every blank
 node scripts/build-entries.js --hourly gl.csv --checks checks --date 9/27/2026 --out entries
 ```
 
-A combined GL goes in as `--hourly` with no `--salary`, and the builder then draws both runs' live checks against its one net payroll row. The two-workbook shape takes `--hourly gl-hourly.csv --salary gl-salary.csv`.
+A combined GL goes in as `--hourly` with no `--salary`, and the builder then draws both runs' live checks against its one net payroll row. With Cash Requirements Reports in `--checks`, it splits what is left into `NET PAYROLL HOURLY` and `NET PAYROLL SALARY`, each at that run's `Direct Deposits Subtotal`, the amount the bank drafts. `NET PAYROLL TAXES` stays one line. A period with no Cash Requirements Reports, like any before WE 10/25/2026, keeps one `NET PAYROLL` line. The two-workbook shape takes `--hourly gl-hourly.csv --salary gl-salary.csv`.
 
 One file, `<date> Bowery PAYROLL IMPORT FILE.csv`, holding all six locations, plus `plan.json` for the verify step. [`MAPPING.md`](MAPPING.md) describes the format.
 
-The builder stops rather than emitting anything that fails a check: an entry out of balance, an entry whose total misses the GL total, live checks that exceed a run's net payroll, a parse missing the Net Pay Report's own stated count and total, or a client id with no location mapped.
+The builder stops rather than emitting anything that fails a check: an entry out of balance, an entry whose total misses the GL total, live checks that exceed a run's net payroll, a parse missing the Net Pay Report's own stated count and total, a Net Pay Report with no `TOTAL TRANSACTIONS` line at all, a location whose Cash Requirements direct deposits miss its net payroll less live checks, or a client id with no location mapped.
+
+The two report stops catch a wrong PDF saved under a Net Pay name. On WE 10/25 Cookshop's "Net Pay Report" was Paycor's 401K Report: no checks parsed, and without the Cash Requirements tie the entry would have balanced with 17,189.86 of live checks buried in net payroll. Re-pull the report with `bowery-wkly-payroll-report` and rebuild.
 
 A live check numbered with a single digit, like check `1`, is a manual check already paid outside the payroll run, by hand or by Zelle. The builder posts it to **110-02 Manual Checks** with the comment `MC <check #> <employee>`, never to the net payroll cash account.
 
@@ -78,7 +82,7 @@ node scripts/compare-plan.js prior/plan.json "Shuka=r365-Shuka.json" ...
 - **Comment wording on the net payroll cash line.** Four of the 9/13 locations carry `NET PAYROLL` and two carry `Direct Deposit` or `Direct Deposits`, along with casing drift like `401K PAYABLE` and `WAGES: FOH-MANAGEMENT`. The builder writes the GL's own name.
 - **Leftover zero-amount lines** on an entry built by duplicating a prior week rather than imported.
 - **Net payroll taxes split in two** on those same duplicated entries: the 9/13 Cookshop and Shukette entries carry the hourly and salary taxes as two lines that sum to the builder's one.
-- **Net payroll split in two by hand** after approval: the 9/27 entries carry each location's `NET PAYROLL` cash line as two lines that sum to the builder's one. Leave the builder's single line as is.
+- **Net payroll split in two by hand** after approval: the 9/27 to 10/18 entries carry each location's `NET PAYROLL` cash line as two lines that sum to the builder's one. A prior period with no Cash Requirements Reports builds one line, so this stays a variance until WE 10/25 is the prior period.
 - **Manual check lines from before the 110-02 rule.** Through 10/4 a single-digit check posted to the net payroll cash account, and one fixed by hand carries its own comment, like Vic's 10/4 check 1 as `zelle 10/2`.
 Anything else is a changed Paycor file, so stop and read it.
 
@@ -113,12 +117,12 @@ Report the table of locations, line counts, and totals, and report any location 
 
 ## Attach the week's files
 
-Each entry carries the import CSV plus **that location's own** Net Pay Reports, and nothing else: Rosie's gets both its hourly and salary report, and a location with no Net Pay Report gets the CSV alone. The GL workbook is not attached. `file-week.sh` files a copy of the import CSV with the week.
+Each entry carries the import CSV plus **that location's own** Net Pay Reports and Cash Requirements Reports, and nothing else: Rosie's gets its hourly and salary Net Pay and both Cash Requirements, and Bowery Group gets the CSV and its one Cash Requirements Report. The GL workbook is not attached. `file-week.sh` files a copy of the import CSV with the week.
 
 R365 takes an upload only on a saved entry, which an imported one is. Stage one folder per location under the working directory, since `playwright-cli upload` takes a relative path:
 
 ```bash
-mkdir -p loc/Shuka && cp "entries/<date> Bowery PAYROLL IMPORT FILE.csv" "<week folder>/9.27 Shuka Net Pay Report.pdf" loc/Shuka/
+mkdir -p loc/Shuka && cp "entries/<date> Bowery PAYROLL IMPORT FILE.csv" "<week folder>/10.25 Shuka "*{Net Pay,Cash Requirements}" Report.pdf" loc/Shuka/
 bash scripts/attach.sh <session> <TransactionId> loc/Shuka
 ```
 
