@@ -13,7 +13,7 @@ $today = if ($Date) { [datetime]::ParseExact($Date, 'yyyy-MM-dd', $null) } else 
 $end = $today.AddDays(-(([int]$today.DayOfWeek + 6) % 7 + 1))
 $glStart = $end.AddDays(-6)
 $toastFrom = $glStart
-$prior = Join-Path $Repo (".scratchsnarfs-advance-orderswk{0:MMdd}econ.json" -f $end.AddDays(-7))
+$prior = Join-Path $Repo (".scratch\snarfs-advance-orders\wk{0:MMdd}\recon.json" -f $end.AddDays(-7))
 function D($x) { '{0}/{1}/{2}' -f $x.Month, $x.Day, $x.Year }
 function Iso($x) { $x.ToString('yyyy-MM-dd') }
 
