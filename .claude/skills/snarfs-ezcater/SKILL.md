@@ -34,10 +34,10 @@ The first entries are the 8/23/2026 payout (go-live 8/19). Before them the only 
 **Orders.** The Partner Portal has no reports page; the orders come from the GraphQL API behind its order lists.
 
 ```bash
-bash <scripts>/ez-orders.sh sez <Sunday - 42 days YYYY-MM-DD> <Sunday + 90 days YYYY-MM-DD> orders.json
+bash <scripts>/ez-orders.sh sez 2026-08-01 <Sunday + 90 days YYYY-MM-DD> orders.json
 ```
 
-Each order carries `store`, `sub_at`, `at` (event), `status`, `total` and `due` (Caterer Total Due). Cancelled orders come back with total and due 0. The span reaches back for orders submitted earlier and forward for orders delivered well after the week, which the check needs. An order placed weeks ahead whose delivery falls outside the span reads as a sale with no order, as Page's 7W4Y1M did in the 10/11/2026 run.
+Each order carries `store`, `sub_at`, `at` (event), `status`, `total` and `due` (Caterer Total Due). Cancelled orders come back with total and due 0. The span starts at go-live, since `plan.js` re-pairs every 10150 sale since then (from 9/13 a 9/9/2026 Skinker sale paired with a later order in the 10/25/2026 run), and reaches forward for orders delivered well after the week, which the check needs. An order placed weeks ahead whose delivery falls outside the span reads as a sale with no order, as Page's 7W4Y1M did in the 10/11/2026 run.
 
 **GL.** Run from go-live through today so the balance holds every deposit:
 
@@ -49,7 +49,7 @@ node <scripts>/gl-rows.js gl.csv > gl.json
 ## Plan
 
 ```bash
-node <scripts>/plan.js gl.json orders.json <first Sunday> <last Sunday> > plan.json
+node <scripts>/plan.js gl.json orders.json <first Sunday YYYY-MM-DD> <last Sunday YYYY-MM-DD> > plan.json
 node <scripts>/entries.js plan.json > entries.json
 ```
 

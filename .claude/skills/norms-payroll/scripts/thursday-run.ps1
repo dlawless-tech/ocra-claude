@@ -15,7 +15,7 @@ $Base = Join-Path $Repo '.scratch\norms-payroll'
 New-Item -ItemType Directory -Force $Base | Out-Null
 
 # the four files that make a week; skip any still syncing
-$want = [ordered]@{ csv = 'WVM_*_PR&TAX.csv'; stat = '*Stat Summ*.pdf'; labor = '*Labor Distribution*.pdf'; detail = '*PAY DETAILS*.xlsx' }
+$want = [ordered]@{ csv = 'WVM_*_PR&TAX.csv'; stat = '*Stat Summ*.pdf'; labor = '*Labor Distrib*.pdf'; detail = '*PAY DETAILS*.xlsx' }
 $files = @{}; $missing = @()
 foreach ($k in $want.Keys) {
   $f = Get-ChildItem -LiteralPath $Drop -File -Filter $want[$k] | Where-Object { $_.LastWriteTime -lt (Get-Date).AddMinutes(-2) } |
